@@ -1,0 +1,14 @@
+{
+  "name": "commitment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-ejs": "^3.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.8"
+  }
+}

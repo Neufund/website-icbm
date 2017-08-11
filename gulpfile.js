@@ -24,8 +24,10 @@ gulp.task("copy", () => {
   return gulp.src("./page/assets/*").pipe(gulp.dest("./dist/assets/"));
 });
 
+gulp.task("copy-fa", () => gulp.src("./node_modules/font-awesome/fonts/*").pipe(gulp.dest("./dist/fonts/")));
+
 gulp.task("watch", ["clean"], () => {
-  gulp.start(["page", "sass", "copy"]);
+  gulp.start(["page", "sass", "copy", "copy-fa"]);
 
   gulp.watch("./page/**/*.ejs", ["page"]);
   gulp.watch("./page/sass/*.scss", ["sass"]);

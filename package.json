@@ -6,6 +6,7 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "del": "^3.0.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-ejs": "^3.0.1",
     "gulp-sass": "^3.1.0",

@@ -5,9 +5,13 @@
 }
 
 .navbar-brand {
-    $logoWidth: 30px;
-    height: $logoWidth;
+    $logoSize: 30px;
+    height: $logoSize;
+    width: $logoSize;
     background: url(./assets/NeuFund_logo_full_white_72dpi.svg);
-    background-size: $logoWidth;
+    background-size: $logoSize;
     background-repeat: no-repeat;
+
+    margin-top: ($navbar-height - $logoSize) / 2;
+    padding: 0;
 }

@@ -2,6 +2,8 @@
 $white: #fff;
 
 $gray: #D9DBDC;
+$gray-darker: #424A52;
+
 $black: #000;
 
 // override bootstrap
@@ -11,6 +13,7 @@ $navbar-height: 60px;
 $navbar-border-radius: 0px;
 $navbar-default-bg: $white;
 $navbar-default-border: $gray;
+$navbar-padding-horizontal: 22px;
 
 // general
 

@@ -14,12 +14,20 @@ gulp.task("page", () => {
 });
 
 gulp.task("sass", () => {
-  return gulp.src("./page/sass/app.sass").pipe(sass().on("error", sass.logError)).pipe(gulp.dest("./dist/"));
+  return gulp
+    .src("./page/sass/app.scss")
+    .pipe(sass().on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+});
+
+gulp.task("copy", () => {
+  return gulp.src("./page/assets/*").pipe(gulp.dest("./dist/assets/"));
 });
 
 gulp.task("watch", ["clean"], () => {
-  gulp.start(["page", "sass"]);
+  gulp.start(["page", "sass", "copy"]);
 
-  gulp.watch("./page/*", ["page"]);
-  gulp.watch("./page/sass/*.sass", ["sass"]);
+  gulp.watch("./page/**/*.ejs", ["page"]);
+  gulp.watch("./page/sass/*.scss", ["sass"]);
+  gulp.watch("./page/assets/**/*", ["copy"]);
 });

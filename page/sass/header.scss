@@ -1,0 +1,13 @@
+.navbar {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.navbar-brand {
+    $logoWidth: 30px;
+    height: $logoWidth;
+    background: url(./assets/NeuFund_logo_full_white_72dpi.svg);
+    background-size: $logoWidth;
+    background-repeat: no-repeat;
+}

@@ -10,5 +10,8 @@
     "gulp-ejs": "^3.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.8"
+  },
+  "scripts": {
+    "start": "gulp watch"
   }
 }

@@ -1,4 +1,4 @@
-# NeuFund commitment page
+# Neufund commitment page
 
 ## Develop
 

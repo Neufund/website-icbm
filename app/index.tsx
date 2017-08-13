@@ -6,11 +6,18 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 import reduxLogger from "redux-logger";
 
+import Countdown from "./containers/Countdown";
+
 const root = document.getElementById("react-root");
 
 //@todo state
 const render = () => {
-  ReactDOM.render(<div>Rendering react!</div>, root);
+  ReactDOM.render(
+    <div>
+      <Countdown />
+    </div>,
+    root
+  );
 };
 
 const enhancers = (routes: any) =>

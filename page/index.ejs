@@ -1,18 +1,17 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="app.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
     </head>
     <body>
         <%- include('partials/header'); %>
+        <div class="container">
+            <div id="react-root"></div>
 
-        <div id="react-root"></div>
-
-        <script src="/main.js"></script>
-        <noscript>
-            <p>This page requires JavaScript to be enabled.</p>
-        </noscript>
-
-        <h1> Hello <%= name %>!!!</h1>
+            <script src="/main.js"></script>
+            <noscript>
+                <p>This page requires JavaScript to be enabled.</p>
+            </noscript>
+        </div>
     </body>
 </html>

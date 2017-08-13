@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/classnames": "^2.2.0",
     "@types/react-bootstrap": "^0.0.52",
     "@types/react-dom": "^15.5.2",
     "@types/react-redux": "^5.0.1",
@@ -36,6 +37,7 @@
     "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

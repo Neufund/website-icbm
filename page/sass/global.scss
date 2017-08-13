@@ -1,0 +1,14 @@
+h1 {
+    font-weight: bold;
+}
+
+.btn {
+    border-radius: 20px;
+    line-height: 20px;
+    padding: 10px 40px;
+    box-shadow: 0 1px 1px 0 $gray-lighter;
+
+    &.btn-primary {
+        background: linear-gradient(180deg, $blue 0%, $blue 2.36%, $gray-darker 100%);
+    }
+}

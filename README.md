@@ -6,6 +6,4 @@
 yarn 
 yarn start
 ```
- Then just open `dist/index.html`. That's it - no server, no hot reloading for now.
- 
- Note: sometimes gulp watcher goes bonkers and you need to re-run `yarn start`.
+Then open `http://localhost:8080`. Hot reloading of both react and static files (ejs, sass) files should work. Sometimes gulp forgets to watch new files so you need to rerun `yarn start`.

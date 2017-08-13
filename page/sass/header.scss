@@ -2,12 +2,45 @@
     border-top: none;
     border-left: none;
     border-right: none;
+
+    font-weight: bold;
+}
+
+.navbar-nav {
+    .fa {
+        line-height: 20px;
+    }
+
+    li a {
+        padding-right: $navbar-padding-horizontal;
+        padding-left: $navbar-padding-horizontal;
+    }
+
+    &.navbar-right {
+        li a {
+            color: black; 
+            padding-right: $navbar-padding-horizontal-small;
+            padding-left: $navbar-padding-horizontal-small;
+        }
+    }
 }
 
 .navbar-brand {
-    $logoWidth: 30px;
-    height: $logoWidth;
-    background: url(./assets/NeuFund_logo_full_white_72dpi.svg);
-    background-size: $logoWidth;
+    $logoSize: 30px;
+    $offset: 10px;
+    $logoHeight: $logoSize + $offset;
+    height: $logoHeight;
+    width: $logoSize + 22px;
+
+    background: url(./assets/NeuFund_icon_white_300dpi.png);
+    background-size: $logoSize;
     background-repeat: no-repeat;
+
+    margin-top: ($navbar-height - $logoSize - $offset) / 2;
+    padding: 0;
+
+    border-right: 1px solid $gray-darker;
+    padding-top: $offset;
+    padding-bottom: $offset;
+    background-position: center left;
 }

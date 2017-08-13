@@ -1,5 +1,7 @@
 @import "./variables.scss";
 
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+
  // i am pretty sure that there is a better way to write it 
  // @todo selective import from bootstrap
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";

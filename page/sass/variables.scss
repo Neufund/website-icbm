@@ -1,7 +1,11 @@
 //colors
 $white: #fff;
 
+$blue: #09719B;
+
 $gray: #D9DBDC;
+$gray-darker: #424A52;
+
 $black: #000;
 
 // override bootstrap
@@ -11,6 +15,16 @@ $navbar-height: 60px;
 $navbar-border-radius: 0px;
 $navbar-default-bg: $white;
 $navbar-default-border: $gray;
+$navbar-padding-horizontal: 22px;
+$navbar-padding-horizontal-small: 15px;
+$navbar-default-link-color: $blue;
+$navbar-default-link-active-color: $black;
+$navbar-default-link-active-bg: inherit;
 
 // general
+$font-size-base: 15px !default;
 
+$font-family-sans-serif: "Montserrat", sans-serif;
+$text-color: $black;
+
+$fa-font-path:   "./fonts/";

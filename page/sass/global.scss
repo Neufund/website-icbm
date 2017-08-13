@@ -3,13 +3,12 @@ h1 {
 }
 
 .btn {
-    // @todo variables
     border-radius: 20px;
     line-height: 20px;
     padding: 10px 40px;
-    box-shadow: 0 1px 1px 0 #A3C0CC;
+    box-shadow: 0 1px 1px 0 $gray-lighter;
 
     &.btn-primary {
-        background: linear-gradient(180deg, #09719B 0%, #09719B 2.36%, #424A52 100%);
+        background: linear-gradient(180deg, $blue 0%, $blue 2.36%, $gray-darker 100%);
     }
 }

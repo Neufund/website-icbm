@@ -1,5 +1,7 @@
 # Neufund commitment page
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Neufund/commit.neufund.org.svg)](https://greenkeeper.io/)
+
 ## Developing
 
 ```

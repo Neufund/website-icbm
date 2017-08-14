@@ -1,3 +1,3 @@
 interface IOwlCarouselOptions {
-    dots?: boolean; 
+  dots?: boolean;
 }

@@ -22,9 +22,7 @@ export const Incentive: React.SFC = () =>
       <Col sm={6}>
         <HexagonsStack className={styles.hexagons}>
           <p>Commitment Opportunity starts in:</p>
-            <h1>
-              Future
-            </h1>
+          <h1>Future</h1>
         </HexagonsStack>
       </Col>
     </Row>

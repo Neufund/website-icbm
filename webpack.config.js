@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   resolve: {
@@ -9,16 +9,16 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    host: 'localhost',
+    host: "localhost",
     port: 8080,
     historyApiFallback: true,
     // respond to 404s with index.html
     hot: true,
     // enable HMR on the server
     proxy: {
-      '/node': {
-        target: 'http://localhost:8545',
-        pathRewrite: { '^/node': '' },
+      "/node": {
+        target: "http://localhost:8545",
+        pathRewrite: { "^/node": "" },
       },
     },
   },
@@ -30,10 +30,10 @@ module.exports = {
     "./page/ts/index.ts",    
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
@@ -52,40 +52,49 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader',
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
             options: {
               minimize: isProduction,
               importLoaders: 1,
               modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-              camelCase: 'dashesOnly',
+              localIdentName: "[name]__[local]___[hash:base64:5]",
+              camelCase: "dashesOnly",
             },
           },
-          { loader: 'sass-loader' },
+          { loader: "sass-loader" },
         ],
       },
-      { test: /\.json$/, use: 'json-loader' },
-      { 
-        test: /\.tsx?$/, 
+      { test: /\.json$/, use: "json-loader" },
+      {
+        test: /\.tsx?$/,
         loader: "awesome-typescript-loader",
-        exclude: /(node_modules)/
+        exclude: /(node_modules)/,
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(jpg|png)$/,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
           limit: 25000,
         },
       },
       {
         test: /\.(ttf|svg|eot|otf)$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: 'fonts/[hash].[ext]',
+          name: "fonts/[hash].[ext]",
         },
       },
     ],
   },
 };
+
+if (isProduction) {
+  module.exports.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+    })
+  );
+}

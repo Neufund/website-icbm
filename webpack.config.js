@@ -27,8 +27,8 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './page/ts/index.ts',
-    
+    "./app/index.tsx",
+    "./page/ts/index.ts",    
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),

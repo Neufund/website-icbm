@@ -28,6 +28,9 @@ h1 {
 .advisors h4{
     font-size: 16px;
 }
+.person-info-container{
+    margin-bottom: 20px;
+}
 .advisors .person-info img.rounded-image{
     float: left
 }
@@ -46,9 +49,25 @@ h1 {
 }
 .has-carousel{
     overflow: hidden;
-    display: none;
 }
 .owl-item{
     float: right;
     overflow: hidden;
+}
+.owl-dot{
+    float: left;
+    cursor: pointer;
+}
+.owl-dots span {
+    background: none repeat scroll 0 0 #869791;
+    border-radius: 20px;
+    display: block;
+    height: 12px;
+    margin: 5px 7px;
+    opacity: 0.5;
+    width: 12px;
+}
+
+.owl-nav{
+    display: none;
 }

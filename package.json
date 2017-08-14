@@ -20,6 +20,7 @@
     "gulp-ejs": "^3.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.8",
+    "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.31.2",
     "react-hot-loader": "next",
@@ -34,7 +35,9 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server"
+    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
+    "format": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write --list-different app/**/*.ts app/**/*.tsx",
+    "format:fix": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write app/**/*.ts app/**/*.tsx"
   },
   "dependencies": {
     "classnames": "^2.2.5",

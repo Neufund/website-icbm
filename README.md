@@ -11,3 +11,12 @@ Then open `http://localhost:8080`. Hot reloading of both react and static files 
 ### Linting
 
 To autofix any errors just do `yarn lint:fix`.
+
+## Building
+```
+yarn build
+```
+
+You will find all files in `dist` directory. 
+
+Note: This is not yet production ready build.

@@ -44,7 +44,8 @@
     "tslint": "tslint -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
     "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
     "lint": "yarn format && yarn tslint",
-    "lint:fix": "yarn format:fix && yarn tslint:fix"
+    "lint:fix": "yarn format:fix && yarn tslint:fix",
+    "build": "gulp build && webpack"
   },
   "dependencies": {
     "classnames": "^2.2.5",

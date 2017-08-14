@@ -42,7 +42,9 @@
     "format": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write --list-different app/**/*.ts app/**/*.tsx",
     "format:fix": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write app/**/*.ts app/**/*.tsx",
     "tslint": "tslint -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
-    "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'"
+    "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
+    "lint": "yarn format && yarn tslint",
+    "lint:fix": "yarn format:fix && yarn tslint:fix"
   },
   "dependencies": {
     "classnames": "^2.2.5",

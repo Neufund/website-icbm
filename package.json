@@ -20,6 +20,7 @@
     "gulp-ejs": "^3.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.8",
+    "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.31.2",
     "react-hot-loader": "next",
@@ -28,13 +29,23 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.2",
     "ts-node": "^3.3.0",
+    "tslint": "^5.6.0",
+    "tslint-config-prettier": "^1.3.0",
+    "tslint-react": "^3.2.0",
     "typescript": "^2.4.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server"
+    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
+    "format": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write --list-different app/**/*.ts app/**/*.tsx",
+    "format:fix": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write app/**/*.ts app/**/*.tsx",
+    "tslint": "tslint -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
+    "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
+    "lint": "yarn format && yarn tslint",
+    "lint:fix": "yarn format:fix && yarn tslint:fix",
+    "build": "NODE_ENV=production bash -c 'gulp build && webpack'"
   },
   "dependencies": {
     "classnames": "^2.2.5",

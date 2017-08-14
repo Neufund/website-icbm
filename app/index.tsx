@@ -10,7 +10,6 @@ import Countdown from "./containers/Countdown";
 
 const root = document.getElementById("react-root");
 
-//@todo state
 const render = () => {
   ReactDOM.render(
     <div>

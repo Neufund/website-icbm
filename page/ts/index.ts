@@ -1,8 +1,8 @@
-const $ = require('jquery');
+// const $ = require('jquery');
+import * as $ from 'jquery';
 import 'owl.carousel';
 
 $(document).ready(function(){
-    // $('.has-carousel').show();
     $('.has-carousel').owlCarousel(
         {   navigation: true, 
             items: 1,

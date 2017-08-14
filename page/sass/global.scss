@@ -12,3 +12,62 @@ h1 {
         background: linear-gradient(180deg, $blue 0%, $blue 2.36%, $gray-darker 100%);
     }
 }
+
+.advisors p{
+    width: 426px;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: italic;
+}
+.advisors h3{
+    font-size: 18px;
+}
+.advisors h6{
+    font-size: 14px;
+}
+.advisors h4{
+    font-size: 16px;
+}
+.person-info-container{
+    margin-bottom: 20px;
+}
+.advisors .person-info img.rounded-image{
+    float: left
+}
+.advisors .person-info img.rounded-image{
+    float: left;
+    margin-right: 15px;
+}
+.advisors .person-info .person-details{
+    float: left;
+    margin-top: 15px;
+}
+.advisors img.rounded-image{
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+.has-carousel{
+    overflow: hidden;
+}
+.owl-item{
+    float: right;
+    overflow: hidden;
+}
+.owl-dot{
+    float: left;
+    cursor: pointer;
+}
+.owl-dots span {
+    background: none repeat scroll 0 0 #869791;
+    border-radius: 20px;
+    display: block;
+    height: 12px;
+    margin: 5px 7px;
+    opacity: 0.5;
+    width: 12px;
+}
+
+.owl-nav{
+    display: none;
+}

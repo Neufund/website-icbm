@@ -44,3 +44,11 @@ h1 {
     height: 92px;
     border-radius: 50%;
 }
+.has-carousel{
+    overflow: hidden;
+    display: none;
+}
+.owl-item{
+    float: right;
+    overflow: hidden;
+}

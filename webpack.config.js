@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const jquery = require('jquery');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"], 
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -26,7 +27,8 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './app/index.tsx',
+    './page/ts/index.ts',
+    
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -37,6 +39,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
+    })
   ],
   node: {
     __filename: true,

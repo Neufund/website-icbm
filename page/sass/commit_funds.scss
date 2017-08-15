@@ -1,0 +1,19 @@
+.section.commit-funds{
+    h3{
+        font-size: 20px;
+    }
+    .number{
+        position: absolute;
+        top: 10px;
+        border-bottom: 5px solid $blue-darker;
+        color:$blue-darker;        
+    }
+    .content{
+        padding-left: 50px;
+
+        p strong {
+            font-weight: 500;
+        }
+    }
+    
+}

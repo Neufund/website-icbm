@@ -19,6 +19,6 @@ $(document).ready(function(){
     
     $('.team .see-more').click(function(){        
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
-        $('.team .person-info-container.is-hidden').fadeToggle("slow","linear");        
+        $('.team .is-hidden').fadeToggle("slow","linear");        
     });
 });

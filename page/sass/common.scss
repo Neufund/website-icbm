@@ -23,7 +23,6 @@
         color: $blue;
         font-size: 18px;
         transition:all 1s;
-
     }
 
     .hidden-picture{            
@@ -35,6 +34,10 @@
         margin: 0px;
     }
     h3{
-        margin-bottom: 30px;
+        margin-bottom: $margin-bottom-between-paragraphs;
+        font-size: $section-title-font-size;
+    }
+    p{
+        margin-bottom: $margin-bottom-between-paragraphs;
     }
 }

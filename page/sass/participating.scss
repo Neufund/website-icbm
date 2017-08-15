@@ -1,0 +1,25 @@
+.section.participating{
+    
+    .key-to-read {
+        ul{
+            padding: 0px;
+        }
+        ul li i{
+            color: #D5E20F;
+            margin-right: 10px;
+        }
+
+        ul li a{
+            font-weight: 500;;
+        }  
+
+        ul li{
+            list-style: none;
+            margin-bottom: $margin-bottom-between-paragraphs;
+        }
+
+        h3{
+            font-size: 20px;
+        }
+    }
+}

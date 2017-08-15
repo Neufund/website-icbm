@@ -29,15 +29,7 @@
             <div class="col-md-7">
                 <div class="row person-info-container">
                     <% for (var i = 0; i < 4; i++) { %>
-                    <div class="col-md-6 person-info-container">
-                        <div class="person-info">
-                            <img class="rounded-image" src="../assets/mostafabalatabw.jpg"/>
-                            <div class="person-details">
-                                <h4 class="name"><a href="#" >John Smith</a></h4>
-                                <h4 >Capital Name</h4>
-                            </div>
-                        </div>
-                    </div>
+                        <%- include('../blocks/person', {name : "John Smith", title:"Capital Name", image:"../assets/mostafabalatabw.jpg"}) %>
                     <% } %>
                 </div><!-- End row -->                           
             

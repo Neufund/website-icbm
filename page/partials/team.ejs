@@ -12,29 +12,13 @@
 
             <div class="row">
                 <% for (var i = 0; i < 4; i++) { %>
-                <div class="col-md-6 person-info-container" >
-                    <div class="person-info">
-                        <img class="rounded-image" src="../assets/mostafabalatabw.jpg"/>
-                        <div class="person-details">
-                            <h4 class="name"><a href="#" >Mostafa Balata</a></h4>
-                            <h4 >Software developer</h4>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
                 <% } %>
             </div> <!-- end row -->
             
-            <div class="row">
+            <div class="row is-hidden hidden-picture">
                 <% for (var i = 4; i < 10; i++) { %>
-                <div class="col-md-6 person-info-container is-hidden hidden-picture" >
-                    <div class="person-info">
-                        <img class="rounded-image" src="../assets/mostafabalatabw.jpg"/>
-                        <div class="person-details">
-                            <h4 class="name"><a href="#" >Mostafa Balata</a></h4>
-                            <h4 >Software developer</h4>
-                        </div>
-                    </div>
-                </div>
+                    <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
                 <% } %>
                 
             </div><!-- End row -->                           

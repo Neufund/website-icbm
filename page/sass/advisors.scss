@@ -1,0 +1,46 @@
+.advisors{
+    p{
+        width: 426px;
+        font-size: 18px;
+        font-weight: normal;
+        font-style: italic;
+    }
+    h3{
+        font-size: 18px;
+    }
+    h6{
+        font-size: 14px;
+    }
+    h4{
+        font-size: 16px;
+    }
+    .person-info .person-details{
+        float: left;
+        margin-top: 15px;
+    }
+}
+
+.has-carousel{
+    overflow: hidden;
+}
+.owl-item{
+    float: right;
+    overflow: hidden;
+}
+.owl-dot{
+    float: left;
+    cursor: pointer;
+}
+.owl-dots span {
+    background: none repeat scroll 0 0 #869791;
+    border-radius: 20px;
+    display: block;
+    height: 12px;
+    margin: 5px 7px;
+    opacity: 0.5;
+    width: 12px;
+}
+
+.owl-nav{
+    display: none;
+}

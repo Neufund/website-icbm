@@ -5,6 +5,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/classnames": "^2.2.0",
+    "@types/jquery": "^3.2.11",
+    "@types/owlcarousel": "^1.3.3",
     "@types/react-bootstrap": "^0.0.52",
     "@types/react-dom": "^15.5.2",
     "@types/react-redux": "^5.0.1",
@@ -49,6 +51,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "jquery": "^3.2.1",
+    "owl.carousel": "^2.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

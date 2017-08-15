@@ -1,0 +1,3 @@
+interface IOwlCarouselOptions {
+  dots?: boolean;
+}

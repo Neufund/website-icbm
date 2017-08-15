@@ -1,8 +1,8 @@
-// const $ = require('jquery');
 import * as $ from 'jquery';
 import 'owl.carousel';
 
-$(document).ready(function(){
+$(document).ready(function(){    
+    
     $('.has-carousel').owlCarousel(
         {   navigation: true, 
             items: 1,
@@ -13,4 +13,12 @@ $(document).ready(function(){
         }
 
     );
+
+    const seeMore: string = "+ More";
+    const seeLess: string = "- Less"; 
+    
+    $('.team .see-more').click(function(){        
+        $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
+        $('.team .person-info-container.is-hidden').fadeToggle("slow","linear");        
+    });
 });

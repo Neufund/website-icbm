@@ -1,3 +1,38 @@
 .person-info-container{
-    margin-bottom: 20px;
+    margin-bottom: $padding-between-pictures;
+    
+    .person-info .person-details{
+        float: left;
+        margin-top: 27px;
+    }
+
+}
+
+.section{
+    position: relative;
+    padding-top: $padding-between-sections;
+    padding-bottom: $padding-between-sections;
+    border-bottom: 1px #d9dbdc solid;  
+
+    .see-more{
+        position: absolute;    
+        right: 50px;
+        bottom: 0;        
+        background: none;
+        border: 0px;
+        color: $blue;
+        font-size: 18px;
+        transition:all 1s;
+
+    }
+
+    .hidden-picture{            
+        display: none;
+    }
+    .person-info h4{
+        font-weight: normal;
+        font-size: 16px;
+        margin: 0px;
+    }
+
 }

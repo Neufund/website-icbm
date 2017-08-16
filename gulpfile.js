@@ -7,10 +7,11 @@ const sass = require("gulp-sass");
 gulp.task("clean", () => del(["dist"]));
 
 gulp.task("page", () => {
+  const jason = require("./content.json");
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
   gulp
     .src("./page/index.ejs")
-    .pipe(ejs({ name: "world" }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(ejs({ name: jason.greetings }, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
 });
 

@@ -13,6 +13,7 @@
     "@types/redux-logger": "^3.0.0",
     "awesome-typescript-loader": "^3.2.2",
     "bootstrap-sass": "^3.3.7",
+    "clear-require": "^2.0.0",
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",

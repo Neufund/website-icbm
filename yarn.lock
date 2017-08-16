@@ -598,6 +598,22 @@ cache-base@^0.8.4:
     union-value "^0.2.3"
     unset-value "^0.1.1"
 
+caller-callsite@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/caller-callsite/-/caller-callsite-2.0.0.tgz#847e0fce0a223750a9a027c54b33731ad3154134"
+  dependencies:
+    callsites "^2.0.0"
+
+caller-path@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-2.0.0.tgz#468f83044e369ab2010fac5f06ceee15bb2cb1f4"
+  dependencies:
+    caller-callsite "^2.0.0"
+
+callsites@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
+
 camelcase-keys@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-2.1.0.tgz#308beeaffdf28119051efa1d932213c91b8f92e7"
@@ -714,6 +730,13 @@ class-utils@^0.3.4:
 classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
+clear-require@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/clear-require/-/clear-require-2.0.0.tgz#aa01f5c35589326bd55e9869eabda48f86447deb"
+  dependencies:
+    caller-path "^2.0.0"
+    resolve-from "^2.0.0"
 
 cliui@^2.1.0:
   version "2.1.0"
@@ -4264,6 +4287,10 @@ resolve-dir@^0.1.0:
   dependencies:
     expand-tilde "^1.2.2"
     global-modules "^0.2.3"
+
+resolve-from@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
 resolve-url@^0.2.1:
   version "0.2.1"

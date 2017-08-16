@@ -3,16 +3,18 @@ const ejs = require("gulp-ejs");
 const del = require("del");
 const gutil = require("gulp-util");
 const sass = require("gulp-sass");
+const clearRequire = require("clear-require");
 
 gulp.task("clean", () => del(["dist"]));
 
 gulp.task("page", () => {
   let content = require("./content.json");
+  console.log(content);
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
-  gulp
-    .src("./page/index.ejs")
-    .pipe(ejs(content, {}, { ext: ".html" }).on("error", gutil.log))
+  gulp.src("./page/index.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
+    clearRequire("./content.json");
 });
 
 gulp.task("sass", () => {

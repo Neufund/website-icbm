@@ -1,0 +1,25 @@
+.footer{
+    padding-top: $padding-between-sections;
+    ul{
+        display: inline-block;
+        padding: 0px;
+        width:100%;
+        padding-bottom: $padding-between-sections;
+        text-align:center;
+
+        li{
+            display:inline-block;
+            margin-right:$padding-between-sections;
+            list-style-type: none;
+            img{
+                width: auto;
+                height: 100px;
+            }
+        }
+    }
+    .gray-space{
+        height: 396px;
+        width: 100%;
+        background-color: $gray-darker;
+    }
+}

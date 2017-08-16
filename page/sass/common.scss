@@ -37,6 +37,20 @@
         font-size: $section-title-font-size;
     }
     p{
+        font-size: $section-p-font-size;
         margin-bottom: $margin-bottom-between-paragraphs;
+    }
+    ul{
+        padding: 0 0 $space-bottom-between-elements $space-bottom-between-elements;
+        li {
+            color: $blue;
+            font-weight: 500;
+        }
+    }
+
+    button.btn.btn-white {
+        border: 2px solid $blue-darker;
+        background: white;
+        color: $blue-darker;        
     }
 }

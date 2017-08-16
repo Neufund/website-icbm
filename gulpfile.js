@@ -7,11 +7,11 @@ const sass = require("gulp-sass");
 gulp.task("clean", () => del(["dist"]));
 
 gulp.task("page", () => {
-  const jason = require("./content.json");
+  let content = require("./content.json");
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
   gulp
     .src("./page/index.ejs")
-    .pipe(ejs({ name: jason.greetings }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(ejs(content, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
 });
 
@@ -34,6 +34,7 @@ gulp.task("watch", () => {
   gulp.watch("./page/**/*.ejs", ["page"]);
   gulp.watch("./page/sass/*.scss", ["sass"]);
   gulp.watch("./page/assets/**/*", ["copy"]);
+  gulp.watch("./content.json", ["page"]);
 });
 
 gulp.task("build", ["clean"], () => gulp.start(["page", "sass", "copy", "copy-fa"]));

@@ -10,7 +10,7 @@ $gray-darker: #424A52;
 
 $black: #000;
 $green: #D5E20F;
-
+$white-green: #F6FAF3;
 //fonts
 $font-weight-bold: 500;
 $section-p-font-size: 16px;
@@ -22,6 +22,12 @@ $padding-between-pictures: 50px;
 $margin-bottom-between-paragraphs: 30px;
 $space-bottom-between-elements: 20px;
 
+// constants
+$big-shape-width: 300px;
+$big-shape-half-width: 150px;
+
+$small-shape-width: 150px;
+$small-shape-half-width: 70px;
 // override bootstrap
 
 //navbar

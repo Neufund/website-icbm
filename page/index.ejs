@@ -7,12 +7,12 @@
         <%- include('partials/header'); %>
         <div class="container">
             <div id="react-root"></div>
-            <%- include('partials/commit_funds'); %>
+            <%- include('partials/commit_funds',  content.commit_funds ); %>
             <%- include('partials/participating'); %>
             <%- include('partials/easy_access'); %>
             <%- include('partials/team'); %>
             <%- include('partials/advisors'); %>
-            <h1> Welcome <%= name -%> you are <%= age -%> <h1>
+            <h1> Welcome <%= content.name -%> you are <%= content.age -%> <h1>
             <script src="/main.js"></script>
 
             <noscript>

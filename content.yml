@@ -30,6 +30,7 @@ commit_funds:
         capitalize on Neumarks by hodling them
         to receive revenue or by trading them on
         the market.
+
 participating:
   title: "What Do you Gain From Participating?"
   paragrapha:  |
@@ -45,3 +46,16 @@ participating:
   link1: "Neufund Whitepaper"
   link2: "Roadmap"
   link3: "Neumark Token Holder Agreenment"
+
+easy_access:
+  title: "Neufund Platform, Easy Access to the Blockchain World"
+  paragraph:  |
+      Easy to use crafted experience for different actors on
+      different stages of their investment journey.
+      An on-going work, being build with community
+      for community, open-source code, access point
+      to blockchian.
+  remark: "Check out the:"
+  link1: "Neufnd's Github account"
+  link2: "Our introductory post to the product"
+  button: "Pre-alfa version"

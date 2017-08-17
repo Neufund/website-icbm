@@ -47,7 +47,7 @@ $(document).ready(function(){
 
     const seeMore: string = "+ More";
     const seeLess: string = "- Less"; 
-    $('.block-person').click(function(){        
+    $('.person-block').click(function(){        
         const name: string = $(this).find('h4.name a').text();
         const image: string = $(this).find('img').attr('src');    
         const title: string = $(this).find('h4.title').text();;

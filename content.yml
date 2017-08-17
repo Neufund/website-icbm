@@ -30,3 +30,18 @@ commit_funds:
         capitalize on Neumarks by hodling them
         to receive revenue or by trading them on
         the market.
+participating:
+  title: "What Do you Gain From Participating?"
+  paragrapha:  |
+        Neufund provides access to global high quality
+        dealflow, with low transaction costs, transparency,
+        and openess. You invest in great companies that
+        bring high Return On Investment.
+  paragraphb:  |
+        Startup equity is represented on the platform as
+        tradable crypto tokens, which result in a liquid
+        secondary market for your investments
+  subtitle: "Key to read"
+  link1: "Neufund Whitepaper"
+  link2: "Roadmap"
+  link3: "Neumark Token Holder Agreenment"

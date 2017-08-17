@@ -66,3 +66,21 @@ team:
     name: "Mostafa Balata"
     title: "Software developer"
     image: "../assets/mostafabalatabw.jpg"
+
+advisors:
+  title: "Advisors"
+  quote1: |
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+  speaker1: "John Smith"
+  company1: "Company name"
+  quote2: |
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  speaker2: "John Smith"
+  company2: "Company name"
+  members:
+    block: "../blocks/person"
+    name: "John Smith"
+    title: "Capital Name"
+    image: "../assets/mostafabalatabw.jpg"

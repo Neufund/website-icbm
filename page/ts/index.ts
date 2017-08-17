@@ -23,7 +23,7 @@ const getPersonModal: any = function(name: string, image: string, preTitle:strin
                         <h4 class="name">${name}</h4>
                         <div class="title-container">
                             <span>${preTitle}</span>
-                            <h4 class="title">${title}</h4>
+                            <h4 class="position">${title}</h4>
                         </div>
                         <p class="bio">${bio}</p>
                         <a class="link" href="#">domainname.com</a>
@@ -50,7 +50,7 @@ $(document).ready(function(){
     $('.person-block').click(function(){        
         const name: string = $(this).find('h4.name a').text();
         const image: string = $(this).find('img').attr('src');    
-        const title: string = $(this).find('h4.title').text();;
+        const title: string = $(this).find('h4.position').text();;
         const bio: string = $(this).find('p.bio').text();    
         const preTitle: string = $(this).find('span.pre-title').text();
 

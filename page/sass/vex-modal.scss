@@ -58,16 +58,16 @@
         display: none;
     }
     .title-container h4, .title-container span{
-        font-size: 16px !important;
+        font-size: $section-p-font-size !important;
     }
     .title-container span{
-        font-weight: 300;
+        font-weight: $font-weight-light;
     }
-    h4.title{
+    h4.position{
         display: inline-block;
         margin: 0px;
     }
-    .bio, .link, h4.title{
+    .bio, .link, h4.position{
         padding-bottom: $space-bottom-between-elements;
     }
     .bio, .link{

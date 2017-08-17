@@ -50,7 +50,6 @@
     "build": "NODE_ENV=production bash -c 'gulp build && webpack'"
   },
   "dependencies": {
-    "@types/vex-js": "^2.3.29",
     "classnames": "^2.2.5",
     "jquery": "^3.2.1",
     "owl.carousel": "^2.2.0",

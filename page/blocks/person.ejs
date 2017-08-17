@@ -1,4 +1,4 @@
-<div class="col-md-6 person-info-container">
+<div class="col-md-6 person-block person-info-container">
     <div class="person-info">
         <img class="rounded-image" src="<%= image %>"/>
         <div class="person-details">
@@ -6,4 +6,8 @@
             <h4 class="position"><%= title %></h4>
         </div>
     </div>
+    <p class="bio hidden">
+        <%= bio %>
+    </p>
+    <span class="pre-title hidden"><%if (typeof preTitle != 'undefined') {%>  <%= preTitle %>  <%}%></span>
 </div>

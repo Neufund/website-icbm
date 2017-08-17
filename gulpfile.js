@@ -3,18 +3,18 @@ const ejs = require("gulp-ejs");
 const del = require("del");
 const gutil = require("gulp-util");
 const sass = require("gulp-sass");
-const clearRequire = require("clear-require");
+const yaml = require("yaml-js");
+const fs   = require('fs');
+
 
 gulp.task("clean", () => del(["dist"]));
 
 gulp.task("page", () => {
-  let content = require("./content.json");
-  console.log(content);
+  let content = yaml.load(fs.readFileSync('./content.yml', 'utf8'));
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
   gulp.src("./page/index.ejs")
     .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
-    clearRequire("./content.json");
 });
 
 gulp.task("sass", () => {
@@ -36,7 +36,7 @@ gulp.task("watch", () => {
   gulp.watch("./page/**/*.ejs", ["page"]);
   gulp.watch("./page/sass/*.scss", ["sass"]);
   gulp.watch("./page/assets/**/*", ["copy"]);
-  gulp.watch("./content.json", ["page"]);
+  gulp.watch("./content.yml", ["page"]);
 });
 
 gulp.task("build", ["clean"], () => gulp.start(["page", "sass", "copy", "copy-fa"]));

@@ -13,12 +13,12 @@
     "@types/redux-logger": "^3.0.0",
     "awesome-typescript-loader": "^3.2.2",
     "bootstrap-sass": "^3.3.7",
-    "clear-require": "^2.0.0",
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
     "file-loader": "^0.11.2",
     "font-awesome": "^4.7.0",
+    "fs": "^0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-ejs": "^3.0.1",
     "gulp-sass": "^3.1.0",
@@ -38,7 +38,8 @@
     "typescript": "^2.4.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.4",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "yaml-js": "^0.2.0"
   },
   "scripts": {
     "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",

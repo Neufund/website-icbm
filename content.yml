@@ -57,3 +57,12 @@ easy_access:
   link1: "Neufnd's Github account"
   link2: "Our introductory post to the product"
   button: "Pre-alfa version"
+
+team:
+  title: "Team"
+  intro: "Team of entrepereneurs and experienced professionals."
+  members:
+    block: "../blocks/person"
+    name: "Mostafa Balata"
+    title: "Software developer"
+    image: "../assets/mostafabalatabw.jpg"

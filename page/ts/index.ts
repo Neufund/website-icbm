@@ -27,7 +27,7 @@ const getPersonModal: any = function(name: string, image: string, preTitle:strin
                         `</div>`,
                         `<p class="bio">${bio}</p>`,
                         `<a class="link" href="#">domainname.com</a>`,
-                        `<p>@testingdata</p>`,
+                        `<p class="handle">@testingdata</p>`,
                     '</div>',
                 '</div>',
             '</div>'  

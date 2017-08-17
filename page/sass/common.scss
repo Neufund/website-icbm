@@ -62,19 +62,29 @@
 .vex{
     padding-top: 40px !important;
     padding-bottom: 40px !important;
-    
+    h3, h4, a, span, div,p{
+        font-family: "Montserrat", sans-serif !important;
+    }
     .vex-content{
         background: white !important;
         border: 0 !important;
         border-radius: 0 !important;
         width: 60% !important;
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+        padding-left: 40px !important;
+
         .vex-dialog-form{
             background: white !important;
         }
     }
+    .person-info-container{
+        text-align: center;
+    }
     img.rounded-image{
         height: auto !important;
-        width: 100% !important;
+        width: 156px !important;
+        float: none !important;
     }
     a.close-modal{
         background: transparent;
@@ -108,5 +118,25 @@
     }
     .vex-dialog-buttons{
         display: none;
+    }
+    .title-container h4, .title-container span{
+        font-size: 17px !important;
+    }
+    .title-container span{
+        font-weight: 300;
+    }
+    h4.title{
+        display: inline-block;
+        margin: 0px;
+    }
+    .bio, .link, h4.title{
+        padding-bottom: $space-bottom-between-elements;
+    }
+    .bio, .link{
+        display: block;
+        font-size: 14px;
+    }
+    .link{
+        font-weight: 500;
     }
 }

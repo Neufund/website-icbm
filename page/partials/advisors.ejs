@@ -21,14 +21,13 @@
                         </div>
                     </div> <!--end advisor -->
 
-
                 </div> <!-- end carousel -->
                     
             </div>
             <div class="col-md-7">
                 <div class="row person-info-container">
                     <% for (var i = 0; i < 4; i++) { %>
-                        <%- include('../blocks/person', {id: "advisor_"+i, name : "John Smith", title:"Capital Name", image:"../assets/mostafabalatabw.jpg", bio:'sample text'}) %>
+                        <%- include('../blocks/person', {id: "advisor_"+i, name : "John Smith", preTitle:'Partner', title:"Capital Name", image:"../assets/mostafabalatabw.jpg", bio:'sample text'}) %>
                     <% } %>
                 </div><!-- End row -->                                   
             </div>

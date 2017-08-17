@@ -2,11 +2,12 @@
     <div class="person-info">
         <img class="rounded-image" src="<%= image %>"/>
         <div class="person-details">
-            <h4 class="name"><a href="#" ><%= name %></a></h4>
+            <h4 class="name"><a href="#" > <%= name %></a></h4>
             <h4 class="title"><%= title %></h4>
         </div>
     </div>
     <p class="bio hidden">
         <%= bio %>
     </p>
+    <span class="pre-title hidden"><%if (typeof preTitle != 'undefined') {%>  <%= preTitle %>  <%}%></span>
 </div>

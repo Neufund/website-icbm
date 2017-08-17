@@ -50,6 +50,7 @@
     "build": "NODE_ENV=production bash -c 'gulp build && webpack'"
   },
   "dependencies": {
+    "@types/vex-js": "^2.3.29",
     "classnames": "^2.2.5",
     "jquery": "^3.2.1",
     "owl.carousel": "^2.2.0",
@@ -58,6 +59,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "vex-js": "^4.0.0"
   }
 }

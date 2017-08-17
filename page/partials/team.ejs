@@ -12,13 +12,15 @@
 
             <div class="row">
                 <% for (var i = 0; i < 4; i++) { %>
-                <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                <%- include('../blocks/person', {id: "team_member_"+i, name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg", 
+                bio:'Lorem ipsum dolor sit amet, has audire impedit adipisci cu, omnes melius duo ea. No his tale doctus. Unum oratio euismod id has, cu per velit cetero temporibus. Est quidam percipit no, ne alienum accusamus est, prima euripidis vel cu. Quo animal malorum veritus at, vidisse discere voluptua ut eos, per laoreet nominavi adversarium ad.'
+}) %>
                 <% } %>
             </div> <!-- end row -->
             
             <div class="row is-hidden hidden-picture">
                 <% for (var i = 4; i < 10; i++) { %>
-                    <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                    <%- include('../blocks/person', {id: "team_member_"+i, name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg" , bio:'sample text'}) %>
                 <% } %>
                 
             </div><!-- End row -->                           

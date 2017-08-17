@@ -34,6 +34,7 @@
     h3{
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
+        font-weight: 700;
     }
     p{
         font-size: $section-p-font-size;
@@ -46,22 +47,22 @@
             font-weight: 500;
         }
     }
-
-    button.btn.btn-white {
-        border: 2px solid $blue-darker;
-        background: white;
-        color: $blue-darker;        
-    }
-    
-    h3.title {
+    a{
         font-weight: 700;
     }
+    button.btn.btn-white {       
+        background: white;
+        color: #09719B;        
+        height: 40px;
+        padding: 5px 45px 5px 45px;
+        box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
+        border: 1px solid #09719B;
+    }
+    
     p.intro{        
         font-weight: 400;
     }    
-    h4.name a{
-        font-weight: 700;
-    }
+
     .pictures-container{
         padding-top: $padding-between-sections;
     }

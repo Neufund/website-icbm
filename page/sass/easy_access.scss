@@ -11,12 +11,13 @@
         height: auto;
         z-index: 1;
         position: absolute;
-    }
+        right: 0;
+    }    
     #hex1 {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
         transform: rotate(132deg);
-        right: 43%;
+        right: 36%;
         top: 37%;
     }
 

@@ -9,12 +9,21 @@
     h3 {
       margin-left: 15;
     }
-    .number{
+    .text-box{
         top: 10px;
         color:$blue-darker;
-        border-bottom: 5px solid $blue-darker;
-        margin-left: 80px;
-        margin-right: 100px;
+        margin-bottom: 3px;
 
+        .underline{
+          margin-top: 1px;
+          border-bottom: 5px solid $blue-darker;
+          width: 36px;
+        }
     }
+    .subtitle{
+    	font-size: 15px;
+    	font-weight: $font-weight-bold;
+      line-height: 16px;
+    }
+
 }

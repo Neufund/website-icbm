@@ -3,31 +3,31 @@
         <div class="col-md-5">
             <div>
                 <div>
-                    <h3>Team</h3>
-                    <p>Team of entrepereneurs and experienced professionals.</p>
-                </div> 
-            </div>                
+                    <h3><%- title -%></h3>
+                    <p><%- intro -%></p>
+                </div>
+            </div>
         </div>
         <div class="col-md-7">
 
             <div class="row">
                 <% for (var i = 0; i < 4; i++) { %>
-                <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                <%- include('../blocks/person', members) %>
                 <% } %>
             </div> <!-- end row -->
-            
+
             <div class="row is-hidden hidden-picture">
                 <% for (var i = 4; i < 10; i++) { %>
-                    <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                    <%- include('../blocks/person', members) %>
                 <% } %>
-                
-            </div><!-- End row -->                           
-            
+
+            </div><!-- End row -->
+
             <!-- see more -->
             <div>
                 <button class="see-more">+ More </button>
             </div>
             <!-- /see more -->
         </div>
-    </div>                
+    </div>
 </div>

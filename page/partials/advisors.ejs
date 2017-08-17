@@ -3,34 +3,32 @@
             <div class="col-md-5">
                 <div class="has-carousel lazyLoad">
                     <div>
-                        <h3>Advisors</h3>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</p>
+                        <h3><%- title -%></h3>
+                        <p><%= quote1 -%></p>
                         <div class="signature">
-                            <h4>John Smith</h4>
-                            <h6>Company name</h6>
+                            <h4><%- speaker1 -%></h4>
+                            <h6><%- company1 -%></h6>
                         </div>
                     </div> <!--end advisor -->
                     <div>
-                        <h3>Advisors</h3>
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</p>
+                        <h3><%- title -%></h3>
+                        <p><%= quote2 -%></p>
                         <div class="signature">
-                            <h4>John Smith</h4>
-                            <h6>Company name</h6>
+                            <h4><%- speaker2 -%></h4>
+                            <h6><%- company2 -%></h6>
                         </div>
                     </div> <!--end advisor -->
 
 
                 </div> <!-- end carousel -->
-                    
+
             </div>
             <div class="col-md-7">
                 <div class="row person-info-container">
                     <% for (var i = 0; i < 4; i++) { %>
-                        <%- include('../blocks/person', {name : "John Smith", title:"Capital Name", image:"../assets/mostafabalatabw.jpg"}) %>
+                        <%- include('../blocks/person', members) %>
                     <% } %>
-                </div><!-- End row -->                                   
+                </div><!-- End row -->
             </div>
-        </div>                
+        </div>
 </div>

@@ -34,7 +34,7 @@
     h3{
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
-        font-weight: 700;
+        font-weight: $font-weight-more-bold;
     }
     p{
         font-size: $section-p-font-size;
@@ -44,11 +44,11 @@
         padding: 0 0 $space-bottom-between-elements $space-bottom-between-elements;
         li {
             color: $blue;
-            font-weight: 500;
+            font-weight: $font-weight-bold;
         }
     }
     a{
-        font-weight: 700;
+        font-weight: $font-weight-more-bold;
     }
     button.btn.btn-white {       
         background: white;
@@ -60,7 +60,7 @@
     }
     
     p.intro{        
-        font-weight: 400;
+        font-weight: $font-weight-normal;
     }    
 
     .pictures-container{

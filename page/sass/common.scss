@@ -28,7 +28,6 @@
         display: none;
     }
     .person-info h4{
-        font-weight: normal;
         font-size: 16px;
         margin: 0px;
     }
@@ -54,11 +53,7 @@
         color: $blue-darker;        
     }
     
-    .person-info h4.title{
-        font-weight: 300 !important;
-    }
-
-    h3.title{
+    h3.title {
         font-weight: 700;
     }
     p.intro{        
@@ -70,7 +65,4 @@
     .pictures-container{
         padding-top: $padding-between-sections;
     }
-
-
-
 }

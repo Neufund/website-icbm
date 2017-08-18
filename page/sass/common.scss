@@ -4,10 +4,11 @@ body{
 
 .person-info-container{
     margin-bottom: $padding-between-pictures;
-    
+
     .person-info .person-details{
-        float: left;
-        margin-top: 27px;
+        margin-top: -62px;
+        margin-left: 105px;
+        margin-bottom: 29px;
     }
 }
 
@@ -15,12 +16,12 @@ body{
     position: relative;
     padding-top: $padding-between-sections;
     padding-bottom: $padding-between-sections;
-    border-bottom: 1px $off-white solid;  
+    border-bottom: 1px $off-white solid;
 
     .see-more{
-        position: absolute;    
+        position: absolute;
         right: 50px;
-        bottom: 0;        
+        bottom: 0;
         background: none;
         border: 0px;
         color: $blue;
@@ -28,7 +29,7 @@ body{
         transition:all 1s;
     }
 
-    .hidden-picture{            
+    .hidden-picture{
         display: none;
     }
     .person-info h4{
@@ -54,18 +55,18 @@ body{
     a{
         font-weight: $font-weight-more-bold;
     }
-    button.btn.btn-white {       
+    button.btn.btn-white {
         background: white;
-        color: #09719B;        
+        color: #09719B;
         height: 40px;
         padding: 5px 45px 5px 45px;
         box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
         border: 1px solid #09719B;
     }
-    
-    p.intro{        
+
+    p.intro{
         font-weight: $font-weight-normal;
-    }    
+    }
 
     .pictures-container{
         padding-top: $padding-between-sections;
@@ -85,7 +86,7 @@ body{
     display: inline-block;
 
     .hexagon-blue {
-        background-color: $blue-darker; 
+        background-color: $blue-darker;
     }
     .hexagon-white-green {
         background-color: $white-green;

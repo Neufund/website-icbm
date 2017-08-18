@@ -8,18 +8,13 @@
         text-align:center;
 
         li{
-            display:inline-block;
-            margin-right:$padding-between-sections;
+            width: calc(100%/5);
+            float: left;
             list-style-type: none;
             img{
                 width: auto;
                 height: 41px;
             }
         }
-    }
-    .gray-space{
-        height: 396px;
-        width: 100%;
-        background-color: $gray-darker;
     }
 }

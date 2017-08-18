@@ -1,4 +1,7 @@
 .section.commit-funds{
+    margin-top: $padding-between-sections;
+    border-top: 1px $off-white solid;  
+     
     h3{
         font-size: 20px;
     }
@@ -8,12 +11,16 @@
         border-bottom: 5px solid $blue-darker;
         color:$blue-darker;        
         padding-left: 13px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-more-bold;
     }
     .content{
         padding-left: 50px;
-
+        p{
+            font-size: $font-size-small
+        }
         p strong {
-            font-weight: 500;
+            font-weight: $font-weight-more-bold;
         }
     }
     

@@ -1,0 +1,108 @@
+.easy-access{
+    position: relative;
+    .section{
+        position: static;
+    }
+    .shapes{
+        position: static;
+    }
+    img{
+        width: 587px;
+        height: auto;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+    }    
+    #hex1 {
+        width: 250px;
+        height: 250px;
+        transform: rotate(132deg);
+        right: 36%;
+        top: 37%;
+    }
+
+    #hex2 {
+        width: 460px;
+        height: 150;
+        right: -165px;
+        top: 295px;
+        transform: rotate(150deg);
+    }
+
+    #hex5 {
+        width: 460px;
+        height: 150;
+        right: -300px;
+        top: 295px;
+        transform: rotate(150deg);
+    }
+
+
+    #hex3 {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        right: -300px;
+        transform: rotate(15deg);
+    }
+    #hex6 {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        left: -300px;
+        transform: rotate(15deg);
+    }
+
+
+    #hex4 {
+        width: 400px;
+        height: 400px;
+        right: -170px;
+        top: 0px;
+        transform: rotate(60deg);
+    }
+    .hexagon-blue {
+        background-color: $blue-darker; 
+    }
+    .hexagon-white-green {
+        background-color: $white-green;
+    }
+
+
+    .hexagon-wrapper {
+        text-align: center;
+        margin: 0px;;
+        position: absolute;
+        display: inline-block;
+    }
+
+    .hexagon {
+        height: 100%;
+        width: calc(100% * 0.57735);
+        display: inline-block;
+    }
+
+    .hexagon:before {
+        position: absolute;
+        top: 0;
+        right: calc((100% / 2) - ((100% * 0.57735) / 2));
+        background-color: inherit;
+        height: inherit;
+        width: inherit;
+        content: '';
+        transform: rotateZ(60deg);
+    }
+
+    .hexagon:after {
+        position: absolute;
+        top: 0;
+        right: calc((100% / 2) - ((100% * 0.57735) / 2));
+        background-color: inherit;
+        height: inherit;
+        width: inherit;
+        content: '';
+        transform: rotateZ(-60deg);
+    }
+			
+
+}

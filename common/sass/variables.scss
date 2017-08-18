@@ -10,17 +10,30 @@ $gray-darker: #424A52;
 
 $black: #000;
 $green: #D5E20F;
-
+$white-green: #F6FAF3;
+$off-white: #d9dbdc;
 //fonts
+$font-weight-more-bold: 600;
 $font-weight-bold: 500;
-$section-p-font-size: 22px;
+$font-weight-normal: 400;
+$font-weight-light: 300;
+
 $section-title-font-size: 26px;
+$font-size-normal: 16px;
+$font-size-small: 14px;
 
 // spaces
 $padding-between-sections: 70px;
 $padding-between-pictures: 50px;
 $margin-bottom-between-paragraphs: 30px;
+$space-bottom-between-elements: 20px;
 
+// constants
+$big-shape-width: 300px;
+$big-shape-half-width: 150px;
+
+$small-shape-width: 150px;
+$small-shape-half-width: 70px;
 // override bootstrap
 
 //navbar

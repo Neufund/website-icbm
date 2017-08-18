@@ -1,3 +1,7 @@
+body{
+    -webkit-font-smoothing: antialiased;
+}
+
 .person-info-container{
     margin-bottom: $padding-between-pictures;
     
@@ -11,7 +15,7 @@
     position: relative;
     padding-top: $padding-between-sections;
     padding-bottom: $padding-between-sections;
-    border-bottom: 1px #d9dbdc solid;  
+    border-bottom: 1px $off-white solid;  
 
     .see-more{
         position: absolute;    
@@ -28,15 +32,46 @@
         display: none;
     }
     .person-info h4{
-        font-weight: normal;
         font-size: 16px;
         margin: 0px;
     }
     h3{
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
+        font-weight: $font-weight-more-bold;
     }
     p{
+        font-size: $font-size-normal;
         margin-bottom: $margin-bottom-between-paragraphs;
     }
+    ul{
+        padding: 0 0 $space-bottom-between-elements $space-bottom-between-elements;
+        li {
+            color: $blue;
+            font-weight: $font-weight-bold;
+        }
+    }
+    a{
+        font-weight: $font-weight-more-bold;
+    }
+    button.btn.btn-white {       
+        background: white;
+        color: #09719B;        
+        height: 40px;
+        padding: 5px 45px 5px 45px;
+        box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
+        border: 1px solid #09719B;
+    }
+    
+    p.intro{        
+        font-weight: $font-weight-normal;
+    }    
+
+    .pictures-container{
+        padding-top: $padding-between-sections;
+    }
+}
+
+.person-block{
+    cursor: pointer;
 }

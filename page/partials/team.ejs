@@ -1,33 +1,33 @@
 <div class="team section">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div>
                 <div>
-                    <h3>Team</h3>
-                    <p>Team of entrepereneurs and experienced professionals.</p>
-                </div> 
-            </div>                
+                    <h3 class="title"><%- title -%></h3>
+                    <p class="intro"><%- intro -%></p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-offset-1 col-md-7 pictures-container">
 
             <div class="row">
                 <% for (var i = 0; i < 4; i++) { %>
-                <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                <%- include('../blocks/person', members) %>
                 <% } %>
             </div> <!-- end row -->
-            
+
             <div class="row is-hidden hidden-picture">
                 <% for (var i = 4; i < 10; i++) { %>
-                    <%- include('../blocks/person', {name : "Mostafa Balata", title:"Software developer", image:"../assets/mostafabalatabw.jpg"}) %>
+                    <%- include('../blocks/person', members) %>
                 <% } %>
-                
-            </div><!-- End row -->                           
-            
+
+            </div><!-- End row -->
+
             <!-- see more -->
             <div>
                 <button class="see-more">+ More </button>
             </div>
             <!-- /see more -->
         </div>
-    </div>                
+    </div>
 </div>

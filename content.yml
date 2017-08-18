@@ -1,0 +1,92 @@
+commit_funds:
+  point1: "01"
+  title1: "Commit Funds <br/> ≠ Invest nor Buy"
+  paragraph1a:  |
+        You stay in control of all your committed funds.
+        You decide in which startups you will invest your
+        funds in the future. The Neufund Platform’s goal
+        is to make many investment opportunities available..
+  paragraph1b:  |
+        Fifth Force, the Platform operator,
+        cultivates the decentralised investment
+        ecosystem by kickstarting the startup
+        deal flow and providing legal & technical
+        infrastructure. <strong> It does not manage
+        your funds for you.</strong>
+  point2: "02"
+  title2: "Reward: Neumarks<br/> = Share in the Ecosystem"
+  paragraph2a:  |
+        When you commit funds you get a reward,
+        the Neumark token. By owning Neumarks you
+        own a share of the ecosystem, you have a
+        right to its revenue and to the Neufund
+        Platform portfolio. You actively increase
+        its value by investing in startups.
+  paragraph2b:  |
+        <strong>The sooner you commit your funds
+        the higher your reward.</strong> You can
+        capitalize on Neumarks by hodling them
+        to receive revenue or by trading them on
+        the market.
+
+participating:
+  title: "What Do you Gain From Participating?"
+  paragrapha:  |
+        Neufund provides access to global high quality
+        dealflow, with low transaction costs, transparency,
+        and openess. You invest in great companies that
+        bring high Return On Investment.
+  paragraphb:  |
+        Startup equity is represented on the platform as
+        tradable crypto tokens, which result in a liquid
+        secondary market for your investments
+  subtitle: "Key to read"
+  link1: "Neufund Whitepaper"
+  link2: "Roadmap"
+  link3: "Neumark Token Holder Agreenment"
+
+easy_access:
+  title: "Neufund Platform, Easy Access to the Blockchain World"
+  paragraph:  |
+      Easy to use crafted experience for different actors on
+      different stages of their investment journey.
+      An on-going work, being build with community
+      for community, open-source code, access point
+      to blockchian.
+  remark: "Check out the:"
+  link1: "Neufnd's Github account"
+  link2: "Our introductory post to the product"
+  button: "Pre-alfa version"
+
+team:
+  title: "Team"
+  intro: "Team of entrepereneurs and experienced professionals."
+  members:
+    block: "../blocks/person"
+    name: "Mostafa Balata"
+    title: "Software developer"
+    image: "../assets/mostafabalatabw.jpg"
+    preTitle: "Partner"
+    bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    
+advisors:
+  title: "Advisors"
+  quote1: |
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+  speaker1: "John Smith"
+  company1: "Company name"
+  quote2: |
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  speaker2: "John Smith"
+  company2: "Company name"
+  members:
+    block: "../blocks/person"
+    name: "John Smith"
+    title: "Capital Name"
+    image: "../assets/mostafabalatabw.jpg"
+    preTitle: "Partner"
+    bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

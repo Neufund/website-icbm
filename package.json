@@ -37,7 +37,8 @@
     "typescript": "^2.4.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.4",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "yaml-js": "^0.2.0"
   },
   "scripts": {
     "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
@@ -58,6 +59,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "vex-js": "^4.0.0"
   }
 }

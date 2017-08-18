@@ -9,16 +9,19 @@
     h3 {
       margin-left: 15px;
     }
-    h4 {
-      margin-left: 15px;
-    }
     p {
       width: 400px
+    }
+
+    ul li {
+      color: #000;
+      line-height: 25px;
     }
     .goto-element {
       font-size: 19px;
       font-weight: $font-weight-more-bold;
       margin-top: 40px;
+      margin-bottom: 6px;
     }
     .text-box{
         top: 10px;

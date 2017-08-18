@@ -4,26 +4,37 @@
        height: 29px;
        width: 159px;
        margin-bottom: 35px;
-       margin-left: 15;
+       margin-left: 15px;
     }
     h3 {
-      margin-left: 15;
+      margin-left: 15px;
+    }
+    h4 {
+      margin-left: 15px;
+    }
+    .goto-element {
+      margin-left: 15px;
+      font-size: 19px;
+      font-weight: $font-weight-more-bold;
     }
     .text-box{
         top: 10px;
         color:$blue-darker;
         margin-bottom: 3px;
 
-        .underline{
+        .underline {
           margin-top: 1px;
           border-bottom: 5px solid $blue-darker;
           width: 36px;
         }
     }
-    .subtitle{
+    .subtitle {
     	font-size: 15px;
-    	font-weight: $font-weight-bold;
+    	font-weight: $font-weight-more-bold;
       line-height: 16px;
+    }
+    .padme{
+      padding-top: 3px;
     }
 
 }

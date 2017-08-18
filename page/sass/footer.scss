@@ -31,12 +31,14 @@
 }
 
 .footer-bottom{
-    position: relative;
-    color: $gray-between-light-and-dark;
+    position: relative;    
     font-size: 12px;
     font-weight: $font-weight-more-bold;
     margin-top: $margin-bottom-between-paragraphs;
     margin-bottom: $margin-bottom-between-paragraphs;
+    span, a {
+        color: $gray-between-light-and-dark;
+    }
     .handler{
         float: left;
     }

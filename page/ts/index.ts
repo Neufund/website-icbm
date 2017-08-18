@@ -31,7 +31,7 @@ const getPersonModal: any = function(name: string, image: string, preTitle:strin
                     </div>
                 </div>
             </div>`
-    }    
+    }
 }
 
 $(document).ready(function(){    
@@ -40,7 +40,7 @@ $(document).ready(function(){
             items: 1,
             singleItem: true,
             lazyLoad: true,
-            dots: true,
+            dots: true, 
             autoPlay: 3000, //Set AutoPlay to 3 seconds
         }
     );

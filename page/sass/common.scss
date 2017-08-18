@@ -10,7 +10,9 @@ body{
         margin-top: 27px;
     }
 }
-
+button{
+    outline: none; 
+}
 .section{
     position: relative;
     padding-top: $padding-between-sections;

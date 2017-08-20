@@ -1,6 +1,7 @@
 body{
     -webkit-font-smoothing: antialiased;
     padding-top: $navbar-height + 10px;
+    overflow-x: hidden;
 }
 
 .person-info-container{

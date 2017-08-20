@@ -1,3 +1,8 @@
+body{
+    -webkit-font-smoothing: antialiased;
+    padding-top: $navbar-height + 10px;
+}
+
 .person-info-container{
     margin-bottom: $padding-between-pictures;
 

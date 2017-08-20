@@ -1,11 +1,20 @@
 .footer-container{
-    #footer-hex {
-        width: 260px;
-        height: 260;
-        right: 55px;
-        margin-top: 133px;
-        transform: rotate(200deg);
-        z-index: 0;
+    position: relative;
+
+    .footer-hex {
+        position: absolute;
+        top: 125px;
+        right: -135px;
+        height: 140px;
+        overflow: hidden;
+        z-index: -1;
+
+        .hexagon-wrapper {
+            position:static;
+            width: 260px;
+            height: 260px;
+            transform: rotate(200deg) translateY(-20px);
+        }
     }
 }
 
@@ -31,7 +40,6 @@
 }
 
 .footer-bottom{
-    position: relative;    
     font-size: 12px;
     font-weight: $font-weight-more-bold;
     margin-top: $margin-bottom-between-paragraphs;

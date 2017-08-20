@@ -1,3 +1,4 @@
+import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import * as $ from 'jquery';
 import 'owl.carousel';
 import * as vex from 'vex-js';

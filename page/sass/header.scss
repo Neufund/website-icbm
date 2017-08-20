@@ -2,45 +2,54 @@
     border-top: none;
     border-left: none;
     border-right: none;
-
     font-weight: $font-weight-bold;
-}
-
-.navbar-nav {
-    .fa {
-        line-height: 20px;
+    .container {
+        position: relative;
     }
-
-    li a {
-        padding-right: $navbar-padding-horizontal;
-        padding-left: $navbar-padding-horizontal;
-    }
-
-    &.navbar-right {
+    .navbar-nav {
+        .fa {
+            line-height: 20px;
+        }
         li a {
-            color: black; 
-            padding-right: $navbar-padding-horizontal-small;
-            padding-left: $navbar-padding-horizontal-small;
+            padding-right: $navbar-padding-horizontal;
+            padding-left: 0;
+        }
+        &.navbar-right {
+            li a {
+                color: black;
+                padding-right: $navbar-padding-horizontal-small;
+                padding-left: $navbar-padding-horizontal-small;
+            }
         }
     }
-}
+    .navbar-header {
+        position: absolute;
+        left: -37px;
 
-.navbar-brand {
-    $logoSize: 30px;
-    $offset: 10px;
-    $logoHeight: $logoSize + $offset;
-    height: $logoHeight;
-    width: $logoSize + 22px;
+        $logoSize: 30px;
+        .navbar-brand {
+            $offset: 10px;
+            $logoHeight: $logoSize + $offset;
+            height: $logoHeight;
+            width: $logoSize + 22px;
+            background: url(./assets/NeuFund_icon_white_300dpi.png);
+            background-size: $logoSize;
+            background-repeat: no-repeat;
+            margin-top: ($navbar-height - $logoSize - $offset) / 2;
+            padding: 0;
+            border-right: 1px solid $gray-darker;
+            padding-top: $offset;
+            padding-bottom: $offset;
+            background-position: center left;
+        }
 
-    background: url(./assets/NeuFund_icon_white_300dpi.png);
-    background-size: $logoSize;
-    background-repeat: no-repeat;
+        @media (max-width: 1335px) {
+            position: static;
+            left: inherit;
 
-    margin-top: ($navbar-height - $logoSize - $offset) / 2;
-    padding: 0;
-
-    border-right: 1px solid $gray-darker;
-    padding-top: $offset;
-    padding-bottom: $offset;
-    background-position: center left;
+            .navbar-brand {
+                border-right: none;
+            }
+        }
+    }
 }

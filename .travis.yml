@@ -6,7 +6,10 @@ notifications:
 node_js:
   - "7"
 cache: yarn
+before_install: yarn global add greenkeeper-lockfile@1
 install:
   - yarn --pure-lockfile
+before_script: greenkeeper-lockfile-update
 script:
   - yarn lint
+after_script: greenkeeper-lockfile-upload

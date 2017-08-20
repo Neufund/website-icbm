@@ -4,6 +4,10 @@ body{
     overflow-x: hidden;
 }
 
+#react-root {
+    min-height: 362px;
+}
+
 .person-info-container{
     margin-bottom: $padding-between-pictures;
 

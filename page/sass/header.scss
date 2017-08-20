@@ -13,6 +13,10 @@
         li a {
             padding-right: $navbar-padding-horizontal;
             padding-left: 0;
+
+            @media (max-width: $screen-sm) {
+                padding-left: $navbar-padding-horizontal-small;
+            }
         }
         &.navbar-right {
             li a {
@@ -41,6 +45,10 @@
             padding-top: $offset;
             padding-bottom: $offset;
             background-position: center left;
+
+            @media (max-width: $screen-sm) {
+                margin-left: 20px;
+            }
         }
 
         @media (max-width: 1335px) {

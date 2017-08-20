@@ -34,7 +34,7 @@ gulp.task("copy-fa", () =>
 
 gulp.task("watch", () => {
   gulp.watch("./page/**/*.ejs", ["page"]);
-  gulp.watch("./page/sass/*.scss", ["sass"]);
+  gulp.watch(["./page/sass/*.scss", "./common/sass/*.scss"], ["sass"]);
   gulp.watch("./page/assets/**/*", ["copy"]);
   gulp.watch("./content.yml", ["page"]);
 });

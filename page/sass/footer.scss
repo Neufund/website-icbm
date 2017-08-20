@@ -3,7 +3,7 @@
 
     .footer-hex {
         position: absolute;
-        top: 125px;
+        bottom: -25px;
         right: -135px;
         height: 140px;
         overflow: hidden;
@@ -31,6 +31,15 @@
             width: calc(100%/5);
             float: left;
             list-style-type: none;
+
+            @media (max-width: $screen-sm) {
+                width: auto;
+                float: none;
+                margin-top: 15px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             img{
                 width: auto;
                 height: 35px;

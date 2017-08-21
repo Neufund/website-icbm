@@ -57,6 +57,12 @@ $(document).ready(function(){
 
         vex.dialog.open(getPersonModal(name, image, preTitle, title, bio))
     });
+    
+    $('body').on('click', '.close-modal' , function(e){
+        e.preventDefault();
+        $('.vex.vex-theme-os').trigger('click');
+    })
+
     $('.team .see-more').click(function(){        
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
         $('.team .is-hidden').fadeToggle("slow","linear");        

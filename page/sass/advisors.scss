@@ -5,16 +5,21 @@
         font-style: italic;
     }
     h6{
-        font-size: 14px;
+        font-size: 16px;
     }
     .h4.position{
         font-weight: $font-weight-normal;
+    }
+    h4{
+      font-size: 16px;
+      font-weight: $font-weight-more-bold;
     }
 }
 
 .has-carousel{
     overflow: hidden;
 }
+
 .owl-item{
     float: right;
     overflow: hidden;
@@ -24,6 +29,7 @@
     cursor: pointer;
 }
 .owl-dots span {
+  overflow: hidden;
     background-color: #F7F8F9;
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.07);
     border-radius: 20px;

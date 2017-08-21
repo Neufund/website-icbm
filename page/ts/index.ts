@@ -60,5 +60,17 @@ $(document).ready(function(){
     $('.team .see-more').click(function(){        
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
         $('.team .is-hidden').fadeToggle("slow","linear");        
-    });
+    });    
+});
+
+$(window).scroll(function(e){
+    const scroll: number = $(window).scrollTop();  
+    const headerSelector: string = '.navbar.navbar-default.navbar-fixed-top';
+    if(scroll > 20) {
+        if($(headerSelector).hasClass('navbar-no-border'))
+            $(headerSelector).removeClass('navbar-no-border');
+    } else {
+        if(!$(headerSelector).hasClass('navbar-no-border'))
+            $(headerSelector).addClass('navbar-no-border');
+    }
 });

@@ -18,6 +18,9 @@ body{
     }
 }
 
+.navbar-no-border{
+    border:0 !important;
+}
 .section{
     position: relative;
     padding-top: $padding-between-sections;

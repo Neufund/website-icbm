@@ -1,7 +1,7 @@
 .section.commit-funds{
     margin-top: $padding-between-sections;
-    border-top: 1px $off-white solid;  
-     
+    border-top: 1px $off-white solid;
+
     h3{
         font-size: 20px;
     }
@@ -9,7 +9,7 @@
         position: absolute;
         top: 10px;
         border-bottom: 5px solid $blue-darker;
-        color:$blue-darker;        
+        color:$blue-darker;
         padding-left: 13px;
         font-size: $font-size-small;
         font-weight: $font-weight-more-bold;
@@ -23,5 +23,5 @@
             font-weight: $font-weight-more-bold;
         }
     }
-    
+
 }

@@ -17,7 +17,9 @@ body{
         margin-bottom: 29px;
     }
 }
-
+button{
+    outline: none; 
+}
 .section{
     position: relative;
     padding-top: $padding-between-sections;

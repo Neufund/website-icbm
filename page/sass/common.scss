@@ -55,11 +55,12 @@ body{
         padding: 0 0 $space-bottom-between-elements $space-bottom-between-elements;
         li {
             color: black;
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-bold;            
         }
     }
     a{
         font-weight: $font-weight-more-bold;
+        vertical-align: top;
     }
     button.btn.btn-white {
         background: white;

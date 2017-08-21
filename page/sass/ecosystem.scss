@@ -35,8 +35,13 @@
         font-weight: $font-weight-more-bold;
         line-height: 16px;
         width: 160px;
-        margin-bottom: 70px
+        margin-bottom: 70px;
+
+        a{
+            color: black;
+        }
     }
+    
     .padme {
         padding-top: 3px;
     }

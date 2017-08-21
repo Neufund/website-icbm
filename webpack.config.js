@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -42,7 +43,16 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery"
+    }),
+    new RobotstxtPlugin({
+        policy: [
+            {
+                userAgent: '*',
+                allow: '/',
+            }
+        ]
     })
+       
   ],
   node: {
     __filename: true,

@@ -1,4 +1,5 @@
 commit_funds:
+  visible: true
   point1: "01"
   title1: "Commit Funds <br/> ≠ Invest nor Buy"
   paragraph1a:  |
@@ -30,6 +31,7 @@ commit_funds:
         the market.
 
 participating:
+  visible: true
   title: "What Do you Gain From Participating?"
   paragrapha:  |
         Neufund provides access to global high quality
@@ -46,6 +48,7 @@ participating:
   link3: "Neumark Token Holder Agreenment"
 
 easy_access:
+  visible: true
   title: "Neufund Platform, Easy Access to the Blockchain World"
   paragraph:  |
       Easy to use crafted experience for different actors on
@@ -59,6 +62,7 @@ easy_access:
   button: "Pre-alfa version"
 
 team:
+  visible: true
   title: "Team"
   intro: "Team of entrepereneurs and experienced professionals."
   members:
@@ -71,6 +75,7 @@ team:
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     
 advisors:
+  visible: false
   title: "Advisors"
   quote1: |
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit,

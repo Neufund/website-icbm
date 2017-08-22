@@ -1,51 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Neunfund's effort goes into building
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Neunfund's effort goes into building
          a mature ecosystem able to contain all 
          the amazing technological and legal 
-         innovation etc."/>
-        <meta name="keywords" content="neufund, ico, neumark, venture capital,
+         innovation etc." />
+    <meta name="keywords" content="neufund, ico, neumark, venture capital,
          ethereum, startup, blockchain" />
-        <meta name="robots" content="/robots.txt" />
+    <meta name="robots" content="/robots.txt" />
 
-        <meta property="og:title" content="Neufund | ICO Commit page" />
-        <meta property="og:image" content="assets/social_logo.png" />
-        <meta property="og:url" content="http://neufund.org/" />
-        
-        <meta name="twitter:card" content="assets/social_logo.png" />
-        <meta name="twitter:site" content="@neufundorg" />
-        <meta name="twitter:title" content="Neufund | ICO Commit page" />
-        <meta name="twitter:description" content="Neunfund's effort goes into building
+    <meta property="og:title" content="Neufund | ICO Commit page" />
+    <meta property="og:image" content="assets/social_logo.png" />
+    <meta property="og:url" content="http://neufund.org/" />
+
+    <meta name="twitter:card" content="assets/social_logo.png" />
+    <meta name="twitter:site" content="@neufundorg" />
+    <meta name="twitter:title" content="Neufund | ICO Commit page" />
+    <meta name="twitter:description" content="Neunfund's effort goes into building
          a mature ecosystem able to contain all 
          the amazing technological and legal 
-         innovation etc."/>
-        <meta name="twitter:image" content="Neufund | ICO Commit page" />
+         innovation etc." />
+    <meta name="twitter:image" content="Neufund | ICO Commit page" />
 
-        <link rel="shortcut icon" href="assets/favicon_neufund.ico" />
+    <link rel="shortcut icon" href="assets/favicon_neufund.ico" />
 
-        <title>Neufund | ICO Commit page</title>
+    <title>Neufund | ICO Commit page</title>
 
-        <link rel="stylesheet" type="text/css" href="app.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <%- include('partials/header'); %>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
         <div class="container">
             <div id="react-root"></div>
-            <%- include('partials/commit_funds',  content.commit_funds ); %>
-            <%- include('partials/participating', content.participating); %>
-            <%- include('partials/easy_access', content.easy_access); %>
-            <%- include('partials/team', content.team); %>
-            <%- include('partials/advisors', content.advisors); %>
-            <%- include('partials/ecosystem',  content.commit_funds ); %>
+            <%
+            const checkSectionVisiablity = function(item, content) {
+                return item.visible?content:null;
+            }
+            %>
+
+            <%- checkSectionVisiablity(content.commit_funds,
+            include('partials/commit_funds',  content.commit_funds )); %>
+
+            <%- checkSectionVisiablity(content.participating,
+            include('partials/participating', content.participating)); %>
+
+            <%- checkSectionVisiablity(content.easy_access, 
+            include('partials/easy_access', content.easy_access)); %>
+            
+            <%- checkSectionVisiablity(content.team,
+            include('partials/team', content.team)); %>
+
+            <%- checkSectionVisiablity(content.advisors,
+            include('partials/advisors', content.advisors)); %>
+            
+            <%- checkSectionVisiablity(content.commit_funds,
+            include('partials/ecosystem',  content.commit_funds )); %>
+
             <%- include('partials/footer'); %>
             <script src="/main.js"></script>
 
@@ -54,5 +74,6 @@
             </noscript>
         </div>
 
-    </body>
+</body>
+
 </html>

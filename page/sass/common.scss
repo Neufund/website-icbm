@@ -144,4 +144,9 @@ body{
         text-align: center;
         margin-top: $padding-between-sections;
     }
+    ul.navbar-right{
+        li{
+            float: left;
+        }
+    }
 }

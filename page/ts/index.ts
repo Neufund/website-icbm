@@ -57,8 +57,26 @@ $(document).ready(function(){
 
         vex.dialog.open(getPersonModal(name, image, preTitle, title, bio))
     });
+    
+    $('body').on('click', '.close-modal' , function(e){
+        e.preventDefault();
+        $('.vex.vex-theme-os').trigger('click');
+    })
+
     $('.team .see-more').click(function(){        
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
         $('.team .is-hidden').fadeToggle("slow","linear");        
-    });
+    });    
+});
+
+$(window).scroll(function(e){
+    const scroll: number = $(window).scrollTop();  
+    const headerSelector: string = '.navbar.navbar-default.navbar-fixed-top';
+    if(scroll > 20) {
+        if($(headerSelector).hasClass('navbar-no-border'))
+            $(headerSelector).removeClass('navbar-no-border');
+    } else {
+        if(!$(headerSelector).hasClass('navbar-no-border'))
+            $(headerSelector).addClass('navbar-no-border');
+    }
 });

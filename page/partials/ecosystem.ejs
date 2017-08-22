@@ -2,7 +2,7 @@
   <div class="ecosystem">
     <div class="row">
       <img class="logo" src="./assets/NeuFund_logo_full_white_72dpi Copy 4@3x.png" />
-      <h3><%- title -%></h3>
+      <h3><%= title -%></h3>
     </div>
     <div class="row">
       <div class="col-md-5">
@@ -17,25 +17,33 @@
       <div class="col-md-7">
         <div class="row">
           <div class="col-md-6">
-            <div class="text-box">  <%= subtitleb1 -%>
+
+            <div class="text-box">
+              <h5><%= subtitleb1 -%></h5>
               <div class="underline"></div>
-            </div>
-            <div class=subtitle><%= linkb1 -%></div>
-            <div class="text-box"> <%= subtitleb2 -%>
+              <div class=subtitle><a href="<%= href1 -%>" target="_blank" ><%= linkb1 -%></a></div>
+            </div> <!-- end text box -->
+
+            <div class="text-box">
+              <h5><%= subtitleb2 -%></h5>
               <div class="underline"></div>
-            </div>
-            <div class=subtitle><%= linkb2 -%></div>
+              <div class=subtitle><a href="<%= href2 -%>" target="_blank"><%= linkb2 -%></a></div>
+            </div> <!-- end text box -->
           </div>
 
           <div class="col-md-6">
-            <div class="text-box"> <%= subtitleb3 -%>
+            <div class="text-box">
+              <h5><%= subtitleb3 -%></h5>
               <div class="underline"></div>
-            </div>
-            <div class=subtitle><%= linkb3 -%></div>
-            <div class="text-box"> <%= subtitleb4 -%>
+              <div class=subtitle><a href="<%= href3 -%>" target="_blank"><%= linkb3 -%></a></div>
+            </div> <!-- end text box -->
+
+            <div class="text-box">
+              <h5><%= subtitleb4 -%></h5>
               <div class="underline"></div>
+              <div class=subtitle><a href="<%= href4 -%>"><%= linkb4 -%></a></div>
             </div>
-            <div class=subtitle><%= linkb4 -%></div>
+
           </div>
         </div>
       </div>

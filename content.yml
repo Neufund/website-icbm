@@ -92,17 +92,21 @@ ecosystem:
     technological and legal innovation etc.
   subtitle: "Go to:"
   linka1: "Neufunds Ecosystem Impact Page"
-  linka1ref: "https://www.neufund.org"
+  linka1ref: "#"
   linka2: "Neufunds Mediem Channel"
-  linka2ref: "https://www.neufund.org"
+  linka2ref: "#"
   subtitleb1: "Social impact"
   linkb1: "ICO Trancparancy Monitor"
+  href1: "https://icomonitor.io"
   subtitleb2: "Regulatory Efforts"
   linkb2: "Employe Stock Option Plan"
+  href2: "https://neufund.org/esop"
   subtitleb3: "Regulatory Efforts"
   linkb3: "Blockchain Policy Initiatieve"
+  href3: "https://blockchainpolicy.org"
   subtitleb4: "Coming Soon"
   linkb4: "Ethereum Impovment Proposal"
+  href4: "#"
 
 footer:
   link1: "https://techcrunch.com/2017/01/17/neufund/"

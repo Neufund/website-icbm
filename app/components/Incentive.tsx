@@ -2,7 +2,7 @@ import * as React from "react";
 import { Grid, Row, Col, Button } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
-
+import { HexagonText } from "./HexagonText"
 import * as styles from "./Incentive.scss";
 
 export const Incentive: React.SFC = () =>
@@ -20,15 +20,11 @@ export const Incentive: React.SFC = () =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <p>Commitment Opportunity starts in:</p>
-        <h1>Future</h1>
+        <HexagonText />
       </HexagonsStack>
     </Col>
-    <Col  className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <div>
-        <p>Commitment Opportunity starts in:</p>
-        <h1>Future</h1>
-      </div>
+    <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
+      <HexagonText/>
     </Col>
 
   </Row>;

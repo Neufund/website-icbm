@@ -16,7 +16,7 @@ export const Incentive: React.SFC = () =>
       </p>
       <p>For more information on the commitment process and its legal aspects read the FAQ</p>
 
-      <Button id="how-participate-btn" bsStyle="primary">How to participate</Button>
+      <Button bsStyle="primary" className="comming-soon">How to participate</Button>
     </Col>
     <Col sm={6}>
       <HexagonsStack className={styles.hexagons}>

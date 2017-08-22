@@ -80,19 +80,11 @@ $(document).ready(function () {
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
         $('.team .is-hidden').fadeToggle("slow", "linear");
     });
-
-    $('#how-participate-btn').click(function () {
-        vex.dialog.open(getParticipateModal('How to Participate Manual is coming soon'))
+    $('.comming-soon').click(function (e) {
+        e.preventDefault();
+        const text = $(this).text()
+        vex.dialog.open(getParticipateModal(`${text} is coming soon`))
     });
-
-    $('#neufund-whitepaper-btn').click(function () {
-        vex.dialog.open(getParticipateModal('Whitepaper is coming soon'))
-    })
-
-    $('#platform-btn').click(function () {        
-        vex.dialog.open(getParticipateModal('Platform is coming soon'))
-    })
-
 
 });
 

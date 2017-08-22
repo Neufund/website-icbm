@@ -8,6 +8,12 @@ body{
     min-height: 362px;
 }
 
+.main-container {
+    @media (max-width: $screen-sm) {
+        overflow: hidden;
+    }
+}
+
 .person-info-container{
     margin-bottom: $padding-between-pictures;
 

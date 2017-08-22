@@ -1,33 +1,26 @@
 commit_funds:
   point1: "01"
-  title1: "Commit Funds <br/> ≠ Invest nor Buy"
+  title1: "How it works"
   paragraph1a:  |
-        You stay in control of all your committed funds.
-        You decide in which startups you will invest your
-        funds in the future. The Neufund Platform’s goal
-        is to make many investment opportunities available..
+        Neufund's ICO is a call to commit Capital to the Neufund
+        Platform in exchange for tokens, that's why we call it ICBM
+        - Initial Capital Building Mechanism.
   paragraph1b:  |
-        Fifth Force, the Platform operator,
-        cultivates the decentralised investment
-        ecosystem by kickstarting the startup
-        deal flow and providing legal & technical
-        infrastructure. <strong> It does not manage
-        your funds for you.</strong>
+        Reserve ETH in your personal Ethereum wallet. You have 18
+        months to pick your favourite investments. Not investing
+        results in full release.
   point2: "02"
-  title2: "Reward: Neumarks<br/> = Share in the Ecosystem"
+  title2: "Why participate: Neumarks Key features"
   paragraph2a:  |
-        When you commit funds you get a reward,
-        the Neumark token. By owning Neumarks you
-        own a share of the ecosystem, you have a
-        right to its revenue and to the Neufund
-        Platform portfolio. You actively increase
-        its value by investing in startups.
+        Revenue share from all the future investments success
+        fees.<br>
+        participate in portfolio of all the tokens that will ever
+        launch.
   paragraph2b:  |
-        <strong>The sooner you commit your funds
-        the higher your reward.</strong> You can
-        capitalize on Neumarks by hodling them
-        to receive revenue or by trading them on
-        the market.
+        <strong>First come better served. The sooner you reserve your
+        funds the more NEU you per ETH.</strong> You can capitalize on
+        Neumarks by hodling or by trading without vesting on secondary market
+        from day one.
 
 participating:
   title: "What Do you Gain From Participating?"
@@ -108,3 +101,20 @@ ecosystem:
   linkb3: "Blockchain Policy Initiatieve"
   subtitleb4: "Coming Soon"
   linkb4: "Ethereum Impovment Proposal"
+
+footer:
+  link1: "https://techcrunch.com/2017/01/17/neufund/"
+  img1: "../assets/techcrunchlogo2013.png"
+  link2: "http://www.geektime.com/2017/01/17/berlin-cryptocurrency-hybrid-vc-neufund-raises-e2m-to-upend-startup-investing-as-we-know-it/"
+  img2: "../assets/gt-conv-logo.png"
+  link3: "https://cointelegraph.com/news/icos-are-the-future-of-funding-says-co-founder-of-platform-that-just-raised-2-mln"
+  img3: "../assets/cointelegraph-1.png"
+  link4: "http://www.the-blockchain.com/2017/01/21/berlins-neufund-blockchain-fundraising-platform-raises-2-million/"
+  img4: "../assets/logo-300x77.png"
+  link5: "http://www.pymnts.com/blockchain/2017/blockchain-tracker-bridging-gaps/"
+  img5: "../assets/pymnts-1.png"
+  bottomtitle: "@Fifth Force"
+  website: "neufund.org"
+  weblink: "https://neufund.org"
+  email: "icbm@neufund.org"
+  emaillink: "mailto:icbm@neufund.org"

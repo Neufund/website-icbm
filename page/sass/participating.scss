@@ -8,6 +8,10 @@
             margin-right: 10px;
         }
 
+        ul li a{
+            font-weight: $font-weight-bold;
+        }  
+
         ul li{
             list-style: none;
             margin-bottom: $margin-bottom-between-paragraphs;

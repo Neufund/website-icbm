@@ -35,6 +35,18 @@ const getPersonModal: any = function(name: string, image: string, preTitle:strin
     }
 }
 
+const getParticipateModal: any = function(){
+    return {
+        input:
+            `<a href="#" class="close-modal"></a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3> How to Participate Manual is coming soon </h3>
+                    </div> 
+                </div>
+            </div>`
+    }
+}
 $(document).ready(function(){    
     $('.has-carousel').owlCarousel(
         {   navigation: true, 
@@ -66,7 +78,11 @@ $(document).ready(function(){
     $('.team .see-more').click(function(){        
         $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase() ? $(this).text(seeLess) : $(this).text(seeMore);
         $('.team .is-hidden').fadeToggle("slow","linear");        
-    });    
+    });  
+    
+    $('#how-participate-btn').click(function(){
+        vex.dialog.open(getParticipateModal())
+    })
 });
 
 $(window).scroll(function(e){

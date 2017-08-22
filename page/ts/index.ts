@@ -80,3 +80,14 @@ $(window).scroll(function(e){
             $(headerSelector).addClass('navbar-no-border');
     }
 });
+
+
+function movePlatformButtonToAnotherColumn() {
+    if ($(window).width() < 992) {
+        $("#platform-btn").detach().appendTo("#platform-second-col");
+    } else {
+        $("#platform-btn").detach().appendTo("#platform-first-col");
+    }
+}
+$(window).resize(movePlatformButtonToAnotherColumn);
+movePlatformButtonToAnotherColumn();

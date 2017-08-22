@@ -9,8 +9,8 @@
         <p class="padme" class="content"><%= paragraph -%></p>
         <div class="goto-element"><%= subtitle -%></div>
         <ul>
-          <li><a href="<%= linka1ref -%>"><%= linka1 -%></a></li>
-          <li><a href="<%= linka2ref -%>"><%= linka2 -%></a></li>
+          <li><a href="<%= links[0].ref -%>"><%= links[0].name -%></a></li>
+          <li><a href="<%= links[1].ref -%>"><%= links[1].name -%></a></li>
         </ul>
       </div>
 
@@ -19,29 +19,29 @@
           <div class="col-md-6">
 
             <div class="text-box">
-              <h5><%= subtitleb1 -%></h5>
+              <h5><%= features[0].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="<%= href1 -%>" target="_blank" ><%= linkb1 -%></a></div>
+              <div class=subtitle><a href="<%= features[0].href -%>" target="_blank" ><%= features[0].subtitle -%></a></div>
             </div> <!-- end text box -->
 
             <div class="text-box">
-              <h5><%= subtitleb2 -%></h5>
+              <h5><%= features[1].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="<%= href2 -%>" target="_blank"><%= linkb2 -%></a></div>
+              <div class=subtitle><a href="<%= features[1].href -%>" target="_blank"><%= features[1].subtitle -%></a></div>
             </div> <!-- end text box -->
           </div>
 
           <div class="col-md-6">
             <div class="text-box">
-              <h5><%= subtitleb3 -%></h5>
+              <h5><%= features[2].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="<%= href3 -%>" target="_blank"><%= linkb3 -%></a></div>
+              <div class=subtitle><a href="<%= features[2].href -%>" target="_blank"><%= features[2].subtitle -%></a></div>
             </div> <!-- end text box -->
 
             <div class="text-box">
-              <h5><%= subtitleb4 -%></h5>
+              <h5><%= features[3].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="<%= href4 -%>"><%= linkb4 -%></a></div>
+              <div class=subtitle><a href="<%= features[3].href -%>"><%= features[3].subtitle -%></a></div>
             </div>
 
           </div>

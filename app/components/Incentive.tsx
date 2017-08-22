@@ -18,10 +18,17 @@ export const Incentive: React.SFC = () =>
 
       <Button bsStyle="primary" className="comming-soon">How to participate</Button>
     </Col>
-    <Col sm={6}>
+    <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
         <p>Commitment Opportunity starts in:</p>
         <h1>Future</h1>
       </HexagonsStack>
     </Col>
+    <Col  className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
+      <div>
+        <p>Commitment Opportunity starts in:</p>
+        <h1>Future</h1>
+      </div>
+    </Col>
+
   </Row>;

@@ -2,7 +2,6 @@
     .logo {
         height: 29px;
         width: 159px;
-        margin-bottom: 35px;
         margin-left: 15px;
     }
     h3 {
@@ -25,11 +24,16 @@
         top: 10px;
         color: $blue-darker;
         margin-bottom: 3px;
+        margin-left: 36px;
         font-weight: $font-weight-light;
         .underline {
             margin-top: 1px;
             border-bottom: 5px solid $blue-darker;
             width: 36px;
+        }
+        h5 {
+            margin-bottom: 5px;
+            font-weight: $font-weight-light;
         }
     }
     .subtitle {
@@ -37,8 +41,13 @@
         font-weight: $font-weight-more-bold;
         line-height: 16px;
         width: 160px;
-        margin-bottom: 70px
+        margin-top: 5px;
+        margin-bottom: 70px;
+        a{
+            color: black;
+        }
     }
+    
     .padme {
         padding-top: 3px;
     }

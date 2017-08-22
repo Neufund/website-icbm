@@ -69,7 +69,7 @@ team:
     preTitle: "Partner"
     bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    
+
 advisors:
   title: "Advisors"
   quote1: |
@@ -90,3 +90,21 @@ advisors:
     preTitle: "Partner"
     bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+ecosystem:
+  title: "Neufund's Ecosystem Impact"
+  paragraph: |
+    Neunfund's effort goes into building a mature
+    ecosystem able to contain all the amazing
+    technological and legal innovation etc.
+  subtitle: "Go to:"
+  linka1: "Neufunds Ecosystem Impact Page"
+  linka2: "Neufunds Mediem Channel"
+  subtitleb1: "Social impact"
+  linkb1: "ICO Trancparancy Monitor"
+  subtitleb2: "Regulatory Efforts"
+  linkb2: "Employe Stock Option Plan"
+  subtitleb3: "Regulatory Efforts"
+  linkb3: "Blockchain Policy Initiatieve"
+  subtitleb4: "Coming Soon"
+  linkb4: "Ethereum Impovment Proposal"

@@ -9,6 +9,6 @@ h1 {
     box-shadow: 0 1px 1px 0 $gray-lighter;
     font-weight: $font-weight-more-bold;
     &.btn-primary {
-        background: linear-gradient(180deg, $blue 0%, $blue 2.36%, $gray-darker 100%);
+      background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);
     }
 }

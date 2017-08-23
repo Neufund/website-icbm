@@ -5,12 +5,6 @@ import { HexagonsStack } from "./HexagonsStack";
 
 import * as styles from "./Incentive.scss";
 
-export const HexagonText: React.SFC = () =>
-  <div>
-    <p>Commitment Opportunity starts in:</p>
-    <h1>Future</h1>
-  </div>;
-
 export const Incentive: React.SFC = () =>
   <Row>
     <Col sm={6} className={styles.incentive}>
@@ -22,16 +16,12 @@ export const Incentive: React.SFC = () =>
       </p>
       <p>For more information on the commitment process and its legal aspects read the FAQ</p>
 
-      <Button bsStyle="primary" className="comming-soon">
-        How to participate
-      </Button>
+      <Button bsStyle="primary">How to participate</Button>
     </Col>
-    <Col sm={6} xsHidden>
+    <Col sm={6}>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText />
+        <p>Commitment Opportunity starts in:</p>
+        <h1>Future</h1>
       </HexagonsStack>
-    </Col>
-    <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText />
     </Col>
   </Row>;

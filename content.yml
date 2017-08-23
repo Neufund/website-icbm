@@ -3,7 +3,7 @@ commit_funds:
   sections:
     - point: "01"
       title: "How it works"
-      -paragraph1:  |
+      paragraph1:  |
         Neufund's ICO is a call to commit Capital to the Neufund
         Platform in exchange for tokens, that's why we call it ICBM
         - Initial Capital Building Mechanism.

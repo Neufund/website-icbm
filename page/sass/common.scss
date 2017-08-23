@@ -137,34 +137,3 @@ body{
         transform: rotateZ(-60deg);
     }
 }
-
-
-/* Portrait phones and smaller */
-@media (max-width: $screen-md) {
-    .hexagon-mobile{
-        background: linear-gradient(145.45deg, #F2F9EA 0%, #F2F9EA 1.63%, #F8F9F9 85.72%, #F8F9FA 100%);
-        height: 279px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin-top: $padding-between-sections;
-        h1{
-            color: $blue-dark-light;
-            margin: 0;
-        }
-        p{
-            color: $blue-dark-light;
-            font-weight: $font-weight-light;
-        }
-    }
-    ul.navbar-right{
-        li{
-            float: left;
-        }
-    }
-    .section.commit-funds{
-        border-top:0px !important;
-    }
-    
-}

@@ -61,6 +61,9 @@ $(document).ready(function () {
 
     const seeMore: string = "+ More";
     const seeLess: string = "- Less";
+    $('.person-block a').click(function(e){
+        e.preventDefault();
+    })
     $('.person-block').click(function () {
         const name: string = $(this).find('h4.name a').text();
         const image: string = $(this).find('img').attr('src');
@@ -99,3 +102,14 @@ $(window).scroll(function (e) {
             $(headerSelector).addClass('navbar-no-border');
     }
 });
+
+
+function movePlatformButtonToAnotherColumn() {
+    if ($(window).width() < 992) {
+        $("#platform-btn").detach().appendTo("#platform-second-col");
+    } else {
+        $("#platform-btn").detach().appendTo("#platform-first-col");
+    }
+}
+$(window).resize(movePlatformButtonToAnotherColumn);
+movePlatformButtonToAnotherColumn();

@@ -1,23 +1,53 @@
 .easy-access {
     position: relative;
-    background-image: url(../assets/hexagons.png);
-    background-size: 66%;
-    background-position: right;
-    background-repeat: no-repeat;
-    
     .section {
         position: static;
     }
     .shapes {
-        position: static;   
-        img{
-            position: absolute;
-            right: 62px;
-        }     
+        position: static;
     }
-    img.left-hexagon {
-        position: absolute;
-        left: -112px;
-        top: 0px;
+    .left-hexagon {
+        display: none;
+    }
+    img.img-responsive {
+        display: initial;
+    }
+    @media (min-width: $screen-lg) {
+        .shapes {
+            img {
+                position: absolute;
+                right: 62px;
+            }
+        }
+    }
+    @media (min-width: $screen-md) {
+        background-image: url(../assets/hexagons.png);
+        background-size: 66%;
+        background-position: right;
+        background-repeat: no-repeat;
+
+        .left-hexagon {
+            display: initial;
+            position: absolute;
+            left: -112px;
+            top: 0px;
+        }
+    }
+
+    @media (max-width: $screen-md) {
+        #platform-second-col {
+            background-image: url(../assets/hexagons_small.png);
+            background-position: left;
+            background-repeat: no-repeat;
+            text-align: center;
+            
+            img {
+                margin-top: 30px;
+            }
+
+            .btn {
+                margin-top: 50px;
+            }
+        }
     }
 }

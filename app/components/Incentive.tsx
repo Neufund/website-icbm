@@ -2,8 +2,14 @@ import * as React from "react";
 import { Grid, Row, Col, Button } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
-import { HexagonText } from "./HexagonText"
+
 import * as styles from "./Incentive.scss";
+
+export const HexagonText: React.SFC = () =>
+<div>
+    <p>Commitment Opportunity starts in:</p>
+    <h1>Future</h1>
+</div>
 
 export const Incentive: React.SFC = () =>
   <Row>

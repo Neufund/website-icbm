@@ -63,10 +63,10 @@
             <%- checkSectionVisiablity(content.advisors,
             include('partials/advisors', content.advisors)); %>
             
-            <%- checkSectionVisiablity(content.commit_funds,
-            include('partials/ecosystem',  content.commit_funds )); %>
+            <%- checkSectionVisiablity(content.ecosystem,
+            include('partials/ecosystem',  content.ecosystem )); %>
 
-            <%- include('partials/footer'); %>
+            <%- include('partials/footer', content.footer); %>
             <script src="/main.js"></script>
 
             <noscript>

@@ -2,9 +2,22 @@
     margin-top: $padding-between-sections;
     border-top: 1px $off-white solid;
 
-
+    .foot {
+          font-weight: $font-weight-more-bold;
+    }
     h3{
         font-size: 20px;
+    }
+    .link{
+      margin-left: 50px;
+      margin-top: 7px
+    }
+    .section-seperator{
+      border-bottom: black;
+      border-bottom-style: groove;
+      width: 407px;
+      border-bottom-width: thin;
+      margin-left: 50px;
     }
     .number{
         position: absolute;
@@ -26,6 +39,7 @@
 
         }
     }
+
     .content{
         @media (min-width: $screen-md){
             padding-left: 50px;

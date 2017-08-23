@@ -9,10 +9,10 @@ import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
 vex.defaultOptions.className = 'vex-theme-os'
 vex.registerPlugin(vexDialog)
 
-const getPersonModal: any = function (name: string, image: string, preTitle: string, title: string, bio: string) {
+const getPersonModal: any = function(name: string, image: string, preTitle:string, title: string, bio:string, domain: string, email: string){
     return {
         input:
-        `<a href="#" class="close-modal"></a>
+            `<a href="#" class="close-modal"></a>
                 <div class="row">
                 <div class="col-md-3 person-info-container">
                     <div class="person-info">
@@ -27,8 +27,8 @@ const getPersonModal: any = function (name: string, image: string, preTitle: str
                             <h4 class="position">${title}</h4>
                         </div>
                         <p class="bio">${bio}</p>
-                        <a class="link" href="#">domainname.com</a>
-                        <p class="handle">@testingdata</p>
+                        <a class="link" href="#">${domain}</a>
+                        <p class="handle">${email}</p>
                     </div>
                 </div>
             </div>`
@@ -42,7 +42,7 @@ const getParticipateModal: any = function (text: string) {
                 <div class="row">
                     <div class="col-md-12">
                         <h3> ${text} </h3>
-                    </div> 
+                    </div>
                 </div>
             </div>`
     }
@@ -70,11 +70,14 @@ $(document).ready(function () {
         const title: string = $(this).find('h4.position').text();;
         const bio: string = $(this).find('p.bio').text();
         const preTitle: string = $(this).find('span.pre-title').text();
+        const domain: string = $(this).find('a.domain').text();
+        const email: string = $(this).find('p.link').text();;
 
-        vex.dialog.open(getPersonModal(name, image, preTitle, title, bio))
+
+        vex.dialog.open(getPersonModal(name, image, preTitle, title, bio, domain, email))
     });
 
-    $('body').on('click', '.close-modal', function (e) {
+    $('body').on('click', '.close-modal', function(e){
         e.preventDefault();
         $('.vex.vex-theme-os').trigger('click');
     })

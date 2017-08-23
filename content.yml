@@ -3,7 +3,7 @@ commit_funds:
   sections:
     - point: "01"
       title: "How it works"
-      -paragraph1:  |
+      paragraph1:  |
         Neufund's ICO is a call to commit Capital to the Neufund
         Platform in exchange for tokens, that's why we call it ICBM
         - Initial Capital Building Mechanism.
@@ -60,15 +60,165 @@ team:
   visible: true
   title: "Team"
   intro: "Team of entrepereneurs and experienced professionals."
+  block: "../blocks/person"
   members:
-    block: "../blocks/person"
-    name: "Mostafa Balata"
-    title: "Software developer"
-    image: "../assets/mostafabalatabw.jpg"
-    preTitle: "Partner"
-    bio:  |
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+   - name: "Zoe Adamovicz"
+     title: "CEO and Co-Founder"
+     image: "../assets/ZoeAdamovicz_bw.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Zoe Adamovicz is the CEO and co-founder at Neufund. She is an experienced entrepreneur and occasional angel investor.
+       Zoe is passionate about building technology businesses that are impactful, positive and at the same time profitable and powerful. Prior to Neufund, she founded Xyo, a company that re-imagines how people discover apps, Priori Data (app store intelligence), and Concise Software which provides software development and engineering services.
+       She is also a mentor to the Gaza Sky Geeks, where she supports technology entrepreneurship in the challenging area of the Gaza Strip and helps introduce Blockchain. As an expert in technology entrepreneurship and venture capital, she has been following the blockchain space closely for several years. She decided to found Neufund when she realized the potential of blockchain for democratizing access to funding, and changing the VC game for good.
+       "
+   - name: "Marcin Rudolf"
+     title: "CTO and Co-Founder"
+     image: "../assets/MarcinRudolf_bw.jpg"
+     preTitle: ""
+     domain: "t.com"
+     email: "writeme@neufund.org"
+     bio:  |
+      "Marcin is a co-founder and CTO, and currently leads the technology development at Neufund. He has been tracking the development of blockchain technology for the past 6 years.
+       Before joining Neufund, he led technology development at the app search engine Xyo.
+       In addition, he has worked as a developer and team leader in projects involving messaging and telecommunication (Orange), cryptography and mobile devices (Jamba Music), insurance and government (Fiat, Hewlett-Packard).
+       "
+   - name: "Remco Bloemen"
+     title: "Product Owner and Co-Founder"
+     image: "../assets/RemcoBloemen_bw.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       Remco is a co-founder, Blockchain Architect, and Product Owner at Neufund.
+       An expert in Cryptography, Math and Programming, he founded blockchain forensics
+       company Cointel and cybersecurity company Coblue specialized in secure decentralized software.
+       He is a graduate of Math under Stephen Hawking at University of Cambridge and a graduate at Singularity University.
+
+   - name: "Andre Eggert"
+     title: "Legal Architect"
+     image: "../assets/AndreEggert_bw.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "André Eggert is a partner at LACORE. He advises companies and entrepreneurs as well as investors. One of his core activities is the support of M&A and financing transactions. André has special knowledge in the areas of private equity financing and quasi-equity instruments. His focus is, moreover, on negotiating and drafting joint venture and cooperation agreements. He possesses relevant experience resulting from his involvement in a wide range of international transactions with parties from the Anglo-American legal system. Additionally, he possesses specific expertise in the technology and entertainment industries."
+
+   - name: "Agnieszka Sarnecka"
+     title: "Bussiness Operations Manager"
+     image: "../assets/AgnieszkaSarnecka.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Agnieszka has been part of Neufund since the very beginning, assuming the role of Business Operations Manager. Agnieszka studied Economics and Business in Berlin. She has 5 years of experience working for tech startups in the fields of Project, Product, and Operations Management. Thanks to her career start at major online shop providers, she has perfected her planning and organizational skills. During her work at a tech-startup proving app discovery search engine she developed her content and project management skills. After that she started her own company and worked as a technical project manager for a software development agency. Besides “blockchaining” and organizing she cooks really passionately.
+       "
+   - name: "Ola Orchowska"
+     title: "Lead Blockchain Product Designer"
+     image: "../assets/olaorchowska.png"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Ola is the Lead Blockchain Product Designer at Neufund. This position has afforded her a deep understanding of both the technology and business perspective on the blockchain startup world.
+
+        Before joining Neufund, Ola has worked as a designer and design manager on projects at the intersection of business, technology and design.
+        She has been involved in various projects in both entrepreneurial and corporate environments including fields like healthcare and finance. She led a successful startup, ran research, built brands, and designed systems. Among others, Ola has worked on an e-commerce service for a major CEE insurance company, a digital banking system, a mobile platform for children with chronic diseases, and an expert system that supports ethical decision making.
+
+        Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
+        She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
+
+   - name: "Tomek Banach"
+     title: "Dapp Developer"
+     image: "../assets/TomaszBanach_bw.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Tomek is a dApp Developer at Neufund. During his Metrology and Quality Control studies he found out that computers can do much more than run Wolfenstein Enemy Territory over LAN. After accumulating basic IT knowledge by answering calls in a VPS hosting company he switched to freelance web development. During that period he attended software engineering studies to join as data scraping specialist the company that created the world’s first mobile app recommendation engine. For Neufund he refreshed his JavaScript skills and dove head first into madness of modern frontend development for the creation of classical web and distributed apps."
+
+   - name: "Moe Elsharif"
+     title: "Software developer"
+     image: "../assets/MoeElsharif.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Moe Elsharif graduated from Computer Engineering with a love for programming and Mathematics. During his studies he gathered experience in the field of Robotics, Artificial Intelligence and Nonlinear optimization. As an Embedded Systems Developer he works on integrating embedded systems solutions with blockchain technology and assesses the security implications these solutions cause. He has released different conference papers in the field of Embedded Security and Robotics. ."
+
+   - name: "Piotr Stroinski"
+     title: "IT Infrastructure Architect"
+     image: "../assets/Panor.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from work in big corporations spanning many sectors such as media, telecommunication, and banking.
+       There he was responsible for IT infrastructure and application architecture, as well as implementation and support.
+       Having bought his first bitcoins in 2012, and currently an active trader, he is deeply fascinated by blockchain technology. Once offered the opportunity to join Neufund, he could not resist moving to Berlin and becoming a part of the revolution in the startup financing model.
+       "
+   - name: "Marta Sosinka"
+     title: "Office Manager"
+     image: "../assets/MartaSosinska.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Marta Sosinska joined Neufund in March 2017 as Office Manager. She specializes in organizing office operations to ensure high effectiveness while minimizing costs. She is also responsible for administration matters like bookkeeping, as well as assisting the CEO with daily work.
+       Marta has been active in the IT industry since 2008. Over the past 9 years Marta has held various positions including IT Resource Support, Client Services Manager, and Contract Specialist. Marta’s education is a bachelor’s degree in Management.
+
+       Born and raised in Warsaw (Poland), Marta loves to travel to different places in the world in her spare time.
+       "
+
+   - name: "Mostafa Balata"
+     title: "Software developer"
+     image: "../assets/mostafabalatabw.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Mostafa Balata is a Full Stack Developer at Neufund. With more than four years of experience he is quick to learn and very collaborative. He is an active member in the open source community and interested in Blockchain technologies as well as the concept of decentralized applications. Mostafa focuses on writing smart contracts and creating interactive UI using modern Javascript frameworks. He joined Neufund as an intern after meeting the founder Zoe at the tech incubator Gaza Sky Geeks in Palestine."
+
+   - name: "Moritz Bierling"
+     title: "Blockchain Reporter"
+     image: "../assets/MoritzBierling.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Moritz Bierling is a researcher, writer, and man of many talents. As the resident Blockchain Reporter at Neufund he helps educate the public about the nature of blockchain-related technologies and the effect they have on economy and society, while also coordinating community outreach activities, media campaigns, and business development efforts. In his past work at Exosphere Academy he organized a Space Elevator bootcamp, an Artificial Intelligence conference, and the world’s first Ethereum training course in addition to authoring a Primer on the emerging discipline of Alternate Reality Design. His work has appeared in a number of blockchain-related media outlets such as CoinTelegraph, Bitcoin.com and the The Bitcoin Podcast."
+
+   - name: "Jacek Czarnecki"
+     title: "General Counsel & Business Strategist"
+     image: "../assets/JacekCzarnecki.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.
+       In crypto world from 2014, and prior to joining Neufund, Jacek has been able to gather a substantial amount of experience with blockchain thanks to his work in a technology practice at a prominent law firm. This experience convinced him that blockchain is also the future of law, which he is able to help shape at Neufund.
+       In his second role as Neufund’s Business Strategist, he is also responsible for expanding and maintaining Neufund’s partnerships with the leading firms in crypto, law, and business.
+       Jacek holds a Masters of Law and Finance from the University of Oxford as well as a Masters in Law from the University of Warsaw. He is also working on a PhD (about blockchain, of course).
+       ."
+
+   - name: "Steffen Sieler"
+     title: "Blockchain Technology Communications Department"
+     image: "../assets/Steffen1.jpg"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional character of blockchain technology allows for new ways in which actors can collaborate, transact, and trust. His interdisciplinary approach spans the realms of economics, politics, and sociology and aims to promote the emerging field of crypto-economics. As a researcher he is affiliated with the Leadership Excellence Institute Zeppelin and the Oxford Internet Institute. After his work in the banking innovation sphere, he is now happy to work with Neufund, where he forges the Blockchain Policy Initiative.
+       "
+   - name: "Krzysztof Kaczor"
+     title: "Lead Developer"
+     image: "../assets/krzysztofkaczor.png"
+     preTitle: ""
+     domain: ""
+     email: "writeme@neufund.org"
+     bio:  |
+       "Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has held various positions ranging from mobile developer to CTO at a number of tech firms. He is particularly interested in compiler theory, cryptocurrencies and DevOps. Krzysztof is a huge fan of the open source philosophy and various projects of his have gained several hundred stars on GitHub. In his free time, he likes to listen to rap and indie music as well as ride his longboard. "
 
 advisors:
   visible: false
@@ -90,6 +240,8 @@ advisors:
     title: "Capital Name"
     image: "../assets/mostafabalatabw.jpg"
     preTitle: "Partner"
+    domain: ""
+    email: "writeme@neufund.org"
     bio:  |
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

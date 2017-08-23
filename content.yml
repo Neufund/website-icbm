@@ -1,33 +1,27 @@
 commit_funds:
-  point1: "01"
-  title1: "Commit Funds <br/> ≠ Invest nor Buy"
-  paragraph1a:  |
-        You stay in control of all your committed funds.
-        You decide in which startups you will invest your
-        funds in the future. The Neufund Platform’s goal
-        is to make many investment opportunities available..
-  paragraph1b:  |
-        Fifth Force, the Platform operator,
-        cultivates the decentralised investment
-        ecosystem by kickstarting the startup
-        deal flow and providing legal & technical
-        infrastructure. <strong> It does not manage
-        your funds for you.</strong>
-  point2: "02"
-  title2: "Reward: Neumarks<br/> = Share in the Ecosystem"
-  paragraph2a:  |
-        When you commit funds you get a reward,
-        the Neumark token. By owning Neumarks you
-        own a share of the ecosystem, you have a
-        right to its revenue and to the Neufund
-        Platform portfolio. You actively increase
-        its value by investing in startups.
-  paragraph2b:  |
-        <strong>The sooner you commit your funds
-        the higher your reward.</strong> You can
-        capitalize on Neumarks by hodling them
-        to receive revenue or by trading them on
-        the market.
+  sections:
+    - point: "01"
+      title: "How it works"
+      -paragraph1:  |
+        Neufund's ICO is a call to commit Capital to the Neufund
+        Platform in exchange for tokens, that's why we call it ICBM
+        - Initial Capital Building Mechanism.
+      paragraph2:  |
+        Reserve ETH in your personal Ethereum wallet. You have 18
+        months to pick your favourite investments. Not investing
+        results in full release.
+    - point: "02"
+      title: "Why participate: Neumarks Key features"
+      paragraph1:  |
+        Revenue share from all the future investments success
+        fees.<br>
+        participate in portfolio of all the tokens that will ever
+        launch.
+      paragraph2:  |
+        <strong>First come better served. The sooner you reserve your
+        funds the more NEU you per ETH.</strong> You can capitalize on
+        Neumarks by hodling or by trading without vesting on secondary market
+        from day one.
 
 participating:
   title: "What Do you Gain From Participating?"
@@ -41,9 +35,10 @@ participating:
         tradable crypto tokens, which result in a liquid
         secondary market for your investments
   subtitle: "Key to read"
-  link1: "Neufund Whitepaper"
-  link2: "Roadmap"
-  link3: "Neumark Token Holder Agreenment"
+  links:
+    - link: "Neufund Whitepaper"
+    - link: "Roadmap"
+    - link: "Neumark Token Holder Agreenment"
 
 easy_access:
   title: "Neufund Platform, Easy Access to the Blockchain World"
@@ -67,26 +62,75 @@ team:
     title: "Software developer"
     image: "../assets/mostafabalatabw.jpg"
     preTitle: "Partner"
-    bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    
+    bio:  |
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
 advisors:
   title: "Advisors"
-  quote1: |
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-  speaker1: "John Smith"
-  company1: "Company name"
-  quote2: |
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  speaker2: "John Smith"
-  company2: "Company name"
+  qoutes:
+    - quote: |
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+      speaker: "John Smith"
+      company: "Company name"
+    - quote: |
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      speaker: "John Smith"
+      company: "Company name"
   members:
     block: "../blocks/person"
     name: "John Smith"
     title: "Capital Name"
     image: "../assets/mostafabalatabw.jpg"
     preTitle: "Partner"
-    bio:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    bio:  |
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+ecosystem:
+  title: "Neufund's Ecosystem Impact"
+  paragraph: |
+    Neunfund's effort goes into building a mature
+    ecosystem able to contain all the amazing
+    technological and legal innovation etc.
+  subtitle: "Go to:"
+  links:
+    - name: "Neufunds Ecosystem Impact Page"
+      ref: "#"
+    - name: "Neufunds Mediem Channel"
+      ref: "#"
+
+  features:
+    - name: "Social impact"
+      subtitle: "ICO Trancparancy Monitor"
+      href: "https://icomonitor.io"
+    - name: "Regulatory Efforts"
+      subtitle: "Employe Stock Option Plan"
+      href: "https://neufund.org/esop"
+    - name: "Regulatory Efforts"
+      subtitle: "Blockchain Policy Initiatieve"
+      href: "https://blockchainpolicy.org"
+    - name: "Coming Soon"
+      subtitle: "Ethereum Impovment Proposal"
+      href: "#"
+
+footer:
+  links:
+    - link: "https://techcrunch.com/2017/01/17/neufund/"
+      img: "../assets/techcrunchlogo2013.png"
+    - link: "http://www.geektime.com/2017/01/17/berlin-cryptocurrency-hybrid-vc-neufund-raises-e2m-to-upend-startup-investing-as-we-know-it/"
+      img: "../assets/gt-conv-logo.png"
+    - link: "https://cointelegraph.com/news/icos-are-the-future-of-funding-says-co-founder-of-platform-that-just-raised-2-mln"
+      img: "../assets/cointelegraph-1.png"
+    - link: "http://www.the-blockchain.com/2017/01/21/berlins-neufund-blockchain-fundraising-platform-raises-2-million/"
+      img: "../assets/logo-300x77.png"
+    - link: "http://www.pymnts.com/blockchain/2017/blockchain-tracker-bridging-gaps/"
+      img: "../assets/pymnts-1.png"
+
+  bottomtitle: "@Fifth Force"
+  website: "neufund.org"
+  weblink: "https://neufund.org"
+  email: "icbm@neufund.org"
+  emaillink: "mailto:icbm@neufund.org"

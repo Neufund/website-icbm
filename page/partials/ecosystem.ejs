@@ -2,50 +2,48 @@
   <div class="ecosystem">
     <div class="row">
       <img class="logo" src="./assets/NeuFund_logo_full_white_72dpi Copy 4@3x.png" />
-      <h3>Neufund's Ecosystem Impact</h3>
+      <h3><%= title -%></h3>
     </div>
     <div class="row">
       <div class="col-md-5">
-        <p class="padme" class="content">Neunfund's effort goes into building a mature ecosystem able to contain all the amazing technological and legal innovation
-          etc.
-        </p>
-        <div class="goto-element">Go to:</div>
+        <p class="padme" class="content"><%= paragraph -%></p>
+        <div class="goto-element"><%= subtitle -%></div>
         <ul>
-          <li><a href="#">Neufunds Ecosystem Impact Page</a></li>
-          <li><a href="#">Neufunds Mediem Channel</a></li>
+          <li><a href="<%= links[0].ref -%>"><%= links[0].name -%></a></li>
+          <li><a href="<%= links[1].ref -%>"><%= links[1].name -%></a></li>
         </ul>
       </div>
 
       <div class="col-md-7">
         <div class="row">
           <div class="col-md-6">
-            
-            <div class="text-box">  
-              <h5>Social impact</h5>
+
+            <div class="text-box">
+              <h5><%= features[0].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="https://icomonitor.io" target="_blank" > ICO Trancparancy Monitor</a></div>
+              <div class=subtitle><a href="<%= features[0].href -%>" target="_blank" ><%= features[0].subtitle -%></a></div>
             </div> <!-- end text box -->
-            
-            <div class="text-box"> 
-              <h5> Regulatory Efforts</h5>
+
+            <div class="text-box">
+              <h5><%= features[1].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="https://neufund.org/esop" target="_blank">Employe Stock Option Plan</a></div>              
+              <div class=subtitle><a href="<%= features[1].href -%>" target="_blank"><%= features[1].subtitle -%></a></div>
             </div> <!-- end text box -->
           </div>
 
           <div class="col-md-6">
-            <div class="text-box"> 
-              <h5>Regulatory Efforts</h5>
+            <div class="text-box">
+              <h5><%= features[2].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="https://blockchainpolicy.org" target="_blank">Blockchain Policy Initiatieve</a></div>
+              <div class=subtitle><a href="<%= features[2].href -%>" target="_blank"><%= features[2].subtitle -%></a></div>
             </div> <!-- end text box -->
-            
-            <div class="text-box"> 
-              <h5>Coming Soon</h5>
+
+            <div class="text-box">
+              <h5><%= features[3].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="#">Ethereum Impovment Proposal</a></div>
+              <div class=subtitle><a href="<%= features[3].href -%>"><%= features[3].subtitle -%></a></div>
             </div>
-            
+
           </div>
         </div>
       </div>

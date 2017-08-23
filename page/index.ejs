@@ -44,7 +44,8 @@
             <div id="react-root"></div>
             <%
             const checkSectionVisiablity = function(item, content) {
-                return item.visible?content:null;
+                if(item.visible != undefined && item.visible)
+                    return content
             }
             %>
 
@@ -63,10 +64,10 @@
             <%- checkSectionVisiablity(content.advisors,
             include('partials/advisors', content.advisors)); %>
             
-            <%- checkSectionVisiablity(content.commit_funds,
-            include('partials/ecosystem',  content.commit_funds )); %>
+            <%- checkSectionVisiablity(content.ecosystem,
+            include('partials/ecosystem',  content.ecosystem )); %>
 
-            <%- include('partials/footer'); %>
+            <%- include('partials/footer', content.footer); %>
             <script src="/main.js"></script>
 
             <noscript>

@@ -12,13 +12,13 @@
 
             <div class="row">
                 <% for (var i = 0; i < 4; i++) { %>
-                <%- include('../blocks/person', members) %>
+                <%- include(block, members[i]) %>
                 <% } %>
             </div> <!-- end row -->
 
             <div class="row is-hidden hidden-picture">
-                <% for (var i = 4; i < 10; i++) { %>
-                    <%- include('../blocks/person', members) %>
+                <% for (var i = 4; i < 15; i++) { %>
+                    <%- include('../blocks/person', members[i]) %>
                 <% } %>
 
             </div><!-- End row -->

@@ -20,7 +20,14 @@
         }
     }
 }
-
+@media (min-width: $screen-sm){
+  .time{
+    margin-left: 35px;
+  }
+  .goto{
+    margin-left: 90px;
+  }
+}
 .hexagons {
     top: 45px;
     margin-left:auto;

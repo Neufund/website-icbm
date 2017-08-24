@@ -2,9 +2,22 @@
     margin-top: $padding-between-sections;
     border-top: 1px $off-white solid;
 
-
+    ul li{
+        list-style: none;
+        margin-bottom: 7px;
+        color: $green;
+    }
+    .foot {
+          font-weight: $font-weight-more-bold;
+    }
     h3{
         font-size: 20px;
+    }
+    .link{
+      margin-top: 7px
+    }
+    .section-seperator{
+      margin-bottom: 50px;
     }
     .number{
         position: absolute;
@@ -16,6 +29,12 @@
         font-weight: $font-weight-more-bold;
 
     }
+    .spacing{
+      margin-bottom: 70px;
+    }
+    i {
+      margin-right: 10px;
+    }
 
   @media (max-width: $screen-md){
         .seperator {
@@ -25,11 +44,24 @@
             padding-top: 48px;
 
         }
+        li {
+            margin-left: -25px;
+        }
+    }
+    @media (min-width: $screen-md){
+      .content{
+        padding-left: 50px;
+      }
+      .section-seperator{
+        border-bottom: 1px $gray-extra-light solid;
+        width: 407px;
+        margin-left: 50px;
+      }
+      li{
+        margin-left: 20px;
+      }
     }
     .content{
-        @media (min-width: $screen-md){
-            padding-left: 50px;
-        }
     p{
         font-size: $font-size-small
     }

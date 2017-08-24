@@ -47,7 +47,7 @@ const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...
         </feMerge>
       </filter>}
 
-    <polygon      
+    <polygon
       points="303,153 228,283 78,283 3,153 78,23 228,23"
       style={{ [shadow && "filter"]: "url(#dropshadow)", ...style }}
       {...props}

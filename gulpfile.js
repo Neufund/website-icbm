@@ -15,6 +15,19 @@ gulp.task("page", () => {
   gulp.src("./page/index.ejs")
     .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
+
+  gulp.src("./page/whitepaper.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+
+  gulp.src("./page/faq.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+    
+  gulp.src("./page/product.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+        
 });
 
 gulp.task("sass", () => {

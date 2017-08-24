@@ -259,6 +259,7 @@ advisors:
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
 ecosystem:
+  visible: true
   title: "Neufund's Ecosystem Impact"
   paragraph: |
     Neunfund's effort goes into building a mature

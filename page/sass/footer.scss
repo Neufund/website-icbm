@@ -18,7 +18,7 @@ html{
         z-index: -1;
 
         .hexagon-wrapper {
-            position:static;
+            position: static;
             width: 260px;
             height: 260px;
             transform: rotate(134deg) translateY(-36px);
@@ -31,12 +31,12 @@ html{
 }
 .footer{
     padding-top: $padding-between-sections;   
-    border:0 !important;  
+    border: 0;  
     ul{
         display: inline-block;
         padding: 0px;
-        width:100%;
-        text-align:center;
+        width: 100%;
+        text-align: center;
         position: relative;
 
         li{

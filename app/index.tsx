@@ -11,6 +11,7 @@ import Countdown from "./containers/Countdown";
 const root = document.getElementById("react-root");
 
 const render = () => {
+  // We are doing this because we are not loading the "react-root" div in the following pages[whitepaper, faq, prodcut]    
   if (root) {
     ReactDOM.render(
     <div>

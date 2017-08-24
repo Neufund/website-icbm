@@ -7,20 +7,30 @@ import * as styles from "./Incentive.scss";
 
 export const HexagonText: React.SFC = () =>
   <div>
-    <p>Commitment Opportunity starts in:</p>
-    <h1>Future</h1>
+    <p className={styles.goto}>starts in:</p>
+    <h1 className={styles.time}>Autumn</h1>
   </div>;
 
 export const Incentive: React.SFC = () =>
   <Row>
     <Col sm={6} className={styles.incentive}>
-      <h1>Community owned investment ecosystem</h1>
+      <h1>Community Owned Fundraising Platform</h1>
 
       <p>
-        Commit funds to invest in the future. As a reward for early participation you will get a
-        token (neumark) representing the platform’s ownership.
+        Neufund bridges blockchain and venture capital enabling ICOs for on- and off-chain startups.
       </p>
-      <p>For more information on the commitment process and its legal aspects read the FAQ</p>
+      <p>
+        Reserve funds<sup>
+          <a href="#commit">01</a>
+        </sup>{" "}
+        today for your future investments. Maintain full control of your investment decisions.
+      </p>
+      <p>
+        Get Neumarks<sup>
+          <a href="#commit">02</a>
+        </sup>{" "}
+        just by reserving funds and become a co-owner of the platform.
+      </p>
 
       <Button bsStyle="primary" className="comming-soon">
         How to participate

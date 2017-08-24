@@ -1,9 +1,7 @@
 <div class="section press">
     <ul>
-        <li><a target="_blank" href="<%= links[0].link -%>" ><img src="<%= links[0].img -%>" /></a></li>
-        <li><a target="_blank" href="<%= links[1].link -%>" ><img src="<%= links[1].img -%>" /></a></li>
-        <li><a target="_blank" href="<%= links[2].link -%>" ><img src="<%= links[2].img -%>" /></a></li>
-        <li><a target="_blank" href="<%= links[3].link -%>" ><img src="<%= links[3].img -%>" /></a></li>
-        <li><a target="_blank" href="<%= links[4].link -%>" ><img src="<%= links[4].img -%>" /></a></li>
+        <% for ( var i = 0 ; i < links.length ; i++ ) { %>
+        <li><a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>" /></a></li>
+        <% } %>
     </ul>
 </div>

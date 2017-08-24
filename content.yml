@@ -297,7 +297,9 @@ footer:
     - link: "http://www.the-blockchain.com/2017/01/21/berlins-neufund-blockchain-fundraising-platform-raises-2-million/"
       img: "../assets/blockchain_news.png"
     - link: "http://www.pymnts.com/blockchain/2017/blockchain-tracker-bridging-gaps/"
-      img: "../assets/pymnts-1.png"
+      img: "../assets/coindesk.png"
+    - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/#10beb18071bd"
+      img: "../assets/forbes.png"
 
   bottomtitle: "@Fifth Force"
   website: "neufund.org"

@@ -1,0 +1,28 @@
+<div id="react-root"></div>
+
+<%
+const checkSectionVisiablity = function(item, content) {
+    if(item.visible != undefined && item.visible)
+        return content
+}
+%>
+
+<%- checkSectionVisiablity(content.commit_funds,
+include('commit_funds',  content.commit_funds )); %>
+
+<%- checkSectionVisiablity(content.participating,
+include('participating', content.participating)); %>
+
+<%- checkSectionVisiablity(content.easy_access, 
+include('easy_access', content.easy_access)); %>
+
+<%- checkSectionVisiablity(content.team,
+include('team', content.team)); %>
+
+<%- checkSectionVisiablity(content.advisors,
+include('advisors', content.advisors)); %>
+
+<%- checkSectionVisiablity(content.ecosystem,
+include('ecosystem',  content.ecosystem )); %>
+
+<%- include('footer_top', content.footer); %>

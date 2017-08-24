@@ -11,6 +11,15 @@ commit_funds:
         Reserve ETH in your personal Ethereum wallet. You have 18
         months to pick your favourite investments. Not investing
         results in full release.
+      links:
+        - link: "Terms and conditions"
+          href: "#"
+        - link: "Smartcontracts on Github"
+          href: "#"
+        - link: 'Neufund "ICO" FAQ'
+          href: "#"
+        - link: "How to participate"
+          href: "#"
     - point: "02"
       title: "Why participate: Neumarks Key features"
       paragraph1:  |
@@ -23,6 +32,9 @@ commit_funds:
         funds the more NEU you per ETH.</strong> You can capitalize on
         Neumarks by hodling or by trading without vesting on secondary market
         from day one.
+      links:
+        - link: "Neumark Token Holder Agreenment"
+          href: "#"
 
 participating:
   visible: true

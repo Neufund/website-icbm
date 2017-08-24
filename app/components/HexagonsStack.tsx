@@ -37,9 +37,9 @@ const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...
       <filter id="dropshadow" height="130%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
         <feOffset dx="1" dy="1" result="offsetblur" />
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.2"/>
-          </feComponentTransfer>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.2" />
+        </feComponentTransfer>
 
         <feMerge>
           <feMergeNode />

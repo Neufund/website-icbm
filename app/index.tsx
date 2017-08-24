@@ -11,12 +11,14 @@ import Countdown from "./containers/Countdown";
 const root = document.getElementById("react-root");
 
 const render = () => {
-  ReactDOM.render(
+  if (root) {
+    ReactDOM.render(
     <div>
       <Countdown />
     </div>,
     root
-  );
+  );  
+  }
 };
 
 const enhancers = (routes: any) =>

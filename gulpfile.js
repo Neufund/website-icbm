@@ -10,11 +10,26 @@ const fs   = require('fs');
 gulp.task("clean", () => del(["dist"]));
 
 gulp.task("page", () => {
-  let content = yaml.load(fs.readFileSync('./content.yml', 'utf8'));
+  let content = yaml.load(fs.readFileSync('./content.yml', 'utf8'));  
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
   gulp.src("./page/index.ejs")
     .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
+
+  gulp.src("./page/whitepaper.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+
+  gulp.src("./page/faq.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+    
+  gulp.src("./page/product.ejs")
+    .pipe(ejs({ content }, {}, { ext: ".html" }).on("error", gutil.log))
+    .pipe(gulp.dest("./dist/"));
+    
+
+    
 });
 
 gulp.task("sass", () => {

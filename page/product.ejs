@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-<%- include('partials/head', {title: 'Product' }); %>
-
-<body>
-    <%- include('partials/header'); %>
+    <%- include('partials/head', {title: 'Product' }); %>
+    <body>
+        <%- include('partials/header'); %>
         <div class="main container">
-
             <%- include('partials/product' ); %>
             <%- include('partials/footer', content.footer); %>
             <script src="/main.js"></script>
                         
-
             <noscript>
                 <p>This page requires JavaScript to be enabled.</p>
             </noscript>
         </div>
-
-</body>
-
+    </body>
 </html>

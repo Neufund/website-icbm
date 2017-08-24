@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head', {title: 'FAQ' }); %>
+    <%- include('partials/head', {title: 'FAQ'}); %>
     <body>
-        <%- include('partials/header'); %>
+        <%- include('partials/header', {active: 'faq'}); %>
             <div class="main container">
                 <%- include('partials/faq' ); %>
                 <%- include('partials/footer', content.footer); %>

@@ -2,7 +2,7 @@
 <html>
     <%- include('partials/head', {title: 'Product' }); %>
     <body>
-        <%- include('partials/header'); %>
+        <%- include('partials/header', {active: 'product'}); %>
         <div class="main container">
             <%- include('partials/product' ); %>
             <%- include('partials/footer', content.footer); %>

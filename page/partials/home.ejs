@@ -6,6 +6,7 @@ const checkSectionVisiablity = function(item, content) {
         return content
 }
 %>
+<%- include('press', content.footer); %>
 
 <%- checkSectionVisiablity(content.commit_funds,
 include('commit_funds',  content.commit_funds )); %>
@@ -24,5 +25,3 @@ include('advisors', content.advisors)); %>
 
 <%- checkSectionVisiablity(content.ecosystem,
 include('ecosystem',  content.ecosystem )); %>
-
-<%- include('footer_top', content.footer); %>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head', {title: 'FAQ'}); %>
+    <body>
+        <%- include('partials/header', {active: 'faq'}); %>
+            <div class="main container">
+                <%- include('partials/faq' ); %>
+                <%- include('partials/footer', content.footer); %>
+                <script src="/main.js"></script>
+
+                <noscript>
+                    <p>This page requires JavaScript to be enabled.</p>
+                </noscript>
+            </div>
+    </body>
+</html>

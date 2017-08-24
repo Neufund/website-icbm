@@ -1,5 +1,6 @@
 // @todo how to avoid including it many times?
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../common/sass/variables.scss";
 
 .incentive {
     h1 {
@@ -12,7 +13,7 @@
         }
     }
     a {
-      font-weight: 600;
+      font-weight: $font-weight-more-bold;
     }
     button {
         margin-top: 30px;

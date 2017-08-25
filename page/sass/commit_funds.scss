@@ -1,6 +1,6 @@
 .section.commit-funds{    
     border-top: 1px $off-white solid;
-    ul.separator.compact-list {
+    ul.compact-list {
         padding-left: 26px;
     }
 
@@ -24,10 +24,9 @@
         padding-left: 13px;
         font-size: $font-size-small;
         font-weight: $font-weight-more-bold;
-
     }
     .spacing{
-      margin-bottom: 70px;
+      margin-bottom: 90px;
     }
 
   @media (max-width: $screen-md){

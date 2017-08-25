@@ -50,8 +50,10 @@ h3.smaller {
     margin-bottom: $padding-between-pictures;
 
     .person-info .person-details{
+        position: relative;
         margin-top: -62px;
-        margin-left: 105px;
+        left: 105px;
+        max-width: 212px;
         margin-bottom: 29px;
     }
 }

@@ -21,16 +21,16 @@ commit_funds:
         - link: "How to participate"
           href: "#"
     - point: "02"
-      title: "Why participate: Neumarks Key features"
+      title: "Why participate: Neumark key feature"
       paragraph1:  |
         Revenue share from all the future investments success
         fees.<br>
-        participate in portfolio of all the tokens that will ever
+        Participate in portfolio of all the tokens that will ever
         launch.
       paragraph2:  |
         <strong>First come better served. The sooner you reserve your
         funds the more NEU you per ETH.</strong> You can capitalize on
-        Neumarks by hodling or by trading without vesting on secondary market
+        Neumarks by <i>hodling</i> or by trading without vesting on secondary market
         from day one.
       links:
         - link: "Neumark Token Holder Agreement"
@@ -38,40 +38,31 @@ commit_funds:
 
 participating:
   visible: true
-  title: "What Do you Gain From Participating?"
+  title: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world"
   paragrapha:  |
-        Neufund provides access to global high quality
-        dealflow, with low transaction costs, transparency,
-        and openess. You invest in great companies that
-        bring high Return On Investment.
-  paragraphb:  |
-        Startup equity is represented on the platform as
-        tradable crypto tokens, which result in a liquid
-        secondary market for your investments
+        Using our legal and technical infrastructure, startups and established companies alike can legally issue a new type of asset we call tokenized equity – 
+        in essence, digital shares. We achieve this by formally linking paper contracts with Ethereum smart contracts through mutual reference and code correspondence.
+        Neufund enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement. 
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
     - link: "Roadmap"
-    - link: "Neumark Token Holder Agreement"
 
 easy_access:
   visible: true
-  title: "Neufund Platform, Easy Access to the Blockchain World"
+  title: "For crypto nerds, finance nerds and non-nerds at all"
   paragraph:  |
-      Easy to use crafted experience for different actors on
-      different stages of their investment journey.
-      An on-going work, being build with community
-      for community, open-source code, access point
-      to blockchian.
+        Easy to use crafted experience for different actors on different stages of their investment journey. An on-going work, being build with community for community, 
+        open-source code, access point for everyone to blockchain.
   remark: "Check out the:"
-  link1: "Neufnd's Github account"
+  link1: "Neufund’s Github account"
   link2: "Our introductory post to the product"
   button: "Pre-alfa version"
 
 team:
   visible: true
   title: "Team"
-  intro: "Team of entrepereneurs and experienced professionals."
+  intro: "Team of entrepreneurs and experienced professionals"
   block: "../blocks/person"
   members:
    - name: "Zoe Adamovicz"
@@ -267,23 +258,23 @@ ecosystem:
     technological and legal innovation etc.
   subtitle: "Go to:"
   links:
-    - name: "Neufunds Ecosystem Impact Page"
-      ref: "#"
-    - name: "Neufunds Mediem Channel"
-      ref: "#"
+    - name: "Neufund's Ecosystem Impact Page"
+      ref: "https://neufund.org/ecosystem/"
+    - name: "Neufund's Medium Channel"
+      ref: "https://blog.neufund.org/"
 
   features:
     - name: "Social impact"
-      subtitle: "ICO Trancparancy Monitor"
+      subtitle: "ICO Transparency Monitor"
       href: "https://icomonitor.io"
     - name: "Regulatory Efforts"
-      subtitle: "Employe Stock Option Plan"
+      subtitle: "Employee Stock Option Plan"
       href: "https://neufund.org/esop"
     - name: "Regulatory Efforts"
-      subtitle: "Blockchain Policy Initiatieve"
+      subtitle: "Blockchain Policy Initiative"
       href: "https://blockchainpolicy.org"
     - name: "Coming Soon"
-      subtitle: "Ethereum Impovment Proposal"
+      subtitle: "Ethereum Improvement Proposal"
       href: "#"
 
 footer:

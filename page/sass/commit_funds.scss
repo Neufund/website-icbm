@@ -1,10 +1,9 @@
 .section.commit-funds{    
     border-top: 1px $off-white solid;
-    ul li{
-        list-style: none;
-        margin-bottom: 7px;
-        color: $green;
+    ul.separator.compact-list {
+        padding-left: 26px;
     }
+
     .foot {
           font-weight: $font-weight-more-bold;
     }
@@ -29,9 +28,6 @@
     }
     .spacing{
       margin-bottom: 70px;
-    }
-    i {
-      margin-right: 10px;
     }
 
   @media (max-width: $screen-md){

@@ -48,7 +48,7 @@
     "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
     "lint": "yarn format && yarn tslint",
     "lint:fix": "yarn format:fix && yarn tslint:fix",
-    "build": "NODE_ENV=production bash -c 'gulp build && webpack'"
+    "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp build && webpack'"
   },
   "dependencies": {
     "classnames": "^2.2.5",

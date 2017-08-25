@@ -1,11 +1,43 @@
+// fix for missing scrollbar when scrollbar is visible
+.vex-open {
+    padding-right: 15px;
+    nav {
+        padding-right: 15px;
+    }
+}
+
 body{
     -webkit-font-smoothing: antialiased;
     padding-top: $navbar-height + 10px;
     overflow-x: hidden;
 }
 
+p.slim {
+    font-weight: $font-weight-light;
+}
+h3.smaller {
+    font-size: 20px;
+}
+
+.section ul.compact-list {
+    padding: 0 0 $space-bottom-between-elements 0;    
+
+    li {
+        font-size: 16px;
+        i {
+            font-size: 17px;
+            line-height: 22px;
+            margin-right: 10px;
+        }
+        font-weight: $font-weight-bold;
+        list-style: none;
+        margin-bottom: 7px;
+        color: $green;
+    }
+}
+
 #react-root {
-    min-height: 362px;
+    min-height: 433px;
 }
 
 .main-container {
@@ -18,8 +50,10 @@ body{
     margin-bottom: $padding-between-pictures;
 
     .person-info .person-details{
+        position: relative;
         margin-top: -62px;
-        margin-left: 105px;
+        left: 105px;
+        max-width: 212px;
         margin-bottom: 29px;
     }
 }
@@ -60,13 +94,6 @@ body{
     p{
         font-size: $font-size-normal;
         margin-bottom: $margin-bottom-between-paragraphs;
-    }
-    ul{
-        padding: 0 0 $space-bottom-between-elements $space-bottom-between-elements;
-        li {
-            color: black;
-            font-weight: $font-weight-bold;
-        }
     }
     a{
         font-weight: $font-weight-more-bold;

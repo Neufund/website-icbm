@@ -89,7 +89,7 @@ $(document).ready(function () {
     $('.comming-soon').click(function (e) {
         e.preventDefault();
         const text = $(this).text()
-        vex.dialog.open(getParticipateModal(`${text} is coming soon`))
+        vex.dialog.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`))
     });
 
 });
@@ -122,7 +122,11 @@ $(document).ready(function(){
     $('a[href*="#"]').click(function(e){
         e.preventDefault();
         // the destination id will be taken from the href attribute
-        var target= $($(this).attr('href'));
+        const dest = $(this).attr("href");
+        if (dest === "#") {
+            return;
+        }
+        var target= $(dest);
         $('html, body').stop().animate({
         scrollTop: target.offset().top
         }, 1000);

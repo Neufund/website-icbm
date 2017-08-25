@@ -1,12 +1,18 @@
 const path = require("path");
 const webpack = require("webpack");
-const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
+const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
 
 const isProduction = process.env.NODE_ENV === "production";
 
+const devEntryPoints = isProduction ? [] : [
+  "react-hot-loader/patch",
+  "webpack-dev-server/client?http://localhost:8080",
+  "webpack/hot/only-dev-server",
+]
+
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".js"], 
+    extensions: [".ts", ".tsx", ".js"],
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -24,11 +30,9 @@ module.exports = {
     },
   },
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
+    ...devEntryPoints,
     "./app/index.tsx",
-    "./page/ts/index.ts",    
+    "./page/ts/index.ts",
   ],
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -42,17 +46,21 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      "window.jQuery": "jquery"
+      "window.jQuery": "jquery",
     }),
     new RobotstxtPlugin({
-        policy: [
-            {
-                userAgent: '*',
-                allow: '/',
-            }
-        ]
-    })
-       
+      policy: [
+        {
+          userAgent: "*",
+          allow: "/",
+        },
+      ],
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
   ],
   node: {
     __filename: true,

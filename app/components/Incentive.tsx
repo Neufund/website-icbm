@@ -6,7 +6,7 @@ import { HexagonsStack } from "./HexagonsStack";
 import * as styles from "./Incentive.scss";
 
 export const HexagonText: React.SFC = () =>
-  <div>
+  <div className={styles.text}>
     <p className={styles.goto}>Starts in:</p>
     <h1 className={styles.time}>
       Autumn<br />2017

@@ -116,3 +116,15 @@ function movePlatformButtonToAnotherColumn() {
 }
 $(window).resize(movePlatformButtonToAnotherColumn);
 movePlatformButtonToAnotherColumn();
+
+//Smooth scrolling
+$(document).ready(function(){
+    $('a[href*="#"]').click(function(e){
+        e.preventDefault();
+        // the destination id will be taken from the href attribute
+        var target= $($(this).attr('href'));
+        $('html, body').stop().animate({
+        scrollTop: target.offset().top
+        }, 1000);
+    })
+})

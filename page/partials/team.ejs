@@ -17,10 +17,11 @@
             </div> <!-- end row -->
 
             <div class="row is-hidden hidden-picture">
-                <% for (var i = 4; i < 15; i++) { %>
-                    <%- include('../blocks/person', members[i]) %>
-                <% } %>
-
+              <% for (var i = 4; i < 15; i++) { %>
+                  <% if ( i % 2 == 1 ) { %> <div class="row" > <% } %>
+                  <%- include('../blocks/person', members[i]) %>
+                  <% if ( i % 2 == 1 ) { %> </div> <% } %>
+              <% } %>
             </div><!-- End row -->
 
             <!-- see more -->

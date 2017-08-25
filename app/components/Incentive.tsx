@@ -16,7 +16,7 @@ export const HexagonText: React.SFC = () =>
 export const Incentive: React.SFC = () =>
   <Row>
     <Col sm={6} className={styles.incentive}>
-      <h1>Community Owned Fundraising Platform</h1>
+      <h1>Community-owned Fundraising Platform</h1>
 
       <p>
         Neufund bridges blockchain and venture capital enabling ICOs for on- and off-chain startups.

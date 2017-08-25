@@ -89,7 +89,7 @@ $(document).ready(function () {
     $('.comming-soon').click(function (e) {
         e.preventDefault();
         const text = $(this).text()
-        vex.dialog.open(getParticipateModal(`${text} is coming soon`))
+        vex.dialog.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`))
     });
 
 });

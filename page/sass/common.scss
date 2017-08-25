@@ -4,6 +4,10 @@ body{
     overflow-x: hidden;
 }
 
+p.slim {
+    font-weight: $font-weight-light;
+}
+
 #react-root {
     min-height: 362px;
 }

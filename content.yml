@@ -289,15 +289,17 @@ ecosystem:
 footer:
   links:
     - link: "https://techcrunch.com/2017/01/17/neufund/"
-      img: "../assets/techcrunchlogo2013.png"
+      img: "../assets/techcrunch.png"
     - link: "http://www.geektime.com/2017/01/17/berlin-cryptocurrency-hybrid-vc-neufund-raises-e2m-to-upend-startup-investing-as-we-know-it/"
-      img: "../assets/gt-conv-logo.png"
+      img: "../assets/Geektime-logo.png"
     - link: "https://cointelegraph.com/news/icos-are-the-future-of-funding-says-co-founder-of-platform-that-just-raised-2-mln"
-      img: "../assets/cointelegraph-1.png"
+      img: "../assets/cointelegraph-logo.png"
     - link: "http://www.the-blockchain.com/2017/01/21/berlins-neufund-blockchain-fundraising-platform-raises-2-million/"
-      img: "../assets/logo-300x77.png"
+      img: "../assets/blockchain_news.png"
     - link: "http://www.pymnts.com/blockchain/2017/blockchain-tracker-bridging-gaps/"
-      img: "../assets/pymnts-1.png"
+      img: "../assets/coindesk.png"
+    - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/#10beb18071bd"
+      img: "../assets/forbes.png"
 
   bottomtitle: "@Fifth Force GmbH"
   website: "neufund.org"

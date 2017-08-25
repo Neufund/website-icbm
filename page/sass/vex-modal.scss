@@ -4,8 +4,11 @@
     h3, h4, a, span, div,p{
         font-family: "Montserrat", sans-serif !important;
     }
+    p{
+      width: 96%;
+    }
     @media (min-width: $screen-md){
-      P{
+      p{
         width: 140%;
       }
     }

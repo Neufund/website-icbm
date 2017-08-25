@@ -12,9 +12,9 @@ commit_funds:
         months to pick your favourite investments. Not investing
         results in full release.
       links:
-        - link: "Terms and conditions"
+        - link: "Terms and Conditions"
           href: "#"
-        - link: "Smartcontracts on Github"
+        - link: "Smart Contracts on Github"
           href: "#"
         - link: 'Neufund "ICO" FAQ'
           href: "#"
@@ -33,7 +33,7 @@ commit_funds:
         Neumarks by hodling or by trading without vesting on secondary market
         from day one.
       links:
-        - link: "Neumark Token Holder Agreenment"
+        - link: "Neumark Token Holder Agreement"
           href: "#"
 
 participating:
@@ -52,7 +52,7 @@ participating:
   links:
     - link: "Neufund Whitepaper"
     - link: "Roadmap"
-    - link: "Neumark Token Holder Agreenment"
+    - link: "Neumark Token Holder Agreement"
 
 easy_access:
   visible: true

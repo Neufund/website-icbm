@@ -1,12 +1,13 @@
 .section.press{
 
-    padding-top: $padding-between-sections;   
+    padding-top: $padding-between-sections;
     margin-top: $padding-between-sections;
     @media (max-width: $screen-sm) {
         margin-top: 0;
-        padding-bottom: 0 
+        padding-bottom: 0;
+        margin-bottom: $padding-between-sections;
     }
-    border: 0;  
+    border: 0;
     ul{
         display: inline-block;
         padding: 0px;
@@ -31,5 +32,5 @@
                 height: 35px;
             }
         }
-    }    
+    }
 }

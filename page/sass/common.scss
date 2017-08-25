@@ -1,3 +1,11 @@
+// fix for missing scrollbar when scrollbar is visible
+.vex-open {
+    padding-right: 15px;
+    nav {
+        padding-right: 15px;
+    }
+}
+
 body{
     -webkit-font-smoothing: antialiased;
     padding-top: $navbar-height + 10px;

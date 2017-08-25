@@ -8,7 +8,9 @@ import * as styles from "./Incentive.scss";
 export const HexagonText: React.SFC = () =>
   <div>
     <p className={styles.goto}>Starts in:</p>
-    <h1 className={styles.time}>Autumn</h1>
+    <h1 className={styles.time}>
+      Autumn<br />2017
+    </h1>
   </div>;
 
 export const Incentive: React.SFC = () =>

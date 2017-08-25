@@ -122,7 +122,11 @@ $(document).ready(function(){
     $('a[href*="#"]').click(function(e){
         e.preventDefault();
         // the destination id will be taken from the href attribute
-        var target= $($(this).attr('href'));
+        const dest = $(this).attr("href");
+        if (dest === "#") {
+            return;
+        }
+        var target= $(dest);
         $('html, body').stop().animate({
         scrollTop: target.offset().top
         }, 1000);

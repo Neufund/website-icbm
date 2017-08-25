@@ -8,11 +8,14 @@ html{
     position: relative;
 }
 .footer-container, .footer-bottom-container{
+    @media (min-width: $screen-lg) {
+        right: -50px;
+    }
 
     .footer-hex {
         position: absolute;
         bottom: -25px;
-        right: -50px;
+        right: 0;
         height: 140px;
         overflow: hidden;
         z-index: -1;

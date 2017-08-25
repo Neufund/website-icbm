@@ -162,6 +162,37 @@ team:
 
         Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
         She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
+  
+   - name: "Jacek Czarnecki"
+     title: "General Counsel & Business Strategist"
+     image: "../assets/JacekCzarnecki.jpg"
+     preTitle: ""
+     domain: ""
+     email: ""
+     bio:  |
+       <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
+       <p>In crypto world from 2014, and prior to joining Neufund, Jacek has been able to gather a
+       substantial amount of experience with blockchain thanks to his work in a technology practice
+       at a prominent law firm. This experience convinced him that blockchain is also the future of
+       law, which he is able to help shape at Neufund</p>
+       <p>In his second role as Neufund’s Business Strategist, he is also responsible for expanding
+       and maintaining Neufund’s partnerships with the leading firms in crypto, law, and business.
+       Jacek holds a Masters of Law and Finance from the University of Oxford as well as a
+       Masters in Law from the University of Warsaw. He is also working on a PhD (about blockchain, of course).</p>
+
+   - name: "Krzysztof Kaczor"
+     title: "Lead Blockchain Developer"
+     image: "../assets/krzysztofkaczor.png"
+     preTitle: ""
+     domain: ""
+     email: ""
+     bio:  |
+       <p>Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has
+       held various positions ranging from mobile developer to CTO at a number of tech firms. He is
+       particularly interested in compiler theory, cryptocurrencies and DevOps. Krzysztof is a huge
+       fan of the open source philosophy and various projects of his have gained several hundred
+       stars on GitHub. In his free time, he likes to listen to rap and indie music as well as ride his
+       longboard.</p>
 
    - name: "Tomek Banach"
      title: "Dapp Developer"
@@ -255,23 +286,6 @@ team:
        appeared in a number of blockchain-related media outlets such as CoinTelegraph,
        Bitcoin.com and the The Bitcoin Podcast.<p>
 
-   - name: "Jacek Czarnecki"
-     title: "General Counsel & Business Strategist"
-     image: "../assets/JacekCzarnecki.jpg"
-     preTitle: ""
-     domain: ""
-     email: ""
-     bio:  |
-       <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
-       <p>In crypto world from 2014, and prior to joining Neufund, Jacek has been able to gather a
-       substantial amount of experience with blockchain thanks to his work in a technology practice
-       at a prominent law firm. This experience convinced him that blockchain is also the future of
-       law, which he is able to help shape at Neufund</p>
-       <p>In his second role as Neufund’s Business Strategist, he is also responsible for expanding
-       and maintaining Neufund’s partnerships with the leading firms in crypto, law, and business.
-       Jacek holds a Masters of Law and Finance from the University of Oxford as well as a
-       Masters in Law from the University of Warsaw. He is also working on a PhD (about blockchain, of course).</p>
-
    - name: "Steffen Sieler"
      title: "Blockchain Technology Communications Department"
      image: "../assets/Steffen1.jpg"
@@ -286,20 +300,6 @@ team:
        Excellence Institute Zeppelin and the Oxford Internet Institute.After his work in the
        banking innovation sphere, he is now happy to work with Neufund, where he forges the Blockchain
        Policy Initiative.</p>
-
-   - name: "Krzysztof Kaczor"
-     title: "Lead Developer"
-     image: "../assets/krzysztofkaczor.png"
-     preTitle: ""
-     domain: ""
-     email: ""
-     bio:  |
-       <p>Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has
-       held various positions ranging from mobile developer to CTO at a number of tech firms. He is
-       particularly interested in compiler theory, cryptocurrencies and DevOps. Krzysztof is a huge
-       fan of the open source philosophy and various projects of his have gained several hundred
-       stars on GitHub. In his free time, he likes to listen to rap and indie music as well as ride his
-       longboard.</p>
 
 advisors:
   visible: false
@@ -331,9 +331,9 @@ ecosystem:
   visible: true
   title: "Neufund's Ecosystem Impact"
   paragraph: |
-    Neunfund's effort goes into building a mature
-    ecosystem able to contain all the amazing
-    technological and legal innovation etc.
+    Neufund’s effort goes into contributing to the 
+    blockchain community building an ecosystem of technological and 
+    legal innovation.
   subtitle: "Go to:"
   links:
     - name: "Neufund's Ecosystem Impact Page"

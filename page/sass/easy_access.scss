@@ -19,13 +19,28 @@
                 right: 62px;
             }
         }
+        .right-hexagons {
+          display: initial;
+          position: absolute;
+          width: 744px;
+          height: 564px;
+          top: -3px;
+          left: 397px;
+          z-index: -1;
+        }
+    }
+    @media (max-width: $screen-md-max) {
+      .right-hexagons{
+        display: initial;
+        position: absolute;
+        width: 744px;
+        height: 586px;
+        top: -3px;
+        left: 293px;
+        z-index: -1;
+      }
     }
     @media (min-width: $screen-md) {
-        background-image: url(../assets/hexagons.png);
-        background-size: 66%;
-        background-position: right;
-        background-repeat: no-repeat;
-
         .left-hexagon {
             display: initial;
             position: absolute;
@@ -40,7 +55,7 @@
             background-position: left;
             background-repeat: no-repeat;
             text-align: center;
-            
+
             img {
                 margin-top: 30px;
             }

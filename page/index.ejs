@@ -2,14 +2,15 @@
 <html>
     <%- include('partials/head', {title: 'ICO Commit Page' }); %>
     <body>
-        <%- include('partials/header', {active: 'commit'}); %> 
-        <div class=" container">            
-             <%- include('partials/home'); %> 
-             <%- include('partials/footer', content.footer); %> 
-              <script src="/main.js"></script>  
-            <noscript>
-                <p>This page requires JavaScript to be enabled.</p>
-            </noscript>
+        <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
+        <div class=" container">
+          <%- include('partials/home'); %>
+          <%- include('partials/footer', content.footer); %>
+
+          <script src="/main<%= hashes.jsBundleHash %>.js"></script>
+          <noscript>
+            <p>This page requires JavaScript to be enabled.</p>
+          </noscript>
         </div>
     </body>
 </html>

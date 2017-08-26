@@ -2,17 +2,15 @@
 <html>
     <%- include('partials/head', {title: 'White paper'}); %>
     <body>
-        <%- include('partials/header', {active: 'whitepaper'}); %>
+        <%- include('partials/header', { active: 'whitepaper', hashes: hashes }); %>
         <div class="main container">
+          <%- include('partials/whitepaper' ); %>
+          <%- include('partials/footer', content.footer); %>
 
-            <%- include('partials/whitepaper' ); %>
-            <%- include('partials/footer', content.footer); %>
-            <script src="/main.js"></script>
-                        
-
-            <noscript>
-                <p>This page requires JavaScript to be enabled.</p>
-            </noscript>
+          <script src="/main<%= hashes.jsBundleHash %>.js"></script>
+          <noscript>
+            <p>This page requires JavaScript to be enabled.</p>
+          </noscript>
         </div>
     </body>
 </html>

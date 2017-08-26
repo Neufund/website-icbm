@@ -4,11 +4,13 @@ const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
 
 const isProduction = process.env.NODE_ENV === "production";
 
-const devEntryPoints = isProduction ? [] : [
-  "react-hot-loader/patch",
-  "webpack-dev-server/client?http://localhost:8080",
-  "webpack/hot/only-dev-server",
-]
+const devEntryPoints = isProduction
+  ? []
+  : [
+      "react-hot-loader/patch",
+      "webpack-dev-server/client?http://localhost:8080",
+      "webpack/hot/only-dev-server",
+    ];
 
 module.exports = {
   resolve: {
@@ -29,16 +31,12 @@ module.exports = {
       },
     },
   },
-  entry: [
-    ...devEntryPoints,
-    "./app/index.tsx",
-    "./page/ts/index.ts",
-  ],
+  entry: [...devEntryPoints, "./app/index.tsx", "./page/ts/index.ts"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: isProduction ? "main-[hash].js" : "main.js",
   },
-  devtool: isProduction?"(none)": "inline-source-map",
+  devtool: isProduction ? "(none)" : "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

@@ -36,9 +36,9 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: isProduction ? "main-[hash].js" : "main.js",
   },
-  devtool: "inline-source-map",
+  devtool: isProduction?"(none)": "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

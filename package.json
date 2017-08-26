@@ -19,8 +19,13 @@
     "file-loader": "^0.11.2",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "gulp-debug": "^3.1.0",
     "gulp-ejs": "^3.0.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-rev": "^8.0.0",
     "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
     "gulp-util": "^3.0.8",
     "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
@@ -48,7 +53,7 @@
     "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
     "lint": "yarn format && yarn tslint",
     "lint:fix": "yarn format:fix && yarn tslint:fix",
-    "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp build && webpack'"
+    "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'"
   },
   "dependencies": {
     "classnames": "^2.2.5",

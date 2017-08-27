@@ -3,13 +3,13 @@
 @import "../../common/sass/variables.scss";
 
 .incentive {
-    padding-top: 20px;
+    padding-top: $space-bottom-between-elements;
 
     h1 {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
     }
     p {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
         @media (min-width : $screen-lg) {
             padding-right: 160px;
         }
@@ -18,7 +18,7 @@
       font-weight: $font-weight-more-bold;
     }
     button {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
         @media (max-width: $screen-sm) {
             margin-left:auto;
             margin-right:auto;

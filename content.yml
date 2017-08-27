@@ -1,3 +1,8 @@
+meta_head:
+  description: "Neufund’s vision is to invite everyone to join the bootstrapping of a new two-sided marketplace and an investment ecosystem, and to once and for all democratise innovation and creation."
+  image_logo: "assets/social_logo.png"
+  url: "https://commit.neufund.org"
+  keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
 commit_funds:
   visible: true
   sections:

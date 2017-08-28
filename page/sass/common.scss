@@ -1,6 +1,6 @@
 body{
     -webkit-font-smoothing: antialiased;
-    padding-top: $navbar-height + 10px;
+    padding-top: $navbar-height;
     overflow-x: hidden;
 }
 
@@ -12,7 +12,7 @@ h3.smaller {
 }
 
 .section ul.compact-list {
-    padding: 0 0 $space-bottom-between-elements 0;    
+    padding: 0 0 $space-bottom-between-elements 0;
 
     li {
         font-size: 16px;
@@ -186,5 +186,5 @@ h3.smaller {
     .section.commit-funds{
         border-top:0px !important;
     }
-    
+
 }

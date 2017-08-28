@@ -12,3 +12,30 @@ h1 {
       background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);
     }
 }
+@media (min-width: 769px){
+  .out-container{
+      box-sizing: content-box;
+      padding: 0px 100px 0px 100px;
+      margin: 0px 100px 0px 100px;
+      background-color: white;
+  }
+  .inside-containter{
+    width: 100%;
+  }
+
+}
+@media (max-width: $screen-md){
+  .out-container{
+    padding: 0;
+  }
+}
+.out-container{
+}
+.navbar-default{
+  background: none;
+}
+.inside-containter{
+  background-color:white;
+  padding: 0px 20px 0px 20px;
+  position: relative;
+}

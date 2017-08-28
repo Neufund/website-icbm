@@ -47,22 +47,6 @@
             left: -112px;
             top: 0px;
         }
-    }
+  }
 
-    @media (max-width: $screen-md) {
-        #platform-second-col {
-            background-image: url(../assets/hexagons_small.png);
-            background-position: left;
-            background-repeat: no-repeat;
-            text-align: center;
-
-            img {
-                margin-top: 30px;
-            }
-
-            .btn {
-                margin-top: 50px;
-            }
-        }
-    }
 }

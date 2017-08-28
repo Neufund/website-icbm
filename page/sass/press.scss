@@ -1,36 +1,19 @@
 .section.press{
 
-    padding-top: $padding-between-sections;
+    padding-top: $padding-between-sections;   
     margin-top: $padding-between-sections;
     @media (max-width: $screen-sm) {
         margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: $padding-between-sections;
+        padding-bottom: 0 
     }
-    border: 0;
-    ul{
-        display: inline-block;
-        padding: 0px;
-        width: 100%;
+    .img-container{
         text-align: center;
-        position: relative;
-
-        li{
-            @media (max-width: $screen-md) {
-                width: auto;
-                float: none;
-                margin-top: $space-bottom-between-elements;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            width: calc(100%/6);
-            float: left;
-            list-style-type: none;
-
-            img{
-                width: auto;
-                height: 35px;
-            }
-        }
+        margin-top: $padding-between-sections;
+        max-height: 25px;
+    }
+    border: 0;  
+    img{
+        width: auto;
+        height: 100%;        
     }
 }

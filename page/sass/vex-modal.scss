@@ -17,6 +17,12 @@
         border: 0 !important;
         border-radius: 0 !important;
         width: 60% !important;
+
+        @media (max-width: $screen-sm)
+        {
+          width: 90% !important;
+        }
+
         padding-top: 50px !important;
         padding-bottom: 50px !important;
         padding-left: 40px !important;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head', {title: 'ICO Commit Page' }); %>
+    <%- include('partials/head', { title: 'ICO Commit Page', meta: content.meta_head }); %>
     <body>
         <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
-        <div class=" container">
+        <div class="container">
           <%- include('partials/home'); %>
           <%- include('partials/footer', content.footer); %>
 

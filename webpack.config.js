@@ -1,17 +1,23 @@
 const path = require("path");
 const webpack = require("webpack");
 const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
-const { mapValues } = require('lodash');
+const { mapValues } = require("lodash");
 
 const isProduction = process.env.NODE_ENV === "production";
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 const envs = dotenv.load().parsed;
 
 //we are combining the NODE_ENV variable with the local variables from the .env file
-const allEnvs = mapValues(Object.assign({}, {
-  NODE_ENV: process.env.NODE_ENV || 'development',
-} ,envs
-), JSON.stringify);
+const allEnvs = mapValues(
+  Object.assign(
+    {},
+    {
+      NODE_ENV: process.env.NODE_ENV || "development",
+    },
+    envs
+  ),
+  JSON.stringify
+);
 
 const devEntryPoints = isProduction
   ? []
@@ -64,7 +70,7 @@ module.exports = {
       ],
     }),
     new webpack.DefinePlugin({
-      "process.env": allEnvs
+      "process.env": allEnvs,
     }),
   ],
   node: {
@@ -111,7 +117,7 @@ module.exports = {
         },
       },
     ],
-  }
+  },
 };
 
 if (isProduction) {

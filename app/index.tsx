@@ -9,7 +9,6 @@ import reduxLogger from "redux-logger";
 import Countdown from "./containers/Countdown";
 
 const root = document.getElementById("react-root");
-import { commitmentContractAdress } from './config';
 
 const render = () => {
   // We are doing this because we are not loading the "react-root" div in the following pages[whitepaper, faq, prodcut]    

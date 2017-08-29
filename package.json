@@ -57,7 +57,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "dotenv": "^4.0.0",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
     "owl.carousel": "^2.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

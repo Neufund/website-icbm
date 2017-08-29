@@ -59,19 +59,19 @@
     }
     h4.position{
         display: inline-block;
-        margin: 0px;
+        margin: 0;
     }
     .bio, .link, h4.position{
         padding-bottom: $space-bottom-between-elements;
     }
     .bio, .link{
         display: block;
-        font-size: 14px;
+        font-size: $font-size-small;
     }
     .link{
-        font-weight: 500;
+        font-weight: $font-weight-bold;
     }
     .handle{
-        font-size: 14px !important;
+        font-size: $font-size-small !important;
     }
 }

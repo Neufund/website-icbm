@@ -19,6 +19,18 @@ const getPersonModal: any = function(
   domain: string,
   email: string
 ) {
+
+  const preTitleMarkup = preTitle == ''? preTitle : `<span>${preTitle}</span>`;
+
+  let optionalElements = '';
+  if (domain !== '') {
+    optionalElements += `<a class="link" href="#">${domain}</a>`
+  }
+
+  if (email !== '') {
+    optionalElements += `<p class="handle">${email}</p>`
+  }
+
   return {
     unsafeContent: `
       <div class="row">
@@ -31,12 +43,11 @@ const getPersonModal: any = function(
           <div class="person-details">
             <h4 class="name">${name}</h4>
             <div class="title-container">
-              <span>${preTitle}</span>
+              ${preTitleMarkup}
               <h4 class="position">${title}</h4>
             </div>
             <div class="bio">${bio}</div>
-            <a class="link" href="#">${domain}</a>
-            <p class="handle">${email}</p>
+            ${optionalElements}
           </div>
         </div>
     </div>`,
@@ -71,13 +82,13 @@ $(document).ready(function() {
   });
 
   $(".person-block").click(function() {
-    const name: string = $(this).find("h4.name a").text();
-    const image: string = $(this).find("img").attr("src");
-    const title: string = $(this).find("h4.position").text();
-    const bio: string = $(this).find(".bio").text();
-    const preTitle: string = $(this).find("span.pre-title").text();
-    const domain: string = $(this).find("a.domain").text();
-    const email: string = $(this).find("p.link").text();
+    const name: string = $(this).find("h4.name a").text().trim();
+    const image: string = $(this).find("img").attr("src").trim();
+    const title: string = $(this).find("h4.position").text().trim();
+    const bio: string = $(this).find(".bio").text().trim();
+    const preTitle: string = $(this).find("span.pre-title").text().trim();
+    const domain: string = $(this).find("a.domain").text().trim();
+    const email: string = $(this).find("p.link").text().trim();
 
     vex.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
   });

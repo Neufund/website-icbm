@@ -30,41 +30,45 @@
     -webkit-font-smoothing: antialiased;
     top: -11px;
     left: -19px;
-    position: absolute;    
+    position: absolute;
 }
 
 @keyframes breathing {
   100% {
-    transform: rotate(19deg) scale(1);
+    transform: rotate(15deg) scale(1);
+  }
+
+  75% {
+    transform: rotate(5deg) scale(1.08);
   }
 
   60% {
-    transform: rotate(-10deg) scale(1.08);   
+    transform: rotate(0deg) scale(1.08);
   }
 
   25% {
-    transform: rotate(0deg) scale(1.05);
+    transform: rotate(5deg) scale(1.05);
   }
 
   0% {
-    transform: rotate(19deg) scale(1);
+    transform: rotate(15deg) scale(1);
   }
 }
 
 @keyframes breathing-blue {
   100% {
-    transform: rotate(30deg) scale(1);
+    transform: rotate(20deg) scale(1);
   }
 
   60% {
-    transform: rotate(15deg) scale(1.08);   
+    transform: rotate(17deg) scale(1.08);
   }
 
   25% {
-    transform: rotate(19deg) scale(1.05);
+    transform: rotate(25deg) scale(1.05);
   }
 
   0% {
-    transform: rotate(30deg) scale(1);
+    transform: rotate(20deg) scale(1);
   }
 }

@@ -19,16 +19,15 @@ const getPersonModal: any = function(
   domain: string,
   email: string
 ) {
+  const preTitleMarkup = preTitle == "" ? preTitle : `<span>${preTitle}</span>`;
 
-  const preTitleMarkup = preTitle == ''? preTitle : `<span>${preTitle}</span>`;
-
-  let optionalElements = '';
-  if (domain !== '') {
-    optionalElements += `<a class="link" href="#">${domain}</a>`
+  let optionalElements = "";
+  if (domain !== "") {
+    optionalElements += `<a class="link" href="#">${domain}</a>`;
   }
 
-  if (email !== '') {
-    optionalElements += `<p class="handle">${email}</p>`
+  if (email !== "") {
+    optionalElements += `<p class="handle">${email}</p>`;
   }
 
   return {

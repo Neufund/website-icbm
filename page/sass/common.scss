@@ -12,10 +12,10 @@ h3.smaller {
 }
 
 .section ul.compact-list {
-    padding: 0 0 $space-bottom-between-elements 0;    
+    padding: 0 0 $space-bottom-between-elements 0;
 
     li {
-        font-size: 16px;
+        font-size: $font-size-normal;
         i {
             font-size: 17px;
             line-height: 22px;
@@ -183,8 +183,4 @@ h3.smaller {
             float: left;
         }
     }
-    .section.commit-funds{
-        border-top:0px !important;
-    }
-    
 }

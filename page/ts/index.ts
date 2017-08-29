@@ -34,7 +34,7 @@ const getPersonModal: any = function(
               <span>${preTitle}</span>
               <h4 class="position">${title}</h4>
             </div>
-            <p class="bio">${bio}</p>
+            <div class="bio">${bio}</div>
             <a class="link" href="#">${domain}</a>
             <p class="handle">${email}</p>
           </div>
@@ -74,7 +74,7 @@ $(document).ready(function() {
     const name: string = $(this).find("h4.name a").text();
     const image: string = $(this).find("img").attr("src");
     const title: string = $(this).find("h4.position").text();
-    const bio: string = $(this).find("p.bio").text();
+    const bio: string = $(this).find(".bio").text();
     const preTitle: string = $(this).find("span.pre-title").text();
     const domain: string = $(this).find("a.domain").text();
     const email: string = $(this).find("p.link").text();

@@ -27,7 +27,7 @@
         background: white !important;
         border: 0 !important;
         border-radius: 0 !important;
-        width: 60% !important;
+        width: 95% !important;
         padding-top: 50px !important;
         padding-bottom: 50px !important;
         padding-left: 40px !important;
@@ -35,6 +35,11 @@
         .vex-dialog-form{
             background: white !important;
         }
+
+      @media (min-width: $screen-md){
+        width: 60% !important;
+      }
+
     }
 
     .person-info-container{

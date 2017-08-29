@@ -9,7 +9,7 @@ commit_funds:
     - point: "01"
       title: "How it works"
       paragraph1:  |
-        Neufund's ICO is a call to commit Capital to the Neufund
+        Neufund's ICO is a call to commit capital to the Neufund
         Platform in exchange for tokens, that's why we call it ICBM
         - Initial Capital Building Mechanism.
       paragraph2:  |
@@ -28,11 +28,11 @@ commit_funds:
     - point: "02"
       title: "Why participate: Neumark key feature"
       paragraph1:  |
-        Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the 
+        Neumarks entitle their holders to revenues from all the future investment's success fees. They also allow the holders to participate in the
         economic benefit from a platform portfolio of all the startups tokens that will ever launch.
       paragraph2:  |
         <strong>First come better served. The sooner you reserve your
-        funds the more NEU you per ETH.</strong> You can capitalize on
+        funds the more NEU per ETH you will get.</strong> You can capitalize on
         Neumarks by <i>hodling</i> or by trading without vesting on secondary market
         from day one.
       links:
@@ -43,9 +43,9 @@ participating:
   visible: true
   title: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world"
   paragrapha:  |
-        Using our legal and technical infrastructure, startups and established companies alike can legally issue a new type of asset we call tokenized equity – 
+        Using our legal and technical infrastructure, startups and established companies alike can legally issue a new type of asset we call tokenized equity –
         in essence, digital shares. We achieve this by formally linking paper contracts with Ethereum smart contracts through mutual reference and code correspondence.
-        Neufund enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement. 
+        Neufund enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement.
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
@@ -55,7 +55,7 @@ easy_access:
   visible: true
   title: "For crypto nerds, finance nerds and non-nerds at all"
   paragraph:  |
-        Easy to use crafted experience for different actors on different stages of their investment journey. An on-going work, being build with community for community, 
+        Easy to use crafted experience for different actors on different stages of their investment journey. An on-going work, being build with community for community,
         open-source code, access point for everyone to blockchain.
   remark: "Check out the:"
   link1: "Neufund’s Github account"
@@ -167,7 +167,7 @@ team:
 
         Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
         She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
-  
+
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
      image: "../assets/JacekCzarnecki.jpg"
@@ -336,8 +336,8 @@ ecosystem:
   visible: true
   title: "Neufund's Ecosystem Impact"
   paragraph: |
-    Neufund’s effort goes into contributing to the 
-    blockchain community building an ecosystem of technological and 
+    Neufund’s effort goes into contributing to the
+    blockchain community building an ecosystem of technological and
     legal innovation.
   subtitle: "Go to:"
   links:
@@ -372,7 +372,7 @@ footer:
       img: "../assets/blockchain_news.png"
     - link: "https://www.coindesk.com/icos-eu-will-slow-giant-regulate-tokens/"
       img: "../assets/coindesk.png"
-    - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/#10beb18071bd"
+    - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/"
       img: "../assets/forbes.png"
 
   bottomtitle: "@Fifth Force GmbH"

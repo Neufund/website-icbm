@@ -1,4 +1,4 @@
-function getEnvValue<T>(obj: any, key: string): T {
+function getEnvValue(obj: any, key: string) {
     return obj[key] != undefined ? obj[key] : Error(`${key} is not exists in .env file`)
 }
 

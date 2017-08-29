@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.0.4",
     "@types/classnames": "^2.2.0",
     "@types/jquery": "^3.2.11",
     "@types/mocha": "^2.2.42",
@@ -57,11 +58,15 @@
   },
   "scripts": {
     "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
-    "tslint": "tslint 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
-    "tslint:fix": "tslint --fix 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
-    "lint": "yarn tslint",
-    "lint:fix": "yarn tslint:fix",
-    "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'"
+    "format": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write --list-different app/**/*.ts app/**/*.tsx page/**/*ts webpack.config.js gulpfile.js",
+    "format:fix": "prettier --print-width 100 --trailing-comma es5 --parser typescript --write app/**/*.ts app/**/*.tsx page/**/*ts webpack.config.js gulpfile.js",
+    "tslint": "tslint -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
+    "tslint:fix": "tslint --fix -c tslint.json 'app/**/*.ts' 'app/**/*.tsx'",
+    "lint": "yarn format && yarn tslint",
+    "lint:fix": "yarn format:fix && yarn tslint:fix",
+    "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",
+    "test": "mocha --compilers ts:ts-node/register test/**/*.spec.ts",
+    "test:coverage": "nyc mocha --require ts-node/register test/**/*.spec.ts"
   },
   "dependencies": {
     "classnames": "^2.2.5",

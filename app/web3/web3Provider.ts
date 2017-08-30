@@ -3,7 +3,7 @@ import * as Web3 from "web3";
 
 import { RpcProvider } from "../config";
 
-const web3Instance: any =
+export const web3Instance: any =
   typeof (window as any).web3 !== "undefined"
     ? new Web3((window as any).web3.currentProvider)
     : new Web3(new Web3.providers.HttpProvider(RpcProvider));

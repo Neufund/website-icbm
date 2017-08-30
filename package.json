@@ -57,6 +57,7 @@
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'"
   },
   "dependencies": {
+    "bignumber": "^1.1.0",
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",

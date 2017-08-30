@@ -69,7 +69,7 @@ const blueGradient = (
     </linearGradient>
   </defs>
 );
-const BlueHexagon: React.SFC = () =>
+export const BlueHexagon: React.SFC = () =>
   <Hexagon
     className={styles.hexagonBlue}
     extraDefs={blueGradient}
@@ -94,7 +94,7 @@ const whiteGradient = (
     </linearGradient>
   </defs>
 );
-const WhiteHexagon: React.SFC = () =>
+export const WhiteHexagon: React.SFC = () =>
   <Hexagon
     className={styles.hexagonWhite}
     extraDefs={whiteGradient}

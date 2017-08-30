@@ -4,13 +4,8 @@
     "text"
   ],
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
-  "exclude": [
-    "src/**/*.d.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.spec.tsx"
+    "app/**/*.ts",
+    "app/**/*.tsx"
   ],
   "extension": [
     ".ts",

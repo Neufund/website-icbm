@@ -1,34 +1,36 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunkMiddleware from "redux-thunk";
 import reduxLogger from "redux-logger";
+import reduxThunk from "redux-thunk";
 
 import Countdown from "./containers/Countdown";
 
 const root = document.getElementById("react-root");
 
 const render = () => {
-  // We are doing this because we are not loading the "react-root" div in the following pages[whitepaper, faq, prodcut]    
+  /* We are doing this because we are not loading the "react-root" 
+  div in the following pages[whitepaper, faq, prodcut]
+  */
   if (root) {
     ReactDOM.render(
-    <div>
-      <Countdown />
-    </div>,
-    root
-  );  
+      <div>
+        <Countdown />
+      </div>,
+      root
+    );
   }
 };
 
-const enhancers = (routes: any) =>
-  composeWithDevTools(applyMiddleware(thunkMiddleware, reduxLogger));
+const enhancers = (routes: any) => composeWithDevTools(applyMiddleware(reduxThunk, reduxLogger));
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {
   // Enable React Debug Tool
-  const ReactDebugTool = require("react-dom/lib/ReactDebugTool");
+  // tslint:disable-next-line
+  const ReactDebugTool = require('react-dom/lib/ReactDebugTool');
   ReactDebugTool.beginProfiling();
 
   // Enable Webpack hot module replacement
@@ -48,8 +50,11 @@ if (process.env.NODE_ENV !== "production") {
   }
 
   // we require this files only to track changes in them automatically
-  require("!raw-loader!../dist/index.html");
-  require("!raw-loader!../dist/app.css");
+
+  // tslint:disable-next-line
+  require('!raw-loader!../dist/index.html');
+  // tslint:disable-next-line
+  require('!raw-loader!../dist/app.css');
 }
 
 render();

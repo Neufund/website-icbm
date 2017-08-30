@@ -5,7 +5,10 @@
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.0.4",
+    "@types/chai-as-promised": "^0.0.31",
+    "@types/chai-enzyme": "^0.6.2",
     "@types/classnames": "^2.2.0",
+    "@types/enzyme": "^2.8.6",
     "@types/jquery": "^3.2.11",
     "@types/mocha": "^2.2.42",
     "@types/owlcarousel": "^1.3.3",
@@ -23,6 +26,7 @@
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
+    "enzyme": "^2.9.1",
     "file-loader": "^0.11.2",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
@@ -34,6 +38,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
     "gulp-util": "^3.0.8",
+    "ignore-styles": "^5.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
     "nyc": "^11.1.0",
@@ -41,6 +46,7 @@
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.31.2",
     "react-hot-loader": "next",
+    "react-test-renderer": "^15.6.1",
     "redux-devtools-extension": "^2.13.2",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.1",
@@ -64,8 +70,8 @@
     "lint": "yarn tslint",
     "lint:fix": "yarn tslint:fix",
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",
-    "test": "mocha --compilers ts:ts-node/register test/**/*.spec.ts",
-    "test:coverage": "nyc mocha --require ts-node/register test/**/*.spec.ts"
+    "test": "mocha --compilers ts:ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
+    "test:coverage": "nyc mocha --require ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'"
   },
   "dependencies": {
     "classnames": "^2.2.5",

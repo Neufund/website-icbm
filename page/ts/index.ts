@@ -81,13 +81,13 @@ $(document).ready(function() {
   });
 
   $(".person-block").click(function() {
-    const name: string = $(this).find("h4.name a").text().trim();
-    const image: string = $(this).find("img").attr("src").trim();
-    const title: string = $(this).find("h4.position").text().trim();
-    const bio: string = $(this).find(".bio").text().trim();
-    const preTitle: string = $(this).find("span.pre-title").text().trim();
-    const domain: string = $(this).find("a.domain").text().trim();
-    const email: string = $(this).find("p.link").text().trim();
+    const name = $(this).find("h4.name a").text().trim();
+    const image = $(this).find("img").attr("src").trim();
+    const title = $(this).find("h4.position").text().trim();
+    const bio = $(this).find(".bio").text().trim();
+    const preTitle = $(this).find("span.pre-title").text().trim();
+    const domain = $(this).find("a.domain").text().trim();
+    const email = $(this).find("p.link").text().trim();
 
     vex.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
   });

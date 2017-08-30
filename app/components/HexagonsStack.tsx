@@ -1,15 +1,15 @@
-import * as React from "react";
 import * as cn from "classnames";
+import * as React from "react";
 
 import * as styles from "./HexagonsStack.scss";
 
-interface HexagonsStackProps {
+interface IHexagonsStackProps {
   children: React.ReactNode;
   className?: string;
   textContainerClassName?: string;
 }
 
-export const HexagonsStack: React.SFC<HexagonsStackProps> = ({
+export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   children,
   className,
   textContainerClassName,
@@ -22,14 +22,14 @@ export const HexagonsStack: React.SFC<HexagonsStackProps> = ({
     </div>
   </div>;
 
-interface SvgProps {
+interface ISvgProps {
   extraDefs?: any;
   className?: string;
   style?: any;
   shadow?: boolean;
 }
 
-const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...props }) =>
+const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ...props }) =>
   <svg width="310" height="310" className={className}>
     {extraDefs}
 

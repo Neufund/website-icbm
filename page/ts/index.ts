@@ -75,9 +75,6 @@ $(document).ready(() => {
 
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";
-  $(".person-block a").click(e => {
-    e.preventDefault();
-  });
 
   $(".person-block").click(function() {
     const name = $(this).find("h4.name a").text().trim();

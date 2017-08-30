@@ -18,13 +18,57 @@
 }
 
 .hexagon-blue {
-    transform: rotate(30deg);
+    -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
+    animation: breathing-blue 20s ease-in-out infinite normal;
+    -webkit-font-smoothing: antialiased;
     position: absolute;
 }
 
-.hexagon-white {
+.hexagon-white{
+    -webkit-animation: breathing 20s ease-out infinite normal;
+    animation: breathing 20s ease-out infinite normal;
+    -webkit-font-smoothing: antialiased;
     top: -11px;
     left: -19px;
-    transform: rotate(19deg);
     position: absolute;
+}
+
+@keyframes breathing {
+  100% {
+    transform: rotate(15deg) scale(1);
+  }
+
+  75% {
+    transform: rotate(5deg) scale(1.08);
+  }
+
+  60% {
+    transform: rotate(0deg) scale(1.08);
+  }
+
+  25% {
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  0% {
+    transform: rotate(15deg) scale(1);
+  }
+}
+
+@keyframes breathing-blue {
+  100% {
+    transform: rotate(20deg) scale(1);
+  }
+
+  60% {
+    transform: rotate(17deg) scale(1.08);
+  }
+
+  25% {
+    transform: rotate(25deg) scale(1.05);
+  }
+
+  0% {
+    transform: rotate(20deg) scale(1);
+  }
 }

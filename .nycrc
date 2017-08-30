@@ -1,0 +1,14 @@
+{
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "include": [
+    "app/**/*.ts",
+    "app/**/*.tsx"
+  ],
+  "extension": [
+    ".ts",
+    ".tsx"
+  ]
+}

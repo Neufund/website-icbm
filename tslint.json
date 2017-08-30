@@ -1,11 +1,24 @@
 {
   "extends": [
+    "tslint:latest",
     "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-airbnb",
+    "tslint-plugin-prettier",
     "tslint-config-prettier"
   ],
   "rules": {
+    "prettier": [true, {
+      "printWidth": 100,
+      "trailingComma": "es5"
+    }],
     "jsx-boolean-value": {
       "options": ["never"]
-    }
+    },
+    "interface-name": [true, "always-prefix"],
+    "variable-name": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
+    "object-literal-sort-keys": false
   }
 }

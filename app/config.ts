@@ -16,3 +16,5 @@ export const commitmentContractAdress: string = getEnvValue(
 export const commitmentStartDate: moment.Moment = moment(
   getEnvValue(process.env, "ICO_START_DATE")
 );
+
+export const RpcProvider: string = getEnvValue(process.env, "RPC_PROVIDER");

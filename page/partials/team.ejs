@@ -17,10 +17,9 @@
             </div> <!-- end row -->
 
             <div class="row is-hidden hidden-picture">
-                <% for (var i = 4; i < 15; i++) { %>
-                    <%- include('../blocks/person', members[i]) %>
-                <% } %>
-
+              <% for (var i = 4; i < members.length; i++) { %>
+                  <%- include('../blocks/person', members[i]) %>
+              <% } %>
             </div><!-- End row -->
 
             <!-- see more -->

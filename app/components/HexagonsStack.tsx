@@ -37,6 +37,10 @@ const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...
       <filter id="dropshadow" height="130%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
         <feOffset dx="1" dy="1" result="offsetblur" />
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.2" />
+        </feComponentTransfer>
+
         <feMerge>
           <feMergeNode />
           <feMergeNode in="SourceGraphic" />
@@ -84,10 +88,10 @@ const whiteGradient = (
       x2="0"
       y2="300"
     >
-      <stop offset="0%" stopColor="#F8F9F9" stopOpacity="0%" />
-      <stop offset="1.63%" stopColor="#F8F9F9" stopOpacity="0%" />
-      <stop offset="85.72%" stopColor="#F2F9EA" stopOpacity="0%" />
-      <stop offset="100%" stopColor="#F2F9EA" stopOpacity="0%" />
+      <stop offset="0%" stopColor="#F2F9EA" stopOpacity="0%" />
+      <stop offset="1.63%" stopColor="#F2F9EA" stopOpacity="0%" />
+      <stop offset="85.72%" stopColor="#F8F9F9" stopOpacity="0%" />
+      <stop offset="100%" stopColor="#F8F9FA" stopOpacity="0%" />
     </linearGradient>
   </defs>
 );
@@ -95,6 +99,6 @@ const WhiteHexagon: React.SFC = () =>
   <Hexagon
     className={styles.hexagonWhite}
     extraDefs={whiteGradient}
-    style={{ fill: "url(#linear-gradient2)" }}
+    style={{ opacity: "0.98", fill: "url(#linear-gradient2)" }}
     shadow
   />;

@@ -1,11 +1,19 @@
 .section.commit-funds{
-    margin-top: $padding-between-sections;
     border-top: 1px $off-white solid;
+    ul.compact-list {
+        padding-left: 26px;
+    }
 
-
+    .foot {
+          font-weight: $font-weight-more-bold;
+    }
     h3{
         font-size: 20px;
     }
+    .link{
+      margin-top: 7px
+    }
+
     .number{
         position: absolute;
         top: 10px;
@@ -14,7 +22,8 @@
         padding-left: 13px;
         font-size: $font-size-small;
         font-weight: $font-weight-more-bold;
-
+    }
+    .spacing{
     }
 
   @media (max-width: $screen-md){
@@ -25,17 +34,41 @@
             padding-top: 48px;
 
         }
-    }
-    .content{
-        @media (min-width: $screen-md){
-            padding-left: 50px;
+        li {
+            margin-left: -25px;
         }
-    p{
-        font-size: $font-size-small
     }
-    p strong {
-        font-weight: $font-weight-more-bold;
+    @media (min-width: $screen-md){
+      .content{
+        margin-left: 50px;
+      }
+      .section-seperator{
+        border-bottom: 1px $gray-extra-light solid;
+      }
+      li{
+        margin-left: 20px;
+      }
+      .section-seperator{
+        margin-bottom: 50px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+      }
     }
 
-    }
+    .content{
+      height: 335px;
+      @media (max-width: $screen-md){
+        height:auto;
+      }
+      position: relative;
+      p{
+          font-size: $font-size-small
+      }
+      p strong {
+          font-weight: $font-weight-more-bold;
+      }
+
+      }
 }

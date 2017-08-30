@@ -1,18 +1,24 @@
 // @todo how to avoid including it many times?
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../common/sass/variables.scss";
 
 .incentive {
+    padding-top: $space-bottom-between-elements;
+
     h1 {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
     }
     p {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
         @media (min-width : $screen-lg) {
             padding-right: 160px;
         }
     }
+    a {
+      font-weight: $font-weight-more-bold;
+    }
     button {
-        margin-top: 30px;
+        margin-top: $margin-bottom-between-paragraphs;
         @media (max-width: $screen-sm) {
             margin-left:auto;
             margin-right:auto;
@@ -20,7 +26,17 @@
         }
     }
 }
-
+@media (min-width: $screen-sm){
+  .time{
+    margin-left: 32px;
+  }
+  .goto{
+    margin-left: 90px;
+  }
+}
+.text {
+  margin-top: -10px;
+}
 .hexagons {
     top: 45px;
     margin-left:auto;

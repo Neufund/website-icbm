@@ -4,6 +4,14 @@
     h3, h4, a, span, div,p{
         font-family: "Montserrat", sans-serif !important;
     }
+    p{
+      width: 96%;
+    }
+    @media (min-width: $screen-md){
+      p{
+        width: 140%;
+      }
+    }
     .vex-content{
         background: white !important;
         border: 0 !important;
@@ -24,6 +32,7 @@
         height: auto !important;
         width: 156px !important;
         float: none !important;
+        margin-left: -20px;
     }
     a.close-modal{
         background: transparent;
@@ -45,7 +54,7 @@
     }
     a.close-modal:before{
         content: "\00d7";
-        display: block;        
+        display: block;
         font-size: 44px;
         left: 0;
         line-height: 35px;

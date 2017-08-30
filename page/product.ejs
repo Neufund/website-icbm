@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head', { title: 'ICO Commit Page', meta: content.meta_head }); %>
+    <%- include('partials/head', {title: 'Product', meta: content.meta_head }); %>
     <body>
-        <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
-        <div class="container">
-          <%- include('partials/home'); %>
+        <%- include('partials/header', { active: 'product', hashes: hashes }); %>
+        <div class="main container">
+          <%- include('partials/product' ); %>
           <%- include('partials/footer', content.footer); %>
 
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>

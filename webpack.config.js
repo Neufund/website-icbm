@@ -1,12 +1,35 @@
 const path = require("path");
 const webpack = require("webpack");
-const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
+const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
+const { mapValues } = require("lodash");
 
 const isProduction = process.env.NODE_ENV === "production";
+const dotenv = require("dotenv");
+const envs = dotenv.load().parsed;
+
+//we are combining the NODE_ENV variable with the local variables from the .env file
+const allEnvs = mapValues(
+  Object.assign(
+    {},
+    {
+      NODE_ENV: process.env.NODE_ENV || "development",
+    },
+    envs
+  ),
+  JSON.stringify
+);
+
+const devEntryPoints = isProduction
+  ? []
+  : [
+      "react-hot-loader/patch",
+      "webpack-dev-server/client?http://localhost:8080",
+      "webpack/hot/only-dev-server",
+    ];
 
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".js"], 
+    extensions: [".ts", ".tsx", ".js"],
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -23,18 +46,12 @@ module.exports = {
       },
     },
   },
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    "./app/index.tsx",
-    "./page/ts/index.ts",    
-  ],
+  entry: [...devEntryPoints, "./app/index.tsx", "./page/ts/index.ts"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: isProduction ? "main-[hash].js" : "main.js",
   },
-  devtool: "inline-source-map",
+  devtool: isProduction ? "(none)" : "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
@@ -42,17 +59,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      "window.jQuery": "jquery"
+      "window.jQuery": "jquery",
     }),
     new RobotstxtPlugin({
-        policy: [
-            {
-                userAgent: '*',
-                allow: '/',
-            }
-        ]
-    })
-       
+      policy: [
+        {
+          userAgent: "*",
+          allow: "/",
+        },
+      ],
+    }),
+    new webpack.DefinePlugin({
+      "process.env": allEnvs,
+    }),
   ],
   node: {
     __filename: true,

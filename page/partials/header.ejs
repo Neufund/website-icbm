@@ -1,24 +1,25 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-no-border">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="https://neufund.org/"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Commit <span class="sr-only">(current)</span></a></li>
-        <li><a class="comming-soon" href="#">Product <span class="sr-only">(current)</span></a></li>
-        <li><a class="comming-soon" href="#">Whitepaper <span class="sr-only">(current)</span></a></li>
+        <li class="<% if( active == 'commit' ) { %>active<% } %>"><a href="/">Commit <span class="sr-only">(current)</span></a></li>
+        <li class="<% if( active == 'product' ) { %>active<% } %>"><a href="/product.html">Product <span class="sr-only">(current)</span></a></li>
+        <li class="<% if( active == 'whitepaper' ) { %>active<% } %>"><a href="/whitepaper.html">Whitepaper <span class="sr-only">(current)</span></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="comming-soon" href="#">FAQ</a></li>
+        <li class="<% if( active == 'faq' ) { %>active<% } %>"><a href="/faq.html">FAQ</a></li>
         <li><a href="https://neufundorg.signup.team/" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/Neufund/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
         <li><a href="https://blog.neufund.org/" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a></li>

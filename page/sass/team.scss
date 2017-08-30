@@ -1,6 +1,56 @@
+@import '../../common/sass/variables';
+
 .team{
-  padding-bottom: 0px;
-    h4.position{
-        font-weight: $font-weight-light;
+  .person-block {
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .person-info {
+    padding-left: 114px;
+  }
+
+  .person-details {
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h4 {
+      margin: 0;
+      font-size: $font-size-normal;
     }
+
+    .name {
+      font-size: $font-weight-more-bold
+    }
+
+    .position {
+      font-weight: $font-weight-light;
+    }
+  }
+
+  .person-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+  }
+
+  .highlight {
+    border: 3px solid $blue;
+
+    transform: scale(1);
+    opacity: 0;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(.46, .265, .285, 1.635);
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import * as moment from "moment";
 import * as React from "react";
 import * as zeroFill from "zero-fill";
-import "./Countdown.scss";
+import * as styles from "./Countdown.scss";
 
 const numberFormatter = zeroFill(2);
 
@@ -13,23 +13,36 @@ interface ICountdownComponentProps {
 
 // @todo remove moment prop checkers
 export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
-  <div>
-    <span className="countdown-label">d</span>
-    <span className="countdown-value">
-      {numberFormatter(duration.days())}
-    </span>
-    <span className="countdown-label">h</span>
-    <span className="countdown-value">
-      {numberFormatter(duration.hours())}
-    </span>
-    <span className="countdown-label">m</span>
-    <span className="countdown-value">
-      {numberFormatter(duration.minutes())}
-    </span>
-    <span className="countdown-label">s</span>
-    <span className="countdown-value">
-      {numberFormatter(duration.seconds())}
-    </span>
+  <div className={styles.countdown}>
+    <h3> Commitment Opportunity starts in: </h3>
+    <h1 className="time">
+      Autumn
+    </h1>
+
+    <div className="timer">
+      <strong className={styles.label}>d</strong>
+      <span className={styles.value}>
+        {numberFormatter(duration.days())}
+      </span>
+      <strong className={styles.label}>h</strong>
+      <span className={styles.value}>
+        {numberFormatter(duration.hours())}
+      </span>
+      <strong className={styles.label}>m</strong>
+      <span className={styles.value}>
+        {numberFormatter(duration.minutes())}
+      </span>
+      <strong className={styles.label}>s</strong>
+      <span className={styles.value}>
+        {numberFormatter(duration.seconds())}
+      </span>
+    </div>
+    <div className="reward">
+      <h3>Reward starting point:</h3>
+      <p>
+        {" "}-- NEU / <strong>1</strong> EHT
+      </p>
+    </div>
   </div>;
 
 interface ICountdownProps {

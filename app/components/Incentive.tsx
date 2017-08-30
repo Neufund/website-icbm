@@ -13,15 +13,13 @@ interface IBeforeIcoComponentProps {
 }
 
 export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
-  <div className={styles.text}>
-    <p className={styles.goto}>Starts in:</p>
-    <h1 className={styles.time}>
-      Autumn<br />2017
-      <p>
-        <Countdown finishDate={startDate} />
-      </p>
-    </h1>
-  </div>;
+  // <div className={styles.text}>
+  //   <p className={styles.goto}>Starts in:</p>
+  //   <h1 className={styles.time}>
+  //     Autumn<br />2017
+  <Countdown finishDate={startDate} />;
+// </h1>
+// </div>;
 
 export const Incentive: React.SFC = () =>
   <Row>

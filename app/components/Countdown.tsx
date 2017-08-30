@@ -15,9 +15,7 @@ interface ICountdownComponentProps {
 export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
   <div className={styles.countdown}>
     <h3> Commitment Opportunity starts in: </h3>
-    <h1 className="time">
-      Autumn
-    </h1>
+    <h1 className="time">Autumn</h1>
 
     <div className="timer">
       <strong className={styles.label}>d</strong>

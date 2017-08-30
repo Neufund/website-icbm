@@ -48,7 +48,7 @@
     "yaml-js": "^0.2.0"
   },
   "scripts": {
-    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
+    "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server && cp -n .env.example .env",
     "tslint": "tslint 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
     "tslint:fix": "tslint --fix 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
     "lint": "yarn tslint",

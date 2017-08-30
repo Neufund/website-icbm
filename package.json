@@ -49,7 +49,7 @@
   },
   "scripts": {
     "start": "gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
-    "tslint": "tslint --fix 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
+    "tslint": "tslint 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
     "tslint:fix": "tslint --fix 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)'",
     "lint": "yarn tslint",
     "lint:fix": "yarn tslint:fix",

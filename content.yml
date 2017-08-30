@@ -55,12 +55,13 @@ easy_access:
   visible: true
   title: "For crypto nerds, finance nerds and non-nerds at all"
   paragraph:  |
-        Easy to use crafted experience for different actors on different stages of their investment journey. An on-going work, being build with community for community,
-        open-source code, access point for everyone to blockchain.
+        Easy to use crafted experience for different actors on different stages of their investment journey. An
+        on&#8209;going work, being built with community for community, open&#8209;source code, access point for everyone
+        to blockchain.
   remark: "Check out the:"
   link1: "Neufund’s Github account"
   link2: "Our introductory post to the product"
-  button: "Pre-alfa version"
+  button: "Pre-alpha version"
 
 team:
   visible: true

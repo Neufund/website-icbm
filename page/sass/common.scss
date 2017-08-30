@@ -7,9 +7,6 @@ body{
 p.slim {
     font-weight: $font-weight-light;
 }
-h3.smaller {
-    font-size: 20px;
-}
 
 .section ul.compact-list {
     padding: 0 0 $space-bottom-between-elements 0;
@@ -83,6 +80,10 @@ h3.smaller {
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
         font-weight: $font-weight-more-bold;
+
+      &.smaller {
+        font-size: $section-title-font-size-smaller;
+      }
     }
     p{
         font-size: $font-size-normal;
@@ -113,8 +114,6 @@ h3.smaller {
 .person-block{
     cursor: pointer;
 }
-
-
 
 .hexagon-wrapper {
     text-align: center;

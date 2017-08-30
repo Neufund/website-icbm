@@ -3,3 +3,18 @@
 .countdown{
     font-size: $font-size-normal !important;
   }
+  .countdown-label {
+    color: #8FA2AB;
+    margin-right: 10px;
+    font-size: 12px !important;
+    vertical-align: middle;
+    line-height: 20px;
+  }
+
+  .countdown-value {
+    color: white;
+    font-size: 15px !important;
+    margin-right: 15px;
+    vertical-align: middle;
+    line-height: 20px;
+  }

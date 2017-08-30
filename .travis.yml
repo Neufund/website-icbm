@@ -11,6 +11,7 @@ install:
   - yarn --pure-lockfile
 before_script: greenkeeper-lockfile-update
 script:
+  - set -e                     # fail fast
   - yarn lint
   - yarn test:coverage
 after_script: greenkeeper-lockfile-upload

@@ -19,41 +19,51 @@ const getPersonModal: any = function(
   domain: string,
   email: string
 ) {
+  const preTitleMarkup = preTitle == "" ? preTitle : `<span>${preTitle}</span>`;
+
+  let optionalElements = "";
+  if (domain !== "") {
+    optionalElements += `<a class="link" href="#">${domain}</a>`;
+  }
+
+  if (email !== "") {
+    optionalElements += `<p class="handle">${email}</p>`;
+  }
+
   return {
-    input: `<a href="#" class="close-modal"></a>
-                <div class="row">
-                <div class="col-md-3 person-info-container">
-                    <div class="person-info">
-                        <img class="rounded-image" src="${image}"/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="person-details">
-                        <h4 class="name">${name}</h4>
-                        <div class="title-container">
-                            <span>${preTitle}</span>
-                            <h4 class="position">${title}</h4>
-                        </div>
-                        <p class="bio">${bio}</p>
-                        <a class="link" href="#">${domain}</a>
-                        <p class="handle">${email}</p>
-                    </div>
-                </div>
-            </div>`,
+    unsafeContent: `
+      <div class="row">
+        <div class="col-md-3 person-info-container">
+          <div class="person-info">
+            <img class="rounded-image" src="${image}"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="person-details">
+            <h4 class="name">${name}</h4>
+            <div class="title-container">
+              ${preTitleMarkup}
+              <h4 class="position">${title}</h4>
+            </div>
+            <div class="bio">${bio}</div>
+            ${optionalElements}
+          </div>
+        </div>
+    </div>`,
   };
 };
 
 const getParticipateModal: any = function(text: string) {
   return {
-    input: `<a href="#" class="close-modal"></a>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3> ${text} </h3>
-                    </div>
-                </div>
-            </div>`,
+    unsafeContent: `
+      <div class="row">
+        <div class="col-md-12">
+          ${text}
+        </div>
+      </div>`,
   };
 };
+
 $(document).ready(function() {
   $(".has-carousel").owlCarousel({
     navigation: true,
@@ -69,21 +79,17 @@ $(document).ready(function() {
   $(".person-block a").click(function(e) {
     e.preventDefault();
   });
+
   $(".person-block").click(function() {
-    const name: string = $(this).find("h4.name a").text();
-    const image: string = $(this).find("img").attr("src");
-    const title: string = $(this).find("h4.position").text();
-    const bio: string = $(this).find("p.bio").text();
-    const preTitle: string = $(this).find("span.pre-title").text();
-    const domain: string = $(this).find("a.domain").text();
-    const email: string = $(this).find("p.link").text();
+    const name = $(this).find("h4.name a").text().trim();
+    const image = $(this).find("img").attr("src").trim();
+    const title = $(this).find("h4.position").text().trim();
+    const bio = $(this).find(".bio").text().trim();
+    const preTitle = $(this).find("span.pre-title").text().trim();
+    const domain = $(this).find("a.domain").text().trim();
+    const email = $(this).find("p.link").text().trim();
 
-    vex.dialog.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
-  });
-
-  $("body").on("click", ".close-modal", function(e) {
-    e.preventDefault();
-    $(".vex.vex-theme-os").trigger("click");
+    vex.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
   });
 
   $(".team .see-more").click(function() {
@@ -92,10 +98,11 @@ $(document).ready(function() {
       : $(this).text(seeMore);
     $(".team .is-hidden").fadeToggle("slow", "linear");
   });
+
   $(".comming-soon").click(function(e) {
     e.preventDefault();
     const text = $(this).text();
-    vex.dialog.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
+    vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
 });
 

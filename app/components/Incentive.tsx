@@ -2,9 +2,9 @@ import * as moment from "moment";
 import * as React from "react";
 import { Button, Col, Grid, Row } from "react-bootstrap";
 
-import { HexagonsStack } from "./HexagonsStack";
-
+import { commitmentStartDate } from "../config";
 import { Countdown } from "./Countdown";
+import { HexagonsStack } from "./HexagonsStack";
 
 import * as styles from "./Incentive.scss";
 
@@ -50,10 +50,10 @@ export const Incentive: React.SFC = () =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText startDate={moment("2018-12-25")} />
+        <HexagonText startDate={commitmentStartDate} />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText startDate={moment("1995-12-25")} />
+      <HexagonText startDate={commitmentStartDate} />
     </Col>
   </Row>;

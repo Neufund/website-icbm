@@ -1,3 +1,5 @@
+import * as moment from "moment";
+
 function getEnvValue(obj: any, key: string) {
   if (obj[key] === undefined) {
     throw new Error(`${key} is not exists in .env file`);
@@ -9,4 +11,8 @@ function getEnvValue(obj: any, key: string) {
 export const commitmentContractAdress: string = getEnvValue(
   process.env,
   "COMMITMENT_CONTRACT_ADDRESS"
+);
+
+export const commitmentStartDate: moment.Moment = moment(
+  getEnvValue(process.env, "ICO_START_DATE")
 );

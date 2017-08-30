@@ -1,11 +1,11 @@
 import { expect } from "chai";
-import { shallow } from "enzyme";
 import * as React from "react";
 
 describe("Config variables", () => {
   let savedEnvs: any;
 
   beforeEach(() => {
+    delete require.cache[require.resolve("../app/config")];
     savedEnvs = process.env;
     process.env = {};
   });
@@ -25,7 +25,6 @@ describe("Config variables", () => {
   it('Should throw error that "Key" is not exists', () => {
     process.env = {};
     expect(() => {
-      delete require.cache[require.resolve("../app/config")];
       const { commitmentContractAdress } = require("../app/config");
     }).to.throw("COMMITMENT_CONTRACT_ADDRESS is not exists in .env file");
   });

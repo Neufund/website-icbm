@@ -1,6 +1,5 @@
 import * as cn from "classnames";
 import * as React from "react";
-
 import * as styles from "./HexagonsStack.scss";
 
 interface IHexagonsStackProps {

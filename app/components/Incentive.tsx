@@ -3,6 +3,8 @@ import { Button, Col, Grid, Row } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
 
+import { Count } from "./Countdown";
+
 import * as styles from "./Incentive.scss";
 
 export const HexagonText: React.SFC = () =>
@@ -10,6 +12,7 @@ export const HexagonText: React.SFC = () =>
     <p className={styles.goto}>Starts in:</p>
     <h1 className={styles.time}>
       Autumn<br />2017
+      <Count time={5} />
     </h1>
   </div>;
 

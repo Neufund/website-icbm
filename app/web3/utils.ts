@@ -1,16 +1,16 @@
 import * as moment from "moment";
-import web3 from "./web3Provider";
+import { web3Instance } from "./web3Provider";
 
-export function asMomentDate(bignum: any) {
+export function asMomentDate(bignum: BigNumber.BigNumber) {
   const asInt = bignum.toNumber();
 
   return moment.utc(asInt, "X");
 }
 
-export function asNumber(bignum: any) {
+export function asNumber(bignum: BigNumber.BigNumber) {
   return bignum.toNumber();
 }
 
-export function asEtherNumber(bignum: any) {
-  return web3.fromWei(bignum, "ether").toNumber();
+export function asEtherNumber(bignum: BigNumber.BigNumber) {
+  return web3Instance.fromWei(bignum, "ether").toNumber();
 }

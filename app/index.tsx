@@ -7,11 +7,12 @@ import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
 
 import Countdown from "./containers/Countdown";
+import { loadIcoParamsFromContract } from "./web3/loadIcoParamsFromContract";
 
 const root = document.getElementById("react-root");
 
 const render = () => {
-  /* We are doing this because we are not loading the "react-root" 
+  /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, prodcut]
   */
   if (root) {
@@ -56,5 +57,7 @@ if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line
   require('!raw-loader!../dist/app.css');
 }
-
+Promise.resolve(
+  loadIcoParamsFromContract("0x0bfbbe3d79e8e6f334088f28d1c1038f5686194c")
+).then(value => console.log(value));
 render();

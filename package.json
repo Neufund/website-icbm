@@ -93,7 +93,7 @@
     "redux-thunk": "^2.2.0",
     "robotstxt-webpack-plugin": "^2.0.0",
     "vex-js": "^4.0.0",
-    "web3": "^1.0.0-beta.18",
+    "web3": "0.19.0",
     "zero-fill": "^2.2.3"
   }
 }

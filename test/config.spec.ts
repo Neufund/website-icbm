@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import * as React from "react";
 
 describe("Config variables", () => {
   let savedEnvs: any;

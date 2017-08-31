@@ -29,7 +29,7 @@ interface ISvgProps {
 }
 
 const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ...props }) =>
-  <svg width="410" height="410" className={className}>
+  <svg width="450" height="410" className={className}>
     {extraDefs}
 
     {shadow &&
@@ -47,7 +47,7 @@ const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ..
       </filter>}
 
     <polygon
-      points="403,205 300,403 100,403 3,205 100,3 300,3"
+      points="450,205 300,450 150,450 0,205 125,0 325,0"
       style={{ [shadow && "filter"]: "url(#dropshadow)", ...style }}
       {...props}
     />
@@ -74,7 +74,7 @@ export const BlueHexagon: React.SFC = () =>
     className={styles.hexagonBlue}
     extraDefs={blueGradient}
     style={{ fill: "url(#linear-gradient)" }}
-      />;
+  />;
 
 const whiteGradient = (
   <defs>

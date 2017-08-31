@@ -8,29 +8,35 @@
             margin-right: 10px;
         }
         .label {
-            color: #000000;
-            font-size: 14px;
-            font-weight: 300;
+            color: black;
+            font-size: $font-size-small;
+            font-weight: $font-weight-light;
             margin-right: 5px;
         }
         .value{
-            color: #000000;
-            font-size: 18px;
-            margin-right: 20px;
+            color: black;
+            font-size: $font-size-medium;
+            margin-right: $space-between-elements;
         }
     }
-}
     .text{
         p{
-            padding-right: 0px;            
+            padding-right: 0px;    
+            margin: 0px;        
+        }
+        span, p{
+            font-weight: $font-extra-weight-light;
         }
         .title{
-            margin-bottom: 10px;
+            margin-bottom: 0px;
+            font-size: $font-size-small;
+            color: white;
         }
         .content{
-            margin-bottom: 0px; 
+            margin-bottom: $space-between-elements; 
         }
         .extraSize{
-            font-size: 30px;
+            font-size: $font-extra-big-size;
         }
-    }
+    }    
+}

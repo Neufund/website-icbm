@@ -18,7 +18,7 @@ const render = (store: any) => {
   if (root) {
     ReactDOM.render(
       <Provider store={store}>
-        <Ico />        
+        <Ico />
       </Provider>,
       root
     );

@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/bignumber.js": "^4.0.3",
     "@types/bluebird": "^3.5.8",
     "@types/chai": "^4.0.4",
     "@types/chai-as-promised": "^0.0.31",

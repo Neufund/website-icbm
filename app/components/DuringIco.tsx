@@ -1,8 +1,7 @@
 import * as React from "react";
+import * as moment from "moment";
 import { Button, Col, Grid, Row } from "react-bootstrap";
-
 import { HexagonsStack } from "./HexagonStackDuringIco";
-
 import * as styles from "./DuringIco.scss";
 import * as incentiveStyles from "./Incentive.scss";
 
@@ -11,9 +10,10 @@ interface IMoneyProps {
   neuMarkAmount: number;
   neuMarkToEtherRatio: number;
 }
+
 interface IDuringIcoComponentProps {
   money: IMoneyProps;
-  finishDate: any;
+  finishDate: moment.Moment;
 }
 
 export const HexagonText = (props: IMoneyProps) => {

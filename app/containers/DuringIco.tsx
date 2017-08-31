@@ -13,7 +13,9 @@ interface IDuringIcoProps {
   finishDate: moment.Moment;
   icoState: any;
 }
+
 const SECOND: number = 1000;
+
 export class DuringIco extends React.Component<IDuringIcoProps> {
   public componentDidMount() {
     const timerID = window.setInterval(() => {

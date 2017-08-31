@@ -310,7 +310,7 @@ team:
 advisors:
   visible: true
   title: "Advisors"
-  intro: "We are missing intro here"
+  intro: "Advisors bridging the worlds of crypto and Venture Capital."
   block: "../blocks/person"
   qoutes:
     - quote: |

@@ -308,8 +308,10 @@ team:
        Policy Initiative.</p>
 
 advisors:
-  visible: false
+  visible: true
   title: "Advisors"
+  intro: "We are missing intro here"
+  block: "../blocks/person"
   qoutes:
     - quote: |
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -322,16 +324,79 @@ advisors:
       speaker: "John Smith"
       company: "Company name"
   members:
-    block: "../blocks/person"
-    name: "John Smith"
-    title: "Capital Name"
-    image: "../assets/mostafabalatabw.jpg"
-    preTitle: "Partner"
-    domain: ""
-    email: ""
-    bio:  |
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    - name: "Christophe Maire"
+      title: "Founder and CEO, Atlantic Labs"
+      image: "../assets/christophe-maire.png"
+      preTitle: ""
+      domain: ""
+      email: ""
+      bio:  |
+        <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
+        which he sold to Nokia in 2006. Christophe since co-founded a number of companies with global reach, such as
+        Plazes.com (Nokia), txtr.com or recently Medigo.com, Mimi.io, and Blloon.com. As an angel investor, Christophe
+        was involved in Brands4Friends (eBay), StudiVZ (HB), Plista (groupM), Readmill (Dropbox), amongst others.
+        (Christophe was named best “European Seed investor” in both 2011 and 2012 by Techcrunch. He serves on the board
+        of EyeEm, Klara and Soundcloud.</p>
+
+    - name: "Fabian Vogelsteller"
+      title: "Ethereum and Mist Developer"
+      image: "../assets/fabianethereumdev.png"
+      preTitle: ""
+      domain: ""
+      email: ""
+      bio:  |
+        <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set from
+        graphic design to coding PHP to Python, ActionScript, Objective C, HTML, CSS and fell in love with JavaScript.
+        He worked as a freelance web developer for over 12 years and is the creator of the open source feindura – Flat
+        File CMS. Fabian is a strong advocate of open-source software and has built and contributed to a lot of
+        open-source libraries and projects and wrote a book on Meteor.js a open source JavaScript Framework. His
+        interest in cryptocurrencies like Bitcoin led him to be part of one of the most ambitious blockchain projects
+        to date, the Ethereum project. For almost two years he has worked as the lead Dapp developer for the Ethereum
+        project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
+
+    - name: "Max Kordek"
+      title: "President, Lisk Foundation"
+      image: "../assets/maxlisk.png"
+      preTitle: ""
+      domain: ""
+      email: ""
+      bio:  |
+        <p>Max Kordek is a co-founder of Lisk and the President of the Lisk Foundation. As a futurist and thoroughbred
+        entrepreneur interested in disruptive technologies, he co-founded the platform after seeing the potential of
+        blockchain-based applications. It caused a stir in early 2016 when it collected 14000 BTC in its crowd fund.
+        Max is also the Director of the Lightcurve GmbH, a rapidly expanding blockchain consultancy.
+        Max immersed himself in the global startup community from a young age, beginning at just 14. Over the past
+        several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
+        industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
+
+    - name: "Michael Jackson"
+      title: "Partner, Mangrove Capital"
+      image: "../assets/mangrove-michael-jackson.jpg"
+      preTitle: ""
+      domain: ""
+      email: ""
+      bio:  |
+        <p>Michael Jackson is a Partner at Mangrove Capital Partners. He started his career at Monsanto and went on to
+        manage the Supply Chain and Logistics business consulting practice at Arthur Andersen and then at Ernst &
+        Young. In 2006, he pioneered early-stage investment from Western VCs in Russia. His sectors of interests
+        revolve around consumer Internet and e-commerce across Europe, scouting for startups that involve essential
+        shift or disruption in technology, business model or consumer behavior. Open-minded and curious by nature,
+        he enjoys travelling and discovering different cultures, which makes him keen on developing business
+        connections in new and sometimes untapped geographies. He currently serves on the boards of Lesara, KupiVIP,
+        RedPoints, Synerscope, Enigma, and the Mangrove Foundation. Michael holds a Bachelor’s Degree in Nautical
+        Sciences from the Antwerp Maritime Academy and a Master in International Business and Management with high
+        honors from the Brussels Management School. A Belgian national, he speaks French, English, Dutch and German.
+        </p>
+
+    - name: "Paweł Bylica "
+      title: "Ethereum Core Developer"
+      image: "../assets/pawel-bylica.png"
+      preTitle: ""
+      domain: ""
+      email: ""
+      bio:  |
+        <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network
+        Project as Ethereum specialist.</p>
 
 ecosystem:
   visible: true

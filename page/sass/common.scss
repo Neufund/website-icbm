@@ -1,3 +1,5 @@
+@import '../../common/sass/variables';
+
 body{
     -webkit-font-smoothing: antialiased;
     padding-top: $navbar-height + 10px;
@@ -38,22 +40,12 @@ p.slim {
 .navbar-no-border{
     border:0 !important;
 }
+
 .section{
     position: relative;
     padding-top: $padding-between-sections;
     padding-bottom: $padding-between-sections;
     border-bottom: 1px $off-white solid;
-
-    .see-more{
-        position: absolute;
-        right: 50px;
-        bottom: 0;
-        background: none;
-        border: 0px;
-        color: $blue;
-        font-size: 16px;
-        transition:all 1s;
-    }
 
     .hidden-picture{
         display: none;
@@ -161,4 +153,70 @@ p.slim {
             float: left;
         }
     }
+}
+
+.people {
+  .person-block {
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .person-info {
+    padding-left: 114px;
+  }
+
+  .person-details {
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h4 {
+      margin: 0;
+      font-size: $font-size-normal;
+    }
+
+    .name {
+      font-size: $font-weight-more-bold
+    }
+
+    .position {
+      font-weight: $font-weight-light;
+    }
+  }
+
+  .person-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+  }
+
+  .highlight {
+    border: 3px solid $blue;
+
+    transform: scale(1);
+    opacity: 0;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(.46, .265, .285, 1.635);
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  .see-more{
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    background: none;
+    border: 0;
+    color: $blue;
+    font-size: 16px;
+    transition: all 1s;
+  }
 }

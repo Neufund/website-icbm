@@ -64,14 +64,6 @@ const getParticipateModal: any = (text: string) => {
   };
 };
 $(document).ready(() => {
-  $(".has-carousel").owlCarousel({
-    navigation: true,
-    items: 1,
-    singleItem: true,
-    lazyLoad: true,
-    dots: true,
-    autoPlay: 3000, // Set AutoPlay to 3 seconds
-  });
 
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";

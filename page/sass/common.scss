@@ -7,9 +7,6 @@ body{
 p.slim {
     font-weight: $font-weight-light;
 }
-h3.smaller {
-    font-size: 20px;
-}
 
 .section ul.compact-list {
     padding: 0 0 $space-bottom-between-elements 0;
@@ -38,19 +35,6 @@ h3.smaller {
     }
 }
 
-.person-info-container{
-    margin-bottom: $padding-between-pictures;
-
-    .person-info .person-details{
-        position: relative;
-        margin-top: -62px;
-        left: 105px;
-        max-width: 215px;
-        height: 36px;
-        margin-bottom: 29px;
-    }
-}
-
 .navbar-no-border{
     border:0 !important;
 }
@@ -74,15 +58,15 @@ h3.smaller {
     .hidden-picture{
         display: none;
     }
-    .person-info h4{
-        font-size: 16px;
-        margin: 0px;
-        font-weight: $font-weight-bold;
-    }
+
     h3{
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
         font-weight: $font-weight-more-bold;
+
+      &.smaller {
+        font-size: $section-title-font-size-smaller;
+      }
     }
     p{
         font-size: $font-size-normal;
@@ -109,12 +93,6 @@ h3.smaller {
         padding-top: $padding-between-sections;
     }
 }
-
-.person-block{
-    cursor: pointer;
-}
-
-
 
 .hexagon-wrapper {
     text-align: center;

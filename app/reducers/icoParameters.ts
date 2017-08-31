@@ -6,8 +6,6 @@ import { commitmentContractAdress } from "../config";
 export interface IcoParametersState {
   loading: boolean;
   address: string;
-  lockedAccountAddress: string;
-  neumarkTokenAddress: string;
   startDate: string;
   endDate: string;
   minCap: number;
@@ -18,8 +16,6 @@ export interface IcoParametersState {
 const initialState: IcoParametersState = {
   loading: true,
   address: commitmentContractAdress,
-  lockedAccountAddress: null,
-  neumarkTokenAddress: null,
   startDate: null,
   endDate: null,
   minCap: 0,
@@ -37,8 +33,6 @@ export default function(state = initialState, action: any): IcoParametersState {
         startDate: payload.startDate,
         endDate: payload.endDate,
         icoPhase: checkPhase(payload),
-        lockedAccountAddress: payload.lockedAccountAddress,
-        neumarkTokenAddress: payload.neumarkTokenAddress,
         minCap: payload.minCap,
         maxCap: payload.maxCap,
       };
@@ -54,14 +48,6 @@ export default function(state = initialState, action: any): IcoParametersState {
 
 export function selectAddress(state: IcoParametersState) {
   return state.address;
-}
-
-export function selectLockedAccountAddress(state: IcoParametersState) {
-  return state.lockedAccountAddress;
-}
-
-export function selectNeumarkTokenAddress(state: IcoParametersState) {
-  return state.neumarkTokenAddress;
 }
 
 export function selectStartDate(state: IcoParametersState) {

@@ -8,11 +8,12 @@ import reduxThunk from "redux-thunk";
 import Ico from "./containers/Ico";
 // tslint:disable-next-line
 import reducer from "./reducers/index";
+import { loadIcoParamsFromContract } from "./web3/loadIcoParamsFromContract";
 
 const root = document.getElementById("react-root");
-
-const render = () => {
-  /* We are doing this because we are not loading the "react-root" 
+// tslint:disable-next-line
+const render = (store: any) => {
+  /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, prodcut]
   */
   if (root) {
@@ -60,7 +61,7 @@ if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line
   require('!raw-loader!../dist/app.css');
 }
-Promise.resolve(
-  loadIcoParamsFromContract("0x0bfbbe3d79e8e6f334088f28d1c1038f5686194c")
-).then(value => console.log(value));
+Promise.resolve(loadIcoParamsFromContract("0xf2fdb660a74aed81ed4a306a25c0087d2c0ed224"))
+  .then(value => console.log(value))
+  .catch(error => console.log(error));
 render(store);

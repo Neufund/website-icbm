@@ -4,6 +4,7 @@ const ejs = require("gulp-ejs");
 const del = require("del");
 const gutil = require("gulp-util");
 const sass = require("gulp-sass");
+const sourcemaps = require('gulp-sourcemaps');
 const gulpif = require("gulp-if");
 const seq = require("gulp-sequence");
 const debug = require("gulp-debug");
@@ -68,8 +69,10 @@ gulp.task("sass", () => {
   };
   return gulp
     .src("./page/sass/app.scss")
+    .pipe(gulpif(!isProduction, sourcemaps.init()))
     .pipe(sass(isProduction ? minifyOptions : null).on("error", gutil.log))
     .pipe(gulpif(isProduction, rev()))
+    .pipe(gulpif(!isProduction, sourcemaps.write()))
     .pipe(gulp.dest("./dist/"));
 });
 

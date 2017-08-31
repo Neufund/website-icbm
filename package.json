@@ -37,6 +37,7 @@
     "gulp-rev": "^8.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-util": "^3.0.8",
     "ignore-styles": "^5.0.1",
     "istanbul": "^0.4.5",

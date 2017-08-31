@@ -1,12 +1,10 @@
 import * as React from "react";
 
-import { Incentive } from "../components/Incentive";
+import { DuringIco as DuringIcoComponent } from "../components/DuringIco";
 
 const DuringIco: React.SFC = () =>
   <div>
-    {/* @Todo Remove this */}
-    <h1>During</h1>
-    <Incentive />
+    <DuringIcoComponent />
   </div>;
 
 export default DuringIco;

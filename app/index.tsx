@@ -8,7 +8,6 @@ import reduxThunk from "redux-thunk";
 import Ico from "./containers/Ico";
 // tslint:disable-next-line
 import reducer from "./reducers/index";
-
 const root = document.getElementById("react-root");
 
 // tslint:disable-next-line
@@ -19,7 +18,7 @@ const render = (store: any) => {
   if (root) {
     ReactDOM.render(
       <Provider store={store}>
-        <Ico />
+        <Ico />        
       </Provider>,
       root
     );

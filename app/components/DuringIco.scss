@@ -1,0 +1,36 @@
+@import "../../common/sass/variables.scss";
+.duringIco {
+    .timeLeftContainer{
+        p, div {
+            float: left;
+        }    
+        .timeLeft{
+            margin-right: 10px;
+        }
+        .label {
+            color: #000000;
+            font-size: 14px;
+            font-weight: 300;
+            margin-right: 5px;
+        }
+        .value{
+            color: #000000;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+    }
+}
+    .text{
+        p{
+            padding-right: 0px;            
+        }
+        .title{
+            margin-bottom: 10px;
+        }
+        .content{
+            margin-bottom: 0px; 
+        }
+        .extraSize{
+            font-size: 30px;
+        }
+    }

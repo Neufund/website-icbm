@@ -1,0 +1,36 @@
+@import "../../common/sass/variables.scss";
+.hex-container {
+    position: relative;
+}
+
+.hex-container-text {
+    position: absolute;
+    top: 69px;
+    left: 83px;
+    color: white;
+    p {
+        font-size: 13px;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 5px;
+    }
+    
+}
+
+.hexagon-blue {
+    -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
+    animation: breathing-blue 20s ease-in-out infinite normal;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left: -19px;
+}
+
+.hexagon-white{
+    -webkit-animation: breathing 20s ease-out infinite normal;
+    animation: breathing 20s ease-out infinite normal;
+    -webkit-font-smoothing: antialiased;
+    top: -11px;
+    transform: rotate(20deg);
+    position: absolute;
+}

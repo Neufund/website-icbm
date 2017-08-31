@@ -24,7 +24,7 @@ describe("Config variables", () => {
   it('Should throw error that "Key" is not exists', () => {
     process.env = {};
     expect(() => {
-      const { commitmentContractAdress } = require("../app/config");
+      require("../app/config");
     }).to.throw("COMMITMENT_CONTRACT_ADDRESS is not exists in .env file");
   });
 });

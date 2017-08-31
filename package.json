@@ -65,8 +65,8 @@
   },
   "scripts": {
     "start": "cp -n .env.example .env && gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
-    "tslint": "tslint 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
-    "tslint:fix": "tslint --fix 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
+    "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
+    "tslint:fix": "tslint --fix --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "lint": "yarn tslint",
     "lint:fix": "yarn tslint:fix",
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",

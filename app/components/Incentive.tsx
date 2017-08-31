@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Col, Grid, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
 

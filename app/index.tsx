@@ -1,16 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import reduxLogger from "redux-logger";
-import reduxThunk from "redux-thunk";
 import Countdown from "./containers/Countdown";
 
 const root = document.getElementById("react-root");
 
 const render = () => {
-  /* We are doing this because we are not loading the "react-root" 
+  /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, prodcut]
   */
   if (root) {
@@ -22,8 +17,6 @@ const render = () => {
     );
   }
 };
-
-const enhancers = (routes: any) => composeWithDevTools(applyMiddleware(reduxThunk, reduxLogger));
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {

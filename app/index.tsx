@@ -5,7 +5,6 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
-
 import Countdown from "./containers/Countdown";
 
 const root = document.getElementById("react-root");

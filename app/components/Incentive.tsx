@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
 
@@ -33,8 +33,6 @@ export const Incentive: React.SFC = () =>
         </sup>{" "}
         just by reserving funds and become a co-owner of the platform.
       </p>
-
-      <Button className="comming-soon btn-white">How to participate</Button>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>

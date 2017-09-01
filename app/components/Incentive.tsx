@@ -34,9 +34,7 @@ export const Incentive: React.SFC = () =>
         just by reserving funds and become a co-owner of the platform.
       </p>
 
-      <Button bsStyle="primary" className="comming-soon">
-        How to participate
-      </Button>
+      <Button className="comming-soon btn-white">How to participate</Button>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>

@@ -20,7 +20,7 @@ commit_funds:
         - link: "Terms and Conditions"
           href: "#"
         - link: "Smart Contracts on Github"
-          href: "#"
+          href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'
           href: "#"
         - link: "How to participate"
@@ -71,7 +71,10 @@ team:
      title: "CEO and Co-Founder"
      image: "../assets/ZoeAdamovicz_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      facebook: "https://www.facebook.com/zoeadamovicz"
+      linkedin: "https://www.linkedin.com/in/zoeadamovicz/"
+      medium: "https://blog.neufund.org/@ZoeAdamovicz"
      email: ""
      bio:  |
        <p>Zoe Adamovicz is the CEO and co-founder at Neufund. She is an experienced entrepreneur and occasional angel investor.</p>
@@ -89,7 +92,9 @@ team:
      title: "CTO and Co-Founder"
      image: "../assets/MarcinRudolf_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/marcinrudolf/"
+      "medium": "https://blog.neufund.org/@rudolfix"
      email: ""
      bio:  |
        <p>Marcin is a co-founder and CTO, and currently leads the technology development at
@@ -103,7 +108,13 @@ team:
      title: "Product Owner and Co-Founder"
      image: "../assets/RemcoBloemen_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/remco.bloemen"
+      "linkedin": "https://www.linkedin.com/in/remcobloemen/"
+      "github": "https://github.com/Recmo/"
+      "medium": "https://medium.com/@remco.bloemen"
+      "reddit": "https://www.reddit.com/user/Remco_/"
+      "website": "https://2π.com/"
      email: ""
      bio:  |
        <p>Remco is a co-founder, Blockchain Architect, and Product Owner at Neufund. An expert in
@@ -116,7 +127,8 @@ team:
      title: "Legal Architect"
      image: "../assets/AndreEggert_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "website": "http://lacore.de/berater/andre-eggert/"
      email: ""
      bio:  |
        <p>André Eggert is a partner at LACORE. He advises companies and entrepreneurs as well as
@@ -131,7 +143,13 @@ team:
      title: "Bussiness Operations Manager"
      image: "../assets/AgnieszkaSarnecka.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/sarnesia"
+      "twitter": "https://twitter.com/vanilizer"
+      "linkedin": "https://www.linkedin.com/in/agnieszka-sarnecka-40458397/"
+      "github": "https://github.com/Vanilizer"
+      "medium" : "https://blog.neufund.org/@agnieszkasa"
+      "website": "https://www.xing.com/profile/Agnieszka_Sarnecka2?sc_o=mxb_p"
      email: ""
      bio:  |
        <p>Agnieszka has been part of Neufund since the very beginning, assuming the role of
@@ -148,7 +166,8 @@ team:
      title: "Lead Blockchain Product Designer"
      image: "../assets/olaorchowska.png"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://neufund.net/community/www.linkedin.com/in/ola-orchowska"
      email: ""
      bio:  |
        <p>Ola is the Lead Blockchain Product Designer at Neufund. This position has afforded her a
@@ -164,14 +183,17 @@ team:
        platform for children with chronic diseases, and an expert system that supports ethical
        decision making.</p>
 
-        Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
-        She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
+        <p>Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
+        She has been named an Innovator under 35 in Poland by MIT Technology Review.</p>
 
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
      image: "../assets/JacekCzarnecki.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/czarneckijacek"
+      "linkedin": "https://www.linkedin.com/in/jacekczarnecki/"
+      "website": "http://www.coindesk.com/author/jacek-czarnecki/"
      email: ""
      bio:  |
        <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
@@ -188,7 +210,10 @@ team:
      title: "Lead Blockchain Developer"
      image: "../assets/krzysztofkaczor.png"
      preTitle: ""
-     domain: ""
+     links:
+      "twitter": "https://twitter.com/krzKaczor"
+      "linkedin": "https://www.linkedin.com/in/krzysztofkaczor"
+      "github": "https://github.com/krzkaczor"
      email: ""
      bio:  |
        <p>Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has
@@ -202,7 +227,8 @@ team:
      title: "Dapp Developer"
      image: "../assets/TomaszBanach_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "github": "https://github.com/banciur"
      email: ""
      bio:  |
        <p>Tomek is a dApp Developer at Neufund. During his Metrology and Quality Control studies he
@@ -218,7 +244,9 @@ team:
      title: "Software developer"
      image: "../assets/MoeElsharif.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/Moe.Elsharif90"
+      "github": "https://github.com/Moejoe90"
      email: ""
      bio:  |
        <p>Moe Elsharif graduated from Computer Engineering with a love for programming and
@@ -232,7 +260,9 @@ team:
      title: "IT Infrastructure Architect"
      image: "../assets/Panor.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/piotrstroinski/"
+      "github": "https://github.com/pstroinski"
      email: ""
      bio:  |
        <p>Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from
@@ -246,7 +276,9 @@ team:
      title: "Office Manager"
      image: "../assets/MartaSosinska.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/SosnaMarta"
+      "linkedin": "https://www.linkedin.com/in/marta-sosi%C5%84ska-28a012a4/"
      email: ""
      bio:  |
        <p>Marta Sosinska joined Neufund in March 2017 as Office Manager. She specializes in organizing office
@@ -263,7 +295,9 @@ team:
      title: "Software developer"
      image: "../assets/mostafabalatabw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/mostafa.balata"
+      "github": "https://github.com/MostafaBalata"
      email: ""
      bio:  |
        <p>Mostafa Balata is a Full Stack Developer at Neufund. With more than four years of
@@ -277,7 +311,11 @@ team:
      title: "Blockchain Reporter"
      image: "../assets/MoritzBierling.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/bierlingm"
+      "twitter": "https://twitter.com/bierlingm"
+      "linkedin": "https://www.linkedin.com/in/moritzbierling/"
+      "medium": "https://medium.com/@bierlingm"
      email: ""
      bio:  |
        <p>Moritz Bierling is a researcher, writer, and man of many talents. As the resident Blockchain
@@ -294,7 +332,10 @@ team:
      title: "Blockchain Technology Communications Department"
      image: "../assets/Steffen1.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "twitter": "https://twitter.com/steffen_rob"
+      "linkedin": "https://www.linkedin.com/in/steffen-sieler-445852b3/"
+      "medium": "https://medium.com/@steffens"
      email: ""
      bio:  |
        <p>Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional
@@ -323,10 +364,12 @@ advisors:
       company: "Company name"
   members:
     - name: "Christophe Maire"
-      title: "Founder and CEO, Atlantic Labs"
+      title: "Atlantic Labs"
       image: "../assets/christophe-maire.png"
-      preTitle: ""
-      domain: ""
+      preTitle: "Founder and CEO"
+      links:
+        linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
+        website: "http://www.atlanticlabs.de/"
       email: ""
       bio:  |
         <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
@@ -340,7 +383,12 @@ advisors:
       title: "Ethereum and Mist Developer"
       image: "../assets/fabianethereumdev.png"
       preTitle: ""
-      domain: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
+        github: "https://github.com/frozeman"
+        twitter: "https://twitter.com/feindura"
+        medium: "https://medium.com/@frozeman"
+        website: "http://frozeman.de/"
       email: ""
       bio:  |
         <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set from
@@ -353,10 +401,11 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Max Kordek"
-      title: "President, Lisk Foundation"
+      title: "Lisk Foundation"
       image: "../assets/maxlisk.png"
-      preTitle: ""
-      domain: ""
+      preTitle: "President"
+      links:
+        linkedin: "https://www.linkedin.com/in/maxkordek/"
       email: ""
       bio:  |
         <p>Max Kordek is a co-founder of Lisk and the President of the Lisk Foundation. As a futurist and thoroughbred
@@ -368,10 +417,12 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Michael Jackson"
-      title: "Partner, Mangrove Capital"
+      title: "Mangrove Capital"
       image: "../assets/mangrove-michael-jackson.jpg"
-      preTitle: ""
-      domain: ""
+      preTitle: "Partner"
+      links:
+        linkedin: "https://www.linkedin.com/in/mjmjmj/"
+        website: "http://www.mangrove.vc/"
       email: ""
       bio:  |
         <p>Michael Jackson is a Partner at Mangrove Capital Partners. He started his career at Monsanto and went on to
@@ -390,7 +441,9 @@ advisors:
       title: "Ethereum Core Developer"
       image: "../assets/pawel-bylica.png"
       preTitle: ""
-      domain: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/pawelbylica"
+        github: "https://github.com/chfast"
       email: ""
       bio:  |
         <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network

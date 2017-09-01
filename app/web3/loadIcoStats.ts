@@ -1,5 +1,5 @@
 import { Crowdsale } from "./contracts";
-import { asEtherNumber, asNumber } from "./utils";
+import { asNumber } from "./utils";
 
 export async function loadIcoStats(CrowdsaleAddress: string) {
   const lockedAccount = Crowdsale(CrowdsaleAddress);

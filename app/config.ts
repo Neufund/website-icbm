@@ -1,5 +1,3 @@
-import * as moment from "moment";
-
 function getEnvValue(obj: any, key: string) {
   if (obj[key] === undefined) {
     throw new Error(`${key} is not exists in .env file`);

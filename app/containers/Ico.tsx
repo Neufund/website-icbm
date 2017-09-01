@@ -1,5 +1,3 @@
-import { BigNumber } from "bignumber.js";
-import * as moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
@@ -12,12 +10,6 @@ import DuringIco from "./DuringIco";
 interface IcoProps {
   icoPhase: IcoPhase;
   loadIcoParameters: any;
-}
-interface IloadIcoParameters {
-  startDate: moment.Moment;
-  endDate: moment.Moment;
-  minCap: BigNumber;
-  maxCap: BigNumber;
 }
 
 export const Ico: React.SFC<IcoProps> = props => {

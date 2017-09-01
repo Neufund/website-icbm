@@ -5,11 +5,11 @@
 
 .hex-container-text {
     position: absolute;
-    top: 70px;
-    left: 15px;
+    top: $hexagon-top-position;
+    left: $hexagon-left-position;
     color: $blue-darker;
     p {
-        font-size: 13px;
+        font-size: $font-size-smaller;
     }
     h1 {
         text-align: center;

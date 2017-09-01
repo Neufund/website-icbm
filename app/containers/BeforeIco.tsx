@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import { Incentive } from "../components/Incentive";
 import { selectStartDate } from "../reducers/icoParameters";
-import { loadIcoStats } from "../web3/loadIcoStats";
 
 interface IBeforeIco {
   startDate: moment.Moment;

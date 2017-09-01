@@ -1,6 +1,4 @@
-import * as Bluebird from "bluebird";
 import * as moment from "moment";
-import { ThunkAction } from "redux-thunk";
 import { IcoParametersState, selectEndDate, selectStartDate } from "../reducers/icoParameters";
 import { IcoPhase, NEW_PHASE_ACTION } from "./constants";
 

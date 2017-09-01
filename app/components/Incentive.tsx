@@ -1,13 +1,10 @@
 import * as moment from "moment";
 import * as React from "react";
-import { Button, Col, Grid, Row } from "react-bootstrap";
-import { web3Instance } from "../web3/web3Provider";
+import { Button, Col, Row } from "react-bootstrap";
 
-import { commitmentStartDate } from "../config";
 import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
 
-import { loadIcoStats } from "../web3/loadIcoStats";
 import * as styles from "./Incentive.scss";
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;

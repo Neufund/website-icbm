@@ -1,6 +1,6 @@
 meta_head:
   description: "Neufund is a community-owned fundraising platform. Our ICO starts in Autumn 2017 – stay tuned!"
-  image_logo: "assets/social_logo.png"
+  image_logo: "https://commit.neufund.org/assets/social_logo.png"
   url: "https://commit.neufund.org"
   keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
 commit_funds:

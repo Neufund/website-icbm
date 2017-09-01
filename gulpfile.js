@@ -11,6 +11,8 @@ const debug = require("gulp-debug");
 const rev = require("gulp-rev");
 const yaml = require("yaml-js");
 const fs = require("fs");
+const dotenv = require("dotenv");
+const envs = dotenv.load().parsed;
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -39,6 +41,7 @@ gulp.task("page", () => {
       jsBundleHash,
       cssBundleHash,
     },
+    GA_ID: envs.GA_ID,
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86

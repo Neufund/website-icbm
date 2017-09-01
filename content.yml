@@ -20,7 +20,7 @@ commit_funds:
         - link: "Terms and Conditions"
           href: "#"
         - link: "Smart Contracts on Github"
-          href: "#"
+          href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'
           href: "#"
         - link: "How to participate"

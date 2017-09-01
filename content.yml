@@ -164,8 +164,8 @@ team:
        platform for children with chronic diseases, and an expert system that supports ethical
        decision making.</p>
 
-        Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
-        She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
+        <p>Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
+        She has been named an Innovator under 35 in Poland by MIT Technology Review.</p>
 
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
@@ -323,10 +323,10 @@ advisors:
       company: "Company name"
   members:
     - name: "Christophe Maire"
-      title: "Founder and CEO, Atlantic Labs"
+      title: "Atlantic Labs"
       image: "../assets/christophe-maire.png"
-      preTitle: ""
-      domain: ""
+      preTitle: "Founder and CEO"
+      domain: "https://www.linkedin.com/in/christophe-maire-9073196"
       email: ""
       bio:  |
         <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
@@ -340,7 +340,7 @@ advisors:
       title: "Ethereum and Mist Developer"
       image: "../assets/fabianethereumdev.png"
       preTitle: ""
-      domain: ""
+      domain: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
       email: ""
       bio:  |
         <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set from
@@ -353,10 +353,10 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Max Kordek"
-      title: "President, Lisk Foundation"
+      title: "Lisk Foundation"
       image: "../assets/maxlisk.png"
-      preTitle: ""
-      domain: ""
+      preTitle: "President"
+      domain: "https://www.linkedin.com/in/maxkordek/"
       email: ""
       bio:  |
         <p>Max Kordek is a co-founder of Lisk and the President of the Lisk Foundation. As a futurist and thoroughbred
@@ -368,10 +368,10 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Michael Jackson"
-      title: "Partner, Mangrove Capital"
+      title: "Mangrove Capital"
       image: "../assets/mangrove-michael-jackson.jpg"
-      preTitle: ""
-      domain: ""
+      preTitle: "Partner"
+      domain: "https://www.linkedin.com/in/mjmjmj/"
       email: ""
       bio:  |
         <p>Michael Jackson is a Partner at Mangrove Capital Partners. He started his career at Monsanto and went on to
@@ -390,7 +390,7 @@ advisors:
       title: "Ethereum Core Developer"
       image: "../assets/pawel-bylica.png"
       preTitle: ""
-      domain: ""
+      domain: "https://www.linkedin.com/in/pawelbylica"
       email: ""
       bio:  |
         <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network

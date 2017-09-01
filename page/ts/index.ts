@@ -68,7 +68,7 @@ $(document).ready(() => {
   const seeLess: string = "- Less";
 
   $(".person-block").click(function() {
-    const name = $(this).find("h4.name a").text().trim();
+    const name = $(this).find("h4.name").text().trim();
     const image = $(this).find("img").attr("src").trim();
     const title = $(this).find("h4.position").text().trim();
     const bio = $(this).find(".bio").text().trim();

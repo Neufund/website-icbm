@@ -49,10 +49,11 @@ button.btn {
 
     &.btn-white {
       background: white;
-      color: #09719B;
+      color: $blue;
       height: 40px;
       padding: 5px 45px 5px 45px;
       box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
-      border: 1px solid #09719B;
+      border: 1px solid $blue;
+      ;
   }
 }

@@ -61,7 +61,4 @@ if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line
   require('!raw-loader!../dist/app.css');
 }
-Promise.resolve(loadIcoParamsFromContract("0xf2fdb660a74aed81ed4a306a25c0087d2c0ed224"))
-  .then(value => console.log(value))
-  .catch(error => console.log(error));
 render(store);

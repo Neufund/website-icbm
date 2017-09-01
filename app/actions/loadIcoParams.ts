@@ -2,12 +2,13 @@ import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 import { Dispatch } from "redux";
 import { selectAddress } from "../reducers/icoParameters";
+import { loadIcoParamsFromEnviroment } from "../utils";
 import loadIcoParamsFromContract from "../web3/loadIcoParamsFromContract";
 import { LOAD_ICO_PARAMS } from "./constants";
 
 export function loadIcoParamsAction(
-  startDate: moment.Moment,
-  endDate: moment.Moment,
+  startDate: string,
+  endDate: string,
   minCap: BigNumber,
   maxCap: BigNumber
 ) {
@@ -24,7 +25,8 @@ export function loadIcoParamsAction(
 
 export async function loadIcoParams(dispatch: Dispatch<any>, getState: any) {
   const address = selectAddress(getState().icoParameters);
-  const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromContract(address);
-
+  // TODO :Choose when to load from ENV or Smart_Contract
+  // const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromContract(address); // FROM SMART CONTRACT
+  const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromEnviroment(); // FROM ENV
   dispatch(loadIcoParamsAction(startDate, endDate, minCap, maxCap));
 }

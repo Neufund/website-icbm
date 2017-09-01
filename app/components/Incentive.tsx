@@ -12,17 +12,14 @@ import * as styles from "./Incentive.scss";
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;
 }
+interface Iincentive {
+  startDate: moment.Moment;
+}
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) => (
+  <Countdown finishDate={startDate} />
+);
 
-export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
-  // <div className={styles.text}>
-  //   <p className={styles.goto}>Starts in:</p>
-  //   <h1 className={styles.time}>
-  //     Autumn<br />2017
-  <Countdown finishDate={startDate} />;
-// </h1>
-// </div>;
-
-export const Incentive: React.SFC = () =>
+export const Incentive: React.SFC<Iincentive> = ({ startDate }) => (
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -49,10 +46,11 @@ export const Incentive: React.SFC = () =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText startDate={commitmentStartDate} />
+        <HexagonText startDate={startDate} />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText startDate={commitmentStartDate} />
+      <HexagonText startDate={startDate} />
     </Col>
-  </Row>;
+  </Row>
+);

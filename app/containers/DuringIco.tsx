@@ -2,11 +2,11 @@ import * as React from "react";
 
 import { Incentive } from "../components/Incentive";
 
-const DuringIco: React.SFC = () =>
+const DuringIco: React.SFC = () => (
   <div>
-    {/* @Todo Remove this */}
+    {/* @Todo Add React During ICO state*/}
     <h1>During</h1>
-    <Incentive />
-  </div>;
+  </div>
+);
 
 export default DuringIco;

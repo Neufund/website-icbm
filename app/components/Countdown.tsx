@@ -77,7 +77,6 @@ export class Countdown extends React.Component<ICountdownProps, ICountdownState>
   public calculateDuration() {
     const finishDate = this.props.finishDate;
     const now = moment();
-
     return moment.duration(finishDate.diff(now));
   }
 

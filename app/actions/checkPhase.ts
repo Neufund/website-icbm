@@ -10,7 +10,6 @@ export function changePhaseAction(newPhase: IcoPhase) {
     payload: newPhase,
   };
 }
-
 export function checkPhase(icoParams: IcoParametersState) {
   const now = moment();
 
@@ -21,10 +20,8 @@ export function checkPhase(icoParams: IcoParametersState) {
   if (now.isBefore(startDate)) {
     return IcoPhase.BEFORE_ICO;
   }
-
   if (now.isBefore(endDate)) {
     return IcoPhase.DURING_ICO;
   }
-
   return IcoPhase.AFTER_ICO;
 }

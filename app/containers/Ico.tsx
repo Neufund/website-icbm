@@ -1,3 +1,5 @@
+import { BigNumber } from "bignumber.js";
+import * as moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
@@ -5,18 +7,22 @@ import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { selectIcoPhase } from "../reducers/icoParameters";
 import BeforeIco from "./BeforeIco";
-import Countdown from "./Countdown";
 import DuringIco from "./DuringIco";
 
 interface IcoProps {
   icoPhase: IcoPhase;
   loadIcoParameters: any;
 }
+interface IloadIcoParameters {
+  startDate: moment.Moment;
+  endDate: moment.Moment;
+  minCap: BigNumber;
+  maxCap: BigNumber;
+}
 
 export const Ico: React.SFC<IcoProps> = props => {
   const { icoPhase } = props;
   props.loadIcoParameters();
-
   // @todo: this should load after did mount
   switch (icoPhase) {
     case IcoPhase.DURING_ICO:

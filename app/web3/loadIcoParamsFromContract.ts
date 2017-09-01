@@ -9,12 +9,11 @@ export async function loadIcoParamsFromContract(address: string) {
     icoContract.startDateAsync().then(asMomentDate),
     icoContract.endDateAsync().then(asMomentDate),
   ]);
-
   return {
     minCap,
     maxCap,
-    startDate,
-    endDate,
+    startDate: startDate.toISOString(),
+    endDate: endDate.toISOString(),
   };
 }
 export default loadIcoParamsFromContract;

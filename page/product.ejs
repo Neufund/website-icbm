@@ -2,6 +2,9 @@
 <html>
     <%- include('partials/head', {title: 'Product', meta: content.meta_head }); %>
     <body>
+        <div class="background-wrapper">
+          <div class="background"></div>
+        </div>
         <%- include('partials/header', { active: 'product', hashes: hashes }); %>
         <div class="main container">
           <%- include('partials/product' ); %>

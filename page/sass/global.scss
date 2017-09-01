@@ -1,3 +1,29 @@
+body{
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-color: $gray-almost-white;
+
+  & > .container {
+    padding-top: $navbar-height;
+  }
+}
+
+.background-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -100;
+
+  .background {
+    width: calc(1170px + 200px);
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    background-color: white;
+  }
+}
+
+
 h1 {
     font-weight: $font-weight-max-bold;
 }

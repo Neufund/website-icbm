@@ -39,9 +39,12 @@
 
     @media (max-width: $screen-md) {
         #platform-second-col {
-            background-image: url(../assets/hexagons_small.png);
-            background-position: left;
-            background-repeat: no-repeat;
+            .hexaghons-small-left {
+              position: absolute;
+              z-index: -10;
+              left: -103px;
+            }
+
             text-align: center;
 
             img {

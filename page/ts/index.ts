@@ -5,53 +5,11 @@ import * as $ from "jquery";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
+import { getPersonModal } from "./personModal";
 import scrollbarFix from "./scrollbarFix";
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
-
-const getPersonModal = (
-  name: string,
-  image: string,
-  preTitle: string,
-  title: string,
-  bio: string,
-  domain: string,
-  email: string
-) => {
-  const preTitleMarkup = preTitle === "" ? preTitle : `<span>${preTitle}</span>`;
-
-  let optionalElements = "";
-  if (domain !== "") {
-    optionalElements += `<a class="link" href="${domain}"><i class="fa fa-linkedin"></i></a>`;
-  }
-
-  if (email !== "") {
-    optionalElements += `<p class="handle">${email}</p>`;
-  }
-
-  return {
-    unsafeContent: `
-      <div class="row">
-        <div class="col-md-3 person-info-container">
-          <div class="person-info">
-            <img class="rounded-image" src="${image}"/>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="person-details">
-            <h4 class="name">${name}</h4>
-            <div class="title-container">
-              ${preTitleMarkup}
-              <h4 class="position">${title}</h4>
-            </div>
-            <div class="bio">${bio}</div>
-            ${optionalElements}
-          </div>
-        </div>
-    </div>`,
-  };
-};
 
 const getParticipateModal: any = (text: string) => {
   return {
@@ -68,15 +26,17 @@ $(document).ready(() => {
   const seeLess: string = "- Less";
 
   $(".person-block").click(function() {
+    // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
     const name = $(this).find("h4.name").text().trim();
     const image = $(this).find("img").attr("src").trim();
     const title = $(this).find("h4.position").text().trim();
     const bio = $(this).find(".bio").text().trim();
     const preTitle = $(this).find("span.pre-title").text().trim();
-    const domain = $(this).find("a.domain").text().trim();
+    const rawLinks = $(this).find(".links").text().trim();
+    const links = rawLinks ? JSON.parse(rawLinks) : {};
     const email = $(this).find("p.link").text().trim();
 
-    vex.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
+    vex.open(getPersonModal(name, image, preTitle, title, bio, links, email));
   });
 
   $(".team .see-more").click(function() {

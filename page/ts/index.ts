@@ -64,7 +64,6 @@ const getParticipateModal: any = (text: string) => {
   };
 };
 $(document).ready(() => {
-
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";
 

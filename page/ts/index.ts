@@ -23,7 +23,7 @@ const getPersonModal = (
 
   let optionalElements = "";
   if (domain !== "") {
-    optionalElements += `<a class="link" href="#">${domain}</a>`;
+    optionalElements += `<a class="link" href="${domain}"><i class="fa fa-linkedin"></i></a>`;
   }
 
   if (email !== "") {

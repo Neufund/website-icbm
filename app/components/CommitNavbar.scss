@@ -1,0 +1,44 @@
+@import "../../common/sass/variables.scss";
+
+.brand {
+  height: 40px;
+  width: 110px;
+  background: url(../../page/assets/NeuFund_icon_white.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  padding: 0;
+  border-right: 1px solid #FFF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-position-y: center;
+  background-position-x: 60px;
+}
+
+.clear {
+  height: 40px;
+  width: 110px;
+  background: url(../../page/assets/ic_clear_white_3x.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-top: 6px;
+  padding-bottom: 42px;
+  padding-right: 146px;
+  background-position: center;
+}
+
+.header {
+  background: linear-gradient(#2F576A 2.36%, #325566 100%);;
+  border-color: #FFF;
+}
+
+.commit {
+   margin-left: 25px;
+   margin-top: 18px;
+   color: #FFF;
+   font-weight: $font-weight-normal;
+   font-family: $font-family-sans-serif;
+}
+.commit:hover {
+  cursor: default;
+}

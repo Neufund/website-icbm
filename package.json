@@ -81,7 +81,7 @@
     "test:coverage": "nyc mocha --require ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'"
   },
   "dependencies": {
-    "bignumber": "^1.1.0",
+    "bignumber.js": "^4.0.4",
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",

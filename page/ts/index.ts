@@ -51,6 +51,24 @@ $(document).ready(() => {
     const text = $(this).text();
     vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
+  ($("body") as any).scrollspy({
+    target: ".bs-docs-sidebar",
+    offset: 70,
+  });
+});
+
+$(".show-answer").click(function(e) {
+  e.preventDefault();
+  const pTag: any = $(this).siblings("p")[0];
+  const iconTag: any = $(this).find(".material-icons")[0];
+
+  if ($(pTag).is(":visible")) {
+    $(pTag).slideUp();
+    $(iconTag).html("keyboard_arrow_down");
+  } else {
+    $(pTag).slideDown();
+    $(iconTag).html("keyboard_arrow_up");
+  }
 });
 
 $(window).scroll(e => {
@@ -79,7 +97,7 @@ movePlatformButtonToAnotherColumn();
 
 // Smooth scrolling
 $(document).ready(() => {
-  $('a[href*="#commit"]').click(function(e) {
+  $('a[href*="#commit"], .smooth-scroll').click(function(e) {
     e.preventDefault();
     // the destination id will be taken from the href attribute
     const dest = $(this).attr("href");

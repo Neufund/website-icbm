@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 import * as React from "react";
 
-import { BlueHexagon, HexagonsStack, WhiteHexagon } from "../app/components/HexagonsStack";
+import { BlueHexagon, HexagonsStack, WhiteHexagon } from "../../app/components/HexagonsStack";
 
 describe("<HexagonsStack />", () => {
   it("should render", () => {

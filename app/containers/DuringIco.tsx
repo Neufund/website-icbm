@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { loadIcoStats } from "../actions/loadIcoState";
 import { DuringIco as DuringIcoComponent } from "../components/DuringIco";
-import { selectEndDate, selectIcoPhase } from "../reducers/icoParameters";
+import { selectEndDate } from "../reducers/icoParameters";
 
 interface IDuringIcoProps {
   loadIcoStats: any;
@@ -39,7 +39,7 @@ export class DuringIco extends React.Component<IDuringIcoProps> {
   }
 
   public render() {
-    const { icoState, finishDate } = this.props;
+    const { icoState } = this.props;
 
     // @todo: implement loading component
     if (icoState.loading) {

@@ -4,12 +4,15 @@ const ejs = require("gulp-ejs");
 const del = require("del");
 const gutil = require("gulp-util");
 const sass = require("gulp-sass");
+const sourcemaps = require('gulp-sourcemaps');
 const gulpif = require("gulp-if");
 const seq = require("gulp-sequence");
 const debug = require("gulp-debug");
 const rev = require("gulp-rev");
 const yaml = require("yaml-js");
 const fs = require("fs");
+const dotenv = require("dotenv");
+const envs = dotenv.load().parsed;
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -38,6 +41,7 @@ gulp.task("page", () => {
       jsBundleHash,
       cssBundleHash,
     },
+    GA_ID: envs.GA_ID,
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
@@ -68,8 +72,10 @@ gulp.task("sass", () => {
   };
   return gulp
     .src("./page/sass/app.scss")
+    .pipe(gulpif(!isProduction, sourcemaps.init()))
     .pipe(sass(isProduction ? minifyOptions : null).on("error", gutil.log))
     .pipe(gulpif(isProduction, rev()))
+    .pipe(gulpif(!isProduction, sourcemaps.write()))
     .pipe(gulp.dest("./dist/"));
 });
 

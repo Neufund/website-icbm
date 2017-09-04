@@ -5,7 +5,6 @@ import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { selectIcoPhase } from "../reducers/icoParameters";
 import BeforeIco from "./BeforeIco";
-import Countdown from "./Countdown";
 import DuringIco from "./DuringIco";
 
 interface IcoProps {

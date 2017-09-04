@@ -19,6 +19,7 @@
     "variable-name": false,
     "jsx-no-multiline-js": false,
     "jsx-wrap-multiline": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-unused-variable": [true, { "ignore-pattern": "^_$" }]
   }
 }

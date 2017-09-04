@@ -1,19 +1,13 @@
 import * as React from "react";
-import * as moment from "moment";
-import { Button, Col, Grid, Row } from "react-bootstrap";
-import { HexagonsStack } from "./HexagonStackDuringIco";
+import { Button, Col, Row } from "react-bootstrap";
 import * as styles from "./DuringIco.scss";
+import { HexagonsStack } from "./HexagonStackDuringIco";
 import * as incentiveStyles from "./Incentive.scss";
 
 interface IMoneyProps {
   raised: number;
   neuMarkAmount: number;
   neuMarkToEtherRatio: number;
-}
-
-interface IDuringIcoComponentProps {
-  money: IMoneyProps;
-  finishDate: moment.Moment;
 }
 
 export const HexagonText = (props: IMoneyProps) => {
@@ -41,7 +35,7 @@ export const HexagonText = (props: IMoneyProps) => {
 
 // @todo: Remove any
 export const DuringIco = (props: any) => {
-  const { raised, neuMarkAmount, neuMarkToEtherRatio, finishDate } = props;
+  const { finishDate } = props;
   return (
     <Row className={`${styles.duringIco} ${incentiveStyles.incentive}`}>
       <Col sm={6} className={styles.incentive}>
@@ -58,24 +52,16 @@ export const DuringIco = (props: any) => {
             <span className={styles.timeLeft}>Time left to the end: </span>
 
             <span className={styles.label}>d</span>
-            <span className={styles.value}>
-              {finishDate.days()}
-            </span>
+            <span className={styles.value}>{finishDate.days()}</span>
 
             <span className={styles.label}>h</span>
-            <span className={styles.value}>
-              {finishDate.hours()}
-            </span>
+            <span className={styles.value}>{finishDate.hours()}</span>
 
             <span className={styles.label}>m</span>
-            <span className={styles.value}>
-              {finishDate.minutes()}
-            </span>
+            <span className={styles.value}>{finishDate.minutes()}</span>
 
             <span className={styles.label}>s</span>
-            <span className={styles.value}>
-              {finishDate.seconds()}
-            </span>
+            <span className={styles.value}>{finishDate.seconds()}</span>
           </p>
         </div>
 

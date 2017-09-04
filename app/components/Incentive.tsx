@@ -1,19 +1,20 @@
 import * as React from "react";
-import { Button, Col, Grid, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { HexagonsStack } from "./HexagonsStack";
 
 import * as styles from "./Incentive.scss";
 
-export const HexagonText: React.SFC = () =>
+export const HexagonText: React.SFC = () => (
   <div className={styles.text}>
     <p className={styles.goto}>Starts in:</p>
     <h1 className={styles.time}>
       Autumn<br />2017
     </h1>
-  </div>;
+  </div>
+);
 
-export const Incentive: React.SFC = () =>
+export const Incentive: React.SFC = () => (
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -33,10 +34,6 @@ export const Incentive: React.SFC = () =>
         </sup>{" "}
         just by reserving funds and become a co-owner of the platform.
       </p>
-
-      <Button bsStyle="primary" className="comming-soon">
-        How to participate
-      </Button>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
@@ -46,4 +43,5 @@ export const Incentive: React.SFC = () =>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
       <HexagonText />
     </Col>
-  </Row>;
+  </Row>
+);

@@ -2,9 +2,10 @@ import * as React from "react";
 
 import { Incentive } from "../components/Incentive";
 
-const BeforeIco: React.SFC = () =>
+const BeforeIco: React.SFC = () => (
   <div>
     <Incentive />
-  </div>;
+  </div>
+);
 
 export default BeforeIco;

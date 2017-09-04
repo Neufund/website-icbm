@@ -1,7 +1,7 @@
 import * as moment from "moment";
 import { checkPhase } from "../actions/checkPhase";
 import { IcoPhase, LOAD_ICO_PARAMS, NEW_PHASE_ACTION } from "../actions/constants";
-import { commitmentContractAdress } from "../config";
+import { commitmentContractAddress } from "../config";
 
 export interface IcoParametersState {
   loading: boolean;
@@ -15,7 +15,7 @@ export interface IcoParametersState {
 
 const initialState: IcoParametersState = {
   loading: true,
-  address: commitmentContractAdress,
+  address: commitmentContractAddress,
   startDate: null,
   endDate: null,
   minCap: 0,

@@ -6,19 +6,17 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
 import Ico from "./containers/Ico";
-// tslint:disable-next-line
-import reducer from "./reducers/index";
-import { loadIcoParamsFromContract } from "./web3/loadIcoParamsFromContract";
+import reducers from "./reducers";
 
 const root = document.getElementById("react-root");
-// tslint:disable-next-line
-const render = (store: any) => {
+
+const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, prodcut]
   */
   if (root) {
     ReactDOM.render(
-      <Provider store={store}>
+      <Provider store={storage}>
         <Ico />
       </Provider>,
       root
@@ -29,7 +27,7 @@ const render = (store: any) => {
 const enhancers = () => composeWithDevTools(applyMiddleware(reduxThunk, reduxLogger));
 
 // Create the Redux store
-const store = createStore(reducer, enhancers());
+const store = createStore(reducers, enhancers());
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {

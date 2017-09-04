@@ -5,7 +5,7 @@ function getEnvValue(obj: any, key: string) {
   return obj[key];
 }
 
-export const commitmentContractAdress: string = getEnvValue(
+export const commitmentContractAddress: string = getEnvValue(
   process.env,
   "COMMITMENT_CONTRACT_ADDRESS"
 );

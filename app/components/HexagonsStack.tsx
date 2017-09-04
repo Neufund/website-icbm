@@ -12,13 +12,14 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   children,
   className,
   textContainerClassName,
-}) => (
+}) =>
   <div className={cn(styles.hexContainer, className)}>
     <BlueHexagon />
     <WhiteHexagon />
-    <div className={cn(styles.hexContainerText, textContainerClassName)}>{children}</div>
-  </div>
-);
+    <div className={cn(styles.hexContainerText, textContainerClassName)}>
+      {children}
+    </div>
+  </div>;
 
 interface ISvgProps {
   extraDefs?: any;
@@ -27,11 +28,11 @@ interface ISvgProps {
   shadow?: boolean;
 }
 
-const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ...props }) => (
+const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ...props }) =>
   <svg width="310" height="310" className={className}>
     {extraDefs}
 
-    {shadow && (
+    {shadow &&
       <filter id="dropshadow" height="130%">
         <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
         <feOffset dx="1" dy="1" result="offsetblur" />
@@ -43,16 +44,14 @@ const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ..
           <feMergeNode />
           <feMergeNode in="SourceGraphic" />
         </feMerge>
-      </filter>
-    )}
+      </filter>}
 
     <polygon
       points="303,153 228,283 78,283 3,153 78,23 228,23"
       style={{ [shadow && "filter"]: "url(#dropshadow)", ...style }}
       {...props}
     />
-  </svg>
-);
+  </svg>;
 
 const blueGradient = (
   <defs>
@@ -70,14 +69,13 @@ const blueGradient = (
     </linearGradient>
   </defs>
 );
-export const BlueHexagon: React.SFC = () => (
+export const BlueHexagon: React.SFC = () =>
   <Hexagon
     className={styles.hexagonBlue}
     extraDefs={blueGradient}
     style={{ fill: "url(#linear-gradient)" }}
     shadow
-  />
-);
+  />;
 
 const whiteGradient = (
   <defs>
@@ -96,11 +94,10 @@ const whiteGradient = (
     </linearGradient>
   </defs>
 );
-export const WhiteHexagon: React.SFC = () => (
+export const WhiteHexagon: React.SFC = () =>
   <Hexagon
     className={styles.hexagonWhite}
     extraDefs={whiteGradient}
     style={{ opacity: "0.98", fill: "url(#linear-gradient2)" }}
     shadow
-  />
-);
+  />;

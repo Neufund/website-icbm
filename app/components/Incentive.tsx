@@ -12,11 +12,10 @@ interface IBeforeIcoComponentProps {
 interface Iincentive {
   startDate: moment.Moment;
 }
-export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) => (
-  <Countdown finishDate={startDate} />
-);
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
+  <Countdown finishDate={startDate} />;
 
-export const Incentive: React.SFC<Iincentive> = ({ startDate }) => (
+export const Incentive: React.SFC<Iincentive> = ({ startDate }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -45,5 +44,4 @@ export const Incentive: React.SFC<Iincentive> = ({ startDate }) => (
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
       <HexagonText startDate={startDate} />
     </Col>
-  </Row>
-);
+  </Row>;

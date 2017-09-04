@@ -19,7 +19,8 @@ In `.env.example` your will find all used env variables. When you do `yarn start
 To autofix any errors just do `yarn lint:fix`.
 
 ### Yarn conflict merging
-When working on diffrent branches and dependancies diverge, during merge/rebase huge yarn.lock conflicts will emerge. It would be unpractival to solve these problems manually. In order to cleanly install new dependancies while keeping old lockfile configrations just do `yarn fixyarn`.
+When working on diffrent branches and dependancies diverge, during merge/rebase huge yarn.lock conflicts will emerge. It would be unpractical to solve these problems manually. In order to cleanly install new dependancies while keeping old
+lockfile configrations just do `yarn fixyarn`.
 ### Tests
 
 `yarn test`

@@ -1,0 +1,76 @@
+@import "../../common/sass/variables.scss";
+.hex-container {
+    position: relative;
+}
+
+.hex-container-text {
+    position: absolute;
+    top: 105px;
+    left: 70px;
+    color: white;
+    p {
+        font-size: $font-size-small;;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 5px;
+    }
+    
+}
+
+.hexagon-blue {
+    -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
+    animation: breathing-blue 20s ease-in-out infinite normal;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left: -19px;
+    top: -11px;
+}
+
+.hexagon-white{
+    -webkit-animation: breathing 20s ease-out infinite normal;
+    animation: breathing 20s ease-out infinite normal;
+    -webkit-font-smoothing: antialiased;   
+    transform: rotate(20deg);
+    position: absolute;
+}
+
+@keyframes breathing-blue {
+  100% {
+    transform: rotate(15deg) scale(1);
+  }
+
+  75% {
+    transform: rotate(5deg) scale(1.08);
+  }
+
+  60% {
+    transform: rotate(0deg) scale(1.08);
+  }
+
+  25% {
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  0% {
+    transform: rotate(15deg) scale(1);
+  }
+}
+
+@keyframes breathing {
+  100% {
+    transform: rotate(20deg) scale(1);
+  }
+
+  60% {
+    transform: rotate(17deg) scale(1.08);
+  }
+
+  25% {
+    transform: rotate(25deg) scale(1.05);
+  }
+
+  0% {
+    transform: rotate(20deg) scale(1);
+  }
+}

@@ -1,22 +1,34 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Countdown from "./containers/Countdown";
-
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reduxLogger from "redux-logger";
+import reduxThunk from "redux-thunk";
+import Ico from "./containers/Ico";
+// tslint:disable-next-line
+import reducer from "./reducers/index";
 const root = document.getElementById("react-root");
 
-const render = () => {
-  /* We are doing this because we are not loading the "react-root"
+// tslint:disable-next-line
+const render = (store: any) => {
+  /* We are doing this because we are not loading the "react-root" 
   div in the following pages[whitepaper, faq, prodcut]
   */
   if (root) {
     ReactDOM.render(
-      <div>
-        <Countdown />
-      </div>,
+      <Provider store={store}>
+        <Ico />
+      </Provider>,
       root
     );
   }
 };
+
+const enhancers = () => composeWithDevTools(applyMiddleware(reduxThunk, reduxLogger));
+
+// Create the Redux store
+const store = createStore(reducer, enhancers());
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {
@@ -49,4 +61,4 @@ if (process.env.NODE_ENV !== "production") {
   require('!raw-loader!../dist/app.css');
 }
 
-render();
+render(store);

@@ -1,6 +1,6 @@
 import * as cn from "classnames";
 import * as React from "react";
-import * as styles from "./HexagonsStack.scss";
+import * as styles from "./HexagonsStackDuringIco.scss";
 
 interface IHexagonsStackProps {
   children: React.ReactNode;
@@ -14,8 +14,8 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   textContainerClassName,
 }) => (
   <div className={cn(styles.hexContainer, className)}>
-    <BlueHexagon />
     <WhiteHexagon />
+    <BlueHexagon />
     <div className={cn(styles.hexContainerText, textContainerClassName)}>{children}</div>
   </div>
 );
@@ -28,7 +28,7 @@ interface ISvgProps {
 }
 
 const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ...props }) => (
-  <svg width="310" height="310" className={className}>
+  <svg width="450" height="410" className={className}>
     {extraDefs}
 
     {shadow && (
@@ -47,7 +47,7 @@ const Hexagon: React.SFC<ISvgProps> = ({ extraDefs, className, shadow, style, ..
     )}
 
     <polygon
-      points="303,153 228,283 78,283 3,153 78,23 228,23"
+      points="450,205 300,450 150,450 0,205 125,0 325,0"
       style={{ [shadow && "filter"]: "url(#dropshadow)", ...style }}
       {...props}
     />
@@ -75,7 +75,6 @@ export const BlueHexagon: React.SFC = () => (
     className={styles.hexagonBlue}
     extraDefs={blueGradient}
     style={{ fill: "url(#linear-gradient)" }}
-    shadow
   />
 );
 

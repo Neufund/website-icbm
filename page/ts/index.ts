@@ -1,5 +1,8 @@
+/* tslint:disable-next-line */
 import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
+/* tslint:disable-next-line */
 import "!style-loader!css-loader!vex-js/dist/css/vex.css";
+/* tslint:disable-next-line */
 import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import * as $ from "jquery";
 import "owl.carousel";
@@ -27,20 +30,44 @@ $(document).ready(() => {
 
   $(".person-block").click(function() {
     // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
-    const name = $(this).find("h4.name").text().trim();
-    const image = $(this).find("img").attr("src").trim();
-    const title = $(this).find("h4.position").text().trim();
-    const bio = $(this).find(".bio").text().trim();
-    const preTitle = $(this).find("span.pre-title").text().trim();
-    const rawLinks = $(this).find(".links").text().trim();
+    const name = $(this)
+      .find("h4.name")
+      .text()
+      .trim();
+    const image = $(this)
+      .find("img")
+      .attr("src")
+      .trim();
+    const title = $(this)
+      .find("h4.position")
+      .text()
+      .trim();
+    const bio = $(this)
+      .find(".bio")
+      .text()
+      .trim();
+    const preTitle = $(this)
+      .find("span.pre-title")
+      .text()
+      .trim();
+    const rawLinks = $(this)
+      .find(".links")
+      .text()
+      .trim();
     const links = rawLinks ? JSON.parse(rawLinks) : {};
-    const email = $(this).find("p.link").text().trim();
+    const email = $(this)
+      .find("p.link")
+      .text()
+      .trim();
 
     vex.open(getPersonModal(name, image, preTitle, title, bio, links, email));
   });
 
   $(".team .see-more").click(function() {
-    $(this).text().trim().toLowerCase() === seeMore.trim().toLowerCase()
+    $(this)
+      .text()
+      .trim()
+      .toLowerCase() === seeMore.trim().toLowerCase()
       ? $(this).text(seeLess)
       : $(this).text(seeMore);
     $(".team .is-hidden").fadeToggle("slow", "linear");
@@ -69,9 +96,13 @@ $(window).scroll(e => {
 
 function movePlatformButtonToAnotherColumn() {
   if ($(window).width() < 992) {
-    $("#platform-btn").detach().appendTo("#platform-second-col");
+    $("#platform-btn")
+      .detach()
+      .appendTo("#platform-second-col");
   } else {
-    $("#platform-btn").detach().appendTo("#platform-first-col");
+    $("#platform-btn")
+      .detach()
+      .appendTo("#platform-first-col");
   }
 }
 $(window).resize(movePlatformButtonToAnotherColumn);
@@ -87,12 +118,14 @@ $(document).ready(() => {
       return;
     }
     const target = $(dest);
-    $("html, body").stop().animate(
-      {
-        scrollTop: target.offset().top,
-      },
-      1000
-    );
+    $("html, body")
+      .stop()
+      .animate(
+        {
+          scrollTop: target.offset().top,
+        },
+        1000
+      );
   });
 
   scrollbarFix();

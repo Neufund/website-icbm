@@ -8,11 +8,12 @@ import { selectStartDate } from "../reducers/icoParameters";
 interface IBeforeIco {
   startDate: moment.Moment;
 }
-const BeforeIco: React.SFC<IBeforeIco> = ({ startDate }) =>
+const BeforeIco: React.SFC<IBeforeIco> = ({ startDate }) => (
   <div>
     {/* @Todo Remove this */}
     <Incentive startDate={startDate} />
-  </div>;
+  </div>
+);
 
 export function mapStateToProps(state: any) {
   // @todo state

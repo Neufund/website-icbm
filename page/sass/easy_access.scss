@@ -12,35 +12,41 @@
     img.img-responsive {
         display: initial;
     }
+
+    .hexaghons-right {
+      position: absolute;
+      height: 579px;
+      top: -3px;
+      right: -117px;
+    }
+
     @media (min-width: $screen-lg) {
         .shapes {
-            img {
+            img.img-responsive {
                 position: absolute;
                 right: 62px;
             }
         }
     }
     @media (min-width: $screen-md) {
-        background-image: url(../assets/hexagons.png);
-        background-size: 66%;
-        background-position: right;
-        background-repeat: no-repeat;
-
         .left-hexagon {
             display: initial;
             position: absolute;
-            left: -112px;
-            top: 0px;
+            left: -115px;
+            top: 30px;
         }
     }
 
     @media (max-width: $screen-md) {
         #platform-second-col {
-            background-image: url(../assets/hexagons_small.png);
-            background-position: left;
-            background-repeat: no-repeat;
+            .hexaghons-small-left {
+              position: absolute;
+              z-index: -10;
+              left: -103px;
+            }
+
             text-align: center;
-            
+
             img {
                 margin-top: 30px;
             }

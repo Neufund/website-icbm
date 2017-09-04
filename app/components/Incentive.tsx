@@ -1,6 +1,6 @@
 import * as moment from "moment";
 import * as React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
@@ -36,10 +36,6 @@ export const Incentive: React.SFC<Iincentive> = ({ startDate }) => (
         </sup>{" "}
         just by reserving funds and become a co-owner of the platform.
       </p>
-
-      <Button bsStyle="primary" className="comming-soon">
-        How to participate
-      </Button>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>

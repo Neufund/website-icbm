@@ -2,7 +2,7 @@
 
 @import "../../node_modules/font-awesome/scss/font-awesome.scss";
 
- // i am pretty sure that there is a better way to write it 
+ // i am pretty sure that there is a better way to write it
  // @todo selective import from bootstrap
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
@@ -12,10 +12,8 @@
 @import "common.scss";
 @import "commit_funds.scss";
 @import "pictures.scss";
-@import "advisors.scss";
 @import "participating.scss";
 @import "easy_access.scss";
-@import "team.scss";
 @import "footer.scss";
 @import "vex-modal.scss";
 @import "ecosystem.scss";

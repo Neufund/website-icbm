@@ -9,6 +9,22 @@ files:
     - 'coverage/**'
     - 'dist/**'
     - 'test/**'
+    - 'page/sass/app.scss'
+    - 'page/sass/commit_funds.scss'
+    - 'page/sass/common.scss'
+    - 'page/sass/easy_access.scss'
+    - 'page/sass/ecosystem.scss'
+    - 'page/sass/footer.scss'
+    - 'page/sass/global.scss'
+    - 'page/sass/header.scss'
+    - 'page/sass/participating.scss'
+    - 'page/sass/pictures.scss'
+    - 'page/sass/press.scss'
+    - 'page/sass/vex-modal.scss'
+    - 'page/sass/whitepaper.scss'
+    - 'common/sass/variables.scss'
+    - 'app/components/HexagonsStack.scss'
+    - 'app/components/Incentive.scss'
 rules:
   property-sort-order:
     - 1

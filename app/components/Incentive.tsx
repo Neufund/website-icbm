@@ -5,17 +5,29 @@ import { Col, Row } from "react-bootstrap";
 import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
 
+import * as styles2 from "./Countdown.scss";
 import * as styles from "./Incentive.scss";
+
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;
 }
 interface Iincentive {
   startDate: moment.Moment;
 }
-export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
-  <Countdown finishDate={startDate} />;
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) => (
+  <div className={styles2.countdown}>
+    <h3> Commitment Opportunity starts in: </h3>
+    <h1>Autumn</h1>
+    <Countdown finishDate={startDate} />
+    <h3>Reward starting point:</h3>
+    <p>
+      {" "}
+      -- NEU / <strong>1</strong> EHT
+    </p>
+  </div>
+);
 
-export const Incentive: React.SFC<Iincentive> = ({ startDate }) =>
+export const Incentive: React.SFC<Iincentive> = ({ startDate }) => (
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -44,4 +56,5 @@ export const Incentive: React.SFC<Iincentive> = ({ startDate }) =>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
       <HexagonText startDate={startDate} />
     </Col>
-  </Row>;
+  </Row>
+);

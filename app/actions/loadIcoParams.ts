@@ -1,7 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import { Dispatch } from "redux";
 // import { selectAddress } from "../reducers/icoParameters";
-import { loadIcoParamsFromEnviroment } from "../utils";
+import { loadIcoParamsFromEnviroment } from "../config";
 import { LOAD_ICO_PARAMS } from "./constants";
 
 export function loadIcoParamsAction(

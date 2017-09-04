@@ -13,6 +13,20 @@ export interface IcoParametersState {
   icoPhase: IcoPhase;
 }
 
+interface IStandardReduxAction<T> {
+  type: string;
+  payload: T;
+}
+
+interface IPayload {
+  loading: boolean;
+  startDate: string;
+  endDate: string;
+  icoPhase: IcoPhase;
+  minCap: number;
+  maxCap: number;
+}
+
 const initialState: IcoParametersState = {
   loading: true,
   address: commitmentContractAddress,
@@ -23,7 +37,10 @@ const initialState: IcoParametersState = {
   icoPhase: IcoPhase.UNKNOWN,
 };
 
-export default function(state = initialState, action: any): IcoParametersState {
+export default function(
+  state = initialState,
+  action: IStandardReduxAction<IPayload & IcoPhase> // This is done to somehow define or enforce a more strict typings then any but needs more work to create a good strict typings
+): IcoParametersState {
   const { type, payload } = action;
   switch (type) {
     case LOAD_ICO_PARAMS:
@@ -32,7 +49,7 @@ export default function(state = initialState, action: any): IcoParametersState {
         loading: false,
         startDate: payload.startDate,
         endDate: payload.endDate,
-        icoPhase: checkPhase(payload),
+        icoPhase: payload.icoPhase,
         minCap: payload.minCap,
         maxCap: payload.maxCap,
       };

@@ -1,18 +1,18 @@
 @import "../../common/sass/variables.scss";
 
 .countdown{
-    font-size: $font-size-normal !important;  
+    font-size: $font-size-normal;
     text-align: center;
 
     .label {
       margin-right: 10px;
       font-size: $font-size-small;
       vertical-align: middle;
-      line-height: 20px;    
+      line-height: 20px;
     }
 
     .value {
-    font-size: 15px !important;
+      font-size: 15px;
       margin-right: 15px;
       vertical-align: middle;
       line-height: 20px;

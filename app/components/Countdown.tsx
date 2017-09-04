@@ -11,37 +11,18 @@ interface ICountdownComponentProps {
   duration: moment.Duration;
 }
 
-// @todo remove moment prop checkers
-export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
-  <div className={styles.countdown}>
-    <h3> Commitment Opportunity starts in: </h3>
-    <h1 className="time">Autumn</h1>
-
-    <div className="timer">
-      <strong className={styles.label}>d</strong>
-      <span className={styles.value}>
-        {numberFormatter(duration.days())}
-      </span>
-      <strong className={styles.label}>h</strong>
-      <span className={styles.value}>
-        {numberFormatter(duration.hours())}
-      </span>
-      <strong className={styles.label}>m</strong>
-      <span className={styles.value}>
-        {numberFormatter(duration.minutes())}
-      </span>
-      <strong className={styles.label}>s</strong>
-      <span className={styles.value}>
-        {numberFormatter(duration.seconds())}
-      </span>
-    </div>
-    <div className="reward">
-      <h3>Reward starting point:</h3>
-      <p>
-        {" "}-- NEU / <strong>1</strong> EHT
-      </p>
-    </div>
-  </div>;
+export const CountdownComponent = ({ duration }: ICountdownComponentProps) => (
+  <div>
+    <strong className={styles.label}>d</strong>
+    <span className={styles.value}>{numberFormatter(duration.days())}</span>
+    <strong className={styles.label}>h</strong>
+    <span className={styles.value}>{numberFormatter(duration.hours())}</span>
+    <strong className={styles.label}>m</strong>
+    <span className={styles.value}>{numberFormatter(duration.minutes())}</span>
+    <strong className={styles.label}>s</strong>
+    <span className={styles.value}>{numberFormatter(duration.seconds())}</span>
+  </div>
+);
 
 interface ICountdownProps {
   finishDate: moment.Moment;

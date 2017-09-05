@@ -1,5 +1,5 @@
 html{
-  position:relative; 
+  position:relative;
   min-height: 100%;
   padding-bottom: 72px;
 }
@@ -11,30 +11,14 @@ html{
     @media (min-width: $screen-lg) {
         right: -50px;
     }
-
-    .footer-hex {
-        position: absolute;
-        bottom: -25px;
-        right: 0;
-        height: 140px;
-        overflow: hidden;
-        z-index: -1;
-
-        .hexagon-wrapper {
-            position: static;
-            width: 260px;
-            height: 260px;
-            transform: rotate(134deg) translateY(-36px);
-        }
-    }
 }
 .border-top{
     border-top: 1px $off-white solid;
     padding-top: 20px;
 }
 .footer{
-    padding-top: $padding-between-sections;   
-    border: 0;  
+    padding-top: $padding-between-sections;
+    border: 0;
     ul{
         display: inline-block;
         padding: 0px;
@@ -60,14 +44,14 @@ html{
                 height: 35px;
             }
         }
-    }    
+    }
 }
 
 .footer-bottom{
-    position: absolute;        
+    position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;    
+    right: 0;
     font-size: 12px;
     font-weight: $font-weight-more-bold;
     margin-top: $margin-bottom-between-paragraphs;
@@ -83,5 +67,12 @@ html{
         margin-right: 50px;
         margin-left: 50px;
         position: relative;
+    }
+
+    .footer-hex {
+      position: absolute;
+      right: -100px;
+      bottom: -34px;
+      z-index: -10;
     }
 }

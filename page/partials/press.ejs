@@ -1,7 +1,13 @@
 <div class="section press">
-    <div class="row">
+    <div class="flex-row">
         <% for ( var i = 0 ; i < links.length ; i++ ) { %>
-        <div class="img-container col-lg-2 col-md-4 col-sm-4 col-xs-6"><a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>" /></a></div>
+        <div class="img-container">
+          <% if (links[i].link) { %>
+          <a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>"/></a>
+          <% } else { %>
+          <img src="<%= links[i].img -%>"/>
+          <% } %>
+        </div>
         <% } %>
     </div>
 </div>

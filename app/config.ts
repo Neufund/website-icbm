@@ -1,7 +1,3 @@
-// tslint:disable-next-line
-import { BigNumber } from "bignumber.js";
-import { asEtherNumber } from "./web3/utils";
-
 function getEnvValue(obj: any, key: string) {
   if (obj[key] === undefined) {
     throw new Error(`${key} is not exists in .env file`);

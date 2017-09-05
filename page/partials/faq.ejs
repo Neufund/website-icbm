@@ -2,11 +2,11 @@
     <div class="row">
         <!--Nav Bar -->
         <nav class="col-lg-4 col-md-5 bs-docs-sidebar hidden-sm hidden-xs">
-            <ul id="sidebar" class="nav nav-stacked fixed">
+            <ul id="sidebar" class="sidebar nav nav-stacked fixed">
             <% for ( var i = 0 ; i < faq.length ; i++ ) {
                 var question = faq[i];
                 %>
-                <li><a class="smooth-scroll" href="#<%=question.title.replace(/\s+/g, '-').toLowerCase();%>"><%=question.title%></a></li>
+                <li><a class="smooth-scroll" href="#<%=question.title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();%>"><%=question.title%></a></li>
             <% } %> <!-- end title section questions for loop -->                  
             </ul>
         </nav>
@@ -15,7 +15,7 @@
         <% for ( var i = 0 ; i < faq.length ; i++ ) {
             var question = faq[i];
             %>
-            <section id="<%=question.title.replace(/\s+/g, '-').toLowerCase();%>">
+            <section id="<%=question.title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();%>">
                 <h4 class="title"><%=question.title%></h4>
                 <% for ( var j = 0 ; j < question.questions.length ; j++ ) {
                     var subQuestion = question.questions[j];

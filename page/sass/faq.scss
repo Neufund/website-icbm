@@ -1,103 +1,98 @@
-.faq{
-    margin-top: 70px;
-    h4.title{
-        color: $blue;
-        margin-bottom: 20px;
+.faq {
+  margin-top: 70px;
+
+  .title {
+    margin-bottom: 20px;
+    color: $blue;
+  }
+
+  @media (min-width: $screen-md) {
+    .title {
+      display: none;
     }
-    @media (min-width: $screen-md) {
-        h4.title{
-            display: none;
-        }
-    }
+  }
 
 }
-.hidden-p{
-    display: none;
+
+.hidden-p {
+  display: none;
 }
 
 .group {
-    width: 100%;
-    padding-bottom: 40px;
-    a{
-        color: $black-title;
-        h4 {
-            font-size: $font-size-normal;
-            line-height: 29px;
-        }
-        font-size: $font-size-normal;
-        position: relative;
-        i{
-            color: $blue;
-            position: absolute;            
-        }
-    }
-    a:focus, a:active{
-        text-decoration: none;
-    }
-    p{
-        color: $black-title;
-        font-weight: $font-weight-light;
-        font-size: $font-size-small;
-    }
-}
-.group .subgroup {
-    width: 100%;
-}
-.fixed {
-    position: fixed;
-}
+  padding-bottom: 40px;
+  width: 100%;
 
-/* sidebar */
-.bs-docs-sidebar {
-    padding-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+  .subgroup {
+    width: 100%;
+  }
 
-/* all links */
-.bs-docs-sidebar .nav>li>a {
-    color: $blue;
-    border-right: 2px solid transparent;
-    padding: 4px 20px;
+  a {
+    position: relative;
+    color: $black-title;
     font-size: $font-size-normal;
-    font-weight: $font-weight-bold;
+
+    h4 {
+      line-height: 29px;
+      font-size: $font-size-normal;
+    }
+
+    i {
+      position: absolute;
+      color: $blue;
+    }
+
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+
+  p {
+    color: $black-title;
+    font-size: $font-size-small;
+    font-weight: $font-weight-light;
+  }
+
 }
 
-/* nested links */
-.bs-docs-sidebar .nav .nav>li>a {
-    color: black;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 30px;
+
+.fixed {
+  position: fixed;
 }
 
-/* active & hover links */
-.bs-docs-sidebar .nav>.active>a, 
-.bs-docs-sidebar .nav>li>a:hover, 
-.bs-docs-sidebar .nav>li>a:focus {
-    color: black;
-    text-decoration: none;
-    background-color: transparent;  
-    border-right-color: #563d7c; 
-}
-/* all active links */
-.bs-docs-sidebar .nav>.active>a, 
-.bs-docs-sidebar .nav>.active:hover>a,
-.bs-docs-sidebar .nav>.active:focus>a {
-    font-weight: $font-weight-more-bold;
-}
-/* nested active links */
-.bs-docs-sidebar .nav .nav>.active>a, 
-.bs-docs-sidebar .nav .nav>.active:hover>a,
-.bs-docs-sidebar .nav .nav>.active:focus>a {
-    font-weight: $font-weight-bold;
-}
+.bs-docs-sidebar {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 20px;
 
-/* hide inactive nested list */
-.bs-docs-sidebar .nav ul.nav {
-    display: none;           
-}
-/* show active nested list */
-.bs-docs-sidebar .nav>.active>ul.nav {
-    display: block;           
+  // sass-lint:disable nesting-depth
+  .nav {
+    a {
+      border-right: 2px solid transparent;
+      padding: 4px 20px;
+      color: $blue;
+      font-size: $font-size-normal;
+      font-weight: $font-weight-bold;
+
+      &:hover,
+      &:focus {
+        background: none;
+        color: $black;
+      }
+    }
+
+    .active {
+      a,
+      li,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        text-decoration: none;
+        color: $black;
+        font-weight: $font-weight-more-bold;
+      }
+    }
+
+  }
 }

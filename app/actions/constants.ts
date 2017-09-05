@@ -9,6 +9,11 @@ export enum IcoPhase {
   UNKNOWN = "UNKNOWN",
 }
 
+export enum beforeIcoPhase {
+  BEFORE_ANNOUNCEMENT = "BEFORE_ANNOUNCEMENT",
+  ANNOUNCED = "ANNOUNCED",
+  ON_BLOCKCHAIN = "ON_BLOCKCHAIN",
+}
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
 
 export const SET_USER_ADDRESS = "SET_USER_ADDRESS";

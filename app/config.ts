@@ -9,20 +9,25 @@ function getEnvValue(obj: any, key: string) {
   return obj[key];
 }
 
-export const commitmentContractAddress: string = getEnvValue(
-  process.env,
-  "COMMITMENT_CONTRACT_ADDRESS"
-);
+export let envPayload: any;
 
-export const commitmentStartDate: string = getEnvValue(process.env, "ICO_START_DATE");
+export const app_mode: string = getEnvValue(process.env, "APP_MODE");
 
-export const RpcProvider: string = getEnvValue(process.env, "RPC_PROVIDER");
-
-export async function loadIcoParamsFromEnviroment() {
-  return {
-    minCap: asEtherNumber(new BigNumber(10 * 10 ** 18)),
-    maxCap: asEtherNumber(new BigNumber(666 * 10 ** 18)),
-    startDate: commitmentStartDate,
-    endDate: "2017-11-15",
-  };
+switch (app_mode) {
+  case "BEFORE_ANNOUNCEMENT":
+    envPayload = { app_mode };
+    break;
+  case "ANNOUNCED":
+    envPayload = {
+      app_mode,
+      commitmentStartDate: getEnvValue(process.env, "ICO_START_DATE"),
+    };
+    break;
+  case "ON_BLOCKCHAIN":
+    envPayload = {
+      app_mode,
+      commitmentContractAddress: getEnvValue(process.env, "COMMITMENT_CONTRACT_ADDRESS"),
+      rpcProvider: getEnvValue(process.env, "RPC_PROVIDER"),
+    };
+    break;
 }

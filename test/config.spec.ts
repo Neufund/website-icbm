@@ -19,10 +19,10 @@ describe("Config variables", () => {
       ICO_START_DATE: "2017-9-15",
       RPC_PROVIDER: "http://localhost:8545",
     };
-    const { commitmentContractAdress, commitmentStartDate, RpcProvider } = require("../app/config");
+    const { commitmentContractAdress, commitmentStartDate, rpcProvider } = require("../app/config");
     expect(commitmentContractAdress).to.equal(process.env.COMMITMENT_CONTRACT_ADDRESS);
     expect(commitmentStartDate).to.equal(process.env.ICO_START_DATE);
-    expect(RpcProvider).to.equal(process.env.RPC_PROVIDER);
+    expect(rpcProvider).to.equal(process.env.RPC_PROVIDER);
   });
 
   it('Should throw error that "Key" is not exists', () => {

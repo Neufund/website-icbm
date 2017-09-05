@@ -1,9 +1,10 @@
 import { BigNumber } from "bignumber.js";
 import { Dispatch } from "redux";
-import { commitmentStartDate, loadIcoParamsFromEnviroment } from "../config";
+import { envPayload } from "../config";
 import { selectAddress } from "../reducers/icoParameters";
 import { loadIcoParamsFromContract } from "../web3/loadIcoParamsFromContract";
-import { LOAD_ICO_PARAMS } from "./constants";
+import { checkBeforeIcoPhase } from "./checkBeforePhase";
+import { beforeIcoPhase, LOAD_ICO_PARAMS } from "./constants";
 
 export function loadIcoParamsAction(
   startDate: string,
@@ -24,11 +25,11 @@ export function loadIcoParamsAction(
 
 export async function loadIcoParams(dispatch: Dispatch<any>, getState: any) {
   const address = selectAddress(getState().icoParameters);
-  const { minCap, maxCap, startDate, endDate } =
-    commitmentStartDate === "0000-00-00T00:00:00.000"
+  const { minCap = new BigNumber(0), maxCap = new BigNumber(0), startDate, endDate = "00" } =
+    checkBeforeIcoPhase() === beforeIcoPhase.ON_BLOCKCHAIN
       ? await loadIcoParamsFromContract(address)
-      : await loadIcoParamsFromEnviroment();
+      : { startDate: envPayload.commitmentStartDate };
   dispatch(loadIcoParamsAction(startDate, endDate, minCap, maxCap));
 }
 
-// TODO :Choose when to load from ENV or Smart_Contract in a better way
+// TODO :Change payload to accomedate on Startdate

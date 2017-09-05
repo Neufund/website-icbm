@@ -12,10 +12,10 @@ interface ICountdownComponentProps {
 }
 
 export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
-  <div>
+  <div className={styles.countdown}>
     <strong className={styles.label}>d</strong>
     <span className={styles.value}>
-      {numberFormatter(duration.days())}
+      {numberFormatter(Math.floor(duration.asDays()))}
     </span>
     <strong className={styles.label}>h</strong>
     <span className={styles.value}>

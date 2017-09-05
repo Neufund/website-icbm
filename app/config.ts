@@ -1,12 +1,33 @@
+// tslint:disable-next-line
+import { BigNumber } from "bignumber.js";
+import { asEtherNumber } from "./web3/utils";
+
 function getEnvValue(obj: any, key: string) {
   if (obj[key] === undefined) {
     throw new Error(`${key} is not exists in .env file`);
   }
-
   return obj[key];
 }
 
-export const commitmentContractAdress: string = getEnvValue(
-  process.env,
-  "COMMITMENT_CONTRACT_ADDRESS"
-);
+export let envPayload: any;
+
+export const app_mode: string = getEnvValue(process.env, "APP_MODE");
+
+switch (app_mode) {
+  case "BEFORE_ANNOUNCEMENT":
+    envPayload = { app_mode };
+    break;
+  case "ANNOUNCED":
+    envPayload = {
+      app_mode,
+      commitmentStartDate: getEnvValue(process.env, "ICO_START_DATE"),
+    };
+    break;
+  case "ON_BLOCKCHAIN":
+    envPayload = {
+      app_mode,
+      commitmentContractAddress: getEnvValue(process.env, "COMMITMENT_CONTRACT_ADDRESS"),
+      rpcProvider: getEnvValue(process.env, "RPC_PROVIDER"),
+    };
+    break;
+}

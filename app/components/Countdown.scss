@@ -1,0 +1,26 @@
+@import "../../common/sass/variables.scss";
+
+.countdown{
+    font-size: $font-size-normal;
+    text-align: center;
+
+    .label {
+      margin-right: 10px;
+      font-size: $font-size-small;
+      vertical-align: middle;
+      line-height: 20px;
+    }
+
+    .value {
+      font-size: 15px;
+      margin-right: 15px;
+      vertical-align: middle;
+      line-height: 20px;
+    }
+
+  h3 {
+    font-size: $font-size-small;
+    font-weight: $font-weight-light;
+    padding: 0;
+  }
+}

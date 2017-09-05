@@ -1,19 +1,50 @@
+import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { HexagonsStack } from "./HexagonsStack";
+import { checkBeforeIcoPhase } from "../actions/checkBeforePhase";
+import { beforeIcoPhase } from "../actions/constants";
 
+import { Countdown } from "./Countdown";
+import { HexagonsStack } from "./HexagonsStack";
 import * as styles from "./Incentive.scss";
 
-export const HexagonText: React.SFC = () =>
-  <div className={styles.text}>
-    <p className={styles.goto}>Starts in:</p>
-    <h1 className={styles.time}>
-      Autumn<br />2017
-    </h1>
+interface IBeforeIcoComponentProps {
+  startDate: moment.Moment;
+}
+interface Iincentive {
+  startDate: moment.Moment;
+}
+
+function lockedContent(startDate: moment.Moment) {
+  if (checkBeforeIcoPhase() !== beforeIcoPhase.BEFORE_ANNOUNCEMENT) {
+    return (
+      <div>
+        <h3> Commitment Opportunity starts in: </h3>
+        <h1>Autumn</h1>
+        <Countdown finishDate={startDate} />
+        <h3>Reward starting point:</h3>
+        <p>
+          {" "}-- NEU / <strong>1</strong> EHT
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.pulldown}>
+        <h3> Commitment Opportunity starts in: </h3>
+        <h1>Autumn</h1>
+      </div>
+    );
+  }
+}
+
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
+  <div className={styles.countdown}>
+    {lockedContent(startDate)}
   </div>;
 
-export const Incentive: React.SFC = () =>
+export const Incentive: React.SFC<Iincentive> = ({ startDate }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -36,10 +67,10 @@ export const Incentive: React.SFC = () =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText />
+        <HexagonText startDate={startDate} />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText />
+      <HexagonText startDate={startDate} />
     </Col>
   </Row>;

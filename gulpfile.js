@@ -80,7 +80,7 @@ gulp.task("sass", () => {
 });
 
 gulp.task("copy", () => {
-  return gulp.src("./page/assets/*").pipe(gulp.dest("./dist/assets/"));
+  return gulp.src("./page/assets/**/*").pipe(gulp.dest("./dist/assets/"));
 });
 
 gulp.task("copy-fa", () =>

@@ -1,3 +1,4 @@
+// tslint:disable-next-line
 import { BigNumber } from "bignumber.js";
 import { asEtherNumber } from "./web3/utils";
 

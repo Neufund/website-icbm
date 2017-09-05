@@ -11,18 +11,25 @@ interface ICountdownComponentProps {
   duration: moment.Duration;
 }
 
-export const CountdownComponent = ({ duration }: ICountdownComponentProps) => (
+export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
   <div>
     <strong className={styles.label}>d</strong>
-    <span className={styles.value}>{numberFormatter(duration.days())}</span>
+    <span className={styles.value}>
+      {numberFormatter(duration.days())}
+    </span>
     <strong className={styles.label}>h</strong>
-    <span className={styles.value}>{numberFormatter(duration.hours())}</span>
+    <span className={styles.value}>
+      {numberFormatter(duration.hours())}
+    </span>
     <strong className={styles.label}>m</strong>
-    <span className={styles.value}>{numberFormatter(duration.minutes())}</span>
+    <span className={styles.value}>
+      {numberFormatter(duration.minutes())}
+    </span>
     <strong className={styles.label}>s</strong>
-    <span className={styles.value}>{numberFormatter(duration.seconds())}</span>
-  </div>
-);
+    <span className={styles.value}>
+      {numberFormatter(duration.seconds())}
+    </span>
+  </div>;
 
 interface ICountdownProps {
   finishDate: moment.Moment;

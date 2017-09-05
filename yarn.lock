@@ -19,6 +19,12 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@types/bootstrap@^3.3.36":
+  version "3.3.36"
+  resolved "https://registry.yarnpkg.com/@types/bootstrap/-/bootstrap-3.3.36.tgz#5ca0b81655427398fe7c8728bccdc395069093d0"
+  dependencies:
+    "@types/jquery" "*"
+
 "@types/chai-as-promised@^0.0.31":
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-0.0.31.tgz#e1e905ea6d971dafcad36560c8f1f7a7d690c5e5"

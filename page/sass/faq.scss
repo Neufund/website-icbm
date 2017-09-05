@@ -1,5 +1,9 @@
 .faq{
     margin-top: 70px;
+    h4.title{
+        color: $blue;
+        margin-bottom: 20px;
+    }
     @media (min-width: $screen-md) {
         h4.title{
             display: none;

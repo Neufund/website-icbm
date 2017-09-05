@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <%- include('partials/head', {title: 'FAQ', meta: content.meta_head }); %>
-    <body data-spy="scroll">
+    <body>
         <div class="background-wrapper">
           <div class="background"></div>
         </div>
-        <%- include('partials/header', { active: 'faq', hashes: hashes }); %>
+        <%- include('partials/header', { active: 'faq', hashes: hashes }); %>           
         <div class="main container">
           <%- include('partials/faq', faq ); %>
           <%- include('partials/footer', content.footer); %>
-          
+
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>
           <noscript>
             <p>This page requires JavaScript to be enabled.</p>

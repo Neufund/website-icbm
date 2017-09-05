@@ -76,6 +76,7 @@
     "test:coverage": "nyc mocha --require ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'"
   },
   "dependencies": {
+    "@types/bootstrap": "^3.3.36",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",

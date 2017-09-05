@@ -5,8 +5,15 @@ import * as $ from "jquery";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
+import "./faqScroll";
 import { getPersonModal } from "./personModal";
 import scrollbarFix from "./scrollbarFix";
+
+$("body").faqScroll({
+  sidebarArea: "#sidebar",
+  offset: 80,
+  speed: 500,
+});
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
@@ -51,10 +58,6 @@ $(document).ready(() => {
     const text = $(this).text();
     vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
-  ($("body") as any).scrollspy({
-    target: ".bs-docs-sidebar",
-    offset: 70,
-  });
 });
 
 $(".show-answer").click(function(e) {
@@ -97,7 +100,7 @@ movePlatformButtonToAnotherColumn();
 
 // Smooth scrolling
 $(document).ready(() => {
-  $('a[href*="#commit"], .smooth-scroll').click(function(e) {
+  $('a[href*="#commit"]').click(function(e) {
     e.preventDefault();
     // the destination id will be taken from the href attribute
     const dest = $(this).attr("href");

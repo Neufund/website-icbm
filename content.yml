@@ -360,22 +360,6 @@ advisors:
       speaker: "John Smith"
       company: "Company name"
   members:
-    - name: "Christophe Maire"
-      title: "Atlantic Labs"
-      image: "../assets/christophe-maire.png"
-      preTitle: "Founder and CEO"
-      links:
-        linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
-        website: "http://www.atlanticlabs.de/"
-      email: ""
-      bio:  |
-        <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
-        which he sold to Nokia in 2006. Christophe since co-founded a number of companies with global reach, such as
-        Plazes.com (Nokia), txtr.com or recently Medigo.com, Mimi.io, and Blloon.com. As an angel investor, Christophe
-        was involved in Brands4Friends (eBay), StudiVZ (HB), Plista (groupM), Readmill (Dropbox), amongst others.
-        (Christophe was named best “European Seed investor” in both 2011 and 2012 by Techcrunch. He serves on the board
-        of EyeEm, Klara and Soundcloud.</p>
-
     - name: "Fabian Vogelsteller"
       title: "Ethereum and Mist Developer"
       image: "../assets/fabianethereumdev.png"
@@ -397,6 +381,46 @@ advisors:
         to date, the Ethereum project. For almost two years he has worked as the lead Dapp developer for the Ethereum
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
+    - name: "Michael Jackson"
+      title: "Partner at Mangrove Capital & Board Director at Blockchain.com"
+      image: "../assets/mangrove-michael-jackson.jpg"
+      links:
+        linkedin: "https://www.linkedin.com/in/mjmjmj/"
+        website: "http://www.mangrove.vc/"
+      email: ""
+      bio:  |
+        <p>Michael Jackson is a Board Director at Blockchain.com and partner at Mangrove Capital Partners.
+        He started his career at Monsanto and went on to manage the Supply Chain and Logistics business consulting practice at Arthur Andersen and then at Ernst & Young.
+        In 2006, he pioneered early-stage investment from Western VCs in Russia. His sectors of interests revolve around consumer Internet and e-commerce across Europe, scouting
+        for startups that involve essential shift or disruption in technology, business model or consumer behavior. Open-minded and curious by nature, he enjoys travelling and
+        discovering different cultures, which makes him keen on developing business connections in new and sometimes untapped geographies. He currently serves on the
+        boards of Lesara, KupiVIP, RedPoints, Synerscope, Enigma, and the Mangrove Foundation. Michael holds a Bachelor’s Degree in Nautical Sciences from the Antwerp Maritime
+        Academy and a Master in International Business and Management with high honors from the Brussels Management School. A Belgian national, he speaks French, English, Dutch and
+        German.</p>
+
+    - name: "Julian Zawistowski"
+      title: "CEO and Founder at Golem"
+      image: "../assets/julian-zawistowski.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/julian-zawistowski-352478/"
+        website: "https://golem.network/"
+      email: ""
+      bio: ""
+
+    - name: "Adam Stradling"
+      title: "Bitcoin Blockchain Investor and Entrepreneur & Co-Founder at Bitcoin.com"
+      image: "../assets/adam-stradling.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/adamstradling/?ppe=1"
+      email: ""
+      bio: |
+        <p>Adam is a financial technology entrepreneur who pioneered the development of Bitcoin and related blockchain technologies.</p>
+        <p>During 2011 and 2012, he cofounded and operated Bitcoin.com/Tradehill wherein they sold/traded 1 million plus bitcoins (now worth billions of USD). Since then he has been an advisor, investor, and consultant for many Bitcoin and blockchain companies and systems like Ethereum, Factom, Siacoin, Bitnexo, and others. Over the years his works have been chronicled in CNN, Fox News, and hundreds of other media outlets.</p>
+        <p>Before Adam became an entrepreneur he worked in the banking and financial services industry as a consultant/researcher covering financial technology and risk management. Notably, he worked with the financial risk consulting group at Ernst and Young (EY) and also sold the investment research and technology services of Evalueserve (quant focus). He was the Co-founder and Steering Committee member of Chile’s national PRMIA chapter and has been a content contributor to GARP (Global Association of Risk Professionals).</p>
+        <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
+
     - name: "Max Kordek"
       title: "Lisk Foundation"
       image: "../assets/maxlisk.png"
@@ -413,28 +437,32 @@ advisors:
         several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
-    - name: "Michael Jackson"
-      title: "Mangrove Capital"
-      image: "../assets/mangrove-michael-jackson.jpg"
-      preTitle: "Partner"
+    - name: "Shawn O'Connor"
+      title: "Kraken.com"
+      image: "../assets/shawnkraken.png"
+      preTitle: "CTO"
       links:
-        linkedin: "https://www.linkedin.com/in/mjmjmj/"
-        website: "http://www.mangrove.vc/"
+        website: "https://www.kraken.com/"
+      email: ""
+      bio: ""
+
+    - name: "Christophe Maire"
+      title: "Atlantic Labs"
+      image: "../assets/christophe-maire.png"
+      preTitle: "Founder and CEO"
+      links:
+        linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
+        website: "http://www.atlanticlabs.de/"
       email: ""
       bio:  |
-        <p>Michael Jackson is a Partner at Mangrove Capital Partners. He started his career at Monsanto and went on to
-        manage the Supply Chain and Logistics business consulting practice at Arthur Andersen and then at Ernst &
-        Young. In 2006, he pioneered early-stage investment from Western VCs in Russia. His sectors of interests
-        revolve around consumer Internet and e-commerce across Europe, scouting for startups that involve essential
-        shift or disruption in technology, business model or consumer behavior. Open-minded and curious by nature,
-        he enjoys travelling and discovering different cultures, which makes him keen on developing business
-        connections in new and sometimes untapped geographies. He currently serves on the boards of Lesara, KupiVIP,
-        RedPoints, Synerscope, Enigma, and the Mangrove Foundation. Michael holds a Bachelor’s Degree in Nautical
-        Sciences from the Antwerp Maritime Academy and a Master in International Business and Management with high
-        honors from the Brussels Management School. A Belgian national, he speaks French, English, Dutch and German.
-        </p>
+        <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
+        which he sold to Nokia in 2006. Christophe since co-founded a number of companies with global reach, such as
+        Plazes.com (Nokia), txtr.com or recently Medigo.com, Mimi.io, and Blloon.com. As an angel investor, Christophe
+        was involved in Brands4Friends (eBay), StudiVZ (HB), Plista (groupM), Readmill (Dropbox), amongst others.
+        (Christophe was named best “European Seed investor” in both 2011 and 2012 by Techcrunch. He serves on the board
+        of EyeEm, Klara and Soundcloud.</p>
 
-    - name: "Paweł Bylica "
+    - name: "Paweł Bylica"
       title: "Ethereum Core Developer"
       image: "../assets/pawel-bylica.png"
       preTitle: ""
@@ -445,15 +473,6 @@ advisors:
       bio:  |
         <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network
         Project as Ethereum specialist.</p>
-
-    - name: "Shawn O'Connor"
-      title: "Kraken.com"
-      image: "../assets/shawnkraken.png"
-      preTitle: "CTO"
-      links:
-        website: "https://www.kraken.com/"
-      email: ""
-      bio: ""
 
 ecosystem:
   visible: true

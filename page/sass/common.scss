@@ -200,3 +200,12 @@ p.slim {
     transition: all 1s;
   }
 }
+
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}

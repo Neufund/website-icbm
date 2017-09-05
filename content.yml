@@ -9,13 +9,9 @@ commit_funds:
     - point: "01"
       title: "How it works"
       paragraph1:  |
-        Neufund's ICO is a call to commit capital to the Neufund
-        Platform in exchange for tokens, that's why we call it ICBM
-        - Initial Capital Building Mechanism.
+        Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.
       paragraph2:  |
-        Reserve ETH in your personal Ethereum wallet. You have 18
-        months to pick your favourite investments. Not investing
-        results in full release.
+        Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.
       links:
         - link: "Terms and Conditions"
           href: "#"
@@ -28,28 +24,28 @@ commit_funds:
     - point: "02"
       title: "Why participate: Neumark key feature"
       paragraph1:  |
-        Neumarks entitle their holders to revenues from all the future investment's success fees. They also allow the holders to participate in the
-        economic benefit from a platform portfolio of all the startups tokens that will ever launch.
+        Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.
       paragraph2:  |
-        <strong> If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong>
-        You can capitalise on Neumarks by <i>hodling</i> or by trading without vesting on secondary market from day one.
+        <strong>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.
       links:
         - link: "Neumark Token Holder Agreement"
           href: "#"
 
 participating:
   visible: true
-  title: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world"
+  title: "What is Neufund Platform"
   paragrapha:  |
-        Using our legal and technical infrastructure, startups and established companies alike can legally issue a new type of asset we call tokenized equity –
-        in essence, digital shares. We achieve this by formally linking paper contracts with Ethereum smart contracts through mutual reference and code correspondence.
-        Neufund enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement.
+        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares.
+        Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency.
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
       target: "https://neufund.org/cms_resources/neufundwhitepapev20010917.pdf"
     - link: "Roadmap"
       target: "https://neufund.org/cms_resources/neufunds-roadmap-whitepaper-2.0-010917.pdf"
+    - link: "Key takeaways from the Neufund’s Whitepaper"
+      target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
+      new: true
 
 easy_access:
   visible: true

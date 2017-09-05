@@ -19,23 +19,23 @@
     width: 100%;
     padding-bottom: 40px;
     a{
-        color: #262B2F;
+        color: $black-title;
         h4 {
             font-size: $font-size-normal;
+            line-height: 29px;
         }
         font-size: $font-size-normal;
         position: relative;
         i{
             color: $blue;
-            position: absolute;
-            top: 0;
+            position: absolute;            
         }
     }
     a:focus, a:active{
         text-decoration: none;
     }
     p{
-        color: #262B2F;
+        color: $black-title;
         font-weight: $font-weight-light;
         font-size: $font-size-small;
     }
@@ -84,13 +84,13 @@
 .bs-docs-sidebar .nav>.active>a, 
 .bs-docs-sidebar .nav>.active:hover>a,
 .bs-docs-sidebar .nav>.active:focus>a {
-    font-weight: 700;
+    font-weight: $font-weight-more-bold;
 }
 /* nested active links */
 .bs-docs-sidebar .nav .nav>.active>a, 
 .bs-docs-sidebar .nav .nav>.active:hover>a,
 .bs-docs-sidebar .nav .nav>.active:focus>a {
-    font-weight: 500;
+    font-weight: $font-weight-bold;
 }
 
 /* hide inactive nested list */

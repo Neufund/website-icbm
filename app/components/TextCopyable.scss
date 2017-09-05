@@ -1,0 +1,12 @@
+@import "../../common/sass/variables";
+
+.text-style {
+  font-weight: $font-weight-bold;
+}
+
+.icon-style {
+  font-size: inherit;
+  color: $green;
+  margin-right: 1em;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AddressCopyable } from "./AddressCopyable";
+import { TextCopyable } from "./TextCopyable";
 
 export const CommitFundsDescription: React.SFC = () =>
   <div>
@@ -13,10 +13,10 @@ export const CommitFundsDescription: React.SFC = () =>
       </a>
     </p>
     <p>Validate ethereum smart contract address:</p>
-    <AddressCopyable address="0x6895304785c271b827f1990860d5093e30d2a121" />
+    <TextCopyable text="0x6895304785c271b827f1990860d5093e30d2a121" />
     <p>
       <a href="">Verify source code on Etherscan</a>
     </p>
     <p>Include following descriptionin your transaction: </p>
-    <AddressCopyable address="0x3c7a3aff" />
+    <TextCopyable text="0x3c7a3aff" />
   </div>;

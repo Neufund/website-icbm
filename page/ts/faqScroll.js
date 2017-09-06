@@ -59,8 +59,6 @@ $.fn.faqScroll = function (options) {
         );
     });
 
-    const scrollendDelay = settings.speed; // ms
-
     // Handling the scroll event
     $(window).scroll(function (e) {
         let positions = [];

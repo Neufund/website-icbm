@@ -1,0 +1,89 @@
+who_can_use:
+  title: "Who can use Neufund's Platform"
+  headline: "For startups and all kinds of investors"
+  backgroundText: ""
+  paragraphs:
+    - "Unless you are a partner in the VC fund or a business angel, you are probably new to investing in the companies equity, and no wonder – it’s a closed market."
+    - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
+  image: "placeholder.jpg"
+main_feature:
+  title: "Main feature: invest in startups"
+  headline: "New investment mechanism for every model – open ICO"
+  backgroundText: "For investors"
+  paragraphs:
+    - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
+  image: "placeholder.jpg"
+invisible_blockchain:
+  title: "(in)visible blockchain"
+  headline: "Invest with tokens in tokens"
+  backgroundText: ""
+  paragraphs:
+    - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
+    - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
+  image: "placeholder.jpg"
+benefits_of_blockchain:
+  title: "Main feature: invest in startups"
+  headline: ""
+  backgroundText: ""
+  paragraphs:
+    - ""
+    - ""
+  image: "placeholder.jpg"
+investors_dashboard:
+  title: "Investors dashboard"
+  image: "placeholder.jpg"
+feature_by_feature:
+  headline: "Feature by feature"
+  content:
+    - title: "Invest in legal equity tokens"
+      icon: ""
+      content: "Invest fully legally in ICO..."
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    - title: "Stable coin"
+      icon: ""
+      content: "Investment transactions ..."
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    - title: "Feeds & Proceeds Distribution"
+      icon: ""
+      content: "The Platform provides ..."
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    - title: "On-chain Governance"
+      icon: ""
+      content: "The Investment Agreement requires the company to carry out shareholder resolutions on Platform for on-chain investors​. Off-chain investors still vote on paper and results are merged to get the final answer. The voting procedure complies with those usually found in typical shareholder agreement."
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    - title: "KYC/AML"
+      icon: ""
+      content: "ETO investors can be individuals or organizations. We have standard KYC/AML procedures like you would see on any financial institution, e.g. bank."
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+initial_coin_offering:
+  title: "Initial Coin Offering of a startup"
+  image: "placeholder.jpg"
+disrupting_fundraising:
+  title: "Disrupting fundraising"
+  headline: "Accessible investors pool and  symmetry of information"
+  backgroundText: "For startups"
+  paragraphs:
+    - "Put whole of part startups on-chain ICOs on Neufund Platform allow startups and established companies alike"
+    - "Low entry barrier"
+    - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
+    - "accelerated process"
+    - "Community based investors pool"
+  image: "placeholder.jpg"
+post_investment_management_tool:
+  title: "Post-investment management tool"
+  headline: "Investors relations "
+  backgroundText: ""
+  paragraphs:
+    - "Startup management tool"
+    - "Fully legal"
+    - "Full"
+neufund_profile:
+  title: "Neufund's profile on the Platform"
+  image: "placeholder.jpg"
+last:
+  headline: ""
+  content:
+    - title: "Reward"
+      icon: ""
+      content: ""
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

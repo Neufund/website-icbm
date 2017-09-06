@@ -63,18 +63,18 @@ $.fn.faqScroll = function (options) {
 
     // Handling the scroll event
     $(window).scroll(function (e) {
-            let positions = [];
-            let sections = {};
-            $.each($(`[data-target="${settings.sidebarArea}"]`).children(), (i, section) => {
-                positions.push($(section).position().top);
-                sections[$(section).position().top] = `#${$(section).attr('id')}`;
-            });
-            const activeMenue = closest($(window).scrollTop(), positions);
+        let positions = [];
+        let sections = {};
+        $.each($(`[data-target="${settings.sidebarArea}"]`).children(), (i, section) => {
+            positions.push($(section).position().top);
+            sections[$(section).position().top] = `#${$(section).attr('id')}`;
+        });
+        const activeMenue = closest($(window).scrollTop(), positions);
 
-            if(!isClicked) {
-                $(`a[href="${sections[activeMenue]}"]`).parent('li').siblings('li').removeClass('active');
-                $(`a[href="${sections[activeMenue]}"]`).parent('li').addClass('active');
-            }
+        if(!isClicked) {
+            $(`a[href="${sections[activeMenue]}"]`).parent('li').siblings('li').removeClass('active');
+            $(`a[href="${sections[activeMenue]}"]`).parent('li').addClass('active');
+        }
 
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function () {

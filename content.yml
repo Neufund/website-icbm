@@ -40,9 +40,9 @@ participating:
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
-      target: "https://neufund.org/cms_resources/neufundwhitepapev20010917.pdf"
+      target: "https://neufund.org/whitepaper/"
     - link: "Roadmap"
-      target: "https://neufund.org/cms_resources/neufunds-roadmap-whitepaper-2.0-010917.pdf"
+      target: "https://neufund.org/roadmap/"
     - link: "Key takeaways from the Neufund’s Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
       new: true

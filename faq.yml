@@ -1,94 +1,62 @@
-- 
-  title: "GENERAL IDEA"
+- title: "GENERAL IDEA"
   questions:
-    - 
-      question : "What is Neufund?"
-      answer : "Neufund is a community-owned fundraising platform. Companies can use our legal and technical infrastructure to legally issue a new type of asset on our platform, which we call tokenized equity, and into which anyone can invest. The Neufund platform thus acts as a bridge between the investment world and the blockchain space."
-    - 
-      question : "What is Fifth Force GmbH?"
-      answer : "Fifth Force is an off-chain limited liability company incorporated in Berlin. It was founded as a way to build the platform infrastructure for Neufund as a fundraising ecosystem. The idea, however, was to ultimately “tokenize the enterprise”, and melt all parts of the company into the community by distributing its ownership, and eventually becoming a DAO. Fifth Force received an initial seed investment but its ongoing operations are financed through the Neumark reward, which closely aligns its interests with those of other Neumark holders."
-    - 
-      question : "Who is Neufund for?"
-      answer : "Neufund forms an ecosystem that addresses everyone who shares the understanding that ICOs are the future of funding, as they catalyse innovation and liquidity in unprecedented ways. On the one hand, Neufund is built for investors: its mechanisms allow VCs to strike out on a new path, and its low entry barriers also allow the greater public to own their investment decisions and to invest in projects they care about. On the other hand, Neufund is built for startups and established companies that want an easier access to funding and take part in the crypto-world by tokenizing their shares."
+  - question : "What is Neufund?"
+    answer : "Neufund is a community-owned fundraising platform. Companies can use our legal and technical infrastructure to legally issue a new type of asset on our platform, which we call tokenized equity, and into which anyone can invest. The Neufund platform thus acts as a bridge between the investment world and the blockchain space."
+  - question : "What is Fifth Force GmbH?"
+    answer : "Fifth Force is an off-chain limited liability company incorporated in Berlin. It was founded as a way to build the platform infrastructure for Neufund as a fundraising ecosystem. The idea, however, was to ultimately “tokenize the enterprise”, and melt all parts of the company into the community by distributing its ownership, and eventually becoming a DAO. Fifth Force received an initial seed investment but its ongoing operations are financed through the Neumark reward, which closely aligns its interests with those of other Neumark holders."
+  - question : "Who is Neufund for?"
+    answer : "Neufund forms an ecosystem that addresses everyone who shares the understanding that ICOs are the future of funding, as they catalyse innovation and liquidity in unprecedented ways. On the one hand, Neufund is built for investors: its mechanisms allow VCs to strike out on a new path, and its low entry barriers also allow the greater public to own their investment decisions and to invest in projects they care about. On the other hand, Neufund is built for startups and established companies that want an easier access to funding and take part in the crypto-world by tokenizing their shares."
+  - question : "What sets Neufund apart from indirect competition?"
+    answer : "As a community-owned investment platform, Neufund differs from existing platforms because of its genuine platform token Neumark, which is issued as a reward on every investment transaction or capital commitment. Our introduction of startup equity tokens, which legally represent shares, equally mark a novelty. While other platforms admit only accredited investors, we have been able to open up our platform to any kind of investor. Neufund is not only building a platform but an entire ecosystem that is driven by the belief in the crypto community’s potential for co-creation."
+  - question : "How is funding through the Neufund platform different from traditional VC funding?"
+    answer : "As a whole fundraising ecosystem, the Neufund platform offers a fundamentally innovative approach to funding projects. With us, companies can issue tokenized equity and make use of the security and cost-efficiency of smart contract applications. This opens up the investment side broadly. In addition, the platform itself is owned by the community and anyone can participate without a exceeding an arbitrary minimum ticket size. Investors are also strengthened through increased liquidity, as they can trade their tokens anytime. On the other hand, the company side is equally opened up. Our platform allows for an unprecedentedly flexibility in funding, where community participation can speed up the fundraising processes to as fast as 6 weeks. Our vision for value creation far exceeds the classical Silicon Valley trajectory. It allows for a more diverse dealflow and is inherently open to novel industries and ideas. Neufund’s platform thus acts as a bridge between the investment world and the blockchain space."
+  - question : "When is the Neufund ICO going to take place?"
+    answer : "The Neufund ICO is going to take place already this autumn 2017. However, we prefer to call it the Initial Capital Building Mechanism (ICBM), because the funds committed by investors will remain at their disposal (see more information on what is ICBM below). Further information will be published very soon on commit.neufund.org."
+  - question : "What progress has Neufund made since its successful seed round?"
+    answer : "Neufund has initiated an entire ecosystem, which is economically owned by its community, and which extends far beyond the Neufund platform. In order to promote clear guidance and participants’ protection, we initiated the issuance of the European Regulatory Report, which has led to the formation of a global Blockchain Policy Initiative (learn more at http://blockchainpolicy.org). We produced the ICO Transparency Monitor as a peer-to-peer tool for the community to evaluate fundraisers (check it out at http://icomonitor.io). Our numerous tutorials shall help investors to be well-informed (available at http://neufund.org/ecosystem). To enhance corporate governance, Neufund developed the innovative Employee Stock Option plan (visit http://neufund.org/esop). By providing these instruments for free, Neufund has been taking a pro-active role in advancing the crypto-community as a whole."
 
-    - 
-      question : "What sets Neufund apart from indirect competition?"
-      answer : "As a community-owned investment platform, Neufund differs from existing platforms because of its genuine platform token Neumark, which is issued as a reward on every investment transaction or capital commitment. Our introduction of startup equity tokens, which legally represent shares, equally mark a novelty. While other platforms admit only accredited investors, we have been able to open up our platform to any kind of investor. Neufund is not only building a platform but an entire ecosystem that is driven by the belief in the crypto community’s potential for co-creation."
-
-    - 
-      question : "How is funding through the Neufund platform different from traditional VC funding?"
-      answer : "As a whole fundraising ecosystem, the Neufund platform offers a fundamentally innovative approach to funding projects. With us, companies can issue tokenized equity and make use of the security and cost-efficiency of smart contract applications. This opens up the investment side broadly. In addition, the platform itself is owned by the community and anyone can participate without a exceeding an arbitrary minimum ticket size. Investors are also strengthened through increased liquidity, as they can trade their tokens anytime. On the other hand, the company side is equally opened up. Our platform allows for an unprecedentedly flexibility in funding, where community participation can speed up the fundraising processes to as fast as 6 weeks. Our vision for value creation far exceeds the classical Silicon Valley trajectory. It allows for a more diverse dealflow and is inherently open to novel industries and ideas. Neufund’s platform thus acts as a bridge between the investment world and the blockchain space."
-
-    - 
-      question : "When is the Neufund ICO going to take place?"
-      answer : "The Neufund ICO is going to take place already this autumn 2017. However, we prefer to call it the Initial Capital Building Mechanism (ICBM), because the funds committed by investors will remain at their disposal (see more information on what is ICBM below). Further information will be published very soon on commit.neufund.org."
-
-    - 
-      question : "What progress has Neufund made since its successful seed round?"
-      answer : "Neufund has initiated an entire ecosystem, which is economically owned by its community, and which extends far beyond the Neufund platform. In order to promote clear guidance and participants’ protection, we initiated the issuance of the European Regulatory Report, which has led to the formation of a global Blockchain Policy Initiative (learn more at http://blockchainpolicy.org). We produced the ICO Transparency Monitor as a peer-to-peer tool for the community to evaluate fundraisers (check it out at http://icomonitor.io). Our numerous tutorials shall help investors to be well-informed (available at http://neufund.org/ecosystem). To enhance corporate governance, Neufund developed the innovative Employee Stock Option plan (visit http://neufund.org/esop). By providing these instruments for free, Neufund has been taking a pro-active role in advancing the crypto-community as a whole."
-
--
-  title: "GENERAL KNOWLEDGE"
+- title: "GENERAL KNOWLEDGE"
   questions:
-    - 
-      question : "What is a token sale?"
-      answer : "A token sale is a public offering of not-yet-launched tokens, where participation in our economy is sold to accredited investors. This manifests a novel way of fundraising created to bypass the tedious capital-raising process of traditional VCs or banks. Cryptographic tokens are generated by a Smart Contract System; they power our platform, are highly programmable and have an array of functions. The Neufund token sale is of of the first undertakings to tokenise actual equity."
+  - question : "What is a token sale?"
+    answer : "A token sale is a public offering of not-yet-launched tokens, where participation in our economy is sold to accredited investors. This manifests a novel way of fundraising created to bypass the tedious capital-raising process of traditional VCs or banks. Cryptographic tokens are generated by a Smart Contract System; they power our platform, are highly programmable and have an array of functions. The Neufund token sale is of of the first undertakings to tokenise actual equity."
+  - question : "What is an ICBM?"
+    answer : "The Initial Capital Building Mechanism is a process corresponding loosely to the now common ICO process employed by other blockchain projects. In our case, it kickstarts our investment ecosystem by delivering liquidity to the Neufund platform. This corresponds to commitments by participants to make investments in future Equity Token Offerings of companies on the platform. Neufund’s ICBM is taking place in Autumn 2017."
 
-    - 
-      question : "What is an ICBM?"
-      answer : "The Initial Capital Building Mechanism is a process corresponding loosely to the now common ICO process employed by other blockchain projects. In our case, it kickstarts our investment ecosystem by delivering liquidity to the Neufund platform. This corresponds to commitments by participants to make investments in future Equity Token Offerings of companies on the platform. Neufund’s ICBM is taking place in Autumn 2017."
+- title: "INVOLVEMENT: HOW TO PARTICIPATE"
+  questions:
+  - question : "What kinds of companies can apply to the Neufund platform for funding?"
+    answer : "In principle, Neufund empowers any kind of company from anywhere in the world to tokenise their shares. They may be on- or off-chain, at seed or later stage, and operating in any possible industry. As Neufund is an equity trading platform, however, projects which would like to instead promise goods or stake in services as an exchange for token ownership do consequently not qualify for our platform. A committee comprised of members of Neufund and the community approves all applying projects for the sake of due diligence. While the projects supported by our platform stand out through their diversity, they all have in common that they create value. This definition is broadened extensively, however, due to the flexibility in funding that our blockchain-based investment ecosystem allows for in comparison to a conventional VC fund."
+  - question : "When can companies apply to the Neufund platform for funding?"
+    answer : "Startups and established companies will be able to apply for funding after we will have launched our platform starting from next year. In the meantime, please contact us at startups@neufund.org."
+  - question : "What types of funds can I invest with on Neufund?"
+    answer : "During Neufund’s Initial Capital Building Mechanism (→ICBM), you will be able to commit Ether (ETH) as the native token of the Ethereum blockchain. On the Neufund platform as the following step coming up next year, it will be possible to invest in equity tokens in both ETH and EUR. For EUR committed to the platform we will provide Euro Token (EURT) as an internal stable coin that is pegged 1:1 to EUR and thus allows to be independent from cryptocurrency volatility."
+  - question : "What are Neumarks?"
+    answer : "Neumarks are Neufund’s protocol tokens which participants earn by committing capital to the platform. They entitle their holders to revenues from platform fees for ETOs (Equity Token Offerings) taking place on Neufund, as well as economic benefit from a platform portfolio pool holding a small amount of every ETO ever conducted. The amount of Neumarks held represents the individual share of the Neufund ecosystem. In total, they thus represent the value of Neufund’s entire token economy. As an attractive asset, they are apt for secondary trading and can easily be transferred among users."
+  - question : "How do I purchase Neumarks?"
+    answer : "Neumarks are not being purchased in the first place. Investors receive Neumarks as a reward for contributing to the ecosystem. For every successful investment in a startup on our platform one will receive Neumarks."
+  - question : "When do I get Neumarks?"
+    answer : "Neumarks are received after funds have been committed in Neufund’s Initial Capital Building Mechanism (→ICBM), or when investing on the Neufund platform at a later stage."
 
--  
-  title: "INVOLVEMENT: HOW TO PARTICIPATE"
+- title: "LEGAL"
   questions:
-    - 
-      question : "What kinds of companies can apply to the Neufund platform for funding?"
-      answer : "In principle, Neufund empowers any kind of company from anywhere in the world to tokenise their shares. They may be on- or off-chain, at seed or later stage, and operating in any possible industry. As Neufund is an equity trading platform, however, projects which would like to instead promise goods or stake in services as an exchange for token ownership do consequently not qualify for our platform. A committee comprised of members of Neufund and the community approves all applying projects for the sake of due diligence. While the projects supported by our platform stand out through their diversity, they all have in common that they create value. This definition is broadened extensively, however, due to the flexibility in funding that our blockchain-based investment ecosystem allows for in comparison to a conventional VC fund."
-    - 
-      question : "When can companies apply to the Neufund platform for funding?"
-      answer : "Startups and established companies will be able to apply for funding after we will have launched our platform starting from next year. In the meantime, please contact us at startups@neufund.org."
-    - 
-      question : "What types of funds can I invest with on Neufund?"
-      answer : "During Neufund’s Initial Capital Building Mechanism (→ICBM), you will be able to commit Ether (ETH) as the native token of the Ethereum blockchain. On the Neufund platform as the following step coming up next year, it will be possible to invest in equity tokens in both ETH and EUR. For EUR committed to the platform we will provide Euro Token (EURT) as an internal stable coin that is pegged 1:1 to EUR and thus allows to be independent from cryptocurrency volatility."
-    - 
-      question : "What are Neumarks?"
-      answer : "Neumarks are Neufund’s protocol tokens which participants earn by committing capital to the platform. They entitle their holders to revenues from platform fees for ETOs (Equity Token Offerings) taking place on Neufund, as well as economic benefit from a platform portfolio pool holding a small amount of every ETO ever conducted. The amount of Neumarks held represents the individual share of the Neufund ecosystem. In total, they thus represent the value of Neufund’s entire token economy. As an attractive asset, they are apt for secondary trading and can easily be transferred among users."
-    - 
-      question : "How do I purchase Neumarks?"
-      answer : "Neumarks are not being purchased in the first place. Investors receive Neumarks as a reward for contributing to the ecosystem. For every successful investment in a startup on our platform one will receive Neumarks."
-    - 
-      question : "When do I get Neumarks?"
-      answer : "Neumarks are received after funds have been committed in Neufund’s Initial Capital Building Mechanism (→ICBM), or when investing on the Neufund platform at a later stage."
--
-  title: "LEGAL"
-  questions:
-    -
-      question : "Is Neumark a security?"
-      answer : " We strongly believe that Neumarks are not subject to the German Securities Trading Act. This conclusion is the outcome of extensive legal analysis of the German law conducted by professional attorneys. Neufund is aware that questions regarding the regulatory status of Neumarks in other jurisdictions will be discussed. Since we cannot exclude different regulatory treatment of Neumarks in all jurisdictions, participants from non-supported countries will not be able to take part in the ICBM event."
-    - 
-      question : "What rights does Neumark holder have?"
-      answer : "The value of Neumarks results from fees and participation in a platform pool of equity tokens, and thus gives economic ownership of the network to its holders: (1) With each successful Equity Token Offering, a small fee is deducted from the invested amount. This platform fee is then distributed to Neumark holders pro rata. (2) Within the same Equity Token Offering, a small fee in form of company equity tokens is deducted from the total tokens that were acquired. This token participation fee is added to a platform portfolio of all companies ever to conduct a token sale on the platform."
-    - 
-      question : "What is an equity token?"
-      answer : "Equity tokens represent equity (shares) in startups (off-chain companies that raise capital on the Neufund Platform). Equity tokens can be acquired by investors who are additionally rewarded with Neumarks. Generally speaking, equity tokens are technologically enhanced equivalents to shares that aim to be as liquid as cryptocurrency."
-    - 
-      question : "Are equity tokens a security?"
-      answer : "Yes. Equity tokens will be issued as securities under relevant EU laws."
-    - 
-      question : "Do investors need to go through KYC procedures on the NEUFUND platform?"
-      answer : "At the time of Neufund’s Initial Capital Building Mechanism (→ICBM), Neumarks can be acquired through Ether (ETH) without going through the so called ‘Know Your Customer’ process. However, in order to get access to the Neufund Platform, investors need to go through an short authorisation process before their first investment. We will  require your full name and ID scan. As a company, you additionally have to send us a copy of your company’s excerpt from the registry and a list of management board members."
-    -
-      question: "Who can reserve funds to invest on the Neufund platform?"
-      answer: "Anybody can participate in Neufund’s Initial Capital Building Mechanism (→ICBM), given that she is not based in the US or has a US citizenship. Neufund tokens themselves are not securities, commodities, swaps on either securities or commodities, or similar financial instruments. Nevertheless, it was decided that US citizens, residents and entities should be excluded from reserving funds to invest on the Neufund platform. This is mainly due to the logistical challenges that come with respective regulations. With the platform launch, we will ask you to go through an authorisation process for both your and our safety."
-    -
-      question: "Why are you building Neufund under the German law?"
-      answer: "Germany offers a sound legal ground for ambitious projects. We remain open for developments in other jurisdictions that may prove advantageous for Neufund in the future. However, we are already able to do our business globally thanks to our innovative legal structure built under German law."
--
-  title: "SPECIFICATIONS"
+  - question : "Is Neumark a security?"
+    answer : " We strongly believe that Neumarks are not subject to the German Securities Trading Act. This conclusion is the outcome of extensive legal analysis of the German law conducted by professional attorneys. Neufund is aware that questions regarding the regulatory status of Neumarks in other jurisdictions will be discussed. Since we cannot exclude different regulatory treatment of Neumarks in all jurisdictions, participants from non-supported countries will not be able to take part in the ICBM event."
+  - question : "What rights does Neumark holder have?"
+    answer : "The value of Neumarks results from fees and participation in a platform pool of equity tokens, and thus gives economic ownership of the network to its holders: (1) With each successful Equity Token Offering, a small fee is deducted from the invested amount. This platform fee is then distributed to Neumark holders pro rata. (2) Within the same Equity Token Offering, a small fee in form of company equity tokens is deducted from the total tokens that were acquired. This token participation fee is added to a platform portfolio of all companies ever to conduct a token sale on the platform."
+  - question : "What is an equity token?"
+    answer : "Equity tokens represent equity (shares) in startups (off-chain companies that raise capital on the Neufund Platform). Equity tokens can be acquired by investors who are additionally rewarded with Neumarks. Generally speaking, equity tokens are technologically enhanced equivalents to shares that aim to be as liquid as cryptocurrency."
+  - question : "Are equity tokens a security?"
+    answer : "Yes. Equity tokens will be issued as securities under relevant EU laws."
+  - question : "Do investors need to go through KYC procedures on the NEUFUND platform?"
+    answer : "At the time of Neufund’s Initial Capital Building Mechanism (→ICBM), Neumarks can be acquired through Ether (ETH) without going through the so called ‘Know Your Customer’ process. However, in order to get access to the Neufund Platform, investors need to go through an short authorisation process before their first investment. We will  require your full name and ID scan. As a company, you additionally have to send us a copy of your company’s excerpt from the registry and a list of management board members."
+  - question: "Who can reserve funds to invest on the Neufund platform?"
+    answer: "Anybody can participate in Neufund’s Initial Capital Building Mechanism (→ICBM), given that she is not based in the US or has a US citizenship. Neufund tokens themselves are not securities, commodities, swaps on either securities or commodities, or similar financial instruments. Nevertheless, it was decided that US citizens, residents and entities should be excluded from reserving funds to invest on the Neufund platform. This is mainly due to the logistical challenges that come with respective regulations. With the platform launch, we will ask you to go through an authorisation process for both your and our safety."
+  - question: "Why are you building Neufund under the German law?"
+    answer: "Germany offers a sound legal ground for ambitious projects. We remain open for developments in other jurisdictions that may prove advantageous for Neufund in the future. However, we are already able to do our business globally thanks to our innovative legal structure built under German law."
+
+- title: "SPECIFICATIONS"
   questions: 
-    -
-      question: "What makes Neufund’s platform secure compared to TheDAO?"
-      answer: "Neufund ensures that the data and funds on its platform are protected against the kind of threats that compromised TheDAO. We will keep all our assets in cold storage, i.e. hardware wallets through proper procedures. By way of contrast, TheDAO was hacked because the related Ether (ETH) were kept in smart contracts. On top of this built-in security, we will both offer education to our users and open source our critical code for audits from the community."
-    -
-      question: "Why did we choose to run the Neufund platform on the Ethereum blockchain?"
-      answer: "Ethereum is the most advanced public blockchain which excels through its high programmability.  It facilitates the involvement of smart contracts, which offer self-enforceable mechanisms enshrined in code. This allows to accommodate the construction of complex applications, so called Decentralised Applications (DApps). Ethereum has thus proved to be a highly valuable and sustainable project to which we contribute gladly."
+  - question: "What makes Neufund’s platform secure compared to TheDAO?"
+    answer: "Neufund ensures that the data and funds on its platform are protected against the kind of threats that compromised TheDAO. We will keep all our assets in cold storage, i.e. hardware wallets through proper procedures. By way of contrast, TheDAO was hacked because the related Ether (ETH) were kept in smart contracts. On top of this built-in security, we will both offer education to our users and open source our critical code for audits from the community."
+  - question: "Why did we choose to run the Neufund platform on the Ethereum blockchain?"
+    answer: "Ethereum is the most advanced public blockchain which excels through its high programmability.  It facilitates the involvement of smart contracts, which offer self-enforceable mechanisms enshrined in code. This allows to accommodate the construction of complex applications, so called Decentralised Applications (DApps). Ethereum has thus proved to be a highly valuable and sustainable project to which we contribute gladly."

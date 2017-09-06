@@ -33,7 +33,11 @@ $.fn.faqScroll = function (options) {
         speed: 500
     }, options);
 
+    if( $(settings.sidebarArea).length == 0)
+        return; 
+    $(`${settings.sidebarArea} li:first`).addClass('active');
     // Handling the click event
+    var isClicked = false;
     $(`${settings.sidebarArea} a`).click(function (e) {
         e.preventDefault();
 
@@ -44,8 +48,9 @@ $.fn.faqScroll = function (options) {
         if (dest === "#") {
             return;
         }
+        isClicked = true;
         const target = $(dest);
-        console.log(target);
+        
         $("html, body").stop().animate(
             {
                 scrollTop: target.offset().top - settings.offset,
@@ -61,15 +66,19 @@ $.fn.faqScroll = function (options) {
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function () {
             let positions = [];
-            let sections = {};                
+            let sections = {};
             $.each($(`[data-target="${settings.sidebarArea}"]`).children(), (i, section) => {
                 positions.push($(section).position().top);
                 sections[$(section).position().top] = `#${$(section).attr('id')}`;
             });
-
             const activeMenue = closest($(window).scrollTop(), positions);
-            $(`${settings.sidebarArea} > li`).removeClass('active');                
-            $(`a[href="${sections[activeMenue]}"]`).parent('li').addClass('active');
+
+            if(!isClicked) {
+                $(`a[href="${sections[activeMenue]}"]`).parent('li').siblings('li').removeClass('active');
+                $(`a[href="${sections[activeMenue]}"]`).parent('li').addClass('active');
+            }
+            isClicked = false;
+
         }, scrollendDelay/5));
     });
 }

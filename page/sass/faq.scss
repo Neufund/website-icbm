@@ -1,22 +1,32 @@
 .faq {
   margin-top: 70px;
 
+  section {
+    margin-bottom: 60px;
+  }
+
   .title {
     margin-bottom: 20px;
     color: $blue;
   }
 
+  .faq-content {
+    padding-left: 20px;
+  }
+
   @media (min-width: $screen-md) {
     .title {
-      display: none;
+      color: $black;
+      font-size: $section-title-font-size-smaller;
     }
   }
+
   .hidden-p {
     display: none;
+    margin-bottom: 30px;
   }
 
   .group {
-    padding-bottom: 40px;
     width: 100%;
 
     .subgroup {
@@ -31,10 +41,12 @@
       h4 {
         line-height: 29px;
         font-size: $font-size-normal;
+        font-weight: $font-weight-normal;
       }
 
       i {
         position: absolute;
+        top: 4px;
         color: $blue;
       }
 
@@ -66,8 +78,9 @@
     // sass-lint:disable nesting-depth
     .nav {
       a {
-        border-right: 2px solid transparent;
+        border-right: 3px solid transparent;
         padding: 4px 20px;
+        text-align: right;
         color: $blue;
         font-size: $font-size-normal;
         font-weight: $font-weight-bold;
@@ -75,15 +88,17 @@
         &:hover,
         &:focus {
           background: none;
+        }
+
+        &:hover {
           color: $black;
         }
       }
 
       .active {
         a,
-        li,
-        &:hover,
-        &:focus {
+        &:hover {
+          border-right-color: $black;
           background-color: transparent;
           text-decoration: none;
           color: $black;
@@ -93,5 +108,4 @@
 
     }
   }
-
 }

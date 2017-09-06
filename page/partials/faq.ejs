@@ -11,12 +11,12 @@
             </ul>
         </nav>
         <!--Main Content -->
-        <div id="faq-content" class="col-xs-12 col-lg-8 col-md-7" data-target="#sidebar" >
+        <div class="faq-content col-xs-12 col-lg-8 col-md-7" data-target="#sidebar" >
         <% for ( var i = 0 ; i < faq.length ; i++ ) {
             var question = faq[i];
             %>
             <section id="<%=question.title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();%>">
-                <h4 class="title"><%=question.title%></h4>
+                <h3 class="title"><%=question.title%></h3>
                 <% for ( var j = 0 ; j < question.questions.length ; j++ ) {
                     var subQuestion = question.questions[j];
                     %>

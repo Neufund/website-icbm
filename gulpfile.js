@@ -34,9 +34,11 @@ gulp.task("page", () => {
   const cssBundleHash = getHashForFile(/app(.*)\.css/);
 
   const content = yaml.load(fs.readFileSync("./content.yml", "utf8"));
+  const productContent = yaml.load(fs.readFileSync("./productContent.yml", "utf8"));
 
   const templateData = {
     content,
+    productContent,
     hashes: {
       jsBundleHash,
       cssBundleHash,

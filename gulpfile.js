@@ -51,11 +51,6 @@ gulp.task("page", () => {
     .pipe(gulp.dest("./dist/"));
 
   gulp
-    .src("./page/whitepaper.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
-
-  gulp
     .src("./page/faq.ejs")
     .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));

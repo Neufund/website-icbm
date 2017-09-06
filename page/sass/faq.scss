@@ -1,24 +1,19 @@
 .faq {
   margin-top: 70px;
+  padding: 20px;
 
   section {
     margin-bottom: 60px;
   }
 
+  .faq-content {
+    padding-left: 10px;
+  }
+
   .title {
     margin-bottom: 20px;
-    color: $blue;
-  }
-
-  .faq-content {
-    padding-left: 20px;
-  }
-
-  @media (min-width: $screen-md) {
-    .title {
-      color: $black;
-      font-size: $section-title-font-size-smaller;
-    }
+    color: $black;
+    font-size: $section-title-font-size-smaller;
   }
 
   .hidden-p {
@@ -46,7 +41,7 @@
 
       i {
         position: absolute;
-        top: 4px;
+        margin-top: 4px;
         color: $blue;
       }
 

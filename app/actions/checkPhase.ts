@@ -1,7 +1,6 @@
 import * as moment from "moment";
-import { IcoParametersState, selectEndDate, selectStartDate } from "../reducers/icoParameters";
-import { checkBeforeIcoPhase } from "./checkBeforePhase";
-import { beforeIcoPhase, IcoPhase, NEW_PHASE_ACTION } from "./constants";
+import { IcoState, selectEndDate, selectStartDate } from "../reducers/icoState";
+import { IcoPhase, NEW_PHASE_ACTION } from "./constants";
 
 export function changePhaseAction(newPhase: IcoPhase) {
   return {
@@ -9,11 +8,7 @@ export function changePhaseAction(newPhase: IcoPhase) {
     payload: newPhase,
   };
 }
-export function checkPhase(icoParams: IcoParametersState) {
-  if (checkBeforeIcoPhase() !== beforeIcoPhase.ON_BLOCKCHAIN) {
-    return IcoPhase.BEFORE_ICO;
-  }
-
+export function checkPhase(icoParams: IcoState) {
   const now = moment();
   const startDate = selectStartDate(icoParams);
   const endDate = selectEndDate(icoParams);

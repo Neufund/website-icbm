@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import icoParameters, { IcoParametersState } from "./icoParameters";
+import icoState, { IcoState } from "./icoState";
 
 export interface IAppState {
-  readonly icoParameters: IcoParametersState;
+  readonly icoState: IcoState;
 }
 
 export default combineReducers<IAppState>({
-  icoParameters,
+  icoState,
 });

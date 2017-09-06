@@ -61,6 +61,10 @@
     "@types/cheerio" "*"
     "@types/react" "*"
 
+"@types/invariant@^2.2.29":
+  version "2.2.29"
+  resolved "https://registry.yarnpkg.com/@types/invariant/-/invariant-2.2.29.tgz#aa845204cd0a289f65d47e0de63a6a815e30cc66"
+
 "@types/jquery@*", "@types/jquery@^3.2.11":
   version "3.2.11"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.11.tgz#9119f91bb103b16ae8c4375b019a9b341b409f50"

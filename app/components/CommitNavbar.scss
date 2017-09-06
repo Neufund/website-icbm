@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   margin-top: 10px;
   padding: 0;
-  border-right: 1px solid #FFF;
+  border-right: 1px solid $white;
   padding-top: 10px;
   padding-bottom: 10px;
   background-position-y: center;
@@ -28,14 +28,13 @@
 }
 
 .header {
-  background: linear-gradient(#2F576A 2.36%, #325566 100%);;
-  border-color: #FFF;
+  background: linear-gradient($blue-dark 2.36%, $blue-gray 100%);
+  border-color: $white;
 }
 
 .commit {
-   margin-left: 25px;
-   margin-top: 18px;
-   color: #FFF;
+   margin-left: 10px;
+   color: $white;
    font-weight: $font-weight-normal;
    font-family: $font-family-sans-serif;
 }

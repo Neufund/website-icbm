@@ -14,6 +14,10 @@ Then open `http://localhost:8080`. Hot reloading of both react and static files 
 
 In `.env.example` your will find all used env variables. When you do `yarn start` this file will be copied as `.env` (only if it doesn't exists already). If you want to change something modify `.env` file which is gitignored. If you want to add new env variable make sure to add default to `.env.example`.
 
+#### FAQ_ENABLED
+We use this variable to show the FAQ page by assigning `1` or hide it and use comming soon 
+by assinging 0.
+
 ### Linting
 
 To autofix any errors just do `yarn lint:fix`.

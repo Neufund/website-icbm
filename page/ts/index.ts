@@ -12,7 +12,7 @@ import scrollbarFix from "./scrollbarFix";
 $("body").faqScroll({
   sidebarArea: "#sidebar",
   offset: 80,
-  speed: 500,
+  speed: 100,
 });
 
 vex.defaultOptions.className = "vex-theme-os";

@@ -8,6 +8,9 @@
 
   .faq-content {
     padding-left: 10px;
+    @media (min-width: $screen-md) {
+      padding-bottom: 600px;
+    }
   }
 
   .title {
@@ -97,7 +100,6 @@
           background-color: transparent;
           text-decoration: none;
           color: $black;
-          font-weight: $font-weight-more-bold;
         }
       }
 

@@ -1,9 +1,9 @@
 /**
  *
- *  jQuery plugin that handling the smooth 
+ *  jQuery plugin that handles the smooth 
  *  scrolling for FAQ page
  * 
- *  This plugin should be written in type scripting but due to the 
+ *  This plugin should be written in typescript but due to the 
  *  nature of this plugin it would probably result with :any
  *  everywhere and thats why it's just JS
  * 

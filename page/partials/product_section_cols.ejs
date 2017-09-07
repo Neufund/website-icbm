@@ -1,0 +1,14 @@
+<div class="section section-product section-product-cols">
+    <h3><%- headline -%></h3>
+    <div class="row">
+      <% for(var i=0; i < content.length; i++) {%>
+        <div class="col-sm-4">
+          <%- content[i].title -%>
+          <%- content[i].content -%>
+          <a href="<%- content[i].link -%>">Learn more</a>
+        </div>
+      <% } %>
+
+    </div>
+
+</div>

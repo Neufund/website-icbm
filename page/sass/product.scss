@@ -1,0 +1,24 @@
+.section-product {
+  font-size: 15px;
+}
+
+.section-product-l {
+  img, .img-responsive {
+    padding-left: 50px;
+  }
+}
+
+.section-product-r {
+  img, .img-responsive {
+    padding-right: 50px;
+  }
+}
+
+.section-product-l, .section-product-r {
+}
+
+.section-product-image {
+  img, .img-responsive {
+    margin: 0 auto
+  }
+}

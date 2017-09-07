@@ -209,3 +209,20 @@ p.slim {
   flex-direction: row;
   align-items: center;
 }
+
+// Blue text + blue bar, for section titles
+.text-box {
+    top: 10px;
+    color: $blue-darker;
+    margin-bottom: 3px;
+    font-weight: $font-weight-light;
+    .underline {
+        margin-top: 1px;
+        border-bottom: 5px solid $blue-darker;
+        width: 36px;
+    }
+    h5 {
+        margin-bottom: 5px;
+        font-weight: $font-weight-light;
+    }
+}

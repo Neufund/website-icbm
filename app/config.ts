@@ -17,15 +17,15 @@ interface IContractsDeployedIcoCfg {
   rpcProvider: string;
 }
 
-function getEnvValue(obj: any, key: string): string {
+export function getRequiredValue(obj: any, key: string): string {
   if (obj[key] === undefined) {
-    throw new Error(`${key} is not exists in .env file`);
+    throw new Error(`'${key}' doesn't exist in .env file`);
   }
   return obj[key];
 }
 
-function loadConfig(): IConfig {
-  const appState = getEnvValue(process.env, "APP_STATE") as AppState;
+function loadConfig(environment: object): IConfig {
+  const appState = getRequiredValue(environment, "APP_STATE") as AppState;
 
   switch (appState) {
     case AppState.BEFORE_ANNOUNCEMENT:
@@ -34,7 +34,7 @@ function loadConfig(): IConfig {
       };
     case AppState.ANNOUNCED:
       const startingDate = moment(
-        getEnvValue(process.env, "ANNOUNCED_ICO_START_DATE"),
+        getRequiredValue(environment, "ANNOUNCED_ICO_START_DATE"),
         moment.ISO_8601
       );
 
@@ -53,8 +53,8 @@ function loadConfig(): IConfig {
       return {
         appState,
         contractsDeployed: {
-          commitmentContractAddress: getEnvValue(process.env, "COMMITMENT_CONTRACT_ADDRESS"),
-          rpcProvider: getEnvValue(process.env, "RPC_PROVIDER"),
+          commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
+          rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
         },
       };
     }
@@ -63,4 +63,4 @@ function loadConfig(): IConfig {
   }
 }
 
-export default loadConfig();
+export default loadConfig(process.env);

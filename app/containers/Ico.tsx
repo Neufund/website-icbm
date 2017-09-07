@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { selectIcoPhase } from "../reducers/icoParameters";
+import { selectIcoState } from "../reducers/icoState";
+import { IAppState } from "../reducers/index";
 import BeforeIco from "./BeforeIco";
 import DuringIco from "./DuringIco";
 
@@ -12,24 +13,32 @@ interface IcoProps {
   loadIcoParameters: any;
 }
 
-export const Ico: React.SFC<IcoProps> = props => {
-  const { icoPhase } = props;
-  props.loadIcoParameters();
-  // @todo: this should load after did mount
-  switch (icoPhase) {
-    case IcoPhase.DURING_ICO:
-      return <DuringIco />;
-    case IcoPhase.BEFORE_ICO:
-      return <BeforeIco />;
-    default:
-      return <BeforeIco />;
-    // throw new Error("Not supproted");
+class Ico extends React.Component<IcoProps> {
+  public componentDidMount() {
+    this.props.loadIcoParameters();
   }
-};
 
-function mapStateToProps(state: any) {
+  public render() {
+    const { icoPhase } = this.props;
+
+    // @todo: this should load after did mount
+    switch (icoPhase) {
+      case IcoPhase.DURING_ICO:
+        return <DuringIco />;
+      case IcoPhase.BEFORE_ICO:
+        return <BeforeIco />;
+      // @todo we need better way to realize loading state and ofc improve design
+      case IcoPhase.UNKNOWN:
+        return <div>Loading...</div>;
+      default:
+        throw new Error(`Phase ${icoPhase} not supported!`);
+    }
+  }
+}
+
+function mapStateToProps(state: IAppState) {
   return {
-    icoPhase: selectIcoPhase(state.icoParameters),
+    icoPhase: selectIcoState(state.icoState),
   };
 }
 

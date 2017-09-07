@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TextCopyable } from "./TextCopyable";
 
-export const CommitFundsDescription: React.SFC = () =>
+export const CommitFundsDescription: React.SFC = () => (
   <div>
     <h3>Other options</h3>
     <p>
@@ -19,4 +19,5 @@ export const CommitFundsDescription: React.SFC = () =>
     </p>
     <p>Include following descriptionin your transaction: </p>
     <TextCopyable text="0x3c7a3aff" />
-  </div>;
+  </div>
+);

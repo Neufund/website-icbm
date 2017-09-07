@@ -29,7 +29,7 @@ interface ICommitFundsFormProps {
   filled: boolean;
 }
 
-export const CommitFundsForm: React.SFC<ICommitFundsFormProps> = ({ filled }) =>
+export const CommitFundsForm: React.SFC<ICommitFundsFormProps> = ({ filled }) => (
   <div className={style.formContainer}>
     <div className={style.formBody}>
       <div className={style.input}>
@@ -55,4 +55,5 @@ export const CommitFundsForm: React.SFC<ICommitFundsFormProps> = ({ filled }) =>
       </p>
     </div>
     <div className={style.formSubmit}>Commit ETH</div>
-  </div>;
+  </div>
+);

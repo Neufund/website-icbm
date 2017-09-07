@@ -1,0 +1,100 @@
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../common/sass/variables.scss";
+
+.duringIco {
+  .incentive {
+    margin-top: $padding-between-sections;
+    p {
+      margin-top: $space-bottom-between-elements;
+      font-size: $font-size-normal;
+    }
+  }
+  .hexagons {
+    top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 350px;
+    width: 400px;
+
+    .hexagon-blue {
+      -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
+      animation: breathing-blue 20s ease-in-out infinite normal;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+    }
+
+    .hexagon-white{
+      -webkit-animation: breathing 20s ease-out infinite normal;
+      animation: breathing 20s ease-out infinite normal;
+      -webkit-font-smoothing: antialiased;
+      top: 18px;
+      left: 31px;
+      position: absolute;
+      transform: rotate(-26deg);
+    }    
+  }
+
+  .timeLeftContainer {
+    margin-bottom: $space-bottom-between-elements;
+    .timeLeft {
+      margin-right: 10px;
+    }
+
+    .label {
+      color: $black;
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+      margin-right: 5px;
+    }
+
+    .value {
+      color: $black;
+      font-size: $font-size-medium;
+      margin-right: $space-between-elements;
+    }
+  }
+
+  .text {
+    p {
+      padding-right: 0px;
+      margin: 0px;
+    }
+    span, p {
+      font-weight: $font-extra-weight-light;
+    }
+    .title {
+      margin-bottom: 0px;
+      font-size: $font-size-small;
+      color: $white;
+      @media (max-width: $screen-sm){
+        color: $blue-dark-light;
+      }
+    }
+    .content {
+      margin-bottom: $space-between-elements;
+    }
+    .extraSize {
+      font-size: $font-extra-big-size;
+    }
+  }
+
+  .hex-container {
+    position: relative;
+    min-height: 480px;
+  }
+
+  .hex-container-text {
+    position: absolute;
+    top: 105px;
+    left: 120px;
+    color: $white;
+    p {
+      font-size: $font-size-small;;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+}

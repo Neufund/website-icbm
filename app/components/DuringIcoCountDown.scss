@@ -56,6 +56,10 @@
   }
 
   .text {
+    @media (max-width: $screen-sm){
+        padding-top: 10px;
+    }
+    
     p {
       padding-right: 0px;
       margin: 0px;

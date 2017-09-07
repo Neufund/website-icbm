@@ -5,7 +5,7 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
-import Ico from "./containers/Ico";
+import App from "./containers/App";
 import reducers from "./reducers";
 
 const root = document.getElementById("react-root");
@@ -17,7 +17,7 @@ const render = (storage: any) => {
   if (root) {
     ReactDOM.render(
       <Provider store={storage}>
-        <Ico />
+        <App />
       </Provider>,
       root
     );

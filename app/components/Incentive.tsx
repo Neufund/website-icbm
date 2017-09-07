@@ -2,9 +2,6 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { checkBeforeIcoPhase } from "../actions/checkBeforePhase";
-import { beforeIcoPhase } from "../actions/constants";
-
 import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
 import * as styles from "./Incentive.scss";
@@ -12,31 +9,22 @@ import * as styles from "./Incentive.scss";
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;
 }
-interface Iincentive {
+interface IIncentive {
   startDate: moment.Moment;
 }
 
 function lockedContent(startDate: moment.Moment) {
-  if (checkBeforeIcoPhase() !== beforeIcoPhase.BEFORE_ANNOUNCEMENT) {
-    return (
-      <div>
-        <h3> Commitment Opportunity starts in: </h3>
-        <h1>Autumn</h1>
-        <Countdown finishDate={startDate} />
-        <h3>Reward starting point:</h3>
-        <p>
-          {" "}-- NEU / <strong>1</strong> EHT
-        </p>
-      </div>
-    );
-  } else {
-    return (
-      <div className={styles.pulldown}>
-        <h3> Commitment Opportunity starts in: </h3>
-        <h1>Autumn</h1>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h3> Commitment Opportunity starts in: </h3>
+      <h1>Autumn</h1>
+      <Countdown finishDate={startDate} />
+      <h3>Reward starting point:</h3>
+      <p>
+        {" "}-- NEU / <strong>1</strong> EHT
+      </p>
+    </div>
+  );
 }
 
 export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
@@ -44,7 +32,7 @@ export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) 
     {lockedContent(startDate)}
   </div>;
 
-export const Incentive: React.SFC<Iincentive> = ({ startDate }) =>
+export const Incentive: React.SFC<IIncentive> = ({ startDate }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>

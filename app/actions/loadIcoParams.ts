@@ -1,10 +1,9 @@
 import { BigNumber } from "bignumber.js";
-import { Dispatch } from "redux";
-import { envPayload } from "../config";
-import { selectAddress } from "../reducers/icoParameters";
+import { ThunkAction } from "redux-thunk";
+import { IAppState } from "../reducers";
+import { selectAddress } from "../reducers/icoState";
 import { loadIcoParamsFromContract } from "../web3/loadIcoParamsFromContract";
-import { checkBeforeIcoPhase } from "./checkBeforePhase";
-import { beforeIcoPhase, LOAD_ICO_PARAMS } from "./constants";
+import { LOAD_ICO_PARAMS } from "./constants";
 
 export function loadIcoParamsAction(
   startDate: string,
@@ -23,13 +22,8 @@ export function loadIcoParamsAction(
   };
 }
 
-export async function loadIcoParams(dispatch: Dispatch<any>, getState: any) {
-  const address = selectAddress(getState().icoParameters);
-  const { minCap = new BigNumber(0), maxCap = new BigNumber(0), startDate, endDate = "00" } =
-    checkBeforeIcoPhase() === beforeIcoPhase.ON_BLOCKCHAIN
-      ? await loadIcoParamsFromContract(address)
-      : { startDate: envPayload.commitmentStartDate };
+export const loadIcoParams: ThunkAction<{}, IAppState, {}> = async (dispatch, getState) => {
+  const address = selectAddress(getState().icoState);
+  const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromContract(address);
   dispatch(loadIcoParamsAction(startDate, endDate, minCap, maxCap));
-}
-
-// TODO :Change payload to accomedate on Startdate
+};

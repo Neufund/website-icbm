@@ -34,14 +34,17 @@ gulp.task("page", () => {
   const cssBundleHash = getHashForFile(/app(.*)\.css/);
 
   const content = yaml.load(fs.readFileSync("./content.yml", "utf8"));
-
+  const faq = yaml.load(fs.readFileSync("./faq.yml", "utf8"));
+  
   const templateData = {
     content,
+    faq,
     hashes: {
       jsBundleHash,
       cssBundleHash,
     },
     GA_ID: envs.GA_ID,
+    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED)
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86

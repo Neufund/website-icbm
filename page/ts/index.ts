@@ -5,8 +5,15 @@ import * as $ from "jquery";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
+import "./faqScroll";
 import { getPersonModal } from "./personModal";
 import scrollbarFix from "./scrollbarFix";
+
+$("body").faqScroll({
+  sidebarArea: "#sidebar",
+  offset: 80,
+  speed: 100,
+});
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
@@ -51,6 +58,20 @@ $(document).ready(() => {
     const text = $(this).text();
     vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
+});
+
+$(".show-answer").click(function(e) {
+  e.preventDefault();
+  const pTag: any = $(this).siblings("p")[0];
+  const iconTag: any = $(this).find(".material-icons")[0];
+
+  if ($(pTag).is(":visible")) {
+    $(pTag).slideUp();
+    $(iconTag).html("keyboard_arrow_down");
+  } else {
+    $(pTag).slideDown();
+    $(iconTag).html("keyboard_arrow_up");
+  }
 });
 
 $(window).scroll(e => {

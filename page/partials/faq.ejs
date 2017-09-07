@@ -1,6 +1,40 @@
-<div class="section whitepaper ecosystem">
-    <div class="text-box">
-        <h5>Coming soon</h5>
-        <div class="underline"></div>
-    </div> <!-- end text box -->
+<% function convertTitleToId(title) { 
+    return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
+} %>
+
+<div class="faq">
+    <div class="row">
+        <!-- Nav Bar -->
+        <nav class="col-lg-4 col-md-5 bs-docs-sidebar hidden-sm hidden-xs">
+            <ul id="sidebar" class="sidebar nav nav-stacked fixed">
+            <% for ( var i = 0 ; i < faq.length ; i++ ) {
+                var question = faq[i];
+                %>
+                <li><a class="smooth-scroll" href="#<%=convertTitleToId(question.title)%>"><%=question.title%></a></li>
+            <% } %> <!-- end title section questions for loop -->
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <div class="faq-content col-xs-12 col-lg-8 col-md-7" data-target="#sidebar" >
+        <% for ( var i = 0 ; i < faq.length ; i++ ) {
+            var question = faq[i];
+            %>
+            <section id="<%=convertTitleToId(question.title)%>">
+                <h3 class="title"><%=question.title%></h3>
+                <% for ( var j = 0 ; j < question.questions.length ; j++ ) {
+                    var subQuestion = question.questions[j];
+                    %>
+                <div class="group">
+                    <a href="#" class="show-answer"> <h4><span><%=subQuestion.question%></span> <i class="material-icons">keyboard_arrow_down</i></h4></a>
+                    <p class="hidden-p">
+                        <%=subQuestion.answer%>
+                    </p>
+                </div>
+                    <% } %> <!-- end sub question for loop -->
+            </section>
+        <% } %> <!-- end title section questions for loop -->
+
+        <!-- end main content -->
+        </div> 
+    </div>
 </div>

@@ -12,7 +12,7 @@ const root = document.getElementById("react-root");
 
 const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
-  div in the following pages[whitepaper, faq, prodcut]
+  div in the following pages[whitepaper, faq, product]
   */
   if (root) {
     ReactDOM.render(

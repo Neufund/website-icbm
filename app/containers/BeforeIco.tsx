@@ -11,12 +11,10 @@ interface IBeforeIco {
 }
 const BeforeIco: React.SFC<IBeforeIco> = ({ startDate }) =>
   <div>
-    {/* @Todo Remove this */}
     <Incentive startDate={startDate} />
   </div>;
 
 export function mapStateToProps(state: IAppState) {
-  // @todo state
   return {
     startDate: selectStartDate(state.icoState),
   };

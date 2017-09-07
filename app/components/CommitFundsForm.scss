@@ -1,32 +1,29 @@
-@import "../../common/sass/variables.scss";
+@import '../../common/sass/variables';
 
 .form-container {
-  width: 80%; // na chwile
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
+  width: 80%; // na chwile
 }
 
 .form-body {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
-  background: linear-gradient(143.71deg, #09719B 0%, #09719B 2.36%, #424A52 100%); // daj prawidlowa wartosc
   border-radius: 10px 10px 0 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
+  background: linear-gradient(143.71deg, #09719B 0%, #09719B 2.36%, #424A52 100%); // daj prawidlowa wartosc
   padding: 20px;
-
-  .input {
-  }
 
   .reward {
     color: $white;
   }
 
   .amount {
-    font-size: 18px;
     color: $white;
+    font-size: 18px;
 
     .currency {
       text-transform: capitalize;
-      font-weight: $font-weight-light;
       font-size: 14px;
+      font-weight: $font-weight-light;
     }
   }
 
@@ -36,14 +33,13 @@
 }
 
 .form-submit {
-  background-color: #A3C0CC;
   border-radius: 0 0 10px 10px;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.13);
-  color: $blue-dark-light;
-  text-align: center;
-  height: 50px;
-  line-height: 50px;
-  font-weight: $font-weight-bold;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .13);
+  background-color: #A3C0CC;
   cursor: pointer;
-
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: $blue-dark-light;
+  font-weight: $font-weight-bold;
 }

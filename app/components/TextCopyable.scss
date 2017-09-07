@@ -7,7 +7,6 @@
 .icon-style {
   font-size: inherit;
   color: $green;
-  color: $green;
-  margin-right: 1em;
+  margin-right: 0.5em; // TODO: this value should be set to correct value
   cursor: pointer;
 }

@@ -40,9 +40,9 @@ participating:
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
-      target: "https://neufund.org/cms_resources/neufundwhitepapev20010917.pdf"
+      target: "https://neufund.org/whitepaper/"
     - link: "Roadmap"
-      target: "https://neufund.org/cms_resources/neufunds-roadmap-whitepaper-2.0-010917.pdf"
+      target: "https://neufund.org/roadmap/"
     - link: "Key takeaways from the Neufund’s Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
       new: true
@@ -406,7 +406,7 @@ advisors:
         linkedin: "https://www.linkedin.com/in/julian-zawistowski-352478/"
         website: "https://golem.network/"
       email: ""
-      bio: ""
+      bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
       title: "Bitcoin Blockchain Investor and Entrepreneur & Co-Founder at Bitcoin.com"

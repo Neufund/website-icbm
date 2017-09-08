@@ -2,7 +2,8 @@ import { Crowdsale } from "./contracts";
 import { asEtherNumber, asMomentDate } from "./utils";
 
 export async function loadIcoParamsFromContract(address: string) {
-  const icoContract = Crowdsale(address);
+  const icoContract = Crowdsale();
+
   const [minCap, maxCap, startDate, endDate] = await Promise.all([
     icoContract.minAbsCapAsync().then(asEtherNumber),
     icoContract.maxAbsCapAsync().then(asEtherNumber),

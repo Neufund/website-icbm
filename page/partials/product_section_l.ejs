@@ -1,6 +1,9 @@
 <div class="section section-product section-product-l">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-5 with-background-text">
+        <% if (backgroundText!==undefined && backgroundText!=="") {%>
+          <div class="background-text"><%- backgroundText -%></div>
+        <% } %>
         <div class="text-box">
             <h5><%- title -%></h5>
             <div class="underline"></div>

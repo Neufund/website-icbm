@@ -1,5 +1,13 @@
 .section-product {
-  font-size: 15px;
+  // copied from invision design
+  &, & p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 22px;
+  }
 }
 
 .section-product-l {
@@ -18,7 +26,33 @@
 }
 
 .section-product-image {
+  .img-wrapper {
+    margin-top: 70px;
+  }
   img, .img-responsive {
     margin: 0 auto
   }
+}
+
+
+
+.section-product-cols-link {
+  display: block;
+  color: #A3C0CC;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 1em;
+}
+
+// --
+
+.background-text {
+  color: #F7F8F9;
+  text-transform: uppercase;
+
+  font-family: Montserrat;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 73px;
+  margin-bottom: 5px;
 }

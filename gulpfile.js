@@ -35,25 +35,23 @@ gulp.task("page", () => {
 
   const content = yaml.load(fs.readFileSync("./content.yml", "utf8"));
   const productContent = yaml.load(fs.readFileSync("./productContent.yml", "utf8"));
+  const faq = yaml.load(fs.readFileSync("./faq.yml", "utf8"));
 
   const templateData = {
     content,
     productContent,
+    faq,
     hashes: {
       jsBundleHash,
       cssBundleHash,
     },
     GA_ID: envs.GA_ID,
+    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED)
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
   gulp
     .src("./page/index.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
-
-  gulp
-    .src("./page/whitepaper.ejs")
     .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
     .pipe(gulp.dest("./dist/"));
 

@@ -7,7 +7,17 @@
         </div>
         <%- include('partials/header', { active: 'faq', hashes: hashes }); %>
         <div class="main container">
-          <%- include('partials/faq' ); %>
+
+          <% if( FAQ_ENABLED ) { %>
+           <%- include('partials/faq', faq ); %>                           
+          <% } else { %>
+            <div class="section whitepaper ecosystem">
+                <div class="text-box">
+                    <h5>Coming soon</h5>
+                    <div class="underline"></div>
+                </div> <!-- end text box -->
+            </div>            
+          <% } %>
           <%- include('partials/footer', content.footer); %>
 
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>

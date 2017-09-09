@@ -97,7 +97,7 @@ module.exports = {
       },
       { test: /\.json$/, use: "json-loader" },
       {
-        test: /\.tsx?$/,
+        test: /\.(tsx?|jsx?)$/,
         loader: "awesome-typescript-loader",
         exclude: /(node_modules)/,
       },

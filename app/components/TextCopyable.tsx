@@ -28,8 +28,8 @@ export const TextCopyable: React.SFC<ITextCopyableProps> = ({ text, maxTextLengt
   }
 
   return (
-    <span className={className !== undefined ? `${className} ${textStyle}`: textStyle}>
-      <i className={`material-icons ${iconStyle}`} onClick={clickHandler(text)}>
+    <span className={className !== undefined ? `${className} ${textStyle}` : textStyle}>
+      <i className={`material-icons ${iconStyle} copy-to-clipboard`} data-clipboard-text={text}>
         content_copy
       </i>
       {display_text}

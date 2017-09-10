@@ -7,24 +7,24 @@ export const CommitFundsDescription: React.SFC = () => (
     <h3>Other options</h3>
     <p>
       <a href="">You can also use MyEtherWallet</a>
-    </p>
-    <p>
+      <br />
       <a href="">
         See the instruction if you want to commit funds from a wallet outside of web 3.0
       </a>
     </p>
-    <p>Validate ethereum smart contract address:</p>
     <p>
+      Validate ethereum smart contract address:
+      <br />
       <TextCopyable
         className={style.textCopyable}
         text="0x6895304785c271b827f1990860d5093e30d2a121"
       />
-    </p>
-    <p>
+      <br />
       <a href="">Verify source code on Etherscan</a>
     </p>
-    <p>Include following descriptionin your transaction: </p>
     <p>
+      Include following descriptionin your transaction:
+      <br />
       <TextCopyable className={style.textCopyable} text="0x3c7a3aff" />
     </p>
   </div>

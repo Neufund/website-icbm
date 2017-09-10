@@ -29,11 +29,6 @@ const inputFieldStyles = {
     borderBottomColor: "#A3C0CC",
     bottom: "5px",
   },
-  underlineStyleFilled: {
-    borderBottomWidth: "2px",
-    borderBottomColor: "#D5E20F",
-    bottom: "5px",
-  },
   underlineFocusStyle: {
     borderBottomColor: "#D5E20F",
   },
@@ -52,7 +47,7 @@ const iconStyles = {
   },
 };
 
-const styledField = (filled: boolean) => (field: any) =>
+const styledField = (field: any) =>
   <TextField
     name="inputName"
     floatingLabelStyle={inputFieldStyles.floatingLabelStyle}
@@ -60,9 +55,7 @@ const styledField = (filled: boolean) => (field: any) =>
     floatingLabelShrinkStyle={inputFieldStyles.floatingLabelFocusStyle}
     hintStyle={inputFieldStyles.floatingLabelStyle}
     inputStyle={inputFieldStyles.inputStyle}
-    underlineStyle={
-      filled ? inputFieldStyles.underlineStyleFilled : inputFieldStyles.underlineStyle
-    }
+    underlineStyle={inputFieldStyles.underlineStyle}
     underlineFocusStyle={inputFieldStyles.underlineFocusStyle}
     fullWidth
     hintText="Fill the ammount"
@@ -83,7 +76,7 @@ const CommitFundsForm = (props: any) => {
       <div className={style.formBody}>
         <div className={style.inputContainer}>
           <div className={style.input}>
-            <Field name="inputName" component={styledField(filled)} />
+            <Field name="inputName" component={styledField} />
             <div className={style.currencyDeposit}>ETH</div>
           </div>
           <IconButton

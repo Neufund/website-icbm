@@ -19,7 +19,10 @@ export const CommitFunds: React.SFC = () => (
         <CommitFundsForm />
       </Col>
       <Col md={6}>
-        <CommitFundsDescription />
+        <CommitFundsDescription
+          contractAddress="0x6895304785c271b827f1990860d5093e30d2a121"
+          transactionPayload="0x3c7a3aff"
+        />
       </Col>
     </Row>
   </div>

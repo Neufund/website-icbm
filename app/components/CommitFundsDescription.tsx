@@ -2,7 +2,15 @@ import * as React from "react";
 import * as style from "./CommitFundsDescription.scss";
 import { TextCopyable } from "./TextCopyable";
 
-export const CommitFundsDescription: React.SFC = () => (
+interface ICommitFundsDescription {
+  contractAddress: string;
+  transactionPayload: string;
+}
+
+export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
+  contractAddress,
+  transactionPayload,
+}) => (
   <div className={style.container}>
     <h3>Other options</h3>
     <p>
@@ -15,17 +23,14 @@ export const CommitFundsDescription: React.SFC = () => (
     <p>
       Validate ethereum smart contract address:
       <br />
-      <TextCopyable
-        className={style.textCopyable}
-        text="0x6895304785c271b827f1990860d5093e30d2a121"
-      />
+      <TextCopyable className={style.textCopyable} text={contractAddress} />
       <br />
       <a href="">Verify source code on Etherscan</a>
     </p>
     <p>
-      Include following descriptionin your transaction:
+      Include following description your transaction:
       <br />
-      <TextCopyable className={style.textCopyable} text="0x3c7a3aff" />
+      <TextCopyable className={style.textCopyable} text={transactionPayload} />
     </p>
   </div>
 );

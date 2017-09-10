@@ -1,15 +1,21 @@
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import * as injectTapEventPlugin from "react-tap-event-plugin";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
 import App from "./containers/App";
 import { Commit } from "./containers/Commit";
+import muiTheme from "./muiTheme";
 import reducers from "./reducers";
 
 // @todo add bundle splitting and separate these renders #UAF
+
+injectTapEventPlugin();
+
 const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, product]
@@ -26,9 +32,11 @@ const render = (storage: any) => {
   }
   if (commitRoot) {
     ReactDOM.render(
-      <Provider store={storage}>
-        <Commit />
-      </Provider>,
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Provider store={storage}>
+          <Commit />
+        </Provider>
+      </MuiThemeProvider>,
       commitRoot
     );
   }

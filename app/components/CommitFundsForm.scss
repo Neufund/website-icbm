@@ -1,9 +1,9 @@
 @import '../../common/sass/variables';
 
 .form-container {
-  margin-right: auto;
-  margin-left: auto;
-  width: 80%; // na chwile
+  width: calc(100% - 83px);
+  margin-bottom: 83px;
+  position: relative;
 }
 
 .form-body {
@@ -42,4 +42,14 @@
   line-height: 50px;
   color: $blue-dark-light;
   font-weight: $font-weight-bold;
+}
+
+.hex {
+  display: block;
+  width: 365px;
+  height: 365px;
+  position: absolute;
+  right: -83px;
+  bottom: -83px;
+  z-index: -1;
 }

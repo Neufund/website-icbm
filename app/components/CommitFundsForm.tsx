@@ -57,3 +57,4 @@ export const CommitFundsForm: React.SFC<ICommitFundsFormProps> = ({ filled }) =>
     <div className={style.formSubmit}>Commit ETH</div>
   </div>
 );
+      <img className={style.hex} src={image} />

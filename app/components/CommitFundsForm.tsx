@@ -77,6 +77,7 @@ interface ICommitFundsFormProps {
 const CommitFundsForm = (props: any) => {
   const { handleSubmit, submit } = props;
   const filled = true; // TODO: this should go to props
+  const amount = 120.345; // TODO: this should go to props
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
       <div className={style.formBody}>
@@ -96,7 +97,7 @@ const CommitFundsForm = (props: any) => {
         </div>
         <p className={style.reward}>Your estimated reward</p>
         <p className={style.amount}>
-          123.123 <span className={style.currency}>NEU</span>
+          {amount} <span className={style.currency}>NEU</span>
         </p>
         <p className={style.description}>
           Calculated amount might not be precised, reward will be granted after the block is mined

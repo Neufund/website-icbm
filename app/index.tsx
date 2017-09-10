@@ -12,7 +12,7 @@ import reducers from "./reducers";
 // @todo add bundle splitting and separate these renders #UAF
 const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
-  div in the following pages[whitepaper, faq, prodcut]
+  div in the following pages[whitepaper, faq, product]
   */
   const indexRoot = document.getElementById("react-root");
   const commitRoot = document.getElementById("react-root-commit");

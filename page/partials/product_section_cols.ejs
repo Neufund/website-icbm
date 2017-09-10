@@ -1,9 +1,9 @@
 <div class="section section-product section-product-cols">
-    <h3><%- headline -%></h3>
+    <h2><%- headline -%></h2>
     <div class="row">
       <% for(var i=0; i < content.length; i++) {%>
         <div class="col-sm-4">
-          <%- content[i].title -%>
+          <h3><%- content[i].title -%></h3>
           <%- content[i].content -%>
           <a class="section-product-cols-link" href="<%- content[i].link -%>">Learn more</a>
         </div>

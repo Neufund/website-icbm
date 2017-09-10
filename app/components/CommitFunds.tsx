@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import * as style from "./CommitFunds.scss";
 import { CommitFundsDescription } from "./CommitFundsDescription";
 import CommitFundsForm from "./CommitFundsForm";
 import { UserAddressComponent } from "./UserAddressComponent";
-import * as style from "./CommitFunds.scss";
 
 export const CommitFunds: React.SFC = () => (
   <div>
@@ -15,10 +15,10 @@ export const CommitFunds: React.SFC = () => (
       </Col>
     </Row>
     <Row className={style.formRow}>
-      <Col sm={6}>
+      <Col md={6}>
         <CommitFundsForm />
       </Col>
-      <Col sm={6}>
+      <Col md={6}>
         <CommitFundsDescription />
       </Col>
     </Row>

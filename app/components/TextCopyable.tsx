@@ -4,6 +4,7 @@ import { iconStyle, textStyle } from "./TextCopyable.scss";
 interface ITextCopyableProps {
   text: string;
   maxTextLength?: number;
+  className?: string;
 }
 
 const clickHandler = (text: string) => {
@@ -20,14 +21,14 @@ const shortenText = (text: string, length: number) => {
   return beginOfText + "\u2026" + endOfText;
 };
 
-export const TextCopyable: React.SFC<ITextCopyableProps> = ({ text, maxTextLength }) => {
+export const TextCopyable: React.SFC<ITextCopyableProps> = ({ text, maxTextLength, className }) => {
   let display_text = text;
   if (maxTextLength !== undefined && display_text.length > maxTextLength) {
     display_text = shortenText(display_text, maxTextLength);
   }
 
   return (
-    <span className={textStyle}>
+    <span className={className !== undefined ? `${className} ${textStyle}`: textStyle}>
       <i className={`material-icons ${iconStyle}`} onClick={clickHandler(text)}>
         content_copy
       </i>

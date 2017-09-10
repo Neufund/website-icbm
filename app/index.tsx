@@ -6,20 +6,30 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
 import App from "./containers/App";
+import { Commit } from "./containers/Commit";
 import reducers from "./reducers";
 
-const root = document.getElementById("react-root");
-
+// @todo add bundle splitting and separate these renders #UAF
 const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
   div in the following pages[whitepaper, faq, prodcut]
   */
-  if (root) {
+  const indexRoot = document.getElementById("react-root");
+  const commitRoot = document.getElementById("react-root-commit");
+  if (indexRoot) {
     ReactDOM.render(
       <Provider store={storage}>
         <App />
       </Provider>,
-      root
+      indexRoot
+    );
+  }
+  if (commitRoot) {
+    ReactDOM.render(
+      <Provider store={storage}>
+        <Commit />
+      </Provider>,
+      commitRoot
     );
   }
 };

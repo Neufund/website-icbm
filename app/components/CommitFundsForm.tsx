@@ -29,6 +29,11 @@ const inputFieldStyles = {
     borderBottomColor: "#A3C0CC",
     bottom: "5px",
   },
+  underlineStyleFilled: {
+    borderBottomWidth: "2px",
+    borderBottomColor: "#D5E20F",
+    bottom: "5px",
+  },
   underlineFocusStyle: {
     borderBottomColor: "#D5E20F",
   },
@@ -47,7 +52,7 @@ const iconStyles = {
   },
 };
 
-const styledField = (field: any) =>
+const styledField = (filled: boolean) => (field: any) =>
   <TextField
     name="inputName"
     floatingLabelStyle={inputFieldStyles.floatingLabelStyle}
@@ -55,7 +60,9 @@ const styledField = (field: any) =>
     floatingLabelShrinkStyle={inputFieldStyles.floatingLabelFocusStyle}
     hintStyle={inputFieldStyles.floatingLabelStyle}
     inputStyle={inputFieldStyles.inputStyle}
-    underlineStyle={inputFieldStyles.underlineStyle}
+    underlineStyle={
+      filled ? inputFieldStyles.underlineStyleFilled : inputFieldStyles.underlineStyle
+    }
     underlineFocusStyle={inputFieldStyles.underlineFocusStyle}
     fullWidth
     hintText="Fill the ammount"
@@ -69,12 +76,13 @@ interface ICommitFundsFormProps {
 
 const CommitFundsForm = (props: any) => {
   const { handleSubmit, submit } = props;
+  const filled = true; // TODO: this should go to props
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
       <div className={style.formBody}>
         <div className={style.inputContainer}>
           <div className={style.input}>
-            <Field name="inputName" component={styledField} />
+            <Field name="inputName" component={styledField(filled)} />
             <div className={style.currencyDeposit}>ETH</div>
           </div>
           <IconButton
@@ -95,7 +103,7 @@ const CommitFundsForm = (props: any) => {
           and it might depend on the order of transactions.
         </p>
       </div>
-      <div onClick={submit} className={style.formSubmit}>
+      <div onClick={submit} className={filled ? `${style.filled} ${style.formSubmit}` : style.formSubmit}>
         Commit ETH
       </div>
       <img className={style.hex} src={image} />

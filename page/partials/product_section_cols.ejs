@@ -3,6 +3,7 @@
     <div class="row">
       <% for(var i=0; i < content.length; i++) {%>
         <div class="col-sm-4">
+          <div class="section-product-icons"><i class="material-icons"><%- content[i].icon -%></i></div>
           <h3><%- content[i].title -%></h3>
           <%- content[i].content -%>
           <a class="section-product-cols-link" href="<%- content[i].link -%>">Learn more</a>

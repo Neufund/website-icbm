@@ -1,4 +1,9 @@
-<div class="section section-product section-product-l">
+<% if (white===true) { %>
+<div class="section product product-l bg-white">
+<% } else { %>
+<div class="section product product-l">
+<% } %>
+  <div class="container">
     <div class="row">
       <div class="col-md-5 with-background-text">
         <% if (backgroundText!==undefined && backgroundText!=="") {%>
@@ -21,5 +26,5 @@
         <img class="img-responsive" src="/assets/<%- image -%>" />
       </div>
     </div>
-
+  </div>
 </div>

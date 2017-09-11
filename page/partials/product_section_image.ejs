@@ -1,4 +1,9 @@
-<div class="section section-product section-product-image">
+<% if (white===true) { %>
+<div class="section product product-image bg-white">
+<% } else { %>
+<div class="section product product-image">
+<% } %>
+  <div class="container">
     <div class="text-box">
         <h5><%- title -%></h5>
         <div class="underline"></div>
@@ -7,5 +12,5 @@
     <div class="img-wrapper">
         <img class="img-responsive" src="/assets/<%- image -%>" />
     </div>
-
+  </div>
 </div>

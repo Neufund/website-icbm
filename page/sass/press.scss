@@ -2,6 +2,8 @@
     border: 0;
     padding-top: $padding-between-sections;
 
+    background: #fff; // hack!
+
     @media (max-width: $screen-sm) {
         margin-top: 0;
         margin-bottom: $padding-between-sections;

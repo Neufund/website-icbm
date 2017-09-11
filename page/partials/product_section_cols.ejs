@@ -1,15 +1,20 @@
-<div class="section section-product section-product-cols">
+<% if (white===true) { %>
+<div class="section product product-cols bg-white">
+<% } else { %>
+<div class="section product product-cols">
+<% } %>
+  <div class="container">
     <h2><%- headline -%></h2>
     <div class="row">
       <% for(var i=0; i < content.length; i++) {%>
         <div class="col-sm-4">
-          <div class="section-product-icons"><i class="material-icons"><%- content[i].icon -%></i></div>
+          <div class="product-icons"><i class="material-icons"><%- content[i].icon -%></i></div>
           <h3><%- content[i].title -%></h3>
           <%- content[i].content -%>
-          <a class="section-product-cols-link" href="<%- content[i].link -%>">Learn more</a>
+          <a class="product-cols-link" href="<%- content[i].link -%>">Learn more</a>
         </div>
       <% } %>
 
     </div>
-
+  </div>
 </div>

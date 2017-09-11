@@ -3,10 +3,10 @@
     <%- include('partials/head', {title: 'Product', meta: content.meta_head }); %>
     <body>
         <div class="background-wrapper">
-          <div class="background"></div>
+          <div class="background product-background"></div>
         </div>
         <%- include('partials/header', { active: 'product', hashes: hashes }); %>
-        <div class="main container">
+        <div class="main">
           <%- include('partials/product' ); %>
           <%- include('partials/footer', content.footer); %>
 

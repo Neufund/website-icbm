@@ -63,7 +63,7 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
     </div>
   </div>;
 
-export interface ISvgProps {
+interface ISvgProps {
   extraDefs?: any;
   className?: string;
   style?: any;

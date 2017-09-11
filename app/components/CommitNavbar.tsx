@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import * as styles from "./CommitNavbar.scss";
 
 export const CommitNavbar: React.SFC = ({ children }) =>

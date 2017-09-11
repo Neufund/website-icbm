@@ -6,13 +6,17 @@ $lightgray: #f7f8f9;
 
 .product {
   border-bottom: none;
-  
+
   background-position: center center;
   background-size: cover;
   // copied from invision design
+  color: #262b2f;
   &, & p {
     font-size: 14px;
     line-height: 24px;
+  }
+  p {
+    color: #8E9297;
   }
   h2 {
     font-size: 26px;
@@ -44,10 +48,11 @@ $lightgray: #f7f8f9;
 
 #product-header {
   background-color: #fff;
-  min-height: 500px;
+  min-height: 56vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   h1 {
     font-family: Montserrat;
     font-size: 40px;
@@ -57,6 +62,18 @@ $lightgray: #f7f8f9;
 
     padding-top: 30px;
   }
+}
+
+#product-video-background, #product-video-background iframe {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#product-video-foreground {
+  opacity: 0.3;
+  overflow: hidden;
 }
 
 

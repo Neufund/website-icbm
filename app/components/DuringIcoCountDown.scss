@@ -2,6 +2,11 @@
 @import "../../common/sass/variables.scss";
 
 .duringIco {
+  min-height: 480px;
+  @media (max-width: $screen-xs){
+    height: auto;
+  }
+
   .incentive {
     margin-top: $padding-between-sections;
     p {
@@ -36,7 +41,17 @@
   }
 
   .timeLeftContainer {
-    margin-bottom: $space-bottom-between-elements;
+    display: flex;
+    
+    margin-bottom: $space-bottom-between-elements;    
+    line-height: 37px;
+    @media (max-width: $screen-xs){
+      flex-direction: column;
+    }
+    button {
+      margin-right: 20px;
+    }
+
     .timeLeft {
       margin-right: 10px;
     }

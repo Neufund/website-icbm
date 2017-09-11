@@ -6,17 +6,57 @@ export interface IHexagonsStackProps {
   children: React.ReactNode;
   className?: string;
   textContainerClassName?: string;
+  polygonPoints?: string;
+  isWhiteFirst?: boolean; // this is boolean flag, to organize the order of the hexagons  
+  width?: number;
+  height?: number;
+  blueClassName?: string;
+  whiteClassName?: string;
+  hexContainerTextClassName?: string;
 }
 
 export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   children,
   className,
   textContainerClassName,
+  isWhiteFirst = true,
+  polygonPoints = "303,153 228,283 78,283 3,153 78,23 228,23",
+  width = 310,
+  height = 310,
+  blueClassName = styles.hexagonBlue,
+  whiteClassName = styles.hexagonWhite,
+  hexContainerTextClassName = styles.hexContainerText 
 }) =>
   <div className={cn(styles.hexContainer, className)}>
-    <BlueHexagon className={styles.hexagonBlue} />
-    <WhiteHexagon className={styles.hexagonWhite} />
-    <div className={cn(styles.hexContainerText, textContainerClassName)}>
+    {isWhiteFirst &&
+    <div>
+      <BlueHexagon className={blueClassName} 
+        polygonPoints={polygonPoints}
+        width={width}
+        height={height}        
+      />
+      <WhiteHexagon className={whiteClassName} 
+        polygonPoints={polygonPoints}
+        width={width}
+        height={height}
+      />
+    </div>
+    }
+    {!isWhiteFirst && 
+    <div>
+      <WhiteHexagon className={whiteClassName} 
+        polygonPoints={polygonPoints}
+        width={width}
+        height={height}
+      />
+      <BlueHexagon className={blueClassName} 
+        polygonPoints={polygonPoints}
+        width={width}
+        height={height}
+      />
+    </div>
+    }    
+    <div className={cn(hexContainerTextClassName, textContainerClassName)}>
       {children}
     </div>
   </div>;
@@ -89,9 +129,9 @@ const blueGradient = (
   </defs>
 );
 export const BlueHexagon: React.SFC<IHexagonProps> = ({
-  polygonPoints = "303,153 228,283 78,283 3,153 78,23 228,23",
-  width = 310,
-  height = 310,
+  polygonPoints,
+  width,
+  height,
   className,
 }) =>
   <Hexagon
@@ -122,9 +162,9 @@ const whiteGradient = (
   </defs>
 );
 export const WhiteHexagon: React.SFC<IHexagonProps> = ({
-  polygonPoints = "303,153 228,283 78,283 3,153 78,23 228,23",
-  width = 310,
-  height = 310,
+  polygonPoints,
+  width,
+  height,
   className,
 }) =>
   <Hexagon

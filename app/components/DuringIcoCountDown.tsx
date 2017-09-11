@@ -1,14 +1,24 @@
+import * as moment from "moment";
 import * as cn from "classnames";
 import * as React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import * as styles from "./DuringIcoCountDown.scss";
-import { BlueHexagon, IHexagonsStackProps, WhiteHexagon } from "./HexagonsStack";
+import { BlueHexagon, HexagonsStack, IHexagonsStackProps, WhiteHexagon } from "./HexagonsStack";
+import { CountdownComponent } from './Countdown';
 
 interface IMoneyProps {
   raised: number;
   neuMarkAmount: number;
   neuMarkToEtherRatio: number;
   investorsAccountCreated: number;
+}
+
+interface IDuringIcoCountDownProps {
+  finishDate: moment.Duration,
+  raised: number;
+  neuMarkAmount: number;
+  neuMarkToEtherRatio: number;
+  investorsAccountCreated: number;  
 }
 
 export const HexagonText = (props: IMoneyProps) => {
@@ -41,31 +51,7 @@ export const HexagonText = (props: IMoneyProps) => {
   );
 };
 
-export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
-  children,
-  className,
-  textContainerClassName,
-}) =>
-  <div className={cn(styles.hexContainer, className)}>
-    <WhiteHexagon
-      polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
-      width={480}
-      height={480}
-      className={styles.hexagonWhite}
-    />
-    <BlueHexagon
-      polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
-      width={480}
-      height={480}
-      className={styles.hexagonBlue}
-    />
-    <div className={cn(styles.hexContainerText, textContainerClassName)}>
-      {children}
-    </div>
-  </div>;
-
-// @todo: Remove any
-export const DuringIcoCountDown = (props: any) => {
+export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
   const { finishDate } = props;
   return (
     <Row className={`${styles.duringIco}`}>
@@ -79,35 +65,23 @@ export const DuringIcoCountDown = (props: any) => {
           get Neumarks. This time, ETH only. EUR soon.
         </p>
         <div className={styles.timeLeftContainer}>
-          <span className={styles.timeLeft}>Time left to the end: </span>
-
-          <span className={styles.label}>d</span>
-          <span className={styles.value}>
-            {finishDate.days()}
-          </span>
-
-          <span className={styles.label}>h</span>
-          <span className={styles.value}>
-            {finishDate.hours()}
-          </span>
-
-          <span className={styles.label}>m</span>
-          <span className={styles.value}>
-            {finishDate.minutes()}
-          </span>
-
-          <span className={styles.label}>s</span>
-          <span className={styles.value}>
-            {finishDate.seconds()}
-          </span>
+          <Button bsStyle="primary" className="comming-soon">
+            Commit ETH
+          </Button>
+          <CountdownComponent duration={finishDate} />
         </div>
 
-        <Button bsStyle="primary" className="comming-soon">
-          Commit ETH
-        </Button>
       </Col>
       <Col sm={6} xsHidden>
-        <HexagonsStack className={styles.hexagons}>
+        <HexagonsStack className={styles.hexagons} 
+        polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
+        isWhiteFirst={false}
+        width={480}
+        height={480}
+        blueClassName={styles.hexagonBlue}
+        whiteClassName={styles.hexagonWhite}
+        hexContainerTextClassName={styles.hexContainerText}
+         >
           <HexagonText {...props} />
         </HexagonsStack>
       </Col>

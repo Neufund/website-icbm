@@ -51,10 +51,10 @@ export class DuringIco extends React.Component<IDuringIcoProps> {
     */
     return (
       <DuringIcoCountDown
-        raised={"10 000 000"}
-        neuMarkAmount={"10 000"}
+        raised={10000000}
+        neuMarkAmount={10000}
         neuMarkToEtherRatio={8.25}
-        investorsAccountCreated={"20 000"}
+        investorsAccountCreated={20000}
         finishDate={this.calculateDuration()}
       />
     );

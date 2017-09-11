@@ -8,31 +8,27 @@ import * as styles from "./Incentive.scss";
 
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;
+  onFinish: () => {};
 }
 interface IIncentive {
   startDate: moment.Moment;
+  onFinish: () => {};
 }
 
-function lockedContent(startDate: moment.Moment) {
-  return (
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate, onFinish }) =>
+  <div className={styles.countdown}>
     <div>
       <h3> Commitment Opportunity starts in: </h3>
       <h1>Autumn</h1>
-      <Countdown finishDate={startDate} />
+      <Countdown finishDate={startDate} onFinish={onFinish} />
       <h3>Reward starting point:</h3>
       <p>
         {" "}-- NEU / <strong>1</strong> EHT
       </p>
     </div>
-  );
-}
-
-export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate }) =>
-  <div className={styles.countdown}>
-    {lockedContent(startDate)}
   </div>;
 
-export const Incentive: React.SFC<IIncentive> = ({ startDate }) =>
+export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -55,10 +51,10 @@ export const Incentive: React.SFC<IIncentive> = ({ startDate }) =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText startDate={startDate} />
+        <HexagonText startDate={startDate} onFinish={onFinish} />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText startDate={startDate} />
+      <HexagonText startDate={startDate} onFinish={onFinish} />
     </Col>
   </Row>;

@@ -13,6 +13,5 @@ before_script: greenkeeper-lockfile-update
 script:
   - set -e                     # fail fast
   - yarn lint
-allow_failures:
-  - yarn test:coverage true
+  - yarn test:coverage
 after_script: greenkeeper-lockfile-upload

@@ -1,34 +1,37 @@
 import { expect } from "chai";
+import { AppState } from "../app/actions/constants";
 
 describe("Config variables", () => {
-  let savedEnvs: any;
+  let savedEnvironment: any;
 
   beforeEach(() => {
     delete require.cache[require.resolve("../app/config")];
-    savedEnvs = process.env;
-    process.env = {};
+    savedEnvironment = process.env;
+
+    process.env = {
+      APP_STATE: AppState.BEFORE_ANNOUNCEMENT,
+    };
   });
 
   afterEach(() => {
-    process.env = savedEnvs;
+    process.env = savedEnvironment;
   });
 
-  it("Should load variables", () => {
-    process.env = {
-      COMMITMENT_CONTRACT_ADDRESS: "0x00000000000000000000000000000000000000000",
-      ICO_START_DATE: "2017-9-15",
-      RPC_PROVIDER: "http://localhost:8545",
-    };
-    const { commitmentContractAdress, commitmentStartDate, rpcProvider } = require("../app/config");
-    expect(commitmentContractAdress).to.equal(process.env.COMMITMENT_CONTRACT_ADDRESS);
-    expect(commitmentStartDate).to.equal(process.env.ICO_START_DATE);
-    expect(rpcProvider).to.equal(process.env.RPC_PROVIDER);
-  });
+  describe("get required value", () => {
+    it("should get value", () => {
+      const { getRequiredValue } = require("../app/config");
 
-  it('Should throw error that "Key" is not exists', () => {
-    process.env = {};
-    expect(() => {
-      require("../app/config");
-    }).to.throw("COMMITMENT_CONTRACT_ADDRESS is not exists in .env file");
+      const obj = {
+        test: "1",
+      };
+      expect(getRequiredValue(obj, "test")).to.be.eq("1");
+    });
+
+    it("should throw error if missing", () => {
+      const { getRequiredValue } = require("../app/config");
+
+      const obj = {};
+      expect(() => getRequiredValue(obj, "test")).to.throw("'test' doesn't exist in .env file");
+    });
   });
 });

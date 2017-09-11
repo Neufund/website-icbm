@@ -1,8 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import { promisifyAll } from "bluebird";
-import config from "../../config";
 import { web3Instance } from "../web3Provider";
-const PublicCommitment = require("./PublicCommitment.json"); // tslint:disable-line
+import * as PublicCommitmentJson from "./PublicCommitment.json";
 
 interface ICrowdsale {
   startDateAsync(): Promise<BigNumber>;
@@ -12,10 +11,6 @@ interface ICrowdsale {
 }
 
 export const Crowdsale = (address: string): ICrowdsale => {
-  const ret = promisifyAll(
-    web3Instance.eth
-      .contract(PublicCommitment)
-      .at(config.contractsDeployed.commitmentContractAddress)
-  ) as any;
+  const ret = promisifyAll(web3Instance.eth.contract(PublicCommitmentJson).at(address)) as any;
   return ret;
 };

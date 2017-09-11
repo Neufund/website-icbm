@@ -4,17 +4,11 @@ import { IcoPhase, LOAD_ICO_PARAMS, NEW_PHASE_ACTION } from "../actions/constant
 
 export interface IcoState {
   loading: boolean;
-  address: string;
   startDate: string;
   endDate: string;
   minCap: number;
   maxCap: number;
   icoPhase: IcoPhase;
-}
-
-interface IStandardReduxAction<T> {
-  type: string;
-  payload: T;
 }
 
 interface IPayload {
@@ -28,7 +22,6 @@ interface IPayload {
 
 const initialState: IcoState = {
   loading: true,
-  address: null,
   startDate: null,
   endDate: null,
   minCap: 0,
@@ -60,10 +53,6 @@ export default function(
     default:
       return state;
   }
-}
-
-export function selectAddress(state: IcoState) {
-  return state.address;
 }
 
 export function selectStartDate(state: IcoState) {

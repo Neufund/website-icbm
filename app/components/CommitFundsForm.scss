@@ -23,7 +23,7 @@
     font-size: 14px;
     font-weight: $font-weight-light;
     position: absolute;
-    bottom: 10px;
+    top: 42px;
     right: 0;
   }
 }
@@ -62,7 +62,7 @@
   color: $blue-dark-light;
   font-weight: $font-weight-bold;
 
-  &.filled {
+  &.valid {
     background-color: $green;
   }
 }

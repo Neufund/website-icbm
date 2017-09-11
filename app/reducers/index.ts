@@ -4,6 +4,7 @@ import icoState, { IcoState } from "./icoState";
 
 export interface IAppState {
   readonly icoState: IcoState;
+  readonly form: any;
 }
 
 export default combineReducers<IAppState>({

@@ -1,7 +1,6 @@
 import IconButton from "material-ui/IconButton";
 import * as React from "react";
-import { connect } from "react-redux";
-import { Field, formValueSelector, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 import * as image from "../assets/img/commit_form_hex.png";
 import * as style from "./CommitFundsForm.scss";
@@ -39,7 +38,8 @@ const iconStyles = {
     height: "20px",
     width: "40px",
     padding: "0px 10px",
-    verticalAlign: "middle",
+    position: "absolute" as "absolute",
+    top: "42px",
   },
   iconStyle: {
     color: "#A3C0CC",
@@ -47,36 +47,65 @@ const iconStyles = {
   },
 };
 
-const styledField = (field: any) =>
-  <TextField
-    name="inputName"
-    floatingLabelStyle={inputFieldStyles.floatingLabelStyle}
-    floatingLabelFocusStyle={inputFieldStyles.floatingLabelFocusStyle}
-    floatingLabelShrinkStyle={inputFieldStyles.floatingLabelFocusStyle}
-    hintStyle={inputFieldStyles.floatingLabelStyle}
-    inputStyle={inputFieldStyles.inputStyle}
-    underlineStyle={inputFieldStyles.underlineStyle}
-    underlineFocusStyle={inputFieldStyles.underlineFocusStyle}
-    fullWidth
-    hintText="Fill the ammount"
-    floatingLabelText="The ETH to be committed"
-    {...field.input}
-  />;
+const styledField = (props: any) => {
+  const computedProps = {
+    name: "inputName",
+    floatingLabelStyle: inputFieldStyles.floatingLabelStyle,
+    floatingLabelFocusStyle: inputFieldStyles.floatingLabelFocusStyle,
+    floatingLabelShrinkStyle: inputFieldStyles.floatingLabelFocusStyle,
+    hintStyle: inputFieldStyles.floatingLabelStyle,
+    inputStyle: inputFieldStyles.inputStyle,
+    underlineStyle: inputFieldStyles.underlineStyle,
+    underlineFocusStyle: inputFieldStyles.underlineFocusStyle,
+    fullWidth: true,
+    hintText: "Fill the ammount",
+    floatingLabelText: "The ETH to be committed",
+    ...props.input,
+  };
+
+  if (!props.meta.pristine && props.meta.error) {
+    computedProps.errorText = props.meta.error;
+  }
+
+  return <TextField {...computedProps} />;
+};
 
 interface ICommitFundsFormProps {
-  props?: any;
+  handleSubmit?: () => {};
+  submit?: () => {};
+  invalid?: boolean;
+  neuAmount?: number;
 }
 
-const CommitFundsForm = (props: any) => {
-  const { handleSubmit, submit } = props;
-  const filled = true; // TODO: this should go to props
-  const amount = 120.345; // TODO: this should go to props
+const validateETHField = (value: string) => {
+  if (value === undefined) {
+    return "Required";
+  }
+
+  const number = parseFloat(value.replace(",", "."));
+  if (isNaN(number)) {
+    return "You must enter number";
+  }
+
+  if (number <= 0) {
+    return "Number must be higher than 0";
+  }
+
+  return undefined;
+};
+
+const CommitFundsForm = ({
+  handleSubmit,
+  submit,
+  invalid,
+  neuAmount = 0,
+}: ICommitFundsFormProps) => {
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
       <div className={style.formBody}>
         <div className={style.inputContainer}>
           <div className={style.input}>
-            <Field name="inputName" component={styledField} />
+            <Field name="ethAmount" component={styledField} validate={[validateETHField]} />
             <div className={style.currencyDeposit}>ETH</div>
           </div>
           <IconButton
@@ -90,14 +119,17 @@ const CommitFundsForm = (props: any) => {
         </div>
         <p className={style.reward}>Your estimated reward</p>
         <p className={style.amount}>
-          {amount} <span className={style.currency}>NEU</span>
+          {neuAmount} <span className={style.currency}>NEU</span>
         </p>
         <p className={style.description}>
           Calculated amount might not be precised, reward will be granted after the block is mined
           and it might depend on the order of transactions.
         </p>
       </div>
-      <div onClick={submit} className={filled ? `${style.filled} ${style.formSubmit}` : style.formSubmit}>
+      <div
+        onClick={submit}
+        className={invalid ? style.formSubmit : `${style.valid} ${style.formSubmit}`}
+      >
         Commit ETH
       </div>
       <img className={style.hex} src={image} />
@@ -106,25 +138,13 @@ const CommitFundsForm = (props: any) => {
 };
 
 interface IFormInterface {
-  inputName: number;
+  ethAmount: number;
 }
 
 export default reduxForm<IFormInterface, ICommitFundsFormProps>({
   form: "commitFunds",
   onSubmit: values => {
+    // tslint:disable-next-line: no-console
     console.log(values);
-    return {};
   },
 })(CommitFundsForm);
-/*
-interface IConnectInterface {
-  ammount: any;
-}
-
-const selector = formValueSelector("commitfunds");
-const SelectingFormValuesForm = connect<IConnectInterface>(state => {
-  return { ammount: selector(state, "inputName") };
-})(DecoratedCommitFundsForm);
-
-export default SelectingFormValuesForm;
-*/

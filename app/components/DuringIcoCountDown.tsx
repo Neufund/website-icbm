@@ -1,10 +1,9 @@
 import * as moment from "moment";
-import * as cn from "classnames";
 import * as React from "react";
 import { Button, Col, Row } from "react-bootstrap";
+import { CountdownComponent } from "./Countdown";
 import * as styles from "./DuringIcoCountDown.scss";
-import { BlueHexagon, HexagonsStack, IHexagonsStackProps, WhiteHexagon } from "./HexagonsStack";
-import { CountdownComponent } from './Countdown';
+import { HexagonsStack } from "./HexagonsStack";
 
 interface IMoneyProps {
   raised: number;
@@ -14,11 +13,11 @@ interface IMoneyProps {
 }
 
 interface IDuringIcoCountDownProps {
-  finishDate: moment.Duration,
+  finishDate: moment.Duration;
   raised: number;
   neuMarkAmount: number;
   neuMarkToEtherRatio: number;
-  investorsAccountCreated: number;  
+  investorsAccountCreated: number;
 }
 
 export const HexagonText = (props: IMoneyProps) => {
@@ -65,28 +64,28 @@ export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
           get Neumarks. This time, ETH only. EUR soon.
         </p>
         <div className={styles.timeLeftContainer}>
-          <Button bsStyle="primary" className="comming-soon">
+          <Button bsStyle="primary" className="coming-soon">
             Commit ETH
           </Button>
           <CountdownComponent duration={finishDate} />
         </div>
-
       </Col>
       <Col sm={6} xsHidden>
-        <HexagonsStack className={styles.hexagons} 
-        polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
-        isWhiteFirst={false}
-        width={480}
-        height={480}
-        blueClassName={styles.hexagonBlue}
-        whiteClassName={styles.hexagonWhite}
-        hexContainerTextClassName={styles.hexContainerText}
-         >
+        <HexagonsStack
+          className={styles.hexagons}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
+          isWhiteFirst={false}
+          width={480}
+          height={480}
+          blueClassName={styles.hexagonBlue}
+          whiteClassName={styles.hexagonWhite}
+          hexContainerTextClassName={styles.hexContainerText}
+        >
           <HexagonText {...props} />
         </HexagonsStack>
       </Col>
 
-      <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
+      <Col className="hexagon-mobile visible-xs" sm={6}>
         <HexagonText {...props} />
       </Col>
     </Row>

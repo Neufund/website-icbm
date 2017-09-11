@@ -7,7 +7,7 @@ export interface IHexagonsStackProps {
   className?: string;
   textContainerClassName?: string;
   polygonPoints?: string;
-  isWhiteFirst?: boolean; // this is boolean flag, to organize the order of the hexagons  
+  isWhiteFirst?: boolean; // this is boolean flag, to organize the order of the hexagons
   width?: number;
   height?: number;
   blueClassName?: string;
@@ -25,37 +25,39 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   height = 310,
   blueClassName = styles.hexagonBlue,
   whiteClassName = styles.hexagonWhite,
-  hexContainerTextClassName = styles.hexContainerText 
+  hexContainerTextClassName = styles.hexContainerText,
 }) =>
   <div className={cn(styles.hexContainer, className)}>
     {isWhiteFirst &&
-    <div>
-      <BlueHexagon className={blueClassName} 
-        polygonPoints={polygonPoints}
-        width={width}
-        height={height}        
-      />
-      <WhiteHexagon className={whiteClassName} 
-        polygonPoints={polygonPoints}
-        width={width}
-        height={height}
-      />
-    </div>
-    }
-    {!isWhiteFirst && 
-    <div>
-      <WhiteHexagon className={whiteClassName} 
-        polygonPoints={polygonPoints}
-        width={width}
-        height={height}
-      />
-      <BlueHexagon className={blueClassName} 
-        polygonPoints={polygonPoints}
-        width={width}
-        height={height}
-      />
-    </div>
-    }    
+      <div>
+        <BlueHexagon
+          className={blueClassName}
+          polygonPoints={polygonPoints}
+          width={width}
+          height={height}
+        />
+        <WhiteHexagon
+          className={whiteClassName}
+          polygonPoints={polygonPoints}
+          width={width}
+          height={height}
+        />
+      </div>}
+    {!isWhiteFirst &&
+      <div>
+        <WhiteHexagon
+          className={whiteClassName}
+          polygonPoints={polygonPoints}
+          width={width}
+          height={height}
+        />
+        <BlueHexagon
+          className={blueClassName}
+          polygonPoints={polygonPoints}
+          width={width}
+          height={height}
+        />
+      </div>}
     <div className={cn(hexContainerTextClassName, textContainerClassName)}>
       {children}
     </div>

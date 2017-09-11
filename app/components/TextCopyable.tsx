@@ -7,13 +7,6 @@ interface ITextCopyableProps {
   className?: string;
 }
 
-const clickHandler = (text: string) => {
-  return () => {
-    window.alert(`imagine your text ${text} has been copied to clipboard`);
-  };
-};
-
-// TODO: rename variables
 const shortenText = (text: string, length: number) => {
   const breakPoint = Math.floor(length / 2);
   const beginOfText = text.substring(0, breakPoint);

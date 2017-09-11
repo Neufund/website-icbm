@@ -5,7 +5,7 @@ import { CommitFundsDescription } from "./CommitFundsDescription";
 import CommitFundsForm from "./CommitFundsForm";
 import { UserAddressComponent } from "./UserAddressComponent";
 
-export const CommitFunds: React.SFC = () => (
+export const CommitFunds: React.SFC = () =>
   <div>
     01
     <h2>Commit funds</h2>
@@ -25,5 +25,4 @@ export const CommitFunds: React.SFC = () => (
         />
       </Col>
     </Row>
-  </div>
-);
+  </div>;

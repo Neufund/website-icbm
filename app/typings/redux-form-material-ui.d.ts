@@ -1,1 +1,1 @@
-declare module 'redux-form-material-ui';
+declare module "redux-form-material-ui";

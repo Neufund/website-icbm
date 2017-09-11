@@ -6,6 +6,5 @@ interface IAddressIconProps {
   className?: string;
 }
 
-export const AddressIcon: React.SFC<IAddressIconProps> = ({ address, className }) => (
-  <img src={image} className={className} alt={address} />
-);
+export const AddressIcon: React.SFC<IAddressIconProps> = ({ address, className }) =>
+  <img src={image} className={className} alt={address} />;

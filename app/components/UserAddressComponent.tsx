@@ -7,12 +7,11 @@ interface IUserAddressComponentProps {
   address: string;
 }
 
-export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({ address }) => (
+export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({ address }) =>
   <div className={userAddressContainer}>
     <AddressIcon address={address} className={icon} />
     <p>Your wallet address</p>
     <p className={addressStyle}>
       <TextCopyable text={address} maxTextLength={8} />
     </p>
-  </div>
-);
+  </div>;

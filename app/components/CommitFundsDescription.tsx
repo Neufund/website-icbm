@@ -10,7 +10,7 @@ interface ICommitFundsDescription {
 export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
   contractAddress,
   transactionPayload,
-}) => (
+}) =>
   <div className={style.container}>
     <h3>Other options</h3>
     <p>
@@ -32,5 +32,4 @@ export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
       <br />
       <TextCopyable className={style.textCopyable} text={transactionPayload} />
     </p>
-  </div>
-);
+  </div>;

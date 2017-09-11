@@ -8,7 +8,10 @@
   }
 
   .incentive {
-    margin-top: $padding-between-sections;
+    @media (max-width: $screen-sm){
+      margin-top: $padding-between-sections;;
+    }
+    margin-top: 100px;
     p {
       margin-top: $space-bottom-between-elements;
       font-size: $font-size-normal;

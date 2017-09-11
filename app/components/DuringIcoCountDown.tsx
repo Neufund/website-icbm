@@ -54,7 +54,7 @@ export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
   const { finishDate } = props;
   return (
     <Row className={`${styles.duringIco}`}>
-      <Col sm={6} className={styles.incentive}>
+      <Col sm={5} className={styles.incentive}>
         <h1>Community-owned investment ecysystem</h1>
         <p>
           Neufund is an investment platform bridging the worlds of blockchain and venture capital.
@@ -70,7 +70,7 @@ export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
           <CountdownComponent duration={finishDate} />
         </div>
       </Col>
-      <Col sm={6} xsHidden>
+      <Col sm={7} xsHidden>
         <HexagonsStack
           className={styles.hexagons}
           polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}

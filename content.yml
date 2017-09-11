@@ -437,15 +437,6 @@ advisors:
         several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
-    - name: "Shawn O'Connor"
-      title: "Kraken.com"
-      image: "../assets/shawnkraken.png"
-      preTitle: "CTO"
-      links:
-        website: "https://www.kraken.com/"
-      email: ""
-      bio: ""
-
     - name: "Christophe Maire"
       title: "Atlantic Labs"
       image: "../assets/christophe-maire.png"

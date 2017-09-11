@@ -2,6 +2,7 @@ header:
   title: "How it works.<br/>Fundraising Platform"
   content: "It’s a new two-sided marketplace and an investment ecosystem, to once and for all democratise innovation and creation."
 who_can_use:
+  bg_url: ""
   white: true
   title: "Who can use Neufund's Platform"
   headline: "For startups and all kinds of investors"
@@ -11,6 +12,7 @@ who_can_use:
     - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
   image: "placeholder.jpg"
 main_feature:
+  bg_url: ""
   white: false
   title: "Main feature: invest in startups"
   headline: "New investment mechanism for every model – open ICO"
@@ -19,6 +21,7 @@ main_feature:
     - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
   image: "placeholder.jpg"
 invisible_blockchain:
+  bg_url: ""
   white: true
   title: "(in)visible blockchain"
   headline: "Invest with tokens in tokens"
@@ -28,6 +31,7 @@ invisible_blockchain:
     - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
   image: "placeholder.jpg"
 benefits_of_blockchain:
+  bg_url: ""
   white: false
   title: "Benefits of blockchain"
   headline: "Main feature: invest in startups"
@@ -35,16 +39,19 @@ benefits_of_blockchain:
   paragraphs:
     - "Secondary market = liquidity.<br />Asset liquidation possible for investors and startups from day one a!er ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation."
     - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
-  image: "placeholder.jpg"
+  image: "Platforma_Temp.png"
 investors_dashboard:
+  bg_url: "/assets/hexagons.png"
   white: true
   title: "Investors dashboard"
   image: "placeholder.jpg"
 startups_dashboard:
+  bg_url: "/assets/hexagons.png"
   white: false
   title: "Initial Coin Offering of a startup"
   image: "placeholder.jpg"
 disrupting_fundraising:
+  bg_url: ""
   white: false
   title: "Disrupting fundraising"
   headline: "Accessible investors pool and  symmetry of information"
@@ -55,8 +62,9 @@ disrupting_fundraising:
     - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
     - "accelerated process"
     - "Community based investors pool"
-  image: "placeholder.jpg"
+  image: "Platforma_Temp.png"
 post_investment_management_tool:
+  bg_url: ""
   white: false
   title: "Post-investment management tool"
   headline: "Investors relations "
@@ -67,10 +75,12 @@ post_investment_management_tool:
     - "Full"
   image: "placeholder.jpg"
 neufund_profile:
+  bg_url: ""
   white: true
   title: "Neufund's profile on the Platform"
-  image: "placeholder.jpg"
+  image: "Platforma_Temp.png"
 reward_revenue:
+  bg_url: ""
   white: true
   headline: ""
   content:
@@ -87,6 +97,7 @@ reward_revenue:
       content: "On secondary market"
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 feature_by_feature:
+  bg_url: ""
   white: false
   headline: "Feature by feature"
   content:
@@ -119,6 +130,7 @@ feature_by_feature:
       content: "..."
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 last:
+  bg_url: ""
   white: true
   headline: "Be the owner of Neufund's ecosystem!"
   button_text: "Commit ETH"

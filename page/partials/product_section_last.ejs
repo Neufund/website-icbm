@@ -1,8 +1,7 @@
-<% if (white===true) { %>
-<div class="section product product-last bg-white">
-<% } else { %>
-<div class="section product product-last">
-<% } %>
+<div
+  class="section product product-last<% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
+>
   <div class="container">
     <h3><%- headline -%></h3>
     <a class="last-btn" href="<%- button_url -%>"><%- button_text -%></a>

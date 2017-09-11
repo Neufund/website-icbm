@@ -6,6 +6,9 @@ $lightgray: #f7f8f9;
 
 .product {
   border-bottom: none;
+  
+  background-position: center center;
+  background-size: cover;
   // copied from invision design
   &, & p {
     font-size: 14px;

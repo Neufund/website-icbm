@@ -1,8 +1,7 @@
-<% if (white===true) { %>
-<div class="section product product-cols bg-white">
-<% } else { %>
-<div class="section product product-cols">
-<% } %>
+<div
+  class="section product product-cols<% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
+>
   <div class="container">
     <h2><%- headline -%></h2>
     <div class="row">

@@ -91,7 +91,7 @@ gulp.task("watch", () => {
   gulp.watch("./page/**/*.ejs", ["page"]);
   gulp.watch(["./page/sass/*.scss", "./common/sass/*.scss"], ["sass"]);
   gulp.watch("./page/assets/**/*", ["copy"]);
-  gulp.watch("./content.yml", ["page"]);
+  gulp.watch("./*.yml", ["page"]);
 });
 
 // this has to be called separately because page task is not synchronous

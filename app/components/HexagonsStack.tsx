@@ -67,7 +67,7 @@ export interface ISvgProps {
   extraDefs?: any;
   className?: string;
   style?: any;
-  polygonPoints?: any;
+  polygonPoints?: string;
   shadow?: boolean;
   width?: number;
   height?: number;

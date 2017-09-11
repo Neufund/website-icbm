@@ -21,12 +21,11 @@ class Ico extends React.Component<IcoProps> {
   public render() {
     const { icoPhase } = this.props;
 
-    // @todo: this should load after did mount
     switch (icoPhase) {
-      case IcoPhase.DURING_ICO:
-        return <DuringIco />;
       case IcoPhase.BEFORE_ICO:
         return <BeforeIco />;
+      case IcoPhase.DURING_ICO:
+        return <DuringIco />;
       // @todo we need better way to realize loading state and ofc improve design
       case IcoPhase.UNKNOWN:
         return <div>Loading...</div>;

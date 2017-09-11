@@ -1,6 +1,8 @@
 import { BigNumber } from "bignumber.js";
 import { ThunkAction } from "redux-thunk";
+import config from "../config";
 import { IAppState } from "../reducers";
+import { selectAddress } from "../reducers/icoState";
 import { loadIcoParamsFromContract } from "../web3/loadIcoParamsFromContract";
 import { LOAD_ICO_PARAMS } from "./constants";
 
@@ -21,7 +23,8 @@ export function loadIcoParamsAction(
   };
 }
 
-export const loadIcoParams: ThunkAction<{}, IAppState, {}> = async (dispatch, getState) => {
-  const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromContract();
+export const loadIcoParams: ThunkAction<{}, IAppState, {}> = async dispatch => {
+  const address = config.contractsDeployed.commitmentContractAddress;
+  const { minCap, maxCap, startDate, endDate } = await loadIcoParamsFromContract(address);
   dispatch(loadIcoParamsAction(startDate, endDate, minCap, maxCap));
 };

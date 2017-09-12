@@ -2,12 +2,16 @@ import * as cn from "classnames";
 import * as React from "react";
 import * as styles from "./HexagonsStack.scss";
 
+export enum HexagonsStackStyle {
+  BLUE_WHITE,
+  WHITE_BLUE,
+}
+
 export interface IHexagonsStackProps {
   children: React.ReactNode;
   className?: string;
   textContainerClassName?: string;
-  polygonPoints?: string;
-  isWhiteFirst?: boolean; // this is boolean flag, to organize the order of the hexagons
+  visualStyle?: HexagonsStackStyle;
   width?: number;
   height?: number;
   blueClassName?: string;
@@ -19,8 +23,7 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   children,
   className,
   textContainerClassName,
-  isWhiteFirst = true,
-  polygonPoints = "303,153 228,283 78,283 3,153 78,23 228,23",
+  visualStyle = HexagonsStackStyle.WHITE_BLUE,
   width = 310,
   height = 310,
   blueClassName = styles.hexagonBlue,
@@ -28,32 +31,32 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   hexContainerTextClassName = styles.hexContainerText,
 }) =>
   <div className={cn(styles.hexContainer, className)}>
-    {isWhiteFirst &&
+    {visualStyle === HexagonsStackStyle.WHITE_BLUE &&
       <div>
         <BlueHexagon
           className={blueClassName}
-          polygonPoints={polygonPoints}
+          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
           width={width}
           height={height}
         />
         <WhiteHexagon
           className={whiteClassName}
-          polygonPoints={polygonPoints}
+          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
           width={width}
           height={height}
         />
       </div>}
-    {!isWhiteFirst &&
+    {visualStyle === HexagonsStackStyle.BLUE_WHITE &&
       <div>
         <WhiteHexagon
           className={whiteClassName}
-          polygonPoints={polygonPoints}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
           width={width}
           height={height}
         />
         <BlueHexagon
           className={blueClassName}
-          polygonPoints={polygonPoints}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
           width={width}
           height={height}
         />

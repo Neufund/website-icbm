@@ -17,6 +17,7 @@
       font-size: $font-size-normal;
     }
   }
+
   .hexagons {
     top: 45px;
     margin-left: auto;
@@ -43,41 +44,11 @@
     }
   }
 
-  .timeLeftContainer {
-    display: flex;
-    
-    margin-bottom: $space-bottom-between-elements;    
-    line-height: 37px;
-    @media (max-width: $screen-xs){
-      flex-direction: column;
-    }
-    button {
-      margin-right: 20px;
-    }
-
-    .timeLeft {
-      margin-right: 10px;
-    }
-
-    .label {
-      color: $black;
-      font-size: $font-size-small;
-      font-weight: $font-weight-light;
-      margin-right: 5px;
-    }
-
-    .value {
-      color: $black;
-      font-size: $font-size-medium;
-      margin-right: $space-between-elements;
-    }
-  }
-
   .text {
     @media (max-width: $screen-sm){
         padding-top: 10px;
     }
-    
+
     p {
       padding-right: 0px;
       margin: 0px;
@@ -116,7 +87,7 @@
     top: 105px;
     left: 120px;
     color: $white;
-    
+
     p {
       font-size: $font-size-small;;
     }
@@ -125,5 +96,23 @@
       text-align: center;
       margin-top: 5px;
     }
+  }
+
+  .button-container {
+    margin-top: $space-between-elements;
+  }
+
+  .countdown-root {
+    margin-left: 5px;
+  }
+
+  .countdown-label {
+    font-weight: $font-weight-light;
+    margin-right: 5px;
+  }
+
+  .countdown-value {
+    font-weight: $font-weight-bold;
+    font-size: 16px;
   }
 }

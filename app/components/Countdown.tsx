@@ -1,3 +1,4 @@
+import * as cn from "classnames";
 import * as moment from "moment";
 import * as React from "react";
 import * as zeroFill from "zero-fill";
@@ -7,29 +8,42 @@ const numberFormatter = zeroFill(2);
 
 const SECOND = 1000;
 
-interface ICountdownComponentProps {
-  duration: moment.Duration;
+interface ICountdownClassNamesProps {
+  root?: string;
+  label?: string;
+  value?: string;
 }
 
-export const CountdownComponent = ({ duration }: ICountdownComponentProps) =>
-  <div className={styles.countdown}>
-    <strong className={styles.label}>d</strong>
-    <span className={styles.value}>
-      {numberFormatter(Math.floor(duration.asDays()))}
+interface ICountdownComponentProps {
+  duration: moment.Duration;
+  classNames?: ICountdownClassNamesProps;
+}
+
+export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComponentProps) => {
+  const labelClassNames = cn(styles.label, classNames.label);
+  const valueClassNames = cn(styles.value, classNames.value);
+
+  return (
+    <span className={cn(styles.countdown, classNames.root)}>
+      <strong className={labelClassNames}>d</strong>
+      <span className={valueClassNames}>
+        {numberFormatter(Math.floor(duration.asDays()))}
+      </span>
+      <strong className={labelClassNames}>h</strong>
+      <span className={valueClassNames}>
+        {numberFormatter(duration.hours())}
+      </span>
+      <strong className={labelClassNames}>m</strong>
+      <span className={valueClassNames}>
+        {numberFormatter(duration.minutes())}
+      </span>
+      <strong className={labelClassNames}>s</strong>
+      <span className={valueClassNames}>
+        {numberFormatter(duration.seconds())}
+      </span>
     </span>
-    <strong className={styles.label}>h</strong>
-    <span className={styles.value}>
-      {numberFormatter(duration.hours())}
-    </span>
-    <strong className={styles.label}>m</strong>
-    <span className={styles.value}>
-      {numberFormatter(duration.minutes())}
-    </span>
-    <strong className={styles.label}>s</strong>
-    <span className={styles.value}>
-      {numberFormatter(duration.seconds())}
-    </span>
-  </div>;
+  );
+};
 
 interface ICountdownProps {
   finishDate: moment.Moment;

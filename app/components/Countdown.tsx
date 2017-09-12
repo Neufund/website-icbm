@@ -19,6 +19,7 @@ interface ICountdownComponentProps {
   classNames?: ICountdownClassNamesProps;
 }
 
+// @todo this component should be more style agnostic (no <strong> )
 export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComponentProps) => {
   const labelClassNames = cn(styles.label, classNames.label);
   const valueClassNames = cn(styles.value, classNames.value);

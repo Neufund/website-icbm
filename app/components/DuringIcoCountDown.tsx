@@ -76,7 +76,9 @@ export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
         </p>
 
         <div className={styles.buttonContainer}>
-          <Button bsStyle="primary">Commit ETH</Button>
+          <a href="/commit.html" className="btn btn-primary">
+            Commit ETH
+          </a>
         </div>
       </Col>
       <Col sm={7} xsHidden>

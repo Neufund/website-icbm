@@ -30,10 +30,14 @@ h1 {
 
 .btn {
     border-radius: 20px;
-    line-height: 28px;
+    line-height: 20px;
     padding: 10px 40px;
     box-shadow: 0 1px 1px 0 $gray-lighter;
     font-weight: $font-weight-more-bold;
+
+    a.btn {
+      line-height: 28px;
+    }
 
     &.btn-primary {
       background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);

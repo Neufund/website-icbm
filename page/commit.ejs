@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head', { title: 'ICO Commit Page', meta: content.meta_head, GA_ID: GA_ID }); %>
+    <body>
+        <div id="react-root-commit"></div>
+
+        <script src="/main<%= hashes.jsBundleHash %>.js"></script>
+        <noscript>
+          <p>This page requires JavaScript to be enabled.</p>
+        </noscript>
+    </body>
+</html>

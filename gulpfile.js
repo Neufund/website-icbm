@@ -4,7 +4,7 @@ const ejs = require("gulp-ejs");
 const del = require("del");
 const gutil = require("gulp-util");
 const sass = require("gulp-sass");
-const sourcemaps = require('gulp-sourcemaps');
+const sourcemaps = require("gulp-sourcemaps");
 const gulpif = require("gulp-if");
 const seq = require("gulp-sequence");
 const debug = require("gulp-debug");
@@ -45,25 +45,21 @@ gulp.task("page", () => {
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
-  gulp
-    .src("./page/index.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
 
-  gulp
-    .src("./page/whitepaper.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
+  const pages = [
+    "./page/index.ejs",
+    "./page/whitepaper.ejs",
+    "./page/faq.ejs",
+    "./page/product.ejs",
+    "./page/commit.ejs"
+  ];
 
-  gulp
-    .src("./page/faq.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
-
-  gulp
-    .src("./page/product.ejs")
-    .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
-    .pipe(gulp.dest("./dist/"));
+  pages.forEach(page =>
+    gulp
+      .src(page)
+      .pipe(ejs(templateData, {}, { ext: ".html" }).on("error", gutil.log))
+      .pipe(gulp.dest("./dist/"))
+  );
 });
 
 gulp.task("sass", () => {

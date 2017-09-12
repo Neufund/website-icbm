@@ -3,40 +3,17 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { DuringIcoCountDown } from "../components/DuringIcoCountDown";
+import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
 import { selectEndDate } from "../reducers/icoState";
+import { IAppState } from "../reducers/index";
 
 interface IDuringIcoProps {
-  loadIcoStats: any;
+  loadIcoStats: () => any;
   finishDate: moment.Moment;
-  icoState: any;
   loading: boolean;
 }
 
-const SECOND: number = 1000;
-
 export class DuringIco extends React.Component<IDuringIcoProps> {
-  public componentDidMount() {
-    const timerID = window.setInterval(() => {
-      this.props.loadIcoStats();
-      this.setState({
-        ...this.state,
-        duration: this.calculateDuration(),
-      });
-    }, SECOND);
-
-    this.setState({
-      ...this.state,
-      timerID,
-    });
-  }
-
-  public calculateDuration() {
-    const { finishDate } = this.props;
-    const now = moment();
-    return moment.duration(finishDate.diff(now));
-  }
-
   public render() {
     const { loading } = this.props;
 
@@ -45,23 +22,23 @@ export class DuringIco extends React.Component<IDuringIcoProps> {
       return <div>Loading ...</div>;
     }
 
-    /* 
-    @todo: the below data is hard coded supposed to be from the smart contract, 
+    /*
+    @todo: the below data is hard coded supposed to be from the smart contract,
     change it after connecting the web3 with smart contract.
     */
     return (
-      <DuringIcoCountDown
+      <DuringIcoCountdown
         raised={10000000}
         neuMarkAmount={10000}
         neuMarkToEtherRatio={8.25}
         investorsAccountCreated={20000}
-        finishDate={this.calculateDuration()}
+        finishDate={this.props.finishDate}
       />
     );
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IAppState) {
   return {
     loading: state.icoState.loading,
     finishDate: selectEndDate(state.icoState),

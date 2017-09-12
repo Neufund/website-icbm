@@ -48,7 +48,8 @@ export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComp
 
 interface ICountdownProps {
   finishDate: moment.Moment;
-  onFinish?: () => {};
+  onFinish?: () => void;
+  classNames?: ICountdownClassNamesProps;
 }
 
 interface ICountdownState {

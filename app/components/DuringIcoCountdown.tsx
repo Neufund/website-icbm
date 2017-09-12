@@ -1,8 +1,8 @@
 import * as moment from "moment";
 import * as React from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import { CountdownComponent } from "./Countdown";
-import * as styles from "./DuringIcoCountDown.scss";
+import { Col, Row } from "react-bootstrap";
+import { Countdown } from "./Countdown";
+import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 
 interface IMoneyProps {
@@ -12,8 +12,8 @@ interface IMoneyProps {
   investorsAccountCreated: number;
 }
 
-interface IDuringIcoCountDownProps {
-  finishDate: moment.Duration;
+interface IDuringIcoCountdownProps {
+  finishDate: moment.Moment;
   raised: number;
   neuMarkAmount: number;
   neuMarkToEtherRatio: number;
@@ -50,7 +50,7 @@ export const HexagonText = (props: IMoneyProps) => {
   );
 };
 
-export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
+export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   const { finishDate } = props;
   return (
     <Row className={`${styles.duringIco}`}>
@@ -65,8 +65,8 @@ export const DuringIcoCountDown = (props: IDuringIcoCountDownProps) => {
         </p>
         <p>
           Time left to the end:{" "}
-          <CountdownComponent
-            duration={finishDate}
+          <Countdown
+            finishDate={finishDate}
             classNames={{
               root: styles.countdownRoot,
               label: styles.countdownLabel,

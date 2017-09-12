@@ -16,4 +16,3 @@ export async function loadIcoParamsFromContract(address: string) {
     endDate: endDate.toISOString(),
   };
 }
-export default loadIcoParamsFromContract;

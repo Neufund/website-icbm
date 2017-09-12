@@ -1,6 +1,6 @@
 @import "../../common/sass/variables.scss";
 
-.countdown{
+.countdown {
     font-size: $font-size-normal;
     text-align: center;
 
@@ -11,6 +11,8 @@
     }
 
     .value {
+      display: inline-block;
+      width: 20px;
       font-size: 15px;
       margin-right: 15px;
       line-height: 20px;

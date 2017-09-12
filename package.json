@@ -22,6 +22,7 @@
     "@types/react-dom": "^15.5.2",
     "@types/react-redux": "^5.0.1",
     "@types/redux-logger": "^3.0.0",
+    "@types/sinon": "^2.3.3",
     "awesome-typescript-loader": "^3.2.2",
     "bluebird": "^3.5.0",
     "bootstrap-sass": "^3.3.7",
@@ -48,6 +49,8 @@
     "gulp-util": "^3.0.8",
     "ignore-styles": "^5.0.1",
     "istanbul": "^0.4.5",
+    "jsdom": "^11.2.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^3.5.0",
     "moment": "^2.18.1",
     "nyc": "^11.1.0",
@@ -60,6 +63,7 @@
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.2",
+    "ts-mocha": "^1.0.3",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",
     "tslint-config-airbnb": "^5.2.1",
@@ -80,8 +84,8 @@
     "lint": "yarn tslint",
     "lint:fix": "yarn tslint:fix",
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",
-    "test": "mocha --compilers ts:ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
-    "test:coverage": "nyc mocha --require ts-node/register --require ./setupTests.ts 'test/**/*.spec.ts?(x)'"
+    "test": "ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
+    "test:coverage": "nyc ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'"
   },
   "dependencies": {
     "bignumber.js": "^4.0.4",
@@ -100,6 +104,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "robotstxt-webpack-plugin": "^2.0.0",
+    "sinon": "^3.2.1",
     "vex-js": "^4.0.0",
     "web3": "0.19.0",
     "zero-fill": "^2.2.3"

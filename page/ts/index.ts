@@ -53,7 +53,7 @@ $(document).ready(() => {
   });
 });
 
-$(window).scroll(e => {
+$(window).scroll(() => {
   const scroll: number = $(window).scrollTop();
   const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
   if (scroll > 20) {

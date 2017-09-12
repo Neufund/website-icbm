@@ -89,7 +89,6 @@ const Hexagon: React.SFC<ISvgProps> = ({
   shadow,
   polygonPoints,
   width,
-  height,
   style,
   ...props,
 }) =>

@@ -1,0 +1,118 @@
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../common/sass/variables.scss";
+
+.duringIco {
+  min-height: 480px;
+  @media (max-width: $screen-xs){
+    height: auto;
+  }
+
+  .incentive {
+    @media (max-width: $screen-sm){
+      margin-top: $padding-between-sections;;
+    }
+    margin-top: 100px;
+    p {
+      margin-top: $space-bottom-between-elements;
+      font-size: $font-size-normal;
+    }
+  }
+
+  .hexagons {
+    top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 350px;
+    width: 400px;
+
+    .hexagon-blue {
+      -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
+      animation: breathing-blue 20s ease-in-out infinite normal;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+    }
+
+    .hexagon-white{
+      -webkit-animation: breathing 20s ease-out infinite normal;
+      animation: breathing 20s ease-out infinite normal;
+      -webkit-font-smoothing: antialiased;
+      top: 18px;
+      left: 31px;
+      position: absolute;
+      transform: rotate(-26deg);
+    }
+  }
+
+  .text {
+    @media (max-width: $screen-sm){
+        padding-top: 10px;
+    }
+
+    p {
+      padding-right: 0px;
+      margin: 0px;
+    }
+
+    span,
+     p {
+      font-weight: $font-extra-weight-light;
+    }
+
+    .title {
+      margin-bottom: 0px;
+      font-size: $font-size-small;
+      color: $white;
+
+      @media (max-width: $screen-sm){
+        color: $blue-dark-light;
+      }
+    }
+
+    .content {
+      margin-bottom: $space-between-elements;
+    }
+    .extraSize {
+      font-size: $font-extra-big-size;
+    }
+  }
+
+  .hex-container {
+    position: relative;
+    min-height: 480px;
+  }
+
+  .hex-container-text {
+    position: absolute;
+    top: 105px;
+    left: 120px;
+    color: $white;
+
+    p {
+      font-size: $font-size-small;;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+
+  .button-container {
+    margin-top: $space-between-elements;
+  }
+
+  .countdown-root {
+    margin-left: 5px;
+  }
+
+  .countdown-label {
+    font-weight: $font-weight-light;
+    margin-right: 5px;
+  }
+
+  .countdown-value {
+    font-weight: $font-weight-bold;
+    font-size: 16px;
+  }
+}

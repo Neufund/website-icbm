@@ -1,0 +1,45 @@
+@import '../../common/sass/variables';
+
+.page-container {
+  max-width: 1367px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $white;
+}
+
+.content-container {
+  padding: 44px 60px 0; // those numbers should be set as variables on top of this file
+}
+
+.section-header {
+  font-size: 20px;
+  line-height: 1.2;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.header-number {
+  display: inline-block;
+  border-bottom: 5px solid #315568;
+  width: 35px; // those numbers should be set as variables on top of this file
+  text-align: right;
+  font-size: 14px;
+  color: #315568;
+  position: absolute;
+  right: calc(100% + 25px); // those numbers should be set as variables on top of this file
+  bottom: 0;
+  padding-bottom: 5px;
+}
+
+.form-row {
+  margin-top: 30px;
+}
+
+.separator {
+  position: relative;
+  left: -60px; // those numbers should be set as variables on top of this file
+  width: calc(100% + 60px); // those numbers should be set as variables on top of this file
+  background-color: #D9DBDC;
+  margin-top: 85px;
+  margin-bottom: 85px;
+}

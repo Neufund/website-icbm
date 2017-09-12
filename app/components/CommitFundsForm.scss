@@ -11,6 +11,8 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
   background: linear-gradient(143.71deg, #255E77 0%, #424A52 100%); // daj prawidlowa wartosc
   padding: 0 20px 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .input {
@@ -61,6 +63,8 @@
   line-height: 50px;
   color: $blue-dark-light;
   font-weight: $font-weight-bold;
+  position: relative;
+  z-index: 2;
 
   &.valid {
     background-color: $green;
@@ -74,5 +78,5 @@
   position: absolute;
   right: -83px;
   bottom: -83px;
-  z-index: -1;
+  z-index: 1;
 }

@@ -44,14 +44,14 @@ benefits_of_blockchain:
 investors_dashboard:
   purple_title: false
   backgroundText: ""
-  bg_url: "/assets/hexagons.png"
+  bg_url: "/assets/svg-bg/blue.svg"
   white: true
   title: "Investors dashboard"
   image: "placeholder.jpg"
 startups_dashboard:
   backgroundText: "For startups"
   purple_title: true
-  bg_url: "/assets/hexagons.png"
+  bg_url: "/assets/svg-bg/purple.svg"
   white: false
   title: "Initial Coin Offering of a startup"
   image: "placeholder.jpg"

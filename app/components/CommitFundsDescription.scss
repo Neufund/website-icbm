@@ -4,8 +4,8 @@
   font-size: 12px;
 
   a {
-    color: #A3C0CC;
     text-decoration: underline;
+    color: $gray-lighter;
   }
 
   p {
@@ -16,7 +16,7 @@
     font-size: 20px;
   }
 
-  .textCopyable {
+  .text-copyable {
     font-size: 15px;
   }
 }

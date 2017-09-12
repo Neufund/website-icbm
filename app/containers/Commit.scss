@@ -1,34 +1,38 @@
 @import '../../common/sass/variables';
 
+$section-number-width: 35px;
+$section-number-margin: 25px;
+$section-number-combined: $section-number-width + $section-number-margin;
+
 .page-container {
-  max-width: 1367px;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   background-color: $white;
+  max-width: 1367px;
 }
 
 .content-container {
-  padding: 44px 60px 0; // those numbers should be set as variables on top of this file
+  padding: 44px $section-number-combined 0;
 }
 
 .section-header {
-  font-size: 20px;
-  line-height: 1.2;
   position: relative;
   margin-bottom: 30px;
+  line-height: 1.2;
+  font-size: $section-title-font-size-smaller;
 }
 
 .header-number {
   display: inline-block;
-  border-bottom: 5px solid #315568;
-  width: 35px; // those numbers should be set as variables on top of this file
-  text-align: right;
-  font-size: 14px;
-  color: #315568;
   position: absolute;
-  right: calc(100% + 25px); // those numbers should be set as variables on top of this file
+  right: calc(100% + #{$section-number-margin});
   bottom: 0;
+  border-bottom: 5px solid $blue-dark-light;
   padding-bottom: 5px;
+  width: $section-number-width;
+  text-align: right;
+  color: $blue-dark-light;
+  font-size: $font-size-small;
 }
 
 .form-row {
@@ -37,9 +41,9 @@
 
 .separator {
   position: relative;
-  left: -60px; // those numbers should be set as variables on top of this file
-  width: calc(100% + 60px); // those numbers should be set as variables on top of this file
-  background-color: #D9DBDC;
+  left: -$section-number-combined ;
   margin-top: 85px;
   margin-bottom: 85px;
+  background-color: $gray;
+  width: calc(100% + #{$section-number-combined });
 }

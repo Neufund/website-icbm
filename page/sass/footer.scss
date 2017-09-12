@@ -52,6 +52,7 @@ html{
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 1; // fix for product page, hopefully doesn't break commit page
     font-size: 12px;
     font-weight: $font-weight-more-bold;
     margin-top: $margin-bottom-between-paragraphs;

@@ -20,7 +20,7 @@ main_feature:
   backgroundText: "For investors"
   paragraphs:
     - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
-  image: "placeholder.jpg"
+  image: "screenshots/MainPage_Product.png"
 invisible_blockchain:
   bg_url: ""
   white: true
@@ -42,11 +42,15 @@ benefits_of_blockchain:
     - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
   image: "Platforma_Temp.png"
 investors_dashboard:
+  purple_title: false
+  backgroundText: ""
   bg_url: "/assets/hexagons.png"
   white: true
   title: "Investors dashboard"
   image: "placeholder.jpg"
 startups_dashboard:
+  backgroundText: "For startups"
+  purple_title: true
   bg_url: "/assets/hexagons.png"
   white: false
   title: "Initial Coin Offering of a startup"
@@ -56,7 +60,7 @@ disrupting_fundraising:
   white: false
   title: "Disrupting fundraising"
   headline: "Accessible investors pool and  symmetry of information"
-  backgroundText: "For startups"
+  backgroundText: ""
   paragraphs:
     - "Put whole of part startups on-chain ICOs on Neufund Platform allow startups and established companies alike"
     - "Low entry barrier"
@@ -76,6 +80,8 @@ post_investment_management_tool:
     - "Full"
   image: "placeholder.jpg"
 neufund_profile:
+  backgroundText: ""
+  purple_title: false
   bg_url: ""
   white: true
   title: "Neufund's profile on the Platform"

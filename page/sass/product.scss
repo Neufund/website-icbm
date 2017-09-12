@@ -1,5 +1,10 @@
 [data-entrance] {visibility: hidden;} // required for JS animation to work
 
+.img-round {
+  border-radius: 15px;
+  box-shadow: #777 1px 1px 3px;
+}
+
 .product {
   border-bottom: none;
 

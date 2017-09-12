@@ -40,21 +40,21 @@ benefits_of_blockchain:
   paragraphs:
     - "Secondary market = liquidity.<br />Asset liquidation possible for investors and startups from day one a!er ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation."
     - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
-  image: "Platforma_Temp.png"
+  image: "screenshots/I-IN-OWN.png"
 investors_dashboard:
   purple_title: false
   backgroundText: ""
   bg_url: "/assets/svg-bg/blue.svg"
   white: true
   title: "Investors dashboard"
-  image: "placeholder.jpg"
+  image: "screenshots/InvestorsDashboard.png"
 startups_dashboard:
   backgroundText: "For startups"
   purple_title: true
   bg_url: "/assets/svg-bg/purple.svg"
   white: false
   title: "Initial Coin Offering of a startup"
-  image: "placeholder.jpg"
+  image: "screenshots/StartupsDashboard.png"
 disrupting_fundraising:
   bg_url: ""
   white: false
@@ -67,7 +67,7 @@ disrupting_fundraising:
     - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
     - "accelerated process"
     - "Community based investors pool"
-  image: "Platforma_Temp.png"
+  image: "screenshots/CompanysICOProfile.png"
 post_investment_management_tool:
   bg_url: ""
   white: false

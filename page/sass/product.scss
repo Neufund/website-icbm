@@ -1,8 +1,4 @@
-/*
-.background-wrapper .product-background {
-  background-color: $lightgray;
-}
-*/
+[data-entrance] {visibility: hidden;} // required for JS animation to work
 
 .product {
   border-bottom: none;

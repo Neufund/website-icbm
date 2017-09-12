@@ -25,7 +25,7 @@
     top: 42px;
     right: 0;
     color: $white;
-    font-size: 14px;
+    font-size: $font-size-small;
     font-weight: $font-weight-light;
   }
 }
@@ -33,7 +33,7 @@
 .reward {
   margin-top: 16px;
   color: $white;
-  font-size: 12px;
+  font-size: $font-size-smallest;
 }
 
 .amount {
@@ -42,7 +42,7 @@
 
   .currency {
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: $font-size-small;
     font-weight: $font-weight-light;
   }
 }
@@ -50,7 +50,7 @@
 .description {
   line-height: 15px;
   color: $gray-lighter;
-  font-size: 12px;
+  font-size: $font-size-smallest;
 }
 
 .form-submit {

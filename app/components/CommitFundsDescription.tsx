@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as style from "./CommitFundsDescription.scss";
 import { TextCopyable } from "./TextCopyable";
+import { UnderlinedLink } from "./UnderlinedLink";
 
 interface ICommitFundsDescription {
   contractAddress: string;
@@ -14,18 +15,18 @@ export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
   <div className={style.container}>
     <h3>Other options</h3>
     <p>
-      <a href="">You can also use MyEtherWallet</a>
+      <UnderlinedLink href="#">You can also use MyEtherWallet</UnderlinedLink>
       <br />
-      <a href="">
+      <UnderlinedLink href="#">
         See the instruction if you want to commit funds from a wallet outside of web 3.0
-      </a>
+      </UnderlinedLink>
     </p>
     <p>
       Validate ethereum smart contract address:
       <br />
       <TextCopyable className={style.textCopyable} text={contractAddress} />
       <br />
-      <a href="">Verify source code on Etherscan</a>
+      <UnderlinedLink href="#">Verify source code on Etherscan</UnderlinedLink>
     </p>
     <p>
       Include following description your transaction:

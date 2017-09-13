@@ -5,6 +5,7 @@ header:
 who_can_use:
   bg_url: ""
   white: true
+  purple_title: false
   title: "Who can use Neufund's Platform"
   headline: "For startups and all kinds of investors"
   backgroundText: ""
@@ -18,6 +19,7 @@ who_can_use:
 main_feature:
   bg_url: ""
   white: false
+  purple_title: false
   title: "Main feature: invest in startups"
   headline: "New investment mechanism for every model – open ICO"
   backgroundText: "For investors"
@@ -27,6 +29,7 @@ main_feature:
 invisible_blockchain:
   bg_url: ""
   white: true
+  purple_title: false
   title: "(in)visible blockchain"
   headline: "Invest with tokens in tokens"
   backgroundText: ""
@@ -34,11 +37,12 @@ invisible_blockchain:
     - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
     - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
   images:
-    - "Investment-Accounts.png"
-    - "Portfolio-Equity.png"
+    - "screenshots/Investment-Accounts.png"
+    - "screenshots/Portfolio-Equity.png"
 benefits_of_blockchain:
   bg_url: ""
   white: false
+  purple_title: false
   title: "Benefits of blockchain"
   headline: "Main feature: invest in startups"
   backgroundText: ""
@@ -63,6 +67,7 @@ startups_dashboard:
 disrupting_fundraising:
   bg_url: ""
   white: false
+  purple_title: true
   title: "Disrupting fundraising"
   headline: "Accessible investors pool and  symmetry of information"
   backgroundText: ""
@@ -76,6 +81,7 @@ disrupting_fundraising:
 post_investment_management_tool:
   bg_url: ""
   white: false
+  purple_title: true
   title: "Post-investment management tool"
   headline: "Investors relations "
   backgroundText: ""
@@ -83,7 +89,7 @@ post_investment_management_tool:
     - "Startup management tool"
     - "Fully legal"
     - "Full"
-  image: "placeholder.jpg"
+  image: "screenshots/StartupsCorporateGovernance.png"
 neufund_profile:
   backgroundText: ""
   purple_title: false

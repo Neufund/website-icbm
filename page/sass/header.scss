@@ -3,7 +3,7 @@
     border-left: none;
     border-right: none;
     font-weight: $font-weight-bold;
-    background-color: transparent;
+    background-color: #fff; // fix for commit background
     border: none;
 
     @media (max-width: $screen-lg) {

@@ -1,17 +1,17 @@
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import * as style from "./CommitFunds.scss";
 import { CommitFundsDescription } from "./CommitFundsDescription";
 import CommitFundsForm from "./CommitFundsForm";
+import * as style from "./CommitFundsWeb3.scss";
 import { UserAddressComponent } from "./UserAddressComponent";
 
-interface ICommitFunds {
+interface ICommitFundsWeb3 {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
 }
 
-const CommitFunds: React.SFC<ICommitFunds> = ({
+const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
   userAddress,
   contractAddress,
   transactionPayload,
@@ -35,4 +35,4 @@ const CommitFunds: React.SFC<ICommitFunds> = ({
     </Row>
   </div>;
 
-export default CommitFunds;
+export default CommitFundsWeb3;

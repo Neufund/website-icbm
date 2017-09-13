@@ -2,18 +2,8 @@ import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import * as style from "./CommitFundsStatic.scss";
+import { IconLink } from "./IconLink";
 import { TextCopyable } from "./TextCopyable";
-
-interface ILink {
-  url: string;
-  text?: string;
-}
-
-const Link: React.SFC<ILink> = ({ url, text }) =>
-  <a className={style.link} href={url}>
-    <i className={`material-icons ${style.iconStyle}`}>link</i>
-    {text !== undefined ? text : url}
-  </a>;
 
 interface ICommitFundsDesc {
   contractAddress: string;
@@ -61,8 +51,8 @@ const CommitFundsEstimation: React.SFC = () =>
       Calculated amount might not be precised, reward will be granted after the block is mined and
       it might depend on the order of transactions.
     </p>
-    <Link url="#" text="Use MyEtherWallet" /> <br />
-    <Link url="#" text="Go to interactive version of this site for Ethereum browsers" />
+    <IconLink url="#" text="Use MyEtherWallet" /> <br />
+    <IconLink url="#" text="Go to interactive version of this site for Ethereum browsers" />
   </div>;
 
 interface ICommitFundsStatic {
@@ -77,7 +67,7 @@ export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
   <div>
     <Row>
       <Col sm={12}>
-        <Link url="/" text="New to the blockchain? Read “How to participate”" />
+        <IconLink url="/" text="New to the blockchain? Read “How to participate”" />
       </Col>
     </Row>
     <Row className={style.contentRow}>

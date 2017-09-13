@@ -11,7 +11,10 @@ who_can_use:
   paragraphs:
     - "Unless you are a partner in the VC fund or a business angel, you are probably new to investing in the companies equity, and no wonder – it’s a closed market."
     - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
-  image: "placeholder.jpg"
+  images:
+    - "screenshots/who_can_1.png"
+    - "screenshots/who_can_2.png"
+    - "screenshots/who_can_3.png"
 main_feature:
   bg_url: ""
   white: false
@@ -30,7 +33,9 @@ invisible_blockchain:
   paragraphs:
     - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
     - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
-  image: "placeholder.jpg"
+  images:
+    - "Investment-Accounts.png"
+    - "Portfolio-Equity.png"
 benefits_of_blockchain:
   bg_url: ""
   white: false

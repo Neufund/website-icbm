@@ -1,0 +1,34 @@
+<div
+  class="section product product-r2 <% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="product-r2-row-wrapper">
+          <div class="product-r2-1">
+            <img class="img-r2" src="/assets/<%- images[0] -%>" data-entrance="from-bottom"/>
+          </div>
+          <div class="product-r2-2">
+            <img class="img-r2" src="/assets/<%- images[1] -%>" data-entrance="from-bottom"/>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-5">
+        <div class="text-box">
+            <h5><%- title -%></h5>
+            <div class="underline"></div>
+        </div> <!-- end text box -->
+        <h3><%- headline -%></h3>
+
+        <% for(var i=0; i < paragraphs.length; i++) {%>
+          <p>
+            <%- paragraphs[i] -%>
+          </p>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>

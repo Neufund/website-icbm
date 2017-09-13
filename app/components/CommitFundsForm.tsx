@@ -58,7 +58,7 @@ const styledField = (props: any) => {
     underlineStyle: inputFieldStyles.underlineStyle,
     underlineFocusStyle: inputFieldStyles.underlineFocusStyle,
     fullWidth: true,
-    hintText: "Fill the ammount",
+    hintText: "Fill in the amount",
     floatingLabelText: "The ETH to be committed",
     ...props.input,
   };

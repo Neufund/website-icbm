@@ -1,8 +1,12 @@
 header:
+  id: "product-header"
+  menu_text: "Introduction"
   title: "How it works.<br/>Fundraising Platform"
   content: "It’s a new two-sided marketplace and an investment ecosystem, to once and for all democratise innovation and creation."
   yt_video: "W0LHTWG-UmQ"
 who_can_use:
+  id: "who_can_use"
+  menu_text: "Who can use the Platform"
   bg_url: ""
   white: true
   purple_title: false
@@ -17,6 +21,8 @@ who_can_use:
     - "screenshots/who_can_2.png"
     - "screenshots/who_can_3.png"
 main_feature:
+  id: "main_feature"
+  menu_text: "Investing"
   bg_url: ""
   white: false
   purple_title: false
@@ -27,6 +33,8 @@ main_feature:
     - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
   image: "screenshots/MainPage_Product.png"
 invisible_blockchain:
+  id: "invisible_blockchain"
+  menu_text: "What are the tokens"
   bg_url: ""
   white: true
   purple_title: false
@@ -40,6 +48,8 @@ invisible_blockchain:
     - "screenshots/Investment-Accounts.png"
     - "screenshots/Portfolio-Equity.png"
 benefits_of_blockchain:
+  id: "benefits_of_blockchain"
+  menu_text: "Benefits of blockchain"
   bg_url: ""
   white: false
   purple_title: false
@@ -51,6 +61,8 @@ benefits_of_blockchain:
     - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
   image: "screenshots/I-IN-OWN.png"
 investors_dashboard:
+  id: "investors_dashboard"
+  menu_text: ""
   purple_title: false
   backgroundText: ""
   bg_url: "/assets/svg-bg/blue.svg"
@@ -58,6 +70,8 @@ investors_dashboard:
   title: "Investors dashboard"
   image: "screenshots/InvestorsDashboard.png"
 startups_dashboard:
+  id: "startups_dashboard"
+  menu_text: ""
   backgroundText: "For startups"
   purple_title: true
   bg_url: "/assets/svg-bg/purple.svg"
@@ -65,6 +79,8 @@ startups_dashboard:
   title: "Initial Coin Offering of a startup"
   image: "screenshots/StartupsDashboard.png"
 disrupting_fundraising:
+  id: "disrupting_fundraising"
+  menu_text: "Being invested in"
   bg_url: ""
   white: false
   purple_title: true
@@ -79,6 +95,8 @@ disrupting_fundraising:
     - "Community based investors pool"
   image: "screenshots/CompanysICOProfile.png"
 post_investment_management_tool:
+  id: "post_investment_management_tool"
+  menu_text: "Managing investors"
   bg_url: ""
   white: false
   purple_title: true
@@ -91,6 +109,8 @@ post_investment_management_tool:
     - "Full"
   image: "screenshots/StartupsCorporateGovernance.png"
 neufund_profile:
+  id: "neufund_profile"
+  menu_text: ""
   backgroundText: ""
   purple_title: false
   bg_url: ""
@@ -98,6 +118,8 @@ neufund_profile:
   title: "Neufund's profile on the Platform"
   image: "Platforma_Temp.png"
 reward_revenue:
+  id: "reward_revenue"
+  menu_text: "Co-owning the ecosystem"
   bg_url: ""
   white: true
   headline: ""
@@ -115,6 +137,8 @@ reward_revenue:
       content: "On secondary market"
       link: "#"
 feature_by_feature:
+  id: "feature_by_feature"
+  menu_text: "Feature by feature"
   bg_url: ""
   white: false
   headline: "Feature by feature"
@@ -148,6 +172,8 @@ feature_by_feature:
       content: "..."
       link: "#"
 last:
+  id: "last"
+  menu_text: ""
   bg_url: ""
   white: true
   headline: "Be the owner of Neufund's ecosystem!"

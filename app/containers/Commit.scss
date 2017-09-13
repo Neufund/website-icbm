@@ -36,10 +36,6 @@ $section-number-combined: $section-number-width + $section-number-margin;
   font-size: $font-size-small;
 }
 
-.form-row {
-  margin-top: 30px;
-}
-
 .separator {
   position: relative;
   left: -$section-number-combined ;

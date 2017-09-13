@@ -1,5 +1,8 @@
+import { BigNumber } from "bignumber.js";
+import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import { Aftermath } from "../components/Aftermath";
 import { CommitFundsDescription } from "../components/CommitFundsDescription";
 import CommitFundsForm from "../components/CommitFundsForm";
 import { CommitNavbar } from "../components/CommitNavbar";
@@ -71,6 +74,12 @@ export const Commit: React.SFC = () => {
             </Col>
           </Row>
           <HeaderComponent number="02" title="After math" />
+          <Aftermath
+            address="0x123123"
+            lockedAmount={new BigNumber(5)}
+            neumarkBalance={new BigNumber(123)}
+            unlockDate={moment()}
+          />
         </Col>
       </Row>
     </div>

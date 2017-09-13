@@ -38,6 +38,8 @@ module.exports = {
     historyApiFallback: true,
     // respond to 404s with index.html
     hot: true,
+    // display errors on page
+    overlay: true,
     // enable HMR on the server
     proxy: {
       "/node": {

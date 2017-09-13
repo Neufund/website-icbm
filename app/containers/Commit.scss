@@ -9,6 +9,7 @@ $section-number-combined: $section-number-width + $section-number-margin;
   margin-left: auto;
   background-color: $white;
   max-width: 1367px;
+  padding-bottom: 50px;
 }
 
 .content-container {
@@ -17,7 +18,7 @@ $section-number-combined: $section-number-width + $section-number-margin;
 
 .section-header {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 1.2;
   font-size: $section-title-font-size-smaller;
 }

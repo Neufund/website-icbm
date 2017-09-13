@@ -70,7 +70,7 @@ interface ICommitFundsStatic {
   transactionPayload: string;
 }
 
-const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
+export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
   contractAddress,
   transactionPayload,
 }) =>
@@ -94,5 +94,3 @@ const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
       </Col>
     </Row>
   </div>;
-
-export default CommitFundsStatic;

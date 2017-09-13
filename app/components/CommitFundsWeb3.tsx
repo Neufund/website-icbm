@@ -11,7 +11,7 @@ interface ICommitFundsWeb3 {
   transactionPayload: string;
 }
 
-const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
+export const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
   userAddress,
   contractAddress,
   transactionPayload,
@@ -34,5 +34,3 @@ const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
       </Col>
     </Row>
   </div>;
-
-export default CommitFundsWeb3;

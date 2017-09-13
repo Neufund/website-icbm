@@ -3,7 +3,7 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Aftermath } from "../components/Aftermath";
-import CommitFundsWeb3 from "../components/CommitFundsWeb3";
+import { CommitFundsWeb3 } from "../components/CommitFundsWeb3";
 import { CommitNavbar } from "../components/CommitNavbar";
 import * as style from "./Commit.scss";
 

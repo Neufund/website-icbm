@@ -1,0 +1,22 @@
+@import '../../common/sass/variables';
+
+.container {
+  font-size: $font-size-smallest;
+
+  a {
+    text-decoration: underline;
+    color: $gray-lighter;
+  }
+
+  p {
+    margin-bottom: 13px;
+  }
+
+  h3 {
+    font-size: $section-title-font-size-smaller;
+  }
+
+  .text-copyable {
+    font-size: $font-size-base;
+  }
+}

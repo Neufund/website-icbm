@@ -1,4 +1,5 @@
 import * as React from "react";
+import { connect } from "react-redux";
 import * as style from "./CommitFundsDescription.scss";
 import { TextCopyable } from "./TextCopyable";
 import { UnderlinedLink } from "./UnderlinedLink";
@@ -34,3 +35,10 @@ export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
       <TextCopyable className={style.textCopyable} text={transactionPayload} />
     </p>
   </div>;
+
+const mergeProps = () => ({
+  contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
+  transactionPayload: "0x3c7a3aff",
+});
+
+export default connect(null, null, mergeProps)(CommitFundsDescription);

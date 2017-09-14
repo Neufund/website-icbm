@@ -1,7 +1,6 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { connect } from "react-redux";
 import * as style from "./CommitFundsStatic.scss";
 import { IconLink } from "./IconLink";
 import { TextCopyable } from "./TextCopyable";
@@ -36,15 +35,6 @@ const CommitFundsStaticDesc: React.SFC<ICommitFundsStaticDesc> = ({
     </Row>
   </div>;
 
-const CommitFundsDescProps = () => ({
-  contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
-  transactionPayload: "0x3c7a3aff",
-  gasPrice: "5440",
-  gasLimit: "2000000",
-});
-
-const CommitFundsStaticConnected = connect(null, null, CommitFundsDescProps)(CommitFundsStaticDesc);
-
 const estimationTextFieldStyle = {
   width: "200px",
 };
@@ -65,7 +55,19 @@ const CommitFundsEstimation: React.SFC = () =>
     <IconLink url="#" text="Go to interactive version of this site for Ethereum browsers" />
   </div>;
 
-export const CommitFundsStatic: React.SFC = () =>
+interface ICommitFundsStatic {
+  contractAddress: string;
+  transactionPayload: string;
+  gasPrice: string;
+  gasLimit: string;
+}
+
+export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
+  contractAddress,
+  transactionPayload,
+  gasPrice,
+  gasLimit,
+}) =>
   <div>
     <Row>
       <Col sm={12}>
@@ -74,7 +76,12 @@ export const CommitFundsStatic: React.SFC = () =>
     </Row>
     <Row className={style.contentRow}>
       <Col sm={8}>
-        <CommitFundsStaticConnected />
+        <CommitFundsStaticDesc
+          contractAddress={contractAddress}
+          transactionPayload={transactionPayload}
+          gasPrice={gasPrice}
+          gasLimit={gasLimit}
+        />
       </Col>
       <Col sm={4}>
         <CommitFundsEstimation />

@@ -7,7 +7,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import reduxThunk from "redux-thunk";
 import App from "./containers/App";
-import { Commit } from "./containers/Commit";
+import Commit from "./containers/Commit";
 import muiTheme from "./muiTheme";
 import reducers from "./reducers";
 

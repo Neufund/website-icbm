@@ -6,14 +6,14 @@ import * as styles from "./Aftermath.scss";
 import { UnderlinedLink } from "./UnderlinedLink";
 
 interface IAftermathProps {
-  address: string;
+  userAddress: string;
   lockedAmount: BigNumber;
   unlockDate: Moment;
   neumarkBalance: BigNumber;
 }
 
 export const Aftermath: React.SFC<IAftermathProps> = ({
-  address,
+  userAddress,
   lockedAmount,
   unlockDate,
   neumarkBalance,
@@ -29,7 +29,7 @@ export const Aftermath: React.SFC<IAftermathProps> = ({
     <div className={styles.infoBox}>
       <div className={styles.caption}>For address</div>
       <div className={styles.value}>
-        {address}
+        {userAddress}
       </div>
     </div>
 

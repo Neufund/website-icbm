@@ -58,8 +58,10 @@ window.addEventListener("load", function() {
 
     var li = document.createElement("li")
     var a = document.createElement("a")
-    a.innerHTML = el.dataset.menuText
+    var span = document.createElement("span")
+    span.innerHTML = el.dataset.menuText
     a.href="#"+el.id
+    a.appendChild(span)
     li.appendChild(a)
     ul.appendChild(li)
 

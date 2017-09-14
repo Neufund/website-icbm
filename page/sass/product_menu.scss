@@ -15,9 +15,17 @@
     margin: 0 0;
     list-style-type: none;
     text-align: right;
-    li {
+    a {
+      display: inline-block;
       padding: 5px 30px;
       // padding-right is spacing between right screen edge and dot
+      @media (max-width: 991px) {
+        padding: 5px 15px;
+      }
+      @media (max-width: 767px) {
+        padding: 5px 3px;
+      }
+
       &::after {
         // dot
         content: '';
@@ -30,28 +38,24 @@
 
         margin-left: 10px; // spacing between dot and text
       }
-    }
-    a {
-      display: none;
       color: #d9dbdc;
       text-decoration: none;
     }
-    li:hover {
-      a { color: $blue-darker; }
+    span {
+      display: none;
+    }
+    li:hover a {
+      color: $blue-darker;
       &::after { background-color: $blue-darker; box-shadow: none;}
     }
-    li.product-menu-active {
-      a { color: $active-color; }
+    li.product-menu-active a {
+      color: $active-color;
       &::after {background-color: $active-color; box-shadow: none;}
     }
 
     &:hover {
-      li a {
+      li a span {
         display: inline-block;
-      }
-
-      li {
-
       }
     }
   }

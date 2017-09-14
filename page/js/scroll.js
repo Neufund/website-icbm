@@ -81,14 +81,15 @@ function recalculateHeights() {
   })
 }
 var currentlyActiveElementIndex = null
-var res = 2 // reserve in pixels
+var res = 50 // reserve in pixels
 function handleScroll() {
   var currentHeight = getScroll()
   console.log(currentHeight)
   for (var i=0; i<scrollHeights.length; i++) {
     if (
       (i < scrollHeights.length-1 && currentHeight >= (scrollHeights[i].h)-res && currentHeight < (scrollHeights[i+1].h)-res) ||
-      (i == scrollHeights.length-1 && currentHeight >= (scrollHeights[scrollHeights.length-1].h)-res)
+      (i == scrollHeights.length-1 && currentHeight >= (scrollHeights[scrollHeights.length-1].h)-res) ||
+      (i == 0 && scrollHeights.length>=2 && currentHeight<(scrollHeights[1].h)-res)
     ) {
       if (currentlyActiveElementIndex===i) {
         return

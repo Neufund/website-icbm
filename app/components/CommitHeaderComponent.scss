@@ -1,0 +1,21 @@
+@import '../../common/sass/variables';
+
+.header {
+  position: relative;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-size: $section-title-font-size-smaller;
+}
+
+.number {
+  display: inline-block;
+  position: absolute;
+  right: calc(100% + #{$commit-number-margin});
+  bottom: 0;
+  border-bottom: 5px solid $blue-dark-light;
+  padding-bottom: 5px;
+  width: $commit-number-width;
+  text-align: right;
+  color: $blue-dark-light;
+  font-size: $font-size-small;
+}

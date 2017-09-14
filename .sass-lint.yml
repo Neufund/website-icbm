@@ -9,7 +9,6 @@ files:
     - 'coverage/**'
     - 'dist/**'
     - 'test/**'
-    - 'page/sass/app.scss'
     - 'page/sass/commit_funds.scss'
     - 'page/sass/common.scss'
     - 'page/sass/easy_access.scss'

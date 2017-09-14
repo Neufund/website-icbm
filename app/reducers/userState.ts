@@ -9,7 +9,7 @@ const initialState: IUserState = {
 };
 
 export default function(state = initialState, action: IStandardReduxAction<any>): IUserState {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     default:
       return state;

@@ -9,44 +9,44 @@
   - question : "What is a Euro Token (EURT)?"
     answer : "The Euro Token (EURT) is an on-chain representation of the fiat currency Euro within the Neufund Platform. Our EURT cannot live, or be used, outside the Platform."
   - question : "I couldn’t find an answer to my question, what now?"
-    answer : Send us an e-mail at <a href="mailto:hello@neufund.org">hello@neufund.org</a> or <a href="https://neufundorg.signup.team/">join our Slack</a> to get direct responses to your questions.
+    answer : Send us an e-mail at <a href="mailto:hello@neufund.org">hello@neufund.org</a> or <a target="_blank" href="https://neufundorg.signup.team/">join our Slack</a> to get direct responses to your questions.
 
 - title: "Basic questions"
   questions:
   - question: What is NEUFUND?
     answer: NEUFUND is a community-owned fundraising platform. Companies can use our legal and technical infrastructure to legally issue (on our platform) a new type of asset, which we call tokenized equity, and into which virtually anyone can invest. The Neufund platform thus acts as a bridge between the mainstream investment world and the blockchain space.
   - question: When is the NEUFUND ICBM going to take place?
-    answer: The Neufund ICBM is going to take place this autumn 2017. Further information will be published very soon on <a href="https://commit.neufund.org">commit.neufund.org</a>
+    answer: The Neufund ICBM is going to take place this autumn 2017. Further information will be published very soon on <a target="_blank" href="https://commit.neufund.org">commit.neufund.org</a>
   - question: Why is Neufund not doing a normal ICO?
     answer: "Thanks to our investors we are able to build Neufund without having to raise large amounts of funds from the public. Also, because Neufund is a two-sided marketplace for legally valid investments, we face a different set of challenges than the average blockchain platform does: we want investors and companies to join and perform transactions. We bootstrap this process by incentivizing early adopters with a particularly advantageous Neumark reward for committing their funds to the platform early. Once the Neufund platform is live, we take fees for successful investments, which suffices for covering the expenses of running the platform. As a consequence, a regular ICO is unnecessary – and even counterproductive – both for funding our operations and bootstrapping our platform."
   - question: Where can I read the Neufund whitepaper in full?
-    answer: Go to <a href="https://neufund.org/whitepaper">neufund.org/whitepaper</a> to read the latest version of the Neufund whitepaper.
+    answer: Go to <a target="_blank" href="https://neufund.org/whitepaper">neufund.org/whitepaper</a> to read the latest version of the Neufund whitepaper.
   - question: Is Neufund funded? Do you have backing?
     answer: |
       <p>Neufund received $ 2m in investment at the close of 2016. We are backed by several prominent investors and VC firms in Germany and abroad, such as Klaas Kersting and Christophe Maire’s Atlantic Labs.</p>
-      <p>Read <a href="https://techcrunch.com/2017/01/17/neufund/">the TechCrunch article</a> for more information.</p>
+      <p>Read <a target="_blank" href="https://techcrunch.com/2017/01/17/neufund/">the TechCrunch article</a> for more information.</p>
   - question: Is this project open-sourced?
     answer: |
-      Our smart contract code is publicly available in our <a href="https://github.com/Neufund">GitHub</a>. In addition, we have open sourced several of our projects and initiatives, such as the <a href="https://neufund.org/esop">“ESOP: Options On-Chain”</a> project as well as our <a href="https://icomonitor.io">ICO Monitor</a>.
+      Our smart contract code is publicly available in our <a target="_blank" href="https://github.com/Neufund">GitHub</a>. In addition, we have open sourced several of our projects and initiatives, such as the <a target="_blank" href="https://neufund.org/esop">“ESOP: Options On-Chain”</a> project as well as our <a target="_blank" href="https://icomonitor.io">ICO Monitor</a>.
 
 - title: "How to participate"
   questions:
   - question: "Where and how will the ICBM take place?"
     answer: |
-      The website for the ICBM is <a href="https://commit.neufund.org">commit.neufund.org</a>. It contains all the necessary and relevant information. The ICBM itself will take place over two phases: the ETH phase (30 days) and the EURT phase (duration to be announced). Participants in both phases receive Neumarks as a reward for committing their funds to the platform."
+      The website for the ICBM is <a target="_blank" href="https://commit.neufund.org">commit.neufund.org</a>. It contains all the necessary and relevant information. The ICBM itself will take place over two phases: the ETH phase (30 days) and the EURT phase (duration to be announced). Participants in both phases receive Neumarks as a reward for committing their funds to the platform."
   - question : "What documents should I read before participating?"
     answer : |
-      <p>First, we recommend familiarizing yourself with the contents of the whitepaper (read <a href="https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643">key takeaways</a> or the <a href="https://neufund.org/whitepaper">full whitepaper</a>) as well as the <a href="https://neufund.org/roadmap/">roadmap</a>.</p>
-      <p>You can find an explainer of our product (the Neufund platform) on the <a href="https://commit.neufund.org/product.html">Product tab</a>.</p>
-      <p>If you’d like to learn more about our past achievements, please visit the Neufund <a href="https://neufund.org/ecosystem/">“Ecosystem Impact”</a> page or browse our company blog on <a href="https://blog.neufund.org">Medium</a>.</p>
+      <p>First, we recommend familiarizing yourself with the contents of the whitepaper (read <a target="_blank" href="https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643">key takeaways</a> or the <a target="_blank" href="https://neufund.org/whitepaper">full whitepaper</a>) as well as the <a target="_blank" href="https://neufund.org/roadmap/">roadmap</a>.</p>
+      <p>You can find an explainer of our product (the Neufund platform) on the <a target="_blank" href="https://commit.neufund.org/product.html">Product tab</a>.</p>
+      <p>If you’d like to learn more about our past achievements, please visit the Neufund <a target="_blank" href="https://neufund.org/ecosystem/">“Ecosystem Impact”</a> page or browse our company blog on <a target="_blank" href="https://blog.neufund.org">Medium</a>.</p>
       <p>We will also require participants to read and accept legal documents that will govern the ICBM. These will be available shortly before the ICBM start.</p>
 
   - question : "How can I participate in Neufund’s ICBM?"
     answer : |
-      Follow the instructions laid out on the <a href="https://commit.neufund.org">Commit Page</a>.
+      Follow the instructions laid out on the <a target="_blank" href="https://commit.neufund.org">Commit Page</a>.
   - question : How can I verify whether I am using the correct website?
     answer : |
-      Make sure that the address is <a href="https://commit.neufund.org">commit.neufund.org</a>. Use the bookmarking function of your browser to save the page for easy access on the big day. 
+      Make sure that the address is <a target="_blank" href="https://commit.neufund.org">commit.neufund.org</a>. Use the bookmarking function of your browser to save the page for easy access on the big day. 
   - question : "How do I know whether I am legally allowed to participate?"
     answer : |
       <p>We want the ICBM to be open to everyone. However, due to legal reasons we might be forced to exclude participation of certain persons or entities.</p>
@@ -60,13 +60,13 @@
       Please only use an address you have exclusive control over and that is provided by one of the supported wallets. DO NOT use an exchange account address.
   - question : Where can I purchase ETH?
     answer : |
-      You can purchase ETH at any exchange such as <a href="https://www.kraken.com/">Kraken</a>, <a href="https://bittrex.com/">Bittrex</a>, <a href="https://poloniex.com/">Poloniex</a>, <a href="https://www.bitstamp.net/">Bitstamp</a>, <a href="https://www.coinbase.com/">Coinbase</a>, and a number of others.
+      You can purchase ETH at any exchange such as <a target="_blank" href="https://www.kraken.com/">Kraken</a>, <a target="_blank" href="https://bittrex.com/">Bittrex</a>, <a target="_blank" href="https://poloniex.com/">Poloniex</a>, <a target="_blank" href="https://www.bitstamp.net/">Bitstamp</a>, <a target="_blank" href="https://www.coinbase.com/">Coinbase</a>, and a number of others.
   - question : Is there a minimum or maximum amount of funds I can participate with?
     answer : |
       There is a minimum ticket size of 1 ETH and no maximum ticket size.
   - question : How will I know whether my commitment was successful if the Ethereum network is overloaded?
     answer : |
-      On the Ethereum network you can be fairly certain that your transaction is executed with just one confirmed block. However, it is customary to say that 12 blocks provides almost 100% guarantee. For funds committed directly from the commitment page we provide a link to <a href="https://etherscan.io/">Etherscan</a> where you can observe the number of confirmations in real time. If you use your own wallet, please refer to its manual for guidance.
+      On the Ethereum network you can be fairly certain that your transaction is executed with just one confirmed block. However, it is customary to say that 12 blocks provides almost 100% guarantee. For funds committed directly from the commitment page we provide a link to <a target="_blank" href="https://etherscan.io/">Etherscan</a> where you can observe the number of confirmations in real time. If you use your own wallet, please refer to its manual for guidance.
   - question : What are the reward ratio and exchange rate mechanisms?
     answer : |
       <p>The Neumark reward starts out at 6.5 Neumark per EURT and declines from there according to the following curve:<img src="./assets/curve.png" alt="curve" width="300"></p>
@@ -74,7 +74,7 @@
       <p>During the commitment process you will find a calculator to estimate the reward you are likely to get for your commitment of funds.</p>
   - question : Does Neufund do a pre-ICO?
     answer : |
-      Yes. It will be announced on our Slack channel, which you can join <a href="https://neufundorg.signup.team/">here</a>. You can also write to <a href="mailto:hello@neufund.org">hello@neufund.org</a> for details.
+      Yes. It will be announced on our Slack channel, which you can join <a target="_blank" href="https://neufundorg.signup.team/">here</a>. You can also write to <a href="mailto:hello@neufund.org">hello@neufund.org</a> for details.
   - question : When will tokens be distributed?
     answer : |
       <p>Instantly after the funds are committed. However, investment transactions using the EURT will only become possible at the launch of the Neufund platform.</p>
@@ -88,10 +88,10 @@
       Your committed funds are locked for use on the Neufund platform for a duration of 18 months (months of 30 days length) after your original commitment. Once that time period ends, you will be able to withdraw 100% of your committed funds, and at the same time must burn an amount of Neumarks equivalent to the total reward you received. You are also able to withdraw 90% of the EUR value of your funds (at the time of commitment) at any time before that date. The remaining 10% will be distributed among other Neumark holders.
   - question : Where can I get help with committing my funds?
     answer : |
-      <a href="https://neufundorg.signup.team/">Join our Slack</a> and talk with our team members, or reach out to us at <a href="mailto:commit@neufund.org">commit@neufund.org</a>.
+      <a target="_blank" href="https://neufundorg.signup.team/">Join our Slack</a> and talk with our team members, or reach out to us at <a href="mailto:commit@neufund.org">commit@neufund.org</a>.
   - question : How do I connect with Neufund on Social Media?
     answer : |
-      You can find us on <a href="https://www.facebook.com/neufundorg/">Facebook</a>, <a href="https://twitter.com/neufundorg">Twitter</a>, and <a href="https://www.reddit.com/r/neufund/">Reddit</a>.
+      You can find us on <a target="_blank" href="https://www.facebook.com/neufundorg/">Facebook</a>, <a target="_blank" href="https://twitter.com/neufundorg">Twitter</a>, and <a target="_blank" href="https://www.reddit.com/r/neufund/">Reddit</a>.
   - question : Has the smart contract code been professionally audited for security?
     answer : |
       The smart contract code is currently being audited. The results will be published as soon as they become available.

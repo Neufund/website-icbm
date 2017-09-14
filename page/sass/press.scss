@@ -6,7 +6,7 @@
 
     @media (max-width: $screen-sm) {
         margin-top: 0;
-        margin-bottom: $padding-between-sections;
+        // margin-bottom: $padding-between-sections;
     }
 
     .img-container {
@@ -19,4 +19,14 @@
         width: auto;
         height: 100%;
     }
+}
+@media (max-width: $screen-sm) {
+  .section.press {
+    .flex-row {
+      display: block;
+    }
+    .img-container {
+      margin: 0 auto;
+    }
+  }
 }

@@ -232,10 +232,10 @@ p.slim {
         margin-bottom: 5px;
         font-weight: $font-weight-light;
     }
-}
-.text-box.text-box-purple {
-  color: $purple;
-  .underline {
-    border-bottom-style: $purple;
-  }
+    &.text-box-purple {
+      color: $purple;
+      .underline {
+        border-bottom-color: $purple;
+      }
+    }
 }

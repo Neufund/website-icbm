@@ -3,4 +3,3 @@
 .env
 .nyc_output
 coverage
-.DS_Store

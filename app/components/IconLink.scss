@@ -1,3 +1,5 @@
+@import '../../common/sass/variables';
+
 .link {
   color: $blue;
   font-size: $font-size-normal;
@@ -6,7 +8,7 @@
 
 .icon-style {
   margin-right: .5em;
+  vertical-align: text-bottom;
   color: $green;
   font-size: 1.25em;
-  vertical-align: text-bottom;
 }

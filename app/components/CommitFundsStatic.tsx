@@ -5,14 +5,14 @@ import * as style from "./CommitFundsStatic.scss";
 import { IconLink } from "./IconLink";
 import { TextCopyable } from "./TextCopyable";
 
-interface ICommitFundsDesc {
+interface ICommitFundsStaticDesc {
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
 }
 
-const CommitFundsDesc: React.SFC<ICommitFundsDesc> = ({
+const CommitFundsStaticDesc: React.SFC<ICommitFundsStaticDesc> = ({
   contractAddress,
   transactionPayload,
   gasPrice,
@@ -58,11 +58,15 @@ const CommitFundsEstimation: React.SFC = () =>
 interface ICommitFundsStatic {
   contractAddress: string;
   transactionPayload: string;
+  gasPrice: string;
+  gasLimit: string;
 }
 
 export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
   contractAddress,
   transactionPayload,
+  gasPrice,
+  gasLimit,
 }) =>
   <div>
     <Row>
@@ -72,11 +76,11 @@ export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
     </Row>
     <Row className={style.contentRow}>
       <Col sm={8}>
-        <CommitFundsDesc
+        <CommitFundsStaticDesc
           contractAddress={contractAddress}
           transactionPayload={transactionPayload}
-          gasPrice="2023123"
-          gasLimit="200000000"
+          gasPrice={gasPrice}
+          gasLimit={gasLimit}
         />
       </Col>
       <Col sm={4}>

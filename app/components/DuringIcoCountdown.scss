@@ -1,17 +1,20 @@
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
-@import "../../common/sass/variables.scss";
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables'; // sass-lint:disable-line clean-import-paths
+@import '../../common/sass/variables';
 
-.duringIco {
+.during-ico {
   min-height: 480px;
-  @media (max-width: $screen-xs){
+
+  @media (max-width: $screen-xs) {
     height: auto;
   }
 
   .incentive {
-    @media (max-width: $screen-sm){
-      margin-top: $padding-between-sections;;
-    }
     margin-top: 100px;
+
+    @media (max-width: $screen-sm) {
+      margin-top: $padding-between-sections;
+    }
+
     p {
       margin-top: $space-bottom-between-elements;
       font-size: $font-size-normal;
@@ -19,52 +22,52 @@
   }
 
   .hexagons {
-    top: 45px;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
-    height: 350px;
+    top: 45px;
+    margin-right: auto;
+    margin-left: auto;
     width: 400px;
+    height: 350px;
 
     .hexagon-blue {
-      -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
-      animation: breathing-blue 20s ease-in-out infinite normal;
-      -webkit-font-smoothing: antialiased;
       position: absolute;
+      animation: breathing-blue 20s ease-in-out infinite normal;
+      -webkit-animation: breathing-blue 20s ease-in-out infinite normal;   // sass-lint:disable-line no-vendor-prefixes
+      -webkit-font-smoothing: antialiased;   // sass-lint:disable-line no-vendor-prefixes
     }
 
-    .hexagon-white{
-      -webkit-animation: breathing 20s ease-out infinite normal;
-      animation: breathing 20s ease-out infinite normal;
-      -webkit-font-smoothing: antialiased;
+    .hexagon-white {
+      position: absolute;
       top: 18px;
       left: 31px;
-      position: absolute;
       transform: rotate(-26deg);
+      animation: breathing 20s ease-out infinite normal;
+      -webkit-animation: breathing 20s ease-out infinite normal;  // sass-lint:disable-line no-vendor-prefixes
+      -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
     }
   }
 
   .text {
-    @media (max-width: $screen-sm){
-        padding-top: 10px;
+    @media (max-width: $screen-sm) {
+      padding-top: 10px;
     }
 
     p {
-      padding-right: 0px;
-      margin: 0px;
+      margin: 0;
+      padding-right: 0;
     }
 
     span,
-     p {
+    p {
       font-weight: $font-extra-weight-light;
     }
 
     .title {
-      margin-bottom: 0px;
-      font-size: $font-size-small;
+      margin-bottom: 0;
       color: $white;
+      font-size: $font-size-small;
 
-      @media (max-width: $screen-sm){
+      @media (max-width: $screen-sm) {
         color: $blue-dark-light;
       }
     }
@@ -72,7 +75,8 @@
     .content {
       margin-bottom: $space-between-elements;
     }
-    .extraSize {
+
+    .extra-size {
       font-size: $font-extra-big-size;
     }
   }
@@ -89,12 +93,12 @@
     color: $white;
 
     p {
-      font-size: $font-size-small;;
+      font-size: $font-size-small;
     }
 
     h1 {
-      text-align: center;
       margin-top: 5px;
+      text-align: center;
     }
   }
 
@@ -107,12 +111,12 @@
   }
 
   .countdown-label {
-    font-weight: $font-weight-light;
     margin-right: 5px;
+    font-weight: $font-weight-light;
   }
 
   .countdown-value {
-    font-weight: $font-weight-bold;
     font-size: 16px;
+    font-weight: $font-weight-bold;
   }
 }

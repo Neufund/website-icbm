@@ -8,7 +8,8 @@
         "jsx": "react",
         "lib": ["es2015", "dom"],
         "noUnusedParameters": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true
     },
     "include": [
         "./node_modules/web3-typescript-typings/index.d.ts",

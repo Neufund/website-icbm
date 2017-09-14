@@ -1,18 +1,19 @@
 .section.press{
-
+    border: 0;
     padding-top: $padding-between-sections;
+
     @media (max-width: $screen-sm) {
         margin-top: 0;
         margin-bottom: $padding-between-sections;
     }
-    .img-container{
-        text-align: center;
-        margin-top: $padding-between-sections;
-        max-height: 25px;
-        line-height: 40px;
+
+    .img-container {
+      width: 162px;
+      text-align: center;
+      line-height: 40px;
     }
-    border: 0;
-    img{
+
+    img {
         width: auto;
         height: 100%;
     }

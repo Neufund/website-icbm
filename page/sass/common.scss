@@ -199,4 +199,17 @@ p.slim {
     font-size: 16px;
     transition: all 1s;
   }
+
+  .people-row {
+    margin-top: 75px;
+  }
+}
+
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }

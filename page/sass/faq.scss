@@ -19,7 +19,7 @@
     font-size: $section-title-font-size-smaller;
   }
 
-  .hidden-p {
+  .answer {
     display: none;
     margin-bottom: 30px;
   }
@@ -55,10 +55,14 @@
     }
 
 
-    p {
+    .answer {
       color: $black-lighter;
       font-size: $font-size-small;
       font-weight: $font-weight-light;
+      a {
+        font-size: $font-size-small;
+        color: $blue;        
+      }
     }
 
   }

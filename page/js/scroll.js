@@ -81,7 +81,7 @@ function recalculateHeights() {
   })
 }
 var currentlyActiveElementIndex = null
-var res = 50 // reserve in pixels
+var res = 200 // lock offset in pixels
 function handleScroll() {
   var currentHeight = getScroll()
   console.log(currentHeight)

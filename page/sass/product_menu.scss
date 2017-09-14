@@ -8,7 +8,8 @@
   align-items: center;
   z-index: 2;
 
-  $active-color: #7a0035;
+  $active-color: $blue-darker;
+  $hover-color: #0a719c;
 
   ul {
     padding: 0 0;
@@ -45,8 +46,8 @@
       display: none;
     }
     li:hover a {
-      color: $blue-darker;
-      &::after { background-color: $blue-darker; box-shadow: none;}
+      color: $hover-color;
+      &::after { background-color: $hover-color; box-shadow: none;}
     }
     li.product-menu-active a {
       color: $active-color;

@@ -1,3 +1,5 @@
+import { IStandardReduxAction } from "../types";
+
 export interface IUserState {
   loading: boolean;
   address: string;

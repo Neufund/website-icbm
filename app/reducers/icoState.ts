@@ -1,6 +1,7 @@
 import * as moment from "moment";
 import { checkPhase } from "../actions/checkPhase";
 import { IcoPhase, LOAD_ICO_PARAMS, NEW_PHASE_ACTION } from "../actions/constants";
+import { IStandardReduxAction } from "../types";
 
 export interface IcoState {
   loading: boolean;

@@ -7,6 +7,7 @@ import { Aftermath } from "../components/Aftermath";
 import { CommitFundsWeb3 } from "../components/CommitFundsWeb3";
 import { CommitHeaderComponent } from "../components/CommitHeaderComponent";
 import { CommitNavbar } from "../components/CommitNavbar";
+import LegalModal from "../components/LegalModal";
 import { IAppState } from "../reducers/index";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -29,6 +30,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 }) => {
   return (
     <div className={layoutStyle.pageContainer}>
+      <LegalModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Row>
         <Col sm={10} smOffset={1} className={layoutStyle.contentContainer}>

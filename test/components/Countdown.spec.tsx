@@ -5,6 +5,7 @@ import * as React from "react";
 import * as sinon from "sinon";
 
 import { Countdown, CountdownComponent } from "../../app/components/Countdown";
+import { tid } from "../utils";
 
 const MONTH_IN_SECONDS = 60 * 60 * 24 * 31;
 
@@ -67,10 +68,10 @@ function assertCountdownComponent(
   countdownComponent: ReactWrapper<any, any>,
   components: ICountdownComponents
 ) {
-  const days = countdownComponent.find(`[data-test-id="countdown-days"]`).text();
-  const hours = countdownComponent.find(`[data-test-id="countdown-hours"]`).text();
-  const minutes = countdownComponent.find(`[data-test-id="countdown-minutes"]`).text();
-  const seconds = countdownComponent.find(`[data-test-id="countdown-seconds"]`).text();
+  const days = countdownComponent.find(tid("countdown-days")).text();
+  const hours = countdownComponent.find(tid("countdown-hours")).text();
+  const minutes = countdownComponent.find(tid("countdown-minutes")).text();
+  const seconds = countdownComponent.find(tid("countdown-seconds")).text();
 
   expect(days).to.be.eq(components.days);
   expect(hours).to.be.eq(components.hours);

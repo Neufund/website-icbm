@@ -11,8 +11,8 @@ describe("<HexagonsStack />", () => {
         <div className="child" />
       </HexagonsStack>
     );
-    expect(component).to.contain(BlueHexagon);
-    expect(component).to.contain(WhiteHexagon);
+    expect(component).to.have.descendants(BlueHexagon);
+    expect(component).to.have.descendants(WhiteHexagon);
     expect(component.find(".child")).to.have.length(1);
   });
 });

@@ -52,7 +52,12 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
         <a href="/" className="btn btn-white">
           Cancel
         </a>
-        <Button bsStyle="primary" disabled={invalid} onClick={handleSubmit}>
+        <Button
+          bsStyle="primary"
+          disabled={invalid}
+          onClick={handleSubmit}
+          data-test-id="legal-modal-btn"
+        >
           Accept
         </Button>
       </Modal.Footer>

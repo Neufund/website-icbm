@@ -1,4 +1,4 @@
-import { IStandardReduxAction, Reducer } from "../types";
+import { Reducer } from "../types";
 
 export interface IUserState {
   loading: boolean;

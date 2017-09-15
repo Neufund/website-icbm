@@ -1,6 +1,7 @@
 import * as moment from "moment";
 import { checkPhase } from "../actions/checkPhase";
 import { IcoPhase, LOAD_ICO_PARAMS, NEW_PHASE_ACTION } from "../actions/constants";
+import { Reducer } from "../types";
 
 export interface IcoState {
   loading: boolean;
@@ -29,10 +30,7 @@ const initialState: IcoState = {
   icoPhase: IcoPhase.UNKNOWN,
 };
 
-export default function(
-  state = initialState,
-  action: IStandardReduxAction<IPayload & IcoPhase> // This is done to somehow define or enforce a more strict typings then any but needs more work to create a good strict typings
-): IcoState {
+const reducer: Reducer<IcoState, IPayload & IcoPhase> = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case LOAD_ICO_PARAMS:
@@ -53,7 +51,9 @@ export default function(
     default:
       return state;
   }
-}
+};
+
+export default reducer;
 
 export function selectStartDate(state: IcoState) {
   return moment(state.startDate);

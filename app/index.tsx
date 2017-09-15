@@ -2,10 +2,13 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
+import { autoRehydrate, persistStore } from "redux-persist";
 import reduxThunk from "redux-thunk";
+
+import { asyncSessionStorage } from "redux-persist/storages";
 import App from "./containers/App";
 import Commit from "./containers/Commit";
 import muiTheme from "./muiTheme";
@@ -39,7 +42,8 @@ const render = (storage: any) => {
   }
 };
 
-const enhancers = () => composeWithDevTools(applyMiddleware(reduxThunk, reduxLogger));
+const enhancers = () =>
+  composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
 
 // Create the Redux store
 const store = createStore(reducers, enhancers());
@@ -74,4 +78,12 @@ if (process.env.NODE_ENV !== "production") {
   // tslint:disable-next-line
   require('!raw-loader!../dist/app.css');
 }
-render(store);
+
+persistStore(
+  store,
+  {
+    whitelist: ["legalAgreementState"],
+    storage: asyncSessionStorage,
+  },
+  () => render(store)
+);

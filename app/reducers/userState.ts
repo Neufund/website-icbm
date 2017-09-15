@@ -1,4 +1,4 @@
-import { IStandardReduxAction } from "../types";
+import { IStandardReduxAction, Reducer } from "../types";
 
 export interface IUserState {
   loading: boolean;
@@ -10,10 +10,12 @@ const initialState: IUserState = {
   address: null,
 };
 
-export default function(state = initialState, action: IStandardReduxAction<any>): IUserState {
+const reducer: Reducer<IUserState> = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
     default:
       return state;
   }
-}
+};
+
+export default reducer;

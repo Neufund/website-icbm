@@ -8,8 +8,8 @@ export const parseStrToNumStrict = (source: string): number => {
   let transform = source.replace(/\s/g, "");
   transform = transform.replace(/,/g, ".");
 
-  // we allow only digits and dots
-  if (/[^.\d]/.test(transform)) {
+  // we allow only digits dots and minus
+  if (/[^.\-\d]/.test(transform)) {
     return NaN;
   }
 

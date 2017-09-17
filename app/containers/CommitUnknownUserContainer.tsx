@@ -18,6 +18,7 @@ interface ICommitUnknownUserContainer {
   lockedAmount: BigNumber;
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
+  estimationCoefficient: number
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({
@@ -28,6 +29,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   lockedAmount,
   neumarkBalance,
   unlockDate,
+  estimationCoefficient,
 }) => {
   return (
     <div className={layoutStyle.pageContainer}>
@@ -41,6 +43,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
             transactionPayload={transactionPayload}
             gasPrice={gasPrice}
             gasLimit={gasLimit}
+            estimationCoefficient={estimationCoefficient}
           />
           <Row>
             <Col sm={12}>
@@ -68,6 +71,7 @@ const mapStateToProps = () => ({
   lockedAmount: new BigNumber(5),
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),
+  estimationCoefficient: 5,
 });
 
 export default connect(mapStateToProps)(CommitUnknownUserContainer);

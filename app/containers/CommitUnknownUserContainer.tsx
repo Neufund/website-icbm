@@ -18,7 +18,7 @@ interface ICommitUnknownUserContainer {
   lockedAmount: BigNumber;
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
-  estimationCoefficient: number
+  estimationCoefficient: number;
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({

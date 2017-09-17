@@ -3,6 +3,7 @@ import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 import * as image from "../assets/img/commit_form_hex.png";
+import { parseStrToNumStrict } from "../utils/utils";
 import * as style from "./CommitFundsForm.scss";
 
 const inputFieldStyles = {
@@ -82,7 +83,7 @@ const validateETHField = (value: string) => {
     return "Required";
   }
 
-  const number = parseFloat(value.replace(",", "."));
+  const number = parseStrToNumStrict(value);
   if (isNaN(number)) {
     return "You must enter number";
   }

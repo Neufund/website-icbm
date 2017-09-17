@@ -5,6 +5,10 @@
  * @returns {number}
  */
 export const parseStrToNumStrict = (source: string): number => {
+  if (source === undefined) {
+    return NaN;
+  }
+
   let transform = source.replace(/\s/g, "");
   transform = transform.replace(/,/g, ".");
 

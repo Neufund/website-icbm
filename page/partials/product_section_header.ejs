@@ -1,17 +1,27 @@
 <div id="product-header" data-menu-text="<%- menu_text -%>">
   <div id="product-video-background">
     <div id="product-video-foreground">
-      <iframe src="https://www.youtube.com/embed/<%- yt_video -%>?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=<%- yt_video -%>&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/<%- yt_video -%>?controls=0&showinfo=0&rel=0&loop=1&playlist=<%- yt_video -%>&modestbranding=1&enablejsapi=1"
+        frameborder="0"
+        id="product-yt-iframe"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
   <div id="product-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1><%- title -%></h1>
-          <%- content -%>
+    <div class="container" id="product-header-container">
+
+      <div id="product-header-text">
+        <h1><%- title -%></h1>
+        <%- content -%>
+      </div>
+      <div id="product-header-button-wrapper">
+        <div id="product-header-button">
+          <i class="fa fa-play-circle"></i>
         </div>
       </div>
+
     </div>
   </div>
 </div>

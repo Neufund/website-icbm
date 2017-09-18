@@ -79,6 +79,23 @@
 }
 #product-content {
   padding-bottom: 10px;
+  z-index: 1;
+}
+
+#product-header-container {
+  display: flex;
+}
+#product-header-text {
+  width: 50%;
+}
+#product-header-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#product-header-button {
+  font-size: 70px;
+  color: #fff;
 }
 
 #product-video-background, #product-video-background iframe {

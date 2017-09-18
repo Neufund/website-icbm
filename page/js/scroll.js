@@ -14,7 +14,7 @@ var carousel = null
 var thr = 768
 function createCarouselIfNecessary() {
   var w = window.innerWidth
-  console.log(" "+w+" "+thr)
+
   if (carousel=== null && w<thr) {
     carousel = new Siema({
       selector: '.press .flex-row',
@@ -42,10 +42,8 @@ function getScroll() {
 
 var scrollHeights = []
 window.addEventListener("load", function() {
-  // console.log("document load event")
   var ul = document.querySelector("#product-menu ul")
   if (!ul) {
-    console.log("no ul")
     return
   }
   document.querySelector(".main").childNodes.forEach(function(el){
@@ -69,7 +67,6 @@ window.addEventListener("load", function() {
 
     scrollHeights.push(entry)
 
-    console.log(entry.id+" "+entry.h+" "+getScroll())
   })
   handleScroll()
 })
@@ -84,7 +81,6 @@ var currentlyActiveElementIndex = null
 var res = 200 // lock offset in pixels
 function handleScroll() {
   var currentHeight = getScroll()
-  console.log(currentHeight)
   for (var i=0; i<scrollHeights.length; i++) {
     if (
       (i < scrollHeights.length-1 && currentHeight >= (scrollHeights[i].h)-res && currentHeight < (scrollHeights[i+1].h)-res) ||
@@ -102,7 +98,6 @@ function handleScroll() {
 
     }
   }
-  console.log(currentlyActiveElementIndex)
 }
 document.addEventListener("scroll", handleScroll)
 
@@ -115,3 +110,21 @@ setInterval(function(){
     carousel.next(1)
   }
 }, 2000)
+
+// YT API
+var player
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("product-yt-iframe", {
+    events: {
+      // nothing
+    }
+  })
+}
+document.getElementById("product-header-button").addEventListener("click", function(){
+  if(player) {
+    player.playVideo();
+    // document.getElementById("product-header-button").style.display="none"
+  }
+
+
+})

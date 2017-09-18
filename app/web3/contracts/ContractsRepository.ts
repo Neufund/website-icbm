@@ -4,7 +4,7 @@ import PublicCommitment from "./PublicCommitment";
 
 export let publicCommitment: PublicCommitment = null;
 
-export async function init() {
+export async function initRepository() {
   if (process.env.NODE_ENV === "development") {
     publicCommitment = await PublicCommitment.createAndValidate(
       web3Provider,

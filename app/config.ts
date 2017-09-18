@@ -12,9 +12,15 @@ interface IAnnouncedCfg {
   startingDate: moment.Moment;
 }
 
+export enum CommitmentType {
+  WHITELISTED = "WHITELISTED",
+  PUBLIC = "PUBLIC",
+}
+
 interface IContractsDeployedIcoCfg {
   commitmentContractAddress: string;
   rpcProvider: string;
+  commitmentType: CommitmentType;
 }
 
 export function getRequiredValue(obj: any, key: string): string {
@@ -55,6 +61,7 @@ function loadConfig(environment: object): IConfig {
         contractsDeployed: {
           commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
           rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
+          commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
         },
       };
     }

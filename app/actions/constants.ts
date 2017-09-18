@@ -8,15 +8,15 @@ export enum AppState {
   CONTRACTS_DEPLOYED = "CONTRACTS_DEPLOYED", // contracts are deployed. Get all data from blockchain and set exact phase based on the
 }
 
-// only used during CONTRACTS_DEPLOYED state
+// NOTE: this doesn't comply with enums expected by smartcontracts
 export enum IcoPhase {
-  BEFORE_ICO = "BEFORE_ICO",
-  DURING_ICO = "DURING_ICO",
-  AFTER_ICO = "AFTER_ICO",
-  UNKNOWN = "UNKNOWN",
+  BEFORE = "BEFORE",
+  DURING = "DURING",
+  AFTER = "AFTER",
 }
 
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
+export const LOAD_BEFORE_ICO = "LOAD_BEFORE_ICO";
 
 export const SET_USER_ADDRESS = "SET_USER_ADDRESS";
 export const SET_USER_LOADING = "SET_USER_LOADING";

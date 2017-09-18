@@ -1,6 +1,10 @@
 import { BigNumber } from "bignumber.js";
+import { delay } from "bluebird";
 
-import PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
+import { Moment } from "moment/moment";
+import { IcoPhase } from "../../actions/constants";
+import { asMomentDate } from "../utils";
+import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 
 interface ITxParams {
   from?: string;
@@ -13,6 +17,14 @@ interface IPayableTxParams {
   from?: string;
   gas?: number | string | BigNumber;
   gasPrice?: number | string | BigNumber;
+}
+
+// represents same values that are used internally in commitment smartcontract
+export enum InternalCommitmentState {
+  BEFORE = 0,
+  WHITELIST = 1,
+  PUBLIC = 2,
+  FINISHED = 3,
 }
 
 function promisify(func: any, args: any): Promise<any> {
@@ -38,38 +50,62 @@ class Contract {
 
   public readonly rawWeb3Contract: any;
 
-  public constructor(web3: any, address: string) {
+  public constructor(public readonly web3: any, public readonly address: string) {
     this.rawWeb3Contract = web3.eth.contract(PublicCommitmentAbiJson).at(address);
   }
 
-  public get state(): Promise<BigNumber> {
-    return promisify(this.rawWeb3Contract.state, []);
+  public get state(): Promise<InternalCommitmentState> {
+    return promisify(this.rawWeb3Contract.state, []).then((state: BigNumber) => {
+      return state.toNumber();
+    });
   }
+
+  public get issuanceRate(): Promise<BigNumber> {
+    return (async () => {
+      const eth = new this.web3.BigNumber(10).pow(
+        // this.ethToken().decimals()
+        18
+      );
+      const nmk = new this.web3.BigNumber(10).pow(
+        // this.commit.neumark().decimals()
+        18
+      );
+      return (await this.estimateNeumarkReward(eth.toNumber())).div(nmk);
+    })();
+  }
+
   public get accessPolicy(): Promise<BigNumber | string> {
     return promisify(this.rawWeb3Contract.accessPolicy, []);
   }
+
   public estimateNeumarkReward(amountEth: BigNumber): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
   }
+
   public convertToEur(amount: BigNumber): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.convertToEur, [amount]);
   }
-  public startOf(state: BigNumber): Promise<BigNumber> {
-    return promisify(this.rawWeb3Contract.startOf, [state]);
+
+  public async startOf(stateEnum: InternalCommitmentState): Promise<Moment> {
+    return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
   }
 
   public abortTx(params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.abort, [params]);
   }
+
   public handleTimedTransitionsTx(params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.handleTimedTransitions, [params]);
   }
+
   public commitTx(params?: IPayableTxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.commit, [params]);
   }
+
   public setAccessPolicyTx(newPolicy: BigNumber | string, params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.setAccessPolicy, [newPolicy, params]);
   }
+
   public addWhitelistedTx(
     investors: BigNumber[] | string[],
     tokens: BigNumber[],
@@ -78,9 +114,11 @@ class Contract {
   ): Promise<void> {
     return promisify(this.rawWeb3Contract.addWhitelisted, [investors, tokens, amounts, params]);
   }
+
   public commitEuroTx(params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.commitEuro, [params]);
   }
+
   public reclaimTx(token: BigNumber | string, params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.reclaim, [token, params]);
   }

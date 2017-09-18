@@ -1,19 +1,22 @@
 import { combineReducers } from "redux";
 import { FormState, reducer as form } from "redux-form";
-import icoState, { IcoState } from "./icoState";
+import beforeIcoState, { IBeforeIcoState } from "./beforeIcoState";
+import commitmentState, { ICommitmentState } from "./commitmentState";
 import legalAgreementState, { ILegalAgreementState } from "./legalAgreementState";
 import userState, { IUserState } from "./userState";
 
 export interface IAppState {
-  readonly icoState: IcoState;
+  readonly commitmentState: ICommitmentState;
+  readonly beforeIcoState: IBeforeIcoState;
   readonly form: FormState;
   readonly userState: IUserState;
   readonly legalAgreementState: ILegalAgreementState;
 }
 
 export default combineReducers<IAppState>({
-  icoState,
+  commitmentState,
   form,
   userState,
   legalAgreementState,
+  beforeIcoState,
 });

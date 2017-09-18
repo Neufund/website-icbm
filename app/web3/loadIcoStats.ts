@@ -1,13 +1,12 @@
-import { Crowdsale } from "./contracts";
 import { asNumber } from "./utils";
 
-export async function loadIcoStats(CrowdsaleAddress: string) {
-  const lockedAccount = Crowdsale(CrowdsaleAddress);
+export async function loadIcoStats() {
+  // const lockedAccount = Crowdsale(CrowdsaleAddress);
 
-  const [startDate] = await Promise.all([lockedAccount.startDateAsync().then(asNumber)]);
+  // const [startDate] = await Promise.all([lockedAccount.startDateAsync().then(asNumber)]);
 
   return {
-    Icostart: startDate,
+    Icostart: "startDate",
     neuMarkToEtherRatio: 1000000,
   };
 }

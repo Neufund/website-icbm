@@ -13,6 +13,7 @@ import App from "./containers/App";
 import Commit from "./containers/Commit";
 import muiTheme from "./muiTheme";
 import reducers from "./reducers";
+import { initRepository } from "./web3/contracts/ContractsRepository";
 
 // @todo add bundle splitting and separate these renders #UAF
 
@@ -85,5 +86,5 @@ persistStore(
     whitelist: ["legalAgreementState"],
     storage: asyncSessionStorage,
   },
-  () => render(store)
+  () => initRepository().then(() => render(store))
 );

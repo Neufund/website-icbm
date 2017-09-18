@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { selectIcoState } from "../reducers/icoState";
 import { IAppState } from "../reducers/index";
 import BeforeIco from "./BeforeIco";
-import DuringIco from "./DuringIco";
+// import DuringIco from "./DuringIco";
 
 interface IcoProps {
-  icoPhase: IcoPhase;
+  loading: boolean;
+  commitmentState: IcoPhase;
   loadIcoParameters: any;
 }
 
@@ -19,25 +19,29 @@ class Ico extends React.Component<IcoProps> {
   }
 
   public render() {
-    const { icoPhase } = this.props;
+    const { commitmentState, loading } = this.props;
 
-    switch (icoPhase) {
-      case IcoPhase.BEFORE_ICO:
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    switch (commitmentState) {
+      case IcoPhase.BEFORE:
         return <BeforeIco />;
-      case IcoPhase.DURING_ICO:
-        return <DuringIco />;
+      // case CommitmentState.WHITELIST:
+      // case CommitmentState.PUBLIC: // @todo here we want to present only public when its deployed for public
+      //   return <DuringIco />;
       // @todo we need better way to realize loading state and ofc improve design
-      case IcoPhase.UNKNOWN:
-        return <div>Loading...</div>;
       default:
-        throw new Error(`Phase ${icoPhase} not supported!`);
+        throw new Error(`Phase ${commitmentState} not supported!`);
     }
   }
 }
 
 function mapStateToProps(state: IAppState) {
   return {
-    icoPhase: selectIcoState(state.icoState),
+    loading: state.commitmentState.loading,
+    commitmentState: state.commitmentState.commitmentState,
   };
 }
 

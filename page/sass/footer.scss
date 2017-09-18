@@ -1,7 +1,7 @@
 html{
   position:relative;
   min-height: 100%;
-  padding-bottom: 72px;
+  // padding-bottom: 72px;
 }
 
 .footer-container{
@@ -9,7 +9,7 @@ html{
 }
 .footer-container, .footer-bottom-container{
     @media (min-width: $screen-lg) {
-        right: -50px;
+        // right: -50px;
     }
 }
 .border-top{
@@ -48,10 +48,10 @@ html{
 }
 
 .footer-bottom{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
     z-index: 1; // fix for product page, hopefully doesn't break commit page
     font-size: 12px;
     font-weight: $font-weight-more-bold;
@@ -69,11 +69,14 @@ html{
         margin-left: 50px;
         position: relative;
     }
+}
 
-    .footer-hex {
-      position: absolute;
-      right: -100px;
-      bottom: -34px;
-      z-index: -10;
-    }
+.footer-bottom-container {
+  position: relative;
+  .footer-hex {
+    position: absolute;
+    right: 0px; //-100px
+    bottom: -34px;
+    z-index: 0;
+  }
 }

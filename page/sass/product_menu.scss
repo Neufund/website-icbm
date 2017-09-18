@@ -20,11 +20,17 @@
       display: inline-block;
       padding: 5px 30px;
       // padding-right is spacing between right screen edge and dot
+      @media (max-width: 1150px) {
+        padding: 5px 25px;
+      }
       @media (max-width: 991px) {
         padding: 5px 15px;
       }
       @media (max-width: 767px) {
         padding: 5px 10px;
+      }
+      @media (max-width: 480px) {
+        padding: 5px 7px;
       }
 
       &::after {

@@ -9,12 +9,14 @@ interface ICommitFundsWeb3 {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
+  estimationCoefficient?: number;
 }
 
 export const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
   userAddress,
   contractAddress,
   transactionPayload,
+  estimationCoefficient,
 }) =>
   <div>
     <Row>
@@ -24,7 +26,7 @@ export const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={6}>
-        <CommitFundsForm />
+        <CommitFundsForm estimationCoefficient={estimationCoefficient} />
       </Col>
       <Col sm={6}>
         <CommitFundsDescription

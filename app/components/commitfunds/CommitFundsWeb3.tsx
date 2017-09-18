@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import { UserAddressComponent } from "../UserAddressComponent";
 import { CommitFundsDescription } from "./CommitFundsDescription";
 import CommitFundsForm from "./CommitFundsForm";
 import * as style from "./CommitFundsWeb3.scss";
-import { UserAddressComponent } from "./UserAddressComponent";
 
 interface ICommitFundsWeb3 {
   userAddress: string;

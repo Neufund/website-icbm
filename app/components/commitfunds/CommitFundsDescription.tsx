@@ -1,7 +1,7 @@
 import * as React from "react";
+import { TextCopyable } from "../TextCopyable";
+import { UnderlinedLink } from "../UnderlinedLink";
 import * as style from "./CommitFundsDescription.scss";
-import { TextCopyable } from "./TextCopyable";
-import { UnderlinedLink } from "./UnderlinedLink";
 
 interface ICommitFundsDescription {
   contractAddress: string;

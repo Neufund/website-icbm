@@ -2,8 +2,8 @@ import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
-import * as image from "../assets/img/commit_form_hex.png";
-import { estimateNeufromEth, parseStrToNumStrict } from "../utils/utils";
+import * as image from "../../assets/img/commit_form_hex.png";
+import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
 import * as style from "./CommitFundsForm.scss";
 
 const inputFieldStyles = {

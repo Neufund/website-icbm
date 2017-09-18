@@ -3,10 +3,10 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Aftermath } from "../components/Aftermath";
-import { CommitFundsStatic } from "../components/CommitFundsStatic";
-import { CommitHeaderComponent } from "../components/CommitHeaderComponent";
-import { CommitNavbar } from "../components/CommitNavbar";
+import { Aftermath } from "../components/commitfunds/Aftermath";
+import { CommitFundsStatic } from "../components/commitfunds/CommitFundsStatic";
+import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
+import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 

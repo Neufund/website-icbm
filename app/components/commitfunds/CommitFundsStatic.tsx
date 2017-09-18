@@ -1,11 +1,11 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { estimateNeufromEth, parseStrToNumStrict } from "../utils/utils";
+import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
+import { IconLink } from "../IconLink";
+import { TextCopyable } from "../TextCopyable";
+import { UnderlinedLink } from "../UnderlinedLink";
 import * as style from "./CommitFundsStatic.scss";
-import { IconLink } from "./IconLink";
-import { TextCopyable } from "./TextCopyable";
-import { UnderlinedLink } from "./UnderlinedLink";
 
 interface ICommitFundsStaticDesc {
   contractAddress: string;

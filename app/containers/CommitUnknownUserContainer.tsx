@@ -1,7 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Grid, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Aftermath } from "../components/commitfunds/Aftermath";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
@@ -32,11 +32,11 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   estimationCoefficient,
 }) => {
   return (
-    <div className={layoutStyle.pageContainer}>
+    <Grid>
       <LegalModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Row>
-        <Col sm={10} smOffset={1} className={layoutStyle.contentContainer}>
+        <Col xs={12} className={layoutStyle.contentContainer}>
           <CommitHeaderComponent number="01" title="Commit details" />
           <CommitUnknownUser
             contractAddress={contractAddress}
@@ -46,7 +46,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
             estimationCoefficient={estimationCoefficient}
           />
           <Row>
-            <Col sm={12}>
+            <Col xs={12}>
               <hr className={layoutStyle.separator} />
             </Col>
           </Row>
@@ -59,7 +59,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
           />
         </Col>
       </Row>
-    </div>
+    </Grid>
   );
 };
 

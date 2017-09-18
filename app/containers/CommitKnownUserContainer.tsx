@@ -4,8 +4,8 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Aftermath } from "../components/commitfunds/Aftermath";
-import { CommitFundsWeb3 } from "../components/commitfunds/CommitFundsWeb3";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
+import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
 import { IAppState } from "../reducers/index";
@@ -37,7 +37,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
       <Row>
         <Col sm={10} smOffset={1} className={layoutStyle.contentContainer}>
           <CommitHeaderComponent number="01" title="Commit funds" />
-          <CommitFundsWeb3
+          <CommitKnownUser
             userAddress={userAddress}
             contractAddress={contractAddress}
             transactionPayload={transactionPayload}

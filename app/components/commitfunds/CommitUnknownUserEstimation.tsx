@@ -1,48 +1,8 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
-import { Col, Row } from "react-bootstrap";
 import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
 import { IconLink } from "../IconLink";
-import { TextCopyable } from "../TextCopyable";
-import { UnderlinedLink } from "../UnderlinedLink";
-import * as style from "./CommitFundsStatic.scss";
-
-interface ICommitFundsStaticDesc {
-  contractAddress: string;
-  transactionPayload: string;
-  gasPrice: string;
-  gasLimit: string;
-}
-
-const CommitFundsStaticDesc: React.SFC<ICommitFundsStaticDesc> = ({
-  contractAddress,
-  transactionPayload,
-  gasPrice,
-  gasLimit,
-}) =>
-  <div className={style.infoContainer}>
-    <p>
-      Include following description in your transaction:<br />
-      <TextCopyable className={style.textCopyable} text={transactionPayload} />
-    </p>
-    <p>
-      Ethereum smart contract address:<br />
-      <TextCopyable className={style.textCopyable} text={contractAddress} /> <br />
-      <UnderlinedLink href="#" className={style.verifyLink}>
-        Verify source code on Etherscan
-      </UnderlinedLink>
-    </p>
-    <Row className={style.gasSection}>
-      <Col sm={4}>
-        Suggested gas price<br />
-        <TextCopyable className={style.textCopyable} text={gasPrice} />
-      </Col>
-      <Col sm={8}>
-        Suggested gas limit<br />
-        <TextCopyable className={style.textCopyable} text={gasLimit} />
-      </Col>
-    </Row>
-  </div>;
+import * as style from "./CommitUnknownUserEstimation.scss";
 
 const estTextFieldStyles = {
   inputStyle: {
@@ -68,7 +28,7 @@ interface ICommitFundsEstimation {
   onChange: any;
 }
 
-const CommitFundsEstimationComponent: React.SFC<ICommitFundsEstimation> = ({
+const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = ({
   eth,
   neu,
   onChange,
@@ -108,7 +68,7 @@ interface IState {
   neu: number;
 }
 
-class CommitFundsEstimation extends React.Component<IProps, IState> {
+export class CommitUnknownUserEstimation extends React.Component<IProps, IState> {
   public estimateNeufromEth: (eth: number) => number;
 
   constructor(props: IProps) {
@@ -123,7 +83,7 @@ class CommitFundsEstimation extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <CommitFundsEstimationComponent
+      <CommitUnknownUserEstimationComponent
         eth={this.state.eth}
         neu={this.state.neu}
         onChange={this.change}
@@ -140,39 +100,3 @@ class CommitFundsEstimation extends React.Component<IProps, IState> {
     });
   };
 }
-
-interface ICommitFundsStatic {
-  contractAddress: string;
-  transactionPayload: string;
-  gasPrice: string;
-  gasLimit: string;
-  estimationCoefficient: number;
-}
-
-export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
-  contractAddress,
-  transactionPayload,
-  gasPrice,
-  gasLimit,
-  estimationCoefficient,
-}) =>
-  <div>
-    <Row className={style.initialLink}>
-      <Col sm={12}>
-        <IconLink url="/" text="New to the blockchain? Read “How to participate”" />
-      </Col>
-    </Row>
-    <Row className={style.contentRow}>
-      <Col sm={8}>
-        <CommitFundsStaticDesc
-          contractAddress={contractAddress}
-          transactionPayload={transactionPayload}
-          gasPrice={gasPrice}
-          gasLimit={gasLimit}
-        />
-      </Col>
-      <Col sm={4}>
-        <CommitFundsEstimation estimationCoefficient={estimationCoefficient} />
-      </Col>
-    </Row>
-  </div>;

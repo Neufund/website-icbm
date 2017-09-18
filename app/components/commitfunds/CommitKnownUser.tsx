@@ -1,18 +1,18 @@
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { UserAddressComponent } from "../UserAddressComponent";
-import { CommitFundsDescription } from "./CommitFundsDescription";
-import CommitFundsForm from "./CommitFundsForm";
-import * as style from "./CommitFundsWeb3.scss";
+import * as style from "./CommitKnownUser.scss";
+import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
+import CommitKnownUserForm from "./CommitKnownUserForm";
 
-interface ICommitFundsWeb3 {
+interface ICommitKnownUser {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
   estimationCoefficient?: number;
 }
 
-export const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
+export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   userAddress,
   contractAddress,
   transactionPayload,
@@ -26,10 +26,10 @@ export const CommitFundsWeb3: React.SFC<ICommitFundsWeb3> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={6}>
-        <CommitFundsForm estimationCoefficient={estimationCoefficient} />
+        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} />
       </Col>
       <Col sm={6}>
-        <CommitFundsDescription
+        <CommitKnownUserDesc
           contractAddress={contractAddress}
           transactionPayload={transactionPayload}
         />

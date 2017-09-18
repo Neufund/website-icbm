@@ -4,9 +4,9 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Aftermath } from "../components/commitfunds/Aftermath";
-import { CommitFundsStatic } from "../components/commitfunds/CommitFundsStatic";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
+import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
 import LegalModal from "../components/LegalModal";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -38,7 +38,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
       <Row>
         <Col sm={10} smOffset={1} className={layoutStyle.contentContainer}>
           <CommitHeaderComponent number="01" title="Commit details" />
-          <CommitFundsStatic
+          <CommitUnknownUser
             contractAddress={contractAddress}
             transactionPayload={transactionPayload}
             gasPrice={gasPrice}

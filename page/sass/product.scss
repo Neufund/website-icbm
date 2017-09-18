@@ -5,6 +5,12 @@
 
 .img-round {
   border-radius: 15px;
+  @media (max-width: 991px) {
+    border-radius: 12px;
+  }
+  @media (max-width: 767px) {
+    border-radius: 10px;
+  }
   box-shadow: #777 1px 1px 3px;
 }
 
@@ -135,13 +141,16 @@
 
 .product-r2-row-wrapper {
   padding-left: 30px;
+  padding-right: 45px;
+  max-width: 550px;
+  margin: 0 auto;
 }
 .product-r2-1 {
-  padding-left: 50px;
+  //padding-left: 50px;
   margin-bottom: 20px;
 }
 .product-r2-2 {
-  padding-right: 50px;
+  //padding-right: 50px;
   text-align: right;
 }
 .product-r2-1 img, .product-r2-2 img {

@@ -1,39 +1,3 @@
-// scroll reveal
-window.sr = ScrollReveal({
-  scale: 1,
-})
-sr.reveal(".text-box")
-sr.reveal(".product-r3-row-wrapper div", 200)
-sr.reveal(".product-r2-row-wrapper div", 200)
-sr.reveal(".img-scroll")
-
-
-// carousel
-// siema.min.js
-var carousel = null
-var thr = 768
-function createCarouselIfNecessary() {
-  var w = window.innerWidth
-
-  if (carousel=== null && w<thr) {
-    carousel = new Siema({
-      selector: '.press .flex-row',
-      perPage: 1,
-      loop: true
-    })
-
-  }
-  if (carousel!==null && w>=thr) {
-    carousel.destroy(true)
-    carousel = null
-  }
-}
-createCarouselIfNecessary()
-
-
-
-
-
 // scroll highlighting
 
 function getScroll() {
@@ -41,7 +5,7 @@ function getScroll() {
 }
 
 var scrollHeights = []
-window.addEventListener("load", function() {
+function createProductMenu() {
   var ul = document.querySelector("#product-menu ul")
   if (!ul) {
     return
@@ -69,17 +33,25 @@ window.addEventListener("load", function() {
 
   })
   handleScroll()
-})
+}
+
+createProductMenu()
+
+window.addEventListener("load", recalculateHeights)
 
 
 function recalculateHeights() {
   scrollHeights.forEach(function(entry) {
     entry.h = document.getElementById(entry.id).getBoundingClientRect().top + getScroll()
   })
+  handleScroll()
 }
 var currentlyActiveElementIndex = null
 var res = 200 // lock offset in pixels
 function handleScroll() {
+  if (scrollHeights.length===0) {
+    return
+  }
   var currentHeight = getScroll()
   for (var i=0; i<scrollHeights.length; i++) {
     if (

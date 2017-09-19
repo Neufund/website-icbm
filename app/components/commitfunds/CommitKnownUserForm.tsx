@@ -1,3 +1,4 @@
+import * as lodash from "lodash";
 import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
@@ -104,6 +105,7 @@ const CommitKnownUserForm = ({
   estimationCoefficient,
 }: ICommitKnownUserFormProps) => {
   let neuAmount: number = estimateNeufromEth(estimationCoefficient)(parseStrToNumStrict(ethAmount));
+  neuAmount = lodash.round(neuAmount, 3);
   if (isNaN(neuAmount)) {
     neuAmount = 0;
   }

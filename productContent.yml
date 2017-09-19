@@ -17,9 +17,24 @@ who_can_use:
     - "Unless you are a partner in the VC fund or a business angel, you are probably new to investing in the companies equity, and no wonder – it’s a closed market."
     - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
   images:
-    - "screenshots/who_can_1.png"
-    - "screenshots/who_can_2.png"
-    - "screenshots/who_can_3.png"
+    - - url: "screenshots/Group25.png"
+        width: 169
+      - url: "screenshots/Group25_2x.png"
+        width: 338
+      - url: "screenshots/Group25_3x.png"
+        width: 507
+    - - url: "screenshots/Group26.png"
+        width: 169
+      - url: "screenshots/Group26_2x.png"
+        width: 338
+      - url: "screenshots/Group26_3x.png"
+        width: 507
+    - - url: "screenshots/Group27.png"
+        width: 169
+      - url: "screenshots/Group27_2x.png"
+        width: 338
+      - url: "screenshots/Group27_3x.png"
+        width: 507
 main_feature:
   id: "main_feature"
   menu_text: "Investing"
@@ -31,7 +46,13 @@ main_feature:
   backgroundText: "For investors"
   paragraphs:
     - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
-  image: "screenshots/MainPage_Product.png"
+  image:
+    - url: "screenshots/MainPage.png"
+      width: 604
+    - url: "screenshots/MainPage_2x.png"
+      width: 1208
+    - url: "screenshots/MainPage_3x.png"
+      width: 1812
 invisible_blockchain:
   id: "invisible_blockchain"
   menu_text: "What are the tokens"
@@ -45,8 +66,18 @@ invisible_blockchain:
     - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
     - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
   images:
-    - "screenshots/Investment-Accounts.png"
-    - "screenshots/Portfolio-Equity.png"
+    - - url: "screenshots/Investment-Accounts.png"
+        width: 428
+      - url: "screenshots/Investment-Accounts_2x.png"
+        width: 856
+      - url: "screenshots/Investment-Accounts_3x.png"
+        width: 1284
+    - - url: "screenshots/Portfolio-Equity.png"
+        width: 480
+      - url: "screenshots/Portfolio-Equity_2x.png"
+        width: 960
+      - url: "screenshots/Portfolio-Equity_3x.png"
+        width: 1440
 benefits_of_blockchain:
   id: "benefits_of_blockchain"
   menu_text: "Benefits of blockchain"
@@ -59,7 +90,13 @@ benefits_of_blockchain:
   paragraphs:
     - "Secondary market = liquidity.<br />Asset liquidation possible for investors and startups from day one a!er ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation."
     - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
-  image: "screenshots/I-IN-OWN.png"
+  image:
+    - url: "screenshots/I-IN-OWN.png"
+      width: 604
+    - url: "screenshots/I-IN-OWN_2x.png"
+      width: 1208
+    - url: "screenshots/I-IN-OWN_3x.png"
+      width: 1812
 investors_dashboard:
   id: "investors_dashboard"
   menu_text: ""
@@ -68,7 +105,13 @@ investors_dashboard:
   bg_url: "/assets/svg-bg/blue.svg"
   white: true
   title: "Investors dashboard"
-  image: "screenshots/InvestorsDashboard.png"
+  image:
+    - url: "screenshots/InvestorsDashboard.png"
+      width: 790
+    - url: "screenshots/InvestorsDashboard_2x.png"
+      width: 1580
+    - url: "screenshots/InvestorsDashboard_3x.png"
+      width: 2370
 startups_dashboard:
   id: "startups_dashboard"
   menu_text: ""
@@ -77,7 +120,13 @@ startups_dashboard:
   bg_url: "/assets/svg-bg/purple.svg"
   white: false
   title: "Initial Coin Offering of a startup"
-  image: "screenshots/StartupsDashboard.png"
+  image:
+    - url: "screenshots/StartupsDashboard.png"
+      width: 790
+    - url: "screenshots/StartupsDashboard_2x.png"
+      width: 1580
+    - url: "screenshots/StartupsDashboard_3x.png"
+      width: 2370
 disrupting_fundraising:
   id: "disrupting_fundraising"
   menu_text: "Being invested in"
@@ -93,7 +142,13 @@ disrupting_fundraising:
     - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
     - "accelerated process"
     - "Community based investors pool"
-  image: "screenshots/CompanysICOProfile.png"
+  image:
+    - url: "screenshots/CompanysICOProfile.png"
+      width: 563
+    - url: "screenshots/CompanysICOProfile_2x.png"
+      width: 1126
+    - url: "screenshots/CompanysICOProfile_3x.png"
+      width: 1689
 post_investment_management_tool:
   id: "post_investment_management_tool"
   menu_text: "Managing investors"
@@ -107,7 +162,19 @@ post_investment_management_tool:
     - "Startup management tool"
     - "Fully legal"
     - "Full"
-  image: "screenshots/StartupsCorporateGovernance.png"
+  images:
+    - - url: "screenshots/StartupsCorporateGovernance.png"
+        width: 574
+      - url: "screenshots/StartupsCorporateGovernance_2x.png"
+        width: 1148
+      - url: "screenshots/StartupsCorporateGovernance_3x.png"
+        width: 1722
+    - - url: "screenshots/StartupsCorporateGovernance_Investor.png"
+        width: 434
+      - url: "screenshots/StartupsCorporateGovernance_Investor_2x.png"
+        width: 868
+      - url: "screenshots/StartupsCorporateGovernance_Investor_3x.png"
+        width: 1302
 neufund_profile:
   id: "neufund_profile"
   menu_text: ""
@@ -116,7 +183,13 @@ neufund_profile:
   bg_url: ""
   white: true
   title: "Neufund's profile on the Platform"
-  image: "Platforma_Temp.png"
+  image:
+    - url: "screenshots/StartupsCorporateGovernance.png"
+      width: 574
+    - url: "screenshots/StartupsCorporateGovernance_2x.png"
+      width: 1148
+    - url: "screenshots/StartupsCorporateGovernance_3x.png"
+      width: 1722
 reward_revenue:
   id: "reward_revenue"
   menu_text: "Co-owning the ecosystem"

@@ -3,17 +3,6 @@
 
 [data-entrance] {visibility: hidden;} // required for JS animation to work
 
-.img-round {
-  border-radius: 15px;
-  @media (max-width: 991px) {
-    border-radius: 12px;
-  }
-  @media (max-width: 767px) {
-    border-radius: 10px;
-  }
-  box-shadow: #777 1px 1px 3px;
-}
-
 .product {
   border-bottom: none;
 
@@ -187,6 +176,26 @@
 }
 .img-r3 {
   width: 100%;
+}
+
+
+.product-l2-row-wrapper {
+  position: relative;
+
+  img, img.img-responsive {
+    padding-left: 0;
+  }
+}
+.product-l2-1 {
+  z-index: 1;
+  position: relative;
+  padding-right: 70px;
+}
+.product-l2-2 {
+  position: absolute;
+  width: 80%;
+  top: -20%;
+  right: 0%;
 }
 
 // --

@@ -1,7 +1,7 @@
 <div
   id="<%- id -%>"
   data-menu-text="<%- menu_text -%>"
-  class="section product product-l<% if (white===true) { %> bg-white<% } %>"
+  class="section product product-l2<% if (white===true) { %> bg-white<% } %>"
   <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
 >
   <div class="container">
@@ -24,11 +24,22 @@
 
       </div>
       <div class="col-md-7">
-        <img
-          class="img-responsive img-scroll"
-          src="/assets/<%- image[0].url -%>"
-          srcset="/assets/<%- image[1].url -%> <%- image[1].width -%>w, /assets/<%- image[2].url -%> <%- image[2].width -%>w"
-        />
+        <div class="product-l2-row-wrapper">
+          <div class="product-l2-1">
+            <img
+              class="img-responsive img-scroll"
+              src="/assets/<%- images[0][0].url -%>"
+              srcset="/assets/<%- images[0][1].url -%> <%- images[0][1].width -%>w, /assets/<%- images[0][2].url -%> <%- images[0][2].width -%>w"
+            />
+          </div>
+          <div class="product-l2-2">
+            <img
+              class="img-responsive img-scroll"
+              src="/assets/<%- images[1][0].url -%>"
+              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>

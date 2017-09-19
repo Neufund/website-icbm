@@ -224,6 +224,23 @@
 
 // --
 
+.product-r2 .container {
+  position: relative;
+}
+.product-r2-bg {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  max-height: 100%;
+  height: 380px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+// --
+
 .product-cols {
   padding-bottom: 0;
   h2 {

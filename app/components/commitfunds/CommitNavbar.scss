@@ -21,6 +21,7 @@
 }
 
 .logo {
+  display: block;
   position: relative;
   flex-shrink: 0;
   align-self: stretch;
@@ -31,6 +32,7 @@
   min-height: 30px;
 
   @media (max-width: $screen-xs-max) {
+    margin-right: 15px;
     background-position: left center;
     width: 45px;
   }

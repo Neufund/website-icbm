@@ -4,7 +4,7 @@ import * as styles from "./CommitNavbar.scss";
 
 export const CommitNavbar: React.SFC = ({ children }) =>
   <Grid className={styles.header}>
-    <div className={styles.logo} />
+    <a href="/" className={styles.logo} />
     <div className={styles.text}>
       {children}
     </div>

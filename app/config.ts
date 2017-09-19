@@ -1,3 +1,4 @@
+import * as BigNumber from "bignumber.js";
 import * as invariant from "invariant";
 import * as moment from "moment";
 import { AppState } from "./actions/constants";
@@ -19,8 +20,14 @@ export enum CommitmentType {
 
 interface IContractsDeployedIcoCfg {
   commitmentContractAddress: string;
+  neumarkContractAddress: string;
+  etherContractAddress: string;
+  euroContractAddress: string;
+  euroLockAddress: string;
+  etherLockAddress: string;
   rpcProvider: string;
   commitmentType: CommitmentType;
+  ethEurRate: BigNumber.BigNumber;
 }
 
 export function getRequiredValue(obj: any, key: string): string {
@@ -60,8 +67,14 @@ function loadConfig(environment: object): IConfig {
         appState,
         contractsDeployed: {
           commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
+          neumarkContractAddress: getRequiredValue(environment, "NEUMARK_CONTRACT_ADDRESS"),
+          etherContractAddress: getRequiredValue(environment, "ETH_CONTRACT_ADDRESS"),
+          euroContractAddress: getRequiredValue(environment, "EURO_CONTRACT_ADDRESS"),
+          etherLockAddress: getRequiredValue(environment, "ETH_LOCK_CONTRACT_ADDRESS"),
+          euroLockAddress: getRequiredValue(environment, "EUR_LOCK_ADDRESS"),
           rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
+          ethEurRate: new BigNumber.BigNumber(getRequiredValue(environment, "ETH_EUR_RATE")),
         },
       };
     }

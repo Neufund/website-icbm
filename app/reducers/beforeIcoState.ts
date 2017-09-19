@@ -3,7 +3,7 @@ import * as moment from "moment";
 import { Moment } from "moment";
 import {
   IcoPhase,
-  LOAD_BEFORE_ICO,
+  LOAD_BEFORE_ICO_DETAILS,
   LOAD_ICO_PARAMS,
   NEW_PHASE_ACTION,
 } from "../actions/constants";
@@ -20,7 +20,7 @@ const initialState: IBeforeIcoState = {
 const reducer: Reducer<IBeforeIcoState> = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case LOAD_BEFORE_ICO:
+    case LOAD_BEFORE_ICO_DETAILS:
       return {
         ...state,
         neumarkInitialRate: payload.neumarkInitialRate,

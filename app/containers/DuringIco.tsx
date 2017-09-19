@@ -1,37 +1,47 @@
+import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+
+import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
-import { selectEndDate } from "../reducers/icoState";
+import { selectEndDate } from "../reducers/commitmentState";
+import {
+  selectAllFunds,
+  selectIssuanceRate,
+  selectLoadingState,
+  selectTotalSupply,
+} from "../reducers/duringIcoState";
 import { IAppState } from "../reducers/index";
 
 interface IDuringIcoProps {
   loadIcoStats: () => any;
+  loadDuringIcoDetail: () => any;
   finishDate: moment.Moment;
   loading: boolean;
+  totalSupply?: BigNumber.BigNumber;
+  issuanceRate?: BigNumber.BigNumber;
+  allFunds?: BigNumber.BigNumber;
+  allInvestors?: BigNumber.BigNumber;
 }
 
 export class DuringIco extends React.Component<IDuringIcoProps> {
+  public componentDidMount() {
+    this.props.loadDuringIcoDetail();
+  }
+
   public render() {
     const { loading } = this.props;
 
-    // @todo: implement loading component
-    if (loading) {
-      return <div>Loading ...</div>;
-    }
-
-    /*
-    @todo: the below data is hard coded supposed to be from the smart contract,
-    change it after connecting the web3 with smart contract.
-    */
     return (
       <DuringIcoCountdown
-        raised={10000000}
-        neuMarkAmount={10000}
-        neuMarkToEtherRatio={8.25}
-        investorsAccountCreated={20000}
+        loading={this.props.loading}
+        raised={this.props.allFunds}
+        neuMarkAmount={this.props.totalSupply}
+        neuMarkToEtherRatio={this.props.issuanceRate}
+        investorsAccountCreated={this.props.allInvestors}
         finishDate={this.props.finishDate}
       />
     );
@@ -40,15 +50,19 @@ export class DuringIco extends React.Component<IDuringIcoProps> {
 
 function mapStateToProps(state: IAppState) {
   return {
-    loading: state.icoState.loading,
-    finishDate: selectEndDate(state.icoState),
+    finishDate: selectEndDate(state.commitmentState),
+    loading: selectLoadingState(state.duringIcoState),
+    totalSupply: selectTotalSupply(state.duringIcoState),
+    issuanceRate: selectIssuanceRate(state.duringIcoState),
+    allFunds: selectAllFunds(state.duringIcoState),
+    allInvestors: selectAllFunds(state.duringIcoState),
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    loadIcoStats: () => dispatch(loadIcoParams),
+    loadDuringIcoDetail: () => dispatch(loadDuringIcoDetails),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DuringIco);
+export default connect(mapStateToProps, mapDispatchToProps)(DuringIco as any);

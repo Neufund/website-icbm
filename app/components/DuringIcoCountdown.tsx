@@ -1,49 +1,58 @@
+import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
+import { LoadingIndicator } from "./LoadingIndicator";
 
 interface IMoneyProps {
-  raised: number;
-  neuMarkAmount: number;
-  neuMarkToEtherRatio: number;
-  investorsAccountCreated: number;
+  loading: boolean;
+  raised?: BigNumber.BigNumber;
+  neuMarkAmount?: BigNumber.BigNumber;
+  neuMarkToEtherRatio?: BigNumber.BigNumber;
+  investorsAccountCreated: BigNumber.BigNumber;
 }
 
 interface IDuringIcoCountdownProps {
+  loading: boolean;
   finishDate: moment.Moment;
-  raised: number;
-  neuMarkAmount: number;
-  neuMarkToEtherRatio: number;
-  investorsAccountCreated: number;
+  raised?: BigNumber.BigNumber;
+  neuMarkAmount?: BigNumber.BigNumber;
+  neuMarkToEtherRatio?: BigNumber.BigNumber;
+  investorsAccountCreated: BigNumber.BigNumber;
 }
 
 export const HexagonText = (props: IMoneyProps) => {
-  const { raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  if (loading) {
+    return <LoadingIndicator className={styles.loadingIndicator} />;
+  }
+
   return (
     <div className={styles.text}>
       <p className={styles.title}>Total funds committed</p>
       <p className={styles.content}>
-        <strong className={styles.extraSize}>{raised}</strong> ETH
+        <strong className={styles.extraSize}>{raised.toFixed(2)}</strong> ETH
       </p>
 
       <p className={styles.title}>Investors accounts created</p>
       <p className={styles.content}>
         <strong>
-          {investorsAccountCreated}
+          {investorsAccountCreated.toFixed(0)}
         </strong>
       </p>
 
       <p className={styles.title}>Neumarks generated</p>
       <p className={styles.content}>
-        <strong>{neuMarkAmount}</strong> <span>NEU</span>
+        <strong>{neuMarkAmount.toFixed(2)}</strong> <span>NEU</span>
       </p>
 
       <p className={styles.title}>Reward</p>
       <p className={styles.content}>
-        <strong>{neuMarkToEtherRatio}</strong> <span> NEU / </span> <strong>1</strong>{" "}
+        <strong>{neuMarkToEtherRatio.toFixed(2)}</strong> <span> NEU / </span> <strong>1</strong>{" "}
         <span>ETH</span>
       </p>
     </div>
@@ -55,7 +64,7 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   return (
     <Row className={`${styles.duringIco}`}>
       <Col sm={5} className={styles.incentive}>
-        <h1>Community-owned investment ecysystem</h1>
+        <h1>Community-owned investment ecosystem</h1>
         <p>
           Neufund is an investment platform bridging the worlds of blockchain and venture capital.
         </p>

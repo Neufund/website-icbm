@@ -13,5 +13,5 @@ export function asNumber(bignum: BigNumber) {
 }
 
 export function asEtherNumber(bignum: BigNumber) {
-  return web3Instance.fromWei(bignum, "ether").toNumber();
+  return web3Instance.fromWei(bignum, "ether");
 }

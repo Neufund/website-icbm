@@ -1,4 +1,5 @@
 import * as BigNumber from "bignumber.js";
+import * as moment from "moment";
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
 import { ICommitmentState } from "../reducers/commitmentState";
@@ -18,33 +19,20 @@ export async function loadIcoParamsFromContract() {
       ? InternalCommitmentState.WHITELIST
       : InternalCommitmentState.FINISHED;
 
-  const [internalCommitmentState, startingDate, finishDate, rate] = await Promise.all([
-    publicCommitment.state,
+  const [startingDate, finishDate] = await Promise.all([
     publicCommitment.startOf(startingInternalState),
     publicCommitment.startOf(finishingInternalState),
-    publicCommitment.issuanceRate,
   ]);
 
-  console.log("RATE: ", rate.toFixed());
-
-  //  @todo extract function
+  const now = moment();
   let commitmentState: IcoPhase;
-  if (internalCommitmentState === InternalCommitmentState.BEFORE) {
+
+  if (now.isBefore(startingDate)) {
     commitmentState = IcoPhase.BEFORE;
-  } else if (internalCommitmentState === InternalCommitmentState.FINISHED) {
-    commitmentState = IcoPhase.AFTER;
+  } else if (now.isBefore(finishDate)) {
+    commitmentState = IcoPhase.DURING;
   } else {
-    if (config.contractsDeployed.commitmentType === CommitmentType.PUBLIC) {
-      commitmentState =
-        internalCommitmentState === InternalCommitmentState.PUBLIC
-          ? IcoPhase.DURING
-          : IcoPhase.AFTER;
-    } else {
-      commitmentState =
-        internalCommitmentState === InternalCommitmentState.PUBLIC
-          ? IcoPhase.BEFORE
-          : IcoPhase.DURING;
-    }
+    commitmentState = IcoPhase.AFTER;
   }
 
   return {

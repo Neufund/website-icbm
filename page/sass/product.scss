@@ -115,6 +115,27 @@
   overflow: hidden;
 }
 
+#product-video-fullscreen {
+  display: none;
+
+  z-index: 10;
+  position: fixed;
+  top:0; left: 0;
+  width: 100%;
+  height: 100%;
+  &>iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+#product-video-fullscreen-close {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  font-size: 50px;
+  color: #fff;
+}
+
 
 .product-l, .product-r {
 }

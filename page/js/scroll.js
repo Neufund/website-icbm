@@ -84,19 +84,23 @@ setInterval(function(){
 }, 2000)
 
 // YT API
-var player
+var playerFullscreen
+var playerRegular
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player("product-yt-iframe", {
-    events: {
-      // nothing
+  if (document.getElementById("product-video-fullscreen")===null) return
+  playerRegular = new YT.Player("product-yt-iframe", {})
+  playerFullscreen = new YT.Player("product-yt-iframe-fullscreen", {})
+  document.getElementById("product-header-button").addEventListener("click", function(){
+    if(playerRegular) {
+      playerRegular.playVideo(); // fallback for iOS, so that button will start playing
+    }
+    if (playerFullscreen) {
+      document.getElementById("product-video-fullscreen").style.display="block"; // normally display: none
+      playerFullscreen.playVideo();
     }
   })
+  document.getElementById("product-video-fullscreen-close").addEventListener("click", function(){
+    playerFullscreen.pauseVideo();
+    document.getElementById("product-video-fullscreen").style.display="none";
+  })
 }
-document.getElementById("product-header-button").addEventListener("click", function(){
-  if(player) {
-    player.playVideo();
-    // document.getElementById("product-header-button").style.display="none"
-  }
-
-
-})

@@ -12,16 +12,27 @@ $spacing-from-container: 22px;
   }
 
   .amount {
+    display: inline-block;
     margin-right: 5px;
+    width: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: $font-size-medium;
     font-weight: $font-weight-normal;
   }
 
   .currency-neu {
+    margin-right: 5px;
+    margin-left: 5px;
     font-size: $font-size-small;
   }
 
   .separator {
+    margin-right: 5px;
+    margin-left: 5px;
     font-size: $font-size-small;
   }
 
@@ -43,4 +54,9 @@ $spacing-from-container: 22px;
       line-height: 1.2;
     }
   }
+}
+
+.estimation {
+  display: flex;
+  align-items: baseline;
 }

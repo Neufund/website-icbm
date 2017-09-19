@@ -16,7 +16,7 @@ const estTextFieldStyles = {
     fontSize: "22px",
   },
   style: {
-    width: "180px",
+    width: "120px",
     marginLeft: "5px",
     marginRight: "5px",
   },

@@ -32,34 +32,36 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   estimationCoefficient,
 }) => {
   return (
-    <Grid>
+    <div>
       <LegalModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
-      <Row>
-        <Col xs={12} className={layoutStyle.contentContainer}>
-          <CommitHeaderComponent number="01" title="Commit details" />
-          <CommitUnknownUser
-            contractAddress={contractAddress}
-            transactionPayload={transactionPayload}
-            gasPrice={gasPrice}
-            gasLimit={gasLimit}
-            estimationCoefficient={estimationCoefficient}
-          />
-          <Row>
-            <Col xs={12}>
-              <hr className={layoutStyle.separator} />
-            </Col>
-          </Row>
-          <CommitHeaderComponent number="02" title="After math" />
-          <Aftermath
-            userAddress="this component has to be finished"
-            lockedAmount={lockedAmount}
-            neumarkBalance={neumarkBalance}
-            unlockDate={unlockDate}
-          />
-        </Col>
-      </Row>
-    </Grid>
+      <Grid>
+        <Row>
+          <Col xs={12} className={layoutStyle.contentContainer}>
+            <CommitHeaderComponent number="01" title="Commit details" />
+            <CommitUnknownUser
+              contractAddress={contractAddress}
+              transactionPayload={transactionPayload}
+              gasPrice={gasPrice}
+              gasLimit={gasLimit}
+              estimationCoefficient={estimationCoefficient}
+            />
+            <Row>
+              <Col xs={12}>
+                <hr className={layoutStyle.separator} />
+              </Col>
+            </Row>
+            <CommitHeaderComponent number="02" title="After math" />
+            <Aftermath
+              userAddress="this component has to be finished"
+              lockedAmount={lockedAmount}
+              neumarkBalance={neumarkBalance}
+              unlockDate={unlockDate}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </div>
   );
 };
 

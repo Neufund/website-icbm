@@ -1,8 +1,9 @@
 import IconButton from "material-ui/IconButton";
 import * as React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 import * as image from "../assets/img/commit_form_hex.png";
+import { estimateNeufromEth, parseStrToNumStrict } from "../utils/utils";
 import * as style from "./CommitFundsForm.scss";
 
 const inputFieldStyles = {
@@ -74,7 +75,8 @@ interface ICommitFundsFormProps {
   handleSubmit?: () => {};
   submit?: () => {};
   invalid?: boolean;
-  neuAmount?: number;
+  ethAmount?: string;
+  estimationCoefficient: number;
 }
 
 const validateETHField = (value: string) => {
@@ -82,7 +84,7 @@ const validateETHField = (value: string) => {
     return "Required";
   }
 
-  const number = parseFloat(value.replace(",", "."));
+  const number = parseStrToNumStrict(value);
   if (isNaN(number)) {
     return "You must enter number";
   }
@@ -98,8 +100,14 @@ const CommitFundsForm = ({
   handleSubmit,
   submit,
   invalid,
-  neuAmount = 0,
+  ethAmount,
+  estimationCoefficient,
 }: ICommitFundsFormProps) => {
+  let neuAmount: number = estimateNeufromEth(estimationCoefficient)(parseStrToNumStrict(ethAmount));
+  if (isNaN(neuAmount)) {
+    neuAmount = 0;
+  }
+
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
       <div className={style.formBody}>
@@ -137,6 +145,10 @@ const CommitFundsForm = ({
   );
 };
 
+const DecoratedCommitFundsForm: any = formValues<ICommitFundsFormProps>("ethAmount")(
+  CommitFundsForm
+);
+
 interface IFormInterface {
   ethAmount: number;
 }
@@ -147,4 +159,4 @@ export default reduxForm<IFormInterface, ICommitFundsFormProps>({
     // tslint:disable-next-line: no-console
     console.log(values);
   },
-})(CommitFundsForm);
+})(DecoratedCommitFundsForm);

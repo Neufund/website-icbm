@@ -1,6 +1,7 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import { estimateNeufromEth, parseStrToNumStrict } from "../utils/utils";
 import * as style from "./CommitFundsStatic.scss";
 import { IconLink } from "./IconLink";
 import { TextCopyable } from "./TextCopyable";
@@ -49,6 +50,11 @@ const estTextFieldStyles = {
     fontWeight: 500 as 500,
     fontSize: "22px",
   },
+  hintStyle: {
+    color: "#BBC2C7",
+    fontWeight: 500 as 500,
+    fontSize: "22px",
+  },
   style: {
     width: "180px",
     marginLeft: "5px",
@@ -56,13 +62,31 @@ const estTextFieldStyles = {
   },
 };
 
-const CommitFundsEstimation: React.SFC = () =>
+interface ICommitFundsEstimation {
+  eth: string;
+  neu: number;
+  onChange: any;
+}
+
+const CommitFundsEstimationComponent: React.SFC<ICommitFundsEstimation> = ({
+  eth,
+  neu,
+  onChange,
+}) =>
   <div className={style.estimationComponent}>
     <p className={style.introduction}>Your estimated reward</p>
     <div className={style.estimation}>
-      <span className={style.amount}>1.1234</span> <span className={style.currencyNeu}>NEU</span>
+      <span className={style.amount}>{neu}</span> <span className={style.currencyNeu}>NEU</span>
       <span className={style.separator}> / </span>
-      <TextField inputStyle={estTextFieldStyles.inputStyle} style={estTextFieldStyles.style} />
+      <TextField
+        name="convertETH"
+        inputStyle={estTextFieldStyles.inputStyle}
+        style={estTextFieldStyles.style}
+        hintStyle={estTextFieldStyles.hintStyle}
+        hintText="0"
+        value={eth}
+        onChange={onChange}
+      />
       <span className={style.currencyEth}>ETH</span>
     </div>
     <p className={style.description}>
@@ -75,11 +99,54 @@ const CommitFundsEstimation: React.SFC = () =>
     </p>
   </div>;
 
+interface IProps {
+  estimationCoefficient: number;
+}
+
+interface IState {
+  eth: string;
+  neu: number;
+}
+
+class CommitFundsEstimation extends React.Component<IProps, IState> {
+  public estimateNeufromEth: (eth: number) => number;
+
+  constructor(props: IProps) {
+    super();
+    const { estimationCoefficient } = props;
+    this.state = {
+      eth: "",
+      neu: 0,
+    };
+    this.estimateNeufromEth = estimateNeufromEth(estimationCoefficient);
+  }
+
+  public render() {
+    return (
+      <CommitFundsEstimationComponent
+        eth={this.state.eth}
+        neu={this.state.neu}
+        onChange={this.change}
+      />
+    );
+  }
+
+  private change = (_event: object, newValue: string): void => {
+    const eth = parseStrToNumStrict(newValue);
+
+    this.setState({
+      eth: newValue,
+      neu: !isNaN(eth) ? this.estimateNeufromEth(eth) : 0,
+    });
+  };
+}
+
 interface ICommitFundsStatic {
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
+  estimationCoefficient: number;
 }
 
 export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
@@ -87,6 +154,7 @@ export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
   transactionPayload,
   gasPrice,
   gasLimit,
+  estimationCoefficient,
 }) =>
   <div>
     <Row className={style.initialLink}>
@@ -104,7 +172,7 @@ export const CommitFundsStatic: React.SFC<ICommitFundsStatic> = ({
         />
       </Col>
       <Col sm={4}>
-        <CommitFundsEstimation />
+        <CommitFundsEstimation estimationCoefficient={estimationCoefficient} />
       </Col>
     </Row>
   </div>;

@@ -51,13 +51,13 @@
 @media (min-width: 992px) {
   .product-l {
     img, .img-responsive {
-      padding-left: 70px;
+      padding-left: 90px;
     }
   }
 
   .product-r {
     img, .img-responsive {
-      padding-right: 70px;
+      padding-right: 90px;
     }
   }
 }
@@ -158,7 +158,7 @@
 
 .product-r2-row-wrapper {
   padding-left: 30px;
-  padding-right: 45px;
+  padding-right: 60px;
   max-width: 550px;
   margin: 0 auto;
 }
@@ -197,7 +197,7 @@
   padding-top:140px;
 }
 .product-r3-row-wrapper {
-  padding-right: 60px;
+  padding-right: 80px;
   @media (max-width: 767px) {
     padding-right: 0;
   }
@@ -221,6 +221,9 @@
   z-index: 1;
   position: relative;
   padding-right: 70px;
+  @media (min-width: 992px) {
+    padding-left: 20px;
+  }
 }
 .product-l2-2 {
   position: absolute;

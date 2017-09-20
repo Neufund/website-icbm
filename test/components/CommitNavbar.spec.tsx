@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 import * as React from "react";
 
-import { CommitNavbar } from "../../app/components/CommitNavbar";
+import { CommitNavbar } from "../../app/components/commitfunds/CommitNavbar";
 
 describe("<CommitNavbar />", () => {
   it("should render", () => {

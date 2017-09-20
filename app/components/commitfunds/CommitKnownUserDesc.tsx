@@ -1,14 +1,14 @@
 import * as React from "react";
-import * as style from "./CommitFundsDescription.scss";
-import { TextCopyable } from "./TextCopyable";
-import { UnderlinedLink } from "./UnderlinedLink";
+import { TextCopyable } from "../TextCopyable";
+import { UnderlinedLink } from "../UnderlinedLink";
+import * as style from "./CommitKnownUserDesc.scss";
 
-interface ICommitFundsDescription {
+interface ICommitKnownUserDesc {
   contractAddress: string;
   transactionPayload: string;
 }
 
-export const CommitFundsDescription: React.SFC<ICommitFundsDescription> = ({
+export const CommitKnownUserDesc: React.SFC<ICommitKnownUserDesc> = ({
   contractAddress,
   transactionPayload,
 }) =>

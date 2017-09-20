@@ -1,9 +1,8 @@
 import { BigNumber } from "bignumber.js";
 import { Moment } from "moment";
 import * as React from "react";
-
+import { UnderlinedLink } from "../UnderlinedLink";
 import * as styles from "./Aftermath.scss";
-import { UnderlinedLink } from "./UnderlinedLink";
 
 interface IAftermathProps {
   userAddress: string;

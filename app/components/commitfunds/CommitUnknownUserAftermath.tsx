@@ -6,9 +6,9 @@ import * as React from "react";
 
 import { compose } from "redux";
 import { Field, InjectedFormProps, reduxForm } from "redux-form";
-import { ethereumAddressValidator } from "../validators/ethereumAddressValidator";
+import { ethereumAddressValidator } from "../../validators/ethereumAddressValidator";
+import { UnderlinedLink } from "../UnderlinedLink";
 import * as styles from "./Aftermath.scss";
-import { UnderlinedLink } from "./UnderlinedLink";
 
 interface ICommitFundsUnknownUserAftermathProps {
   lockedAmount?: BigNumber;
@@ -30,7 +30,7 @@ const estTextFieldStyles = {
   },
 };
 
-export const CommitFundsUnknownUserAftermath: React.SFC<
+export const CommitUnknownUserAftermath: React.SFC<
   InjectedFormProps & ICommitFundsUnknownUserAftermathProps
 > = ({ lockedAmount, unlockDate, neumarkBalance, handleSubmit }) =>
   <div className={styles.aftermath}>
@@ -94,4 +94,4 @@ export default compose(
       console.log("submitting form. values: ", values);
     },
   })
-)(CommitFundsUnknownUserAftermath);
+)(CommitUnknownUserAftermath);

@@ -1,3 +1,4 @@
+import { AppState } from "../../actions/constants";
 import config from "../../config";
 import web3Provider from "../web3Provider";
 import EthToken from "./EthToken";
@@ -14,6 +15,10 @@ export let ethLock: LockedAccount = null;
 export let euroLock: LockedAccount = null;
 
 export async function initRepository() {
+  if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
+    return;
+  }
+
   if (process.env.NODE_ENV === "development") {
     publicCommitment = await PublicCommitment.createAndValidate(
       web3Provider,

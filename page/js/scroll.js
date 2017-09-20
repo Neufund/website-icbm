@@ -77,11 +77,6 @@ window.addEventListener("resize", function(){
   createCarouselIfNecessary()
   recalculateHeights()
 })
-setInterval(function(){
-  if (carousel!==null) {
-    carousel.next(1)
-  }
-}, 2000)
 
 // YT API
 var playerFullscreen

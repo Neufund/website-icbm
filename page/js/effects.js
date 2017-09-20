@@ -9,23 +9,30 @@ sr.reveal(".img-scroll")
 
 
 // carousel
-// siema.min.js
+// lory.min.js
 var carousel = null
 var thr = 768
+
 function createCarouselIfNecessary() {
   var w = window.innerWidth
 
   if (carousel=== null && w<=thr) {
-    carousel = new Siema({
-      selector: '.press .flex-row',
-      perPage: 1,
-      loop: true
+    var el = document.querySelector(".press .carousel-wrapper")
+    carousel = lory(el, {
+      infinite: 1,
+      classNameFrame: "carousel-frame",
+      classNameSlideContainer: "carousel-slides"
     })
-
   }
   if (carousel!==null && w>thr) {
-    carousel.destroy(true)
+    carousel.destroy()
     carousel = null
   }
 }
 createCarouselIfNecessary()
+
+setInterval(function(){
+  if (carousel!==null) {
+    carousel.next()
+  }
+}, 2000)

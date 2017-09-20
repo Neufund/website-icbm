@@ -5,8 +5,8 @@
   <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
 >
   <div class="container">
-    <div class="row">
-      <div class="col-md-5 with-background-text">
+    <div class="cf-row">
+      <div class="cf-md-5 with-background-text">
         <% if (backgroundText!==undefined && backgroundText!=="") {%>
           <div class="background-text"><%- backgroundText -%></div>
         <% } %>
@@ -23,7 +23,7 @@
         <% } %>
 
       </div>
-      <div class="col-md-7">
+      <div class="cf-md-7">
         <img
           class="img-responsive img-scroll"
           src="/assets/<%- image[0].url -%>"

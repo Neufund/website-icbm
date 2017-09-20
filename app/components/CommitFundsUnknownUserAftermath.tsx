@@ -27,8 +27,6 @@ const estTextFieldStyles = {
   },
   style: {
     width: "370px",
-    marginLeft: "5px",
-    marginRight: "5px",
   },
 };
 

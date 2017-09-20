@@ -149,14 +149,10 @@ const DecoratedCommitFundsForm: any = formValues<ICommitKnownUserFormProps>("eth
   CommitKnownUserForm
 );
 
-interface IFormInterface {
-  ethAmount: number;
+export interface ICommitKnownUserFormValues {
+  ethAmount: string;
 }
 
-export default reduxForm<IFormInterface, ICommitKnownUserFormProps>({
+export default reduxForm<ICommitKnownUserFormValues, ICommitKnownUserFormProps>({
   form: "commitFunds",
-  onSubmit: values => {
-    // tslint:disable-next-line: no-console
-    console.log(values);
-  },
 })(DecoratedCommitFundsForm);

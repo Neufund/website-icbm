@@ -99,7 +99,7 @@ class Contract {
   }
 
   public commitTx(params?: IPayableTxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.commit, [params]);
+    return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
   }
 
   public setAccessPolicyTx(newPolicy: BigNumber | string, params?: ITxParams): Promise<void> {

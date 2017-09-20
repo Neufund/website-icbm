@@ -2,7 +2,8 @@ import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
-import { connect } from "react-redux";
+import { connect, Dispatch } from "react-redux";
+import { submitFunds } from "../actions/submitFunds";
 import { Aftermath } from "../components/commitfunds/Aftermath";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
@@ -19,6 +20,7 @@ interface ICommitKnownUserContainer {
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
   estimationCoefficient: number;
+  submitFunds: (value: string) => {};
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -29,6 +31,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   neumarkBalance,
   unlockDate,
   estimationCoefficient,
+  submitFunds,
 }) => {
   return (
     <div>
@@ -43,6 +46,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               contractAddress={contractAddress}
               transactionPayload={transactionPayload}
               estimationCoefficient={estimationCoefficient}
+              submitFunds={submitFunds}
             />
             <Row>
               <Col xs={12}>
@@ -67,12 +71,16 @@ const mapStateToProps = (state: IAppState) => ({
   userAddress: state.userState.selectedAddress,
   contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
   transactionPayload: "0x3c7a3aff",
-  gasPrice: "5440",
-  gasLimit: "2000000",
   lockedAmount: new BigNumber(5),
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),
   estimationCoefficient: 5,
 });
 
-export default connect(mapStateToProps)(CommitKnownUserContainer);
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    submitFunds: (value: string) => dispatch(submitFunds(value)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommitKnownUserContainer);

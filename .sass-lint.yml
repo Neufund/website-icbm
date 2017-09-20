@@ -15,7 +15,6 @@ files:
     - 'page/sass/ecosystem.scss'
     - 'page/sass/footer.scss'
     - 'page/sass/global.scss'
-    - 'page/sass/header.scss'
     - 'page/sass/participating.scss'
     - 'page/sass/pictures.scss'
     - 'page/sass/press.scss'

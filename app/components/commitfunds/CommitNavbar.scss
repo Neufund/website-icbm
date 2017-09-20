@@ -1,0 +1,49 @@
+@import '../../../common/sass/variables';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+}
+
+.header:global.container { // sass-lint:disable-line force-pseudo-nesting force-element-nesting
+  background: linear-gradient($blue-dark 0%, $blue-gray 100%);
+
+  @media (min-width: $screen-lg) { // 1200
+    // original bootstrap container width is: 1170px we need to add 2 x 110 (logo width) and 2 x bootstrap paddings
+    width: 1420px; // 1170 + 220 + 30
+  }
+}
+
+.text {
+  color: $white;
+}
+
+.logo {
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-right: 24px;
+  background: url('../../../page/assets/NeuFund_icon_white.png') no-repeat left 50px center;
+  background-size: 30px;
+  width: 110px;
+  min-height: 30px;
+
+  @media (max-width: $screen-xs-max) {
+    margin-right: 15px;
+    background-position: left center;
+    width: 45px;
+  }
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 20%;
+    border-right: 1px solid $white;
+    width: 1px;
+    height: 60%;
+    content: '';
+  }
+}

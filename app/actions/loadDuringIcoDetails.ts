@@ -1,4 +1,3 @@
-import { delay } from "bluebird";
 import { ThunkAction } from "redux-thunk";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";

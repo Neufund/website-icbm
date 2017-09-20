@@ -1,11 +1,8 @@
-import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
-import { ICommitmentState } from "../reducers/commitmentState";
 import { publicCommitment } from "./contracts/ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
-import { asEtherNumber, asMomentDate } from "./utils";
 
 export async function loadIcoParamsFromContract() {
   // we need to map internally used app commimtment state to smart contracts internal state

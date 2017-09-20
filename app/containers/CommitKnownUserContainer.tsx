@@ -7,6 +7,7 @@ import { submitFunds } from "../actions/submitFunds";
 import { Aftermath } from "../components/commitfunds/Aftermath";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
+import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
 import { IAppState } from "../reducers/index";
@@ -20,7 +21,7 @@ interface ICommitKnownUserContainer {
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
   estimationCoefficient: number;
-  submitFunds: (value: string) => {};
+  submitFundsAction: (values: ICommitKnownUserFormValues) => {};
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -31,7 +32,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   neumarkBalance,
   unlockDate,
   estimationCoefficient,
-  submitFunds,
+  submitFundsAction,
 }) => {
   return (
     <div>
@@ -46,7 +47,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               contractAddress={contractAddress}
               transactionPayload={transactionPayload}
               estimationCoefficient={estimationCoefficient}
-              submitFunds={submitFunds}
+              submitFunds={submitFundsAction}
             />
             <Row>
               <Col xs={12}>
@@ -79,7 +80,8 @@ const mapStateToProps = (state: IAppState) => ({
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    submitFunds: (value: string) => dispatch(submitFunds(value)),
+    submitFundsAction: (values: ICommitKnownUserFormValues) =>
+      dispatch(submitFunds(values.ethAmount)),
   };
 }
 

@@ -8,7 +8,6 @@ import {
   publicCommitment,
 } from "./contracts/ContractsRepository";
 import { asEtherNumber } from "./utils";
-import web3Provider from "./web3Provider";
 
 export async function loadDuringIcoDetailsFromContract() {
   const [totalSupply, issuanceRate, allFunds] = await Promise.all([

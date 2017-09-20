@@ -10,7 +10,7 @@ interface ICommitKnownUser {
   contractAddress: string;
   transactionPayload: string;
   estimationCoefficient?: number;
-  submitFunds: (value: string) => void;
+  submitFunds: (values: ICommitKnownUserFormValues) => void;
 }
 
 export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
@@ -28,10 +28,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={6}>
-        <CommitKnownUserForm
-          estimationCoefficient={estimationCoefficient}
-          onSubmit={values => submitFunds(values.ethAmount)}
-        />
+        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} onSubmit={submitFunds} />
       </Col>
       <Col sm={6}>
         <CommitKnownUserDesc

@@ -1,8 +1,6 @@
 import { BigNumber } from "bignumber.js";
-import { delay } from "bluebird";
 
 import { Moment } from "moment/moment";
-import { IcoPhase } from "../../actions/constants";
 import { asMomentDate } from "../utils";
 import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 

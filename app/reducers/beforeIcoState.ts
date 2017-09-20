@@ -1,12 +1,5 @@
 import * as BigNumber from "bignumber.js";
-import * as moment from "moment";
-import { Moment } from "moment";
-import {
-  IcoPhase,
-  LOAD_BEFORE_ICO_DETAILS,
-  LOAD_ICO_PARAMS,
-  NEW_PHASE_ACTION,
-} from "../actions/constants";
+import { LOAD_BEFORE_ICO_DETAILS } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IBeforeIcoState {

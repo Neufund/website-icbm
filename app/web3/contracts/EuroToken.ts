@@ -1,4 +1,5 @@
 import * as BigNumber from "bignumber.js";
+import { promisify } from "../utils";
 import * as EuroTokenAbiJson from "./EuroToken.abi.json";
 
 type BigNumber = BigNumber.BigNumber;
@@ -9,28 +10,7 @@ interface ITxParams {
   gasPrice?: number | string | BigNumber;
 }
 
-interface IPayableTxParams {
-  value: string | BigNumber;
-  from?: string;
-  gas?: number | string | BigNumber;
-  gasPrice?: number | string | BigNumber;
-}
-
-function promisify(func: any, args: any): Promise<any> {
-  return new Promise((res, rej) => {
-    func(...args, (err: any, data: any) => {
-      if (err) return rej(err);
-      return res(data);
-    });
-  });
-}
-
 class Contract {
-  public readonly rawWeb3Contract: any;
-
-  public constructor(web3: any, address: string) {
-    this.rawWeb3Contract = web3.eth.contract(EuroTokenAbiJson).at(address);
-  }
   public static async createAndValidate(web3: any, address: string): Promise<Contract> {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
@@ -38,6 +18,12 @@ class Contract {
       throw new Error(`Contract at ${address} doesn't exist!`);
     }
     return contract;
+  }
+
+  public readonly rawWeb3Contract: any;
+
+  public constructor(web3: any, address: string) {
+    this.rawWeb3Contract = web3.eth.contract(EuroTokenAbiJson).at(address);
   }
 
   public get name(): Promise<string> {

@@ -1,26 +1,11 @@
 import { BigNumber } from "bignumber.js";
+import { promisify } from "../utils";
 import * as NeumarkAbiJson from "./Neumark.abi.json";
 
 interface ITxParams {
   from?: string;
   gas?: number | string | BigNumber;
   gasPrice?: number | string | BigNumber;
-}
-
-interface IPayableTxParams {
-  value: string | BigNumber;
-  from?: string;
-  gas?: number | string | BigNumber;
-  gasPrice?: number | string | BigNumber;
-}
-
-function promisify(func: any, args: any): Promise<any> {
-  return new Promise((res, rej) => {
-    func(...args, (err: any, data: any) => {
-      if (err) return rej(err);
-      return res(data);
-    });
-  });
 }
 
 class Contract {
@@ -32,7 +17,7 @@ class Contract {
     }
     return contract;
   }
-  
+
   public readonly rawWeb3Contract: any;
 
   public constructor(web3: any, address: string) {

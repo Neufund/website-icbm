@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
-import { loadIcoParams } from "../actions/loadIcoParams";
 import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
 import { selectEndDate } from "../reducers/commitmentState";
 import {
@@ -33,8 +32,6 @@ export class DuringIco extends React.Component<IDuringIcoProps> {
   }
 
   public render() {
-    const { loading } = this.props;
-
     return (
       <DuringIcoCountdown
         loading={this.props.loading}

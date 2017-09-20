@@ -1,6 +1,5 @@
 import * as BigNumber from "bignumber.js";
-import * as moment from "moment";
-import { IcoPhase, LOADING_DURING_ICO_DETAILS, SET_DURING_ICO_DETAILS } from "../actions/constants";
+import { LOADING_DURING_ICO_DETAILS, SET_DURING_ICO_DETAILS } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IDuringIcoState {

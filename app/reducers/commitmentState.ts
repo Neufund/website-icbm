@@ -1,5 +1,4 @@
 import * as moment from "moment";
-import { Moment } from "moment";
 import { IcoPhase, LOAD_ICO_PARAMS, NEW_PHASE_ACTION } from "../actions/constants";
 import { Reducer } from "../types";
 
@@ -37,11 +36,11 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
 
 export default reducer;
 
-export function selectStartDate(state: ICommitmentState): Moment {
+export function selectStartDate(state: ICommitmentState): moment.Moment {
   return moment(state.startingDate);
 }
 
-export function selectEndDate(state: ICommitmentState): Moment {
+export function selectEndDate(state: ICommitmentState): moment.Moment {
   return moment(state.finishDate);
 }
 

@@ -2,7 +2,6 @@ import * as moment from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
 
-import { BigNumber } from "bignumber.js";
 import { loadBeforeIcoDetails } from "../actions/loadBeforeIcoDetails";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { Incentive } from "../components/Incentive";

@@ -1,5 +1,3 @@
-import { asNumber } from "./utils";
-
 export async function loadIcoStats() {
   // const lockedAccount = Crowdsale(CrowdsaleAddress);
 

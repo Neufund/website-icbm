@@ -62,7 +62,7 @@ $(document).ready(() => {
 
 $(".show-answer").click(function(e) {
   e.preventDefault();
-  const pTag: any = $(this).siblings("p")[0];
+  const pTag: any = $(this).siblings(".answer")[0];
   const iconTag: any = $(this).find(".material-icons")[0];
 
   if ($(pTag).is(":visible")) {
@@ -74,7 +74,7 @@ $(".show-answer").click(function(e) {
   }
 });
 
-$(window).scroll(e => {
+$(window).scroll(() => {
   const scroll: number = $(window).scrollTop();
   const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
   if (scroll > 20) {

@@ -1,22 +1,52 @@
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Countdown from "./containers/Countdown";
+import { Provider } from "react-redux";
+import { applyMiddleware, compose, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reduxLogger from "redux-logger";
+import { autoRehydrate, persistStore } from "redux-persist";
+import reduxThunk from "redux-thunk";
 
-const root = document.getElementById("react-root");
+import { asyncSessionStorage } from "redux-persist/storages";
+import App from "./containers/App";
+import Commit from "./containers/Commit";
+import muiTheme from "./muiTheme";
+import reducers from "./reducers";
 
-const render = () => {
+// @todo add bundle splitting and separate these renders #UAF
+
+const render = (storage: any) => {
   /* We are doing this because we are not loading the "react-root"
-  div in the following pages[whitepaper, faq, prodcut]
+  div in the following pages[whitepaper, faq, product]
   */
-  if (root) {
+  const indexRoot = document.getElementById("react-root");
+  const commitRoot = document.getElementById("react-root-commit");
+  if (indexRoot) {
     ReactDOM.render(
-      <div>
-        <Countdown />
-      </div>,
-      root
+      <Provider store={storage}>
+        <App />
+      </Provider>,
+      indexRoot
+    );
+  }
+  if (commitRoot) {
+    ReactDOM.render(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Provider store={storage}>
+          <Commit />
+        </Provider>
+      </MuiThemeProvider>,
+      commitRoot
     );
   }
 };
+
+const enhancers = () =>
+  composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
+
+// Create the Redux store
+const store = createStore(reducers, enhancers());
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {
@@ -49,4 +79,11 @@ if (process.env.NODE_ENV !== "production") {
   require('!raw-loader!../dist/app.css');
 }
 
-render();
+persistStore(
+  store,
+  {
+    whitelist: ["legalAgreementState"],
+    storage: asyncSessionStorage,
+  },
+  () => render(store)
+);

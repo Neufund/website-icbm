@@ -1,0 +1,14 @@
+@import '../../common/sass/variables';
+
+.content-container {
+  padding: 44px $commit-number-combined 0;
+}
+
+.separator {
+  position: relative;
+  left: -$commit-number-combined ;
+  margin-top: 85px;
+  margin-bottom: 85px;
+  background-color: $gray;
+  width: calc(100% + #{$commit-number-combined });
+}

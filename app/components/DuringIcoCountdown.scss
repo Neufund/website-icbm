@@ -1,0 +1,122 @@
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables'; // sass-lint:disable-line clean-import-paths
+@import '../../common/sass/variables';
+
+.during-ico {
+  min-height: 480px;
+
+  @media (max-width: $screen-xs) {
+    height: auto;
+  }
+
+  .incentive {
+    margin-top: 100px;
+
+    @media (max-width: $screen-sm) {
+      margin-top: $padding-between-sections;
+    }
+
+    p {
+      margin-top: $space-bottom-between-elements;
+      font-size: $font-size-normal;
+    }
+  }
+
+  .hexagons {
+    display: block;
+    top: 45px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+    height: 350px;
+
+    .hexagon-blue {
+      position: absolute;
+      animation: breathing-blue 20s ease-in-out infinite normal;
+      -webkit-animation: breathing-blue 20s ease-in-out infinite normal;   // sass-lint:disable-line no-vendor-prefixes
+      -webkit-font-smoothing: antialiased;   // sass-lint:disable-line no-vendor-prefixes
+    }
+
+    .hexagon-white {
+      position: absolute;
+      top: 18px;
+      left: 31px;
+      transform: rotate(-26deg);
+      animation: breathing 20s ease-out infinite normal;
+      -webkit-animation: breathing 20s ease-out infinite normal;  // sass-lint:disable-line no-vendor-prefixes
+      -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
+    }
+  }
+
+  .text {
+    @media (max-width: $screen-sm) {
+      padding-top: 10px;
+    }
+
+    p {
+      margin: 0;
+      padding-right: 0;
+    }
+
+    span,
+    p {
+      font-weight: $font-extra-weight-light;
+    }
+
+    .title {
+      margin-bottom: 0;
+      color: $white;
+      font-size: $font-size-small;
+
+      @media (max-width: $screen-sm) {
+        color: $blue-dark-light;
+      }
+    }
+
+    .content {
+      margin-bottom: $space-between-elements;
+    }
+
+    .extra-size {
+      font-size: $font-extra-big-size;
+    }
+  }
+
+  .hex-container {
+    position: relative;
+    min-height: 480px;
+  }
+
+  .hex-container-text {
+    position: absolute;
+    top: 105px;
+    left: 120px;
+    color: $white;
+
+    p {
+      font-size: $font-size-small;
+    }
+
+    h1 {
+      margin-top: 5px;
+      text-align: center;
+    }
+  }
+
+  .button-container {
+    margin-top: $space-between-elements;
+  }
+
+  .countdown-root {
+    margin-left: 5px;
+  }
+
+  .countdown-label {
+    margin-right: 5px;
+    font-weight: $font-weight-light;
+  }
+
+  .countdown-value {
+    font-size: 16px;
+    font-weight: $font-weight-bold;
+  }
+}

@@ -1,0 +1,7 @@
+@import '../../common/sass/variables';
+
+.underlined-link {
+  text-decoration: underline;
+  color: $gray-lighter;
+  font-size: $font-size-smallest;
+}

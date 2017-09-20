@@ -27,8 +27,9 @@
     <title>Neufund | <%= title %></title>
 
     <link rel="stylesheet" type="text/css" href="app<%= hashes.cssBundleHash %>.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
@@ -39,5 +40,19 @@
 
       ga('create', '<%= GA_ID %>', 'auto');
       ga('send', 'pageview');
+
+      var callback = function(){
+        new Clipboard('.copy-to-clipboard');
+      };
+
+      if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+      ) {
+        callback();
+      } else {
+        document.addEventListener("DOMContentLoaded", callback);
+      }
+
     </script>
 </head>

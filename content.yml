@@ -102,7 +102,7 @@ team:
        insurance and government (Fiat, Hewlett-Packard).</p>
 
    - name: "Remco Bloemen"
-     title: "Product Owner and Co-Founder"
+     title: "Blockchain​ ​Architect​ ​&​ ​Product​ ​Owner"
      image: "../assets/RemcoBloemen_bw.jpg"
      preTitle: ""
      links:
@@ -409,7 +409,7 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: "Bitcoin Blockchain Investor and Entrepreneur & Co-Founder at Bitcoin.com"
+      title: "Crypto Investor and Entrepreneur & Former Co-founder of Bitcoin.com in 2011/12"
       image: "../assets/adam-stradling.png"
       preTitle: ""
       links:
@@ -436,15 +436,6 @@ advisors:
         Max immersed himself in the global startup community from a young age, beginning at just 14. Over the past
         several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
-
-    - name: "Shawn O'Connor"
-      title: "Kraken.com"
-      image: "../assets/shawnkraken.png"
-      preTitle: "CTO"
-      links:
-        website: "https://www.kraken.com/"
-      email: ""
-      bio: ""
 
     - name: "Christophe Maire"
       title: "Atlantic Labs"

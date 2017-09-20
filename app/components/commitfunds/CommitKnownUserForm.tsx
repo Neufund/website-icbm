@@ -2,9 +2,9 @@ import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
-import * as image from "../assets/img/commit_form_hex.png";
-import { estimateNeufromEth, parseStrToNumStrict } from "../utils/utils";
-import * as style from "./CommitFundsForm.scss";
+import * as image from "../../assets/img/commit_form_hex.png";
+import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
+import * as style from "./CommitKnownUserForm.scss";
 
 const inputFieldStyles = {
   floatingLabelStyle: {
@@ -71,7 +71,7 @@ const styledField = (props: any) => {
   return <TextField {...computedProps} />;
 };
 
-interface ICommitFundsFormProps {
+interface ICommitKnownUserFormProps {
   handleSubmit?: () => {};
   submit?: () => {};
   invalid?: boolean;
@@ -96,13 +96,13 @@ const validateETHField = (value: string) => {
   return undefined;
 };
 
-const CommitFundsForm = ({
+const CommitKnownUserForm = ({
   handleSubmit,
   submit,
   invalid,
   ethAmount,
   estimationCoefficient,
-}: ICommitFundsFormProps) => {
+}: ICommitKnownUserFormProps) => {
   let neuAmount: number = estimateNeufromEth(estimationCoefficient)(parseStrToNumStrict(ethAmount));
   if (isNaN(neuAmount)) {
     neuAmount = 0;
@@ -145,15 +145,15 @@ const CommitFundsForm = ({
   );
 };
 
-const DecoratedCommitFundsForm: any = formValues<ICommitFundsFormProps>("ethAmount")(
-  CommitFundsForm
+const DecoratedCommitFundsForm: any = formValues<ICommitKnownUserFormProps>("ethAmount")(
+  CommitKnownUserForm
 );
 
 interface IFormInterface {
   ethAmount: number;
 }
 
-export default reduxForm<IFormInterface, ICommitFundsFormProps>({
+export default reduxForm<IFormInterface, ICommitKnownUserFormProps>({
   form: "commitFunds",
   onSubmit: values => {
     // tslint:disable-next-line: no-console

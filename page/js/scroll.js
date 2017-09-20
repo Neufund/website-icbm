@@ -83,7 +83,11 @@ var playerFullscreen
 var playerRegular
 function onYouTubeIframeAPIReady() {
   if (document.getElementById("product-video-fullscreen")===null) return
-  playerRegular = new YT.Player("product-yt-iframe", {})
+  playerRegular = new YT.Player("product-yt-iframe", {
+    events: {
+      onReady: forcePlay
+    }
+  })
   playerFullscreen = new YT.Player("product-yt-iframe-fullscreen", {})
   document.getElementById("product-header-button").addEventListener("click", function(){
     if(playerRegular) {
@@ -98,4 +102,9 @@ function onYouTubeIframeAPIReady() {
     playerFullscreen.pauseVideo();
     document.getElementById("product-video-fullscreen").style.display="none";
   })
+}
+function forcePlay() {
+  setTimeout(function(){
+    if (playerRegular) playerRegular.playVideo()
+  }, 200)
 }

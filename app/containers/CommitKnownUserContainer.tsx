@@ -64,7 +64,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 };
 
 const mapStateToProps = (state: IAppState) => ({
-  userAddress: state.userState.address,
+  userAddress: state.userState.selectedAddress,
   contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
   transactionPayload: "0x3c7a3aff",
   gasPrice: "5440",

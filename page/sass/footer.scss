@@ -1,24 +1,21 @@
 html{
   position:relative;
   min-height: 100%;
-  // padding-bottom: 72px;
 }
 
 .footer-container{
     position: relative;
 }
-.footer-container, .footer-bottom-container{
-    @media (min-width: $screen-lg) {
-        // right: -50px;
-    }
-}
+
 .border-top{
     border-top: 1px $off-white solid;
     padding-top: 20px;
 }
+
 .footer{
     padding-top: $padding-between-sections;
     border: 0;
+
     ul{
         display: inline-block;
         padding: 0px;
@@ -49,10 +46,7 @@ html{
 
 .footer-bottom{
     position: relative;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
-    z-index: 1; // fix for product page, hopefully doesn't break commit page
+    z-index: 1;
     font-size: 12px;
     font-weight: $font-weight-more-bold;
     margin-top: $margin-bottom-between-paragraphs;
@@ -73,9 +67,10 @@ html{
 
 .footer-bottom-container {
   position: relative;
+
   .footer-hex {
     position: absolute;
-    right: 0px; //-100px
+    right: 0px;
     bottom: -34px;
     z-index: 0;
   }

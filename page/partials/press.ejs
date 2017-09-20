@@ -10,4 +10,19 @@
         </div>
         <% } %>
     </div>
+    <div class="carousel-wrapper">
+        <div class="carousel-frame">
+            <ul class="carousel-slides">
+                <% for ( var i = 0 ; i < links.length ; i++ ) { %>
+                <li>
+                  <% if (links[i].link) { %>
+                  <a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>"/></a>
+                  <% } else { %>
+                  <img src="<%= links[i].img -%>"/>
+                  <% } %>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 </div>

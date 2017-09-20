@@ -23,6 +23,8 @@ files:
     - 'common/sass/variables.scss'
     - 'app/components/HexagonsStack.scss'
     - 'app/components/Incentive.scss'
+    - 'page/sass/product_menu.scss'
+    - 'page/sass/product.scss'
 rules:
   property-sort-order:
     - 1

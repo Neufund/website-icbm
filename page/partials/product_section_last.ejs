@@ -1,0 +1,12 @@
+<div
+  id="<%- id -%>"
+  data-menu-text="<%- menu_text -%>"
+  class="section product product-last<% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
+>
+  <div class="container">
+    <h3><%- headline -%></h3>
+    <a class="last-btn" href="<%- button_url -%>"><%- button_text -%></a>
+    <a class="last-link" href="<%- link_url -%>"><%- link_text -%></a>
+  </div>
+</div>

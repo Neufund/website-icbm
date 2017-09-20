@@ -83,7 +83,7 @@
   }
 }
 #product-content {
-  padding-bottom: 16vw; // okay...
+  padding-bottom: 5vw;
   z-index: 1;
 }
 
@@ -97,6 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-top: 25px;
 }
 #product-header-button {
   font-size: 70px;

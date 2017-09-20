@@ -1,3 +1,6 @@
+import { lory } from "lory.js";
+const ScrollReveal = require("scrollreveal");
+
 // scroll reveal
 window.sr = ScrollReveal({
   scale: 1,
@@ -8,12 +11,10 @@ sr.reveal(".product-r2-row-wrapper div", 200)
 sr.reveal(".img-scroll")
 
 
-// carousel
-// lory.min.js
 var carousel = null
 var thr = 768
 
-function createCarouselIfNecessary() {
+export function createCarouselIfNecessary() {
   var w = window.innerWidth
 
   if (carousel=== null && w<=thr) {
@@ -29,10 +30,11 @@ function createCarouselIfNecessary() {
     carousel = null
   }
 }
-createCarouselIfNecessary()
+
+createCarouselIfNecessary();
 
 setInterval(function(){
-  if (carousel!==null) {
+  if (carousel !== null) {
     carousel.next()
   }
 }, 2000)

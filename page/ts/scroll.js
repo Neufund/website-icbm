@@ -1,4 +1,4 @@
-// scroll highlighting
+import { createCarouselIfNecessary } from './effects'
 
 function getScroll() {
   return window.scrollY || document.documentElement.scrollTop

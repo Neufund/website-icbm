@@ -87,13 +87,11 @@ gulp.task("copy", () => {
 gulp.task("copy-fa", () =>
   gulp.src("./node_modules/font-awesome/fonts/*").pipe(gulp.dest("./dist/fonts/"))
 );
-gulp.task("copy-js", () => gulp.src("./page/js/**/*").pipe(gulp.dest("./dist/js/")));
 
 gulp.task("watch", () => {
   gulp.watch("./page/**/*.ejs", ["page"]);
   gulp.watch(["./page/sass/*.scss", "./common/sass/*.scss"], ["sass"]);
   gulp.watch("./page/assets/**/*", ["copy"]);
-  gulp.watch("./page/js/**/*", ["copy-js"]);
   gulp.watch("./*.yml", ["page"]);
 });
 
@@ -107,4 +105,4 @@ gulp.task("minify-html", () => {
 
 gulp.task("build", seq("clean", "build:prod"));
 // we skip clean task because its called before by yarn
-gulp.task("build:prod", seq(["sass", "copy", "copy-fa", "copy-js"], "page"));
+gulp.task("build:prod", seq(["sass", "copy", "copy-fa"], "page"));

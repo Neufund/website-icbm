@@ -120,6 +120,7 @@
 #product-video-foreground {
   opacity: 0.3;
   overflow: hidden;
+  height: 100%; // fix for Safari
 }
 
 #product-video-fullscreen {

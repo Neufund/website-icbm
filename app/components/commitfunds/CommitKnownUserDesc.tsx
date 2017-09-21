@@ -21,7 +21,7 @@ export const CommitKnownUserDesc: React.SFC<ICommitKnownUserDesc> = ({
         See the instruction if you want to commit funds from a wallet outside of web 3.0
       </UnderlinedLink>
     </p>
-    <p>
+    <p className={style.address}>
       Validate ethereum smart contract address:
       <br />
       <TextCopyable className={style.textCopyable} text={contractAddress} />

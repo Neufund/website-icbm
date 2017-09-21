@@ -13,13 +13,18 @@ $spacing-from-container: 22px;
   padding: $spacing-from-container;
   line-height: 1.6;
   font-size: $font-size-smallest;
+  font-weight: $font-weight-light;
 
   p {
     margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .verify-link {
     margin-left: 30px;
+    font-weight: $font-weight-normal;
   }
 
   .gas-section {

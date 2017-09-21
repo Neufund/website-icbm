@@ -3,3 +3,4 @@
 .env
 .nyc_output
 coverage
+yarn-error.log

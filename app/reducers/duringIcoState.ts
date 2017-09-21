@@ -53,3 +53,7 @@ export function selectIssuanceRate(state: IDuringIcoState): BigNumber.BigNumber 
 export function selectAllFunds(state: IDuringIcoState): BigNumber.BigNumber {
   return state.allFunds ? new BigNumber.BigNumber(state.allFunds) : null;
 }
+
+export function selectAllInvestors(state: IDuringIcoState): BigNumber.BigNumber {
+  return state.allFunds ? new BigNumber.BigNumber(state.allInvestors) : null;
+}

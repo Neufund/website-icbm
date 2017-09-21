@@ -1,5 +1,57 @@
 [
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "investor",
+        "type": "address"
+      }
+    ],
+    "name": "whitelistTicket",
+    "outputs": [
+      {
+        "name": "token",
+        "type": "uint8"
+      },
+      {
+        "name": "ticketEur",
+        "type": "uint256"
+      },
+      {
+        "name": "neumarkReward",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "minTicketEur",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "platformOperatorNeumarkRewardShare",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [],
     "name": "abort",
@@ -21,6 +73,24 @@
     "name": "commit",
     "outputs": [],
     "payable": true,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "atWhitelistPosition",
+        "type": "uint256"
+      }
+    ],
+    "name": "whitelistInvestor",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
     "type": "function"
   },
   {
@@ -54,6 +124,19 @@
       {
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "euroLock",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
       }
     ],
     "payable": false,
@@ -95,6 +178,19 @@
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "platformWalletAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "state",
@@ -125,10 +221,49 @@
     "type": "function"
   },
   {
+    "constant": true,
+    "inputs": [],
+    "name": "maxCapEur",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "etherLock",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [],
     "name": "commitEuro",
     "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "neumark",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
     "payable": false,
     "type": "function"
   },
@@ -222,7 +357,7 @@
         "type": "uint256"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "name": "paymentToken",
         "type": "address"
       },
@@ -233,7 +368,7 @@
       },
       {
         "indexed": false,
-        "name": "purchasedAmount",
+        "name": "grantedAmount",
         "type": "uint256"
       },
       {
@@ -242,7 +377,7 @@
         "type": "address"
       }
     ],
-    "name": "LogFundsInvested",
+    "name": "LogFundsCommited",
     "type": "event"
   },
   {

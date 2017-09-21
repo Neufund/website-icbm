@@ -19,8 +19,10 @@ class Contract {
   }
 
   public readonly rawWeb3Contract: any;
+  public readonly address: string;
 
   public constructor(web3: any, address: string) {
+    this.address = address;
     this.rawWeb3Contract = web3.eth.contract(LockedAccountAbiJson).at(address);
   }
 
@@ -28,7 +30,7 @@ class Contract {
     return promisify(this.rawWeb3Contract.totalLockedAmount, []);
   }
 
-  public get assetToken(): Promise<BigNumber | string> {
+  public get assetToken(): Promise<string> {
     return promisify(this.rawWeb3Contract.assetToken, []);
   }
 

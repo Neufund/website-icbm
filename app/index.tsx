@@ -1,34 +1,59 @@
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunkMiddleware from "redux-thunk";
 import reduxLogger from "redux-logger";
+import { autoRehydrate, persistStore } from "redux-persist";
+import reduxThunk from "redux-thunk";
 
-import Countdown from "./containers/Countdown";
+import { asyncSessionStorage } from "redux-persist/storages";
+import App from "./containers/App";
+import Commit from "./containers/Commit";
+import muiTheme from "./muiTheme";
+import reducers from "./reducers";
+import { initRepository } from "./web3/contracts/ContractsRepository";
 
-const root = document.getElementById("react-root");
+// @todo add bundle splitting and separate these renders #UAF
 
-const render = () => {
-  // We are doing this because we are not loading the "react-root" div in the following pages[whitepaper, faq, prodcut]    
-  if (root) {
+const render = (storage: any) => {
+  /* We are doing this because we are not loading the "react-root"
+  div in the following pages[whitepaper, faq, product]
+  */
+  const indexRoot = document.getElementById("react-root");
+  const commitRoot = document.getElementById("react-root-commit");
+  if (indexRoot) {
     ReactDOM.render(
-    <div>
-      <Countdown />
-    </div>,
-    root
-  );  
+      <Provider store={storage}>
+        <App />
+      </Provider>,
+      indexRoot
+    );
+  }
+  if (commitRoot) {
+    ReactDOM.render(
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Provider store={storage}>
+          <Commit />
+        </Provider>
+      </MuiThemeProvider>,
+      commitRoot
+    );
   }
 };
 
-const enhancers = (routes: any) =>
-  composeWithDevTools(applyMiddleware(thunkMiddleware, reduxLogger));
+const enhancers = () =>
+  composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
+
+// Create the Redux store
+const store = createStore(reducers, enhancers());
 
 // Add development time features
 if (process.env.NODE_ENV !== "production") {
   // Enable React Debug Tool
-  const ReactDebugTool = require("react-dom/lib/ReactDebugTool");
+  // tslint:disable-next-line
+  const ReactDebugTool = require('react-dom/lib/ReactDebugTool');
   ReactDebugTool.beginProfiling();
 
   // Enable Webpack hot module replacement
@@ -48,8 +73,18 @@ if (process.env.NODE_ENV !== "production") {
   }
 
   // we require this files only to track changes in them automatically
-  require("!raw-loader!../dist/index.html");
-  require("!raw-loader!../dist/app.css");
+
+  // tslint:disable-next-line
+  require('!raw-loader!../dist/index.html');
+  // tslint:disable-next-line
+  require('!raw-loader!../dist/app.css');
 }
 
-render();
+persistStore(
+  store,
+  {
+    whitelist: ["legalAgreementState"],
+    storage: asyncSessionStorage,
+  },
+  () => initRepository().then(() => render(store))
+);

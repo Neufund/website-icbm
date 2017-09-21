@@ -2,15 +2,28 @@
 <html>
     <%- include('partials/head', {title: 'FAQ', meta: content.meta_head }); %>
     <body>
+        <div class="background-wrapper">
+          <div class="background"></div>
+        </div>
         <%- include('partials/header', { active: 'faq', hashes: hashes }); %>
-            <div class="main container">
-              <%- include('partials/faq' ); %>
-              <%- include('partials/footer', content.footer); %>
+        <div class="main container">
 
-              <script src="/main<%= hashes.jsBundleHash %>.js"></script>
-              <noscript>
-                <p>This page requires JavaScript to be enabled.</p>
-              </noscript>
+          <% if( FAQ_ENABLED ) { %>
+           <%- include('partials/faq', faq ); %>
+          <% } else { %>
+            <div class="section whitepaper ecosystem">
+                <div class="text-box">
+                    <h5>Coming soon</h5>
+                    <div class="underline"></div>
+                </div> <!-- end text box -->
             </div>
+          <% } %>
+          <%- include('partials/footer', content.footer); %>
+
+          <script src="/main<%= hashes.jsBundleHash %>.js"></script>
+          <noscript>
+            <p>This page requires JavaScript to be enabled.</p>
+          </noscript>
+        </div>
     </body>
 </html>

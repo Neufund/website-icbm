@@ -1,113 +1,92 @@
+import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
+import "!style-loader!css-loader!vex-js/dist/css/vex.css";
 import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import * as $ from "jquery";
 import "owl.carousel";
-import * as vex from "vex-js";
 import * as vexDialog from "vex-dialog";
+import * as vex from "vex-js";
+import "./effects.js";
+import "./faqScroll";
+import { getPersonModal } from "./personModal";
+import "./scroll.js";
 import scrollbarFix from "./scrollbarFix";
-import "!style-loader!css-loader!vex-js/dist/css/vex.css";
-import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
+
+$("body").faqScroll({
+  sidebarArea: "#sidebar",
+  offset: 80,
+  speed: 100,
+});
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
 
-const getPersonModal: any = function(
-  name: string,
-  image: string,
-  preTitle: string,
-  title: string,
-  bio: string,
-  domain: string,
-  email: string
-) {
+const getParticipateModal: any = (text: string) => {
   return {
-    input: `<a href="#" class="close-modal"></a>
-                <div class="row">
-                <div class="col-md-3 person-info-container">
-                    <div class="person-info">
-                        <img class="rounded-image" src="${image}"/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="person-details">
-                        <h4 class="name">${name}</h4>
-                        <div class="title-container">
-                            <span>${preTitle}</span>
-                            <h4 class="position">${title}</h4>
-                        </div>
-                        <p class="bio">${bio}</p>
-                        <a class="link" href="#">${domain}</a>
-                        <p class="handle">${email}</p>
-                    </div>
-                </div>
-            </div>`,
+    unsafeContent: `
+      <div class="row">
+        <div class="col-md-12">
+          ${text}
+        </div>
+      </div>`,
   };
 };
-
-const getParticipateModal: any = function(text: string) {
-  return {
-    input: `<a href="#" class="close-modal"></a>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3> ${text} </h3>
-                    </div>
-                </div>
-            </div>`,
-  };
-};
-$(document).ready(function() {
-  $(".has-carousel").owlCarousel({
-    navigation: true,
-    items: 1,
-    singleItem: true,
-    lazyLoad: true,
-    dots: true,
-    autoPlay: 3000, //Set AutoPlay to 3 seconds
-  });
-
+$(document).ready(() => {
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";
-  $(".person-block a").click(function(e) {
-    e.preventDefault();
-  });
+
   $(".person-block").click(function() {
-    const name: string = $(this).find("h4.name a").text();
-    const image: string = $(this).find("img").attr("src");
-    const title: string = $(this).find("h4.position").text();
-    const bio: string = $(this).find("p.bio").text();
-    const preTitle: string = $(this).find("span.pre-title").text();
-    const domain: string = $(this).find("a.domain").text();
-    const email: string = $(this).find("p.link").text();
+    // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
+    const name = $(this).find("h4.name").text().trim();
+    const image = $(this).find("img").attr("src").trim();
+    const title = $(this).find("h4.position").text().trim();
+    const bio = $(this).find(".bio").text().trim();
+    const preTitle = $(this).find("span.pre-title").text().trim();
+    const rawLinks = $(this).find(".links").text().trim();
+    const links = rawLinks ? JSON.parse(rawLinks) : {};
+    const email = $(this).find("p.link").text().trim();
 
-    vex.dialog.open(getPersonModal(name, image, preTitle, title, bio, domain, email));
-  });
-
-  $("body").on("click", ".close-modal", function(e) {
-    e.preventDefault();
-    $(".vex.vex-theme-os").trigger("click");
+    vex.open(getPersonModal(name, image, preTitle, title, bio, links, email));
   });
 
   $(".team .see-more").click(function() {
-    $(this).text().trim().toLowerCase() == seeMore.trim().toLowerCase()
+    $(this).text().trim().toLowerCase() === seeMore.trim().toLowerCase()
       ? $(this).text(seeLess)
       : $(this).text(seeMore);
     $(".team .is-hidden").fadeToggle("slow", "linear");
   });
+
   $(".comming-soon").click(function(e) {
     e.preventDefault();
     const text = $(this).text();
-    vex.dialog.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
+    vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
 });
 
-$(window).scroll(function(e) {
+$(".show-answer").click(function(e) {
+  e.preventDefault();
+  const pTag: any = $(this).siblings(".answer")[0];
+  const iconTag: any = $(this).find(".material-icons")[0];
+
+  if ($(pTag).is(":visible")) {
+    $(pTag).slideUp();
+    $(iconTag).html("keyboard_arrow_down");
+  } else {
+    $(pTag).slideDown();
+    $(iconTag).html("keyboard_arrow_up");
+  }
+});
+
+$(window).scroll(() => {
   const scroll: number = $(window).scrollTop();
   const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
-  if (scroll > 20) {
-    if ($(headerSelector).hasClass("navbar-no-border"))
-      $(headerSelector).removeClass("navbar-no-border");
+  if (scroll < 20) {
+    if ($(headerSelector).hasClass("border")) {
+      $(headerSelector).removeClass("border");
+    }
   } else {
-    if (!$(headerSelector).hasClass("navbar-no-border"))
-      $(headerSelector).addClass("navbar-no-border");
+    if (!$(headerSelector).hasClass("border")) {
+      $(headerSelector).addClass("border");
+    }
   }
 });
 
@@ -121,8 +100,8 @@ function movePlatformButtonToAnotherColumn() {
 $(window).resize(movePlatformButtonToAnotherColumn);
 movePlatformButtonToAnotherColumn();
 
-//Smooth scrolling
-$(document).ready(function() {
+// Smooth scrolling
+$(document).ready(() => {
   $('a[href*="#commit"]').click(function(e) {
     e.preventDefault();
     // the destination id will be taken from the href attribute
@@ -130,7 +109,7 @@ $(document).ready(function() {
     if (dest === "#") {
       return;
     }
-    var target = $(dest);
+    const target = $(dest);
     $("html, body").stop().animate(
       {
         scrollTop: target.offset().top,

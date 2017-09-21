@@ -1,36 +1,98 @@
-import * as React from "react";
 import * as cn from "classnames";
-
+import * as React from "react";
 import * as styles from "./HexagonsStack.scss";
 
-interface HexagonsStackProps {
+export enum HexagonsStackStyle {
+  BLUE_WHITE,
+  WHITE_BLUE,
+}
+
+export interface IHexagonsStackProps {
   children: React.ReactNode;
   className?: string;
   textContainerClassName?: string;
+  visualStyle?: HexagonsStackStyle;
+  width?: number;
+  height?: number;
+  blueClassName?: string;
+  whiteClassName?: string;
+  hexContainerTextClassName?: string;
 }
 
-export const HexagonsStack: React.SFC<HexagonsStackProps> = ({
+export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
   children,
   className,
   textContainerClassName,
+  visualStyle = HexagonsStackStyle.WHITE_BLUE,
+  width = 310,
+  height = 310,
+  blueClassName = styles.hexagonBlue,
+  whiteClassName = styles.hexagonWhite,
+  hexContainerTextClassName = styles.hexContainerText,
 }) =>
   <div className={cn(styles.hexContainer, className)}>
-    <BlueHexagon />
-    <WhiteHexagon />
-    <div className={cn(styles.hexContainerText, textContainerClassName)}>
+    {visualStyle === HexagonsStackStyle.WHITE_BLUE &&
+      <div>
+        <BlueHexagon
+          className={blueClassName}
+          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
+          width={width}
+          height={height}
+        />
+        <WhiteHexagon
+          className={whiteClassName}
+          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
+          width={width}
+          height={height}
+        />
+      </div>}
+    {visualStyle === HexagonsStackStyle.BLUE_WHITE &&
+      <div>
+        <WhiteHexagon
+          className={whiteClassName}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
+          width={width}
+          height={height}
+        />
+        <BlueHexagon
+          className={blueClassName}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
+          width={width}
+          height={height}
+        />
+      </div>}
+    <div className={cn(hexContainerTextClassName, textContainerClassName)}>
       {children}
     </div>
   </div>;
 
-interface SvgProps {
+interface ISvgProps {
   extraDefs?: any;
   className?: string;
   style?: any;
+  polygonPoints?: string;
   shadow?: boolean;
+  width?: number;
+  height?: number;
 }
 
-const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...props }) =>
-  <svg width="310" height="310" className={className}>
+interface IHexagonProps {
+  polygonPoints?: string;
+  width?: number;
+  height?: number;
+  className: string;
+}
+
+const Hexagon: React.SFC<ISvgProps> = ({
+  extraDefs,
+  className,
+  shadow,
+  polygonPoints,
+  width,
+  style,
+  ...props,
+}) =>
+  <svg width={width} height={width} className={className}>
     {extraDefs}
 
     {shadow &&
@@ -48,7 +110,7 @@ const Hexagon: React.SFC<SvgProps> = ({ extraDefs, className, shadow, style, ...
       </filter>}
 
     <polygon
-      points="303,153 228,283 78,283 3,153 78,23 228,23"
+      points={polygonPoints}
       style={{ [shadow && "filter"]: "url(#dropshadow)", ...style }}
       {...props}
     />
@@ -70,10 +132,18 @@ const blueGradient = (
     </linearGradient>
   </defs>
 );
-const BlueHexagon: React.SFC = () =>
+export const BlueHexagon: React.SFC<IHexagonProps> = ({
+  polygonPoints,
+  width,
+  height,
+  className,
+}) =>
   <Hexagon
-    className={styles.hexagonBlue}
+    className={className}
     extraDefs={blueGradient}
+    polygonPoints={polygonPoints}
+    width={width}
+    height={height}
     style={{ fill: "url(#linear-gradient)" }}
     shadow
   />;
@@ -95,10 +165,18 @@ const whiteGradient = (
     </linearGradient>
   </defs>
 );
-const WhiteHexagon: React.SFC = () =>
+export const WhiteHexagon: React.SFC<IHexagonProps> = ({
+  polygonPoints,
+  width,
+  height,
+  className,
+}) =>
   <Hexagon
-    className={styles.hexagonWhite}
+    className={className}
     extraDefs={whiteGradient}
+    polygonPoints={polygonPoints}
+    width={width}
+    height={height}
     style={{ opacity: "0.98", fill: "url(#linear-gradient2)" }}
     shadow
   />;

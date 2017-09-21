@@ -1,6 +1,6 @@
 meta_head:
-  description: "Neufund’s vision is to invite everyone to join the bootstrapping of a new two-sided marketplace and an investment ecosystem, and to once and for all democratise innovation and creation."
-  image_logo: "assets/social_logo.png"
+  description: "Neufund is a community-owned fundraising platform. Our ICO starts in Autumn 2017 – stay tuned!"
+  image_logo: "https://commit.neufund.org/assets/social_logo.png"
   url: "https://commit.neufund.org"
   keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
 commit_funds:
@@ -9,18 +9,14 @@ commit_funds:
     - point: "01"
       title: "How it works"
       paragraph1:  |
-        Neufund's ICO is a call to commit capital to the Neufund
-        Platform in exchange for tokens, that's why we call it ICBM
-        - Initial Capital Building Mechanism.
+        Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.
       paragraph2:  |
-        Reserve ETH in your personal Ethereum wallet. You have 18
-        months to pick your favourite investments. Not investing
-        results in full release.
+        Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.
       links:
         - link: "Terms and Conditions"
           href: "#"
         - link: "Smart Contracts on Github"
-          href: "#"
+          href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'
           href: "#"
         - link: "How to participate"
@@ -28,39 +24,39 @@ commit_funds:
     - point: "02"
       title: "Why participate: Neumark key feature"
       paragraph1:  |
-        Neumarks entitle their holders to revenues from all the future investment's success fees. They also allow the holders to participate in the
-        economic benefit from a platform portfolio of all the startups tokens that will ever launch.
+        Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.
       paragraph2:  |
-        <strong>First come better served. The sooner you reserve your
-        funds the more NEU per ETH you will get.</strong> You can capitalize on
-        Neumarks by <i>hodling</i> or by trading without vesting on secondary market
-        from day one.
+        <strong>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.
       links:
         - link: "Neumark Token Holder Agreement"
           href: "#"
 
 participating:
   visible: true
-  title: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world"
+  title: "What is Neufund Platform"
   paragrapha:  |
-        Using our legal and technical infrastructure, startups and established companies alike can legally issue a new type of asset we call tokenized equity –
-        in essence, digital shares. We achieve this by formally linking paper contracts with Ethereum smart contracts through mutual reference and code correspondence.
-        Neufund enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement.
+        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares.
+        Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency.
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
+      target: "https://neufund.org/whitepaper/"
     - link: "Roadmap"
+      target: "https://neufund.org/roadmap/"
+    - link: "Key takeaways from the Neufund’s Whitepaper"
+      target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
+      new: true
 
 easy_access:
   visible: true
   title: "For crypto nerds, finance nerds and non-nerds at all"
   paragraph:  |
-        Easy to use crafted experience for different actors on different stages of their investment journey. An on-going work, being build with community for community,
-        open-source code, access point for everyone to blockchain.
+        Easy to use crafted experience for different actors on different stages of their investment journey. An
+        on&#8209;going work, being built with community for community, open&#8209;source code, access point for everyone
+        to blockchain.
   remark: "Check out the:"
   link1: "Neufund’s Github account"
-  link2: "Our introductory post to the product"
-  button: "Pre-alfa version"
+  button: "Pre-alpha version"
 
 team:
   visible: true
@@ -72,7 +68,10 @@ team:
      title: "CEO and Co-Founder"
      image: "../assets/ZoeAdamovicz_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      facebook: "https://www.facebook.com/zoeadamovicz"
+      linkedin: "https://www.linkedin.com/in/zoeadamovicz/"
+      medium: "https://blog.neufund.org/@ZoeAdamovicz"
      email: ""
      bio:  |
        <p>Zoe Adamovicz is the CEO and co-founder at Neufund. She is an experienced entrepreneur and occasional angel investor.</p>
@@ -90,7 +89,9 @@ team:
      title: "CTO and Co-Founder"
      image: "../assets/MarcinRudolf_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/marcinrudolf/"
+      "medium": "https://blog.neufund.org/@rudolfix"
      email: ""
      bio:  |
        <p>Marcin is a co-founder and CTO, and currently leads the technology development at
@@ -101,10 +102,16 @@ team:
        insurance and government (Fiat, Hewlett-Packard).</p>
 
    - name: "Remco Bloemen"
-     title: "Product Owner and Co-Founder"
+     title: "Blockchain​ ​Architect​ ​&​ ​Product​ ​Owner"
      image: "../assets/RemcoBloemen_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/remco.bloemen"
+      "linkedin": "https://www.linkedin.com/in/remcobloemen/"
+      "github": "https://github.com/Recmo/"
+      "medium": "https://medium.com/@remco.bloemen"
+      "reddit": "https://www.reddit.com/user/Remco_/"
+      "website": "https://2π.com/"
      email: ""
      bio:  |
        <p>Remco is a co-founder, Blockchain Architect, and Product Owner at Neufund. An expert in
@@ -117,7 +124,8 @@ team:
      title: "Legal Architect"
      image: "../assets/AndreEggert_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "website": "http://lacore.de/berater/andre-eggert/"
      email: ""
      bio:  |
        <p>André Eggert is a partner at LACORE. He advises companies and entrepreneurs as well as
@@ -132,7 +140,13 @@ team:
      title: "Bussiness Operations Manager"
      image: "../assets/AgnieszkaSarnecka.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/sarnesia"
+      "twitter": "https://twitter.com/vanilizer"
+      "linkedin": "https://www.linkedin.com/in/agnieszka-sarnecka-40458397/"
+      "github": "https://github.com/Vanilizer"
+      "medium" : "https://blog.neufund.org/@agnieszkasa"
+      "website": "https://www.xing.com/profile/Agnieszka_Sarnecka2?sc_o=mxb_p"
      email: ""
      bio:  |
        <p>Agnieszka has been part of Neufund since the very beginning, assuming the role of
@@ -149,7 +163,8 @@ team:
      title: "Lead Blockchain Product Designer"
      image: "../assets/olaorchowska.png"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://neufund.net/community/www.linkedin.com/in/ola-orchowska"
      email: ""
      bio:  |
        <p>Ola is the Lead Blockchain Product Designer at Neufund. This position has afforded her a
@@ -165,14 +180,17 @@ team:
        platform for children with chronic diseases, and an expert system that supports ethical
        decision making.</p>
 
-        Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
-        She has bee - named an Innovator under 35 in Poland by MIT Technology Review."
+        <p>Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
+        She has been named an Innovator under 35 in Poland by MIT Technology Review.</p>
 
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
      image: "../assets/JacekCzarnecki.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/czarneckijacek"
+      "linkedin": "https://www.linkedin.com/in/jacekczarnecki/"
+      "website": "http://www.coindesk.com/author/jacek-czarnecki/"
      email: ""
      bio:  |
        <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
@@ -189,7 +207,10 @@ team:
      title: "Lead Blockchain Developer"
      image: "../assets/krzysztofkaczor.png"
      preTitle: ""
-     domain: ""
+     links:
+      "twitter": "https://twitter.com/krzKaczor"
+      "linkedin": "https://www.linkedin.com/in/krzysztofkaczor"
+      "github": "https://github.com/krzkaczor"
      email: ""
      bio:  |
        <p>Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has
@@ -203,7 +224,8 @@ team:
      title: "Dapp Developer"
      image: "../assets/TomaszBanach_bw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "github": "https://github.com/banciur"
      email: ""
      bio:  |
        <p>Tomek is a dApp Developer at Neufund. During his Metrology and Quality Control studies he
@@ -219,7 +241,9 @@ team:
      title: "Software developer"
      image: "../assets/MoeElsharif.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/Moe.Elsharif90"
+      "github": "https://github.com/Moejoe90"
      email: ""
      bio:  |
        <p>Moe Elsharif graduated from Computer Engineering with a love for programming and
@@ -233,7 +257,9 @@ team:
      title: "IT Infrastructure Architect"
      image: "../assets/Panor.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/piotrstroinski/"
+      "github": "https://github.com/pstroinski"
      email: ""
      bio:  |
        <p>Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from
@@ -247,7 +273,9 @@ team:
      title: "Office Manager"
      image: "../assets/MartaSosinska.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/SosnaMarta"
+      "linkedin": "https://www.linkedin.com/in/marta-sosi%C5%84ska-28a012a4/"
      email: ""
      bio:  |
        <p>Marta Sosinska joined Neufund in March 2017 as Office Manager. She specializes in organizing office
@@ -264,7 +292,9 @@ team:
      title: "Software developer"
      image: "../assets/mostafabalatabw.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/mostafa.balata"
+      "github": "https://github.com/MostafaBalata"
      email: ""
      bio:  |
        <p>Mostafa Balata is a Full Stack Developer at Neufund. With more than four years of
@@ -278,7 +308,11 @@ team:
      title: "Blockchain Reporter"
      image: "../assets/MoritzBierling.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "facebook": "https://www.facebook.com/bierlingm"
+      "twitter": "https://twitter.com/bierlingm"
+      "linkedin": "https://www.linkedin.com/in/moritzbierling/"
+      "medium": "https://medium.com/@bierlingm"
      email: ""
      bio:  |
        <p>Moritz Bierling is a researcher, writer, and man of many talents. As the resident Blockchain
@@ -295,7 +329,10 @@ team:
      title: "Blockchain Technology Communications Department"
      image: "../assets/Steffen1.jpg"
      preTitle: ""
-     domain: ""
+     links:
+      "twitter": "https://twitter.com/steffen_rob"
+      "linkedin": "https://www.linkedin.com/in/steffen-sieler-445852b3/"
+      "medium": "https://medium.com/@steffens"
      email: ""
      bio:  |
        <p>Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional
@@ -307,8 +344,10 @@ team:
        Policy Initiative.</p>
 
 advisors:
-  visible: false
+  visible: true
   title: "Advisors"
+  intro: "Advisors bridging the worlds of crypto and Venture Capital."
+  block: "../blocks/person"
   qoutes:
     - quote: |
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -321,16 +360,122 @@ advisors:
       speaker: "John Smith"
       company: "Company name"
   members:
-    block: "../blocks/person"
-    name: "John Smith"
-    title: "Capital Name"
-    image: "../assets/mostafabalatabw.jpg"
-    preTitle: "Partner"
-    domain: ""
-    email: ""
-    bio:  |
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    - name: "Fabian Vogelsteller"
+      title: "Ethereum and Mist Developer"
+      image: "../assets/fabianethereumdev.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
+        github: "https://github.com/frozeman"
+        twitter: "https://twitter.com/feindura"
+        medium: "https://medium.com/@frozeman"
+        website: "http://frozeman.de/"
+      email: ""
+      bio:  |
+        <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set from
+        graphic design to coding PHP to Python, ActionScript, Objective C, HTML, CSS and fell in love with JavaScript.
+        He worked as a freelance web developer for over 12 years and is the creator of the open source feindura – Flat
+        File CMS. Fabian is a strong advocate of open-source software and has built and contributed to a lot of
+        open-source libraries and projects and wrote a book on Meteor.js a open source JavaScript Framework. His
+        interest in cryptocurrencies like Bitcoin led him to be part of one of the most ambitious blockchain projects
+        to date, the Ethereum project. For almost two years he has worked as the lead Dapp developer for the Ethereum
+        project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
+
+    - name: "Michael Jackson"
+      title: "Partner at Mangrove Capital & Board Director at Blockchain.com"
+      image: "../assets/mangrove-michael-jackson.jpg"
+      links:
+        linkedin: "https://www.linkedin.com/in/mjmjmj/"
+        website: "http://www.mangrove.vc/"
+      email: ""
+      bio:  |
+        <p>Michael Jackson is a Board Director at Blockchain.com and partner at Mangrove Capital Partners.
+        He started his career at Monsanto and went on to manage the Supply Chain and Logistics business consulting practice at Arthur Andersen and then at Ernst & Young.
+        In 2006, he pioneered early-stage investment from Western VCs in Russia. His sectors of interests revolve around consumer Internet and e-commerce across Europe, scouting
+        for startups that involve essential shift or disruption in technology, business model or consumer behavior. Open-minded and curious by nature, he enjoys travelling and
+        discovering different cultures, which makes him keen on developing business connections in new and sometimes untapped geographies. He currently serves on the
+        boards of Lesara, KupiVIP, RedPoints, Synerscope, Enigma, and the Mangrove Foundation. Michael holds a Bachelor’s Degree in Nautical Sciences from the Antwerp Maritime
+        Academy and a Master in International Business and Management with high honors from the Brussels Management School. A Belgian national, he speaks French, English, Dutch and
+        German.</p>
+
+    - name: "Julian Zawistowski"
+      title: "CEO and Founder at Golem"
+      image: "../assets/julian-zawistowski.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/julian-zawistowski-352478/"
+        website: "https://golem.network/"
+      email: ""
+      bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
+
+    - name: "Adam Stradling"
+      title: "Crypto Investor and Entrepreneur & Former Co-founder of Bitcoin.com in 2011/12"
+      image: "../assets/adam-stradling.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/adamstradling/?ppe=1"
+      email: ""
+      bio: |
+        <p>Adam is a financial technology entrepreneur who pioneered the development of Bitcoin and related blockchain technologies.</p>
+        <p>During 2011 and 2012, he cofounded and operated Bitcoin.com/Tradehill wherein they sold/traded 1 million plus bitcoins (now worth billions of USD). Since then he has been an advisor, investor, and consultant for many Bitcoin and blockchain companies and systems like Ethereum, Factom, Siacoin, Bitnexo, and others. Over the years his works have been chronicled in CNN, Fox News, and hundreds of other media outlets.</p>
+        <p>Before Adam became an entrepreneur he worked in the banking and financial services industry as a consultant/researcher covering financial technology and risk management. Notably, he worked with the financial risk consulting group at Ernst and Young (EY) and also sold the investment research and technology services of Evalueserve (quant focus). He was the Co-founder and Steering Committee member of Chile’s national PRMIA chapter and has been a content contributor to GARP (Global Association of Risk Professionals).</p>
+        <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
+
+    - name: "Max Kordek"
+      title: "Lisk Foundation"
+      image: "../assets/maxlisk.png"
+      preTitle: "President"
+      links:
+        linkedin: "https://www.linkedin.com/in/maxkordek/"
+      email: ""
+      bio:  |
+        <p>Max Kordek is a co-founder of Lisk and the President of the Lisk Foundation. As a futurist and thoroughbred
+        entrepreneur interested in disruptive technologies, he co-founded the platform after seeing the potential of
+        blockchain-based applications. It caused a stir in early 2016 when it collected 14000 BTC in its crowd fund.
+        Max is also the Director of the Lightcurve GmbH, a rapidly expanding blockchain consultancy.
+        Max immersed himself in the global startup community from a young age, beginning at just 14. Over the past
+        several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
+        industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
+
+    - name: "Christophe Maire"
+      title: "Atlantic Labs"
+      image: "../assets/christophe-maire.png"
+      preTitle: "Founder and CEO"
+      links:
+        linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
+        website: "http://www.atlanticlabs.de/"
+      email: ""
+      bio:  |
+        <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
+        which he sold to Nokia in 2006. Christophe since co-founded a number of companies with global reach, such as
+        Plazes.com (Nokia), txtr.com or recently Medigo.com, Mimi.io, and Blloon.com. As an angel investor, Christophe
+        was involved in Brands4Friends (eBay), StudiVZ (HB), Plista (groupM), Readmill (Dropbox), amongst others.
+        (Christophe was named best “European Seed investor” in both 2011 and 2012 by Techcrunch. He serves on the board
+        of EyeEm, Klara and Soundcloud.</p>
+
+    - name: "Paweł Bylica"
+      title: "Ethereum Core Developer"
+      image: "../assets/pawel-bylica.png"
+      preTitle: ""
+      links:
+        linkedin: "https://www.linkedin.com/in/pawelbylica"
+        github: "https://github.com/chfast"
+      email: ""
+      bio:  |
+        <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network
+        Project as Ethereum specialist.</p>
+
+    - name: "Alexander Lange"
+      title: "VC at Earlybird & Board Member at Shapeshift"
+      image: "../assets/Alex_Lange.png"
+      preTitle: ""
+      links:
+        twitter: "https://twitter.com/alexruppertvc"
+        linkedin: "https://www.linkedin.com/in/alexander-lange-44aa8464/"
+        medium: "https://medium.com/@alexruppert"
+      email: ""
+      bio:  |
+        <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
 
 ecosystem:
   visible: true
@@ -363,17 +508,18 @@ ecosystem:
 footer:
   links:
     - link: "https://techcrunch.com/2017/01/17/neufund/"
-      img: "../assets/techcrunch.png"
+      img: "../assets/logos/techcrunch.png"
     - link: "http://www.geektime.com/2017/01/17/berlin-cryptocurrency-hybrid-vc-neufund-raises-e2m-to-upend-startup-investing-as-we-know-it/"
-      img: "../assets/Geektime-logo.png"
+      img: "../assets/logos/Geektime-logo.png"
     - link: "https://cointelegraph.com/news/icos-are-the-future-of-funding-says-co-founder-of-platform-that-just-raised-2-mln"
-      img: "../assets/cointelegraph-logo.png"
+      img: "../assets/logos/cointelegraph-logo.png"
     - link: "http://www.the-blockchain.com/2017/01/21/berlins-neufund-blockchain-fundraising-platform-raises-2-million/"
-      img: "../assets/blockchain_news.png"
+      img: "../assets/logos/blockchain_news.png"
     - link: "https://www.coindesk.com/icos-eu-will-slow-giant-regulate-tokens/"
-      img: "../assets/coindesk.png"
+      img: "../assets/logos/coindesk.png"
     - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/"
-      img: "../assets/forbes.png"
+      img: "../assets/logos/forbes.png"
+    - img: "../assets/logos/Logo-der_spiegel.png"
 
   bottomtitle: "@Fifth Force GmbH"
   website: "neufund.org"

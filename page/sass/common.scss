@@ -1,14 +1,8 @@
-body{
-    -webkit-font-smoothing: antialiased;
-    padding-top: $navbar-height + 10px;
-    overflow-x: hidden;
-}
+$lightgray: #f7f8f9;
+$purple: #504186;
 
 p.slim {
     font-weight: $font-weight-light;
-}
-h3.smaller {
-    font-size: 20px;
 }
 
 .section ul.compact-list {
@@ -29,7 +23,7 @@ h3.smaller {
 }
 
 #react-root {
-    min-height: 433px;
+    min-height: 360px;
 }
 
 .main-container {
@@ -38,51 +32,24 @@ h3.smaller {
     }
 }
 
-.person-info-container{
-    margin-bottom: $padding-between-pictures;
-
-    .person-info .person-details{
-        position: relative;
-        margin-top: -62px;
-        left: 105px;
-        max-width: 215px;
-        height: 36px;
-        margin-bottom: 29px;
-    }
-}
-
-.navbar-no-border{
-    border:0 !important;
-}
 .section{
     position: relative;
     padding-top: $padding-between-sections;
     padding-bottom: $padding-between-sections;
     border-bottom: 1px $off-white solid;
 
-    .see-more{
-        position: absolute;
-        right: 50px;
-        bottom: 0;
-        background: none;
-        border: 0px;
-        color: $blue;
-        font-size: 16px;
-        transition:all 1s;
-    }
-
     .hidden-picture{
         display: none;
     }
-    .person-info h4{
-        font-size: 16px;
-        margin: 0px;
-        font-weight: $font-weight-bold;
-    }
+
     h3{
         margin-bottom: $margin-bottom-between-paragraphs;
         font-size: $section-title-font-size;
         font-weight: $font-weight-more-bold;
+
+      &.smaller {
+        font-size: $section-title-font-size-smaller;
+      }
     }
     p{
         font-size: $font-size-normal;
@@ -91,14 +58,6 @@ h3.smaller {
     a{
         font-weight: $font-weight-more-bold;
         vertical-align: top;
-    }
-    button.btn.btn-white {
-        background: white;
-        color: #09719B;
-        height: 40px;
-        padding: 5px 45px 5px 45px;
-        box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
-        border: 1px solid #09719B;
     }
 
     p.intro{
@@ -109,12 +68,6 @@ h3.smaller {
         padding-top: $padding-between-sections;
     }
 }
-
-.person-block{
-    cursor: pointer;
-}
-
-
 
 .hexagon-wrapper {
     text-align: center;
@@ -183,4 +136,110 @@ h3.smaller {
             float: left;
         }
     }
+}
+
+.people {
+  .person-block {
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .person-info {
+    padding-left: 114px;
+  }
+
+  .person-details {
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h4 {
+      margin: 0;
+      font-size: $font-size-normal;
+    }
+
+    .name {
+      font-size: $font-weight-more-bold
+    }
+
+    .position {
+      font-weight: $font-weight-light;
+    }
+  }
+
+  .person-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+  }
+
+  .highlight {
+    border: 3px solid $blue;
+
+    transform: scale(1);
+    opacity: 0;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(.46, .265, .285, 1.635);
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  .see-more{
+    position: absolute;
+    right: 50px;
+    bottom: -50px;
+    background: none;
+    border: 0;
+    color: $blue;
+    font-size: 16px;
+    transition: all 1s;
+  }
+
+  .people-row {
+    margin-top: 75px;
+  }
+}
+
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+// Blue text + blue bar, for section titles
+.text-box {
+    top: 10px;
+    color: $blue-darker;
+    margin-bottom: 3px;
+    font-weight: $font-weight-light;
+    .underline {
+        margin-top: 1px;
+        border-bottom: 5px solid $blue-darker;
+        width: 36px;
+    }
+    h5 {
+        margin-bottom: 5px;
+        font-weight: $font-weight-light;
+    }
+    &.text-box-purple {
+      color: $purple;
+      .underline {
+        border-bottom-color: $purple;
+      }
+    }
+}
+
+.full-screen-height {
+    height: calc(100vh - 60px - 45px);
 }

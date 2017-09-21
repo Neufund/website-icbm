@@ -1,23 +1,24 @@
-@import "../../common/sass/variables.scss";
+@import '../../common/sass/variables';
 
-@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import '../../node_modules/font-awesome/scss/font-awesome';
 
- // i am pretty sure that there is a better way to write it 
- // @todo selective import from bootstrap
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// i am pretty sure that there is a better way to write it
+// @todo selective import from bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap'; // sass-lint:disable-line clean-import-paths
 
-
-@import "header.scss";
-@import "global.scss";
-@import "common.scss";
-@import "commit_funds.scss";
-@import "pictures.scss";
-@import "advisors.scss";
-@import "participating.scss";
-@import "easy_access.scss";
-@import "team.scss";
-@import "footer.scss";
-@import "vex-modal.scss";
-@import "ecosystem.scss";
-@import "whitepaper.scss";
-@import "press.scss";
+@import 'header';
+@import 'global';
+@import 'common';
+@import 'commit_funds';
+@import 'pictures';
+@import 'participating';
+@import 'easy_access';
+@import 'footer';
+@import 'vex-modal';
+@import 'ecosystem';
+@import 'whitepaper';
+@import 'press';
+@import 'faq';
+@import 'product';
+@import 'product_menu';
+@import 'product_new_grid';

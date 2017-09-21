@@ -1,3 +1,33 @@
+body{
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-color: $white;
+
+  & > .container {
+    padding-top: $navbar-height;
+  }
+}
+
+label {
+  font-weight: $font-weight-normal;
+}
+
+.background-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -100;
+
+  .background {
+    width: calc(1170px + 200px);
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    background-color: white;
+  }
+}
+
+
 h1 {
     font-weight: $font-weight-max-bold;
 }
@@ -8,7 +38,36 @@ h1 {
     padding: 10px 40px;
     box-shadow: 0 1px 1px 0 $gray-lighter;
     font-weight: $font-weight-more-bold;
+
+    a.btn {
+      line-height: 28px;
+    }
+
     &.btn-primary {
       background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);
+
+      &:hover {
+        background: linear-gradient(180deg, #09719B 0%, #09719B 2.36%, #424A52 100%);
+      }
+
+      &:active  {
+        background: linear-gradient(180.02deg, #09719B 0%, #09719B 16.74%, #424A52 100%);
+      }
     }
+
+    &.btn-white {
+      background: $white;
+      color: $blue;
+      box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
+      border: 1px solid $blue;
+
+      &:hover {
+        color: $white;
+        background: $blue;
+      }
+  }
+}
+
+.modal-content  {
+  border-radius: 0px !important; 
 }

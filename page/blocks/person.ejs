@@ -1,17 +1,18 @@
-<div class="col-md-6 person-block person-info-container">
+<div class="col-md-6 person-block">
     <div class="person-info">
-        <img class="rounded-image" src="<%= image %>"/>
+        <img class="person-image" src="<%= image %>"/>
+        <div class="person-image highlight"></div>
         <div class="person-details">
-            <h4 class="name"><a href="#" ><%= name %></a></h4>
+            <h4 class="name text-primary"><%= name %></h4>
             <h4 class="position"><%= title %></h4>
         </div>
     </div>
-    <p class="bio hidden">
+    <div class="bio hidden">
         <%= bio %>
-    </p>
+    </div>
     <span class="pre-title hidden"><%if (typeof preTitle != 'undefined') {%>  <%= preTitle %>  <%}%></span>
-    <a class="domain hidden">
-      <%= domain %>
+    <a class="links hidden">
+      <%- typeof links != 'undefined' ? JSON.stringify(links) : "" %>
     </a>
     <p class="link hidden">
       <%= email %>

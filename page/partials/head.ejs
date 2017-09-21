@@ -9,24 +9,50 @@
 
     <meta property="og:title" content="Neufund | <%= title %>" />
     <meta property="og:image" content="<%= meta.image_logo %>" />
-    <meta property="og:url" content="<%= meta.url %>" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="<%= meta.description %>" />
+    <meta property="og:url" content="<%= meta.url %>" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@neufundorg" />
     <meta name="twitter:title" content="Neufund | <%= title %>" />
     <meta name="twitter:description" content="<%= meta.description %>" />
     <meta name="twitter:image" content="<%= meta.image_logo %>" />
-    <meta name="twitter:image:alt" content="<%= meta.image_logo %>" />    
+    <meta name="twitter:image:alt" content="<%= meta.image_logo %>" />
 
     <link rel="shortcut icon" href="assets/favicon_neufund.ico" />
+    <!-- Will be unused after eventually adding the final icons. Remove the link after that. -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <title>Neufund | <%= title %></title>
 
     <link rel="stylesheet" type="text/css" href="app<%= hashes.cssBundleHash %>.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Montserrat:200,300,400,500,600,700,900" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '<%= GA_ID %>', 'auto');
+      ga('send', 'pageview');
+
+      var callback = function(){
+        new Clipboard('.copy-to-clipboard');
+      };
+
+      if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)
+      ) {
+        callback();
+      } else {
+        document.addEventListener("DOMContentLoaded", callback);
+      }
+
+    </script>
 </head>

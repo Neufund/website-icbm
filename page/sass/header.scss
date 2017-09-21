@@ -1,64 +1,94 @@
-.navbar {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-weight: $font-weight-bold;
-    border-color: $navbar-default-color;
-    .container {
-        position: relative;
+@import '../../common/sass/variables';
+
+.navbar.navbar-default.navbar-fixed-top { // sass-lint:disable-line force-element-nesting
+  border: 0;
+  background-color: $white; // fix for commit background
+  font-weight: $font-weight-bold;
+
+  &.border {
+    border-bottom: solid 1px $navbar-default-color;
+  }
+
+  @media (max-width: $screen-lg) {
+    background-color: $white;
+  }
+
+  .background-wrapper-navbar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: -100;
+
+    .background {
+      margin-right: auto;
+      margin-left: auto;
+      background-color: $white;
+      width: calc(1170px + 200px);
+      height: $navbar-height;
     }
-    .navbar-nav {
-        .fa {
-            line-height: 20px;
-        }
-        li a {
-            padding-right: $navbar-padding-horizontal;
-            padding-left: 0;
+  }
 
-            @media (max-width: $screen-sm) {
-                padding-left: $navbar-padding-horizontal-small;
-            }
-        }
-        &.navbar-right {
-            li a {
-                color: black;
-                padding-right: $navbar-padding-horizontal-small;
-                padding-left: $navbar-padding-horizontal-small;
-            }
-        }
+  .container {
+    position: relative;
+  }
+
+  .navbar-nav {
+    .fa {
+      line-height: 20px;
     }
-    .navbar-header {
-        position: absolute;
-        left: -37px;
 
-        $logoSize: 30px;
-        .navbar-brand {
-            $offset: 10px;
-            $logoHeight: $logoSize + $offset;
-            height: $logoHeight;
-            width: $logoSize + 22px;
-            background: url(./assets/NeuFund_icon_white_300dpi.png);
-            background-size: $logoSize;
-            background-repeat: no-repeat;
-            margin-top: ($navbar-height - $logoSize - $offset) / 2;
-            padding: 0;
-            border-right: 1px solid $gray-darker;
-            padding-top: $offset;
-            padding-bottom: $offset;
-            background-position: center left;
+    li {
+      a {
+        padding-right: $navbar-padding-horizontal;
+        padding-left: 0;
 
-            @media (max-width: $screen-sm) {
-                margin-left: 20px;
-            }
+        @media (max-width: $screen-sm) {
+          padding-left: $navbar-padding-horizontal-small;
         }
-
-        @media (max-width: 1335px) {
-            position: static;
-            left: inherit;
-
-            .navbar-brand {
-                border-right: none;
-            }
-        }
+      }
     }
+
+    &.navbar-right {
+      li {
+        a {
+          padding-right: $navbar-padding-horizontal-small;
+          padding-left: $navbar-padding-horizontal-small;
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .navbar-header {
+    position: absolute;
+    left: -37px;
+    $logo-size: 30px;
+
+    .navbar-brand {
+      $offset: 10px;
+      $logo-height: $logo-size + $offset;
+      margin-top: ($navbar-height - $logo-size - $offset) / 2;
+      border-right: 1px solid $gray-darker;
+      background: url('./assets/NeuFund_icon_white_300dpi.png');
+      background-repeat: no-repeat;
+      background-position: center left;
+      background-size: $logo-size;
+      padding: $offset 0;
+      width: $logo-size + 22px;
+      height: $logo-height;
+
+      @media (max-width: $screen-sm) {
+        margin-left: 20px;
+      }
+    }
+
+    @media (max-width: 1335px) {
+      position: static;
+      left: inherit;
+
+      .navbar-brand {
+        border-right: 0;
+      }
+    }
+  }
 }

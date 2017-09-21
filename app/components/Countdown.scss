@@ -1,0 +1,20 @@
+@import '../../common/sass/variables';
+
+.countdown {
+  text-align: center;
+  font-size: $font-size-normal;
+
+  .label {
+    margin-right: 10px;
+    line-height: 20px;
+    font-size: $font-size-small;
+  }
+
+  .value {
+    display: inline-block;
+    margin-right: 15px;
+    width: 20px;
+    line-height: 20px;
+    font-size: 15px;
+  }
+}

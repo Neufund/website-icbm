@@ -1,0 +1,256 @@
+header:
+  id: "product-header"
+  menu_text: "Introduction"
+  title: "How it works.<br/>Fundraising Platform"
+  content: "It’s a new two-sided marketplace and an investment ecosystem, to once and for all democratise innovation and creation."
+  yt_video: "W0LHTWG-UmQ"
+who_can_use:
+  id: "who_can_use"
+  menu_text: "Who can use the Platform"
+  bg_url: ""
+  white: true
+  purple_title: false
+  title: "Who can use Neufund's Platform"
+  headline: "For startups and all kinds of investors"
+  backgroundText: ""
+  paragraphs:
+    - "Unless you are a partner in the VC fund or a business angel, you are probably new to investing in the companies equity, and no wonder – it’s a closed market."
+    - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
+  images:
+    - - url: "screenshots/Group25.png"
+        width: 169
+      - url: "screenshots/Group25_2x.png"
+        width: 338
+      - url: "screenshots/Group25_3x.png"
+        width: 507
+    - - url: "screenshots/Group26.png"
+        width: 169
+      - url: "screenshots/Group26_2x.png"
+        width: 338
+      - url: "screenshots/Group26_3x.png"
+        width: 507
+    - - url: "screenshots/Group27.png"
+        width: 169
+      - url: "screenshots/Group27_2x.png"
+        width: 338
+      - url: "screenshots/Group27_3x.png"
+        width: 507
+main_feature:
+  id: "main_feature"
+  menu_text: "Investing"
+  bg_url: ""
+  white: false
+  purple_title: false
+  title: "Main feature: invest in startups"
+  headline: "New investment mechanism for every model – open ICO"
+  backgroundText: "For investors"
+  paragraphs:
+    - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
+  image:
+    - url: "screenshots/MainPage.png"
+      width: 604
+    - url: "screenshots/MainPage_2x.png"
+      width: 1208
+    - url: "screenshots/MainPage_3x.png"
+      width: 1812
+invisible_blockchain:
+  id: "invisible_blockchain"
+  menu_text: "What are the tokens"
+  bg_url: ""
+  white: true
+  purple_title: false
+  title: "(in)visible blockchain"
+  headline: "Invest with tokens in tokens"
+  backgroundText: ""
+  paragraphs:
+    - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
+    - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
+  images:
+    - - url: "screenshots/Investment-Accounts.png"
+        width: 428
+      - url: "screenshots/Investment-Accounts_2x.png"
+        width: 856
+      - url: "screenshots/Investment-Accounts_3x.png"
+        width: 1284
+    - - url: "screenshots/Portfolio-Equity.png"
+        width: 480
+      - url: "screenshots/Portfolio-Equity_2x.png"
+        width: 960
+      - url: "screenshots/Portfolio-Equity_3x.png"
+        width: 1440
+benefits_of_blockchain:
+  id: "benefits_of_blockchain"
+  menu_text: "Benefits of blockchain"
+  bg_url: ""
+  white: false
+  purple_title: false
+  title: "Benefits of blockchain"
+  headline: "Main feature: invest in startups"
+  backgroundText: ""
+  paragraphs:
+    - "Secondary market = liquidity.<br />Asset liquidation possible for investors and startups from day one a!er ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation."
+    - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
+  image:
+    - url: "screenshots/I-IN-OWN.png"
+      width: 604
+    - url: "screenshots/I-IN-OWN_2x.png"
+      width: 1208
+    - url: "screenshots/I-IN-OWN_3x.png"
+      width: 1812
+investors_dashboard:
+  id: "investors_dashboard"
+  menu_text: ""
+  purple_title: false
+  backgroundText: ""
+  bg_url: "/assets/svg-bg/blue.svg"
+  white: true
+  title: "Investors dashboard"
+  image:
+    - url: "screenshots/InvestorsDashboard.png"
+      width: 790
+    - url: "screenshots/InvestorsDashboard_2x.png"
+      width: 1580
+    - url: "screenshots/InvestorsDashboard_3x.png"
+      width: 2370
+startups_dashboard:
+  id: "startups_dashboard"
+  menu_text: ""
+  backgroundText: "For startups"
+  purple_title: true
+  bg_url: "/assets/svg-bg/purple.svg"
+  white: false
+  title: "Initial Coin Offering of a startup"
+  image:
+    - url: "screenshots/StartupsDashboard.png"
+      width: 790
+    - url: "screenshots/StartupsDashboard_2x.png"
+      width: 1580
+    - url: "screenshots/StartupsDashboard_3x.png"
+      width: 2370
+disrupting_fundraising:
+  id: "disrupting_fundraising"
+  menu_text: "Being invested in"
+  bg_url: ""
+  white: false
+  purple_title: true
+  title: "Disrupting fundraising"
+  headline: "Accessible investors pool and  symmetry of information"
+  backgroundText: ""
+  paragraphs:
+    - "Put whole of part startups on-chain ICOs on Neufund Platform allow startups and established companies alike"
+    - "Low entry barrier"
+    - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
+    - "accelerated process"
+    - "Community based investors pool"
+  image:
+    - url: "screenshots/CompanysICOProfile.png"
+      width: 563
+    - url: "screenshots/CompanysICOProfile_2x.png"
+      width: 1126
+    - url: "screenshots/CompanysICOProfile_3x.png"
+      width: 1689
+post_investment_management_tool:
+  id: "post_investment_management_tool"
+  menu_text: "Managing investors"
+  bg_url: ""
+  white: false
+  purple_title: true
+  title: "Post-investment management tool"
+  headline: "Investors relations "
+  backgroundText: ""
+  paragraphs:
+    - "Startup management tool"
+    - "Fully legal"
+    - "Full"
+  images:
+    - - url: "screenshots/StartupsCorporateGovernance.png"
+        width: 574
+      - url: "screenshots/StartupsCorporateGovernance_2x.png"
+        width: 1148
+      - url: "screenshots/StartupsCorporateGovernance_3x.png"
+        width: 1722
+    - - url: "screenshots/StartupsCorporateGovernance_Investor.png"
+        width: 434
+      - url: "screenshots/StartupsCorporateGovernance_Investor_2x.png"
+        width: 868
+      - url: "screenshots/StartupsCorporateGovernance_Investor_3x.png"
+        width: 1302
+neufund_profile:
+  id: "neufund_profile"
+  menu_text: ""
+  backgroundText: ""
+  purple_title: false
+  bg_url: ""
+  white: true
+  title: "Neufund's profile on the Platform"
+  image:
+    - url: "screenshots/StartupsCorporateGovernance.png"
+      width: 574
+    - url: "screenshots/StartupsCorporateGovernance_2x.png"
+      width: 1148
+    - url: "screenshots/StartupsCorporateGovernance_3x.png"
+      width: 1722
+reward_revenue:
+  id: "reward_revenue"
+  menu_text: "Co-owning the ecosystem"
+  bg_url: ""
+  white: true
+  headline: ""
+  content:
+    - title: "Reward"
+      icon: "alarm_off"
+      content: "icbm, invest"
+      link: "#"
+    - title: "Revenue token"
+      icon: "autorenew"
+      content: "Fees, equity"
+      link: "#"
+    - title: "Traded"
+      icon: "backup"
+      content: "On secondary market"
+      link: "#"
+feature_by_feature:
+  id: "feature_by_feature"
+  menu_text: "Feature by feature"
+  bg_url: ""
+  white: false
+  headline: "Feature by feature"
+  content:
+    - title: "Invest in legal equity tokens"
+      icon: "help"
+      content: "Invest fully legally in ICO..."
+      link: "#"
+    - title: "Stable coin"
+      icon: "trending_up"
+      content: "Investment transactions ..."
+      link: "#"
+    - title: "Feeds & Proceeds Distribution"
+      icon: "gesture"
+      content: "The Platform provides ..."
+      link: "#"
+    - title: "On-chain Governance"
+      icon: "create"
+      content: "The Investment Agreement requires the company to carry out shareholder resolutions on Platform for on-chain investors​. Off-chain investors still vote on paper and results are merged to get the final answer. The voting procedure complies with those usually found in typical shareholder agreement."
+      link: "#"
+    - title: "KYC/AML"
+      icon: "border_right"
+      content: "ETO investors can be individuals or organizations. We have standard KYC/AML procedures like you would see on any financial institution, e.g. bank."
+      link: "#"
+    - title: "Security"
+      icon: "cloud_queue"
+      content: "Neufund’s user base is expected to include both experts and novices to blockchain applications, and both high and low value accounts. To provide a smooth experience while guaranteeing security for all these users, we plan to support three different authentication mechanisms. In addition, all our users benefit from a protective wallet contract."
+      link: "#"
+    - title: "NASDQ style capital pool"
+      icon: "memory"
+      content: "..."
+      link: "#"
+last:
+  id: "last"
+  menu_text: ""
+  bg_url: ""
+  white: true
+  headline: "Be the owner of Neufund's ecosystem!"
+  button_text: "Commit ETH"
+  button_url: "#"
+  link_text: "Read about Nefund's ICO"
+  link_url: "#"

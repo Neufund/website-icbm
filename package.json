@@ -83,7 +83,7 @@
     "yaml-js": "^0.2.0"
   },
   "scripts": {
-    "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" webpack-dev-server",
+    "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" \"webpack-dev-server --port 9090\"",
     "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "tslint:fix": "tslint --fix --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "lint": "yarn tslint && yarn sass-lint",

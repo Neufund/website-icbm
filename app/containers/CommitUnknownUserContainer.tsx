@@ -3,10 +3,10 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Aftermath } from "../components/commitfunds/Aftermath";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
+import CommitUnknownUserAftermath from "../components/commitfunds/CommitUnknownUserAftermath";
 import LegalModal from "../components/LegalModal";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -52,8 +52,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <Aftermath
-              userAddress="this component has to be finished"
+            <CommitUnknownUserAftermath
               lockedAmount={lockedAmount}
               neumarkBalance={neumarkBalance}
               unlockDate={unlockDate}

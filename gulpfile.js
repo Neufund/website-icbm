@@ -46,7 +46,8 @@ gulp.task("page", () => {
       cssBundleHash,
     },
     GA_ID: envs.GA_ID,
-    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED)
+    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED),
+    PLATFORM_ENABLED:!!parseInt(envs.PLATFORM_ENABLED),
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86

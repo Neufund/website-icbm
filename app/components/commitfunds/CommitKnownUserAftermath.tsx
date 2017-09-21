@@ -11,7 +11,7 @@ interface IAftermathProps {
   neumarkBalance: BigNumber;
 }
 
-export const Aftermath: React.SFC<IAftermathProps> = ({
+export const CommitKnownUserAftermath: React.SFC<IAftermathProps> = ({
   userAddress,
   lockedAmount,
   unlockDate,

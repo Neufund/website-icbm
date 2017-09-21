@@ -1,13 +1,12 @@
-.section.press{
+$press-carousel-breakpoint: 1200px;
+
+.section.press {
     border: 0;
     padding: 35px 0;
 
-    background: #fff; // hack!
+    background: $white;
 
-    @media (max-width: $screen-sm) {
-        margin-top: 0;
-        // margin-bottom: $padding-between-sections;
-    }
+    margin-top: 50px;
 
     .img-container {
       width: 162px;
@@ -24,7 +23,7 @@
         display: none;
     }
 }
-@media (max-width: $screen-sm) {
+@media (max-width: $press-carousel-breakpoint) {
   .section.press {
     .flex-row {
       display: none;
@@ -41,8 +40,6 @@
 
 // carousel settings
 .carousel-frame {
-  width: 100vw;
-
   position: relative;
   font-size: 0;
   line-height: 0;
@@ -52,11 +49,10 @@
 
 .carousel-slides {
   display: inline-block;
-  &>* {
+  & > li {
     position: relative;
     display: inline-block;
     width: 100vw;
-
     text-align: center;
   }
 }

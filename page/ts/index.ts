@@ -79,13 +79,13 @@ $(".show-answer").click(function(e) {
 $(window).scroll(() => {
   const scroll: number = $(window).scrollTop();
   const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
-  if (scroll > 20) {
-    if ($(headerSelector).hasClass("navbar-no-border")) {
-      $(headerSelector).removeClass("navbar-no-border");
+  if (scroll < 20) {
+    if ($(headerSelector).hasClass("border")) {
+      $(headerSelector).removeClass("border");
     }
   } else {
-    if (!$(headerSelector).hasClass("navbar-no-border")) {
-      $(headerSelector).addClass("navbar-no-border");
+    if (!$(headerSelector).hasClass("border")) {
+      $(headerSelector).addClass("border");
     }
   }
 });

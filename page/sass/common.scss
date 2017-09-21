@@ -239,3 +239,7 @@ p.slim {
       }
     }
 }
+
+.full-screen-height {
+    height: calc(100vh - 60px - 45px);
+}

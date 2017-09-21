@@ -1,0 +1,10 @@
+<svg width="480" height="180" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g">
+      <stop offset="0%" stop-color="#49487c"/>
+      <stop offset="100%" stop-color="#444a56"/>
+    </linearGradient>
+  </defs>
+  <polygon points="0,0 0,100 480,160 480,0" style="fill: white"/>
+  <polygon points="0,40 480,100 480,160 0,100" style="fill: url(#g)"/>
+</svg>

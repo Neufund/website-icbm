@@ -5,8 +5,10 @@ import * as $ from "jquery";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
+import "./effects.js";
 import "./faqScroll";
 import { getPersonModal } from "./personModal";
+import "./scroll.js";
 import scrollbarFix from "./scrollbarFix";
 
 $("body").faqScroll({

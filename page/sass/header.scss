@@ -1,11 +1,13 @@
 @import '../../common/sass/variables';
 
 .navbar.navbar-default.navbar-fixed-top { // sass-lint:disable-line force-element-nesting
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
+  border: 0;
   background-color: $white; // fix for commit background
   font-weight: $font-weight-bold;
+
+  &.border {
+    border-bottom: solid 1px $navbar-default-color;
+  }
 
   @media (max-width: $screen-lg) {
     background-color: $white;
@@ -20,18 +22,9 @@
     .background {
       margin-right: auto;
       margin-left: auto;
-      border-bottom: solid 1px $navbar-default-color;
       background-color: $white;
       width: calc(1170px + 200px);
       height: $navbar-height;
-    }
-  }
-
-  &.navbar-no-border {
-    .background-wrapper-navbar {
-      .background {
-        border: 0 !important; // sass-lint:disable-line no-important
-      }
     }
   }
 

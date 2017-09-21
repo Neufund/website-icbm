@@ -1,0 +1,21 @@
+.cf-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cf-md-5,
+.cf-md-7 {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .cf-md-5 {
+    width: calc(41.667% - 15px);
+  }
+
+  .cf-md-7 {
+    width: calc(58.333% - 15px);
+  }
+}

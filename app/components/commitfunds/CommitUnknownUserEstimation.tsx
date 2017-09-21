@@ -16,7 +16,7 @@ const estTextFieldStyles = {
     fontSize: "22px",
   },
   style: {
-    width: "180px",
+    width: "120px",
     marginLeft: "5px",
     marginRight: "5px",
   },
@@ -32,32 +32,38 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   eth,
   neu,
   onChange,
-}) =>
-  <div className={style.estimationComponent}>
-    <p className={style.introduction}>Your estimated reward</p>
-    <div className={style.estimation}>
-      <span className={style.amount}>{neu}</span> <span className={style.currencyNeu}>NEU</span>
-      <span className={style.separator}> / </span>
-      <TextField
-        name="convertETH"
-        inputStyle={estTextFieldStyles.inputStyle}
-        style={estTextFieldStyles.style}
-        hintStyle={estTextFieldStyles.hintStyle}
-        hintText="0"
-        value={eth}
-        onChange={onChange}
-      />
-      <span className={style.currencyEth}>ETH</span>
+}) => {
+  const roundedNeu = neu.toFixed(3);
+
+  return (
+    <div className={style.estimationComponent}>
+      <p className={style.introduction}>Your estimated reward</p>
+      <div className={style.estimation}>
+        <span className={style.amount}>{roundedNeu}</span>{" "}
+        <span className={style.currencyNeu}>NEU</span>
+        <span className={style.separator}> / </span>
+        <TextField
+          name="convertETH"
+          inputStyle={estTextFieldStyles.inputStyle}
+          style={estTextFieldStyles.style}
+          hintStyle={estTextFieldStyles.hintStyle}
+          hintText="0"
+          value={eth}
+          onChange={onChange}
+        />
+        <span className={style.currencyEth}>ETH</span>
+      </div>
+      <p className={style.description}>
+        Calculated amount might not be precised, reward will be granted after the block is mined and
+        it might depend on the order of transactions.
+      </p>
+      <p className={style.urls}>
+        <IconLink url="#" text="Use MyEtherWallet" />
+        <IconLink url="#" text="Go to interactive version of this site for Ethereum browsers" />
+      </p>
     </div>
-    <p className={style.description}>
-      Calculated amount might not be precised, reward will be granted after the block is mined and
-      it might depend on the order of transactions.
-    </p>
-    <p className={style.urls}>
-      <IconLink url="#" text="Use MyEtherWallet" />
-      <IconLink url="#" text="Go to interactive version of this site for Ethereum browsers" />
-    </p>
-  </div>;
+  );
+};
 
 interface IProps {
   estimationCoefficient: number;

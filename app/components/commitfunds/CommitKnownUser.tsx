@@ -27,10 +27,13 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
       </Col>
     </Row>
     <Row className={style.formRow}>
-      <Col sm={6}>
-        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} onSubmit={submitFunds} />
+      <Col sm={7} md={6}>
+        <CommitKnownUserForm
+          estimationCoefficient={estimationCoefficient}
+          onSubmit={submitFunds}
+        />/>
       </Col>
-      <Col sm={6}>
+      <Col sm={5} md={6}>
         <CommitKnownUserDesc
           contractAddress={contractAddress}
           transactionPayload={transactionPayload}

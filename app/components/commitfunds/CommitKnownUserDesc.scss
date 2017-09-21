@@ -15,3 +15,9 @@
     font-size: $font-size-base;
   }
 }
+
+.address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,8 +1,10 @@
 @import '../../common/sass/variables';
 
 .navbar.navbar-default.navbar-fixed-top { // sass-lint:disable-line force-element-nesting
-  border: 0;
-  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  background-color: $white; // fix for commit background
   font-weight: $font-weight-bold;
 
   @media (max-width: $screen-lg) {

@@ -1,0 +1,50 @@
+<div
+  id="<%- id -%>"
+  data-menu-text="<%- menu_text -%>"
+  class="section product product-r2 <% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
+>
+  <div class="container">
+    <div class="product-r2-bg">
+      <img
+        src="/assets/screenshots/Group2.png"
+        srcset="/assets/screenshots/Group2_2x.png 856w, /assets/screenshots/Group2_3x.png 1284w"
+      />
+    </div>
+    <div class="cf-row">
+      <div class="cf-md-7">
+        <div class="product-r2-row-wrapper">
+          <div class="product-r2-1">
+            <img
+              class="img-r2"
+              src="/assets/<%- images[1][0].url -%>"
+              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
+            />
+          </div>
+          <div class="product-r2-2">
+            <img
+              class="img-r2"
+              src="/assets/<%- images[1][0].url -%>"
+              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
+            />
+          </div>
+        </div>
+
+      </div>
+      <div class="cf-md-5">
+        <div class="text-box<% if (purple_title===true) { %> text-box-purple<% } %>">
+            <h5><%- title -%></h5>
+            <div class="underline"></div>
+        </div> <!-- end text box -->
+        <h3><%- headline -%></h3>
+
+        <% for(var i=0; i < paragraphs.length; i++) {%>
+          <p>
+            <%- paragraphs[i] -%>
+          </p>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>

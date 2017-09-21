@@ -92,8 +92,9 @@ export class Countdown extends React.Component<ICountdownProps, ICountdownState>
 
   public render() {
     const { duration } = this.state;
+    const { classNames } = this.props;
 
-    return <CountdownComponent duration={duration} />;
+    return <CountdownComponent duration={duration} classNames={classNames} />;
   }
 
   private calculateDuration() {

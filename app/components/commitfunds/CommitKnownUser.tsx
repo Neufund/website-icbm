@@ -3,13 +3,14 @@ import { Col, Row } from "react-bootstrap";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
 import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
-import CommitKnownUserForm from "./CommitKnownUserForm";
+import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
 
 interface ICommitKnownUser {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
   estimationCoefficient?: number;
+  submitFunds: (values: ICommitKnownUserFormValues) => void;
 }
 
 export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
@@ -17,6 +18,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   contractAddress,
   transactionPayload,
   estimationCoefficient,
+  submitFunds,
 }) =>
   <div>
     <Row>
@@ -26,7 +28,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
-        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} />
+        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} onSubmit={submitFunds} />
       </Col>
       <Col sm={5} md={6}>
         <CommitKnownUserDesc

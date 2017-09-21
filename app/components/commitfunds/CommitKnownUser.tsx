@@ -28,10 +28,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
-        <CommitKnownUserForm
-          estimationCoefficient={estimationCoefficient}
-          onSubmit={submitFunds}
-        />/>
+        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} onSubmit={submitFunds} />
       </Col>
       <Col sm={5} md={6}>
         <CommitKnownUserDesc

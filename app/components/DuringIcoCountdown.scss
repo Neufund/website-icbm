@@ -47,6 +47,10 @@
     }
   }
 
+  .loading-indicator {
+    margin-left: 90px;
+  }
+
   .text {
     @media (max-width: $screen-sm) {
       padding-top: 10px;
@@ -107,6 +111,7 @@
   }
 
   .countdown-root {
+    display: inline-block;
     margin-left: 5px;
   }
 

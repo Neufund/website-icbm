@@ -1,6 +1,10 @@
 @import '../../../common/sass/variables';
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+.header-container {
+  background: linear-gradient($blue-dark 0%, $blue-gray 100%);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -8,7 +12,6 @@
 }
 
 .header:global.container { // sass-lint:disable-line force-pseudo-nesting force-element-nesting
-  background: linear-gradient($blue-dark 0%, $blue-gray 100%);
 
   @media (min-width: $screen-lg) { // 1200
     // original bootstrap container width is: 1170px we need to add 2 x 110 (logo width) and 2 x bootstrap paddings

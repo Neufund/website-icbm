@@ -1,3 +1,4 @@
+import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
@@ -9,13 +10,19 @@ import * as styles from "./Incentive.scss";
 interface IBeforeIcoComponentProps {
   startDate: moment.Moment;
   onFinish: () => {};
+  neumarkInitialRate?: BigNumber.BigNumber;
 }
 interface IIncentive {
   startDate: moment.Moment;
   onFinish: () => {};
+  neumarkInitialRate?: BigNumber.BigNumber;
 }
 
-export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate, onFinish }) =>
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({
+  startDate,
+  onFinish,
+  neumarkInitialRate,
+}) =>
   <div className={styles.countdown}>
     <div>
       <h3> Commitment Opportunity starts in: </h3>
@@ -23,12 +30,13 @@ export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({ startDate, on
       <Countdown finishDate={startDate} onFinish={onFinish} />
       <h3>Reward starting point:</h3>
       <p>
-        {" "}-- NEU / <strong>1</strong> EHT
+        {" "} {neumarkInitialRate ? neumarkInitialRate.toFixed(2) : "--"} NEU / <strong>1</strong>{" "}
+        ETH
       </p>
     </div>
   </div>;
 
-export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish }) =>
+export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish, neumarkInitialRate }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -51,10 +59,18 @@ export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish }) =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText startDate={startDate} onFinish={onFinish} />
+        <HexagonText
+          startDate={startDate}
+          onFinish={onFinish}
+          neumarkInitialRate={neumarkInitialRate}
+        />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText startDate={startDate} onFinish={onFinish} />
+      <HexagonText
+        startDate={startDate}
+        onFinish={onFinish}
+        neumarkInitialRate={neumarkInitialRate}
+      />
     </Col>
   </Row>;

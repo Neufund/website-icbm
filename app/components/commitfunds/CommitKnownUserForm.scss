@@ -1,9 +1,13 @@
 @import '../../../common/sass/variables';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 .form-container {
   position: relative;
   margin-bottom: 83px;
-  width: calc(100% - 83px);
+
+  @media (min-width: $screen-lg-min) {
+    width: calc(100% - 83px);
+  }
 }
 
 .form-body {
@@ -72,11 +76,15 @@
 }
 
 .hex {
-  display: block;
-  position: absolute;
-  right: -83px;
-  bottom: -83px;
-  z-index: 1;
-  width: 365px;
-  height: 365px;
+  display: none;
+
+  @media (min-width: $screen-lg-min) {
+    display: block;
+    position: absolute;
+    right: -83px;
+    bottom: -83px;
+    z-index: 1;
+    width: 365px;
+    height: 365px;
+  }
 }

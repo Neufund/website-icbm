@@ -107,6 +107,7 @@ const CommitKnownUserForm = ({
   if (isNaN(neuAmount)) {
     neuAmount = 0;
   }
+  const neuAmountRounded = neuAmount.toFixed(3);
 
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
@@ -127,7 +128,7 @@ const CommitKnownUserForm = ({
         </div>
         <p className={style.reward}>Your estimated reward</p>
         <p className={style.amount}>
-          {neuAmount} <span className={style.currency}>NEU</span>
+          {neuAmountRounded} <span className={style.currency}>NEU</span>
         </p>
         <p className={style.description}>
           Calculated amount might not be precised, reward will be granted after the block is mined
@@ -149,14 +150,10 @@ const DecoratedCommitFundsForm: any = formValues<ICommitKnownUserFormProps>("eth
   CommitKnownUserForm
 );
 
-interface IFormInterface {
-  ethAmount: number;
+export interface ICommitKnownUserFormValues {
+  ethAmount: string;
 }
 
-export default reduxForm<IFormInterface, ICommitKnownUserFormProps>({
+export default reduxForm<ICommitKnownUserFormValues, ICommitKnownUserFormProps>({
   form: "commitFunds",
-  onSubmit: values => {
-    // tslint:disable-next-line: no-console
-    console.log(values);
-  },
 })(DecoratedCommitFundsForm);

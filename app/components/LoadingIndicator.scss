@@ -1,0 +1,21 @@
+$loading-indicator-color: #333;
+
+.spinner {
+  animation: sk-scaleout 1s infinite ease-in-out;
+  margin: 100px auto;
+  border-radius: 100%;
+  background-color: $loading-indicator-color;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

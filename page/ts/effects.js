@@ -11,7 +11,7 @@ sr.reveal(".product-r2-row-wrapper div", 200);
 sr.reveal(".img-scroll");
 
 var carousel = null;
-var thr = 768;
+var carouselBreakpoint = 1200; // this has to be the same as $press-carousel-breakpoint sass variable
 
 export function createCarouselIfNecessary() {
   var el = document.querySelector(".press .carousel-wrapper");
@@ -19,14 +19,14 @@ export function createCarouselIfNecessary() {
 
   var w = window.innerWidth;
 
-  if (carousel === null && w <= thr) {
+  if (carousel === null && w < carouselBreakpoint) {
     carousel = lory(el, {
       infinite: 1,
       classNameFrame: "carousel-frame",
       classNameSlideContainer: "carousel-slides",
     });
   }
-  if (carousel !== null && w > thr) {
+  if (carousel !== null && w > carouselBreakpoint) {
     carousel.destroy();
     carousel = null;
   }

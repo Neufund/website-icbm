@@ -5,8 +5,17 @@ import * as $ from "jquery";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
+import "./effects.js";
+import "./faqScroll";
 import { getPersonModal } from "./personModal";
+import "./scroll.js";
 import scrollbarFix from "./scrollbarFix";
+
+$("body").faqScroll({
+  sidebarArea: "#sidebar",
+  offset: 80,
+  speed: 100,
+});
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
@@ -53,16 +62,30 @@ $(document).ready(() => {
   });
 });
 
-$(window).scroll(e => {
+$(".show-answer").click(function(e) {
+  e.preventDefault();
+  const pTag: any = $(this).siblings(".answer")[0];
+  const iconTag: any = $(this).find(".material-icons")[0];
+
+  if ($(pTag).is(":visible")) {
+    $(pTag).slideUp();
+    $(iconTag).html("keyboard_arrow_down");
+  } else {
+    $(pTag).slideDown();
+    $(iconTag).html("keyboard_arrow_up");
+  }
+});
+
+$(window).scroll(() => {
   const scroll: number = $(window).scrollTop();
   const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
-  if (scroll > 20) {
-    if ($(headerSelector).hasClass("navbar-no-border")) {
-      $(headerSelector).removeClass("navbar-no-border");
+  if (scroll < 20) {
+    if ($(headerSelector).hasClass("border")) {
+      $(headerSelector).removeClass("border");
     }
   } else {
-    if (!$(headerSelector).hasClass("navbar-no-border")) {
-      $(headerSelector).addClass("navbar-no-border");
+    if (!$(headerSelector).hasClass("border")) {
+      $(headerSelector).addClass("border");
     }
   }
 });

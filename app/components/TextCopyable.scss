@@ -1,0 +1,12 @@
+@import '../../common/sass/variables';
+
+.text-style {
+  font-weight: $font-weight-bold;
+}
+
+.icon-style {
+  margin-right: .5em; // TODO: this value should be set to correct value
+  cursor: pointer;
+  color: $green;
+  font-size: .8em;
+}

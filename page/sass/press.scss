@@ -1,10 +1,12 @@
 .section.press{
     border: 0;
-    padding-top: $padding-between-sections;
+    padding: 35px 0;
+
+    background: #fff; // hack!
 
     @media (max-width: $screen-sm) {
         margin-top: 0;
-        margin-bottom: $padding-between-sections;
+        // margin-bottom: $padding-between-sections;
     }
 
     .img-container {
@@ -17,4 +19,44 @@
         width: auto;
         height: 100%;
     }
+
+    .carousel-wrapper {
+        display: none;
+    }
+}
+@media (max-width: $screen-sm) {
+  .section.press {
+    .flex-row {
+      display: none;
+    }
+    .img-container {
+      margin: 0 auto;
+    }
+    .carousel-wrapper {
+      display: block;
+    }
+  }
+}
+
+
+// carousel settings
+.carousel-frame {
+  width: 100vw;
+
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-slides {
+  display: inline-block;
+  &>* {
+    position: relative;
+    display: inline-block;
+    width: 100vw;
+
+    text-align: center;
+  }
 }

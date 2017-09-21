@@ -102,7 +102,7 @@ team:
        insurance and government (Fiat, Hewlett-Packard).</p>
 
    - name: "Remco Bloemen"
-     title: "Product Owner and Co-Founder"
+     title: "Blockchain​ ​Architect​ ​&​ ​Product​ ​Owner"
      image: "../assets/RemcoBloemen_bw.jpg"
      preTitle: ""
      links:
@@ -409,7 +409,7 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: "Bitcoin Blockchain Investor and Entrepreneur & Co-Founder at Bitcoin.com"
+      title: "Crypto Investor and Entrepreneur & Former Co-founder of Bitcoin.com in 2011/12"
       image: "../assets/adam-stradling.png"
       preTitle: ""
       links:
@@ -436,15 +436,6 @@ advisors:
         Max immersed himself in the global startup community from a young age, beginning at just 14. Over the past
         several years, Max has become an active participant and industry leader in the blockchain and cryptocurrency
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
-
-    - name: "Shawn O'Connor"
-      title: "Kraken.com"
-      image: "../assets/shawnkraken.png"
-      preTitle: "CTO"
-      links:
-        website: "https://www.kraken.com/"
-      email: ""
-      bio: ""
 
     - name: "Christophe Maire"
       title: "Atlantic Labs"
@@ -473,6 +464,18 @@ advisors:
       bio:  |
         <p>Experienced C++ and Python software engineer. Ethereum core developer. Also involved in Golem Network
         Project as Ethereum specialist.</p>
+
+    - name: "Alexander Lange"
+      title: "VC at Earlybird & Board Member at Shapeshift"
+      image: "../assets/Alex_Lange.png"
+      preTitle: ""
+      links:
+        twitter: "https://twitter.com/alexruppertvc"
+        linkedin: "https://www.linkedin.com/in/alexander-lange-44aa8464/"
+        medium: "https://medium.com/@alexruppert"
+      email: ""
+      bio:  |
+        <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
 
 ecosystem:
   visible: true

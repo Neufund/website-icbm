@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
     <%- include('partials/head', {title: 'Product', meta: content.meta_head }); %>
-    <body>
+    <body class="product-page">
         <div class="background-wrapper">
-          <div class="background"></div>
+          <div class="background product-background"></div>
         </div>
         <%- include('partials/header', { active: 'product', hashes: hashes }); %>
-        <div class="main container">
-          <%- include('partials/product' ); %>
+        <div class="main">
+          <% if( PLATFORM_ENABLED ) { %>
+            <%- include('partials/product' ); %>
+          <% } else { %>
+            <div class="container full-screen-height section whitepaper ecosystem">
+                <div class="text-box">
+                    <h5>Coming soon</h5>
+                    <div class="underline"></div>
+                </div> <!-- end text box -->
+            </div>
+          <% } %>
           <%- include('partials/footer', content.footer); %>
 
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>

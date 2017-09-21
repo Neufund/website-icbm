@@ -8,6 +8,10 @@ body{
   }
 }
 
+label {
+  font-weight: $font-weight-normal;
+}
+
 .background-wrapper {
   position: fixed;
   left: 0;
@@ -28,12 +32,16 @@ h1 {
     font-weight: $font-weight-max-bold;
 }
 
-button.btn {
+.btn {
     border-radius: 20px;
     line-height: 20px;
     padding: 10px 40px;
     box-shadow: 0 1px 1px 0 $gray-lighter;
     font-weight: $font-weight-more-bold;
+
+    a.btn {
+      line-height: 28px;
+    }
 
     &.btn-primary {
       background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);
@@ -50,8 +58,6 @@ button.btn {
     &.btn-white {
       background: $white;
       color: $blue;
-      height: 40px;
-      padding: 5px 45px 5px 45px;
       box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
       border: 1px solid $blue;
 
@@ -60,4 +66,8 @@ button.btn {
         background: $blue;
       }
   }
+}
+
+.modal-content  {
+  border-radius: 0px !important; 
 }

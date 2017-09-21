@@ -1,3 +1,6 @@
+$lightgray: #f7f8f9;
+$purple: #504186;
+
 p.slim {
     font-weight: $font-weight-light;
 }
@@ -212,4 +215,31 @@ p.slim {
   justify-content: center;
   flex-direction: row;
   align-items: center;
+}
+
+// Blue text + blue bar, for section titles
+.text-box {
+    top: 10px;
+    color: $blue-darker;
+    margin-bottom: 3px;
+    font-weight: $font-weight-light;
+    .underline {
+        margin-top: 1px;
+        border-bottom: 5px solid $blue-darker;
+        width: 36px;
+    }
+    h5 {
+        margin-bottom: 5px;
+        font-weight: $font-weight-light;
+    }
+    &.text-box-purple {
+      color: $purple;
+      .underline {
+        border-bottom-color: $purple;
+      }
+    }
+}
+
+.full-screen-height {
+    height: calc(100vh - 60px - 45px);
 }

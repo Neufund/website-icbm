@@ -1,0 +1,113 @@
+.faq {
+  margin-top: 70px;
+  padding: 20px;
+
+  section {
+    margin-bottom: 60px;
+  }
+
+  .faq-content {
+    padding-left: 10px;
+    @media (min-width: $screen-md) {
+      padding-bottom: 600px;
+    }
+  }
+
+  .title {
+    margin-bottom: 20px;
+    color: $black;
+    font-size: $section-title-font-size-smaller;
+  }
+
+  .answer {
+    display: none;
+    margin-bottom: 30px;
+  }
+
+  .group {
+    width: 100%;
+
+    .subgroup {
+      width: 100%;
+    }
+
+    a {
+      position: relative;
+      color: $black-lighter;
+      font-size: $font-size-normal;
+
+      h4 {
+        line-height: 29px;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-normal;
+      }
+
+      i {
+        position: absolute;
+        margin-top: 4px;
+        color: $blue;
+      }
+
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+
+    .answer {
+      color: $black-lighter;
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+
+      a {
+        color: $blue;
+        font-size: $font-size-small;
+      }
+    }
+
+  }
+
+
+  .fixed {
+    position: fixed;
+  }
+
+  .bs-docs-sidebar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+
+    // sass-lint:disable nesting-depth
+    .nav {
+      a {
+        border-right: 3px solid transparent;
+        padding: 4px 20px;
+        text-align: right;
+        color: $blue;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+          background: none;
+        }
+
+        &:hover {
+          color: $black;
+        }
+      }
+
+      .active {
+        a,
+        &:hover {
+          border-right-color: $black;
+          background-color: transparent;
+          text-decoration: none;
+          color: $black;
+        }
+      }
+
+    }
+  }
+}

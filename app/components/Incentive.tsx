@@ -1,19 +1,42 @@
+import * as BigNumber from "bignumber.js";
+import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
+import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
-
 import * as styles from "./Incentive.scss";
 
-export const HexagonText: React.SFC = () =>
-  <div className={styles.text}>
-    <p className={styles.goto}>Starts in:</p>
-    <h1 className={styles.time}>
-      Autumn<br />2017
-    </h1>
+interface IBeforeIcoComponentProps {
+  startDate: moment.Moment;
+  onFinish: () => {};
+  neumarkInitialRate?: BigNumber.BigNumber;
+}
+interface IIncentive {
+  startDate: moment.Moment;
+  onFinish: () => {};
+  neumarkInitialRate?: BigNumber.BigNumber;
+}
+
+export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({
+  startDate,
+  onFinish,
+  neumarkInitialRate,
+}) =>
+  <div className={styles.countdown}>
+    <div>
+      <h3> Commitment Opportunity starts in: </h3>
+      <h1>Autumn</h1>
+      <Countdown finishDate={startDate} onFinish={onFinish} />
+      <h3>Reward starting point:</h3>
+      <p>
+        {" "} {neumarkInitialRate ? neumarkInitialRate.toFixed(2) : "--"} NEU / <strong>1</strong>{" "}
+        ETH
+      </p>
+    </div>
   </div>;
 
-export const Incentive: React.SFC = () =>
+export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish, neumarkInitialRate }) =>
   <Row>
     <Col sm={6} className={styles.incentive}>
       <h1>Community-owned Fundraising Platform</h1>
@@ -36,10 +59,18 @@ export const Incentive: React.SFC = () =>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>
-        <HexagonText />
+        <HexagonText
+          startDate={startDate}
+          onFinish={onFinish}
+          neumarkInitialRate={neumarkInitialRate}
+        />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText />
+      <HexagonText
+        startDate={startDate}
+        onFinish={onFinish}
+        neumarkInitialRate={neumarkInitialRate}
+      />
     </Col>
   </Row>;

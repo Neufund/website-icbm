@@ -1,4 +1,3 @@
-import * as lodash from "lodash";
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
@@ -34,7 +33,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   neu,
   onChange,
 }) => {
-  const roundedNeu = lodash.round(neu, 3);
+  const roundedNeu = neu.toFixed(3);
 
   return (
     <div className={style.estimationComponent}>

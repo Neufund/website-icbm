@@ -96,7 +96,7 @@ class Contract {
     return promisify(this.rawWeb3Contract.handleTimedTransitions, [params]);
   }
 
-  public commitTx(params?: IPayableTxParams): Promise<void> {
+  public commitTx(params?: IPayableTxParams): Promise<string> {
     return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
   }
 

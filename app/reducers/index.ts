@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { FormState, reducer as form } from "redux-form";
+import aftermathState, { IAftermathState } from "./aftermathState";
 import beforeIcoState, { IBeforeIcoState } from "./beforeIcoState";
 import commitmentState, { ICommitmentState } from "./commitmentState";
 import duringIcoState, { IDuringIcoState } from "./duringIcoState";
@@ -13,6 +14,7 @@ export interface IAppState {
   readonly form: { [formName: string]: FormState };
   readonly userState: IUserState;
   readonly legalAgreementState: ILegalAgreementState;
+  readonly aftermathState: IAftermathState;
 }
 
 export default combineReducers<IAppState>({
@@ -22,4 +24,5 @@ export default combineReducers<IAppState>({
   legalAgreementState,
   beforeIcoState,
   duringIcoState,
+  aftermathState,
 });

@@ -1,16 +1,16 @@
 import { BigNumber } from "bignumber.js";
 import { debounce } from "lodash";
-import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
-import { CommitKnownUserAftermath } from "../components/commitfunds/CommitKnownUserAftermath";
+import CommitKnownUserAftermath from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
+import config from "../config";
 import {
   selectEstimatedReward,
   selectEstimatedRewardLoadingState,
@@ -23,9 +23,6 @@ interface ICommitKnownUserContainer {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
-  lockedAmount: BigNumber;
-  unlockDate: moment.Moment;
-  neumarkBalance: BigNumber;
   minTicketWei: BigNumber;
   calculateEstimatedRewardAction?: () => {};
   estimatedReward: BigNumber;
@@ -37,9 +34,6 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   userAddress,
   contractAddress,
   transactionPayload,
-  lockedAmount,
-  neumarkBalance,
-  unlockDate,
   submitFundsAction,
   minTicketWei,
   calculateEstimatedRewardAction,
@@ -70,12 +64,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermath
-              userAddress={userAddress}
-              lockedAmount={lockedAmount}
-              neumarkBalance={neumarkBalance}
-              unlockDate={unlockDate}
-            />
+            <CommitKnownUserAftermath userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>
@@ -85,11 +74,8 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 
 const mapStateToProps = (state: IAppState) => ({
   userAddress: state.userState.selectedAddress,
-  contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
-  transactionPayload: "0x3c7a3aff",
-  lockedAmount: new BigNumber(5),
-  neumarkBalance: new BigNumber(123),
-  unlockDate: moment(),
+  contractAddress: config.contractsDeployed.commitmentContractAddress,
+  transactionPayload: "0x3c7a3aff", // @TODO UNHARDCODE IT!
   minTicketWei: selectMinTicketWei(state.commitmentState),
   estimatedReward: selectEstimatedReward(state.commitmentState),
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),

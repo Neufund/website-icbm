@@ -10,7 +10,7 @@ export interface IAppState {
   readonly commitmentState: ICommitmentState;
   readonly beforeIcoState: IBeforeIcoState;
   readonly duringIcoState: IDuringIcoState;
-  readonly form: FormState;
+  readonly form: { [formName: string]: FormState };
   readonly userState: IUserState;
   readonly legalAgreementState: ILegalAgreementState;
 }

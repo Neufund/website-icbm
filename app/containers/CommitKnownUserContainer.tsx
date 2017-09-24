@@ -1,16 +1,21 @@
 import { BigNumber } from "bignumber.js";
+import { debounce } from "lodash";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
-import { submitFunds } from "../actions/submitFunds";
+import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { CommitKnownUserAftermath } from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
-import { selectMinTicketWei } from "../reducers/commitmentState";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -22,7 +27,9 @@ interface ICommitKnownUserContainer {
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
   minTicketWei: BigNumber;
-  estimationCoefficient: number;
+  calculateEstimatedRewardAction?: () => {};
+  estimatedReward: BigNumber;
+  loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
 }
 
@@ -33,9 +40,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   lockedAmount,
   neumarkBalance,
   unlockDate,
-  estimationCoefficient,
   submitFundsAction,
   minTicketWei,
+  calculateEstimatedRewardAction,
+  loadingEstimatedReward,
+  estimatedReward,
 }) => {
   return (
     <div>
@@ -49,9 +58,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               userAddress={userAddress}
               contractAddress={contractAddress}
               transactionPayload={transactionPayload}
-              estimationCoefficient={estimationCoefficient}
+              calculateEstimatedReward={calculateEstimatedRewardAction}
               submitFunds={submitFundsAction}
               minTicketWei={minTicketWei}
+              estimatedReward={estimatedReward}
+              loadingEstimatedReward={loadingEstimatedReward}
             />
             <Row>
               <Col xs={12}>
@@ -79,14 +90,19 @@ const mapStateToProps = (state: IAppState) => ({
   lockedAmount: new BigNumber(5),
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),
-  estimationCoefficient: 5,
   minTicketWei: selectMinTicketWei(state.commitmentState),
+  estimatedReward: selectEstimatedReward(state.commitmentState),
+  loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     submitFundsAction: (values: ICommitKnownUserFormValues) =>
       dispatch(submitFunds(values.ethAmount)),
+    calculateEstimatedRewardAction: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
   };
 }
 

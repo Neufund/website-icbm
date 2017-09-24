@@ -16,6 +16,11 @@ export const commitmentValueValidator: Validator = (value, _, props) => {
     return "You must enter a number!";
   }
 
+  // this is useful because bignumber cant handle more (also i think it's pointless in this case to have bigger resolution)
+  if (value.length > 15) {
+    return "You can't pass number longer than 15 digits!";
+  }
+
   const numberInWei = asWeiNumber(new BigNumber.BigNumber(number)) as BigNumber.BigNumber;
 
   if (numberInWei.lessThan(minTicketWei)) {

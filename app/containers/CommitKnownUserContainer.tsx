@@ -10,6 +10,7 @@ import { CommitKnownUserAftermath } from "../components/commitfunds/CommitKnownU
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
+import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -20,6 +21,7 @@ interface ICommitKnownUserContainer {
   lockedAmount: BigNumber;
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
+  minTicketWei: BigNumber;
   estimationCoefficient: number;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
 }
@@ -33,6 +35,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   unlockDate,
   estimationCoefficient,
   submitFundsAction,
+  minTicketWei,
 }) => {
   return (
     <div>
@@ -48,6 +51,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               transactionPayload={transactionPayload}
               estimationCoefficient={estimationCoefficient}
               submitFunds={submitFundsAction}
+              minTicketWei={minTicketWei}
             />
             <Row>
               <Col xs={12}>
@@ -76,6 +80,7 @@ const mapStateToProps = (state: IAppState) => ({
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),
   estimationCoefficient: 5,
+  minTicketWei: selectMinTicketWei(state.commitmentState),
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

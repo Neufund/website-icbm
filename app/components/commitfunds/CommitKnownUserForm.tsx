@@ -1,9 +1,11 @@
+import { BigNumber } from "bignumber.js";
 import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 import * as image from "../../assets/img/commit_form_hex.png";
 import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
+import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import * as style from "./CommitKnownUserForm.scss";
 
 const inputFieldStyles = {
@@ -77,24 +79,8 @@ interface ICommitKnownUserFormProps {
   invalid?: boolean;
   ethAmount?: string;
   estimationCoefficient: number;
+  minTicketWei: BigNumber;
 }
-
-const validateETHField = (value: string) => {
-  if (value === undefined) {
-    return "Required";
-  }
-
-  const number = parseStrToNumStrict(value);
-  if (isNaN(number)) {
-    return "You must enter number";
-  }
-
-  if (number <= 0) {
-    return "Number must be higher than 0";
-  }
-
-  return undefined;
-};
 
 const CommitKnownUserForm = ({
   handleSubmit,
@@ -114,7 +100,7 @@ const CommitKnownUserForm = ({
       <div className={style.formBody}>
         <div className={style.inputContainer}>
           <div className={style.input}>
-            <Field name="ethAmount" component={styledField} validate={[validateETHField]} />
+            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
             <div className={style.currencyDeposit}>ETH</div>
           </div>
           <IconButton

@@ -5,7 +5,7 @@ import { publicCommitment } from "./contracts/ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
 
 export async function loadIcoParamsFromContract() {
-  // we need to map internally used app commimtment state to smart contracts internal state
+  // we need to map internally used app commitment state to smart contracts internal state
   //  @todo extract function
   const startingInternalState =
     config.contractsDeployed.commitmentType === CommitmentType.PUBLIC
@@ -16,9 +16,11 @@ export async function loadIcoParamsFromContract() {
       ? InternalCommitmentState.WHITELIST
       : InternalCommitmentState.FINISHED;
 
-  const [startingDate, finishDate] = await Promise.all([
+  const [startingDate, finishDate, minTicketEur, euroEthRate] = await Promise.all([
     publicCommitment.startOf(startingInternalState),
     publicCommitment.startOf(finishingInternalState),
+    publicCommitment.minTicketEur,
+    publicCommitment.convertToEur(1),
   ]);
 
   const now = moment();
@@ -32,9 +34,12 @@ export async function loadIcoParamsFromContract() {
     commitmentState = IcoPhase.AFTER;
   }
 
+  const minTicketWei = minTicketEur.div(euroEthRate);
+
   return {
     commitmentState,
     startingDate: startingDate.toISOString(),
     finishDate: finishDate.toISOString(),
+    minTicketWei: minTicketWei.toString(),
   };
 }

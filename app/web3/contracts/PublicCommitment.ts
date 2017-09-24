@@ -58,6 +58,10 @@ class Contract {
     });
   }
 
+  public get minTicketEur(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.minTicketEur, []);
+  }
+
   public get issuanceRate(): Promise<BigNumber> {
     return (async () => {
       const eth = new this.web3.BigNumber(10).pow(

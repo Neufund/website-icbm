@@ -1,3 +1,4 @@
+import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { UserAddressComponent } from "../UserAddressComponent";
@@ -10,6 +11,7 @@ interface ICommitKnownUser {
   contractAddress: string;
   transactionPayload: string;
   estimationCoefficient?: number;
+  minTicketWei: BigNumber;
   submitFunds: (values: ICommitKnownUserFormValues) => void;
 }
 
@@ -19,6 +21,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   transactionPayload,
   estimationCoefficient,
   submitFunds,
+  minTicketWei,
 }) =>
   <div>
     <Row>
@@ -28,7 +31,11 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
-        <CommitKnownUserForm estimationCoefficient={estimationCoefficient} onSubmit={submitFunds} />
+        <CommitKnownUserForm
+          estimationCoefficient={estimationCoefficient}
+          minTicketWei={minTicketWei}
+          onSubmit={submitFunds}
+        />
       </Col>
       <Col sm={5} md={6}>
         <CommitKnownUserDesc

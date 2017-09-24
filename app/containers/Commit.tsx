@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { loadIcoParams } from "../actions/loadIcoParams";
 import { loadUserAccounts } from "../actions/loadUserAccounts";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { IAppState } from "../reducers/index";
@@ -12,11 +13,13 @@ interface ICommitComponent {
   isKnownUser: boolean;
   isLoading: boolean;
   loadUserAccounts: () => {};
+  loadIcoParams: () => {};
 }
 
 class Commit extends React.Component<ICommitComponent> {
   public componentDidMount() {
     this.props.loadUserAccounts();
+    this.props.loadIcoParams();
   }
 
   public render() {
@@ -40,6 +43,7 @@ const mapStateToProps = (state: IAppState) => {
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadUserAccounts: () => dispatch(loadUserAccounts),
+    loadIcoParams: () => dispatch(loadIcoParams),
   };
 }
 

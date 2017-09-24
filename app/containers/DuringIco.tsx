@@ -9,6 +9,7 @@ import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
 import { selectEndDate } from "../reducers/commitmentState";
 import {
   selectAllFunds,
+  selectAllInvestors,
   selectIssuanceRate,
   selectLoadingState,
   selectTotalSupply,
@@ -52,7 +53,7 @@ function mapStateToProps(state: IAppState) {
     totalSupply: selectTotalSupply(state.duringIcoState),
     issuanceRate: selectIssuanceRate(state.duringIcoState),
     allFunds: selectAllFunds(state.duringIcoState),
-    allInvestors: selectAllFunds(state.duringIcoState),
+    allInvestors: selectAllInvestors(state.duringIcoState),
   };
 }
 

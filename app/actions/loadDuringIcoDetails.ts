@@ -35,7 +35,7 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async dispat
     totalSupply,
     issuanceRate,
     allFunds,
-    allInvestors,
+    investors,
   } = await loadDuringIcoDetailsFromContract();
 
   dispatcher(
@@ -43,7 +43,7 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async dispat
       totalSupply.toString(),
       issuanceRate.toString(),
       allFunds.toString(),
-      allInvestors.toString()
+      investors.toString()
     )
   );
 };

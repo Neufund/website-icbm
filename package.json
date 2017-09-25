@@ -58,6 +58,7 @@
     "mocha": "^3.5.0",
     "moment": "^2.18.1",
     "nyc": "^11.1.0",
+    "open-browser-webpack-plugin": "^0.0.5",
     "prettier": "^1.5.3",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.31.2",

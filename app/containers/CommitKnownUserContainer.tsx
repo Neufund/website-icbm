@@ -12,7 +12,6 @@ import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import { IAppState } from "../reducers/index";
-import { ITransactionState } from "../reducers/transactionState";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
 interface ICommitKnownUserContainer {

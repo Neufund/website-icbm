@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const { mapValues } = require("lodash");
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -133,6 +134,10 @@ if (isProduction) {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
-    }),
+    })
   );
+} else {
+  module.exports.plugins.push(
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/' })    
+  )
 }

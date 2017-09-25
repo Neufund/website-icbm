@@ -9,9 +9,9 @@ import PublicCommitment from "./PublicCommitment";
 
 export let publicCommitment: PublicCommitment = null;
 export let neumark: Neumark = null;
-export let ethToken: EthToken = null;
+export let etherToken: EthToken = null;
 export let euroToken: EuroToken = null;
-export let ethLock: LockedAccount = null;
+export let etherLock: LockedAccount = null;
 export let euroLock: LockedAccount = null;
 
 export async function initRepository() {
@@ -19,47 +19,23 @@ export async function initRepository() {
     return;
   }
 
-  if (process.env.NODE_ENV === "development") {
-    publicCommitment = await PublicCommitment.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.commitmentContractAddress
-    );
+  publicCommitment = await PublicCommitment.createAndValidate(
+    web3Provider,
+    config.contractsDeployed.commitmentContractAddress
+  );
 
-    neumark = await Neumark.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.neumarkContractAddress
-    );
+  const neumarkAddress = await publicCommitment.neumark;
+  neumark = await Neumark.createAndValidate(web3Provider, neumarkAddress);
 
-    ethToken = await EthToken.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.etherContractAddress
-    );
+  const etherLockAddress = await publicCommitment.etherLock;
+  etherLock = await LockedAccount.createAndValidate(web3Provider, etherLockAddress);
 
-    euroToken = await EuroToken.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.euroContractAddress
-    );
+  const euroLockAddress = await publicCommitment.euroLock;
+  euroLock = await LockedAccount.createAndValidate(web3Provider, euroLockAddress);
 
-    ethLock = await LockedAccount.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.etherLockAddress
-    );
+  const etherTokenAddress = await etherLock.assetToken;
+  etherToken = await EthToken.createAndValidate(web3Provider, etherTokenAddress);
 
-    euroLock = await LockedAccount.createAndValidate(
-      web3Provider,
-      config.contractsDeployed.euroLockAddress
-    );
-  }
-
-  if (process.env.NODE_ENV === "production") {
-    publicCommitment = new PublicCommitment(
-      web3Provider,
-      config.contractsDeployed.commitmentContractAddress
-    );
-    neumark = new Neumark(web3Provider, config.contractsDeployed.neumarkContractAddress);
-    ethToken = new EthToken(web3Provider, config.contractsDeployed.etherContractAddress);
-    euroToken = new EuroToken(web3Provider, config.contractsDeployed.euroContractAddress);
-    ethLock = new LockedAccount(web3Provider, config.contractsDeployed.etherLockAddress);
-    euroLock = new LockedAccount(web3Provider, config.contractsDeployed.euroLockAddress);
-  }
+  const euroTokenAddress = await euroLock.assetToken;
+  euroToken = await EuroToken.createAndValidate(web3Provider, euroTokenAddress);
 }

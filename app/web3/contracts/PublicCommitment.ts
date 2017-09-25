@@ -72,6 +72,18 @@ class Contract {
     })();
   }
 
+  public get neumark(): Promise<string> {
+    return promisify(this.rawWeb3Contract.neumark, []);
+  }
+
+  public get etherLock(): Promise<string> {
+    return promisify(this.rawWeb3Contract.etherLock, []);
+  }
+
+  public get euroLock(): Promise<string> {
+    return promisify(this.rawWeb3Contract.euroLock, []);
+  }
+
   public get accessPolicy(): Promise<BigNumber | string> {
     return promisify(this.rawWeb3Contract.accessPolicy, []);
   }
@@ -80,7 +92,7 @@ class Contract {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
   }
 
-  public convertToEur(amount: BigNumber): Promise<BigNumber> {
+  public convertToEur(amount: number): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.convertToEur, [amount]);
   }
 

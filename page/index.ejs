@@ -6,10 +6,12 @@
           <div class="background"></div>
         </div>
         <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
-        <div class="container">
+        <div>
           <%- include('partials/home'); %>
 
+          <script src="/common<%= hashes.jsBundleHash %>.js"></script>
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>
+          <script src="/page<%= hashes.jsBundleHash %>.js"></script>
           <noscript>
             <p>This page requires JavaScript to be enabled.</p>
           </noscript>

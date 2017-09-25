@@ -78,7 +78,7 @@
   - question : When will tokens be distributed?
     answer : |
       <p>Instantly after the funds are committed. However, investment transactions using the EURT will only become possible at the launch of the Neufund platform.</p>
-      <p>NEU will be immediately tradable after an exchange offers trading. We hope this will be a short timespan, but ultimately depends on the exchanges. It is therefore likely to begin after the ICBM.</p>
+      <p>NEU will only be immediately tradable after an exchange offers trading, but no earlier than the end of the ICBM. We hope this will be a short timespan, but ultimately depends on the exchanges.</p>
   - question : What types of currencies can I use to participate in Neufund’s ICBM?
     answer : |
       <p>Neufund only accepts ETH, or “Ether” (Ethereum’s native token), and EURT (Euro Token). The first phase is open exclusively for participants who wish to send ETH, and runs for one month. </p>
@@ -109,7 +109,7 @@
       Neumarks are not being purchased in the first place. Contributors receive Neumarks as a reward for contributing to the ecosystem. For every successful investment in a company on our platform one will receive Neumarks until the total supply of € 1.5 b is reached. 
   - question : When do I get Neumarks? 
     answer : |
-      Neumarks are received immediately after funds have been committed in Neufund’s Initial Capital Building Mechanism (→ICBM), or when investing on the NEUFUND platform at a later stage. 
+      Neumarks are received immediately after funds have been committed in Neufund’s Initial Capital Building Mechanism (→ICBM), or when investing on the NEUFUND platform at a later stage. However, trading is enabled only after the ICBM concludes. Beyond that, you will have to wait for exchanges to start listing NEU in order to trade easily.
   - question : Is Neumark a security?
     answer : |
       No, Neumark is not a security. This conclusion is the outcome of extensive legal analysis of the German law conducted by professional attorneys. Neufund is aware that questions regarding the regulatory status of Neumarks in other jurisdictions will be discussed. Since we cannot exclude different regulatory treatment of Neumarks in all jurisdictions, participants from the US, and potentially also other non-supported countries, will not be able to take part in the ICBM event.
@@ -127,7 +127,7 @@
       The bonus is implied in the structure of Neumark’s issuance curve. The earlier you reserve your funds, the better your ratio of Neumarks per committed EUR is.
   - question : When will NEU come to market/exchanges? Do you have partnerships with exchanges yet?
     answer : |
-      We have ongoing conversations with several exchanges about listing NEU and expect listings to become available in at least one or more exchanges immediately upon the start of the ICBM. 
+      We have ongoing conversations with several exchanges about listing NEU and expect listings to become available in at least one or more exchanges immediately upon the conclusion of the ICBM.
 
 - title: Legal questions
   questions:

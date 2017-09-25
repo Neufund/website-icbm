@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
 const { mapValues } = require("lodash");
 
@@ -48,14 +49,19 @@ module.exports = {
       },
     },
   },
-  entry: [...devEntryPoints, "./app/index.tsx", "./page/ts/index.ts"],
+  entry: {
+    main: [...devEntryPoints, "./app/index.tsx"],
+    commit: [...devEntryPoints, "./app/commit.tsx"],
+    page: "./page/ts/index.ts",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: isProduction ? "main-[hash].js" : "main.js",
+    filename: isProduction ? "[name]-[hash].js" : "[name].js",
   },
   devtool: isProduction ? "(none)" : "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new CommonsChunkPlugin({ name: "common", chunks: ["main", "commit"] }),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
@@ -124,8 +130,9 @@ module.exports = {
 
 if (isProduction) {
   module.exports.plugins.push(
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
-    })
+    }),
   );
 }

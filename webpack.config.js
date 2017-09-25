@@ -134,7 +134,7 @@ if (isProduction) {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
-    }),
+    })
   );
 } else {
   module.exports.plugins.push(

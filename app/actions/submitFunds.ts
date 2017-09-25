@@ -5,6 +5,7 @@ import { submitFundsToContract } from "../web3/submitFundsToContract";
 import { transactionConfirmation } from "../web3/transactionConfirmation";
 import {
   COMMITTING_DONE,
+  COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
@@ -40,6 +41,11 @@ export const transactionDoneAction = (): IStandardReduxAction => ({
   payload: {},
 });
 
+export const transactionErrorAction = (error: string): IStandardReduxAction => ({
+  type: COMMITTING_ERROR,
+  payload: { error },
+});
+
 export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = value => async (
   dispatcher,
   _getState
@@ -61,8 +67,8 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
 
     await transactionConfirmation(txHash, transactionMined, newBlock);
     dispatcher(transactionDoneAction());
+    window.location.assign("/");
   } catch (e) {
-    // tslint:disable-next-line:no-console
-    console.log("ERROR", e);
+    dispatcher(transactionErrorAction(e.toString()));
   }
 };

@@ -9,8 +9,10 @@ import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { CommitKnownUserAftermath } from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
+import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import { IAppState } from "../reducers/index";
+import { ITransactionState } from "../reducers/transactionState";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
 interface ICommitKnownUserContainer {
@@ -22,6 +24,11 @@ interface ICommitKnownUserContainer {
   neumarkBalance: BigNumber;
   estimationCoefficient: number;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
+  txStarted: boolean;
+  txHash: string;
+  blockOfConfirmation: number;
+  currentBlock: number;
+  error: string;
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -33,10 +40,22 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   unlockDate,
   estimationCoefficient,
   submitFundsAction,
+  txStarted,
+  txHash,
+  blockOfConfirmation,
+  currentBlock,
+  error,
 }) => {
   return (
     <div>
       <LegalModal />
+      <TransactionConfirmationModal
+        txStarted={txStarted}
+        txHash={txHash}
+        blockOfConfirmation={blockOfConfirmation}
+        currentBlock={currentBlock}
+        error={error}
+      />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -75,7 +94,12 @@ const mapStateToProps = (state: IAppState) => ({
   lockedAmount: new BigNumber(5),
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),
-  estimationCoefficient: 5,
+  estimationCoefficient: 1,
+  txStarted: state.transactionState.txStarted,
+  txHash: state.transactionState.txHash,
+  blockOfConfirmation: state.transactionState.blockOfConfirmation,
+  currentBlock: state.transactionState.currentBlock,
+  error: state.transactionState.error,
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

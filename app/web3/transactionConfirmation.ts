@@ -1,5 +1,6 @@
 /* tslint:disable:no-console */
 
+import config from "../config";
 import web3Provider from "./web3Provider";
 
 export const transactionConfirmation = async (
@@ -11,8 +12,8 @@ export const transactionConfirmation = async (
   return new Promise((resolve, reject) => {
     let prevBlockNo = -1;
     let startingBlock = -1;
-    const requiredConfirmations = 3; // TODO: move to config and make it smart depending on network - see ESOP-ui
-    const maxNumberOfBlocksToWait = 5; // TODO: move to config
+    const requiredConfirmations = config.transactionSigning.numberOfConfirmations;
+    const maxNumberOfBlocksToWait = config.transactionSigning.maxNumberBlocksToWait;
     const poll = async () => {
       let currentBlockNo;
       try {

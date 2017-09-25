@@ -48,11 +48,10 @@ export const transactionErrorAction = (error: string): IStandardReduxAction => (
 
 export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = value => async (
   dispatcher,
-  _getState
+  getState
 ) => {
   try {
-    // const selectedAccount = getState().userState.selectedAddress;
-    const selectedAccount = "0x006B1aBf5bE5177B74a76eB98A60F09ED7736CD0";
+    const selectedAccount = getState().userState.selectedAddress;
     dispatcher(transactionStartedAction());
     const txHash = await submitFundsToContract(value, selectedAccount);
     dispatcher(transactionSubmitted(txHash));

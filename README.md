@@ -8,14 +8,14 @@
 yarn
 yarn start
 ```
-Then open `http://localhost:8080`. Hot reloading of both react and static files (ejs, sass) files should work. Sometimes gulp forgets to watch new files so you need to rerun `yarn start`.
+Then open `http://localhost:9090`. Hot reloading of both react and static files (ejs, sass) files should work. Sometimes gulp forgets to watch new files so you need to rerun `yarn start`.
 
 ### Environment variables
 
 In `.env.example` your will find all used env variables. When you do `yarn start` this file will be copied as `.env` (only if it doesn't exists already). If you want to change something modify `.env` file which is gitignored. If you want to add new env variable make sure to add default to `.env.example`.
 
-FAQ_ENABLED - 1 to display faq
-PLATFORM_ENABLED - 1 to display platform subpage
+- FAQ_ENABLED - 1 to display faq
+- PLATFORM_ENABLED - 1 to display platform subpage
 
 ### Linting
 

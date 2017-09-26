@@ -25,7 +25,7 @@ const devEntryPoints = isProduction
   ? []
   : [
       "react-hot-loader/patch",
-      "webpack-dev-server/client?http://localhost:8080",
+      "webpack-dev-server/client?http://localhost:9090",
       "webpack/hot/only-dev-server",
     ];
 
@@ -36,7 +36,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     host: "localhost",
-    port: 8080,
+    port: 9090,
     historyApiFallback: true,
     // respond to 404s with index.html
     hot: true,
@@ -138,6 +138,6 @@ if (isProduction) {
   );
 } else {
   module.exports.plugins.push(
-    new OpenBrowserPlugin({ url: 'http://localhost:8080/' })    
+    new OpenBrowserPlugin({ url: 'http://localhost:9090/' })
   )
 }

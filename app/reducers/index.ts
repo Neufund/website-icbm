@@ -4,6 +4,7 @@ import beforeIcoState, { IBeforeIcoState } from "./beforeIcoState";
 import commitmentState, { ICommitmentState } from "./commitmentState";
 import duringIcoState, { IDuringIcoState } from "./duringIcoState";
 import legalAgreementState, { ILegalAgreementState } from "./legalAgreementState";
+import transactionState, { ITransactionState } from "./transactionState";
 import userState, { IUserState } from "./userState";
 
 export interface IAppState {
@@ -13,6 +14,7 @@ export interface IAppState {
   readonly form: FormState;
   readonly userState: IUserState;
   readonly legalAgreementState: ILegalAgreementState;
+  readonly transactionState: ITransactionState;
 }
 
 export default combineReducers<IAppState>({
@@ -22,4 +24,5 @@ export default combineReducers<IAppState>({
   legalAgreementState,
   beforeIcoState,
   duringIcoState,
+  transactionState,
 });

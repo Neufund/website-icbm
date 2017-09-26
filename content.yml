@@ -348,17 +348,6 @@ advisors:
   title: "Advisors"
   intro: "Advisors bridging the worlds of crypto and Venture Capital."
   block: "../blocks/person"
-  qoutes:
-    - quote: |
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-      speaker: "John Smith"
-      company: "Company name"
-    - quote: |
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      speaker: "John Smith"
-      company: "Company name"
   members:
     - name: "Fabian Vogelsteller"
       title: "Ethereum and Mist Developer"
@@ -476,6 +465,27 @@ advisors:
       email: ""
       bio:  |
         <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
+
+quotes:
+  visible: true
+  title: "Supporters say"
+  description: "Advisors and startups about Neufund"
+  quotes:
+    - author: "John Smith 1"
+      company: "Company name 1"
+      quote: |
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    - author: "John Smith 2"
+      company: "Company name 2"
+      quote: |
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    - author: "John Smith 3"
+      company: "Company name 3"
+      quote: |
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
 ecosystem:
   visible: true

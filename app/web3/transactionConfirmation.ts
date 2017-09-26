@@ -5,6 +5,8 @@ import web3Provider from "./web3Provider";
 const getBlockNumber = promisify<number>(web3Provider.eth.getBlockNumber);
 const getTransaction = promisify<any, string>(web3Provider.eth.getTransaction);
 
+const timeout = 3000;
+
 export const transactionConfirmation = async (
   transactionHash: string,
   transactionMinedCallback: any,
@@ -57,8 +59,8 @@ export const transactionConfirmation = async (
           return reject(e);
         }
       }
-      window.setTimeout(poll, 1000);
+      window.setTimeout(poll, timeout);
     };
-    window.setTimeout(poll, 1000);
+    window.setTimeout(poll, timeout);
   });
 };

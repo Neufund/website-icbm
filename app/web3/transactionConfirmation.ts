@@ -9,8 +9,8 @@ const timeout = 3000;
 
 export const transactionConfirmation = async (
   transactionHash: string,
-  transactionMinedCallback: any,
-  newBlockCallback: any
+  transactionMinedCallback: (blockNo: number) => void,
+  newBlockCallback: (blockNo: number) => void
 ) => {
   // console.log("waiting for transaction: " + transactionHash);
   return new Promise((resolve, reject) => {

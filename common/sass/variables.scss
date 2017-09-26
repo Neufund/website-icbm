@@ -1,23 +1,23 @@
 //colors
 $white: #fff;
 
-$blue: #09719B;
-$blue-dark-light:#315568;
+$blue: #09719b;
+$blue-dark-light: #315568;
 $blue-darker: #315568;
-$blue-dark: #2F576A;
+$blue-dark: #2f576a;
 $blue-gray: #325566;
-$gray-almost-white: #F8F9FA;
-$gray-extra-light: #F2F2F3;
-$gray-lighter: #A3C0CC;
-$gray: #D9DBDC;
-$gray-between-light-and-dark :#BBC2C7;
-$gray-little-dark: #8E9297;
-$gray-darker: #424A52;
-$navbar-default-color:#f0f0f1;
+$gray-almost-white: #f8f9fa;
+$gray-extra-light: #f2f2f3;
+$gray-lighter: #a3c0cc;
+$gray: #d9dbdc;
+$gray-between-light-and-dark: #bbc2c7;
+$gray-little-dark: #8e9297;
+$gray-darker: #424a52;
+$navbar-default-color: #f0f0f1;
 $black: #000;
-$black-lighter: #262B2F;
-$green: #D5E20F;
-$white-green: #F6FAF3;
+$black-lighter: #262b2f;
+$green: #d5e20f;
+$white-green: #f6faf3;
 
 //fonts
 $font-weight-max-bold: 900;
@@ -41,7 +41,7 @@ $padding-between-sections: 70px;
 $padding-between-pictures: 50px;
 $margin-bottom-between-paragraphs: 30px;
 $space-bottom-between-elements: 20px;
-$space-between-elements : 18px;
+$space-between-elements: 18px;
 // constants
 $big-shape-width: 300px;
 $big-shape-half-width: 150px;
@@ -52,7 +52,7 @@ $small-shape-half-width: 70px;
 
 //navbar
 $navbar-height: 60px;
-$navbar-border-radius: 0px;
+$navbar-border-radius: 0;
 $navbar-default-bg: $white;
 $navbar-default-border: $gray;
 $navbar-padding-horizontal: 22px;
@@ -71,10 +71,10 @@ $hexagon-left-position: 15px;
 // general
 $font-size-base: 15px !default;
 
-$font-family-sans-serif: "Montserrat", sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
 $text-color: $black;
 
-$fa-font-path:   "./fonts/";
+$fa-font-path:   './fonts/';
 
 // commit page variables
 $commit-number-width: 35px;

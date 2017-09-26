@@ -5,6 +5,10 @@ const ScrollReveal = require("scrollreveal");
 window.sr = ScrollReveal({
   scale: 1,
 });
+// index page
+sr.reveal(".people-row .person-info");
+
+// product page
 sr.reveal(".text-box");
 sr.reveal(".product-r3-row-wrapper div", 200);
 sr.reveal(".product-r2-row-wrapper div", 200);

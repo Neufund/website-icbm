@@ -124,10 +124,10 @@ $(document).ready(() => {
 $(document).ready(() => {
   $(".has-carousel").owlCarousel({
     navigation: true,
+    loop: true,
     items: 1,
-    singleItem: true,
-    lazyLoad: true,
     dots: true,
-    autoPlay: 3000, // Set AutoPlay to 3 seconds
+    autoplay: true,
+    autoplayTimeout: 3000,
   });
 });

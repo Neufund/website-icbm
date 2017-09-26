@@ -1,27 +1,29 @@
 <div class="section people team">
-  <div class="row">
-    <div class="col-md-4">
-      <h3 class="title"><%- title -%></h3>
-      <p class="intro"><%- intro -%></p>
-    </div>
-    <div class="col-md-offset-1 col-md-7">
-      <div class="row people-row">
-        <% for (var i = 0; i < 4; i++) { %>
-        <%- include(block, members[i]) %>
-        <% } %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="title"><%- title -%></h3>
+        <p class="intro"><%- intro -%></p>
       </div>
+      <div class="col-md-offset-1 col-md-7">
+        <div class="row people-row">
+          <% for (var i = 0; i < 4; i++) { %>
+          <%- include(block, members[i]) %>
+          <% } %>
+        </div>
 
-      <div class="row is-hidden hidden-picture">
-        <% for (var i = 4; i < members.length; i++) { %>
-        <%- include('../blocks/person', members[i]) %>
-        <% } %>
-      </div>
+        <div class="row is-hidden hidden-picture">
+          <% for (var i = 4; i < members.length; i++) { %>
+          <%- include('../blocks/person', members[i]) %>
+          <% } %>
+        </div>
 
-      <!-- see more -->
-      <div>
-        <button class="see-more">+ More</button>
+        <!-- see more -->
+        <div>
+          <button class="see-more">+ More</button>
+        </div>
+        <!-- /see more -->
       </div>
-      <!-- /see more -->
     </div>
   </div>
 </div>

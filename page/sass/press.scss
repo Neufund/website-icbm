@@ -1,11 +1,9 @@
 $press-carousel-breakpoint: 1200px;
 
 .section.press {
-    border: 0;
     padding: 35px 0;
-
     background: $white;
-
+    border-top-width: 1px;
     margin-top: 50px;
 
     .img-container {

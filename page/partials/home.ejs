@@ -10,19 +10,14 @@ const checkSectionVisiablity = function(item, content) {
 %>
 <%- include('press', content.footer); %> 
 
-<div class="container">
-    <%- include('platform-overview'); %>
+<%- include('platform-overview'); %>
 
-    <%- include('commit_funds',  content.commit_funds ); %>
+<%- include('commit_funds',  content.commit_funds ); %>
 
-    <%- include('easy_access', content.easy_access); %>
+<%- include('easy_access', content.easy_access); %>
 
-    <%- checkSectionVisiablity(content.team,
-    include('team', content.team)); %>
+<%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 
-    <%- checkSectionVisiablity(content.advisors,
-    include('advisors', content.advisors)); %>
+<%- checkSectionVisiablity(content.advisors, include('advisors', content.advisors)); %>
 
-    <%- checkSectionVisiablity(content.ecosystem,
-    include('ecosystem',  content.ecosystem )); %>
-</div>
+<%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>

@@ -1,5 +1,5 @@
  <div class="container">
-    <div id="react-root"></div> 
+    <div id="react-root"></div>
  </div>
 
 <%
@@ -8,7 +8,7 @@ const checkSectionVisiablity = function(item, content) {
         return content
 }
 %>
-<%- include('press', content.footer); %> 
+<%- include('press', content.footer); %>
 
 <div class="container">
     <%- checkSectionVisiablity(content.commit_funds,
@@ -17,7 +17,7 @@ const checkSectionVisiablity = function(item, content) {
     <%- checkSectionVisiablity(content.participating,
     include('participating', content.participating)); %>
 
-    <%- checkSectionVisiablity(content.easy_access, 
+    <%- checkSectionVisiablity(content.easy_access,
     include('easy_access', content.easy_access)); %>
 
     <%- checkSectionVisiablity(content.team,
@@ -25,6 +25,9 @@ const checkSectionVisiablity = function(item, content) {
 
     <%- checkSectionVisiablity(content.advisors,
     include('advisors', content.advisors)); %>
+
+    <%- checkSectionVisiablity(content.quotes,
+    include('quotes', content.quotes)); %>
 
     <%- checkSectionVisiablity(content.ecosystem,
     include('ecosystem',  content.ecosystem )); %>

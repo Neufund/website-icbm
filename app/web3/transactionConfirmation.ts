@@ -1,5 +1,9 @@
+import { promisify } from "bluebird";
 import config from "../config";
 import web3Provider from "./web3Provider";
+
+const getBlockNumber = promisify<number>(web3Provider.eth.getBlockNumber);
+const getTransaction = promisify<any, string>(web3Provider.eth.getTransaction);
 
 export const transactionConfirmation = async (
   transactionHash: string,
@@ -15,7 +19,7 @@ export const transactionConfirmation = async (
     const poll = async () => {
       let currentBlockNo;
       try {
-        currentBlockNo = await promisify(web3Provider.eth.getBlockNumber, []);
+        currentBlockNo = await getBlockNumber();
       } catch (e) {
         // console.log("error in web3.eth.getBlockNumber");
         // console.log(e);
@@ -38,7 +42,7 @@ export const transactionConfirmation = async (
         newBlockCallback(currentBlockNo);
 
         try {
-          const transaction = await promisify(web3Provider.eth.getTransaction, [transactionHash]);
+          const transaction = await getTransaction(transactionHash);
           // console.log(`got transaction with block number: ${transaction.blockNumber}`);
           if (transaction.blockNumber != null) {
             transactionMinedCallback(transaction.blockNumber);
@@ -58,14 +62,3 @@ export const transactionConfirmation = async (
     window.setTimeout(poll, 1000);
   });
 };
-
-function promisify(func: any, args: any): Promise<any> {
-  return new Promise((res, rej) => {
-    func(...args, (err: any, data: any) => {
-      if (err) {
-        return rej(err);
-      }
-      return res(data);
-    });
-  });
-}

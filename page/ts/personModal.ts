@@ -37,14 +37,11 @@ function mapLinksDescriptionToIcons(links: ILinks): string[] {
 export const getPersonModal = (
   name: string,
   image: string,
-  preTitle: string,
   title: string,
   bio: string,
   links: ILinks,
   email: string
 ) => {
-  const preTitleMarkup = preTitle === "" ? preTitle : `<span>${preTitle}</span>`;
-
   let optionalElements = "";
   if (links) {
     optionalElements += `<ul class="list-inline">`;
@@ -68,7 +65,6 @@ export const getPersonModal = (
           <div class="person-details">
             <h4 class="name">${name}</h4>
             <div class="title-container">
-              ${preTitleMarkup}
               <h4 class="position">${title}</h4>
             </div>
             <div class="bio">${bio}</div>

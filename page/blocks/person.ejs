@@ -4,13 +4,12 @@
         <div class="person-image highlight"></div>
         <div class="person-details">
             <h4 class="name text-primary"><%= name %></h4>
-            <h4 class="position"><%= title %></h4>
+            <h4 class="position"><%- title %></h4>
         </div>
     </div>
     <div class="bio hidden">
         <%= bio %>
     </div>
-    <span class="pre-title hidden"><%if (typeof preTitle != 'undefined') {%>  <%= preTitle %>  <%}%></span>
     <a class="links hidden">
       <%- typeof links != 'undefined' ? JSON.stringify(links) : "" %>
     </a>

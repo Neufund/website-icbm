@@ -361,9 +361,8 @@ advisors:
       company: "Company name"
   members:
     - name: "Fabian Vogelsteller"
-      title: "Ethereum and Mist Developer"
+      title: Ethereum and Mist <span class="position">Developer</span>
       image: "../assets/fabianethereumdev.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
         github: "https://github.com/frozeman"
@@ -382,7 +381,7 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Michael Jackson"
-      title: "Partner at Mangrove Capital & Board Director at Blockchain.com"
+      title: <span class="position">Partner</span> Mangrove Capital <span class="position">& Board Director</span> Blockchain.com
       image: "../assets/mangrove-michael-jackson.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/mjmjmj/"
@@ -399,7 +398,7 @@ advisors:
         German.</p>
 
     - name: "Julian Zawistowski"
-      title: "CEO and Founder at Golem"
+      title: <span class="position">CEO and Founder</span> Golem
       image: "../assets/julian-zawistowski.png"
       preTitle: ""
       links:
@@ -409,9 +408,8 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: "Crypto Investor and Entrepreneur & Former Co-founder of Bitcoin.com in 2011/12"
+      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12)</span> Bitcoin.com
       image: "../assets/adam-stradling.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/adamstradling/?ppe=1"
       email: ""
@@ -422,9 +420,8 @@ advisors:
         <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
 
     - name: "Max Kordek"
-      title: "Lisk Foundation"
+      title: <span class="position">President</span> Lisk Foundation
       image: "../assets/maxlisk.png"
-      preTitle: "President"
       links:
         linkedin: "https://www.linkedin.com/in/maxkordek/"
       email: ""
@@ -438,9 +435,8 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Christophe Maire"
-      title: "Atlantic Labs"
+      title: <span class="position">Founder and CEO</span> Atlantic Labs
       image: "../assets/christophe-maire.png"
-      preTitle: "Founder and CEO"
       links:
         linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
         website: "http://www.atlanticlabs.de/"
@@ -454,9 +450,8 @@ advisors:
         of EyeEm, Klara and Soundcloud.</p>
 
     - name: "Paweł Bylica"
-      title: "Ethereum Core Developer"
+      title: Ethereum Core <span class="position">Developer</span>
       image: "../assets/pawel-bylica.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/pawelbylica"
         github: "https://github.com/chfast"
@@ -466,9 +461,8 @@ advisors:
         Project as Ethereum specialist.</p>
 
     - name: "Alexander Lange"
-      title: "VC at Earlybird & Board Member at Shapeshift"
+      title: <span class="position">VC</span> Earlybird <span class="position">& Board Member</span> Shapeshift
       image: "../assets/Alex_Lange.png"
-      preTitle: ""
       links:
         twitter: "https://twitter.com/alexruppertvc"
         linkedin: "https://www.linkedin.com/in/alexander-lange-44aa8464/"

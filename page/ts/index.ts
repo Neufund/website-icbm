@@ -119,3 +119,14 @@ $(document).ready(() => {
 
   scrollbarFix();
 });
+
+$(document).ready(() => {
+  $(".has-carousel").owlCarousel({
+    navigation: true,
+    loop: true,
+    items: 1,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+  });
+});

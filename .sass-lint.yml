@@ -20,8 +20,6 @@ files:
     - 'page/sass/press.scss'
     - 'page/sass/vex-modal.scss'
     - 'page/sass/whitepaper.scss'
-    - 'app/components/HexagonsStack.scss'
-    - 'app/components/Incentive.scss'
     - 'page/sass/product_menu.scss'
     - 'page/sass/product.scss'
 rules:

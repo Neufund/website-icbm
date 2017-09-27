@@ -506,7 +506,7 @@ ecosystem:
       subtitle: "Ethereum Improvement Proposal"
       href: "#"
 
-footer:
+press:
   links:
     - link: "https://techcrunch.com/2017/01/17/neufund/"
       img: "../assets/logos/techcrunch.png"
@@ -522,6 +522,7 @@ footer:
       img: "../assets/logos/forbes.png"
     - img: "../assets/logos/Logo-der_spiegel.png"
 
+footer:
   bottomtitle: "@Fifth Force GmbH"
   website: "neufund.org"
   weblink: "https://neufund.org"

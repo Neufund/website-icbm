@@ -12,13 +12,13 @@ export const IncentiveText: React.SFC = () =>
     </p>
     <p>
       Reserve funds<sup>
-        <a href="#commit">01</a>
+        <a href="#how-it-works">01</a>
       </sup>{" "}
       today for your future investments. Maintain full control of your investment decisions.
     </p>
     <p>
       Get Neumarks<sup>
-        <a href="#commit">02</a>
+        <a href="#why-participate">02</a>
       </sup>{" "}
       just by reserving funds and become a co-owner of the platform.
     </p>

@@ -6,6 +6,7 @@ meta_head:
 why-how:
   sections:
     - title: "How the Neufund’s ICO works"
+      id: "how-it-works"
       content: |
          <p>Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.</p>
 
@@ -22,6 +23,7 @@ why-how:
         - link: "How to participate"
           href: "#"
     - title: "Why to participate: Neumark benefits"
+      id: "why-participate"
       content: |
         <p>Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are generated every time the investor reserves capital on the platform or invest in the startups.</p>
         <p><strong>If you reserve your ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>

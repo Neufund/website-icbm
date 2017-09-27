@@ -16,7 +16,7 @@ const checkSectionVisiablity = function(item, content) {
     <%- include('why-how', { ...content['why-how'].sections[i], index: i + 1 }) %>
 <% } %>
 
-<%- include('easy_access', content.easy_access); %>
+<%- checkSectionVisiablity(content.easy_access, include('easy_access', content.easy_access)); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 

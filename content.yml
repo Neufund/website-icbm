@@ -471,7 +471,7 @@ quotes:
   title: "Supporters say"
   description: "Advisors and startups about Neufund"
   quotes:
-    - author: "Arnd Aschentrup, CEO"
+    - author: Arnd Aschentrup, <span class="position">CEO</span>
       company: "Tandem"
       quote: |
         "The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!"

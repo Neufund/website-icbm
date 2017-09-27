@@ -1,15 +1,20 @@
 .how-it-works {
   .number-offset {
-    padding-left: 50px;
+    @media (min-width: $screen-md-min) {
+      padding-left: 50px;
+    }
   }
 
   .number {
-    position: absolute;
-    top: 11px;
-    left: -35px;
+    @media (min-width: $screen-md-min) {
+      position: absolute;
+      top: 11px;
+      left: -35px;
+    }
     border-bottom: 5px solid $blue-darker;
     padding-bottom: 3px;
     padding-left: 15px;
+    width: 32px;
     color: $blue-darker;
     font-size: $font-size-small;
     font-weight: $font-weight-more-bold;
@@ -39,6 +44,7 @@
   .image {
     margin-top: 25px;
     margin-left: 120px;
+    margin-bottom: 25px;
     max-height: 240px;
   }
 }

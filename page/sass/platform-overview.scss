@@ -7,13 +7,13 @@
 
   .feature-list {
     margin-top: 70px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
   }
 
   .feature {
     margin-right: auto;
     margin-left: auto;
-    width: 315px;
+    max-width: 315px;
 
     .feature-image {
       margin-bottom: 50px;
@@ -27,6 +27,11 @@
 
     .feature-text {
       font-size: 14px;
+      margin-bottom: 50px;
+      
+      @media (max-width: $screen-sm-min) {
+        text-align: center;
+      }
     }
   }
 }

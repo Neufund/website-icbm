@@ -1,5 +1,5 @@
- <div class="container">
-    <div id="react-root"></div>
+ <div class="container react-app">
+    <div id="react-root"></div> 
  </div>
 
 <%
@@ -10,25 +10,16 @@ const checkSectionVisiablity = function(item, content) {
 %>
 <%- include('press', content.footer); %>
 
-<div class="container">
-    <%- checkSectionVisiablity(content.commit_funds,
-    include('commit_funds',  content.commit_funds )); %>
+<%- include('platform-overview'); %>
 
-    <%- checkSectionVisiablity(content.participating,
-    include('participating', content.participating)); %>
+<% for(var i=0; i < content['why-how'].sections.length; i++) {%>    
+    <%- include('why-how', { ...content['why-how'].sections[i], index: i + 1 }) %>
+<% } %>
 
-    <%- checkSectionVisiablity(content.easy_access,
-    include('easy_access', content.easy_access)); %>
+<%- checkSectionVisiablity(content.easy_access, include('easy_access', content.easy_access)); %>
 
-    <%- checkSectionVisiablity(content.team,
-    include('team', content.team)); %>
+<%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 
-    <%- checkSectionVisiablity(content.advisors,
-    include('advisors', content.advisors)); %>
+<%- checkSectionVisiablity(content.advisors, include('advisors', content.advisors)); %>
 
-    <%- checkSectionVisiablity(content.quotes,
-    include('quotes', content.quotes)); %>
-
-    <%- checkSectionVisiablity(content.ecosystem,
-    include('ecosystem',  content.ecosystem )); %>
-</div>
+<%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>

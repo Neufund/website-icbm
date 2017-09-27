@@ -1,0 +1,50 @@
+.how-it-works {
+  .number-offset {
+    @media (min-width: $screen-md-min) {
+      padding-left: 50px;
+    }
+  }
+
+  .number {
+    @media (min-width: $screen-md-min) {
+      position: absolute;
+      top: 11px;
+      left: -35px;
+    }
+    border-bottom: 5px solid $blue-darker;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    width: 32px;
+    color: $blue-darker;
+    font-size: $font-size-small;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .content {
+    h2 {
+      margin-bottom: 30px;
+      color: $gray-darker;
+      font-size: $section-title-font-size-smaller;
+      font-weight: $font-weight-more-bold;
+    }
+
+    .text {
+      p {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: $section-title-font-size-smaller;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .image {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 120px;
+    max-height: 240px;
+  }
+}

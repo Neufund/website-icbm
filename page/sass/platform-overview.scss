@@ -1,0 +1,37 @@
+.platform-overview {
+  h2 {
+    color: $gray-darker;
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .feature-list {
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+
+  .feature {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 315px;
+
+    .feature-image {
+      margin-bottom: 50px;
+      text-align: center;
+
+      img {
+        width: auto;
+        height: 108px;
+      }
+    }
+
+    .feature-text {
+      margin-bottom: 50px;
+      font-size: $font-size-small;
+
+      @media (max-width: $screen-sm-min) {
+        text-align: center;
+      }
+    }
+  }
+}

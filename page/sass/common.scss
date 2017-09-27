@@ -31,11 +31,14 @@ p.slim {
     }
 }
 
-.section{
+.section {
     position: relative;
     padding-top: $padding-between-sections;
     padding-bottom: $padding-between-sections;
-    border-bottom: 1px $off-white solid;
+    border: 0;
+    border-color: $off-white;
+    border-style: solid;
+    border-bottom-width: 1px;
 
     .hidden-picture{
         display: none;

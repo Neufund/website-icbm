@@ -88,7 +88,7 @@
     "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "tslint:fix": "tslint --fix --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "lint": "yarn tslint && yarn sass-lint",
-    "lint:fix": "yarn tslint:fix",
+    "lint:fix": "yarn tslint:fix && yarn sass-lint",
     "sass-lint": "sass-lint -v -q",
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",
     "webpack:profile": "NODE_ENV=production webpack --profile --json > webpack-stats.json",

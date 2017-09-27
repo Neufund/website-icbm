@@ -3,33 +3,40 @@ meta_head:
   image_logo: "https://commit.neufund.org/assets/social_logo.png"
   url: "https://commit.neufund.org"
   keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
-commit_funds:
-  visible: true
+why-how:
   sections:
-    - point: "01"
-      title: "How it works"
-      paragraph1:  |
-        Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.
-      paragraph2:  |
-        Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.
+    - title: "How the Neufund’s ICO works"
+      id: "how-it-works"
+      content: |
+         <p>Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.</p>
+
+         <p>Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund Platform. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
+      imgPath: "../assets/why-how/Illu_Section_01"
       links:
-        - link: "Terms and Conditions"
+        - link: "Reservation agreement"
           href: "#"
+          downloadable: true
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'
-          href: "#"
+          href: "/faq.html"
         - link: "How to participate"
           href: "#"
-    - point: "02"
-      title: "Why participate: Neumark key feature"
-      paragraph1:  |
-        Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.
-      paragraph2:  |
-        <strong>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.
+    - title: "Why to participate: Neumark benefits"
+      id: "why-participate"
+      content: |
+        <p>Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are generated every time the investor reserves capital on the platform or invest in the startups.</p>
+        <p><strong>If you reserve your ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>
+      imgPath: "../assets/why-how/Illu_Section_02"
       links:
-        - link: "Neumark Token Holder Agreement"
-          href: "#"
+        - link: "Neufund Whitepaper"
+          href: "https://neufund.org/whitepaper/"
+          downloadable: true
+        - link: "Roadmap"
+          href: "https://neufund.org/roadmap/"
+          downloadable: true
+        - link: "Key takeaways from the Neufund’s Whitepaper"
+          href: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
 
 participating:
   visible: true
@@ -41,11 +48,12 @@ participating:
   links:
     - link: "Neufund Whitepaper"
       target: "https://neufund.org/whitepaper/"
+      downloadable: true
     - link: "Roadmap"
       target: "https://neufund.org/roadmap/"
+      downloadable: true
     - link: "Key takeaways from the Neufund’s Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
-      new: true
 
 easy_access:
   visible: true
@@ -350,9 +358,8 @@ advisors:
   block: "../blocks/person"
   members:
     - name: "Fabian Vogelsteller"
-      title: "Ethereum and Mist Developer"
+      title: Ethereum and Mist <span class="position">Developer</span>
       image: "../assets/fabianethereumdev.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
         github: "https://github.com/frozeman"
@@ -371,7 +378,7 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Michael Jackson"
-      title: "Partner at Mangrove Capital & Board Director at Blockchain.com"
+      title: <span class="position">Partner</span> Mangrove Capital <span class="position">& Board Director</span> Blockchain.com
       image: "../assets/mangrove-michael-jackson.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/mjmjmj/"
@@ -388,7 +395,7 @@ advisors:
         German.</p>
 
     - name: "Julian Zawistowski"
-      title: "CEO and Founder at Golem"
+      title: <span class="position">CEO and Founder</span> Golem
       image: "../assets/julian-zawistowski.png"
       preTitle: ""
       links:
@@ -398,9 +405,8 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: "Crypto Investor and Entrepreneur & Former Co-founder of Bitcoin.com in 2011/12"
+      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12)</span> Bitcoin.com
       image: "../assets/adam-stradling.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/adamstradling/?ppe=1"
       email: ""
@@ -411,9 +417,8 @@ advisors:
         <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
 
     - name: "Max Kordek"
-      title: "Lisk Foundation"
+      title: <span class="position">President</span> Lisk Foundation
       image: "../assets/maxlisk.png"
-      preTitle: "President"
       links:
         linkedin: "https://www.linkedin.com/in/maxkordek/"
       email: ""
@@ -427,9 +432,8 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Christophe Maire"
-      title: "Atlantic Labs"
+      title: <span class="position">Founder and CEO</span> Atlantic Labs
       image: "../assets/christophe-maire.png"
-      preTitle: "Founder and CEO"
       links:
         linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
         website: "http://www.atlanticlabs.de/"
@@ -443,9 +447,8 @@ advisors:
         of EyeEm, Klara and Soundcloud.</p>
 
     - name: "Paweł Bylica"
-      title: "Ethereum Core Developer"
+      title: Ethereum Core <span class="position">Developer</span>
       image: "../assets/pawel-bylica.png"
-      preTitle: ""
       links:
         linkedin: "https://www.linkedin.com/in/pawelbylica"
         github: "https://github.com/chfast"
@@ -455,9 +458,8 @@ advisors:
         Project as Ethereum specialist.</p>
 
     - name: "Alexander Lange"
-      title: "VC at Earlybird & Board Member at Shapeshift"
+      title: <span class="position">VC</span> Earlybird <span class="position">& Board Member</span> Shapeshift
       image: "../assets/Alex_Lange.png"
-      preTitle: ""
       links:
         twitter: "https://twitter.com/alexruppertvc"
         linkedin: "https://www.linkedin.com/in/alexander-lange-44aa8464/"

@@ -38,14 +38,13 @@ $(document).ready(() => {
     // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
     const name = $(this).find("h4.name").text().trim();
     const image = $(this).find("img").attr("src").trim();
-    const title = $(this).find("h4.position").text().trim();
+    const title = $(this).find("h4.position").html();
     const bio = $(this).find(".bio").text().trim();
-    const preTitle = $(this).find("span.pre-title").text().trim();
     const rawLinks = $(this).find(".links").text().trim();
     const links = rawLinks ? JSON.parse(rawLinks) : {};
     const email = $(this).find("p.link").text().trim();
 
-    vex.open(getPersonModal(name, image, preTitle, title, bio, links, email));
+    vex.open(getPersonModal(name, image, title, bio, links, email));
   });
 
   $(".team .see-more").click(function() {

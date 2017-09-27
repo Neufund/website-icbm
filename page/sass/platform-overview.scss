@@ -1,7 +1,7 @@
 .platform-overview {
   h2 {
     color: $gray-darker;
-    font-size: 26px;
+    font-size: $section-title-font-size;
     font-weight: $font-weight-more-bold;
   }
 
@@ -26,9 +26,9 @@
     }
 
     .feature-text {
-      font-size: 14px;
       margin-bottom: 50px;
-      
+      font-size: $font-size-small;
+
       @media (max-width: $screen-sm-min) {
         text-align: center;
       }

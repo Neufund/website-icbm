@@ -24,27 +24,27 @@
     h2 {
       margin-bottom: 30px;
       color: $gray-darker;
-      font-size: 20px;
+      font-size: $section-title-font-size-smaller;
       font-weight: $font-weight-more-bold;
     }
 
     .text {
       p {
-        font-size: 14px;
+        font-size: $font-size-small;
       }
     }
   }
 
   h3 {
     margin-top: 0;
-    font-size: 20px;
+    font-size: $section-title-font-size-smaller;
     font-weight: $font-weight-more-bold;
   }
 
   .image {
     margin-top: 25px;
-    margin-left: 120px;
     margin-bottom: 25px;
+    margin-left: 120px;
     max-height: 240px;
   }
 }

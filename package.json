@@ -109,7 +109,7 @@
     "moment": "^2.18.1",
     "owl.carousel": "^2.2.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-form": "^7.0.4",

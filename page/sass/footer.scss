@@ -1,68 +1,72 @@
-html{
-  position:relative;
+html {
+  position: relative;
   min-height: 100%;
 }
 
-.footer-container{
+.footer-container {
+  position: relative;
+}
+
+.border-top {
+  border-top: 1px $off-white solid;
+  padding-top: 20px;
+}
+
+.footer {
+  border: 0;
+  padding-top: $padding-between-sections;
+
+  ul {
+    display: inline-block;
     position: relative;
-}
+    padding: 0;
+    width: 100%;
+    text-align: center;
 
-.border-top{
-    border-top: 1px $off-white solid;
-    padding-top: 20px;
-}
+    li {
+      float: left;
+      width: calc(100% / 5);
+      list-style-type: none;
 
-.footer{
-    padding-top: $padding-between-sections;
-    border: 0;
-
-    ul{
-        display: inline-block;
-        padding: 0px;
-        width: 100%;
-        text-align: center;
-        position: relative;
-
-        li{
-            width: calc(100%/5);
-            float: left;
-            list-style-type: none;
-
-            @media (max-width: $screen-sm) {
-                width: auto;
-                float: none;
-                margin-top: 15px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            img{
-                width: auto;
-                height: 35px;
-            }
-        }
+      @media (max-width: $screen-sm) {
+        float: none;
+        margin-top: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        width: auto;
+      }
     }
+
+    img {
+      width: auto;
+      height: 35px;
+    }
+  }
 }
 
-.footer-bottom{
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  margin-top: $margin-bottom-between-paragraphs;
+  margin-bottom: $margin-bottom-between-paragraphs;
+  font-size: 12px;
+  font-weight: $font-weight-more-bold;
+
+  span,
+  a {
+    color: $gray-between-light-and-dark;
+  }
+
+  .handler {
+    float: left;
+  }
+
+  .email {
     position: relative;
-    z-index: 1;
-    font-size: 12px;
-    font-weight: $font-weight-more-bold;
-    margin-top: $margin-bottom-between-paragraphs;
-    margin-bottom: $margin-bottom-between-paragraphs;
-    span, a {
-        color: $gray-between-light-and-dark;
-    }
-    .handler{
-        float: left;
-    }
-    .email{
-        float: right;
-        margin-right: 50px;
-        margin-left: 50px;
-        position: relative;
-    }
+    float: right;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 }
 
 .footer-bottom-container {
@@ -70,7 +74,7 @@ html{
 
   .footer-hex {
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: -34px;
     z-index: 0;
   }

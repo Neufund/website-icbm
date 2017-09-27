@@ -13,7 +13,7 @@ const checkSectionVisiablity = function(item, content) {
 <%- include('platform-overview'); %>
 
 <% for(var i=0; i < content['why-how'].sections.length; i++) {%>    
-    <%- include('why-how', { ...content['why-how'].sections[i], index: i + 1 }) %>
+    <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
 <% } %>
 
 <%- checkSectionVisiablity(content.easy_access, include('easy_access', content.easy_access)); %>

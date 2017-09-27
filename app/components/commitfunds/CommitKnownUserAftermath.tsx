@@ -1,55 +1,102 @@
 import { BigNumber } from "bignumber.js";
 import { Moment } from "moment";
 import * as React from "react";
+import { connect, Dispatch } from "react-redux";
+import { loadAftermathDetails } from "../../actions/aftermathActions";
+import {
+  selectLoading,
+  selectLockedAmount,
+  selectNeumarkBalance,
+  selectUnlockDate,
+} from "../../reducers/aftermathState";
+import { IAppState } from "../../reducers/index";
+import { LoadingIndicator } from "../LoadingIndicator";
 import { UnderlinedLink } from "../UnderlinedLink";
 import * as styles from "./Aftermath.scss";
 
-interface IAftermathProps {
+interface IAftermathOwnProps {
   userAddress: string;
-  lockedAmount: BigNumber;
-  unlockDate: Moment;
-  neumarkBalance: BigNumber;
 }
 
-export const CommitKnownUserAftermath: React.SFC<IAftermathProps> = ({
-  userAddress,
-  lockedAmount,
-  unlockDate,
-  neumarkBalance,
-}) =>
-  <div className={styles.aftermath}>
-    <div>
-      <div className={styles.header}>Sneak peak to your committed funds</div>
-      <UnderlinedLink href="#">
-        If you want to see your transactions, go to etherscan.io
-      </UnderlinedLink>
-    </div>
+interface IAftermathProps {
+  isLoading: boolean;
+  loadAftermathDetails: () => {};
+  lockedAmount: BigNumber;
+  neumarkBalance: BigNumber;
+  unlockDate: Moment;
+}
 
-    <div className={styles.infoBox}>
-      <div className={styles.caption}>For address</div>
-      <div className={styles.value}>
-        {userAddress}
-      </div>
-    </div>
+export class CommitKnownUserAftermath extends React.Component<
+  IAftermathProps & IAftermathOwnProps
+> {
+  public componentDidMount() {
+    this.props.loadAftermathDetails();
+  }
 
-    <div className={styles.infoBox}>
-      <div className={styles.caption}>Locked amount</div>
-      <div className={styles.value}>
-        {lockedAmount.toString()} ETH {/* todo: probably we will get it in wei */}
-      </div>
-    </div>
+  public render() {
+    const { isLoading, userAddress, lockedAmount, unlockDate, neumarkBalance } = this.props;
 
-    <div className={styles.infoBox}>
-      <div className={styles.caption}>Unlock date</div>
-      <div className={styles.value}>
-        {unlockDate.format("YYYY-MM-DD")}
-      </div>
-    </div>
+    if (isLoading) {
+      return (
+        <div className={styles.aftermath}>
+          <LoadingIndicator />
+        </div>
+      );
+    }
+    return (
+      <div className={styles.aftermath}>
+        <div>
+          <div className={styles.header}>Sneak peak to your committed funds</div>
+          <UnderlinedLink href="#">
+            If you want to see your transactions, go to etherscan.io
+          </UnderlinedLink>
+        </div>
 
-    <div className={styles.infoBox}>
-      <div className={styles.caption}>Neumark balance</div>
-      <div className={styles.value}>
-        {neumarkBalance.toString()} NEU
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>For address</div>
+          <div className={styles.value}>
+            {userAddress}
+          </div>
+        </div>
+
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>Locked amount</div>
+          <div className={styles.value}>
+            {lockedAmount.toFixed(2)} ETH {/* todo: probably we will get it in wei */}
+          </div>
+        </div>
+
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>Unlock date</div>
+          <div className={styles.value}>
+            {unlockDate.format("YYYY-MM-DD")}
+          </div>
+        </div>
+
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>Neumark balance</div>
+          <div className={styles.value}>
+            {neumarkBalance.toFixed(2)} NEU
+          </div>
+        </div>
       </div>
-    </div>
-  </div>;
+    );
+  }
+}
+
+function mapStateToProps(state: IAppState) {
+  return {
+    isLoading: selectLoading(state.aftermathState),
+    lockedAmount: selectLockedAmount(state.aftermathState),
+    neumarkBalance: selectNeumarkBalance(state.aftermathState),
+    unlockDate: selectUnlockDate(state.aftermathState),
+  };
+}
+
+function mapDispatchToProps(dispatch: Dispatch<any>, ownProps: IAftermathOwnProps) {
+  return {
+    loadAftermathDetails: () => dispatch(loadAftermathDetails(ownProps.userAddress)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommitKnownUserAftermath);

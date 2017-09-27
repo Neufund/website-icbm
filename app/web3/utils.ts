@@ -12,8 +12,12 @@ export function asNumber(bignum: BigNumber) {
   return bignum.toNumber();
 }
 
-export function asEtherNumber(bignum: BigNumber) {
+export function asEtherNumber(bignum: BigNumber): BigNumber {
   return web3Instance.fromWei(bignum, "ether");
+}
+
+export function asWeiNumber(num: BigNumber | string | number): BigNumber | string {
+  return web3Instance.toWei(num, "ether");
 }
 
 export function promisify(func: any, args: any): Promise<any> {

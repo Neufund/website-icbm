@@ -1,81 +1,50 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-.footer-container {
-  position: relative;
-}
-
-.border-top {
-  border-top: 1px $off-white solid;
-  padding-top: 20px;
-}
-
 .footer {
-  border: 0;
-  padding-top: $padding-between-sections;
+  border-bottom: 0;
+  box-shadow: inset 0 1px 33px 0 rgba(217, 219, 220, .1); // sass-lint:disable-line no-color-literals
+  background-color: $white-light-green;
+  padding-bottom: 0;
+  line-height: 19px;
+  color: $gray-between-light-and-dark;
+  font-size: 15px;
 
-  ul {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-
-    li {
-      float: left;
-      width: calc(100% / 5);
-      list-style-type: none;
-
-      @media (max-width: $screen-sm) {
-        float: none;
-        margin-top: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        width: auto;
-      }
-    }
-
-    img {
-      width: auto;
-      height: 35px;
-    }
+  &.section {
+    padding-top: 35px;
   }
-}
 
-.footer-bottom {
-  position: relative;
-  z-index: 1;
-  margin-top: $margin-bottom-between-paragraphs;
-  margin-bottom: $margin-bottom-between-paragraphs;
-  font-size: 12px;
-  font-weight: $font-weight-more-bold;
+  .second-col {
+    position: relative;
+    z-index: 1;
+    line-height: 27px;
+    font-weight: $font-weight-bold;
+  }
 
-  span,
+  .second-row {
+    position: relative;
+    z-index: 1;
+    margin-top: 24px;
+    margin-bottom: 50px;
+    font-size: $font-size-smallest;
+  }
+
   a {
-    color: $gray-between-light-and-dark;
+    text-decoration: underline;
+    color: $gray-lighter;
   }
 
-  .handler {
-    float: left;
-  }
+  .social {
+    margin-top: 18px;
 
-  .email {
-    position: relative;
-    float: right;
-    margin-right: 50px;
-    margin-left: 50px;
+    a {
+      margin-right: 18px;
+      color: $black;
+      font-size: 18px;
+    }
   }
-}
-
-.footer-bottom-container {
-  position: relative;
 
   .footer-hex {
     position: absolute;
     right: 0;
-    bottom: -34px;
+    bottom: 0;
     z-index: 0;
   }
 }

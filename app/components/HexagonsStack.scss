@@ -1,37 +1,37 @@
-@import "../../common/sass/variables.scss";
+@import '../../common/sass/variables';
 
 .hex-container {
-    position: relative;
+  position: relative;
 }
 
 .hex-container-text {
-    position: absolute;
-    top: $hexagon-top-position;
-    left: $hexagon-left-position;
-    color: $blue-darker;
-    p {
-        font-size: $font-size-smaller;
-    }
-    h1 {
-        text-align: center;
-        margin-top: 5px;
-    }
+  position: absolute;
+  top: $hexagon-top-position;
+  left: $hexagon-left-position;
+  color: $blue-darker;
+
+  p {
+    font-size: $font-size-smaller;
+  }
+
+  h1 {
+    margin-top: 5px;
+    text-align: center;
+  }
 }
 
 .hexagon-blue {
-    -webkit-animation: breathing-blue 20s ease-in-out infinite normal;
-    animation: breathing-blue 20s ease-in-out infinite normal;
-    -webkit-font-smoothing: antialiased;
-    position: absolute;
+  position: absolute;
+  animation: breathing-blue 20s ease-in-out infinite normal;
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 }
 
-.hexagon-white{
-    -webkit-animation: breathing 20s ease-out infinite normal;
-    animation: breathing 20s ease-out infinite normal;
-    -webkit-font-smoothing: antialiased;
-    top: -11px;
-    left: -19px;
-    position: absolute;
+.hexagon-white {
+  position: absolute;
+  top: -11px;
+  left: -19px;
+  animation: breathing 20s ease-out infinite normal;
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 }
 
 @keyframes breathing {

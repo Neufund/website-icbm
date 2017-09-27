@@ -4,6 +4,10 @@ body {
   background-color: $white;
 
   margin-top: $navbar-height;
+
+  &.no-margin {
+    margin: 0;
+  }
 }
 
 label {

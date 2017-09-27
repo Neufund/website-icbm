@@ -6,7 +6,7 @@
           <div class="background product-background"></div>
         </div>
         <%- include('partials/header', { active: 'product', hashes: hashes }); %>
-        <div class="main">
+        <div class="main main-product">
           <% if( PLATFORM_ENABLED ) { %>
             <%- include('partials/product' ); %>
           <% } else { %>

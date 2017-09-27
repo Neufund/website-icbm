@@ -8,6 +8,10 @@
   .author {
     margin-bottom: 0;
     font-weight: $font-weight-bold;
+
+    .position {
+      font-weight: $font-weight-light;
+    }
   }
 
   .company {

@@ -12,7 +12,9 @@ const checkSectionVisiablity = function(item, content) {
 
 <%- include('platform-overview'); %>
 
-<%- include('commit_funds',  content.commit_funds ); %>
+<% for(var i=0; i < content['why-how'].sections.length; i++) {%>    
+    <%- include('why-how', { ...content['why-how'].sections[i], index: i + 1 }) %>
+<% } %>
 
 <%- include('easy_access', content.easy_access); %>
 

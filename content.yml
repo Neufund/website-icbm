@@ -3,33 +3,38 @@ meta_head:
   image_logo: "https://commit.neufund.org/assets/social_logo.png"
   url: "https://commit.neufund.org"
   keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
-commit_funds:
-  visible: true
+why-how:
   sections:
-    - point: "01"
-      title: "How it works"
-      paragraph1:  |
-        Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.
-      paragraph2:  |
-        Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.
+    - title: "How the Neufund’s ICO works"
+      content: |
+         <p>Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.</p>
+
+         <p>Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund Platform. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
+      imgPath: "../assets/why-how/Illu_Section_01"
       links:
-        - link: "Terms and Conditions"
+        - link: "Reservation agreement"
           href: "#"
+          downloadable: true
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'
-          href: "#"
+          href: "/faq.html"
         - link: "How to participate"
           href: "#"
-    - point: "02"
-      title: "Why participate: Neumark key feature"
-      paragraph1:  |
-        Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.
-      paragraph2:  |
-        <strong>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.
+    - title: "Why to participate: Neumark benefits"
+      content: |
+        <p>Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are generated every time the investor reserves capital on the platform or invest in the startups.</p>
+        <p><strong>If you reserve your ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first.</strong> You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>
+      imgPath: "../assets/why-how/Illu_Section_02"
       links:
-        - link: "Neumark Token Holder Agreement"
-          href: "#"
+        - link: "Neufund Whitepaper"
+          href: "https://neufund.org/whitepaper/"
+          downloadable: true
+        - link: "Roadmap"
+          href: "https://neufund.org/roadmap/"
+          downloadable: true
+        - link: "Key takeaways from the Neufund’s Whitepaper"
+          href: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
 
 participating:
   visible: true
@@ -41,11 +46,12 @@ participating:
   links:
     - link: "Neufund Whitepaper"
       target: "https://neufund.org/whitepaper/"
+      downloadable: true
     - link: "Roadmap"
       target: "https://neufund.org/roadmap/"
+      downloadable: true
     - link: "Key takeaways from the Neufund’s Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
-      new: true
 
 easy_access:
   visible: true

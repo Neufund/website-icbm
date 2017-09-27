@@ -1,0 +1,44 @@
+.how-it-works {
+  .number-offset {
+    padding-left: 50px;
+  }
+
+  .number {
+    position: absolute;
+    top: 11px;
+    left: -35px;
+    border-bottom: 5px solid $blue-darker;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    color: $blue-darker;
+    font-size: $font-size-small;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .content {
+    h2 {
+      margin-bottom: 30px;
+      color: $gray-darker;
+      font-size: 20px;
+      font-weight: $font-weight-more-bold;
+    }
+
+    .text {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .image {
+    margin-top: 25px;
+    margin-left: 120px;
+    max-height: 240px;
+  }
+}

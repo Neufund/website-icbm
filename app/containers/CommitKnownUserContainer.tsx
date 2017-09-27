@@ -1,16 +1,22 @@
 import { BigNumber } from "bignumber.js";
-import * as moment from "moment";
+import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
-import { submitFunds } from "../actions/submitFunds";
+import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
-import { CommitKnownUserAftermath } from "../components/commitfunds/CommitKnownUserAftermath";
+import CommitKnownUserAftermath from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
+import config from "../config";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -18,10 +24,10 @@ interface ICommitKnownUserContainer {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
-  lockedAmount: BigNumber;
-  unlockDate: moment.Moment;
-  neumarkBalance: BigNumber;
-  estimationCoefficient: number;
+  minTicketWei: BigNumber;
+  calculateEstimatedRewardAction?: () => {};
+  estimatedReward: BigNumber;
+  loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
   txStarted: boolean;
   txHash: string;
@@ -34,11 +40,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   userAddress,
   contractAddress,
   transactionPayload,
-  lockedAmount,
-  neumarkBalance,
-  unlockDate,
-  estimationCoefficient,
   submitFundsAction,
+  minTicketWei,
+  calculateEstimatedRewardAction,
+  loadingEstimatedReward,
+  estimatedReward,
   txStarted,
   txHash,
   blockOfConfirmation,
@@ -64,8 +70,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               userAddress={userAddress}
               contractAddress={contractAddress}
               transactionPayload={transactionPayload}
-              estimationCoefficient={estimationCoefficient}
+              calculateEstimatedReward={calculateEstimatedRewardAction}
               submitFunds={submitFundsAction}
+              minTicketWei={minTicketWei}
+              estimatedReward={estimatedReward}
+              loadingEstimatedReward={loadingEstimatedReward}
             />
             <Row>
               <Col xs={12}>
@@ -73,12 +82,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermath
-              userAddress={userAddress}
-              lockedAmount={lockedAmount}
-              neumarkBalance={neumarkBalance}
-              unlockDate={unlockDate}
-            />
+            <CommitKnownUserAftermath userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>
@@ -88,12 +92,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 
 const mapStateToProps = (state: IAppState) => ({
   userAddress: state.userState.selectedAddress,
-  contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
-  transactionPayload: "0x3c7a3aff",
-  lockedAmount: new BigNumber(5),
-  neumarkBalance: new BigNumber(123),
-  unlockDate: moment(),
-  estimationCoefficient: 1,
+  contractAddress: config.contractsDeployed.commitmentContractAddress,
+  transactionPayload: "0x3c7a3aff", // @TODO UNHARDCODE IT!
+  minTicketWei: selectMinTicketWei(state.commitmentState),
+  estimatedReward: selectEstimatedReward(state.commitmentState),
+  loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
   txStarted: state.transactionState.txStarted,
   txHash: state.transactionState.txHash,
   blockOfConfirmation: state.transactionState.blockOfConfirmation,
@@ -105,6 +108,10 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     submitFundsAction: (values: ICommitKnownUserFormValues) =>
       dispatch(submitFunds(values.ethAmount)),
+    calculateEstimatedRewardAction: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
   };
 }
 

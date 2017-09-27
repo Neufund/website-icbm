@@ -1,9 +1,11 @@
+import { BigNumber } from "bignumber.js";
 import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 import * as image from "../../assets/img/commit_form_hex.png";
-import { estimateNeufromEth, parseStrToNumStrict } from "../../utils/utils";
+import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
+import { LoadingIndicator } from "../LoadingIndicator";
 import * as style from "./CommitKnownUserForm.scss";
 
 const inputFieldStyles = {
@@ -61,6 +63,7 @@ const styledField = (props: any) => {
     fullWidth: true,
     hintText: "Fill in the amount",
     floatingLabelText: "The ETH to be committed",
+    autoComplete: "off",
     ...props.input,
   };
 
@@ -74,47 +77,32 @@ const styledField = (props: any) => {
 interface ICommitKnownUserFormProps {
   handleSubmit?: () => {};
   submit?: () => {};
+  calculateEstimatedReward?: () => {};
   invalid?: boolean;
   ethAmount?: string;
-  estimationCoefficient: number;
+  minTicketWei: BigNumber;
+  estimatedReward: BigNumber;
+  loadingEstimatedReward: boolean;
 }
-
-const validateETHField = (value: string) => {
-  if (value === undefined) {
-    return "Required";
-  }
-
-  const number = parseStrToNumStrict(value);
-  if (isNaN(number)) {
-    return "You must enter number";
-  }
-
-  if (number <= 0) {
-    return "Number must be higher than 0";
-  }
-
-  return undefined;
-};
 
 const CommitKnownUserForm = ({
   handleSubmit,
   submit,
   invalid,
-  ethAmount,
-  estimationCoefficient,
+  calculateEstimatedReward,
+  estimatedReward,
+  loadingEstimatedReward,
 }: ICommitKnownUserFormProps) => {
-  let neuAmount: number = estimateNeufromEth(estimationCoefficient)(parseStrToNumStrict(ethAmount));
-  if (isNaN(neuAmount)) {
-    neuAmount = 0;
-  }
-  const neuAmountRounded = neuAmount.toFixed(3);
-
   return (
-    <form onSubmit={handleSubmit} className={style.formContainer}>
+    <form
+      onSubmit={handleSubmit}
+      className={style.formContainer}
+      onChange={calculateEstimatedReward}
+    >
       <div className={style.formBody}>
         <div className={style.inputContainer}>
           <div className={style.input}>
-            <Field name="ethAmount" component={styledField} validate={[validateETHField]} />
+            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
             <div className={style.currencyDeposit}>ETH</div>
           </div>
           <IconButton
@@ -126,10 +114,14 @@ const CommitKnownUserForm = ({
             info_outline
           </IconButton>
         </div>
+
         <p className={style.reward}>Your estimated reward</p>
-        <p className={style.amount}>
-          {neuAmountRounded} <span className={style.currency}>NEU</span>
-        </p>
+        {loadingEstimatedReward
+          ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
+          : <p className={style.amount}>
+              {estimatedReward.toFixed(2)} <span className={style.currency}>NEU</span>
+            </p>}
+
         <p className={style.description}>
           Calculated amount might not be precised, reward will be granted after the block is mined
           and it might depend on the order of transactions.

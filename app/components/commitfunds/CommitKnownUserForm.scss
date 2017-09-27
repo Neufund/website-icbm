@@ -10,6 +10,13 @@
   }
 }
 
+.estimated-reward-loading-indicator {
+  margin-top: 0;
+  margin-bottom: 5.5px;
+  width: 30px;
+  height: 30px;
+}
+
 .form-body {
   position: relative;
   z-index: 2;
@@ -63,7 +70,7 @@
   border-radius: 0 0 10px 10px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .13); // sass-lint:disable-line no-color-literals
   background-color: $gray-lighter;
-  cursor: pointer;
+  cursor: not-allowed;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -72,6 +79,7 @@
 
   &.valid {
     background-color: $green;
+    cursor: pointer;
   }
 }
 

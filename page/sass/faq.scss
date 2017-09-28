@@ -8,7 +8,7 @@
 
   .faq-content {
     padding-left: 10px;
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-md-min) {
       padding-bottom: 600px;
     }
   }
@@ -54,7 +54,6 @@
       }
     }
 
-
     .answer {
       color: $black-lighter;
       font-size: $font-size-small;
@@ -65,9 +64,7 @@
         font-size: $font-size-small;
       }
     }
-
   }
-
 
   .fixed {
     position: fixed;
@@ -107,7 +104,6 @@
           color: $black;
         }
       }
-
     }
   }
 }

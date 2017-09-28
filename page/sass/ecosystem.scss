@@ -1,26 +1,35 @@
 .ecosystem {
     border: 0px;
+
     .logo {
         height: 29px;
         width: 159px;
         margin-left: 15px;
     }
-    h3 {
-        margin-left: 15px;
+
+    h2 {
+      margin-left: 15px;
+      color: $gray-darker;
+      font-size: $section-title-font-size;
+      font-weight: $font-weight-more-bold;
     }
+
     p {
         max-width: 400px
     }
+
     ul li {
         color: $black;
         line-height: 25px;
     }
+
     .goto-element {
         font-size: 19px;
         font-weight: $font-weight-more-bold;
         margin-top: 40px;
         margin-bottom: 6px;
     }
+
     .subtitle {
         font-size: 15px;
         font-weight: $font-weight-more-bold;
@@ -28,6 +37,7 @@
         width: 160px;
         margin-top: 5px;
         margin-bottom: 70px;
+
         a{
             color: black;
         }

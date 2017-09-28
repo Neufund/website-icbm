@@ -141,10 +141,17 @@ p.slim {
 }
 
 .people {
+  h2 {
+    color: $gray-darker;
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-more-bold;
+  }
+
   .person-block {
     cursor: pointer;
     margin-bottom: 50px;
   }
+
 
   .person-info {
     padding-left: 114px;

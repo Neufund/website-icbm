@@ -6,12 +6,12 @@ import { connect, Dispatch } from "react-redux";
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
-import CommitKnownUserAftermath from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
+import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
   selectEstimatedReward,
   selectEstimatedRewardLoadingState,
@@ -83,7 +83,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermath userAddress={userAddress} />
+            <CommitKnownUserAftermathContainer userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>

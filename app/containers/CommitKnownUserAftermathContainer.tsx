@@ -2,16 +2,16 @@ import { BigNumber } from "bignumber.js";
 import { Moment } from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
-import { loadAftermathDetails } from "../../actions/aftermathActions";
+import { loadAftermathDetails } from "../actions/aftermathActions";
+import { LoadingIndicator } from "../components/LoadingIndicator";
+import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
   selectLoading,
   selectLockedAmount,
   selectNeumarkBalance,
   selectUnlockDate,
-} from "../../reducers/aftermathState";
-import { IAppState } from "../../reducers/index";
-import { LoadingIndicator } from "../LoadingIndicator";
-import { UnderlinedLink } from "../UnderlinedLink";
+} from "../reducers/aftermathState";
+import { IAppState } from "../reducers/index";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathOwnProps {
@@ -62,7 +62,7 @@ export class CommitKnownUserAftermath extends React.Component<
         <div className={styles.infoBox}>
           <div className={styles.caption}>Locked amount</div>
           <div className={styles.value}>
-            {lockedAmount.toFixed(2)} ETH {/* todo: probably we will get it in wei */}
+            {lockedAmount.toFixed(2)} ETH
           </div>
         </div>
 

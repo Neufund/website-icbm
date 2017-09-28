@@ -6,11 +6,11 @@ import { connect } from "react-redux";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
-import CommitUnknownUserAftermath from "../components/commitfunds/CommitUnknownUserAftermath";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
+import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
   contractAddress: string;
@@ -28,9 +28,6 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   transactionPayload,
   gasPrice,
   gasLimit,
-  lockedAmount,
-  neumarkBalance,
-  unlockDate,
   estimationCoefficient,
 }) => {
   return (
@@ -54,11 +51,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <CommitUnknownUserAftermath
-              lockedAmount={lockedAmount}
-              neumarkBalance={neumarkBalance}
-              unlockDate={unlockDate}
-            />
+            <CommitUnknownUserAftermathContainer />
           </Col>
         </Row>
       </Grid>
@@ -71,10 +64,7 @@ const mapStateToProps = () => ({
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,
   gasLimit: config.contractsDeployed.gasLimit,
-  lockedAmount: new BigNumber(5),
-  neumarkBalance: new BigNumber(123),
-  unlockDate: moment(),
-  estimationCoefficient: 5,
+  estimationCoefficient: 5, // unhardcode it
 });
 
 export default connect(mapStateToProps)(CommitUnknownUserContainer);

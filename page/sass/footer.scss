@@ -1,77 +1,62 @@
-html{
-  position:relative;
-  min-height: 100%;
-}
+.footer {
+  border-bottom: 0;
+  box-shadow: inset 0 1px 33px 0 rgba(217, 219, 220, .1); // sass-lint:disable-line no-color-literals
+  background-color: $white-light-green;
+  padding-bottom: 0;
+  line-height: 19px;
+  color: $gray-between-light-and-dark;
+  font-size: $font-size-normal-smaller;
 
-.footer-container{
-    position: relative;
-}
+  .address {
+    white-space: pre-line;
+  }
 
-.border-top{
-    border-top: 1px $off-white solid;
-    padding-top: 20px;
-}
+  &.section {
+    padding-top: 35px;
+  }
 
-.footer{
-    padding-top: $padding-between-sections;
-    border: 0;
-
-    ul{
-        display: inline-block;
-        padding: 0px;
-        width: 100%;
-        text-align: center;
-        position: relative;
-
-        li{
-            width: calc(100%/5);
-            float: left;
-            list-style-type: none;
-
-            @media (max-width: $screen-sm) {
-                width: auto;
-                float: none;
-                margin-top: 15px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            img{
-                width: auto;
-                height: 35px;
-            }
-        }
-    }
-}
-
-.footer-bottom{
+  .second-col {
     position: relative;
     z-index: 1;
-    font-size: 12px;
-    font-weight: $font-weight-more-bold;
-    margin-top: $margin-bottom-between-paragraphs;
-    margin-bottom: $margin-bottom-between-paragraphs;
-    span, a {
-        color: $gray-between-light-and-dark;
-    }
-    .handler{
-        float: left;
-    }
-    .email{
-        float: right;
-        margin-right: 50px;
-        margin-left: 50px;
-        position: relative;
-    }
-}
+    line-height: 27px;
+    font-weight: $font-weight-bold;
 
-.footer-bottom-container {
-  position: relative;
+    @media (max-width: $screen-sm-max) {
+      .separated-mobile {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .second-row {
+    position: relative;
+    z-index: 1;
+    margin-top: 24px;
+    margin-bottom: 50px;
+    font-size: $font-size-smallest;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $gray-lighter;
+  }
+
+  .social {
+    margin-top: 18px;
+
+    a {
+      margin-right: 18px;
+      color: $black;
+      font-size: $font-size-medium;
+    }
+  }
 
   .footer-hex {
     position: absolute;
-    right: 0px;
-    bottom: -34px;
+    right: 0;
+    bottom: 0;
     z-index: 0;
+    width: 267px;
+    height: 183px;
   }
 }

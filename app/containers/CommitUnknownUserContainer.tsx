@@ -8,6 +8,8 @@ import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
 import CommitUnknownUserAftermath from "../components/commitfunds/CommitUnknownUserAftermath";
 import LegalModal from "../components/LegalModal";
+import config from "../config";
+import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
 interface ICommitUnknownUserContainer {
@@ -65,10 +67,10 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
 };
 
 const mapStateToProps = () => ({
-  contractAddress: "0x6895304785c271b827f1990860d5093e30d2a121",
-  transactionPayload: "0x3c7a3aff",
-  gasPrice: "5440",
-  gasLimit: "2000000",
+  contractAddress: config.contractsDeployed.commitmentContractAddress,
+  transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
+  gasPrice: config.contractsDeployed.gasPrice,
+  gasLimit: config.contractsDeployed.gasLimit,
   lockedAmount: new BigNumber(5),
   neumarkBalance: new BigNumber(123),
   unlockDate: moment(),

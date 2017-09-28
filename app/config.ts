@@ -32,6 +32,8 @@ interface IContractsDeployedIcoCfg {
   commitmentContractAddress: string;
   rpcProvider: string;
   commitmentType: CommitmentType;
+  gasLimit: string;
+  gasPrice: string;
 }
 
 export function getRequiredValue(obj: any, key: string): string {
@@ -75,6 +77,8 @@ function loadConfig(environment: object): IConfig {
           commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
           rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
+          gasPrice: getRequiredValue(environment, "GAS_PRICE"),
+          gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
         },
         transactionSigning: transactionSigningConfig,
       };

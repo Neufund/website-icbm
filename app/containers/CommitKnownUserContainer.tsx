@@ -18,6 +18,7 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { publicCommitment } from "../web3//contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
 interface ICommitKnownUserContainer {
@@ -93,7 +94,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 const mapStateToProps = (state: IAppState) => ({
   userAddress: state.userState.selectedAddress,
   contractAddress: config.contractsDeployed.commitmentContractAddress,
-  transactionPayload: "0x3c7a3aff", // @TODO UNHARDCODE IT!
+  transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   minTicketWei: selectMinTicketWei(state.commitmentState),
   estimatedReward: selectEstimatedReward(state.commitmentState),
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),

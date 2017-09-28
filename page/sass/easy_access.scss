@@ -1,5 +1,12 @@
 .easy-access {
     position: relative;
+
+    h2 {
+        color: $gray-darker;
+        font-size: $section-title-font-size;
+        font-weight: $font-weight-more-bold;
+    }
+
     .section {
         position: static;
     }

@@ -5,7 +5,11 @@
   padding-bottom: 0;
   line-height: 19px;
   color: $gray-between-light-and-dark;
-  font-size: 15px;
+  font-size: $font-size-normal-smaller;
+
+  .address {
+    white-space: pre-line;
+  }
 
   &.section {
     padding-top: 35px;
@@ -43,7 +47,7 @@
     a {
       margin-right: 18px;
       color: $black;
-      font-size: 18px;
+      font-size: $font-size-medium;
     }
   }
 

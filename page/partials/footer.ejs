@@ -1,10 +1,44 @@
-<div class="footer-bottom-container">
-    <div class="container footer-bottom">
-        <div class="border-top">
-            <span class="hander"><%= bottomtitle -%></span>
-            <a class="email" target="_blank" href="<%= weblink -%>"><%= website -%></a>
-            <a class="email" href="<%= emaillink -%>"><%= email -%></a>
+<div class="section footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <a href="<%=neufund_url%>"><%=neufund_txt%></a><br />
+        <br />
+        <span class="address"><%=address%></span>
+      </div>
+
+      <div class="col-sm-7 second-col">
+        <div class="row">
+          <div class="col-sm-6 separated-mobile">
+            <a href="<%=commit_url%>"><%=commit_txt%></a><br />
+            <a href="<%=platform_url%>"><%=platform_txt%></a><br />
+            <a href="<%=whitepaper_url%>"><%=whitepaper_txt%></a><br />
+            <a href="<%=faq_url%>"><%=faq_txt%></a>
+          </div>
+
+          <div class="col-sm-6 separated-mobile">
+            <a href="<%=email_url%>"><%=email_txt%></a><br />
+            <a href="<%=website_url%>"><%=website_txt%></a>
+            <div class="social">
+              <a href="https://neufundorg.signup.team/" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i></a>
+              <a href="https://github.com/Neufund/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+              <a href="https://blog.neufund.org/" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <img src="./assets/footer.png" class="footer-hex"></img>
+
+    <div class="row second-row">
+      <div class="col-xs-6 col-sm-5"><%=bottom_title%></div>
+
+      <div class="col-xs-6 col-sm-7">
+        <div class="row">
+          <div class="col-sm-offset-6 col-sm-6"><%=design_autor%></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <%- include('../blocks/scaling-img', { path: "./assets/footer", alt: "hexagon-shape", cls: "footer-hex" })%>
 </div>

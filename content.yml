@@ -506,7 +506,7 @@ ecosystem:
       subtitle: "Ethereum Improvement Proposal"
       href: "#"
 
-footer:
+press:
   links:
     - link: "https://techcrunch.com/2017/01/17/neufund/"
       img: "../assets/logos/techcrunch.png"
@@ -522,8 +522,27 @@ footer:
       img: "../assets/logos/forbes.png"
     - img: "../assets/logos/Logo-der_spiegel.png"
 
-  bottomtitle: "@Fifth Force GmbH"
-  website: "neufund.org"
-  weblink: "https://neufund.org"
-  email: "commit@neufund.org"
-  emaillink: "mailto:commit@neufund.org"
+footer:
+  address: |
+    Cuvrystr. 4
+    4th floor
+    10997 Berlin
+    Germany
+
+    +49 30 69517436
+  bottom_title: "@Fifth Force GmbH"
+  design_autor: "design: in-house"
+  neufund_txt: "NEUFUND"
+  neufund_url: "https://neufund.org"
+  commit_txt: "Commit"
+  commit_url: "https://neufund.org"
+  platform_txt: "Platform"
+  platform_url: "/product.html"
+  whitepaper_txt: "Whitepaper"
+  whitepaper_url: "https://neufund.org/whitepaper/"
+  faq_txt: "FAQ"
+  faq_url: "/faq.html"
+  website_txt: "neufund.org"
+  website_url: "https://neufund.org"
+  email_txt: "commit@neufund.org"
+  email_url: "mailto:commit@neufund.org"

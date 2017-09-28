@@ -43,8 +43,9 @@
       }
 
       i {
-        position: absolute;
-        margin-top: 4px;
+        display: inline;
+        vertical-align: middle;
+        line-height: 29px;
         color: $blue;
       }
 

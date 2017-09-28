@@ -6,10 +6,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <p><%= description %></p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-offset-1 col-md-7">
         <div class=" has-carousel"}>
           <% for (var i = 0; i < quotes.length; i++) { %>
           <%- include('../blocks/quote', quotes[i]) %>

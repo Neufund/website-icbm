@@ -16,6 +16,12 @@
     z-index: 1;
     line-height: 27px;
     font-weight: $font-weight-bold;
+
+    @media (max-width: $screen-sm-max) {
+      .separated-mobile {
+        margin-top: 20px;
+      }
+    }
   }
 
   .second-row {
@@ -43,6 +49,8 @@
 
   .footer-hex {
     position: absolute;
+    width: 267px;
+    height: 183px;
     right: 0;
     bottom: 0;
     z-index: 0;

@@ -1,0 +1,24 @@
+.invest-platform {
+  h2 {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    color: $gray-darker;
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .product-image {
+    margin: 0 auto;
+    max-height: 520px;
+
+    @media (max-width: $screen-sm-max) {
+      max-height: 380px;
+    }
+  }
+
+  .btn-container {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}

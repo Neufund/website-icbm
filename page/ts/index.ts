@@ -101,7 +101,7 @@ movePlatformButtonToAnotherColumn();
 
 // Smooth scrolling
 $(document).ready(() => {
-  $('a[href*="#commit"]').click(function(e) {
+  $('a[href*="#how-it-works"],a[href*="#why-participate"]').click(function(e) {
     e.preventDefault();
     // the destination id will be taken from the href attribute
     const dest = $(this).attr("href");

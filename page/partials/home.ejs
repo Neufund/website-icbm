@@ -1,5 +1,5 @@
  <div class="container react-app">
-    <div id="react-root"></div> 
+    <div id="react-root"></div>
  </div>
 
 <%
@@ -8,15 +8,15 @@ const checkSectionVisiablity = function(item, content) {
         return content
 }
 %>
-<%- include('press', content.footer); %>
+<%- include('press', content.press); %>
 
 <%- include('platform-overview'); %>
 
-<% for(var i=0; i < content['why-how'].sections.length; i++) {%>    
+<% for(var i=0; i < content['why-how'].sections.length; i++) {%>
     <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
 <% } %>
 
-<%- checkSectionVisiablity(content.easy_access, include('easy_access', content.easy_access)); %>
+<%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 

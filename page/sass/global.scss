@@ -37,7 +37,7 @@ h1 {
 .btn {
     border-radius: 20px;
     line-height: 20px;
-    padding: 10px 40px;
+    padding: 10px 60px;
     box-shadow: 0 1px 1px 0 $gray-lighter;
     font-weight: $font-weight-more-bold;
 
@@ -46,14 +46,14 @@ h1 {
     }
 
     &.btn-primary {
-      background: linear-gradient(180deg, #2B5A70 0%, #355363 2.36%, #424A48 100%);
+      background: linear-gradient(180deg, #345363 0%, #2A5A70 100%);
 
       &:hover {
-        background: linear-gradient(180deg, #09719B 0%, #09719B 2.36%, #424A52 100%);
+        background: linear-gradient(180deg, #34617E 0%, #2A6585 100%);
       }
 
       &:active  {
-        background: linear-gradient(180.02deg, #09719B 0%, #09719B 16.74%, #424A52 100%);
+        background: linear-gradient(180deg, #2B4351 0%, #22485A 100%);
       }
     }
 
@@ -71,7 +71,7 @@ h1 {
 }
 
 .modal-content  {
-  border-radius: 0px !important; 
+  border-radius: 0px !important;
 }
 
 .react-app {

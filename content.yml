@@ -55,17 +55,13 @@ participating:
     - link: "Key takeaways from the Neufund’s Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
 
-easy_access:
+invest_platform:
   visible: true
-  title: "For crypto nerds, finance nerds and non-nerds at all"
+  title: "Investing in startups on the Platform"
   paragraph:  |
-        Easy to use crafted experience for different actors on different stages of their investment journey. An
-        on&#8209;going work, being built with community for community, open&#8209;source code, access point for everyone
-        to blockchain.
-  remark: "Check out the:"
-  link1: "Neufund’s Github account"
-  button: "Pre-alpha version"
-
+        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares. 
+        Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency. 
+        
 team:
   visible: true
   title: "Team"
@@ -470,13 +466,17 @@ advisors:
 
 quotes:
   visible: true
-  title: "Supporters say"
+  title: "What supporters say"
   description: "Advisors and startups about Neufund"
   quotes:
     - author: Arnd Aschentrup, <span class="position">CEO</span>
       company: "Tandem"
       quote: |
-        "The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!"
+        The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!
+    - author: Fabian Vogelsteller, <span class="position">Developer</span>
+      company: "Ethereum and Mist"
+      quote: |
+        I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
 
 ecosystem:
   visible: true
@@ -506,7 +506,7 @@ ecosystem:
       subtitle: "Ethereum Improvement Proposal"
       href: "#"
 
-footer:
+press:
   links:
     - link: "https://techcrunch.com/2017/01/17/neufund/"
       img: "../assets/logos/techcrunch.png"
@@ -522,8 +522,27 @@ footer:
       img: "../assets/logos/forbes.png"
     - img: "../assets/logos/Logo-der_spiegel.png"
 
-  bottomtitle: "@Fifth Force GmbH"
-  website: "neufund.org"
-  weblink: "https://neufund.org"
-  email: "commit@neufund.org"
-  emaillink: "mailto:commit@neufund.org"
+footer:
+  address: |
+    Cuvrystr. 4<br />
+    4th floor<br />
+    10997 Berlin<br />
+    Germany<br />
+    <br />
+    +49 30 69517436<br />
+  bottom_title: "@Fifth Force GmbH"
+  design_autor: "design: in-house"
+  neufund_txt: "NEUFUND"
+  neufund_url: "https://neufund.org"
+  commit_txt: "Commit"
+  commit_url: "https://neufund.org"
+  platform_txt: "Platform"
+  platform_url: "/product.html"
+  whitepaper_txt: "Whitepaper"
+  whitepaper_url: "https://neufund.org/whitepaper/"
+  faq_txt: "FAQ"
+  faq_url: "/faq.html"
+  website_txt: "neufund.org"
+  website_url: "https://neufund.org"
+  email_txt: "commit@neufund.org"
+  email_url: "mailto:commit@neufund.org"

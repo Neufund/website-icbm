@@ -1,4 +1,10 @@
 .quotes {
+  h2 {
+    color: $gray-darker;
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-more-bold;
+  }
+
   .text {
     line-height: 24px;
     font-weight: $font-weight-normal;

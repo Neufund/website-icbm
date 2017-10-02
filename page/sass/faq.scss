@@ -8,7 +8,7 @@
 
   .faq-content {
     padding-left: 10px;
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-md-min) {
       padding-bottom: 600px;
     }
   }
@@ -43,8 +43,8 @@
       }
 
       i {
-        position: absolute;
-        margin-top: 4px;
+        vertical-align: middle;
+        line-height: 29px;
         color: $blue;
       }
 
@@ -53,7 +53,6 @@
         text-decoration: none;
       }
     }
-
 
     .answer {
       color: $black-lighter;
@@ -65,9 +64,7 @@
         font-size: $font-size-small;
       }
     }
-
   }
-
 
   .fixed {
     position: fixed;
@@ -107,7 +104,6 @@
           color: $black;
         }
       }
-
     }
   }
 }

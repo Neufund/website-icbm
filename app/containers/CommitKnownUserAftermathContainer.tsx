@@ -69,7 +69,7 @@ export class CommitKnownUserAftermath extends React.Component<
         <div className={styles.infoBox}>
           <div className={styles.caption}>Unlock date</div>
           <div className={styles.value}>
-            {unlockDate.format("YYYY-MM-DD")}
+            {unlockDate ? unlockDate.format("YYYY-MM-DD") : "-"}
           </div>
         </div>
 

@@ -10,7 +10,6 @@ import { Field, FormSubmitHandler, InjectedFormProps, reduxForm } from "redux-fo
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
-  selectLoading,
   selectLockedAmount,
   selectNeumarkBalance,
   selectUnlockDate,

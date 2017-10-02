@@ -11,6 +11,16 @@ $spacing-from-container: 22px;
     margin-bottom: 0;
   }
 
+  .right-container {
+    width: 150px;
+  }
+
+  .loading-indicator {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+  }
+
   .amount {
     display: inline-block;
     margin-right: 5px;

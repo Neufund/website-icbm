@@ -1,16 +1,20 @@
+import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { IconLink } from "../IconLink";
 import * as style from "./CommitUnknownUser.scss";
 import { CommitUnknownUserDesc } from "./CommitUnknownUserDesc";
-import { CommitUnknownUserEstimation } from "./CommitUnknownUserEstimation";
+import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
 
 interface ICommitFundsStatic {
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
-  estimationCoefficient: number;
+  estimatedReward: BigNumber;
+  loadingEstimatedReward: boolean;
+  calculateEstimatedRewardAction: () => {};
+  minTicketWei: BigNumber;
 }
 
 export const CommitUnknownUser: React.SFC<ICommitFundsStatic> = ({
@@ -18,7 +22,10 @@ export const CommitUnknownUser: React.SFC<ICommitFundsStatic> = ({
   transactionPayload,
   gasPrice,
   gasLimit,
-  estimationCoefficient,
+  estimatedReward,
+  loadingEstimatedReward,
+  calculateEstimatedRewardAction,
+  minTicketWei,
 }) =>
   <div>
     <Row className={style.initialLink}>
@@ -36,7 +43,12 @@ export const CommitUnknownUser: React.SFC<ICommitFundsStatic> = ({
         />
       </Col>
       <Col sm={4}>
-        <CommitUnknownUserEstimation estimationCoefficient={estimationCoefficient} />
+        <CommitUnknownUserEstimation
+          estimatedReward={estimatedReward}
+          calculateEstimatedReward={calculateEstimatedRewardAction}
+          loadingEstimatedReward={loadingEstimatedReward}
+          minTicketWei={minTicketWei}
+        />
       </Col>
     </Row>
   </div>;

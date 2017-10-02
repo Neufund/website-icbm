@@ -1,13 +1,21 @@
 import { BigNumber } from "bignumber.js";
+import { debounce } from "lodash";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
-import { connect } from "react-redux";
+import { connect, Dispatch } from "react-redux";
+import { calculateEstimatedReward } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../reducers/commitmentState";
+import { IAppState } from "../reducers/index";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
@@ -20,7 +28,10 @@ interface ICommitUnknownUserContainer {
   lockedAmount: BigNumber;
   unlockDate: moment.Moment;
   neumarkBalance: BigNumber;
-  estimationCoefficient: number;
+  estimatedReward: BigNumber;
+  loadingEstimatedReward: boolean;
+  calculateEstimatedRewardAction: () => {};
+  minTicketWei: BigNumber;
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({
@@ -28,7 +39,10 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   transactionPayload,
   gasPrice,
   gasLimit,
-  estimationCoefficient,
+  estimatedReward,
+  loadingEstimatedReward,
+  calculateEstimatedRewardAction,
+  minTicketWei,
 }) => {
   return (
     <div>
@@ -43,7 +57,10 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
               transactionPayload={transactionPayload}
               gasPrice={gasPrice}
               gasLimit={gasLimit}
-              estimationCoefficient={estimationCoefficient}
+              estimatedReward={estimatedReward}
+              loadingEstimatedReward={loadingEstimatedReward}
+              calculateEstimatedRewardAction={calculateEstimatedRewardAction}
+              minTicketWei={minTicketWei}
             />
             <Row>
               <Col xs={12}>
@@ -59,12 +76,23 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   );
 };
 
-const mapStateToProps = () => ({
+const mapStateToProps = (state: IAppState) => ({
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,
   gasLimit: config.contractsDeployed.gasLimit,
-  estimationCoefficient: 5, // unhardcode it
+  loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
+  estimatedReward: selectEstimatedReward(state.commitmentState),
+  minTicketWei: selectMinTicketWei(state.commitmentState),
 });
 
-export default connect(mapStateToProps)(CommitUnknownUserContainer);
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    calculateEstimatedRewardAction: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommitUnknownUserContainer);

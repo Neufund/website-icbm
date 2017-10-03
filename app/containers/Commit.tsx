@@ -8,16 +8,41 @@ import { selectIsKnownUser } from "../reducers/userState";
 import CommitKnownUserContainer from "./CommitKnownUserContainer";
 import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
+const SECOND = 1000;
+
 interface ICommitComponent {
   isKnownUser: boolean;
   loadUserAccount: () => {};
   loadIcoParams: () => {};
 }
 
-class Commit extends React.Component<ICommitComponent> {
+interface ICommitState {
+  timerID: number;
+}
+
+class Commit extends React.Component<ICommitComponent, ICommitState> {
+  constructor(props: ICommitComponent) {
+    super(props);
+    this.state = {
+      timerID: null,
+    };
+  }
+
   public componentDidMount() {
-    this.props.loadUserAccount();
     this.props.loadIcoParams();
+
+    const timerID = window.setInterval(() => {
+      this.props.loadUserAccount();
+    }, SECOND);
+
+    this.setState({
+      ...this.state,
+      timerID,
+    });
+  }
+
+  public componentWillUnmount() {
+    clearInterval(this.state.timerID);
   }
 
   public render() {

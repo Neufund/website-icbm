@@ -13,7 +13,10 @@ export function setUserAccountAction(account: string): IStandardReduxAction {
   };
 }
 
-export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async dispatcher => {
+export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {
   const account = await loadUserAccountFromWeb3();
-  dispatcher(setUserAccountAction(account));
+  const { userState } = getState();
+  if (account !== userState.address) {
+    dispatcher(setUserAccountAction(account));
+  }
 };

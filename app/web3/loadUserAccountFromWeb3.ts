@@ -5,5 +5,5 @@ const getAccounts = promisify(web3Provider.eth.getAccounts);
 
 export async function loadUserAccountFromWeb3(): Promise<string> {
   const accounts = (await getAccounts()) as string[];
-  return accounts[0];
+  return accounts[0] || null;
 }

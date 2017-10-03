@@ -55,7 +55,7 @@
     "istanbul": "^0.4.5",
     "jsdom": "^11.2.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^3.5.0",
+    "mocha": "^4.0.0",
     "moment": "^2.18.1",
     "nyc": "^11.1.0",
     "open-browser-webpack-plugin": "^0.0.5",

@@ -7541,9 +7541,9 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-web3-typescript-typings@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/web3-typescript-typings/-/web3-typescript-typings-0.3.0.tgz#1df583d8d9012059802dee90f72144576e0ab4fe"
+web3-typescript-typings@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/web3-typescript-typings/-/web3-typescript-typings-0.6.1.tgz#eb5a179d369363f78d384691ede88718a5968e8e"
   dependencies:
     bignumber.js "^4.0.2"
 

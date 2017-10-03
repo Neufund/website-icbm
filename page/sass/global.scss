@@ -1,11 +1,8 @@
 body {
+  margin-top: $navbar-height;
   background-color: $white;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
-
-  .sticky-header {
-    margin-top: $navbar-height;
-  }
 }
 
 label {

@@ -13,7 +13,6 @@ files:
     - 'page/sass/common.scss'
     - 'page/sass/easy_access.scss'
     - 'page/sass/ecosystem.scss'
-    - 'page/sass/global.scss'
     - 'page/sass/participating.scss'
     - 'page/sass/pictures.scss'
     - 'page/sass/press.scss'

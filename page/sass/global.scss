@@ -1,9 +1,8 @@
 body {
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  background-color: $white;
-
   margin-top: $navbar-height;
+  background-color: $white;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
 }
 
 label {
@@ -12,62 +11,63 @@ label {
 
 .background-wrapper {
   position: fixed;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: -100;
 
   .background {
-    width: calc(1170px + 200px);
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+    background-color: $white;
+    width: calc(1170px + 200px);
     height: 100vh;
-    background-color: white;
   }
 }
 
-
 h1 {
-    font-weight: $font-weight-max-bold;
+  font-weight: $font-weight-max-bold;
 }
 
 .btn {
-    border-radius: 20px;
-    line-height: 20px;
-    padding: 10px 60px;
-    box-shadow: 0 1px 1px 0 $gray-lighter;
-    font-weight: $font-weight-more-bold;
+  border-radius: 20px;
+  box-shadow: 0 1px 1px 0 $gray-lighter;
+  padding: 10px 60px;
+  line-height: 20px;
+  font-weight: $font-weight-more-bold;
 
-    a.btn {
+  a {
+    .btn {
       line-height: 28px;
     }
+  }
 
-    &.btn-primary {
-      background: linear-gradient(180deg, #345363 0%, #2A5A70 100%);
+  &.btn-primary {
+    background: linear-gradient(180deg, #345363 0%, #2a5a70 100%); // sass-lint:disable-line no-color-literals
 
-      &:hover {
-        background: linear-gradient(180deg, #34617E 0%, #2A6585 100%);
-      }
-
-      &:active  {
-        background: linear-gradient(180deg, #2B4351 0%, #22485A 100%);
-      }
+    &:hover {
+      background: linear-gradient(180deg, #34617e 0%, #2a6585 100%); // sass-lint:disable-line no-color-literals
     }
 
-    &.btn-white {
-      background: $white;
-      color: $blue;
-      box-shadow: 0 1px 1px 0 rgba(163,192,204,0.31);
-      border: 1px solid $blue;
+    &:active {
+      background: linear-gradient(180deg, #2b4351 0%, #22485a 100%); // sass-lint:disable-line no-color-literals
+    }
+  }
 
-      &:hover {
-        color: $white;
-        background: $blue;
-      }
+  &.btn-white {
+    border: 1px solid $blue;
+    box-shadow: 0 1px 1px 0 rgba(163, 192, 204, .31); // sass-lint:disable-line no-color-literals
+    background: $white;
+    color: $blue;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
   }
 }
 
-.modal-content  {
-  border-radius: 0px !important;
+.modal-content {
+  border-radius: 0 !important; // sass-lint:disable-line no-important
 }
 
 .react-app {

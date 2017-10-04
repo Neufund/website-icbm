@@ -8,7 +8,7 @@
       width: 96%;
     }
     @media (min-width: $screen-md){
-      p{
+      p, .title-container{
         width: 140%;
       }
     }

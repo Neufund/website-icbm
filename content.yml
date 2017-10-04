@@ -59,9 +59,9 @@ invest_platform:
   visible: true
   title: "Investing in startups on the Platform"
   paragraph:  |
-        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares. 
-        Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency. 
-        
+        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares.
+        Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency.
+
 team:
   visible: true
   title: "Team"
@@ -535,7 +535,7 @@ footer:
   neufund_txt: "NEUFUND"
   neufund_url: "https://neufund.org"
   commit_txt: "Commit"
-  commit_url: "https://neufund.org"
+  commit_url: "/"
   platform_txt: "Platform"
   platform_url: "/product.html"
   whitepaper_txt: "Whitepaper"

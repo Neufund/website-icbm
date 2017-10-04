@@ -2,33 +2,51 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { loadUserAccounts } from "../actions/loadUserAccounts";
-import { LoadingIndicator } from "../components/LoadingIndicator";
+import { loadUserAccount } from "../actions/loadUserAccount";
 import { IAppState } from "../reducers/index";
-import { selectIsKnownUser, selectLoading } from "../reducers/userState";
+import { selectIsKnownUser } from "../reducers/userState";
 import CommitKnownUserContainer from "./CommitKnownUserContainer";
 import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
+const SECOND = 1000;
+
 interface ICommitComponent {
   isKnownUser: boolean;
-  isLoading: boolean;
-  loadUserAccounts: () => {};
+  loadUserAccount: () => {};
   loadIcoParams: () => {};
 }
 
-class Commit extends React.Component<ICommitComponent> {
+interface ICommitState {
+  timerID: number;
+}
+
+class Commit extends React.Component<ICommitComponent, ICommitState> {
+  constructor(props: ICommitComponent) {
+    super(props);
+    this.state = {
+      timerID: null,
+    };
+  }
+
   public componentDidMount() {
-    this.props.loadUserAccounts();
     this.props.loadIcoParams();
+
+    const timerID = window.setInterval(() => {
+      this.props.loadUserAccount();
+    }, SECOND);
+
+    this.setState({
+      ...this.state,
+      timerID,
+    });
+  }
+
+  public componentWillUnmount() {
+    clearInterval(this.state.timerID);
   }
 
   public render() {
-    const { isLoading, isKnownUser } = this.props;
-
-    if (isLoading) {
-      return <LoadingIndicator />;
-    }
-
+    const { isKnownUser } = this.props;
     return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
   }
 }
@@ -36,13 +54,12 @@ class Commit extends React.Component<ICommitComponent> {
 const mapStateToProps = (state: IAppState) => {
   return {
     isKnownUser: selectIsKnownUser(state.userState),
-    isLoading: selectLoading(state.userState),
   };
 };
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    loadUserAccounts: () => dispatch(loadUserAccounts),
+    loadUserAccount: () => dispatch(loadUserAccount),
     loadIcoParams: () => dispatch(loadIcoParams),
   };
 }

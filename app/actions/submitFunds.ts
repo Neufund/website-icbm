@@ -68,7 +68,7 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
   getState
 ) => {
   try {
-    const selectedAccount = getState().userState.selectedAddress;
+    const selectedAccount = getState().userState.address;
     dispatcher(transactionStartedAction());
     const txHash = await submitFundsToContract(value, selectedAccount);
     dispatcher(transactionSubmitted(txHash));

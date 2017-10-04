@@ -46,6 +46,7 @@ gulp.task("page", () => {
       cssBundleHash,
     },
     GA_ID: envs.GA_ID,
+    PIXEL_ID: envs.PIXEL_ID,
     FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED),
     PLATFORM_ENABLED:!!parseInt(envs.PLATFORM_ENABLED),
   };

@@ -3,7 +3,7 @@
 
 .content-container {
   @media (min-width: $screen-md-min) {
-    padding: 44px $commit-number-combined 0;
+    padding: 44px $commit-number-combined;
   }
 }
 

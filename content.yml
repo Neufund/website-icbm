@@ -102,25 +102,6 @@ team:
        and telecommunication (Orange), cryptography and mobile devices (Jamba Music),
        insurance and government (Fiat, Hewlett-Packard).</p>
 
-   - name: "Remco Bloemen"
-     title: "Blockchain​ ​Architect​ ​&​ ​Product​ ​Owner"
-     image: "../assets/RemcoBloemen_bw.jpg"
-     preTitle: ""
-     links:
-      "facebook": "https://www.facebook.com/remco.bloemen"
-      "linkedin": "https://www.linkedin.com/in/remcobloemen/"
-      "github": "https://github.com/Recmo/"
-      "medium": "https://medium.com/@remco.bloemen"
-      "reddit": "https://www.reddit.com/user/Remco_/"
-      "website": "https://2π.com/"
-     email: ""
-     bio:  |
-       <p>Remco is a co-founder, Blockchain Architect, and Product Owner at Neufund. An expert in
-       Cryptography, Math and Programming, he founded blockchain forensics company Cointel
-       and cybersecurity company Coblue specialized in secure decentralized software. He is a
-       graduate of Math under Stephen Hawking at University of Cambridge and a graduate at
-       Singularity University.</p>
-
    - name: "Andre Eggert"
      title: "Legal Architect"
      image: "../assets/AndreEggert_bw.jpg"
@@ -159,30 +140,6 @@ team:
        After that she started her own company and worked as a technical project manager for a
        software development agency. Besides “blockchaining” and organizing she cooks really
        passionately.</p>
-
-   - name: "Ola Orchowska"
-     title: "Lead Blockchain Product Designer"
-     image: "../assets/olaorchowska.png"
-     preTitle: ""
-     links:
-      "linkedin": "https://neufund.net/community/www.linkedin.com/in/ola-orchowska"
-     email: ""
-     bio:  |
-       <p>Ola is the Lead Blockchain Product Designer at Neufund. This position has afforded her a
-       deep understanding of both the technology and business perspective on the blockchain
-       startup world.</p>
-
-       <p>Before joining Neufund, Ola has worked as a designer and design manager on projects at
-       the intersection of business, technology and design.</p>
-       <p>She has been involved in various projects in both entrepreneurial and corporate
-       environments including fields like healthcare and finance. She led a successful startup, ran
-       research, built brands, and designed systems. Among others, Ola has worked on an
-       e-commerce service for a major CEE insurance company, a digital banking system, a mobile
-       platform for children with chronic diseases, and an expert system that supports ethical
-       decision making.</p>
-
-        <p>Ola studied in Singularity University at the NASA Research Park in Silicon Valley.
-        She has been named an Innovator under 35 in Poland by MIT Technology Review.</p>
 
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
@@ -327,7 +284,7 @@ team:
        Bitcoin.com and the The Bitcoin Podcast.<p>
 
    - name: "Steffen Sieler"
-     title: "Blockchain Technology Communications Department"
+     title: "Blockchain Regulatory Reporter"
      image: "../assets/Steffen1.jpg"
      preTitle: ""
      links:
@@ -343,6 +300,17 @@ team:
        Excellence Institute Zeppelin and the Oxford Internet Institute.After his work in the
        banking innovation sphere, he is now happy to work with Neufund, where he forges the Blockchain
        Policy Initiative.</p>
+
+   - name: "Nikola Sporczyk"
+     title: "Administrative Intern"
+     image: "../assets/Nikola_Sporczyk.jpg"
+     preTitle: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/nikola-sporczyk-8a5574139/"
+     email: ""
+     bio:  |
+       <p>Nikola joined Neufund in September 2017 as an Administrative Intern. She’s assisting the team with their everyday tasks and is responsible for all the administrative matters, as well as organizing team events and activities. After 3 years of work in a corporate world, she was hungry to see how a startup experience looks like. The fact that technical world is close to her heart was the additional motivator to join Neufund. </p>
+       <p>In 2015 she attended Rails Girls Kraków event and constantly tries using simple programming to make her work environment more friendly. Nikola graduated from Wrocław University. Privately she is a cats-and-pizza lover and hardcore video games player with passion to learn languages.</p>
 
 advisors:
   visible: true

@@ -152,6 +152,13 @@ p.slim {
     margin-bottom: 50px;
   }
 
+  // this is only because of visual glitch after reveal adds transform (so we add them to whole grid)
+  .hidden-team {
+    .person-info {
+      transform: translateY(0) scale(1);
+    }
+  }
+
 
   .person-info {
     padding-left: 114px;

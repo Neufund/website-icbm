@@ -13,9 +13,6 @@ why-how:
          <p>Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that would ICO on Neufund Platform. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
       imgPath: "../assets/why-how/Illu_Section_01"
       links:
-        - link: "Reservation agreement"
-          href: "#"
-          downloadable: true
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund "ICO" FAQ'

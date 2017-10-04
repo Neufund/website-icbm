@@ -24,7 +24,3 @@ export const parseStrToNumStrict = (source: string): number => {
 
   return parseFloat(transform);
 };
-
-export const estimateNeufromEth = (coefficient: number) => (eth: number): number => {
-  return eth * coefficient;
-};

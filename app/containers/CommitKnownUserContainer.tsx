@@ -6,18 +6,19 @@ import { connect, Dispatch } from "react-redux";
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
-import CommitKnownUserAftermath from "../components/commitfunds/CommitKnownUserAftermath";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
+import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
   selectEstimatedReward,
   selectEstimatedRewardLoadingState,
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { publicCommitment } from "../web3//contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
 interface ICommitKnownUserContainer {
@@ -82,7 +83,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               </Col>
             </Row>
             <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermath userAddress={userAddress} />
+            <CommitKnownUserAftermathContainer userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>
@@ -93,7 +94,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 const mapStateToProps = (state: IAppState) => ({
   userAddress: state.userState.address,
   contractAddress: config.contractsDeployed.commitmentContractAddress,
-  transactionPayload: "0x3c7a3aff", // @TODO UNHARDCODE IT!
+  transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   minTicketWei: selectMinTicketWei(state.commitmentState),
   estimatedReward: selectEstimatedReward(state.commitmentState),
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),

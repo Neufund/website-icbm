@@ -2,6 +2,8 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 .content-container {
+  padding-bottom: 44px;
+
   @media (min-width: $screen-md-min) {
     padding: 44px $commit-number-combined;
   }

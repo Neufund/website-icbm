@@ -1,3 +1,4 @@
+import config from "../config";
 import { publicCommitment } from "./contracts/ContractsRepository";
 import web3Provider from "./web3Provider";
 
@@ -8,7 +9,8 @@ export async function submitFundsToContract(
   const valueInWei = web3Provider.toWei(valueInEth, "ether");
   return publicCommitment.commitTx({
     from: fromAccount,
-    gas: 2000000,
+    gas: config.contractsDeployed.gasLimit,
+    gasPrice: config.contractsDeployed.gasPrice,
     value: valueInWei,
   });
 }

@@ -55,5 +55,7 @@ export function selectNeumarkBalance(state: IAftermathState): BigNumber {
 }
 
 export function selectUnlockDate(state: IAftermathState): moment.Moment {
-  return state.unlockDate && moment(state.unlockDate);
+  return (
+    state.unlockDate && state.unlockDate !== "1970-01-01T00:00:00.000Z" && moment(state.unlockDate)
+  );
 }

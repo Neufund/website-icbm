@@ -4,16 +4,25 @@ import { TextField } from "redux-form-material-ui";
 import { Moment } from "moment";
 import * as React from "react";
 
+import { connect, Dispatch } from "react-redux";
 import { compose } from "redux";
-import { Field, InjectedFormProps, reduxForm } from "redux-form";
-import { ethereumAddressValidator } from "../../validators/ethereumAddressValidator";
-import { UnderlinedLink } from "../UnderlinedLink";
+import { Field, FormSubmitHandler, InjectedFormProps, reduxForm } from "redux-form";
+import { loadAftermathDetails } from "../actions/aftermathActions";
+import { UnderlinedLink } from "../components/UnderlinedLink";
+import {
+  selectLockedAmount,
+  selectNeumarkBalance,
+  selectUnlockDate,
+} from "../reducers/aftermathState";
+import { IAppState } from "../reducers/index";
+import { ethereumAddressValidator } from "../validators/ethereumAddressValidator";
 import * as styles from "./Aftermath.scss";
 
 interface ICommitFundsUnknownUserAftermathProps {
   lockedAmount?: BigNumber;
   unlockDate?: Moment;
   neumarkBalance?: BigNumber;
+  loadAftermathDetails: (address: string) => {};
 }
 
 interface ICommitFundsUnknownUserAftermathForm {
@@ -67,31 +76,50 @@ export const CommitUnknownUserAftermath: React.SFC<
     <div className={styles.infoBox}>
       <div className={styles.caption}>Locked amount</div>
       <div className={styles.value}>
-        {lockedAmount.toString()} ETH {/* todo: probably we will get it in wei */}
+        {lockedAmount ? lockedAmount.toFixed(2) : "-"} ETH
       </div>
     </div>
 
     <div className={styles.infoBox}>
       <div className={styles.caption}>Unlock date</div>
       <div className={styles.value}>
-        {unlockDate.format("YYYY-MM-DD")}
+        {unlockDate ? unlockDate.format("YYYY-MM-DD") : "-"}
       </div>
     </div>
 
     <div className={styles.infoBox}>
       <div className={styles.caption}>Neumark balance</div>
       <div className={styles.value}>
-        {neumarkBalance.toString()} NEU
+        {neumarkBalance ? neumarkBalance.toFixed(2) : "-"} NEU
       </div>
     </div>
   </div>;
 
+function mapStateToProps(state: IAppState) {
+  return {
+    lockedAmount: selectLockedAmount(state.aftermathState),
+    neumarkBalance: selectNeumarkBalance(state.aftermathState),
+    unlockDate: selectUnlockDate(state.aftermathState),
+  };
+}
+
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
+  };
+}
+
+const onSubmit: FormSubmitHandler<
+  ICommitFundsUnknownUserAftermathForm,
+  ICommitFundsUnknownUserAftermathProps
+> = (values, _dispatcher, props) => {
+  props.loadAftermathDetails(values.address);
+};
+
 export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
   reduxForm<ICommitFundsUnknownUserAftermathForm, ICommitFundsUnknownUserAftermathProps>({
+    onSubmit,
     form: "commitFundsUnknownUserAftermathForm",
-    onSubmit: values => {
-      // tslint:disable-next-line:no-console
-      console.log("submitting form. values: ", values);
-    },
   })
 )(CommitUnknownUserAftermath);

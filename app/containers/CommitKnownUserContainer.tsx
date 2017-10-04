@@ -92,7 +92,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
 };
 
 const mapStateToProps = (state: IAppState) => ({
-  userAddress: state.userState.selectedAddress,
+  userAddress: state.userState.address,
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   minTicketWei: selectMinTicketWei(state.commitmentState),

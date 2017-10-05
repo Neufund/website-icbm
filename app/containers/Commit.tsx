@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { loadUserAccount } from "../actions/loadUserAccount";
+import { LoadingIndicator } from "../components/LoadingIndicator";
 import { IAppState } from "../reducers/index";
-import { selectIsKnownUser } from "../reducers/userState";
+import { selectIsKnownUser, selectLoading } from "../reducers/userState";
 import CommitKnownUserContainer from "./CommitKnownUserContainer";
 import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
@@ -12,6 +13,7 @@ const SECOND = 1000;
 
 interface ICommitComponent {
   isKnownUser: boolean;
+  isLoading: boolean;
   loadUserAccount: () => {};
   loadIcoParams: () => {};
 }
@@ -46,7 +48,11 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
   }
 
   public render() {
-    const { isKnownUser } = this.props;
+    const { isKnownUser, isLoading } = this.props;
+
+    if (isLoading) {
+      return <LoadingIndicator />;
+    }
     return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
   }
 }
@@ -54,6 +60,7 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
 const mapStateToProps = (state: IAppState) => {
   return {
     isKnownUser: selectIsKnownUser(state.userState),
+    isLoading: selectLoading(state.userState),
   };
 };
 

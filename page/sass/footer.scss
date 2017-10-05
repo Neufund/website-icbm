@@ -7,6 +7,10 @@
   color: $gray-between-light-and-dark;
   font-size: $font-size-normal-smaller;
 
+  &.hidden {
+    display: none;
+  }
+
   &.section {
     padding-top: 35px;
   }

@@ -9,6 +9,6 @@
         <noscript>
           <p>This page requires JavaScript to be enabled.</p>
         </noscript>
-        <%- include('partials/footer', content.footer); %>
+        <%- include('partials/footer', Object.assign({}, content.footer, { hide: true })); %>
     </body>
 </html>

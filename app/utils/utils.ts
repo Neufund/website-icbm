@@ -5,6 +5,10 @@
  * @returns {number}
  */
 export const parseStrToNumStrict = (source: string): number => {
+  if (source === null) {
+    return NaN;
+  }
+
   if (source === undefined) {
     return NaN;
   }

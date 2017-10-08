@@ -61,8 +61,9 @@ $(document).ready(() => {
   });
 });
 
-$(".show-answer").click(function(e) {
+$(".faq .show-answer").click(function(e) {
   e.preventDefault();
+
   const pTag: any = $(this).siblings(".answer")[0];
   const iconTag: any = $(this).find(".material-icons")[0];
 

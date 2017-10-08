@@ -26,11 +26,9 @@
           var subQuestion = question.questions[j];
         %>
         <div class="group">
-          <a href="#" class="show-answer">
-            <h4>
-              <%= subQuestion.question %> <i class="material-icons">keyboard_arrow_down</i>
-            </h4>
-          </a>
+
+          <h4 class="show-answer"><a href="#"><%= subQuestion.question %></a><i class="material-icons">keyboard_arrow_down</i></h4>
+
           <div class="answer">
             <%- subQuestion.answer %>
           </div>

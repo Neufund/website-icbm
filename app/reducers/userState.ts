@@ -2,10 +2,12 @@ import { SET_USER_ACCOUNT } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IUserState {
+  loading: boolean;
   address: string;
 }
 
 const initialState: IUserState = {
+  loading: true,
   address: null,
 };
 
@@ -15,6 +17,7 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
     case SET_USER_ACCOUNT:
       return {
         ...state,
+        loading: false,
         address: payload.address,
       };
     default:
@@ -26,4 +29,8 @@ export default reducer;
 
 export function selectIsKnownUser(state: IUserState): boolean {
   return state.address !== null;
+}
+
+export function selectLoading(state: IUserState): boolean {
+  return state.loading;
 }

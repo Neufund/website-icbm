@@ -6136,9 +6136,9 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
-robotstxt-webpack-plugin@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/robotstxt-webpack-plugin/-/robotstxt-webpack-plugin-2.0.0.tgz#04c1330dfcfb4d4a902d611bf5a7c80327f1361e"
+robotstxt-webpack-plugin@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/robotstxt-webpack-plugin/-/robotstxt-webpack-plugin-3.0.0.tgz#efffcfcea1cf697731e83fe627795cbbd1f6ee85"
   dependencies:
     generate-robotstxt "^4.0.0"
     nodeify "~1.0.0"

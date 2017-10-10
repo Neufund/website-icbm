@@ -30,7 +30,7 @@
       rightSideContent: |
         If you want to buy ETH go to:
         <ul>
-        <li><a href="#">Coinbase (check our tutorial)</a></li>
+        <li><a href='#'>Coinbase (check our tutorial)</a></li>
         <li><a href='#'>Kraken</a></li>
         </ul>or others
     - type: "regular"
@@ -40,9 +40,7 @@
       - |
         <ul>
         <li><a href='#'>MetaMask</a></li>
-        <li>a href='#'>MyEtherWallet</a></li>
-        <li></li>
-        <li></li>
+        <li><a href='#'>MyEtherWallet</a></li>
         </ul>
         or others
       - "You can just head to our application, clicking <a href='#'>here</a>."
@@ -69,5 +67,5 @@
       title: "How to make sure you are not a subject to a fraud?"
       paragraphs:
       - "Check that the address of the website is correct"
-      - "<mark><b>Note</b>: Neufund will never post an adderss of a smart contract on Slack</mark>"
+      - "<mark><b>Note</b>: Neufund will never post an address of a smart contract on Slack</mark>"
       rightSideContent: ""

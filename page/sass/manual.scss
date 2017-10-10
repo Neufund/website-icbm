@@ -1,6 +1,7 @@
 .main-manual {
 
 padding-top: 30px;
+overflow: hidden;
 
 h1, h2 {
   margin-top: 0;
@@ -19,7 +20,7 @@ ul {
 
 section {
   position: relative;
-  padding-left: 45px;
+  padding-left: 50px;
   font-size: $font-size-small;
   
   margin-bottom: 60px;
@@ -36,7 +37,25 @@ section.introduction {
 }
 
 .section-content-blue {
-  background-color: #99f;
+  position: relative;
+  color: #fff;
+}
+.section-content-blue-bg {
+  position: absolute;
+  z-index: -1;
+  
+  $blue_padding: 40px;
+  width: calc(100% + #{$blue_padding});
+  height: calc(100% + #{$blue_padding});
+  top: -$blue_padding/2;
+  left: -$blue_padding/2;
+  border-radius: 10px;
+  
+  border: 1px solid #315568;
+  box-shadow: 1px 1px 4px #ddd;
+  
+  background: #aaf; // fallback
+  background: linear-gradient(-20deg, #424a52, #25607c);
 }
 
 mark {

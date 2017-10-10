@@ -10,19 +10,23 @@
       </ul>
     </div>
     <div class="col-md-9">
+      <% var sectionCounter = 0 %>
       <% for (var i=0; i<manualContent.length; i++) { %>
         <div class="group">
           <% for (var j=0; j<manualContent[i].groupContent.length; j++) { %>
-            <% var section = manualContent[i].groupContent[j]; %>
-            <% if (section.type==="regular") { %>
-              <%- include('manual/regular', section); %>
-            <% } else if (section.type==="introduction") { %>
-              <%- include('manual/introduction', section); %>
-            <% } else if (section.type==="blue") { %>
-              <%- include('manual/blue', section); %>
-            <% } else { %>
+                  
+              <% var section = manualContent[i].groupContent[j]; %>
+              <% section.sectionCounter = sectionCounter %>
+              <% sectionCounter++ %>
               
-            <% } %>
+              <% if (section.type==="regular") { %>
+                <%- include('manual/regular', section); %>
+              <% } else if (section.type==="introduction") { %>
+                <%- include('manual/introduction', section); %>
+              <% } else if (section.type==="blue") { %>
+                <%- include('manual/blue', section); %>
+              <% } %>
+
           <% } %>
         </div>
       <% } %>

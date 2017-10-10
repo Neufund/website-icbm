@@ -1,0 +1,46 @@
+.main-manual {
+
+h1, h2 {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: $section-title-font-size-smaller;
+  font-weight: $font-weight-more-bold;
+  margin-bottom: 1.5em;
+}
+  
+ul {
+  padding-left: 1.2em;
+  font-weight: bold;
+}
+
+section {
+  position: relative;
+  padding-left: 20px;
+  font-size: $font-size-small;
+  
+  margin-bottom: 60px;
+}
+section.introduction {
+  padding-left: 0;
+  p {font-size: $font-size-normal;}
+}
+.section-counter {
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+.section-content-blue {
+  background-color: #99f;
+}
+
+mark {
+  background: transparent;
+  color: #f00;
+}
+
+
+
+}

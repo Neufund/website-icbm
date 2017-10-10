@@ -1,4 +1,5 @@
-<section>
+<section class="regular">
+  <div class="section-counter"><%- sectionCounter -%></div>
   <div class="row">
     <div class="col-sm-8">
       <h2><%- title -%></h2>
@@ -10,7 +11,7 @@
     <div class="col-sm-8">
       <% for (var i=0; i<paragraphs.length; i++) { %>
         <% var p = paragraphs[i] %>
-        <%- p -%>
+        <p><%- p -%></p>
       <% } %>
     </div>
     <div class="col-sm-4">

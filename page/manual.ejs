@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head', {title: 'Product', meta: content.meta_head, GA_ID: GA_ID, FB_PIXEL_ID: FB_PIXEL_ID }); %>
+    <body class="product-page">
+        <div class="background-wrapper">
+          <div class="background product-background"></div>
+        </div>
+        <%- include('partials/header', { active: 'product', hashes: hashes }); %>
+        <div class="main main-manual">
+          <%- include('partials/manual'); %>
+          <%- include('partials/footer', content.footer); %>
+
+          <script src="/page<%= hashes.jsBundleHash %>.js"></script>
+          <noscript>
+            <p>This page requires JavaScript to be enabled.</p>
+          </noscript>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+- groupName: "Introduction"
+  groupContent:
+    - type: "introduction"
+      title: "Hello!"
+      paragraphs:
+      - "Thank you for your interest in contributing to the ...."
+      - "Below you will find a ..."
+      - "<b>Note:</b> Our ICO/ICBM contract is already published, click <a href='/product.html'><b>here</b></a> or scroll down."
+      rightSide:
+        text: "You can also download this page as a document:"
+        linkText: "How to participate in ICBM"
+        linkURL: "/product.html"
+- groupName: "Main requirements"
+  groupContent:
+    - type: "regular"
+      title: "Who can reserve the funds?"
+      paragraphs:
+      - "You have seen the question ... go through the <b>authorization process</b> for both you and our safety."
+      - "You can participate in our ICBM as an individual..."
+      rightSideContent: |
+        Check the section about the:
+        <ul>
+        <li><a href='#'>Authorisation process</a></li>
+        </ul>
+    - type: "regular"
+      title: "What kind of funds can you commit?"
+      paragraphs:
+      - "<b>You can commit only <i>Ether</i>.</b>"
+      - "You can participate in our ICBM as an individual..."
+      rightSideContent: |
+        If you want to buy ETH go to:
+        <ul>
+        <li><a href="#">Coinbase (check our tutorial)</a></li>
+        <li><a href='#'>Kraken</a></li>
+        </ul>or others
+    - type: "regular"
+      title: "What can I use, then?"
+      paragraphs:
+      - "If you have an Ethereum Browser, like:"
+      - |
+        <ul>
+        <li><a href='#'>MetaMask</a></li>
+        <li>a href='#'>MyEtherWallet</a></li>
+        <li></li>
+        <li></li>
+        </ul>
+        or others
+      - "You can just head to our application, clicking <a href='#'>here</a>."
+      rightSideContent: ""
+    - type: "blue"
+      title: "The smart contract address"
+      paragraphs:
+      - type: "text"
+        content: "To commit funds you will need to send ETH <b>to your own wallet address created by Neufund</b>."
+      - type: "qr"
+        content: "assets/placeholder.png"
+      - type: "copy"
+        content: "0x123...098"
+        linkText: "Verify source code on Etherscan"
+        linkURL: "#"
+      - type: "text"
+        content: "Include following string in your transaction:"
+      - type: "copy"
+        content: "0x3c7a3ff"
+        linkText: ""
+        linkURL: ""
+      rightSideContent: ""
+    - type: "regular"
+      title: "How to make sure you are not a subject to a fraud?"
+      paragraphs:
+      - "Check that the address of the website is correct"
+      - "<mark><b>Note</b>: Neufund will never post an adderss of a smart contract on Slack</mark>"
+      rightSideContent: ""

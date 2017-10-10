@@ -1,5 +1,7 @@
 .main-manual {
 
+padding-top: 30px;
+
 h1, h2 {
   margin-top: 0;
 }
@@ -17,7 +19,7 @@ ul {
 
 section {
   position: relative;
-  padding-left: 20px;
+  padding-left: 45px;
   font-size: $font-size-small;
   
   margin-bottom: 60px;
@@ -28,8 +30,9 @@ section.introduction {
 }
 .section-counter {
   position: absolute;
-  top: 0;
-  left: 0px;
+  top: -18px;
+  left: -2px;
+  @include underlined_number;
 }
 
 .section-content-blue {

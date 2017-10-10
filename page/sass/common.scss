@@ -259,3 +259,14 @@ p.slim {
 .full-screen-height {
     height: calc(100vh - 60px - 45px);
 }
+
+
+@mixin underlined_number {
+  border-bottom: 5px solid $blue-darker;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  width: 32px;
+  color: $blue-darker;
+  font-size: $font-size-small;
+  font-weight: $font-weight-more-bold;
+}

@@ -15,9 +15,15 @@
         <div class="group">
           <% for (var j=0; j<manualContent[i].groupContent.length; j++) { %>
                   
-              <% var section = manualContent[i].groupContent[j]; %>
-              <% section.sectionCounter = sectionCounter %>
-              <% sectionCounter++ %>
+              <% 
+                var section = manualContent[i].groupContent[j];
+                if (sectionCounter<10) {
+                  section.sectionCounter = "0"+sectionCounter
+                } else {
+                  section.sectionCounter = ""+sectionCounter
+                }
+                sectionCounter++
+              %>
               
               <% if (section.type==="regular") { %>
                 <%- include('manual/regular', section); %>

@@ -8,17 +8,15 @@ why-how:
     - title: "How the Neufund ICBM works"
       id: "how-it-works"
       content: |
-         <p>Neufund’s ICBM is a call to commit capital to the Neufund platform in exchange for tokens, hence the term ICBM – Initial Capital Building Mechanism.</p>
+         <p>Neufund’s ICBM is a call to commit capital to the Neufund platform in exchange for tokens, hence the term ICBM – <strong>Initial Capital Building Mechanism</strong>.</p>
 
          <p>Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that will perform an Equity Token Offering (ETO) on the Neufund Platform. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
       imgPath: "../assets/why-how/Illu_Section_01"
       links:
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
-        - link: 'Neufund "ICO" FAQ'
+        - link: 'Neufund ICBM FAQ'
           href: "/faq.html"
-        - link: "How to participate"
-          href: "#"
     - title: "How Neumark benefits you"
       id: "why-participate"
       content: |
@@ -60,7 +58,7 @@ invest_platform:
 team:
   visible: true
   title: "Team"
-  intro: "We are serial entrepreneurs, experienced coders, lawyers, organizers, and storytellers"
+  intro: "We are serial entrepreneurs, experienced coders, lawyers, organizers, and storytellers."
   block: "../blocks/person"
   members:
    - name: "Zoe Adamovicz"
@@ -313,7 +311,7 @@ team:
 advisors:
   visible: true
   title: "Advisors"
-  intro: "Our advisors bring expertise that bridges the worlds of blockchain and venture capital"
+  intro: "Our advisors bring expertise that bridges the worlds of blockchain and venture capital."
   block: "../blocks/person"
   members:
     - name: "Fabian Vogelsteller"
@@ -430,16 +428,23 @@ advisors:
 quotes:
   visible: true
   title: "What supporters say"
-  description: "Our friends and community members tell you why they love the project"
+  description: "Our friends and community members tell you why they love the project."
   quotes:
     - author: Arnd Aschentrup, <span class="position">CEO</span>
       company: "Tandem"
+      link: https://www.tandem.net/
       quote: |
         The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!
     - author: Fabian Vogelsteller, <span class="position">Developer</span>
       company: "Ethereum and Mist"
+      link: https://github.com/ethereum/mist/releases
       quote: |
         I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
+    - author: Alessio Avellan Borgmeyer, <span class="position">CEO & Founder</span>
+      company: "Jodel"
+      link: https://jodel-app.com/
+      quote: |
+        Here at Jodel we love the crypto world and how it brings communities closer together. That’s what we’re all about! So when we decided to raise funds from our own community and the ICO model didn’t meet our needs, we came across Neufund.
 
 ecosystem:
   visible: true

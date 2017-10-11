@@ -9,6 +9,8 @@ h1, h2 {
 }
 h1 {
   font-size: 34px;
+  margin-top: 7px;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -65,6 +67,11 @@ section {
   @media (max-width: 767px) {
     margin-bottom: 60px;
   }
+  p {
+    a {
+      font-weight: bold;
+    }
+  }
 }
 
 .section-counter {
@@ -77,6 +84,7 @@ section {
 .right-content-link {
   display: flex;
   padding-top: 10px;
+  font-weight: bold;
 }
 
 // ---
@@ -104,6 +112,7 @@ $blue_spacing_bottom_add: 60px;
     color: $gray-lighter;
     text-decoration: underline;
     font-size: $font-size-smaller;
+    font-weight: normal;
   }
   @media (max-width: 767px) {
     padding-right: 15px; // padding over blue box
@@ -178,6 +187,7 @@ mark {
 #bg-blue-1, #bg-blue-2 {
   position: absolute;
   z-index: -2;
+  visibility: hidden; // will be reset by JS
   @media (max-width: 767px) {
     display: none;
   }
@@ -188,6 +198,7 @@ mark {
   width: 400px;
   top: 1600px;
   left: -260px;
+  transform: translateY(-30px);
 }
 #bg-blue-2 {
   width: 350px;

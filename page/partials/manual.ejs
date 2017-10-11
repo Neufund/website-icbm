@@ -1,18 +1,24 @@
+<% function convertTitleToId(title) {
+  return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
+} %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm">
-      <ul>
-        <% for (var i=0; i<manualContent.length; i++) { %>
-          <li>
-            <%- manualContent[i].groupName %>
-          </li>
-        <% } %>
-      </ul>
+      <div>
+        <ul id="sidebar" class="sidebar nav nav-stacked">
+          <% for (var i=0; i<manualContent.length; i++) { %>
+            <li>
+              <a href="#<%= convertTitleToId(manualContent[i].groupName) %>"><%- manualContent[i].groupName %></a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" data-target="#sidebar">
       <% var sectionCounter = 0 %>
       <% for (var i=0; i<manualContent.length; i++) { %>
-        <div class="group">
+        <div class="group" id="<%= convertTitleToId(manualContent[i].groupName) %>">
           <% for (var j=0; j<manualContent[i].groupContent.length; j++) { %>
                   
               <% 

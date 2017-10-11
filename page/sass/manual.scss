@@ -23,6 +23,31 @@ ul {
   padding-bottom: 5px;
 }
 
+// ---
+
+#sidebar {
+  position: fixed;
+  li.active {
+    position: relative;
+    &::before {
+      $bar_width: 5px;
+      $bar_padding: 5px;
+      
+      content: '';
+      position: absolute;
+      top: $bar_padding;
+      right: 0;
+      width: $bar_width;
+      height: calc(100% - #{$bar_padding*2});
+      background-color: $blue;
+      z-index: 1;
+    }
+  }
+}
+
+// ---
+// sections - general
+
 section {
   position: relative;
   padding-left: 50px;
@@ -33,12 +58,7 @@ section {
     margin-bottom: 60px;
   }
 }
-section.introduction {
-  padding-left: 0;
-  p {
-    font-size: $font-size-normal;
-  }
-}
+
 .section-counter {
   position: absolute;
   top: -18px;
@@ -46,10 +66,18 @@ section.introduction {
   @include underlined_number;
 }
 
-
 .right-content-link {
   display: flex;
   padding-top: 10px;
+}
+
+// ---
+// sections - specific
+section.introduction {
+  padding-left: 0;
+  p {
+    font-size: $font-size-normal;
+  }
 }
 
 // Paddings for blue section

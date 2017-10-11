@@ -27,8 +27,15 @@ ul {
 
 #sidebar {
   position: fixed;
+  a:focus, a:hover {
+    background: transparent;
+    // overrides Bootstrap
+  }
   li.active {
     position: relative;
+    a {
+      color: $blue-darker;
+    }
     &::before {
       $bar_width: 5px;
       $bar_padding: 5px;
@@ -130,6 +137,17 @@ $blue_spacing_bottom_add: 60px;
   
   background: #25607c; // fallback
   background: linear-gradient(-20deg, $gray-darker, #25607c);
+}
+
+.section-content-blue-img-bg {
+  position: absolute;
+  z-index: -2;
+  bottom: -130px;
+  right: -140px;
+  width: 350px;
+  transform: rotate(-10deg);
+  
+  img {max-width: 100%;}
 }
 
 .qr-code {

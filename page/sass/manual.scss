@@ -2,6 +2,7 @@
 
 padding-top: 30px;
 overflow: hidden;
+position: relative;
 
 h1, h2 {
   margin-top: 0;
@@ -172,6 +173,27 @@ $blue_spacing_bottom_add: 60px;
 mark {
   background: transparent;
   color: #f00;
+}
+
+#bg-blue-1, #bg-blue-2 {
+  position: absolute;
+  z-index: -2;
+  @media (max-width: 767px) {
+    display: none;
+  }
+  img {max-width: 100%;}
+}
+
+#bg-blue-1 {
+  width: 400px;
+  top: 1600px;
+  left: -260px;
+}
+#bg-blue-2 {
+  width: 350px;
+  top: 650px;
+  right: -230px;
+  transform: translateY(-150px);
 }
 
 

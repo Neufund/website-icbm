@@ -2,6 +2,13 @@
   return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
 } %>
 
+<div id="bg-blue-1">
+  <img src="assets/hex-bg/b.png" />
+</div>
+<div id="bg-blue-2">
+  <img src="assets/hex-bg/b.png" />
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm">
@@ -45,3 +52,19 @@
     </div>
   </div>
 </div>
+
+<script>
+window.addEventListener("load", function(){
+  var lockHeight = [
+    {section: "05", bg: "bg-blue-1"},
+    {section: "03", bg: "bg-blue-2"},
+  ]
+  lockHeight.forEach(function(entry){
+    var section = document.getElementById(entry.section)
+    if (!section) return
+    var h = section.getBoundingClientRect().top + document.documentElement.scrollTop
+    var bgElem = document.getElementById(entry.bg)
+    bgElem.style.top = h+"px"
+  })
+})
+</script>

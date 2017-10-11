@@ -16,9 +16,17 @@
           <% if (p.type==="text") { %>
             <p><%- p.content -%></p>
           <% } else if (p.type==="copy") { %>
-            <p class="key-copy"><%- p.content -%></p>
+            <p>
+              <a class="link-key-copy">
+                <span class="green-icon"><i class="fa fa-clone" aria-hidden="true"></i></span>
+                <%- p.content -%>
+              </a><br />
+              <a href="<%- p.linkURL -%>" class="link-verify"><%- p.linkText -%></a>
+            </p>
           <% } else if (p.type==="qr") { %>
-            <p>QR CODE GOES HERE</p>
+            <p>
+              <div class="qr-code"></div>
+            </p>
           <% } %>
         <% } %>
       </div>

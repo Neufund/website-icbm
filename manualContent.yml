@@ -26,7 +26,8 @@
       title: "What kind of funds can you commit?"
       paragraphs:
       - "<b>You can commit only <i>Ether</i>.</b>"
-      - "You can participate in our ICBM as an individual..."
+      - "If you are not a holder of ETH, we suggest buying it or exchange other cryptocurrenies to ETH on e.g. Kraken before the start of the ICBM."
+      - "<mark><b>Note</b>: You cannot reserve the funds in Neufund ICO from the exchange you're buing the ETH from. Make sure you transfer the funds to the wallet.</mark>"
       rightSideContent: |
         If you want to buy ETH go to:
         <ul>

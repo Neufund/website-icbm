@@ -2,7 +2,7 @@ header:
   id: "product-header"
   menu_text: "Introduction"
   title: "How it works.<br/>Fundraising Platform"
-  content: "It’s a new two-sided marketplace and an investment ecosystem, to once and for all democratise innovation and creation."
+  content: "Easy to use, crafted experience for different actors on different stages of their investment journey. An on-going work, being built with community for community in a culture of open-source, access point for everyone to blockchain."
   yt_video: "W0LHTWG-UmQ"
 who_can_use:
   id: "who_can_use"
@@ -14,8 +14,7 @@ who_can_use:
   headline: "For startups and all kinds of investors"
   backgroundText: ""
   paragraphs:
-    - "Unless you are a partner in the VC fund or a business angel, you are probably new to investing in the companies equity, and no wonder – it’s a closed market."
-    - "Neufund’s goal is to open this market and build with a though to aticipate the needs of investors, both indivudial and institutional and startups, with the key values being accesibility to the blockchain, scalibility and integrability to the world of traditional investment world."
+    - "Unless you are a partner in the VC fund or a business angel, you are new to investing in the companies equity. Neufund’s goal is to open this market. The platform is designed and built with a thought to anticipate the needs of startups and investors, both individual and institutional.  Its key values are: accessibility, scalability and integrability with the traditional investment world."
   images:
     - - url: "screenshots/Group25.png"
         width: 169
@@ -42,10 +41,10 @@ main_feature:
   white: false
   purple_title: false
   title: "Main feature: invest in startups"
-  headline: "New investment mechanism for every model – open ICO"
+  headline: "ICO: new investment mechanism for every model"
   backgroundText: "For investors"
   paragraphs:
-    - "Every startup, every investor no matter the initial ticket, open ICO. not blockchain-native, and investors who don’t own crypto. no matter the model.<br />Startup adrresses a huge capital pool with one pitch, co investing with known brands and on the other hand addressing your desired community."
+    - Initial Coin Offering is a new powerful tool for fundraising. With Neufund's innovative approach to allow investments in tokenized shares, it is becoming main-stream. It allows both on- and off-chain startups to address at once a huge capital pool making the fundraising cheap and fast. It allows investors to invest in the projects they believe in, and along with experienced VCs. Neufund's ICO democratises the investment process!
   image:
     - url: "screenshots/MainPage.png"
       width: 604
@@ -63,8 +62,9 @@ invisible_blockchain:
   headline: "Invest with tokens in tokens"
   backgroundText: ""
   paragraphs:
-    - "Design and used by nerds and for nerds blockchain product can seem complex and discouraging. One of the main goals of Neufund is blockchain demistification and seamless transition for everyone from as simple feature as logging in into the blockchain without fuss to drawing a clear distinguish between currencies and equity tokens . "
-    - "Neufund allows using both ETH ether, and EURt, equivalent of euro (currencies). You set up an investment account, wire funds, and from there you are ready to invest.<br/>As a proof of your investment you are getting a tokenized share, which is an equivalement of an actual shares, and stored in your portfolio."
+    - Design and used by nerds and for nerds blockchain products often seem complex and discouraging. Neufund's goal is blockchain's demystification and seamless transition from traditional systems for everyone.
+    - In practice it means simple wiring of crypto-funds to the Platform's investment account, and couple clicks to invest on blockchain in the real shares, which then as equity tokens are stored in an investor's portfolio.
+    - Neufund creates the new set of industry standards integrated with the legal systems.
   images:
     - - url: "screenshots/Investment-Accounts.png"
         width: 428
@@ -85,11 +85,12 @@ benefits_of_blockchain:
   white: false
   purple_title: false
   title: "Benefits of blockchain"
-  headline: "Main feature: invest in startups"
+  headline: "Profit from the tokens: proceeds and secondary market"
   backgroundText: ""
   paragraphs:
-    - "Secondary market = liquidity.<br />Asset liquidation possible for investors and startups from day one a!er ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation."
-    - "The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
+    - Secondary market = liquidity.
+    - Asset liquidation possible for investors and startups from day one after ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation.
+    - The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders.
   image:
     - url: "screenshots/I-IN-OWN.png"
       width: 604
@@ -119,7 +120,7 @@ startups_dashboard:
   purple_title: true
   bg_url: "/assets/svg-bg/purple.svg"
   white: false
-  title: "Initial Coin Offering of a startup"
+  title: "Startups Dashboard"
   image:
     - url: "screenshots/StartupsDashboard.png"
       width: 790
@@ -134,14 +135,12 @@ disrupting_fundraising:
   white: false
   purple_title: true
   title: "Disrupting fundraising"
-  headline: "Accessible investors pool and  symmetry of information"
+  headline: "Accessible investors pool and symmetry of information"
   backgroundText: ""
   paragraphs:
-    - "Put whole of part startups on-chain ICOs on Neufund Platform allow startups and established companies alike"
-    - "Low entry barrier"
-    - "Accelerated investment process, the size of rounds is 10x bigger than in VC due to existance of efficient secondary market and asset liquidation."
-    - "accelerated process"
-    - "Community based investors pool"
+    - "There are couple of elements in startup fundraising that can go wrong:"
+    - "- an inoperable network — meaning lack of access to people with capital and interest in the particular startup and"
+    - "- an assymmetrical information distribution — a novice founder seating in the negotiations room with an experienced investor with the army of lawyers"
   image:
     - url: "screenshots/CompanysICOProfile.png"
       width: 563
@@ -159,9 +158,7 @@ post_investment_management_tool:
   headline: "Investors relations "
   backgroundText: ""
   paragraphs:
-    - "Startup management tool"
-    - "Fully legal"
-    - "Full"
+    - "If you have previous experience with fundraising you know this: investors relations are the bread and butter of every founder. Neufund Platform allows managers to easly inform both on- and off-chain investors about the changes in their day to day operations and set up the voting which would be effectively equal to traditional shareholder meeting."
   images:
     - - url: "screenshots/StartupsCorporateGovernance.png"
         width: 574
@@ -218,15 +215,15 @@ feature_by_feature:
   content:
     - title: "Invest in legal equity tokens"
       icon: "help"
-      content: "Invest fully legally in ICO..."
+      content: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world. Neufund also enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement. We achieve this by formally linking traditional contracts with Ethereum smart contracts through mutual reference and code correspondence. "
       link: "#"
     - title: "Stable coin"
       icon: "trending_up"
-      content: "Investment transactions ..."
+      content: "Investment transactions may happen in Euro-Token (EURt), a stable internal token pegged 1:1 to Euro (as explained here). The price of a given equity token is denominated in Euro so that the number of equity tokens acquired by an investor can be directly calculated."
       link: "#"
-    - title: "Feeds & Proceeds Distribution"
+    - title: "Fees & Proceeds Distribution"
       icon: "gesture"
-      content: "The Platform provides ..."
+      content: "The Platform provides a mechanism for the distribution of fees and proceeds to token holders. Since the primary value of equity tokens is economic, the distribution of proceeds is the investors’ fundamental right. These proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
       link: "#"
     - title: "On-chain Governance"
       icon: "create"

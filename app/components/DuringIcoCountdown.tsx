@@ -62,7 +62,7 @@ export const HexagonText = (props: IMoneyProps) => {
 export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   const { finishDate } = props;
   return (
-    <Row className={`${styles.duringIco}`}>
+    <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
         <h1>Community-owned investment ecosystem</h1>
         <p>

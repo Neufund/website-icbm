@@ -4662,8 +4662,9 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-"ledger-wallet-provider@file:../ledger-wallet-provider":
+ledger-wallet-provider@Neufund/ledger-wallet-provider#tomek/upgrade:
   version "2.0.0"
+  resolved "https://codeload.github.com/Neufund/ledger-wallet-provider/tar.gz/92dd5047b48ec43867fb2949b6737238d55b3052"
   dependencies:
     babel-runtime "^6.23.0"
     ledgerco Neufund/ledger-node-js-api

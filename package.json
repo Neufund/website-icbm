@@ -103,7 +103,7 @@
     "dotenv": "^4.0.0",
     "invariant": "^2.2.2",
     "jquery": "^3.2.1",
-    "ledger-wallet-provider": "file:../ledger-wallet-provider",
+    "ledger-wallet-provider": "Neufund/ledger-wallet-provider#tomek/upgrade",
     "lodash": "^4.17.4",
     "lory.js": "^2.3.3",
     "material-ui": "^0.19.1",

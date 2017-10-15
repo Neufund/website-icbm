@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import Commit from "./containers/Commit";
 import muiTheme from "./muiTheme";
 import { startup } from "./startup";
+import { initWeb3 } from "./web3/web3Provider";
 
 const render = (storage: any) => {
   const commitRoot = document.getElementById("react-root-commit");
@@ -20,4 +21,9 @@ const render = (storage: any) => {
   );
 };
 
-startup(render);
+const start = async () => {
+  await initWeb3();
+  startup(render);
+};
+
+start();

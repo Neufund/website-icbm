@@ -1,6 +1,6 @@
 import config from "../config";
 import { publicCommitment } from "./contracts/ContractsRepository";
-import web3Provider from "./web3Provider";
+import { web3Instance as web3Provider } from "./web3Provider";
 
 export async function submitFundsToContract(
   valueInEth: string,

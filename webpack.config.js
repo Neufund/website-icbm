@@ -25,7 +25,7 @@ const devEntryPoints = isProduction
   ? []
   : [
       "react-hot-loader/patch",
-      "webpack-dev-server/client?http://localhost:9090",
+      "webpack-dev-server/client?https://localhost:9090",
       "webpack/hot/only-dev-server",
     ];
 
@@ -138,6 +138,6 @@ if (isProduction) {
   );
 } else {
   module.exports.plugins.push(
-    new OpenBrowserPlugin({ url: 'http://localhost:9090/' })
+    new OpenBrowserPlugin({ url: 'https://localhost:9090/' })
   )
 }

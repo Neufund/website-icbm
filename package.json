@@ -84,7 +84,7 @@
     "yaml-js": "^0.2.0"
   },
   "scripts": {
-    "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" \"webpack-dev-server --port 9090\"",
+    "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" \"webpack-dev-server --https --port 9090\"",
     "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "tslint:fix": "tslint --format stylish --fix --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/*.ts?(x)'",
     "lint": "yarn tslint && yarn sass-lint",
@@ -103,6 +103,7 @@
     "dotenv": "^4.0.0",
     "invariant": "^2.2.2",
     "jquery": "^3.2.1",
+    "ledger-wallet-provider": "file:../ledger-wallet-provider",
     "lodash": "^4.17.4",
     "lory.js": "^2.3.3",
     "material-ui": "^0.19.1",
@@ -122,6 +123,7 @@
     "sinon": "^3.2.1",
     "vex-js": "^4.0.0",
     "web3": "0.19.0",
+    "web3-provider-engine": "^13.3.2",
     "zero-fill": "^2.2.3"
   }
 }

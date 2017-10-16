@@ -8,13 +8,15 @@ import reduxThunk from "redux-thunk";
 import { asyncSessionStorage } from "redux-persist/storages";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
+import { initWeb3 } from "./web3/web3Provider";
 
-export function startup(render: (store: Store<any>) => void) {
+export async function startup(render: (store: Store<any>) => void) {
   const enhancers = () =>
     composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
 
   // Create the Redux store
   const store = createStore(reducers, enhancers());
+  await initWeb3(store);
 
   // Add development time features
   if (process.env.NODE_ENV !== "production") {

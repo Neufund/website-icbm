@@ -55,7 +55,24 @@ export class HomePage {
     return new Element(this.page, tid("countdown-seconds"));
   }
 
-  public get totalFundsCommited() {
-    return new Element(this.page, ".totalfunds");
+  public get duringIco() {
+    const page = this.page;
+    return {
+      get totalFundsCommitted() {
+        return new Element(page, tid("during-ico-total-funds"));
+      },
+
+      get accountsCreated() {
+        return new Element(page, tid("during-ico-accounts-created"));
+      },
+
+      get neumarksGenerated() {
+        return new Element(page, tid("during-ico-neumarks-generated"));
+      },
+
+      get currentReward() {
+        return new Element(page, tid("during-ico-current-reward"));
+      },
+    };
   }
 }

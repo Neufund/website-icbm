@@ -32,5 +32,11 @@ describe("Home page", () => {
     const homepage = await HomePage.create(puppeteerInstance);
 
     await homepage.duringIcoDetails.waitFor();
+    await homepage.duringIco.totalFundsCommitted.waitFor();
+
+    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("0.00 ETH");
+    expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("0");
+    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("0.00 NEU");
+    expect(await homepage.duringIco.currentReward.text()).to.be.eq("975.00  NEU /  1 ETH");
   });
 });

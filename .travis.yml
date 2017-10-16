@@ -5,6 +5,11 @@ notifications:
   email: false
 node_js:
   - "7"
+addons:
+  apt:
+    packages:
+      # This is required to run new chrome on old trusty
+      - libnss3
 cache: yarn
 before_install: yarn global add greenkeeper-lockfile@1
 install:
@@ -14,4 +19,5 @@ script:
   - set -e                     # fail fast
   - yarn lint
   - yarn test:coverage
+  - ./scripts/e2e.sh
 after_script: greenkeeper-lockfile-upload

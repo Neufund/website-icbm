@@ -8,6 +8,9 @@ export class Element {
   }
 
   public async text() {
-    return this.page.evaluate(() => document.querySelector(this.selector).textContent);
+    return this.page.evaluate(
+      (selector: string) => document.querySelector(selector).textContent,
+      this.selector as any // @todo fix typings
+    );
   }
 }

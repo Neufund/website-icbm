@@ -102,10 +102,6 @@ class Contract {
     return promisify(this.rawWeb3Contract.convertToEur, [amount]);
   }
 
-  public async startOf(stateEnum: InternalCommitmentState): Promise<Moment> {
-    return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
-  }
-
   public abortTx(params?: ITxParams): Promise<void> {
     return promisify(this.rawWeb3Contract.abort, [params]);
   }

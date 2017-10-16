@@ -1,33 +1,36 @@
-import { config } from "./config";
+import { expect } from "chai";
+
 import { contractRepository } from "./contracts/Repository";
 import { HomePage } from "./pages/Home.page";
 import { puppeteerInstance } from "./puppeter";
 
 describe("Home page", () => {
   it("should display page before ico", async () => {
-    const startingDate = Date.now() / 1000 + 60 * 50;
-    console.log("startingDate: ", startingDate);
+    const startingDate = 60 * 50; // start in a 50 minutes
+
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
       gas: 2000000,
     });
 
-    // const homepage = await HomePage.create(puppeteerInstance);
+    const homepage = await HomePage.create(puppeteerInstance, { mockTime: true, now: 0 });
 
-    // await homepage.duringIcoDetails.waitFor();
+    await homepage.beforeIcoDetails.waitFor();
 
-    // await homepage.totalFundsCommited.text();
+    expect(await homepage.countdownDays.text()).to.be.eq("00");
+    expect(await homepage.countdownHours.text()).to.be.eq("00");
+    expect(await homepage.countdownMinutes.text()).to.be.eq("50");
+    expect(await homepage.countdownSeconds.text()).to.be.eq("00");
+  });
 
-    // const homepage = await puppeteerInstance.newPage();
-    // await homepage.goto("http://localhost:8080");
-    // console.log("waiting for countdown");
-    // await homepage.waitFor(".DuringIcoCountdown__title___25SYI");
-    // const text = await homepage.evaluate(
-    //   () => document.querySelector(".DuringIcoCountdown__extra-size___jecte").textContent
-    // );
+  it("should display page during ico", async () => {
+    const startingDate = Date.now() / 1000; // start ico right away
 
-    // console.log("TEXT: ", text);
+    await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
+      gas: 2000000,
+    });
+
+    const homepage = await HomePage.create(puppeteerInstance);
+
+    await homepage.duringIcoDetails.waitFor();
   });
 });
-
-// 1507824138920
-// 1507824157

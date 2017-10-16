@@ -54,9 +54,16 @@
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.0.tgz#f2312039e780bdf89d7d4102a26ec11de5ec58aa"
 
-"@types/enzyme@*", "@types/enzyme@^2.8.6":
+"@types/enzyme@*":
   version "2.8.6"
   resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-2.8.6.tgz#b508da0860b4fcda2ab851d600e5bfaf695775dd"
+  dependencies:
+    "@types/cheerio" "*"
+    "@types/react" "*"
+
+"@types/enzyme@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.1.0.tgz#6b5b2d85232ee4200c78d4fcf19a97921f438c7c"
   dependencies:
     "@types/cheerio" "*"
     "@types/react" "*"

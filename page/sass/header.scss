@@ -54,6 +54,11 @@
           padding-right: $navbar-padding-horizontal-small;
           padding-left: $navbar-padding-horizontal-small;
           color: $black;
+
+          @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+            padding-right: 10px;
+            padding-left: 10px;
+          }
         }
       }
     }

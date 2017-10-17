@@ -10,13 +10,14 @@ import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { initWeb3 } from "./web3/web3Provider";
 
+// this is pseudo async function as we wait just for one promise and persistStore should be promisified
 export async function startup(render: (store: Store<any>) => void) {
   const enhancers = () =>
     composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
 
   // Create the Redux store
   const store = createStore(reducers, enhancers());
-  await initWeb3(store);
+  await initWeb3(store.dispatch);
 
   // Add development time features
   if (process.env.NODE_ENV !== "production") {

@@ -1,12 +1,14 @@
 import { promisify } from "bluebird";
 import ledgerWalletProvider from "ledger-wallet-provider";
-import { Store } from "redux";
+import { Dispatch } from "redux";
 import * as Web3 from "web3";
 import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
+
 import { AppState, Web3Type } from "../actions/constants";
 import { setWeb3Action } from "../actions/web3";
 import config from "../config";
+import { IStandardReduxAction } from "../types";
 
 export let web3Instance: any;
 export let ledgerInstance: any;
@@ -15,7 +17,7 @@ async function getNetworkId() {
   return promisify(web3Instance.version.getNetwork)();
 }
 
-export async function initWeb3(store: Store<any>) {
+export async function initWeb3(dispatch: Dispatch<IStandardReduxAction>) {
   if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
     web3Instance = null;
     ledgerInstance = null;
@@ -39,7 +41,7 @@ export async function initWeb3(store: Store<any>) {
       engine.start();
       web3Instance = new Web3(engine);
     }
-    store.dispatch(setWeb3Action(web3Type));
+    dispatch(setWeb3Action(web3Type));
   }
 }
 

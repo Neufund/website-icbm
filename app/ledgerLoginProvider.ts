@@ -49,9 +49,8 @@ export class LedgerLoginProvider {
 
   /**
    * Waits until ledger is connected, or returns immediately if it is
-   * @return {Promise}
    */
-  public async waitUntilConnected() {
+  public async waitUntilConnected(): Promise<any> {
     if (this.connected) {
       return;
     }
@@ -91,7 +90,6 @@ export class LedgerLoginProvider {
   /**
    * The ledger is connected
    * @param config - ETH app config
-   * @private
    */
   private isConnected(config: ILedgerConfig) {
     this.setConfig(config);
@@ -102,8 +100,6 @@ export class LedgerLoginProvider {
 
   /**
    * The ledger is disconnected
-   * @param error
-   * @private
    */
   private isDisconnected(error: any) {
     this.error = error;
@@ -114,7 +110,6 @@ export class LedgerLoginProvider {
 
   /**
    * The ledger was just connected
-   * @private
    */
   private handleConnected() {
     this.connected = true;
@@ -123,7 +118,6 @@ export class LedgerLoginProvider {
 
   /**
    * The ledger was just disconnected
-   * @private
    */
   private handleDisconnected() {
     ledger._accounts = null;
@@ -133,8 +127,6 @@ export class LedgerLoginProvider {
 
   /**
    * Executes all registered callbacks
-   * @param cbs
-   * @private
    */
   private executeCallbacks(cbs: Array<() => void>) {
     cbs.map(cb => cb());
@@ -143,8 +135,6 @@ export class LedgerLoginProvider {
 
   /**
    * Set ledger configuration
-   * @param config
-   * @private
    */
   private setConfig({ version, arbitraryDataEnabled }: ILedgerConfig) {
     this.version = version;

@@ -1,14 +1,20 @@
-import { SET_LOADING_USER_ACCOUNT, SET_USER_ACCOUNT } from "../actions/constants";
+import {
+  SET_DERIVATION_PATH,
+  SET_LOADING_USER_ACCOUNT,
+  SET_USER_ACCOUNT,
+} from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IUserState {
   loading: boolean;
   address: string;
+  derivationPath: string;
 }
 
 const initialState: IUserState = {
   loading: true,
   address: null,
+  derivationPath: null,
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {
@@ -25,6 +31,11 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         loading: false,
         address: payload.address,
       };
+    case SET_DERIVATION_PATH:
+      return {
+        ...state,
+        derivationPath: payload.derivationPath,
+      };
     default:
       return state;
   }
@@ -38,4 +49,8 @@ export function selectIsKnownUser(state: IUserState): boolean {
 
 export function selectLoading(state: IUserState): boolean {
   return state.loading;
+}
+
+export function selectDerivationPath(state: IUserState): string {
+  return state.derivationPath;
 }

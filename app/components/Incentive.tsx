@@ -25,8 +25,10 @@ export const HexagonText: React.SFC<IBeforeIcoComponentProps> = ({
 }) =>
   <div className={styles.countdown}>
     <div>
-      <h3> Commitment Opportunity starts in: </h3>
-      <h1>Autumn</h1>
+      <h3>Commitment Opportunity starts on:</h3>
+      <h1>
+        {startDate.format("DD.MM.YYYY")}
+      </h1>
       <Countdown finishDate={startDate} onFinish={onFinish} />
       <h3>Reward starting point:</h3>
       <p>

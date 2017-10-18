@@ -2,7 +2,7 @@ import { ThunkAction } from "redux-thunk";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
 import { fillDocument, getDocumentFromIPFS } from "../utils/ipfs";
-import { loadLegalAgreementsHashesFromWeb3 } from "../web3/loadUserAccountFromWeb3";
+import { loadLegalAgreementsHashesFromWeb3 } from "../web3/loadLegalAgreementsFromContract";
 import { SET_LEGAL_AGREEMENTS, SET_LEGAL_AGREEMENTS_ACCEPTED } from "./constants";
 
 export function legalAgreementsAcceptedAction(): IStandardReduxAction {
@@ -30,12 +30,5 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher =
     getDocumentFromIPFS(agreementHashes.tokenHolderAgreementHash),
   ]);
 
-  const reservationAgreementFilled = fillDocument(reservationAgreement, {
-    "acquisition-sc-address": "COMMIT ADDRESS",
-    "lockin-sc-address": "LOCKIN ADDRESS",
-  });
-
-  dispatcher(
-    loadAgreementsAction({ reservationAgreement: reservationAgreementFilled, tokenHolderAgreement })
-  );
+  dispatcher(loadAgreementsAction({ tokenHolderAgreement, reservationAgreement }));
 };

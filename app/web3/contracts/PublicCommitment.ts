@@ -76,6 +76,10 @@ class Contract {
     })();
   }
 
+  public currentAgreement(): Promise<[BigNumber, BigNumber, string, BigNumber]> {
+    return promisify(this.rawWeb3Contract.currentAgreement, []);
+  }
+
   public get neumark(): Promise<string> {
     return promisify(this.rawWeb3Contract.neumark, []);
   }

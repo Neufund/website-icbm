@@ -3,7 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Web3Type } from "../actions/constants";
-import { loadAgreements, loadAgreementsAction } from "../actions/legalAgreement";
+import { loadAgreements } from "../actions/legalAgreement";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { loadUserAccount, setLoadingAction } from "../actions/loadUserAccount";
 import { LoadingIndicator } from "../components/LoadingIndicator";

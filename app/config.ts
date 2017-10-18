@@ -34,6 +34,7 @@ interface IContractsDeployedIcoCfg {
   commitmentType: CommitmentType;
   gasLimit: string;
   gasPrice: string;
+  ipfsNode: string;
 }
 
 export function getRequiredValue(obj: any, key: string): string {
@@ -79,6 +80,7 @@ function loadConfig(environment: object): IConfig {
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
           gasPrice: getRequiredValue(environment, "GAS_PRICE"),
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
+          ipfsNode: "https://ipfs.io/",
         },
         transactionSigning: transactionSigningConfig,
       };

@@ -3,6 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 cd ..
 
+rm -rf contracts
 git clone https://github.com/Neufund/ico-contracts.git contracts
 cd contracts
 git checkout kk/frontend-releated-fixes
@@ -31,10 +32,3 @@ echo "Spawning http server on port 8080"
 http-server ./dist&
 http_server_pid=$!
 echo "HttpServer pid: ${http_server_pid}"
-
-yarn test-e2e
-
-echo "killing testrpc"
-kill $testrpc_pid || true
-echo "killing http server"
-kill $http_server_pid || true

@@ -35,7 +35,7 @@ export async function initWeb3(dispatch: Dispatch<IStandardReduxAction>) {
       engine.addProvider(ledger);
       engine.addProvider(
         new RpcSubprovider({
-          rpcUrl: "/node",
+          rpcUrl: config.contractsDeployed.rpcProvider,
         })
       );
       engine.start();

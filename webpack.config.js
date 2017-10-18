@@ -26,7 +26,7 @@ const devEntryPoints = isProduction
   ? []
   : [
       "react-hot-loader/patch",
-      "webpack-dev-server/client?http://localhost:9090",
+      "webpack-dev-server/client?https://localhost:9090",
       "webpack/hot/only-dev-server",
     ];
 
@@ -109,7 +109,14 @@ module.exports = {
       {
         test: /\.(tsx?|jsx?)$/,
         loader: "awesome-typescript-loader",
-        exclude: /(node_modules)/,
+        exclude: {
+          test: path.resolve(__dirname, 'node_modules'),
+          exclude: [
+            path.resolve(__dirname, 'node_modules/eth-sig-util'),
+            path.resolve(__dirname, 'node_modules/web3-provider-engine'),
+            path.resolve(__dirname, 'node_modules/ledger-wallet-provider/node_modules/web3-provider-engine'),
+          ]
+        },
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
@@ -139,7 +146,7 @@ if (isProduction) {
   );
 } else {
   module.exports.plugins.push(
-    new OpenBrowserPlugin({ url: 'http://localhost:9090/' })
+    new OpenBrowserPlugin({ url: 'https://localhost:9090/' })
   )
 }
 

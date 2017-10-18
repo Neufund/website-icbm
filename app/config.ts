@@ -16,6 +16,7 @@ interface IAnnouncedCfg {
 interface ITransactionSigning {
   numberOfConfirmations: number;
   maxNumberBlocksToWait: number;
+  defaultDerivationPath: string;
 }
 
 const transactionSigningConfig = {
@@ -45,12 +46,16 @@ export function getRequiredValue(obj: any, key: string): string {
 
 function loadConfig(environment: object): IConfig {
   const appState = getRequiredValue(environment, "APP_STATE") as AppState;
+  const transactionSigning = {
+    ...transactionSigningConfig,
+    defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),
+  };
 
   switch (appState) {
     case AppState.BEFORE_ANNOUNCEMENT:
       return {
         appState,
-        transactionSigning: transactionSigningConfig,
+        transactionSigning,
       };
     case AppState.ANNOUNCED:
       const startingDate = moment(
@@ -65,14 +70,15 @@ function loadConfig(environment: object): IConfig {
 
       return {
         appState,
+        transactionSigning,
         announcedCfg: {
           startingDate,
         },
-        transactionSigning: transactionSigningConfig,
       };
     case AppState.CONTRACTS_DEPLOYED: {
       return {
         appState,
+        transactionSigning,
         contractsDeployed: {
           commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
           rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
@@ -80,7 +86,6 @@ function loadConfig(environment: object): IConfig {
           gasPrice: getRequiredValue(environment, "GAS_PRICE"),
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
         },
-        transactionSigning: transactionSigningConfig,
       };
     }
     default:

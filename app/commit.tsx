@@ -20,4 +20,5 @@ const render = (storage: any) => {
   );
 };
 
-startup(render);
+// tslint:disable-next-line no-console - it's top level call if anything got here it should be printed
+startup(render).catch(error => console.log(error));

@@ -1,6 +1,6 @@
 import { AppState } from "../../actions/constants";
 import config from "../../config";
-import web3Provider from "../web3Provider";
+import { web3Instance as web3Provider } from "../web3Provider";
 import EthToken from "./EthToken";
 import EuroToken from "./EuroToken";
 import LockedAccount from "./LockedAccount";

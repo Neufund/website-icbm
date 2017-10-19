@@ -14,13 +14,11 @@ interface IIcoCountdownProps {
 
 const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
   <div className={styles.countdown}>
-    <h3>Commitment Opportunity starts in: </h3>
-    <h1>Autumn</h1>
+    <h3>Commitment Opportunity starts on:</h3>
+    <h1>
+      {startDate.format("DD.MM.YYYY")}
+    </h1>
     <Countdown finishDate={startDate} />
-    <h3>Reward starting point:</h3>
-    <p>
-      {" "}-- NEU / <strong>1</strong> EHT
-    </p>
   </div>;
 
 export const IcoCountdown: React.SFC<IIcoCountdownProps> = props =>

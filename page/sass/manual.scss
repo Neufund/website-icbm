@@ -1,212 +1,243 @@
 .main-manual {
 
-padding-top: 30px;
-overflow: hidden;
-position: relative;
-
-h1, h2 {
-  margin-top: 0;
-}
-h1 {
-  font-size: 34px;
-  margin-top: 7px;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: $section-title-font-size-smaller;
-  font-weight: $font-weight-more-bold;
-  margin-bottom: 1.5em;
-}
-  
-ul {
-  padding-left: 1.2em;
-  font-weight: bold;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-// ---
-
-#sidebar {
-  position: fixed;
-  a:focus, a:hover {
-    background: transparent;
-    // overrides Bootstrap
-  }
-  li.active {
-    position: relative;
-    a {
-      color: $blue-darker;
-    }
-    &::before {
-      $bar_width: 5px;
-      $bar_padding: 5px;
-      
-      content: '';
-      position: absolute;
-      top: $bar_padding;
-      right: 0;
-      width: $bar_width;
-      height: calc(100% - #{$bar_padding*2});
-      background-color: $blue;
-      z-index: 1;
-    }
-  }
-}
-
-// ---
-// sections - general
-
-section {
   position: relative;
-  padding-left: 50px;
-  font-size: $font-size-small;
-  
-  margin-bottom: 80px;
-  @media (max-width: 767px) {
-    margin-bottom: 60px;
-  }
-  p {
-    a {
-      font-weight: bold;
-    }
-  }
-}
+  padding-top: 30px;
+  overflow: hidden;
 
-.section-counter {
-  position: absolute;
-  top: -18px;
-  left: -2px;
-  @include underlined_number;
-}
-
-.right-content-link {
-  display: flex;
-  padding-top: 10px;
-  font-weight: bold;
-}
-
-// ---
-// sections - specific
-section.introduction {
-  padding-left: 0;
-  p {
-    font-size: $font-size-normal;
+  h1,
+  h2 {
+    margin-top: 0;
   }
-}
 
-// Paddings for blue section
-$blue_padding_lr: 40px;
-$blue_padding_tb: 50px;
-$blue_radius: 10px;
-$blue_spacing_top_add: 15px;
-$blue_spacing_bottom_add: 60px;
+  h1 {
+    margin-top: 7px;
+    margin-bottom: 30px;
+    font-size: 34px;
+  }
 
-.section-content-blue {
-  position: relative;
-  color: #fff;
-  padding-top: $blue_spacing_top_add;
-  margin-bottom: $blue_spacing_bottom_add;
-  a.link-verify {
-    color: $gray-lighter;
-    text-decoration: underline;
-    font-size: $font-size-smaller;
-    font-weight: normal;
+  h2 {
+    margin-bottom: 1.5em;
+    font-size: $section-title-font-size-smaller;
+    font-weight: $font-weight-more-bold;
   }
-  @media (max-width: 767px) {
-    padding-right: 15px; // padding over blue box
-  }
-  
-  p {
-    margin-bottom: 1.5em; // overrides bootstrap
-  }
-  a.link-key-copy {
-    color: #fff;
+
+  ul {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1.2em;
     font-weight: bold;
-    &:hover {
-      text-decoration: none;
+  }
+
+  // ---
+
+  #sidebar {
+    position: fixed;
+    
+    a {
+      text-align: right;
+
+      &:focus,
+      &:hover {
+        background: transparent;
+        // overrides Bootstrap
+      }
+    }
+
+    li.active {
+      position: relative;
+      a {
+        color: $blue-darker;
+      }
+      
+      &::before {
+        $bar_width: 5px;
+        $bar_padding: 5px;
+        
+        content: '';
+        position: absolute;
+        top: $bar_padding;
+        right: 0;
+        width: $bar_width;
+        height: calc(100% - #{$bar_padding*2});
+        background-color: $blue;
+        z-index: 1;
+      }
     }
   }
-}
-.section-content-blue-bg {
-  position: absolute;
-  z-index: -1;
-  
-  width: calc(100% + #{$blue_padding_lr});
-  @media (max-width: 767px) {
-    width: calc(100% + #{$blue_padding_lr/2});
+
+  // ---
+  // sections - general
+
+  section {
+    position: relative;
+    padding-left: 50px;
+    font-size: $font-size-small;
+
+    margin-bottom: 80px;
+    @media (max-width: 767px) {
+      margin-bottom: 60px;
+    }
+    
+    p {
+      a {
+        font-weight: bold;
+      }
+    }
   }
-  height: calc(100% + #{$blue_padding_tb});
-  top: -($blue_padding_tb/2)+$blue_spacing_top_add;
-  left: -$blue_padding_lr/2;
-  border-radius: $blue_radius;
-  
-  border: 1px solid $blue-gray;
-  box-shadow: 1px 1px 4px #ddd;
-  
-  background: #25607c; // fallback
-  background: linear-gradient(-20deg, $gray-darker, #25607c);
-}
 
-.section-content-blue-img-bg {
-  position: absolute;
-  z-index: -2;
-  bottom: -130px;
-  right: -140px;
-  width: 350px;
-  transform: rotate(-10deg);
-  
-  img {max-width: 100%;}
-}
-
-.qr-code {
-  width: 100px;
-  height: 100px;
-  background-color: #999;
-  
-  margin-bottom: 2.5em; // collapses
-}
-
-.green-icon {
-  color: $green;
-  display: inline-block;
-  padding-right: 0.7em;
-}
-.introduction .green-icon {
-  // style correction
-  transform: translateY(-4px);
-  &>i {font-size: 28px}
-}
-
-mark {
-  background: transparent;
-  color: #f00;
-}
-
-#bg-blue-1, #bg-blue-2 {
-  position: absolute;
-  z-index: -2;
-  visibility: hidden; // will be reset by JS
-  @media (max-width: 767px) {
-    display: none;
+  .section-counter {
+    position: absolute;
+    top: -10px;
+    left: -2px;
+    @include underlined_number;
   }
-  img {max-width: 100%;}
-}
 
-#bg-blue-1 {
-  width: 400px;
-  top: 1600px;
-  left: -260px;
-  transform: translateY(-30px);
-}
-#bg-blue-2 {
-  width: 350px;
-  top: 650px;
-  right: -230px;
-  transform: translateY(-150px);
-}
+  .right-content-link {
+    display: flex;
+    padding-top: 10px;
+    font-weight: bold;
+  }
+  .right-content {
+    @media (max-width: 767px) {
+      padding-top: 1.5em;
+    }
+  }
 
+  // ---
+  // sections - specific
+  section.introduction {
+    padding-left: 0;
 
+    p {
+      font-size: $font-size-normal;
+    }
+  }
 
+  // Paddings for blue section
+  $blue_padding_lr: 40px;
+  $blue_padding_tb: 50px;
+  $blue_radius: 10px;
+  $blue_spacing_top_add: 15px;
+  $blue_spacing_bottom_add: 60px;
+
+  .section-content-blue {
+    position: relative;
+    color: #fff;
+    padding-top: $blue_spacing_top_add;
+    margin-bottom: $blue_spacing_bottom_add;
+
+    a.link-verify {
+      color: $gray-lighter;
+      text-decoration: underline;
+      font-size: $font-size-smaller;
+      font-weight: normal;
+    }
+
+    @media (max-width: 767px) {
+      padding-right: 15px; // padding over blue box
+    }
+
+    p {
+      margin-bottom: 1.5em; // overrides bootstrap
+    }
+
+    a.link-key-copy {
+      color: #fff;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .section-content-blue-bg {
+    position: absolute;
+    z-index: -1;
+
+    width: calc(100% + #{$blue_padding_lr});
+    @media (max-width: 767px) {
+      width: calc(100% + #{$blue_padding_lr/2});
+    }
+
+    height: calc(100% + #{$blue_padding_tb});
+    top: -($blue_padding_tb/2)+$blue_spacing_top_add;
+    left: -$blue_padding_lr/2;
+    border-radius: $blue_radius;
+
+    border: 1px solid $blue-gray;
+    box-shadow: 1px 1px 4px #ddd;
+
+    background: #25607c; // fallback
+    background: linear-gradient(-20deg, $gray-darker, #25607c);
+  }
+
+  .section-content-blue-img-bg {
+    position: absolute;
+    z-index: -2;
+    bottom: -130px;
+    right: -140px;
+    width: 350px;
+    transform: rotate(-10deg);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .qr-code {
+    width: 100px;
+    height: 100px;
+    background-color: #999;
+
+    margin-bottom: 2.5em; // collapses
+  }
+
+  .green-icon {
+    color: $green;
+    display: inline-block;
+    padding-right: 0.7em;
+  }
+
+  .introduction .green-icon {
+    // style correction
+    transform: translateY(-4px);
+
+    &>i {
+      font-size: 28px
+    }
+  }
+
+  mark {
+    background: transparent;
+    color: #f00;
+  }
+
+  #bg-blue-1, #bg-blue-2 {
+    position: absolute;
+    z-index: -2;
+    visibility: hidden; // will be reset by JS
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  #bg-blue-1 {
+    top: 1600px;
+    left: -260px;
+    transform: translateY(-30px);
+    width: 400px;
+  }
+
+  #bg-blue-2 {
+    top: 650px;
+    right: -230px;
+    transform: translateY(-150px);
+    width: 350px;
+  }
 }

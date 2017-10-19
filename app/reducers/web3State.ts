@@ -27,4 +27,3 @@ export default reducer;
 export function selectWeb3Type(state: IWeb3State): Web3Type {
   return state.web3Type;
 }
-

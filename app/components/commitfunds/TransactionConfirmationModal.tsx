@@ -22,7 +22,7 @@ export const TransactionConfirmationModal: React.SFC<ITransactionState> = ({
   );
   const confNo = currentBlock - blockOfConfirmation;
   const confirmations = (
-    <div>{`Got ${confNo} of ${config.transactionSigning
+    <div>{`Got ${confNo} of ${config.contractsDeployed
       .numberOfConfirmations} required confirmations`}</div>
   );
 

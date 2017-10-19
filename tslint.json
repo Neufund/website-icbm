@@ -21,6 +21,7 @@
     "jsx-wrap-multiline": false,
     "object-literal-sort-keys": false,
     "no-unused-variable": [true, { "ignore-pattern": "^_$" }],
-    "no-floating-promises": true
+    "no-floating-promises": true,
+    "prefer-array-literal": [ true, { "allow-type-parameters": true } ]
   }
 }

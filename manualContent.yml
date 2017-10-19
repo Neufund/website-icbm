@@ -10,7 +10,7 @@
         text: "You can also download this page as a document:"
         linkText: "How to participate in ICBM"
         linkURL: "/product.html"
-- groupName: "Main requirements"
+- groupName: "Who can reserve the funds?"
   groupContent:
     - type: "regular"
       title: "Who can reserve the funds?"
@@ -22,6 +22,8 @@
         <ul>
         <li><a href='#'>Authorisation process</a></li>
         </ul>
+- groupName: "What kind of funds can you commit?"
+  groupContent:
     - type: "regular"
       title: "What kind of funds can you commit?"
       paragraphs:
@@ -34,6 +36,8 @@
         <li><a href='#'>Coinbase (check our tutorial)</a></li>
         <li><a href='#'>Kraken</a></li>
         </ul>or others
+- groupName: "What can I use, then?"
+  groupContent:
     - type: "regular"
       title: "What can I use, then?"
       paragraphs:
@@ -46,6 +50,8 @@
         or others
       - "You can just head to our application, clicking <a href='#'>here</a>."
       rightSideContent: ""
+- groupName: "The smart contract address"
+  groupContent:
     - type: "blue"
       title: "The smart contract address"
       paragraphs:
@@ -64,6 +70,8 @@
         linkText: ""
         linkURL: ""
       rightSideContent: ""
+- groupName: "How to make sure you are not a subject to a fraud?"
+  groupContent:
     - type: "regular"
       title: "How to make sure you are not a subject to a fraud?"
       paragraphs:

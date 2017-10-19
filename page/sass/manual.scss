@@ -34,6 +34,10 @@
 
   #sidebar {
     position: fixed;
+    max-width: 212px;
+    @media (min-width: 992px) {
+      max-width: 262px;
+    }
 
     a {
       text-align: right;
@@ -46,7 +50,7 @@
     }
 
     li {
-      .active {
+      &.active {
         position: relative;
 
         a {
@@ -237,7 +241,7 @@
     visibility: hidden; // will be reset by JS
     z-index: -2;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       display: none;
     }
 

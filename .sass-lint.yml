@@ -19,7 +19,6 @@ files:
     - 'page/sass/whitepaper.scss'
     - 'page/sass/product_menu.scss'
     - 'page/sass/product.scss'
-    - 'page/sass/manual.scss'
 rules:
   property-sort-order:
     - 1

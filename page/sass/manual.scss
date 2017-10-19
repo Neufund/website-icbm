@@ -1,4 +1,6 @@
 .main-manual {
+  // sass-lint:disable-block no-ids
+  // justification: we have unique elements on manual.html page
 
   position: relative;
   padding-top: 30px;
@@ -32,7 +34,7 @@
 
   #sidebar {
     position: fixed;
-    
+
     a {
       text-align: right;
 
@@ -43,24 +45,30 @@
       }
     }
 
-    li.active {
-      position: relative;
-      a {
-        color: $blue-darker;
-      }
-      
-      &::before {
-        $bar_width: 5px;
-        $bar_padding: 5px;
-        
-        content: '';
-        position: absolute;
-        top: $bar_padding;
-        right: 0;
-        width: $bar_width;
-        height: calc(100% - #{$bar_padding*2});
-        background-color: $blue;
-        z-index: 1;
+    li {
+      .active {
+        position: relative;
+
+        a {
+          color: $blue-darker;
+        }
+
+        &::before {
+          $bar-width: 5px;
+          $bar-padding: 5px;
+
+          position: absolute;
+          top: $bar-padding;
+          right: 0;
+          z-index: 1;
+
+          background-color: $blue;
+
+          width: $bar-width;
+          height: calc(100% - #{($bar-padding)*2});
+
+          content: '';
+        }
       }
     }
   }
@@ -70,26 +78,33 @@
 
   section {
     position: relative;
-    padding-left: 50px;
-    font-size: $font-size-small;
-
     margin-bottom: 80px;
     @media (max-width: 767px) {
       margin-bottom: 60px;
     }
-    
+    padding-left: 50px;
+    font-size: $font-size-small;
+
     p {
       a {
         font-weight: bold;
       }
     }
+
+    &.introduction {
+      padding-left: 0;
+
+      p {
+        font-size: $font-size-normal;
+      }
+    }
   }
 
   .section-counter {
+    @include underlined-number;
     position: absolute;
     top: -10px;
     left: -2px;
-    @include underlined_number;
   }
 
   .right-content-link {
@@ -97,6 +112,7 @@
     padding-top: 10px;
     font-weight: bold;
   }
+
   .right-content {
     @media (max-width: 767px) {
       padding-top: 1.5em;
@@ -105,32 +121,38 @@
 
   // ---
   // sections - specific
-  section.introduction {
-    padding-left: 0;
-
-    p {
-      font-size: $font-size-normal;
-    }
-  }
 
   // Paddings for blue section
-  $blue_padding_lr: 40px;
-  $blue_padding_tb: 50px;
-  $blue_radius: 10px;
-  $blue_spacing_top_add: 15px;
-  $blue_spacing_bottom_add: 60px;
+  $blue-padding-lr: 40px;
+  $blue-padding-tb: 50px;
+  $blue-radius: 10px;
+  $blue-spacing-top-add: 15px;
+  $blue-spacing-bottom-add: 60px;
 
   .section-content-blue {
-    position: relative;
-    color: #fff;
-    padding-top: $blue_spacing_top_add;
-    margin-bottom: $blue_spacing_bottom_add;
+    $section-blue-text-color: #fff;
 
-    a.link-verify {
-      color: $gray-lighter;
-      text-decoration: underline;
-      font-size: $font-size-smaller;
-      font-weight: normal;
+    position: relative;
+    margin-bottom: $blue-spacing-bottom-add;
+    padding-top: $blue-spacing-top-add;
+    color: $section-blue-text-color;
+
+    a {
+      &.link-verify {
+        text-decoration: underline;
+        color: $gray-lighter;
+        font-size: $font-size-smaller;
+        font-weight: normal;
+      }
+
+      &.link-key-copy {
+        color: $section-blue-text-color;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
 
     @media (max-width: 767px) {
@@ -140,45 +162,37 @@
     p {
       margin-bottom: 1.5em; // overrides bootstrap
     }
-
-    a.link-key-copy {
-      color: #fff;
-      font-weight: bold;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
 
   .section-content-blue-bg {
+    $box-shadow-color: #ddd;
+    $gradient-default-color: #25607c;
     position: absolute;
+    top: - ($blue-padding-tb / 2) + $blue-spacing-top-add;
+    left: - $blue-padding-lr / 2;
     z-index: -1;
 
-    width: calc(100% + #{$blue_padding_lr});
-    @media (max-width: 767px) {
-      width: calc(100% + #{$blue_padding_lr/2});
-    }
-
-    height: calc(100% + #{$blue_padding_tb});
-    top: -($blue_padding_tb/2)+$blue_spacing_top_add;
-    left: -$blue_padding_lr/2;
-    border-radius: $blue_radius;
-
     border: 1px solid $blue-gray;
-    box-shadow: 1px 1px 4px #ddd;
+    border-radius: $blue-radius;
+    box-shadow: 1px 1px 4px $box-shadow-color;
 
-    background: #25607c; // fallback
-    background: linear-gradient(-20deg, $gray-darker, #25607c);
+    // background: $gradient-default-color; // fallback
+    background: linear-gradient(-20deg, $gray-darker, $gradient-default-color);
+
+    width: calc(100% + #{$blue-padding-lr});
+    @media (max-width: 767px) {
+      width: calc(100% + #{$blue-padding-lr/2});
+    }
+    height: calc(100% + #{$blue-padding-tb});
   }
 
   .section-content-blue-img-bg {
     position: absolute;
-    z-index: -2;
-    bottom: -130px;
     right: -140px;
-    width: 350px;
+    bottom: -130px;
     transform: rotate(-10deg);
+    z-index: -2;
+    width: 350px;
 
     img {
       max-width: 100%;
@@ -186,37 +200,42 @@
   }
 
   .qr-code {
-    width: 100px;
-    height: 100px;
-    background-color: #999;
+    $qr-code-bg-color: #999;
 
     margin-bottom: 2.5em; // collapses
+    background-color: $qr-code-bg-color;
+    width: 100px;
+    height: 100px;
   }
 
   .green-icon {
-    color: $green;
     display: inline-block;
-    padding-right: 0.7em;
+    padding-right: .7em;
+    color: $green;
   }
 
-  .introduction .green-icon {
-    // style correction
-    transform: translateY(-4px);
+  .introduction {
+    .green-icon {
+      // style correction
+      transform: translateY(-4px);
 
-    &>i {
-      font-size: 28px
+      &>i {
+        font-size: 28px;
+      }
     }
   }
 
   mark {
+    $marked-color-text: #f00;
     background: transparent;
-    color: #f00;
+    color: $marked-color-text;
   }
 
-  #bg-blue-1, #bg-blue-2 {
+  #bg-blue-1,
+  #bg-blue-2 {
     position: absolute;
-    z-index: -2;
     visibility: hidden; // will be reset by JS
+    z-index: -2;
 
     @media (max-width: 900px) {
       display: none;

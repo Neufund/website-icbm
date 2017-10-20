@@ -1,20 +1,27 @@
 import { BigNumber } from "bignumber.js";
-import { TextField } from "redux-form-material-ui";
-
 import { Moment } from "moment";
 import * as React from "react";
-
 import { connect, Dispatch } from "react-redux";
 import { compose } from "redux";
 import { Field, FormSubmitHandler, InjectedFormProps, reduxForm } from "redux-form";
+import { TextField } from "redux-form-material-ui";
+
 import { loadAftermathDetails } from "../actions/aftermathActions";
+import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
+import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
 import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
+  isAddressSet,
   selectLockedAmount,
   selectNeumarkBalance,
   selectUnlockDate,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
+import {
+  selectReservationAgreementHash,
+  selectTokenHolderAgreementHash,
+} from "../reducers/legalAgreementState";
+import { IDictionary } from "../types";
 import { ethereumAddressValidator } from "../validators/ethereumAddressValidator";
 import * as styles from "./Aftermath.scss";
 
@@ -22,7 +29,12 @@ interface ICommitFundsUnknownUserAftermathProps {
   lockedAmount?: BigNumber;
   unlockDate?: Moment;
   neumarkBalance?: BigNumber;
+  isAddressSet: boolean;
   loadAftermathDetails: (address: string) => {};
+  getTokenHolderAgreementTags: () => Promise<IDictionary>;
+  getReservationAgreementTags: () => Promise<IDictionary>;
+  reservationAgreementHash: string;
+  tokenHolderAgreementHash: string;
 }
 
 interface ICommitFundsUnknownUserAftermathForm {
@@ -41,7 +53,17 @@ const estTextFieldStyles = {
 
 export const CommitUnknownUserAftermath: React.SFC<
   InjectedFormProps & ICommitFundsUnknownUserAftermathProps
-> = ({ lockedAmount, unlockDate, neumarkBalance, handleSubmit }) =>
+> = ({
+  lockedAmount,
+  unlockDate,
+  neumarkBalance,
+  handleSubmit,
+  getTokenHolderAgreementTags,
+  getReservationAgreementTags,
+  reservationAgreementHash,
+  tokenHolderAgreementHash,
+  isAddressSet,
+}) =>
   <div className={styles.aftermath}>
     <div>
       <div className={styles.header}>Sneak peak to your committed funds</div>
@@ -93,6 +115,31 @@ export const CommitUnknownUserAftermath: React.SFC<
         {neumarkBalance ? neumarkBalance.toFixed(2) : "-"} NEU
       </div>
     </div>
+    <div className={styles.infoBox}>
+      <div className={styles.caption}>Documents</div>
+      <div className={styles.value}>
+        {isAddressSet
+          ? [
+              <DownloadDocumentLink
+                key="neumark_token_holder_agreement"
+                documentHash={tokenHolderAgreementHash}
+                getTags={getTokenHolderAgreementTags}
+                outputFilename="neumark_token_holder_agreement"
+              >
+                Token Holder Agreement
+              </DownloadDocumentLink>,
+              <DownloadDocumentLink
+                key="reservation_agreement"
+                documentHash={reservationAgreementHash}
+                getTags={getReservationAgreementTags}
+                outputFilename="reservation_agreement"
+              >
+                Reservation Agreement
+              </DownloadDocumentLink>,
+            ]
+          : "-"}
+      </div>
+    </div>
   </div>;
 
 function mapStateToProps(state: IAppState) {
@@ -100,12 +147,17 @@ function mapStateToProps(state: IAppState) {
     lockedAmount: selectLockedAmount(state.aftermathState),
     neumarkBalance: selectNeumarkBalance(state.aftermathState),
     unlockDate: selectUnlockDate(state.aftermathState),
+    isAddressSet: isAddressSet(state.aftermathState),
+    reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
+    tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
+    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
+    getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
   };
 }
 

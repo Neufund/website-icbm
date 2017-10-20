@@ -46,6 +46,10 @@ export function getRequiredValue(obj: any, key: string): string {
 }
 
 function loadConfig(environment: object): IConfig {
+  // do not evaluate config during tests
+  if (process.env.NODE_ENV === "test") {
+    return {} as any;
+  }
   const appState = getRequiredValue(environment, "APP_STATE") as AppState;
 
   switch (appState) {

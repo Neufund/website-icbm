@@ -16,8 +16,8 @@ export const transactionConfirmation = async (
   return new Promise((resolve, reject) => {
     let prevBlockNo = -1;
     let startingBlock = -1;
-    const requiredConfirmations = config.transactionSigning.numberOfConfirmations;
-    const maxNumberOfBlocksToWait = config.transactionSigning.maxNumberBlocksToWait;
+    const requiredConfirmations = config.contractsDeployed.numberOfConfirmations;
+    const maxNumberOfBlocksToWait = config.contractsDeployed.maxNumberBlocksToWait;
     const poll = async () => {
       let currentBlockNo;
       try {

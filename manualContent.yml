@@ -5,11 +5,11 @@
       paragraphs:
       - "Thank you for your interest in contributing to the ...."
       - "Below you will find a ..."
-      - "<b>Note:</b> Our ICO/ICBM contract is already published, click <a href='/product.html'><b>here</b></a> or scroll down."
+      - "<b>Note:</b> Our ICO/ICBM contract is already published, click <a href='/product'><b>here</b></a> or scroll down."
       rightSide:
         text: "You can also download this page as a document:"
         linkText: "How to participate in ICBM"
-        linkURL: "/product.html"
+        linkURL: "/product"
 - groupName: "Who can reserve the funds?"
   groupContent:
     - type: "regular"

@@ -57,6 +57,20 @@ h1 {
     }
   }
 
+  &.btn-green {
+    box-shadow: none;
+    background-color: $green;
+    color: $blue-dark-light;
+
+    &:hover {
+      background-color: lighten($green, 1%);
+    }
+
+    &:active {
+      background-color: darken($green, 1%);
+    }
+  }
+
   &.btn-white {
     border: 1px solid $blue;
     box-shadow: 0 1px 1px 0 rgba(163, 192, 204, .31); // sass-lint:disable-line no-color-literals
@@ -76,4 +90,8 @@ h1 {
 
 .react-app {
   margin-top: 80px;
+}
+
+.center {
+  text-align: center;
 }

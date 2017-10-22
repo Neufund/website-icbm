@@ -1,53 +1,34 @@
 import * as moment from "moment";
 
+import promiseAll = require("promise-all");
 import { etherLock, etherToken, publicCommitment } from "./contracts/ContractsRepository";
 import { convertEurToEth } from "./utils";
 
 export async function loadReservationAgreementGeneralTagsFromContract() {
   const lockInAddress = etherLock.address;
   const euroToEthRate = await publicCommitment.ethEurFraction;
-  const [
-    etherDecimals,
-    paymentToken,
-    maxCap,
-    minTicket,
-    unlockFeePercent,
-    feeAddress,
-    reservationPeriod,
-  ] = await Promise.all([
-    etherToken.decimals,
-    etherToken.name,
-    publicCommitment.maxCapEur.then(e => convertEurToEth(euroToEthRate, e)),
-    publicCommitment.minTicketEur.then(e => convertEurToEth(euroToEthRate, e)),
-    etherLock.penaltyFraction,
-    etherLock.penaltyDisbursalAddress,
-    etherLock.lockPeriod,
-  ]);
 
   return {
-    etherDecimals,
     lockInAddress,
-    paymentToken,
-    maxCap,
-    minTicket,
-    unlockFeePercent,
-    feeAddress,
-    reservationPeriod,
+    ...await promiseAll({
+      etherDecimals: etherToken.decimals,
+      paymentToken: etherToken.name,
+      maxCap: publicCommitment.maxCapEur.then(e => convertEurToEth(euroToEthRate, e)),
+      minTicket: publicCommitment.minTicketEur.then(e => convertEurToEth(euroToEthRate, e)),
+      unlockFeePercent: etherLock.penaltyFraction,
+      feeAddress: etherLock.penaltyDisbursalAddress,
+      reservationPeriod: etherLock.lockPeriod,
+    }),
   };
 }
 
 export async function loadReservationAgreementPersonalTagsFromContract() {
-  const [etherDecimals, paymentToken, reservationPeriod, unlockFee] = await Promise.all([
-    etherToken.decimals,
-    etherToken.name,
-    etherLock.lockPeriod.then(x => x.toString()),
-    etherLock.penaltyFraction.then(x => x.toString()),
-  ]);
-
-  return {
-    etherDecimals,
-    unlockFee,
-    paymentToken,
-    reservationPeriod: moment.duration(parseInt(reservationPeriod, 10), "seconds"),
-  };
+  return promiseAll({
+    etherDecimals: etherToken.decimals,
+    paymentToken: etherToken.name,
+    reservationPeriod: etherLock.lockPeriod
+      .then(x => x.toString())
+      .then(reservationPeriod => moment.duration(parseInt(reservationPeriod, 10), "seconds")),
+    unlockFee: etherLock.penaltyFraction.then(x => x.toString()),
+  });
 }

@@ -58,8 +58,16 @@ class Contract {
     });
   }
 
+  public get maxCapEur(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.maxCapEur, []);
+  }
+
   public get minTicketEur(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.minTicketEur, []);
+  }
+
+  public get ethEurFraction(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.ethEurFraction, []);
   }
 
   public get issuanceRate(): Promise<BigNumber> {

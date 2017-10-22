@@ -1,69 +1,82 @@
-import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 import { ThunkAction } from "redux-thunk";
+import {
+  calculateAndFormatFee,
+  calculateAndFormatRatio,
+  formatDate,
+  formatFraction,
+  formatMomentDate,
+  formatMoney,
+} from "../agreements/utils";
+import { selectLockedAmount, selectNeumarkBalance } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { IDictionary } from "../types";
-import { loadReservationAgreementTagsFromContract } from "../web3/loadReservationAgreementTagsFromContract";
+import {
+  loadReservationAgreementGeneralTagsFromContract,
+  loadReservationAgreementPersonalTagsFromContract,
+} from "../web3/loadReservationAgreementTagsFromContract";
+import { getCurrentBlockHash } from "../web3/utils";
 
-export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async (
+export const getTokenHolderAgreementPersonalTags: ThunkAction<{}, IAppState, {}> = async (
   _dispatcher,
   getState
 ) => {
   const state = getState();
   const address = state.aftermathState.address;
+  const currentBlockHash = await getCurrentBlockHash();
 
   return {
     "token-holder-address": address,
+    "current-block-hash": currentBlockHash,
   };
 };
 
-function formatDate(date: moment.Moment): string {
-  return date.format("YYYY-MM-DD hh:mm") + " UTC";
-}
+export const getReservationAgreementGeneralTags = async () => {
+  const generalTags = await loadReservationAgreementGeneralTagsFromContract();
+  const tags: IDictionary = {
+    "lockin-sc-address": generalTags.lockInAddress,
+    "payment-token": generalTags.paymentToken,
+    "max-cap": formatMoney(generalTags.etherDecimals.toNumber(), generalTags.maxCap),
+    "min-ticket": formatMoney(generalTags.etherDecimals.toNumber(), generalTags.minTicket),
+    "unlock-fee-percent": formatFraction(generalTags.unlockFeePercent),
+    "fee-address": generalTags.feeAddress,
+    "reservation-period": formatDate(generalTags.reservationPeriod),
+  };
 
-// tokens in ETH or NEU
-// returns value in base currency (ETH/NEU) with two decimal places
-function formatMoney(tokens: string): string {
-  return new BigNumber(tokens).toFixed(2);
-}
-
-function calculateAndFormatRatio(amount: string, neumarkBalance: string): string {
-  return new BigNumber(amount).div(new BigNumber(neumarkBalance)).toFixed(3);
-}
-
-// returns wei
-function calculateAndFormatFee(penaltyFraction: string, amount: string): string {
-  return new BigNumber(penaltyFraction)
-    .mul(new BigNumber(amount).mul(new BigNumber(10).pow(18)))
-    .div(new BigNumber(10).pow(18))
-    .toString();
-}
+  return tags;
+};
 
 export const getReservationAgreementTags: ThunkAction<{}, IAppState, {}> = async (
   _dispatcher,
   getState
 ) => {
-  // @todo standardize formatting for money. Should it be wei?
   const state = getState();
   const aftermathState = state.aftermathState;
 
-  const partialTags = await loadReservationAgreementTagsFromContract();
+  const generalTags = await getReservationAgreementGeneralTags();
+  const partialTags = await loadReservationAgreementPersonalTagsFromContract();
+  const currentBlockHash = await getCurrentBlockHash();
 
   const tags: IDictionary = {
     "investor-address": aftermathState.address,
     "payment-token": partialTags.paymentToken,
-    amount: formatMoney(aftermathState.lockedAmount),
-    "release-date": formatDate(moment.utc(aftermathState.unlockDate)),
+    amount: formatMoney(partialTags.etherDecimals.toNumber(), selectLockedAmount(aftermathState)),
+    "release-date": formatMomentDate(moment.utc(aftermathState.unlockDate)),
     "reservation-period": partialTags.reservationPeriod.asDays().toString(),
-    "reservation-date": formatDate(
+    "reservation-date": formatMomentDate(
       moment.utc(aftermathState.unlockDate).subtract(partialTags.reservationPeriod)
     ),
     "unlock-fee": calculateAndFormatFee(partialTags.unlockFee, aftermathState.lockedAmount),
-    "neumark-amount": formatMoney(aftermathState.neumarkBalance),
+    "neumark-amount": formatMoney(
+      partialTags.etherDecimals.toNumber(),
+      selectNeumarkBalance(aftermathState)
+    ),
     "neumark-acquisition-ratio": calculateAndFormatRatio(
       aftermathState.lockedAmount,
       aftermathState.neumarkBalance
     ),
+    "current-block-hash": currentBlockHash,
+    ...generalTags,
   };
 
   return tags;

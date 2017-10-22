@@ -26,19 +26,6 @@
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "whitelistStart",
-        "type": "int256"
-      }
-    ],
-    "name": "setWhitelistingStartDate",
-    "outputs": [],
-    "payable": false,
-    "type": "function"
-  },
-  {
     "constant": true,
     "inputs": [],
     "name": "minTicketEur",
@@ -132,6 +119,19 @@
       }
     ],
     "name": "estimateNeumarkReward",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "ethEurFraction",
     "outputs": [
       {
         "name": "",

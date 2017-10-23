@@ -6,7 +6,6 @@ import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 
 import { calculateEstimatedReward } from "../actions/submitFunds";
-import AddressChooserModal from "../components/AddressChooserModal";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
@@ -19,6 +18,7 @@ import {
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
+import AddressChooserModalContainer from "./AddressChooserModalContainer";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
@@ -53,7 +53,8 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   return (
     <div>
       <LegalModal />
-      {showChooseAddressDialog && <AddressChooserModal handleAddressChosen={handleAddressChosen} />}
+      {showChooseAddressDialog &&
+        <AddressChooserModalContainer handleAddressChosen={handleAddressChosen} />}
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>

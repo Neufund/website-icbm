@@ -14,10 +14,20 @@ import { IDictionary } from "../types";
 import {
   loadReservationAgreementGeneralTagsFromContract,
   loadReservationAgreementPersonalTagsFromContract,
-} from "../web3/loadReservationAgreementTagsFromContract";
+  loadTokenHolderAgreementGeneralTagsFromContract,
+} from "../web3/loadTagsFromContract";
 import { getCurrentBlockHash } from "../web3/utils";
 
-export const getTokenHolderAgreementPersonalTags: ThunkAction<{}, IAppState, {}> = async (
+export const getTokenHolderAgreementGeneralTags = async () => {
+  const generalTags = await loadTokenHolderAgreementGeneralTagsFromContract();
+  const tags: IDictionary = {
+    "signed-by-company-date": formatDate(generalTags.signedDate),
+  };
+
+  return tags;
+};
+
+export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async (
   _dispatcher,
   getState
 ) => {
@@ -25,9 +35,12 @@ export const getTokenHolderAgreementPersonalTags: ThunkAction<{}, IAppState, {}>
   const address = state.aftermathState.address;
   const currentBlockHash = await getCurrentBlockHash();
 
+  const generalTags = await getTokenHolderAgreementGeneralTags();
+
   return {
     "token-holder-address": address,
     "current-block-hash": currentBlockHash,
+    ...generalTags,
   };
 };
 
@@ -41,6 +54,7 @@ export const getReservationAgreementGeneralTags = async () => {
     "unlock-fee-percent": formatFraction(generalTags.unlockFeePercent),
     "fee-address": generalTags.feeAddress,
     "reservation-period": formatDate(generalTags.reservationPeriod),
+    "signed-by-company-date": formatDate(generalTags.signedDate),
   };
 
   return tags;

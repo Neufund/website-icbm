@@ -6,7 +6,7 @@ import { IStandardReduxAction } from "../types";
 import { getDocumentFromIPFS } from "../utils/ipfs";
 import { loadLegalAgreementsHashesAndTagsFromWeb3 } from "../web3/loadLegalAgreementsFromContract";
 import { SET_LEGAL_AGREEMENTS, SET_LEGAL_AGREEMENTS_ACCEPTED } from "./constants";
-import { getReservationAgreementGeneralTags } from "./getTags";
+import { getReservationAgreementGeneralTags, getTokenHolderAgreementGeneralTags } from "./getTags";
 
 export function legalAgreementsAcceptedAction(): IStandardReduxAction {
   return {
@@ -35,6 +35,12 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher =
     getDocumentFromIPFS(agreementHashes.tokenHolderAgreementHash),
   ]);
 
+  const tokenHolderAgreementGeneralTags = await getTokenHolderAgreementGeneralTags();
+  const tokenHolderAgreementWithGeneralTagsReplaced = replaceTags(
+    tokenHolderAgreement,
+    tokenHolderAgreementGeneralTags
+  );
+
   const reservationAgreementGeneralTags = await getReservationAgreementGeneralTags();
   const reservationAgreementWithGeneralTagsReplaced = replaceTags(
     reservationAgreement,
@@ -43,7 +49,7 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher =
 
   dispatcher(
     loadAgreementsAction({
-      tokenHolderAgreement,
+      tokenHolderAgreement: tokenHolderAgreementWithGeneralTagsReplaced,
       reservationAgreement: reservationAgreementWithGeneralTagsReplaced,
       reservationAgreementHash: agreementHashes.reservationAgreementHash,
       tokenHolderAgreementHash: agreementHashes.tokenHolderAgreementHash,

@@ -1,7 +1,7 @@
 import * as moment from "moment";
 
 import promiseAll = require("promise-all");
-import { etherLock, etherToken, publicCommitment } from "./contracts/ContractsRepository";
+import { etherLock, etherToken, neumark, publicCommitment } from "./contracts/ContractsRepository";
 import { convertEurToEth } from "./utils";
 
 export async function loadReservationAgreementGeneralTagsFromContract() {
@@ -18,6 +18,7 @@ export async function loadReservationAgreementGeneralTagsFromContract() {
       unlockFeePercent: etherLock.penaltyFraction,
       feeAddress: etherLock.penaltyDisbursalAddress,
       reservationPeriod: etherLock.lockPeriod,
+      signedDate: publicCommitment.currentAgreement().then(r => r[1]),
     }),
   };
 }
@@ -30,5 +31,11 @@ export async function loadReservationAgreementPersonalTagsFromContract() {
       .then(x => x.toString())
       .then(reservationPeriod => moment.duration(parseInt(reservationPeriod, 10), "seconds")),
     unlockFee: etherLock.penaltyFraction.then(x => x.toString()),
+  });
+}
+
+export async function loadTokenHolderAgreementGeneralTagsFromContract() {
+  return promiseAll({
+    signedDate: neumark.currentAgreement().then(r => r[1]),
   });
 }

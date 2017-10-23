@@ -3,10 +3,7 @@ import { Moment } from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
 import { loadAftermathDetails } from "../actions/aftermathActions";
-import {
-  getReservationAgreementTags,
-  getTokenHolderAgreementPersonalTags,
-} from "../actions/getTags";
+import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { UnderlinedLink } from "../components/UnderlinedLink";
@@ -143,7 +140,7 @@ function mapStateToProps(state: IAppState) {
 function mapDispatchToProps(dispatch: Dispatch<any>, ownProps: IAftermathOwnProps) {
   return {
     loadAftermathDetails: () => dispatch(loadAftermathDetails(ownProps.userAddress)),
-    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementPersonalTags),
+    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
     getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
   };
 }

@@ -7,10 +7,7 @@ import { Field, FormSubmitHandler, InjectedFormProps, reduxForm } from "redux-fo
 import { TextField } from "redux-form-material-ui";
 
 import { loadAftermathDetails } from "../actions/aftermathActions";
-import {
-  getReservationAgreementTags,
-  getTokenHolderAgreementPersonalTags,
-} from "../actions/getTags";
+import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
 import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
@@ -159,7 +156,7 @@ function mapStateToProps(state: IAppState) {
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
-    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementPersonalTags),
+    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
     getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
   };
 }

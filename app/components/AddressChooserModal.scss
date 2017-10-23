@@ -1,0 +1,19 @@
+.table {
+  width: 100%;
+}
+
+.use-column {
+  text-align: center;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  &::before, &::after {
+    display: none;
+  }
+}

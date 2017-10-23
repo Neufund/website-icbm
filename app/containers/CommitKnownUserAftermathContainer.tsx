@@ -27,7 +27,7 @@ interface IAftermathOwnProps {
 
 interface IAftermathProps {
   isLoading: boolean;
-  loadAftermathDetails: () => {};
+  loadAftermathDetails: (address: string) => {};
   lockedAmount: BigNumber;
   neumarkBalance: BigNumber;
   unlockDate: Moment;
@@ -41,7 +41,13 @@ export class CommitKnownUserAftermath extends React.Component<
   IAftermathProps & IAftermathOwnProps
 > {
   public componentDidMount() {
-    this.props.loadAftermathDetails();
+    this.props.loadAftermathDetails(this.props.userAddress);
+  }
+
+  public async componentWillReceiveProps(_nextProps: IAftermathProps & IAftermathOwnProps) {
+    if (this.props.userAddress !== _nextProps.userAddress) {
+      this.props.loadAftermathDetails(_nextProps.userAddress);
+    }
   }
 
   public render() {
@@ -83,7 +89,7 @@ export class CommitKnownUserAftermath extends React.Component<
         <div className={styles.infoBox}>
           <div className={styles.caption}>Locked amount</div>
           <div className={styles.value}>
-            {lockedAmount.toFixed(2)} ETH
+            {lockedAmount ? `${lockedAmount.toFixed(2)} ETH` : "-"}
           </div>
         </div>
 
@@ -97,7 +103,7 @@ export class CommitKnownUserAftermath extends React.Component<
         <div className={styles.infoBox}>
           <div className={styles.caption}>Neumark balance</div>
           <div className={styles.value}>
-            {neumarkBalance.toFixed(2)} NEU
+            {neumarkBalance ? `${neumarkBalance.toFixed(2)} NEU` : "-"}
           </div>
         </div>
         <div className={styles.infoBox}>
@@ -137,9 +143,9 @@ function mapStateToProps(state: IAppState) {
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<any>, ownProps: IAftermathOwnProps) {
+function mapDispatchToProps(dispatch: Dispatch<any>, _ownProps: IAftermathOwnProps) {
   return {
-    loadAftermathDetails: () => dispatch(loadAftermathDetails(ownProps.userAddress)),
+    loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
     getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
     getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
   };

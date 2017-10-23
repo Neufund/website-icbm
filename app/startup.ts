@@ -5,11 +5,11 @@ import reduxLogger from "redux-logger";
 import { autoRehydrate, persistStore } from "redux-persist";
 import reduxThunk from "redux-thunk";
 
+import { promisify } from "bluebird";
 import { asyncSessionStorage } from "redux-persist/storages";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
-import { initWeb3 } from "./web3/web3Provider";
-import { promisify } from "bluebird";
+import { Web3Service } from "./web3/web3Service";
 
 const persistStorePromised = promisify(persistStore) as any;
 
@@ -19,7 +19,7 @@ export async function startup(render: (store: Store<any>) => void) {
 
   // Create the Redux store
   const store = createStore(reducers, enhancers());
-  await initWeb3(store.dispatch);
+  Web3Service.init(store.dispatch, store.getState);
 
   // Add development time features
   if (process.env.NODE_ENV !== "production") {
@@ -36,13 +36,10 @@ export async function startup(render: (store: Store<any>) => void) {
     require("!raw-loader!../dist/app.css");
   }
 
-  await persistStorePromised(
-    store,
-    {
-      whitelist: ["legalAgreementState"],
-      storage: asyncSessionStorage,
-    }
-  );
+  await persistStorePromised(store, {
+    whitelist: ["legalAgreementState"],
+    storage: asyncSessionStorage,
+  });
   await initRepository();
-  render(store)
+  render(store);
 }

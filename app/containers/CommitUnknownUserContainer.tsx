@@ -123,5 +123,5 @@ interface IPropsFromProps {
 
 export default connect<IStateFromProps, IDispatchFromProps, IPropsFromProps>(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(CommitUnknownUserContainer);

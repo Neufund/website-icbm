@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Web3Type } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { loadUserAccount, setLoadingAction } from "../actions/loadUserAccount";
+import {
+  loadUserAccount,
+  setLoadingAction,
+  setUserAccountAction,
+} from "../actions/loadUserAccount";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
@@ -21,6 +25,7 @@ interface ICommitComponent {
   setLoadingFalse: () => {};
   loadUserAccount: () => {};
   loadIcoParams: () => {};
+  setUserAddress: (address: string) => {};
   web3Type: Web3Type;
 }
 
@@ -53,7 +58,6 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
       this.props.setLoadingFalse();
       const ledgerLoginProvider = new LedgerLoginProvider();
       ledgerLoginProvider.onConnect(() => {
-        // this.props.loadUserAccount();
         this.setState({
           ...this.state,
           showChooseAddressDialog: true,
@@ -82,11 +86,11 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
         />;
   }
 
-  private handleAddressChosen = (derivationPath: string, address: string): void => {
-    console.log("wybrano", derivationPath, address);
+  private handleAddressChosen = (_derivationPath: string, address: string): void => {
+    this.props.setUserAddress(address);
     this.setState({
       ...this.state,
-      // showChooseAddressDialog: false,
+      showChooseAddressDialog: false,
     });
   };
 }
@@ -107,6 +111,9 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     },
     loadUserAccount: () => dispatch(loadUserAccount),
     loadIcoParams: () => dispatch(loadIcoParams),
+    setUserAddress: (address: string) => {
+      dispatch(setUserAccountAction(address));
+    },
   };
 }
 

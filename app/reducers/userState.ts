@@ -25,12 +25,14 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         ...state,
         loading: payload.loading,
       };
+    // TODO: we need to decide on consistent naming account vs address
     case SET_USER_ACCOUNT:
       return {
         ...state,
         loading: false,
         address: payload.address,
       };
+    // TODO: probably we don't need to store user derivation path
     case SET_DERIVATION_PATH:
       return {
         ...state,

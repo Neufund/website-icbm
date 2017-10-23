@@ -26,6 +26,7 @@ interface ICommitComponent {
 
 interface ICommitState {
   timerID: number;
+  showChooseAddressDialog: boolean;
 }
 
 class Commit extends React.Component<ICommitComponent, ICommitState> {
@@ -33,6 +34,7 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
     super(props);
     this.state = {
       timerID: null,
+      showChooseAddressDialog: false,
     };
   }
 
@@ -51,7 +53,11 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
       this.props.setLoadingFalse();
       const ledgerLoginProvider = new LedgerLoginProvider();
       ledgerLoginProvider.onConnect(() => {
-        this.props.loadUserAccount();
+        // this.props.loadUserAccount();
+        this.setState({
+          ...this.state,
+          showChooseAddressDialog: true,
+        });
         ledgerLoginProvider.stop();
       });
       ledgerLoginProvider.start();
@@ -68,8 +74,21 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
     if (isLoading) {
       return <LoadingIndicator />;
     }
-    return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
+    return isKnownUser
+      ? <CommitKnownUserContainer />
+      : <CommitUnknownUserContainer
+          showChooseAddressDialog={this.state.showChooseAddressDialog}
+          handleAddressChosen={this.handleAddressChosen}
+        />;
   }
+
+  private handleAddressChosen = (derivationPath: string, address: string): void => {
+    console.log("wybrano", derivationPath, address);
+    this.setState({
+      ...this.state,
+      // showChooseAddressDialog: false,
+    });
+  };
 }
 
 const mapStateToProps = (state: IAppState) => {

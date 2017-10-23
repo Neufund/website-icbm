@@ -4,11 +4,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Web3Type } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import {
-  loadUserAccount,
-  setLoadingAction,
-  setUserAccountAction,
-} from "../actions/loadUserAccount";
+import { loadUserAccount, setLoadingAction, setUserAccount } from "../actions/loadUserAccount";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
@@ -25,7 +21,7 @@ interface ICommitComponent {
   setLoadingFalse: () => {};
   loadUserAccount: () => {};
   loadIcoParams: () => {};
-  setUserAddress: (address: string) => {};
+  setUserAddress: (derivationPath: string, address: string) => {};
   web3Type: Web3Type;
 }
 
@@ -86,8 +82,8 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
         />;
   }
 
-  private handleAddressChosen = (_derivationPath: string, address: string): void => {
-    this.props.setUserAddress(address);
+  private handleAddressChosen = (derivationPath: string, address: string): void => {
+    this.props.setUserAddress(derivationPath, address);
     this.setState({
       ...this.state,
       showChooseAddressDialog: false,
@@ -111,8 +107,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     },
     loadUserAccount: () => dispatch(loadUserAccount),
     loadIcoParams: () => dispatch(loadIcoParams),
-    setUserAddress: (address: string) => {
-      dispatch(setUserAccountAction(address));
+    setUserAddress: (derivationPath: string, address: string) => {
+      dispatch(setUserAccount(derivationPath, address));
     },
   };
 }

@@ -32,7 +32,6 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         loading: false,
         address: payload.address,
       };
-    // TODO: probably we don't need to store user derivation path
     case SET_DERIVATION_PATH:
       return {
         ...state,

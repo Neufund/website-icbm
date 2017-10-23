@@ -72,7 +72,7 @@ export class Web3Service {
       return;
     }
 
-    this.personalWeb3 = newInjectedWeb3;
+    this.personalWeb3 = new Web3(newInjectedWeb3.currentProvider)
     window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);
   }
 

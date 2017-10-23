@@ -124,8 +124,13 @@ class Contract {
     return promisify(this.rawWeb3Contract.handleTimedTransitions, [params]);
   }
 
-  public commitTx(params?: IPayableTxParams): Promise<string> {
-    return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
+  public commitTx(params?: IPayableTxParams, customWeb3?: any): Promise<string> {
+    if (customWeb3) {
+      const tmpContract = customWeb3.eth.contract(PublicCommitmentAbiJson).at(this.address);
+      return promisify(tmpContract.commit.sendTransaction, [params]);
+    } else {
+      return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
+    }
   }
 
   public setAccessPolicyTx(newPolicy: BigNumber | string, params?: ITxParams): Promise<void> {

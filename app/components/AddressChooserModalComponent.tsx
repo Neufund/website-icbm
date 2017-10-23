@@ -32,39 +32,37 @@ export const AddressChooserModalComponent: React.SFC<IAddressChooserModalCompone
         <TextField name="derivationPathField" defaultValue={derivationPath} />
         - provide your derivation path
       </div>
-      <div>
-        <table className={style.table}>
-          <thead>
-            <tr>
-              <th>derivation path</th>
-              <th>address</th>
-              <th>ETH balance</th>
-              <th>use it</th>
+      <table className={style.table}>
+        <thead>
+          <tr>
+            <th>derivation path</th>
+            <th>address</th>
+            <th>ETH balance</th>
+            <th>use it</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(addresses).map(dp =>
+            <tr key={dp}>
+              <td>
+                {dp}
+              </td>
+              <td>
+                {addresses[dp].address}
+              </td>
+              <td>
+                {addresses[dp].ETH.toString()}
+              </td>
+              <td
+                className={style.useColumn}
+                onClick={handleAddressChosen(dp, addresses[dp].address)}
+              >
+                v
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {Object.keys(addresses).map(dp =>
-              <tr key={dp}>
-                <td>
-                  {dp}
-                </td>
-                <td>
-                  {addresses[dp].address}
-                </td>
-                <td>
-                  {addresses[dp].ETH.toString()}
-                </td>
-                <td
-                  className={style.useColumn}
-                  onClick={handleAddressChosen(dp, addresses[dp].address)}
-                >
-                  v
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+          )}
+        </tbody>
+      </table>
     </Modal.Body>
     <Modal.Footer className={style.footer}>
       <Button bsStyle="primary" onClick={handleShowPreviousAddresses}>

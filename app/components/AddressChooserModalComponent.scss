@@ -1,15 +1,16 @@
 .table {
-  width: 100%;
   margin: 15px 0;
+  width: 100%;
 
-  th, td {
+  th,
+  td {
     padding: 10px;
   }
 }
 
 .use-column {
-  text-align: center;
   cursor: pointer;
+  text-align: center;
 }
 
 .footer {
@@ -18,7 +19,8 @@
   justify-content: space-between;
 
 
-  &::before, &::after {
+  &::before,
+  &::after {
     display: none;
   }
 }

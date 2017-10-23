@@ -23,6 +23,7 @@ import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
+  agreementAccepted: boolean;
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
@@ -39,6 +40,7 @@ interface ICommitUnknownUserContainer {
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({
+  agreementAccepted,
   contractAddress,
   transactionPayload,
   gasPrice,
@@ -54,6 +56,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
     <div>
       <LegalModal />
       {showChooseAddressDialog &&
+        agreementAccepted &&
         <AddressChooserModalContainer handleAddressChosen={handleAddressChosen} />}
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
@@ -85,6 +88,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
 };
 
 interface IStateFromProps {
+  agreementAccepted: boolean;
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
@@ -94,7 +98,8 @@ interface IStateFromProps {
   minTicketWei: BigNumber;
 }
 
-const mapStateToProps = (state: IAppState) => ({
+const mapStateToProps = (state: IAppState): IStateFromProps => ({
+  agreementAccepted: state.legalAgreementState.accepted,
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,

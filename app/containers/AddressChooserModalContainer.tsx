@@ -65,6 +65,7 @@ export class AddressChooserModalContainer extends React.Component<
       <AddressChooserModalComponent
         derivationPath={this.state.derivationPath}
         addresses={this.state.addresses}
+        previousAddressesDisabled={this.state.startingIndex <= 0}
         handleShowPreviousAddresses={this.handleShowPreviousAddresses}
         handleShowNextAddresses={this.handleShowNextAddresses}
         handleAddressChosen={this.handleAddressChosen}

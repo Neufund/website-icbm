@@ -8,6 +8,7 @@ import * as style from "./AddressChooserModalComponent.scss";
 interface IAddressChooserModalComponent {
   derivationPath: string;
   addresses: IAddresses;
+  previousAddressesDisabled: boolean;
   handleShowPreviousAddresses: () => void;
   handleShowNextAddresses: () => void;
   handleAddressChosen: (derivationPath: string, address: string) => () => void;
@@ -19,6 +20,7 @@ const noop = () => {};
 export const AddressChooserModalComponent: React.SFC<IAddressChooserModalComponent> = ({
   derivationPath,
   addresses,
+  previousAddressesDisabled,
   handleShowPreviousAddresses,
   handleShowNextAddresses,
   handleAddressChosen,
@@ -65,7 +67,11 @@ export const AddressChooserModalComponent: React.SFC<IAddressChooserModalCompone
       </table>
     </Modal.Body>
     <Modal.Footer className={style.footer}>
-      <Button bsStyle="primary" onClick={handleShowPreviousAddresses}>
+      <Button
+        bsStyle="primary"
+        disabled={previousAddressesDisabled}
+        onClick={handleShowPreviousAddresses}
+      >
         show previous addresses
       </Button>
       <Button bsStyle="primary" onClick={handleShowNextAddresses}>

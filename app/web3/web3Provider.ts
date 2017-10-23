@@ -1,3 +1,4 @@
+import { BigNumber } from "bignumber.js";
 import { promisify } from "bluebird";
 import ledgerWalletProvider from "ledger-wallet-provider";
 import { Dispatch } from "redux";
@@ -30,6 +31,15 @@ export async function initWeb3(dispatch: Dispatch<IStandardReduxAction>) {
       web3Type = Web3Type.LEDGER;
       const engine = new Web3ProviderEngine();
       const ledger = await ledgerWalletProvider(getNetworkId);
+
+      // TODO: we should patch ledger provider im more elegant way
+      ledger.ledger.getMultipleAccountsAsync = promisify<
+        { [derivationPath: string]: string },
+        string,
+        number,
+        number
+      >(ledger.ledger.getMultipleAccounts);
+
       ledgerInstance = ledger.ledger;
 
       engine.addProvider(ledger);
@@ -41,6 +51,7 @@ export async function initWeb3(dispatch: Dispatch<IStandardReduxAction>) {
       engine.start();
       web3Instance = new Web3(engine);
     }
+    web3Instance.eth.getBalanceAsync = promisify<BigNumber, string>(web3Instance.eth.getBalance);
     dispatch(setWeb3Action(web3Type));
   }
 }

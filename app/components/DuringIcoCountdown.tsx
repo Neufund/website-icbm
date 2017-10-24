@@ -85,7 +85,7 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
         </p>
 
         <div className={styles.buttonContainer}>
-          <a href="/commit.html" className="btn btn-primary">
+          <a href="/commit" className="btn btn-primary">
             Commit ETH
           </a>
         </div>

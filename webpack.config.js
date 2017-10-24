@@ -54,6 +54,9 @@ module.exports = {
         changeOrigin: true
       },
     },
+    staticOptions: {
+      extensions: ['html'],
+    }
   },
   entry: {
     main: [...devEntryPoints, "./app/index.tsx"],

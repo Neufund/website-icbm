@@ -49,6 +49,9 @@ module.exports = {
         pathRewrite: { "^/node": "" },
       },
     },
+    staticOptions: {
+      extensions: ['html'],
+    }
   },
   entry: {
     main: [...devEntryPoints, "./app/index.tsx"],

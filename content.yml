@@ -16,7 +16,7 @@ why-how:
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
         - link: 'Neufund ICBM FAQ'
-          href: "/faq.html"
+          href: "/faq"
     - title: "How Neumark benefits you"
       id: "why-participate"
       content: |
@@ -503,11 +503,11 @@ footer:
   commit_txt: "Commit"
   commit_url: "/"
   platform_txt: "Platform"
-  platform_url: "/product.html"
+  platform_url: "/product"
   whitepaper_txt: "Whitepaper"
   whitepaper_url: "https://neufund.org/whitepaper/"
   faq_txt: "FAQ"
-  faq_url: "/faq.html"
+  faq_url: "/faq"
   website_txt: "neufund.org"
   website_url: "https://neufund.org"
   email_txt: "commit@neufund.org"

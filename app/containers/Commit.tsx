@@ -5,7 +5,7 @@ import { Dispatch } from "redux";
 import { Web3Type } from "../actions/constants";
 import { loadAgreements } from "../actions/legalAgreement";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { loadUserAccount, setLoadingAction } from "../actions/loadUserAccount";
+import { loadUserAccount, setLoadingAction, setUserAccount } from "../actions/loadUserAccount";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
@@ -23,11 +23,13 @@ interface ICommitComponent {
   loadUserAccount: () => {};
   loadAgreements: () => {};
   loadIcoParams: () => {};
+  setUserAddress: (derivationPath: string, address: string) => {};
   web3Type: Web3Type;
 }
 
 interface ICommitState {
   timerID: number;
+  showChooseAddressDialog: boolean;
 }
 
 class Commit extends React.Component<ICommitComponent, ICommitState> {
@@ -35,6 +37,7 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
     super(props);
     this.state = {
       timerID: null,
+      showChooseAddressDialog: false,
     };
   }
 
@@ -57,7 +60,10 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
       this.props.setLoadingFalse();
       const ledgerLoginProvider = new LedgerLoginProvider();
       ledgerLoginProvider.onConnect(() => {
-        this.props.loadUserAccount();
+        this.setState({
+          ...this.state,
+          showChooseAddressDialog: true,
+        });
         ledgerLoginProvider.stop();
       });
       ledgerLoginProvider.start();
@@ -74,8 +80,21 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
     if (isLoading) {
       return <LoadingIndicator />;
     }
-    return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
+    return isKnownUser
+      ? <CommitKnownUserContainer />
+      : <CommitUnknownUserContainer
+          showChooseAddressDialog={this.state.showChooseAddressDialog}
+          handleAddressChosen={this.handleAddressChosen}
+        />;
   }
+
+  private handleAddressChosen = (derivationPath: string, address: string): void => {
+    this.props.setUserAddress(derivationPath, address);
+    this.setState({
+      ...this.state,
+      showChooseAddressDialog: false,
+    });
+  };
 }
 
 const mapStateToProps = (state: IAppState) => {
@@ -94,6 +113,9 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     },
     loadUserAccount: () => dispatch(loadUserAccount),
     loadIcoParams: () => dispatch(loadIcoParams),
+    setUserAddress: (derivationPath: string, address: string) => {
+      dispatch(setUserAccount(derivationPath, address));
+    },
     loadAgreements: () => dispatch(loadAgreements),
   };
 }

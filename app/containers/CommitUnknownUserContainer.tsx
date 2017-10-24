@@ -4,6 +4,7 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
+
 import { calculateEstimatedReward } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
@@ -16,11 +17,14 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { selectIsAccepted } from "../reducers/legalAgreementState";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
+import AddressChooserModalContainer from "./AddressChooserModalContainer";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
+  agreementAccepted: boolean;
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
@@ -32,9 +36,12 @@ interface ICommitUnknownUserContainer {
   loadingEstimatedReward: boolean;
   calculateEstimatedRewardAction: () => {};
   minTicketWei: BigNumber;
+  showChooseAddressDialog: boolean;
+  handleAddressChosen: (derivationPath: string, address: string) => void;
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({
+  agreementAccepted,
   contractAddress,
   transactionPayload,
   gasPrice,
@@ -43,10 +50,15 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   loadingEstimatedReward,
   calculateEstimatedRewardAction,
   minTicketWei,
+  showChooseAddressDialog,
+  handleAddressChosen,
 }) => {
   return (
     <div>
       <LegalModal />
+      {showChooseAddressDialog &&
+        agreementAccepted &&
+        <AddressChooserModalContainer handleAddressChosen={handleAddressChosen} />}
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -76,7 +88,19 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   );
 };
 
-const mapStateToProps = (state: IAppState) => ({
+interface IStateFromProps {
+  agreementAccepted: boolean;
+  contractAddress: string;
+  transactionPayload: string;
+  gasPrice: string;
+  gasLimit: string;
+  loadingEstimatedReward: boolean;
+  estimatedReward: BigNumber;
+  minTicketWei: BigNumber;
+}
+
+const mapStateToProps = (state: IAppState): IStateFromProps => ({
+  agreementAccepted: selectIsAccepted(state.legalAgreementState),
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,
@@ -86,7 +110,11 @@ const mapStateToProps = (state: IAppState) => ({
   minTicketWei: selectMinTicketWei(state.commitmentState),
 });
 
-function mapDispatchToProps(dispatch: Dispatch<any>) {
+interface IDispatchFromProps {
+  calculateEstimatedRewardAction: () => {};
+}
+
+function mapDispatchToProps(dispatch: Dispatch<any>): IDispatchFromProps {
   return {
     calculateEstimatedRewardAction: debounce(
       () => dispatch(calculateEstimatedReward) as () => {},
@@ -95,4 +123,12 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommitUnknownUserContainer);
+interface IPropsFromProps {
+  showChooseAddressDialog: boolean;
+  handleAddressChosen: (derivationPath: string, address: string) => void;
+}
+
+export default connect<IStateFromProps, IDispatchFromProps, IPropsFromProps>(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommitUnknownUserContainer);

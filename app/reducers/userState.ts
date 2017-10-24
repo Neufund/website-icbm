@@ -25,6 +25,7 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         ...state,
         loading: payload.loading,
       };
+    // TODO: we need to decide on consistent naming account vs address
     case SET_USER_ACCOUNT:
       return {
         ...state,

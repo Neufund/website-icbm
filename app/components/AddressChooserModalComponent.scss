@@ -1,3 +1,5 @@
+@import '../../common/sass/variables';
+
 .table {
   margin: 15px 0;
   width: 100%;
@@ -11,6 +13,11 @@
 .use-column {
   cursor: pointer;
   text-align: center;
+
+  :hover {
+    color: $green;
+    transition: all .5s ease-in-out;
+  }
 }
 
 .footer {

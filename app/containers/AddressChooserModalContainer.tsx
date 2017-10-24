@@ -1,3 +1,4 @@
+import { debounce } from "lodash";
 import * as React from "react";
 
 import { AddressChooserModalComponent } from "../components/AddressChooserModalComponent";
@@ -21,6 +22,7 @@ interface IAddressChooserModalContainerState {
   derivationPath: string;
   startingIndex: number;
   addresses: IAddresses;
+  loading: boolean;
 }
 
 export class AddressChooserModalContainer extends React.Component<
@@ -38,6 +40,7 @@ export class AddressChooserModalContainer extends React.Component<
       derivationPath,
       startingIndex,
       addresses,
+      loading: true,
     };
 
     this.obtainData().catch(error => {
@@ -47,13 +50,17 @@ export class AddressChooserModalContainer extends React.Component<
     this.handleShowPreviousAddresses = this.handleShowPreviousAddresses.bind(this);
     this.handleShowNextAddresses = this.handleShowNextAddresses.bind(this);
     this.handleAddressChosen = this.handleAddressChosen.bind(this);
+    this.handleDerivationPathChange = debounce(this.handleDerivationPathChange.bind(this), 300);
   }
 
   public componentDidUpdate(
     _prevProps: IAddressChooserModalContainerProps,
     prevState: IAddressChooserModalContainerState
   ) {
-    if (this.state.startingIndex !== prevState.startingIndex) {
+    if (
+      this.state.derivationPath !== prevState.derivationPath ||
+      this.state.startingIndex !== prevState.startingIndex
+    ) {
       this.obtainData().catch(error => {
         throw new Error(error);
       });
@@ -63,19 +70,23 @@ export class AddressChooserModalContainer extends React.Component<
   public render() {
     return (
       <AddressChooserModalComponent
+        loading={this.state.loading}
         derivationPath={this.state.derivationPath}
         addresses={this.state.addresses}
         previousAddressesDisabled={this.state.startingIndex <= 0}
         handleShowPreviousAddresses={this.handleShowPreviousAddresses}
         handleShowNextAddresses={this.handleShowNextAddresses}
         handleAddressChosen={this.handleAddressChosen}
+        handleDerivationPathChange={this.handleDerivationPathChange}
       />
     );
   }
 
   private async obtainData() {
+    this.setState({ loading: true });
     const stateCopy = { ...this.state };
     stateCopy.addresses = {};
+    stateCopy.loading = false;
 
     for (
       let i = stateCopy.startingIndex;
@@ -143,6 +154,12 @@ export class AddressChooserModalContainer extends React.Component<
       startingIndex: this.state.startingIndex + NUMBER_OF_ADDRESSES,
     };
     this.setState(newState);
+  }
+
+  private handleDerivationPathChange(_event: object, newValue: string) {
+    this.setState({
+      derivationPath: newValue,
+    });
   }
 
   private handleAddressChosen(derivationPath: string, address: string) {

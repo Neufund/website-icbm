@@ -3,7 +3,7 @@ import * as React from "react";
 
 import { AddressChooserModalComponent } from "../components/AddressChooserModalComponent";
 import config from "../config";
-import { IDictionary } from "../types";
+import { IDerivationPaths } from "../types";
 import { ledgerInstance, web3Instance } from "../web3/web3Provider";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
@@ -15,10 +15,7 @@ interface IAddressChooserModalContainerProps {
 interface IAddressChooserModalContainerState {
   derivationPath: string;
   startingIndex: number;
-  addresses: IDictionary<{
-    address?: string;
-    ETH?: number;
-  }>;
+  addresses: IDerivationPaths;
   loading: boolean;
 }
 
@@ -36,7 +33,7 @@ export class AddressChooserModalContainer extends React.Component<
     super(props);
 
     const startingIndex = 0;
-    const addresses: IDictionary<{ address?: string; ETH?: number }> = {};
+    const addresses: IDerivationPaths = {};
     const derivationPath = config.contractsDeployed.defaultDerivationPath;
 
     this.state = {
@@ -48,9 +45,8 @@ export class AddressChooserModalContainer extends React.Component<
   }
 
   public componentDidMount() {
-    this.obtainData().catch(error => {
-      throw new Error(error);
-    });
+    // tslint:disable-next-line no-floating-promises
+    this.obtainData();
   }
 
   public componentDidUpdate(
@@ -61,9 +57,8 @@ export class AddressChooserModalContainer extends React.Component<
       this.state.derivationPath !== prevState.derivationPath ||
       this.state.startingIndex !== prevState.startingIndex
     ) {
-      this.obtainData().catch(error => {
-        throw new Error(error);
-      });
+      // tslint:disable-next-line no-floating-promises
+      this.obtainData();
     }
   }
 

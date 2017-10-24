@@ -2,14 +2,17 @@ import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
 
-import { IAddresses } from "../containers/AddressChooserModalContainer";
+import { IDictionary } from "../types";
 import * as style from "./AddressChooserModalComponent.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
 
 interface IAddressChooserModalComponent {
   loading: boolean;
   derivationPath: string;
-  addresses: IAddresses;
+  addresses: IDictionary<{
+    address?: string;
+    ETH?: number;
+  }>;
   previousAddressesDisabled: boolean;
   handleShowPreviousAddresses: () => void;
   handleShowNextAddresses: () => void;

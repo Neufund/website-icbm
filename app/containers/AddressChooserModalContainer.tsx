@@ -3,16 +3,10 @@ import * as React from "react";
 
 import { AddressChooserModalComponent } from "../components/AddressChooserModalComponent";
 import config from "../config";
+import { IDictionary } from "../types";
 import { ledgerInstance, web3Instance } from "../web3/web3Provider";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
-
-export interface IAddresses {
-  [derivationPath: string]: {
-    address?: string;
-    ETH?: number;
-  };
-}
 
 interface IAddressChooserModalContainerProps {
   handleAddressChosen: (derivationPath: string, address: string) => void;
@@ -21,7 +15,10 @@ interface IAddressChooserModalContainerProps {
 interface IAddressChooserModalContainerState {
   derivationPath: string;
   startingIndex: number;
-  addresses: IAddresses;
+  addresses: IDictionary<{
+    address?: string;
+    ETH?: number;
+  }>;
   loading: boolean;
 }
 
@@ -39,7 +36,7 @@ export class AddressChooserModalContainer extends React.Component<
     super(props);
 
     const startingIndex = 0;
-    const addresses: IAddresses = {};
+    const addresses: IDictionary<{ address?: string; ETH?: number }> = {};
     const derivationPath = config.contractsDeployed.defaultDerivationPath;
 
     this.state = {

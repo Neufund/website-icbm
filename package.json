@@ -93,8 +93,8 @@
     "sass-lint": "sass-lint -v -q",
     "build": "rm -rf ./build && NODE_ENV=production bash -c 'gulp clean && webpack && gulp build:prod && gulp minify-html'",
     "webpack:profile": "NODE_ENV=production webpack --profile --json > webpack-stats.json",
-    "test": "ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
-    "test:coverage": "nyc ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
+    "test": "NODE_ENV=test ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
+    "test:coverage": "NODE_ENV=test nyc ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
     "fixyarn": "git checkout origin/master -- yarn.lock && yarn install && git add yarn.lock"
   },
   "dependencies": {
@@ -110,6 +110,7 @@
     "material-ui": "^0.19.1",
     "moment": "^2.18.1",
     "owl.carousel": "^2.2.0",
+    "promise-all": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
@@ -119,6 +120,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^4.9.1",
     "redux-thunk": "^2.2.0",
+    "replace-string": "^1.1.0",
     "robotstxt-webpack-plugin": "^2.0.0",
     "scrollreveal": "^3.3.6",
     "semver": "^5.4.1",

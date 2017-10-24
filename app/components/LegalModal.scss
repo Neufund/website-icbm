@@ -1,5 +1,25 @@
 @import '../../common/sass/variables';
 
+.modal {
+  :global(.modal-body) {
+    height: 60vh;
+  }
+}
+
+.checkbox {
+  margin-top: 15px;
+}
+
 .document-accent {
   font-weight: $font-weight-more-bold;
+}
+
+.document-frame {
+  border: 0;
+  width: 100%;
+}
+
+.scrollable {
+  height: calc(100% - 80px);
+  overflow-y: scroll;
 }

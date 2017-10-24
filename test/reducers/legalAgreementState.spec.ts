@@ -7,7 +7,14 @@ describe("Legal agreement reducer", () => {
   it("should return initial values", () => {
     const newState = legalAgreementState(undefined, { type: "UNKNOWN ACTION", payload: null });
 
-    expect(newState).to.be.deep.eq({ accepted: false });
+    expect(newState).to.be.deep.eq({
+      reservationAgreementAccepted: false,
+      tokenHolderAgreementAccepted: false,
+      reservationAgreementHash: null,
+      tokenHolderAgreementHash: null,
+      reservationAgreement: null,
+      tokenHolderAgreement: null,
+    });
   });
 
   it("should change state on SET_LEGAL_AGREEMENTS_ACCEPTED", () => {
@@ -16,6 +23,9 @@ describe("Legal agreement reducer", () => {
       payload: null,
     });
 
-    expect(newState).to.be.deep.eq({ accepted: true });
+    expect(newState).to.be.deep.eq({
+      reservationAgreementAccepted: true,
+      tokenHolderAgreementAccepted: true,
+    });
   });
 });

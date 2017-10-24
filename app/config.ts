@@ -23,6 +23,8 @@ interface IContractsDeployedIcoCfg {
   commitmentType: CommitmentType;
   gasLimit: string;
   gasPrice: string;
+  ipfsNode: string;
+  pdfRenderer: string;
   numberOfConfirmations: number;
   maxNumberBlocksToWait: number;
   defaultDerivationPath: string;
@@ -36,6 +38,10 @@ export function getRequiredValue(obj: any, key: string): string {
 }
 
 function loadConfig(environment: object): IConfig {
+  // do not evaluate config during tests
+  if (process.env.NODE_ENV === "test") {
+    return {} as any;
+  }
   const appState = getRequiredValue(environment, "APP_STATE") as AppState;
 
   switch (appState) {
@@ -69,6 +75,8 @@ function loadConfig(environment: object): IConfig {
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
           gasPrice: getRequiredValue(environment, "GAS_PRICE"),
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
+          ipfsNode: "https://ipfs.io/",
+          pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 3, // TODO: this should react on type of network for dev value should be 1
           maxNumberBlocksToWait: 5,
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),

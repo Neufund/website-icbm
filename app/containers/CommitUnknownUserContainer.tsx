@@ -17,6 +17,7 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { selectIsAccepted } from "../reducers/legalAgreementState";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import AddressChooserModalContainer from "./AddressChooserModalContainer";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
@@ -99,7 +100,7 @@ interface IStateFromProps {
 }
 
 const mapStateToProps = (state: IAppState): IStateFromProps => ({
-  agreementAccepted: state.legalAgreementState.accepted,
+  agreementAccepted: selectIsAccepted(state.legalAgreementState),
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,

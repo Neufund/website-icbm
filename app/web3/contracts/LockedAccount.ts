@@ -66,7 +66,7 @@ class Contract {
     return promisify(this.rawWeb3Contract.controller, []);
   }
 
-  public get penaltyDisbursalAddress(): Promise<BigNumber | string> {
+  public get penaltyDisbursalAddress(): Promise<string> {
     return promisify(this.rawWeb3Contract.penaltyDisbursalAddress, []);
   }
 

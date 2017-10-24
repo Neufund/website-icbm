@@ -58,8 +58,16 @@ class Contract {
     });
   }
 
+  public get maxCapEur(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.maxCapEur, []);
+  }
+
   public get minTicketEur(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.minTicketEur, []);
+  }
+
+  public get ethEurFraction(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.ethEurFraction, []);
   }
 
   public get issuanceRate(): Promise<BigNumber> {
@@ -74,6 +82,10 @@ class Contract {
       );
       return (await this.estimateNeumarkReward(eth.toNumber())).div(nmk);
     })();
+  }
+
+  public currentAgreement(): Promise<[BigNumber, BigNumber, string, BigNumber]> {
+    return promisify(this.rawWeb3Contract.currentAgreement, []);
   }
 
   public get neumark(): Promise<string> {

@@ -55,5 +55,3 @@ export async function initWeb3(dispatch: Dispatch<IStandardReduxAction>) {
     dispatch(setWeb3Action(web3Type));
   }
 }
-
-export default web3Instance;

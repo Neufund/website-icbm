@@ -12,7 +12,8 @@ export const loadingAftermathAction: () => IStandardReduxAction = () => ({
 export function setAftermathAction(
   lockedAmount: string,
   neumarkBalance: string,
-  unlockDate: string
+  unlockDate: string,
+  address: string
 ): IStandardReduxAction {
   return {
     type: SET_AFTERMATH,
@@ -20,6 +21,7 @@ export function setAftermathAction(
       lockedAmount,
       neumarkBalance,
       unlockDate,
+      address,
     },
   };
 }
@@ -31,5 +33,5 @@ export const loadAftermathDetails: (
 
   const { lockedAmount, neumarkBalance, unlockDate } = await loadAftermathFromContract(address);
 
-  dispatcher(setAftermathAction(lockedAmount, neumarkBalance, unlockDate));
+  dispatcher(setAftermathAction(lockedAmount, neumarkBalance, unlockDate, address));
 };

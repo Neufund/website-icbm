@@ -3,6 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Web3Type } from "../actions/constants";
+import { loadAgreements } from "../actions/legalAgreement";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { loadUserAccount, setLoadingAction, setUserAccount } from "../actions/loadUserAccount";
 import { LoadingIndicator } from "../components/LoadingIndicator";
@@ -20,6 +21,7 @@ interface ICommitComponent {
   isLoading: boolean;
   setLoadingFalse: () => {};
   loadUserAccount: () => {};
+  loadAgreements: () => {};
   loadIcoParams: () => {};
   setUserAddress: (derivationPath: string, address: string) => {};
   web3Type: Web3Type;
@@ -39,9 +41,13 @@ class Commit extends React.Component<ICommitComponent, ICommitState> {
     };
   }
 
-  public componentDidMount() {
-    this.props.loadIcoParams();
+  public async componentDidMount() {
+    // @todo extract
+    await this.props.loadIcoParams();
+    await this.props.loadAgreements();
+
     if (this.props.web3Type === Web3Type.INJECTED) {
+      this.props.loadUserAccount();
       const timerID = window.setInterval(() => {
         this.props.loadUserAccount();
       }, SECOND);
@@ -110,6 +116,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     setUserAddress: (derivationPath: string, address: string) => {
       dispatch(setUserAccount(derivationPath, address));
     },
+    loadAgreements: () => dispatch(loadAgreements),
   };
 }
 

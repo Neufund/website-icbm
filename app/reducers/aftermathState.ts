@@ -8,6 +8,7 @@ export interface IAftermathState {
   lockedAmount?: string;
   neumarkBalance?: string;
   unlockDate?: string;
+  address?: string;
 }
 
 const initialState: IAftermathState = {
@@ -26,6 +27,7 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
         lockedAmount: null,
         neumarkBalance: null,
         unlockDate: null,
+        address: null,
       };
     case SET_AFTERMATH:
       return {
@@ -34,6 +36,7 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
         lockedAmount: payload.lockedAmount,
         neumarkBalance: payload.neumarkBalance,
         unlockDate: payload.unlockDate,
+        address: payload.address,
       };
     default:
       return state;
@@ -44,6 +47,10 @@ export default reducer;
 
 export function selectLoading(state: IAftermathState): boolean {
   return state.loading;
+}
+
+export function isAddressSet(state: IAftermathState): boolean {
+  return !!state.address;
 }
 
 export function selectLockedAmount(state: IAftermathState): BigNumber {

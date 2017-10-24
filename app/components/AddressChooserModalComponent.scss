@@ -15,8 +15,8 @@
   text-align: center;
 
   :hover {
+    transition: color .5s ease-in-out;
     color: $green;
-    transition: all .5s ease-in-out;
   }
 }
 

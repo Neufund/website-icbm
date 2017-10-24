@@ -2,6 +2,7 @@ import * as jQuery from "jquery";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+
 import { initCommit } from "../actions/commit";
 import { Web3Type } from "../actions/constants";
 import { LoadingIndicator } from "../components/LoadingIndicator";

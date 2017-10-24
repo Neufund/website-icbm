@@ -1,4 +1,5 @@
 import { BigNumber } from "bignumber.js";
+import { toast } from "react-toastify";
 import * as Web3 from "web3";
 
 import { promisify } from "bluebird";
@@ -7,6 +8,7 @@ import { AppState } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
 import config from "../config";
 import { IAppState } from "../reducers/index";
+import { getNetworkId, networkIdToNetworkName } from "./utils";
 
 const CHECK_INJECTED_WEB3_INTERVAL = 1000;
 
@@ -46,6 +48,7 @@ export class Web3Service {
     this.getBlock = promisify(this.rawWeb3.eth.getBlock);
     this.getTransaction = promisify<any, string>(this.rawWeb3.eth.getTransaction);
 
+    // this should be explicilty called on views that need that web3 instance
     this.checkInjectedWeb3();
   }
 
@@ -66,13 +69,24 @@ export class Web3Service {
     return {} as any;
   }
 
-  private checkInjectedWeb3() {
+  private async checkInjectedWeb3() {
     const newInjectedWeb3 = (window as any).web3;
     if (typeof newInjectedWeb3 === "undefined") {
       return;
     }
+    const newWeb3 = new Web3(newInjectedWeb3.currentProvider);
 
-    this.personalWeb3 = new Web3(newInjectedWeb3.currentProvider)
+    const internalWeb3NetworkId = await getNetworkId(this.rawWeb3);
+    const personalWeb3NetworkId = await getNetworkId(newWeb3);
+    if (internalWeb3NetworkId !== personalWeb3NetworkId) {
+      toast.error(
+        `Your injected web3 instance is connected to: ${networkIdToNetworkName(
+          personalWeb3NetworkId
+        )} network!`
+      );
+    }
+
+    this.personalWeb3 = newWeb3;
     window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);
   }
 

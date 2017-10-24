@@ -43,3 +43,20 @@ export async function getCurrentBlockHash(): Promise<string> {
   const block = await Web3Service.instance.getBlock(blockNumber);
   return (block as any).hash;
 }
+
+export async function getNetworkId(web3: any): Promise<number> {
+  return promisify(web3.version.getNetwork, []);
+}
+
+export function networkIdToNetworkName(networkId: number) {
+  switch (networkId) {
+    case 1:
+      return "Mainnet";
+    case 2:
+      return "Morden";
+    case 3:
+      return "Ropsten";
+    default:
+      return `Unknown (id:${networkId})`;
+  }
+}

@@ -5,7 +5,7 @@ import { AddressChooserModalComponent } from "../components/AddressChooserModalC
 import config from "../config";
 import { ledgerInstance, web3Instance } from "../web3/web3Provider";
 
-const NUMBER_OF_ADDRESSES = 5;
+const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
 
 export interface IAddresses {
   [derivationPath: string]: {
@@ -29,6 +29,12 @@ export class AddressChooserModalContainer extends React.Component<
   IAddressChooserModalContainerProps,
   IAddressChooserModalContainerState
 > {
+  private handleDerivationPathChange = debounce((_event: object, newValue: string) => {
+    this.setState({
+      derivationPath: newValue,
+    });
+  }, 300);
+
   constructor(props: IAddressChooserModalContainerProps) {
     super(props);
 
@@ -42,15 +48,12 @@ export class AddressChooserModalContainer extends React.Component<
       addresses,
       loading: true,
     };
+  }
 
+  public componentDidMount() {
     this.obtainData().catch(error => {
       throw new Error(error);
     });
-
-    this.handleShowPreviousAddresses = this.handleShowPreviousAddresses.bind(this);
-    this.handleShowNextAddresses = this.handleShowNextAddresses.bind(this);
-    this.handleAddressChosen = this.handleAddressChosen.bind(this);
-    this.handleDerivationPathChange = debounce(this.handleDerivationPathChange.bind(this), 300);
   }
 
   public componentDidUpdate(
@@ -90,7 +93,7 @@ export class AddressChooserModalContainer extends React.Component<
 
     for (
       let i = stateCopy.startingIndex;
-      i < stateCopy.startingIndex + NUMBER_OF_ADDRESSES;
+      i < stateCopy.startingIndex + NUMBER_OF_ADDRESSES_PER_PAGE;
       i = i + 1
     ) {
       stateCopy.addresses[stateCopy.derivationPath + i] = {
@@ -139,32 +142,26 @@ export class AddressChooserModalContainer extends React.Component<
     this.setState(stateCopy);
   }
 
-  private handleShowPreviousAddresses() {
-    const newStartingIndex = this.state.startingIndex - NUMBER_OF_ADDRESSES;
+  private handleShowPreviousAddresses = () => {
+    const newStartingIndex = this.state.startingIndex - NUMBER_OF_ADDRESSES_PER_PAGE;
     const newState = {
       ...this.state,
       startingIndex: newStartingIndex < 0 ? 0 : newStartingIndex,
     };
     this.setState(newState);
-  }
+  };
 
-  private handleShowNextAddresses() {
+  private handleShowNextAddresses = () => {
     const newState = {
       ...this.state,
-      startingIndex: this.state.startingIndex + NUMBER_OF_ADDRESSES,
+      startingIndex: this.state.startingIndex + NUMBER_OF_ADDRESSES_PER_PAGE,
     };
     this.setState(newState);
-  }
+  };
 
-  private handleDerivationPathChange(_event: object, newValue: string) {
-    this.setState({
-      derivationPath: newValue,
-    });
-  }
-
-  private handleAddressChosen(derivationPath: string, address: string) {
+  private handleAddressChosen = (derivationPath: string, address: string) => {
     return () => this.props.handleAddressChosen(derivationPath, address);
-  }
+  };
 }
 
 export default AddressChooserModalContainer;

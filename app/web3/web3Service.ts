@@ -67,8 +67,13 @@ export class Web3Service {
   }
 
   public async injectWeb3IfAvailable() {
+    await this.injectWeb3();
+    setInterval(this.injectWeb3, CHECK_INJECTED_WEB3_INTERVAL);
+  }
+
+  private injectWeb3 = async () => {
     const newInjectedWeb3 = (window as any).web3;
-    if (typeof newInjectedWeb3 === "undefined") {
+    if (typeof newInjectedWeb3 === "undefined" || newInjectedWeb3 === this.personalWeb3) {
       return;
     }
     const newWeb3 = new Web3(newInjectedWeb3.currentProvider);
@@ -86,7 +91,7 @@ export class Web3Service {
 
     this.personalWeb3 = newWeb3;
     window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);
-  }
+  };
 
   private async checkAccounts() {
     const account = await this.accountAddress();

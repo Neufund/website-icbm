@@ -27,7 +27,7 @@ export async function loadDuringIcoDetailsFromContract() {
 export async function allFundsCommitment() {
   const ethCommitted = await etherToken.balanceOf(etherLock.address);
   const eurCommitted = await euroToken.balanceOf(euroLock.address);
-  const ethEur = await publicCommitment.convertToEur(1); // @todo this and few other could be evaluated only once
+  const ethEur = await publicCommitment.ethEurFraction;
   return ethCommitted.plus(eurCommitted.div(ethEur));
 }
 

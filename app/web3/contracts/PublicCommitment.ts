@@ -1,7 +1,9 @@
 import { BigNumber } from "bignumber.js";
-
 import { Moment } from "moment/moment";
+
+import { Memoize } from "../../utils/memoize";
 import { asMomentDate } from "../utils";
+import { etherToken, neumark } from "./ContractsRepository";
 import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 
 interface ITxParams {
@@ -66,20 +68,15 @@ class Contract {
     return promisify(this.rawWeb3Contract.minTicketEur, []);
   }
 
+  @Memoize()
   public get ethEurFraction(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.ethEurFraction, []);
   }
 
   public get issuanceRate(): Promise<BigNumber> {
     return (async () => {
-      const eth = new this.web3.BigNumber(10).pow(
-        // this.ethToken().decimals()
-        18
-      );
-      const nmk = new this.web3.BigNumber(10).pow(
-        // this.commit.neumark().decimals()
-        18
-      );
+      const eth = new this.web3.BigNumber(10).pow(await etherToken.decimals);
+      const nmk = new this.web3.BigNumber(10).pow(await neumark.decimals);
       return (await this.estimateNeumarkReward(eth.toNumber())).div(nmk);
     })();
   }

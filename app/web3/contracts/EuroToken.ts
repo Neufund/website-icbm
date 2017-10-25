@@ -1,4 +1,6 @@
 import * as BigNumber from "bignumber.js";
+
+import { Memoize } from "../../utils/memoize";
 import { promisify } from "../utils";
 import * as EuroTokenAbiJson from "./EuroToken.abi.json";
 
@@ -32,6 +34,8 @@ class Contract {
   public get totalSupply(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.totalSupply, []);
   }
+
+  @Memoize()
   public get decimals(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.decimals, []);
   }

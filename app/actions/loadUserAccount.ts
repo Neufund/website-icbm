@@ -3,7 +3,6 @@ import { ThunkAction } from "redux-thunk";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
 import { loadUserAccountFromWeb3 } from "../web3/loadUserAccountFromWeb3";
-import { ledgerInstance } from "../web3/web3Provider";
 import { SET_DERIVATION_PATH, SET_LOADING_USER_ACCOUNT, SET_USER_ACCOUNT } from "./constants";
 
 export function setUserAccountAction(account: string): IStandardReduxAction {
@@ -45,7 +44,7 @@ export const setUserAccount: (
 ) => ThunkAction<{}, IAppState, {}> = (derivationPath, account) => async dispatcher => {
   dispatcher(setUserDerivationPathAction(derivationPath));
   dispatcher(setUserAccountAction(account));
-  ledgerInstance.setDerivationPath(derivationPath);
+  // ledgerInstance.setDerivationPath(derivationPath);
 };
 
 export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {

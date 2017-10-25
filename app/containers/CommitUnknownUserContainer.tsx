@@ -123,6 +123,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>): IDispatchFromProps {
   };
 }
 
+// tslint:disable-next-line
 interface IPropsFromProps {
   // showChooseAddressDialog: boolean;
   // handleAddressChosen: (derivationPath: string, address: string) => void;

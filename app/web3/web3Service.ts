@@ -47,9 +47,6 @@ export class Web3Service {
     this.getBlockNumber = promisify(this.rawWeb3.eth.getBlockNumber);
     this.getBlock = promisify(this.rawWeb3.eth.getBlock);
     this.getTransaction = promisify<any, string>(this.rawWeb3.eth.getTransaction);
-
-    // this should be explicilty called on views that need that web3 instance
-    this.checkInjectedWeb3();
   }
 
   public hasPersonalWeb3(): boolean {
@@ -69,7 +66,7 @@ export class Web3Service {
     return {} as any;
   }
 
-  private async checkInjectedWeb3() {
+  public async injectWeb3IfAvailable() {
     const newInjectedWeb3 = (window as any).web3;
     if (typeof newInjectedWeb3 === "undefined") {
       return;
@@ -84,6 +81,7 @@ export class Web3Service {
           personalWeb3NetworkId
         )} network!`
       );
+      return;
     }
 
     this.personalWeb3 = newWeb3;

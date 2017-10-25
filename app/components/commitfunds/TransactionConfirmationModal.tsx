@@ -27,7 +27,13 @@ export const TransactionConfirmationModal: React.SFC<ITransactionState> = ({
   );
 
   return (
-    <Modal show={txStarted === true} onHide={noop} bsSize="large" animation={false}>
+    <Modal
+      show={txStarted === true}
+      onHide={noop}
+      bsSize="large"
+      animation={false}
+      data-test-id="transaction-status-modal"
+    >
       <Modal.Header>
         <Modal.Title>Transaction status</Modal.Title>
       </Modal.Header>

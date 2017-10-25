@@ -78,6 +78,10 @@ class Contract {
     })();
   }
 
+  public reset(): Promise<any> {
+    return promisify(this.rawWeb3Contract.reset, []);
+  }
+
   public get neumark(): Promise<string> {
     return promisify(this.rawWeb3Contract.neumark, []);
   }

@@ -99,7 +99,7 @@
     "webpack:profile": "NODE_ENV=production webpack --profile --json > webpack-stats.json",
     "test": "NODE_ENV=test ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
     "test-e2e": "ts-mocha -t 20000 'test-e2e/**/*.spec.ts?(x)'",
-    "test-e2e:dev": "PUPPETEER_DEBUG=true E2E_URL=https://localhost:9090/ yarn test-e2e",
+    "test-e2e:dev": "NODE_ENV=development PUPPETEER_DEBUG=true E2E_URL=https://localhost:9090/ yarn test-e2e",
     "test:coverage": "NODE_ENV=test nyc ts-mocha --require ./setupTests.ts 'test/**/*.spec.ts?(x)'",
     "fixyarn": "git checkout origin/master -- yarn.lock && yarn install && git add yarn.lock"
   },

@@ -107,6 +107,23 @@
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newPolicy",
+        "type": "address"
+      },
+      {
+        "name": "newAccessController",
+        "type": "address"
+      }
+    ],
+    "name": "setAccessPolicy",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -115,6 +132,37 @@
       }
     ],
     "name": "estimateNeumarkReward",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "ethEurFraction",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "signatory",
+        "type": "address"
+      }
+    ],
+    "name": "agreementSignedAtBlock",
     "outputs": [
       {
         "name": "",
@@ -156,15 +204,32 @@
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
     "inputs": [
       {
-        "name": "newPolicy",
-        "type": "address"
+        "name": "amendmentIndex",
+        "type": "uint256"
       }
     ],
-    "name": "setAccessPolicy",
-    "outputs": [],
+    "name": "pastAgreement",
+    "outputs": [
+      {
+        "name": "platformOperatorRepresentative",
+        "type": "address"
+      },
+      {
+        "name": "signedBlockTimestamp",
+        "type": "uint256"
+      },
+      {
+        "name": "agreementUri",
+        "type": "string"
+      },
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
     "payable": false,
     "type": "function"
   },
@@ -249,6 +314,39 @@
   {
     "constant": true,
     "inputs": [],
+    "name": "currentAgreement",
+    "outputs": [
+      {
+        "name": "platformOperatorRepresentative",
+        "type": "address"
+      },
+      {
+        "name": "signedBlockTimestamp",
+        "type": "uint256"
+      },
+      {
+        "name": "agreementUri",
+        "type": "string"
+      },
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "reset",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "etherLock",
     "outputs": [
       {
@@ -283,6 +381,32 @@
   {
     "constant": true,
     "inputs": [],
+    "name": "ethereumForkArbiter",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "agreementUri",
+        "type": "string"
+      }
+    ],
+    "name": "amendAgreement",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "accessPolicy",
     "outputs": [
       {
@@ -310,6 +434,10 @@
     "inputs": [
       {
         "name": "accessPolicy",
+        "type": "address"
+      },
+      {
+        "name": "forkArbiter",
         "type": "address"
       },
       {
@@ -398,7 +526,53 @@
     "inputs": [
       {
         "indexed": false,
-        "name": "controler",
+        "name": "oldState",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "name": "newState",
+        "type": "uint8"
+      }
+    ],
+    "name": "LogStateTransition",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "accepter",
+        "type": "address"
+      }
+    ],
+    "name": "LogAgreementAccepted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "platformOperatorRepresentative",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "agreementUri",
+        "type": "string"
+      }
+    ],
+    "name": "LogAgreementAmended",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "controller",
         "type": "address"
       },
       {
@@ -413,23 +587,6 @@
       }
     ],
     "name": "LogAccessPolicyChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "name": "oldState",
-        "type": "uint8"
-      },
-      {
-        "indexed": false,
-        "name": "newState",
-        "type": "uint8"
-      }
-    ],
-    "name": "LogStateTransition",
     "type": "event"
   }
 ]

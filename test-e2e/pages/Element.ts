@@ -1,7 +1,7 @@
 import { Page } from "puppeteer";
 
 export class Element {
-  constructor(private readonly page: Page, private readonly selector: string) {}
+  constructor(protected readonly page: Page, protected readonly selector: string) {}
 
   public async waitFor() {
     return this.page.waitFor(this.selector);

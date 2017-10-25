@@ -1,10 +1,8 @@
-import * as jQuery from "jquery";
 import { ThunkAction } from "redux-thunk";
 
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
 import { loadUserAccountFromWeb3 } from "../web3/loadUserAccountFromWeb3";
-import { ledgerInstance } from "../web3/web3Provider";
 import { SET_DERIVATION_PATH, SET_LOADING_USER_ACCOUNT, SET_USER_ACCOUNT } from "./constants";
 
 export function setUserAccountAction(account: string): IStandardReduxAction {
@@ -46,14 +44,13 @@ export const setUserAccount: (
 ) => ThunkAction<{}, IAppState, {}> = (derivationPath, account) => async dispatcher => {
   dispatcher(setUserDerivationPathAction(derivationPath));
   dispatcher(setUserAccountAction(account));
-  ledgerInstance.setDerivationPath(derivationPath);
+  // ledgerInstance.setDerivationPath(derivationPath);
 };
 
 export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {
   const account = await loadUserAccountFromWeb3();
   const { userState } = getState();
-  if (account !== userState.address || userState.loading) {
-    jQuery(".footer").removeClass("hidden"); // this has to be done this ugly way as footer is created outside of react app
+  if (account && account !== userState.address) {
     dispatcher(setUserAccountAction(account));
   }
 };

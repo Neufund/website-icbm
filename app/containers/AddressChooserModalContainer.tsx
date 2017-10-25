@@ -4,7 +4,6 @@ import * as React from "react";
 import { AddressChooserModalComponent } from "../components/AddressChooserModalComponent";
 import config from "../config";
 import { IDerivationPaths } from "../types";
-import { ledgerInstance, web3Instance } from "../web3/web3Provider";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
 
@@ -78,60 +77,55 @@ export class AddressChooserModalContainer extends React.Component<
   }
 
   private async obtainData() {
-    this.setState({ loading: true });
-    const stateCopy = { ...this.state };
-    stateCopy.addresses = {};
-    stateCopy.loading = false;
-
-    for (
-      let i = stateCopy.startingIndex;
-      i < stateCopy.startingIndex + NUMBER_OF_ADDRESSES_PER_PAGE;
-      i = i + 1
-    ) {
-      stateCopy.addresses[stateCopy.derivationPath + i] = {
-        address: null,
-        ETH: null,
-      };
-    }
-
-    let addresses = null;
-    try {
-      addresses = await ledgerInstance.getMultipleAccountsAsync(
-        stateCopy.derivationPath,
-        stateCopy.startingIndex,
-        Object.keys(stateCopy.addresses).length
-      );
-    } catch (error) {
-      throw new Error(error);
-    }
-
-    try {
-      for (const dp in addresses) {
-        if (addresses.hasOwnProperty(dp)) {
-          const address = addresses[dp];
-          stateCopy.addresses[dp].address = address;
-          stateCopy.addresses[dp].ETH = web3Instance.fromWei(
-            await web3Instance.eth.getBalanceAsync(address),
-            "ether"
-          );
-
-          /* async version just in case we need it
-          web3Instance.eth.getBalanceAsync(address).then(
-            function(dep: string) {
-              return (balanceInWei: BigNumber) => {
-                const oldState = this.state;
-                oldState.addresses[dep].ETH = web3Instance.fromWei(balanceInWei, "ether");
-                this.setState(oldState);
-              };
-            }.bind(this)(dp)
-          );*/
-        }
-      }
-    } catch (error) {
-      throw new Error(error);
-    }
-
-    this.setState(stateCopy);
+    // this.setState({ loading: true });
+    // const stateCopy = { ...this.state };
+    // stateCopy.addresses = {};
+    // stateCopy.loading = false;
+    // for (
+    //   let i = stateCopy.startingIndex;
+    //   i < stateCopy.startingIndex + NUMBER_OF_ADDRESSES_PER_PAGE;
+    //   i = i + 1
+    // ) {
+    //   stateCopy.addresses[stateCopy.derivationPath + i] = {
+    //     address: null,
+    //     ETH: null,
+    //   };
+    // }
+    // let addresses = null;
+    // try {
+    //   addresses = await ledgerInstance.getMultipleAccountsAsync(
+    //     stateCopy.derivationPath,
+    //     stateCopy.startingIndex,
+    //     Object.keys(stateCopy.addresses).length
+    //   );
+    // } catch (error) {
+    //   throw new Error(error);
+    // }
+    // try {
+    //   for (const dp in addresses) {
+    //     if (addresses.hasOwnProperty(dp)) {
+    //       const address = addresses[dp];
+    //       // stateCopy.addresses[dp].address = address;
+    //       // stateCopy.addresses[dp].ETH = web3Instance.fromWei(
+    //       //   await web3Instance.eth.getBalanceAsync(address),
+    //       //   "ether"
+    //       // );
+    //       /* async version just in case we need it
+    //       web3Instance.eth.getBalanceAsync(address).then(
+    //         function(dep: string) {
+    //           return (balanceInWei: BigNumber) => {
+    //             const oldState = this.state;
+    //             oldState.addresses[dep].ETH = web3Instance.fromWei(balanceInWei, "ether");
+    //             this.setState(oldState);
+    //           };
+    //         }.bind(this)(dp)
+    //       );*/
+    //     }
+    //   }
+    // } catch (error) {
+    //   throw new Error(error);
+    // }
+    // this.setState(stateCopy);
   }
 
   private handleShowPreviousAddresses = () => {

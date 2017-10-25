@@ -10,10 +10,10 @@ docker run -d -p 8545:8545 --name neufund-ico krzkaczor/neufund-ico
 
 echo "Building website"
 cp -n .env.example .env || true
-APP_STATE=CONTRACTS_DEPLOYED COMMITMENT_TYPE=WHITELISTED COMMITMENT_CONTRACT_ADDRESS=0xbe84036c11964e9743f056f4e780a99d302a77c4 RPC_PROVIDER=http://localhost:8545 yarn build
+APP_STATE=CONTRACTS_DEPLOYED COMMITMENT_TYPE=WHITELISTED COMMITMENT_CONTRACT_ADDRESS=0xbe84036c11964e9743f056f4e780a99d302a77c4 RPC_PROVIDER=http://localhost:8080/node PDF_RENDERER=http://localhost:8080/pdfrenderer yarn build
 
 echo "Spawning http server on port 8080"
-http-server ./dist&
+node ./test-e2e/http-server.js&
 http_server_pid=$!
 echo "HttpServer pid: ${http_server_pid}"
 

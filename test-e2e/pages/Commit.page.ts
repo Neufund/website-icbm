@@ -12,14 +12,18 @@ export class CommitPage {
   public static async create(puppeteer: Browser): Promise<CommitPage> {
     const page = await puppeteer.newPage();
     await page.goto(`${config.url}commit`);
-    await page.evaluate((web3Raw: any) => {
-      eval(web3Raw);
-      // this is super ugly thanks to TS not knowing real context of this function
-      // hopefully tsc 2.7 will add a way to easily ignore errors in code
-      (window as any).web3 = new (window as any).Web3(
-        new (window as any).Web3.providers.HttpProvider("https://localhost:9090/node")
-      );
-    }, web3Raw as any);
+    await page.evaluate(
+      (web3Raw: string, httpProvider: string) => {
+        eval(web3Raw);
+        // this is super ugly thanks to TS not knowing real context of this function
+        // hopefully tsc 2.7 will add a way to easily ignore errors in code
+        (window as any).web3 = new (window as any).Web3(
+          new (window as any).Web3.providers.HttpProvider(httpProvider)
+        );
+      },
+      web3Raw as any,
+      config.rpcProvider as any
+    );
 
     return new CommitPage(puppeteer, page);
   }

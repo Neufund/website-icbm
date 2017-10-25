@@ -13,4 +13,8 @@ export class Element {
       this.selector as any // @todo fix typings
     );
   }
+
+  public async click() {
+    return this.page.click(this.selector);
+  }
 }

@@ -1,8 +1,10 @@
 import { expect } from "chai";
 
+import { config } from "./config";
 import { contractRepository } from "./contracts/Repository";
 import { HomePage } from "./pages/Home.page";
 import { puppeteerInstance } from "./puppeter";
+import { waitUntilResolves } from "./utils";
 
 describe("Home page", () => {
   it("should display page before ico", async () => {
@@ -38,5 +40,23 @@ describe("Home page", () => {
     expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("0");
     expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("0.00 NEU");
     expect(await homepage.duringIco.currentReward.text()).to.be.eq("975.00  NEU /  1 ETH");
+  });
+
+  it("should navigate to commitment page", async () => {
+    const startingDate = Date.now() / 1000; // start ico right away
+
+    await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
+      gas: 2000000,
+    });
+
+    const homepage = await HomePage.create(puppeteerInstance);
+
+    await homepage.duringIcoDetails.waitFor();
+    await homepage.duringIcoCommitBtn.click();
+
+    await waitUntilResolves(async () => {
+      const url = await homepage.page.url();
+      expect(url).to.be.eq(`${config.url}commit`);
+    });
   });
 });

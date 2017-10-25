@@ -55,6 +55,10 @@ export class HomePage {
     return new Element(this.page, tid("countdown-seconds"));
   }
 
+  public get duringIcoCommitBtn() {
+    return new Element(this.page, tid("during-ico-commit-btn"));
+  }
+
   public get duringIco() {
     const page = this.page;
     return {

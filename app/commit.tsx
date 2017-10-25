@@ -14,7 +14,7 @@ const render = (storage: any) => {
   ReactDOM.render(
     <MuiThemeProvider muiTheme={muiTheme}>
       <Provider store={storage}>
-        <div>
+        <div data-test-id="commit-container">
           <ToastContainer
             position="top-right"
             autoClose={10000}

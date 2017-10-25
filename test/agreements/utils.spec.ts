@@ -2,7 +2,7 @@ import { BigNumber } from "bignumber.js";
 import { expect } from "chai";
 import { bignumberToString } from "../../app/agreements/utils";
 
-describe.only("Agreements utils", () => {
+describe("Agreements utils", () => {
   describe("format big number string", () => {
     it("should format normal string correctly", () => {
       expect(bignumberToString("5.5")).to.be.eq("5.5");

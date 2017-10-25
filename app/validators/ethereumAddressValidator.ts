@@ -1,7 +1,7 @@
-import { web3Instance as web3Provider } from "../web3/web3Provider";
+import { Web3Service } from "../web3/web3Service";
 
 export function ethereumAddressValidator(value: string): string | undefined {
-  if (!web3Provider.isAddress(value)) {
+  if (!Web3Service.instance.rawWeb3.isAddress(value)) {
     return "It's not valid eth address";
   }
   return undefined;

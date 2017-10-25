@@ -1,0 +1,33 @@
+@import '../../common/sass/variables';
+
+.table {
+  margin: 15px 0;
+  width: 100%;
+
+  th,
+  td {
+    padding: 10px;
+  }
+}
+
+.use-column {
+  cursor: pointer;
+  text-align: center;
+
+  :hover {
+    transition: color .5s ease-in-out;
+    color: $green;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}

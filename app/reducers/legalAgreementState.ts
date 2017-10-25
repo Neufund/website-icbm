@@ -1,20 +1,42 @@
-import { SET_LEGAL_AGREEMENTS_ACCEPTED } from "../actions/constants";
+import { SET_LEGAL_AGREEMENTS, SET_LEGAL_AGREEMENTS_ACCEPTED } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface ILegalAgreementState {
-  accepted: boolean;
+  reservationAgreementAccepted: boolean;
+  tokenHolderAgreementAccepted: boolean;
+  reservationAgreementHash: string;
+  tokenHolderAgreementHash: string;
+  reservationAgreement: string;
+  tokenHolderAgreement: string;
 }
 
 const initialState: ILegalAgreementState = {
-  accepted: false,
+  reservationAgreementAccepted: false,
+  tokenHolderAgreementAccepted: false,
+  reservationAgreementHash: null,
+  tokenHolderAgreementHash: null,
+  reservationAgreement: null,
+  tokenHolderAgreement: null,
 };
 
-const reducer: Reducer<ILegalAgreementState> = (state = initialState, action) => {
-  switch (action.type) {
+const reducer: Reducer<ILegalAgreementState> = (
+  state = initialState,
+  { type, payload }
+): ILegalAgreementState => {
+  switch (type) {
     case SET_LEGAL_AGREEMENTS_ACCEPTED:
       return {
         ...state,
-        accepted: true,
+        reservationAgreementAccepted: true,
+        tokenHolderAgreementAccepted: true,
+      };
+    case SET_LEGAL_AGREEMENTS:
+      return {
+        ...state,
+        reservationAgreement: payload.reservationAgreement,
+        tokenHolderAgreement: payload.tokenHolderAgreement,
+        reservationAgreementHash: payload.reservationAgreementHash,
+        tokenHolderAgreementHash: payload.tokenHolderAgreementHash,
       };
     default:
       return state;
@@ -22,3 +44,15 @@ const reducer: Reducer<ILegalAgreementState> = (state = initialState, action) =>
 };
 
 export default reducer;
+
+export function selectIsAccepted(state: ILegalAgreementState) {
+  return state.reservationAgreementAccepted && state.tokenHolderAgreementAccepted;
+}
+
+export function selectReservationAgreementHash(state: ILegalAgreementState) {
+  return state.reservationAgreementHash;
+}
+
+export function selectTokenHolderAgreementHash(state: ILegalAgreementState) {
+  return state.tokenHolderAgreementHash;
+}

@@ -1,0 +1,24 @@
+<section class="introduction" id="<%- sectionCounter -%>">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1><%- title -%></h1>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <% for (var i=0; i<paragraphs.length; i++) { %>
+        <% var p = paragraphs[i] %>
+        <p><%- p -%></p>
+      <% } %>
+    </div>
+    <div class="col-sm-4 right-content">
+      <%- rightSide.text -%><br />
+      <a href="<%- rightSide.linkURL -%>" class="right-content-link">
+        <span class="green-icon"><i class="material-icons">file_upload</i></span>
+        <%- rightSide.linkText -%>
+      </a>
+    </div>
+  </div>
+</section>

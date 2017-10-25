@@ -1,0 +1,71 @@
+<% function convertTitleToId(title) {
+  return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
+} %>
+
+<div id="bg-blue-1">
+  <img src="assets/hex-bg/b.png" />
+</div>
+<div id="bg-blue-2">
+  <img src="assets/hex-bg/b.png" />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm">
+      <div>
+        <ul id="sidebar" class="sidebar nav nav-stacked">
+          <% for (var i=0; i<manualContent.length; i++) { %>
+            <li>
+              <a href="#<%= convertTitleToId(manualContent[i].groupName) %>"><%- manualContent[i].groupName %></a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9" data-target="#sidebar">
+      <% var sectionCounter = 0 %>
+      <% for (var i=0; i<manualContent.length; i++) { %>
+        <div class="group" id="<%= convertTitleToId(manualContent[i].groupName) %>">
+          <% for (var j=0; j<manualContent[i].groupContent.length; j++) { %>
+                  
+              <% 
+                var section = manualContent[i].groupContent[j];
+                if (sectionCounter<10) {
+                  section.sectionCounter = "0"+sectionCounter
+                } else {
+                  section.sectionCounter = ""+sectionCounter
+                }
+                sectionCounter++
+              %>
+              
+              <% if (section.type==="regular") { %>
+                <%- include('manual/regular', section); %>
+              <% } else if (section.type==="introduction") { %>
+                <%- include('manual/introduction', section); %>
+              <% } else if (section.type==="blue") { %>
+                <%- include('manual/blue', section); %>
+              <% } %>
+
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener("load", function(){
+  var lockHeight = [
+    {section: "05", bg: "bg-blue-1"},
+    {section: "03", bg: "bg-blue-2"},
+  ]
+  lockHeight.forEach(function(entry){
+    var section = document.getElementById(entry.section)
+    if (!section) return
+    var h = section.getBoundingClientRect().top + document.documentElement.scrollTop
+    var bgElem = document.getElementById(entry.bg)
+    bgElem.style.top = h+"px"
+    bgElem.style.visibility = "visible"
+  })
+})
+</script>

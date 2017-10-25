@@ -25,6 +25,7 @@ class Commit extends React.Component<ICommitComponent> {
     super(props);
     this.state = {
       timerID: null,
+      showChooseAddressDialog: false,
     };
   }
 

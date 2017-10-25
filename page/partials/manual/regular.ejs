@@ -1,0 +1,21 @@
+<section class="regular" id="<%- sectionCounter -%>">
+  <div class="section-counter"><%- sectionCounter -%></div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h2><%- title -%></h2>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <% for (var i=0; i<paragraphs.length; i++) { %>
+        <% var p = paragraphs[i] %>
+        <p><%- p -%></p>
+      <% } %>
+    </div>
+    <div class="col-sm-4 right-content">
+      <%- rightSideContent -%>
+    </div>
+  </div>
+</section>

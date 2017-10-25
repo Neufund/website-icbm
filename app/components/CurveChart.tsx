@@ -15,13 +15,18 @@ const formatNumber = (labelValue: any) => {
         : Math.abs(Number(labelValue)).toFixed(2);
 };
 
-const getPrice = (currencyRate: number, initialReward: number, capNEU: number, atETH: number) => {
+export const getPrice = (
+  currencyRate: number,
+  initialReward: number,
+  capNEU: number,
+  atETH: number
+) => {
   const atEUR = atETH / currencyRate;
   return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2;
 };
 
 /*
-// We are not using this function now
+// We are not using this function for now
 const getCumulativeNEU = (
   currencyRate: number,
   initialReward: number,
@@ -59,6 +64,7 @@ export default (props: ICurveChart) => {
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
 
   let activePointIndex = 0;
+
   etherDatasetList.forEach((eth, index) => {
     if (eth === currentRasiedEther) {
       activePointIndex = index;
@@ -66,6 +72,12 @@ export default (props: ICurveChart) => {
     }
   });
 
+  const activePointPrice = getPrice(
+    currencyRate,
+    initialReward,
+    capNEU,
+    etherDatasetList[activePointIndex]
+  );
   const data = {
     labels: etherDatasetList.map(eth => `${formatNumber(eth)}`),
     datasets: [
@@ -98,8 +110,8 @@ export default (props: ICurveChart) => {
   const options = {
     neuMarkInfoPlugin: {
       activePointIndex,
-      neuMarkPrice: `${formatNumber(etherDatasetList[activePointIndex].toFixed(2))} NEU/ETH`,
-      notes: "100 MLN invested early gets a\nreward of 35% of all the\nNeumarks",
+      neuMarkPrice: `${activePointPrice.toFixed(2)} NEU/ETH`,
+      notes: "",
       xAxesLabel: "Amount of ETH\nCommited",
       yAxesLabel: "Neumark Reward\n(NEU/ETH)",
     },
@@ -149,13 +161,16 @@ export default (props: ICurveChart) => {
     },
     tooltips: {
       callbacks: {
-        label(item: any) {
+        label: (item: any) => {
           const xAxisEtherValue: number = etherDatasetList[item.index];
           const price: number = getPrice(currencyRate, initialReward, capNEU, xAxisEtherValue);
           const currentEth = etherDatasetList[item.index];
-          return `At ${formatNumber(currentEth.toFixed(2))} Commited Eth reward ${formatNumber(
+          return `At ${formatNumber(currentEth.toFixed(2))} committed ETH reward ${formatNumber(
             price.toFixed(2)
           )} NEU/ETH`;
+        },
+        title: (tooltipItems: any) => {
+          return `${formatNumber(tooltipItems[0].yLabel)} NEU/ETH`;
         },
       },
     },

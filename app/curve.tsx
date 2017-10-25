@@ -1,17 +1,21 @@
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Provider, Store } from "react-redux";
+import { Provider } from "react-redux";
 
 import Curve from "./containers/Curve";
+import muiTheme from "./muiTheme";
 import { startup } from "./startup";
+const render = (storage: any) => {
+  const curveRoot = document.getElementById("react-root-curve");
 
-const render = (storage: Store<any>) => {
-  const indexRoot = document.getElementById("react-root-curve");
   ReactDOM.render(
-    <Provider store={storage}>
-      <Curve />
-    </Provider>,
-    indexRoot
+    <MuiThemeProvider muiTheme={muiTheme}>
+      <Provider store={storage}>
+        <Curve />
+      </Provider>
+    </MuiThemeProvider>,
+    curveRoot
   );
 };
 

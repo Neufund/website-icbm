@@ -60,7 +60,7 @@ const neuMarkInfoPlugin = {
     ctx.textBaseline = "bottom";
 
     // neumark price
-    drawText(ctx, neuMarkPrice, "#262B2F", "19px", xPoint, yPoint);
+    drawText(ctx, neuMarkPrice, "#262B2F", "19px", xPoint + 5, yPoint);
 
     // current ether raised
     drawCircle(ctx, "#09719B", 5, xPoint, yPoint);

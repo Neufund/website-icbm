@@ -56,6 +56,10 @@ export function networkIdToNetworkName(networkId: string) {
       return "Morden";
     case "3":
       return "Ropsten";
+    case "4":
+      return "Rinkeby";
+    case "42":
+      return "Kovan";
     default:
       return `Unknown (id:${networkId})`;
   }

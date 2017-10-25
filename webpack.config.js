@@ -121,6 +121,7 @@ module.exports = {
           exclude: [
             path.resolve(__dirname, 'node_modules/eth-sig-util'),
             path.resolve(__dirname, 'node_modules/web3-provider-engine'),
+            path.resolve(__dirname, 'node_modules/replace-string'),
             path.resolve(__dirname, 'node_modules/ledger-wallet-provider/node_modules/web3-provider-engine'),
           ]
         },

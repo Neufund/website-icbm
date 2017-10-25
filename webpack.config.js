@@ -49,7 +49,15 @@ module.exports = {
         target: "http://localhost:8545",
         pathRewrite: { "^/node": "" },
       },
+      "/pdfrenderer": {
+        target: "https://neufund.net/pdfrender/",
+        pathRewrite: { "^/pdfrenderer": "" },
+        changeOrigin: true
+      },
     },
+    staticOptions: {
+      extensions: ['html'],
+    }
   },
   entry: {
     main: [...devEntryPoints, "./app/index.tsx"],

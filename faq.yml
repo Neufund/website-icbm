@@ -37,7 +37,7 @@
   - question : "What documents should I read before participating?"
     answer : |
       <p>First, we recommend familiarizing yourself with the contents of the whitepaper (read <a target="_blank" href="https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643">key takeaways</a> or the <a target="_blank" href="https://neufund.org/whitepaper">full whitepaper</a>) as well as the <a target="_blank" href="https://neufund.org/roadmap/">roadmap</a>.</p>
-      <p>You can find an explainer of our product (the Neufund platform) on the <a target="_blank" href="https://commit.neufund.org/product.html">Product tab</a>.</p>
+      <p>You can find an explainer of our product (the Neufund platform) on the <a target="_blank" href="https://commit.neufund.org/product">Product tab</a>.</p>
       <p>If you’d like to learn more about our past achievements, please visit the Neufund <a target="_blank" href="https://neufund.org/ecosystem/">“Ecosystem Impact”</a> page or browse our company blog on <a target="_blank" href="https://blog.neufund.org">Medium</a>.</p>
       <p>We will also require participants to read and accept legal documents that will govern the ICBM. These will be available shortly before the ICBM start.</p>
 
@@ -46,7 +46,7 @@
       Follow the instructions laid out on the <a target="_blank" href="https://commit.neufund.org">Commit Page</a>.
   - question : How can I verify whether I am using the correct website?
     answer : |
-      Make sure that the address is <a target="_blank" href="https://commit.neufund.org">commit.neufund.org</a>. Use the bookmarking function of your browser to save the page for easy access on the big day. 
+      Make sure that the address is <a target="_blank" href="https://commit.neufund.org">commit.neufund.org</a>. Use the bookmarking function of your browser to save the page for easy access on the big day.
   - question : "How do I know whether I am legally allowed to participate?"
     answer : |
       <p>We want the ICBM to be open to everyone. However, due to legal reasons we might be forced to exclude participation of certain persons or entities.</p>
@@ -106,8 +106,8 @@
       Most tokens sold in ICOs today are either utility tokens or simple speculation assets. Neumark is neither. Instead, it entitles its holder to revenues from platform fees for ETOs (Equity Token Offerings) taking place on Neufund, as well as economic benefit from a platform portfolio pool holding a small amount of every ETO ever conducted.
   - question : How do I purchase Neumarks?
     answer : |
-      Neumarks are not being purchased in the first place. Contributors receive Neumarks as a reward for contributing to the ecosystem. For every successful investment in a company on our platform one will receive Neumarks until the total supply of € 1.5 b is reached. 
-  - question : When do I get Neumarks? 
+      Neumarks are not being purchased in the first place. Contributors receive Neumarks as a reward for contributing to the ecosystem. For every successful investment in a company on our platform one will receive Neumarks until the total supply of € 1.5 b is reached.
+  - question : When do I get Neumarks?
     answer : |
       Neumarks are received immediately after funds have been committed in Neufund’s Initial Capital Building Mechanism (→ICBM), or when investing on the NEUFUND platform at a later stage. However, trading is enabled only after the ICBM concludes. Beyond that, you will have to wait for exchanges to start listing NEU in order to trade easily.
   - question : Is Neumark a security?
@@ -140,7 +140,7 @@
       <p>In addition, token holder rights are protected by regular legal means with the appropriate legal documentation.</p>
   - question : Who can reserve funds to invest on the NEUFUND platform?
     answer : |
-      Virtually anybody can participate in Neufund’s Initial Capital Building Mechanism (→ICBM), given that she is not based in the US or has a US citizenship. Neufund tokens (Neumarks) themselves are not securities, commodities, swaps on either securities or commodities, or similar financial instruments. Nevertheless, it was decided that US citizens, residents and entities should be excluded from reserving funds to invest on the Neufund platform. This is mainly due to the logistical challenges that come with respective regulations. With the platform launch, we will ask you to go through an authorisation process for both your and our safety. 
+      Virtually anybody can participate in Neufund’s Initial Capital Building Mechanism (→ICBM), given that she is not based in the US or has a US citizenship. Neufund tokens (Neumarks) themselves are not securities, commodities, swaps on either securities or commodities, or similar financial instruments. Nevertheless, it was decided that US citizens, residents and entities should be excluded from reserving funds to invest on the Neufund platform. This is mainly due to the logistical challenges that come with respective regulations. With the platform launch, we will ask you to go through an authorisation process for both your and our safety.
   - question : Is the Neufund ICBM open to US contributors?
     answer : |
       No. US contributors are not allowed to participate.

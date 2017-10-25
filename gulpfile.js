@@ -35,11 +35,13 @@ gulp.task("page", () => {
 
   const content = yaml.load(fs.readFileSync("./content.yml", "utf8"));
   const productContent = yaml.load(fs.readFileSync("./productContent.yml", "utf8"));
+  const manualContent = yaml.load(fs.readFileSync("./manualContent.yml", "utf8"));
   const faq = yaml.load(fs.readFileSync("./faq.yml", "utf8"));
 
   const templateData = {
     content,
     productContent,
+    manualContent,
     faq,
     hashes: {
       jsBundleHash,
@@ -58,7 +60,8 @@ gulp.task("page", () => {
     "./page/whitepaper.ejs",
     "./page/faq.ejs",
     "./page/product.ejs",
-    "./page/commit.ejs"
+    "./page/commit.ejs",
+    "./page/manual.ejs"
   ];
 
   pages.forEach(page =>

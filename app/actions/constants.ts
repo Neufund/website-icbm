@@ -16,8 +16,12 @@ export enum IcoPhase {
 }
 
 export enum Web3Type {
-  INJECTED = "INJECTED",
+  GENERIC = "GENERIC",
   LEDGER = "LEDGER",
+  METAMASK = "METAMASK",
+  PARITY = "PARITY",
+  PARITY_SIGNER = "PARITY_SIGNER",
+  MIST = "MIST",
 }
 
 export enum EthNetwork {

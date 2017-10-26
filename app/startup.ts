@@ -1,3 +1,4 @@
+import { promisify } from "bluebird";
 import { Store } from "react-redux";
 import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -5,7 +6,6 @@ import reduxLogger from "redux-logger";
 import { autoRehydrate, persistStore } from "redux-persist";
 import reduxThunk from "redux-thunk";
 
-import { promisify } from "bluebird";
 import { asyncSessionStorage } from "redux-persist/storages";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";

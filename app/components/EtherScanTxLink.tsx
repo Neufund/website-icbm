@@ -20,13 +20,8 @@ export const EtherScanTxLinkComponent: React.SFC<IEtherScanTxLinkComponent> = ({
 }) => {
   const url = etherscanTransactionUrl(tx, ethNetwork);
 
-  const props: { className?: string } = {};
-  if (className !== undefined) {
-    props.className = className;
-  }
-
   return (
-    <a href={url} {...props}>
+    <a href={url} className={className}>
       {children === undefined ? tx : children}
     </a>
   );

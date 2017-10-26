@@ -3,12 +3,13 @@ import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
+
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
-import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
+import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
@@ -30,11 +31,6 @@ interface ICommitKnownUserContainer {
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
-  txStarted: boolean;
-  txHash: string;
-  blockOfConfirmation: number;
-  currentBlock: number;
-  error: string;
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -46,22 +42,11 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   calculateEstimatedRewardAction,
   loadingEstimatedReward,
   estimatedReward,
-  txStarted,
-  txHash,
-  blockOfConfirmation,
-  currentBlock,
-  error,
 }) => {
   return (
     <div>
       <LegalModal />
-      <TransactionConfirmationModal
-        txStarted={txStarted}
-        txHash={txHash}
-        blockOfConfirmation={blockOfConfirmation}
-        currentBlock={currentBlock}
-        error={error}
-      />
+      <TransactionConfirmationModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -98,11 +83,6 @@ const mapStateToProps = (state: IAppState) => ({
   minTicketWei: selectMinTicketWei(state.commitmentState),
   estimatedReward: selectEstimatedReward(state.commitmentState),
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
-  txStarted: state.transactionState.txStarted,
-  txHash: state.transactionState.txHash,
-  blockOfConfirmation: state.transactionState.blockOfConfirmation,
-  currentBlock: state.transactionState.currentBlock,
-  error: state.transactionState.error,
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

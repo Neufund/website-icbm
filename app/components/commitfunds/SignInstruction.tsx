@@ -19,10 +19,6 @@ export const SignInstructionComponent: React.SFC<ISignInstruction> = ({ web3Type
   }
 };
 
-interface IMapStateToProps {
-  web3Type: Web3Type;
-}
-
 function mapStateToProps(state: IAppState) {
   return {
     web3Type: selectWeb3Type(state.web3State),

@@ -23,6 +23,7 @@
     "no-unused-variable": [true, { "ignore-pattern": "^_" }],
     "no-floating-promises": true,
     "prefer-array-literal": [ true, { "allow-type-parameters": true } ],
-    "no-shadowed-variable": false
+    "no-shadowed-variable": false,
+    "mocha-avoid-only": true
   }
 }

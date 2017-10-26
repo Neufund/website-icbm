@@ -21,6 +21,7 @@ const allEnvs = mapValues(
   ),
   JSON.stringify
 );
+console.log("Using envs:", allEnvs);
 
 const devEntryPoints = isProduction
   ? []

@@ -50,7 +50,7 @@ export const Curve = (props: any) => {
         />
       </Col>
 
-      <Col mdOffset={2} md={5}>
+      <Col mdOffset={1} md={5}>
         <CurveChart
           currencyRate={currencyRate}
           initialReward={initialReward}

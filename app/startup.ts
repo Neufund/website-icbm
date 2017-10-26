@@ -7,10 +7,8 @@ import reduxThunk from "redux-thunk";
 
 import { promisify } from "bluebird";
 import { asyncSessionStorage } from "redux-persist/storages";
-import { setEthNetworkAction } from "./actions/web3";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
-import { getNetworkId } from "./web3/utils";
 import { Web3Service } from "./web3/web3Service";
 
 const persistStorePromised = promisify(persistStore) as any;
@@ -22,8 +20,6 @@ export async function startup(render: (store: Store<any>) => void) {
   // Create the Redux store
   const store = createStore(reducers, enhancers());
   Web3Service.init(store.dispatch, store.getState);
-  const networkId = await getNetworkId(Web3Service.instance.rawWeb3);
-  store.dispatch(setEthNetworkAction(networkId));
 
   // Add development time features
   if (process.env.NODE_ENV !== "production") {

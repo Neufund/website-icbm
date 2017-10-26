@@ -4,17 +4,44 @@ import config, { CommitmentType } from "../config";
 import { publicCommitment } from "./contracts/ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
 
+export function mapCommitmentTypeToStartingInternalContractPhase(
+  commitmentType: CommitmentType
+): InternalCommitmentState {
+  return commitmentType === CommitmentType.PUBLIC
+    ? InternalCommitmentState.PUBLIC
+    : InternalCommitmentState.WHITELIST;
+}
+
+export function mapCommitmentTypeToFinishingInternalContractPhase(
+  commitmentType: CommitmentType
+): InternalCommitmentState {
+  return commitmentType === CommitmentType.PUBLIC
+    ? InternalCommitmentState.FINISHED
+    : InternalCommitmentState.PUBLIC;
+}
+
+export function mapCurrentTimeToCommitmentState(
+  startDate: moment.Moment,
+  finishDate: moment.Moment,
+  now: moment.Moment
+): IcoPhase {
+  if (now.isBefore(startDate)) {
+    return IcoPhase.BEFORE;
+  } else if (now.isBefore(finishDate)) {
+    return IcoPhase.DURING;
+  } else {
+    return IcoPhase.AFTER;
+  }
+}
+
 export async function loadIcoParamsFromContract() {
   // we need to map internally used app commitment state to smart contracts internal state
-  //  @todo extract function
-  const startingInternalState =
-    config.contractsDeployed.commitmentType === CommitmentType.PUBLIC
-      ? InternalCommitmentState.PUBLIC
-      : InternalCommitmentState.WHITELIST;
-  const finishingInternalState =
-    config.contractsDeployed.commitmentType === CommitmentType.PUBLIC
-      ? InternalCommitmentState.WHITELIST
-      : InternalCommitmentState.FINISHED;
+  const startingInternalState = mapCommitmentTypeToStartingInternalContractPhase(
+    config.contractsDeployed.commitmentType
+  );
+  const finishingInternalState = mapCommitmentTypeToFinishingInternalContractPhase(
+    config.contractsDeployed.commitmentType
+  );
 
   const [startingDate, finishDate, minTicketEur, euroEthRate] = await Promise.all([
     publicCommitment.startOf(startingInternalState),
@@ -24,15 +51,7 @@ export async function loadIcoParamsFromContract() {
   ]);
 
   const now = moment();
-  let commitmentState: IcoPhase;
-
-  if (now.isBefore(startingDate)) {
-    commitmentState = IcoPhase.BEFORE;
-  } else if (now.isBefore(finishDate)) {
-    commitmentState = IcoPhase.DURING;
-  } else {
-    commitmentState = IcoPhase.AFTER;
-  }
+  const commitmentState = mapCurrentTimeToCommitmentState(startingDate, finishDate, now);
 
   const minTicketWei = minTicketEur.div(euroEthRate);
 

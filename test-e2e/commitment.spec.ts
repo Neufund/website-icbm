@@ -1,5 +1,6 @@
-import { BigNumber } from "bignumber.js";
+import * as BigNumber from "bignumber.js";
 import { expect } from "chai";
+
 import { contractRepository } from "./contracts/Repository";
 import { CommitPage } from "./pages/Commit.page";
 import { puppeteerInstance } from "./puppeter";
@@ -11,7 +12,7 @@ describe("Commit page", () => {
     const startingDate = Date.now() / 1000; // start ico right away
     await contractRepository.commitmentModified.addWhitelistedTx(
       [investor],
-      [new BigNumber(1)],
+      [new BigNumber.BigNumber(1)],
       [contractRepository.web3.toWei(20, "ether")],
       {
         gas: 2000000,

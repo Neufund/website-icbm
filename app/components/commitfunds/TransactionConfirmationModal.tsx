@@ -2,9 +2,10 @@ import * as React from "react";
 import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import { EtherScanLinkType } from "../../actions/constants";
 import { IAppState } from "../../reducers/index";
 import { ITransactionState } from "../../reducers/transactionState";
-import EtherScanTxLink from "../EtherScanTxLink";
+import EtherScanLink from "../EtherScanLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import SignInstruction from "./SignInstruction";
 import * as styles from "./TransactionConfirmationModal.scss";
@@ -49,7 +50,8 @@ const ConfirmationComponent: React.SFC<IConfirmationComponent> = ({
   blockOfConfirmation,
 }) =>
   <div className={styles.confirmation}>
-    {txHash} | {blockOfConfirmation}
+    Your transaction <EtherScanLink type={EtherScanLinkType.TRANSACTION} id={txHash} /> has been
+    mined in block: <EtherScanLink type={EtherScanLinkType.BLOCK} id={blockOfConfirmation} />
   </div>;
 
 export const TransactionConfirmationModalComponent: React.SFC<ITransactionState> = ({
@@ -78,8 +80,8 @@ export const TransactionConfirmationModalComponent: React.SFC<ITransactionState>
           <div>
             <LoadingIndicator className={styles.loadingIndicator} />
             <div className={styles.transactionNumber}>
-              You transaction <EtherScanTxLink tx={txHash} /> is ready. Now we are waiting for
-              confirmation from network
+              You transaction <EtherScanLink type={EtherScanLinkType.TRANSACTION} id={txHash} /> is
+              ready. Now we are waiting for confirmation from network.
             </div>
             {blockHistory.length > 0 && <BlockHistoryComponent blockHistory={blockHistory} />}
           </div>}

@@ -1,28 +1,28 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { EthNetwork } from "../actions/constants";
+import { EtherScanLinkType, EthNetwork } from "../actions/constants";
 import { IAppState } from "../reducers/index";
 import { selectEthNetwork } from "../reducers/web3State";
-import { etherscanTransactionUrl } from "../utils/etherscan";
+import { etherscanUrl } from "../utils/etherscan";
 
 interface IEtherScanTxLinkComponent {
+  type: EtherScanLinkType;
   ethNetwork: EthNetwork;
-  tx: string;
+  id: string | number;
   className?: string;
 }
 
-export const EtherScanTxLinkComponent: React.SFC<IEtherScanTxLinkComponent> = ({
+export const EtherScanLinkComponent: React.SFC<IEtherScanTxLinkComponent> = ({
+  type,
   ethNetwork,
-  tx,
+  id,
   className,
   children,
 }) => {
-  const url = etherscanTransactionUrl(tx, ethNetwork);
-
   return (
-    <a href={url} className={className}>
-      {children === undefined ? tx : children}
+    <a href={etherscanUrl(type, id, ethNetwork)} className={className}>
+      {children === undefined ? id : children}
     </a>
   );
 };
@@ -38,10 +38,11 @@ function mapStateToProps(state: IAppState) {
 }
 
 interface IPropsFromProps {
-  tx: string;
+  type: EtherScanLinkType;
+  id: string | number;
   className?: string;
 }
 
 export default connect<IMapStateToProps, {}, IPropsFromProps>(mapStateToProps)(
-  EtherScanTxLinkComponent
+  EtherScanLinkComponent
 );

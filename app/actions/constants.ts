@@ -20,6 +20,15 @@ export enum Web3Type {
   LEDGER = "LEDGER",
 }
 
+export enum EthNetwork {
+  DEV = 0,
+  MAINNET = 1,
+  MORDEN = 2,
+  ROPSTEN = 3,
+  RIKENBY = 4,
+  KOVAN = 42,
+}
+
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
 export const LOAD_BEFORE_ICO_DETAILS = "LOAD_BEFORE_ICO_DETAILS";
 export const LOADING_DURING_ICO_DETAILS = "LOAD_DURING_ICO_DETAILS";
@@ -46,3 +55,5 @@ export const SET_LEGAL_AGREEMENTS = "SET_LEGAL_AGREEMENTS";
 
 export const SET_WEB3_TYPE = "SET_WEB3_TYPE";
 export const SET_DERIVATION_PATH = "SET_DERIVATION_PATH";
+
+export const SET_ETH_NETWORK = "SET_ETH_NETWORK";

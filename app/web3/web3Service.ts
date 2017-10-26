@@ -1,14 +1,14 @@
 import { BigNumber } from "bignumber.js";
+import { promisify } from "bluebird";
+import { Dispatch } from "react-redux";
 import { toast } from "react-toastify";
 import * as Web3 from "web3";
 
-import { promisify } from "bluebird";
-import { Dispatch } from "react-redux";
-import { AppState } from "../actions/constants";
+import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
 import config from "../config";
 import { IAppState } from "../reducers/index";
-import { getNetworkId, networkIdToNetworkName } from "./utils";
+import { getNetworkId } from "./utils";
 
 const CHECK_INJECTED_WEB3_INTERVAL = 1000;
 
@@ -84,9 +84,9 @@ export class Web3Service {
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
       if (!this.injectingFailed) {
         toast.error(
-          `Your injected web3 instance is connected to: ${networkIdToNetworkName(
+          `Your injected web3 instance is connected to: ${EthNetwork[
             personalWeb3NetworkId
-          )} network!`
+          ]} network!`
         );
       }
       this.injectingFailed = true;

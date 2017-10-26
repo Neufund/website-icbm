@@ -1,5 +1,7 @@
 dist: trusty
-sudo: false
+sudo: required
+services:
+  - docker
 language: node_js
 notifications:
   email: false
@@ -10,6 +12,9 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+    # This is required to run new chrome on old trusty
+      - libnss3
+    # Things needed to run ledger
       - g++-4.8
       - g++-4.8-multilib
       - gcc-multilib
@@ -36,4 +41,5 @@ script:
   - set -e                     # fail fast
   - yarn lint
   - yarn test:coverage
+  - ./scripts/e2e.sh
 after_script: greenkeeper-lockfile-upload

@@ -34,24 +34,24 @@ export const HexagonText = (props: IMoneyProps) => {
   return (
     <div className={styles.text}>
       <p className={styles.title}>Total funds committed</p>
-      <p className={styles.content}>
+      <p className={styles.content} data-test-id="during-ico-total-funds">
         <strong className={styles.extraSize}>{raised.toFixed(2)}</strong> ETH
       </p>
 
       <p className={styles.title}>Investors accounts created</p>
-      <p className={styles.content}>
+      <p className={styles.content} data-test-id="during-ico-accounts-created">
         <strong>
           {investorsAccountCreated.toFixed(0)}
         </strong>
       </p>
 
       <p className={styles.title}>Neumarks generated</p>
-      <p className={styles.content}>
+      <p className={styles.content} data-test-id="during-ico-neumarks-generated">
         <strong>{neuMarkAmount.toFixed(2)}</strong> <span>NEU</span>
       </p>
 
       <p className={styles.title}>Reward</p>
-      <p className={styles.content}>
+      <p className={styles.content} data-test-id="during-ico-current-reward">
         <strong>{neuMarkToEtherRatio.toFixed(2)}</strong> <span> NEU / </span> <strong>1</strong>{" "}
         <span>ETH</span>
       </p>
@@ -62,7 +62,7 @@ export const HexagonText = (props: IMoneyProps) => {
 export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   const { finishDate } = props;
   return (
-    <Row className={`${styles.duringIco}`}>
+    <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
         <h1>Community-owned investment ecosystem</h1>
         <p>
@@ -85,7 +85,7 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
         </p>
 
         <div className={styles.buttonContainer}>
-          <a href="/commit" className="btn btn-primary">
+          <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">
             Commit ETH
           </a>
         </div>

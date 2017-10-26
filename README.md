@@ -44,3 +44,10 @@ You will find all files in `dist` directory.
 
 ### Build profiling
 Run `yarn webpack:profile` to get build report. It should generate `webpack-stats.json` file, unfortunately due to verbose typescript loader it will contain some logging. You need to delete few first lines with `vim`. Then upload report to [webpack-visualizer](https://chrisbateman.github.io/webpack-visualizer/).
+
+### E2E tests
+
+```sh
+docker run -d -p 8545:8545 --name neufund-ico krzkaczor/neufund-ico # runs smartcontracts in docker
+yarn test-e2e:dev # runs tests
+```

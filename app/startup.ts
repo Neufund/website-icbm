@@ -23,13 +23,7 @@ export async function startup(render: (store: Store<any>) => void) {
 
   // Add development time features
   if (process.env.NODE_ENV !== "production") {
-    // Enable React Debug Tool
-    // tslint:disable-next-line
-    const ReactDebugTool = require("react-dom/lib/ReactDebugTool");
-    ReactDebugTool.beginProfiling();
-
     // we require this files only to track changes in them automatically
-
     // tslint:disable-next-line
     require("!raw-loader!../dist/index.html");
     // tslint:disable-next-line

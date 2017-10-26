@@ -24,7 +24,8 @@ export function formatMoney(decimals: number, moneyInULP: BigNumber) {
 
 export function formatDate(dateAsBigNumber: BigNumber) {
   // we can't use here instanceof because it can be created by different constructor
-  if (dateAsBigNumber.constructor.name !== "BigNumber") {
+  // we cant do this if code is minified
+  if (process.env.NODE_ENV === "development" && dateAsBigNumber.constructor.name !== "BigNumber") {
     throw new Error("Date has to be bignumber instance!");
   }
 

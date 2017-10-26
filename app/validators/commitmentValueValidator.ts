@@ -21,7 +21,7 @@ export const commitmentValueValidator: Validator = (value, _, props) => {
     return "You can't pass number longer than 15 digits!";
   }
 
-  const numberInWei = asWeiNumber(new BigNumber.BigNumber(number)) as BigNumber.BigNumber;
+  const numberInWei = new BigNumber.BigNumber(asWeiNumber(new BigNumber.BigNumber(number)));
 
   if (numberInWei.lessThan(minTicketWei)) {
     return `Minimum ticket size is ${minTicketEth.toString()} eth!`;

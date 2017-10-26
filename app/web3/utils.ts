@@ -1,6 +1,11 @@
 import { BigNumber } from "bignumber.js";
+import * as bluebird from "bluebird";
 import * as moment from "moment";
-import { web3Instance } from "./web3Provider";
+
+import { EthNetwork } from "../actions/constants";
+import { Web3Service } from "./web3Service";
+
+export const Q18 = new BigNumber("10").pow(18);
 
 export function asMomentDate(bignum: BigNumber) {
   const asInt = bignum.toNumber();
@@ -13,11 +18,11 @@ export function asNumber(bignum: BigNumber) {
 }
 
 export function asEtherNumber(bignum: BigNumber): BigNumber {
-  return web3Instance.fromWei(bignum, "ether");
+  return Web3Service.instance.rawWeb3.fromWei(bignum, "ether");
 }
 
 export function asWeiNumber(num: BigNumber | string | number): BigNumber | string {
-  return web3Instance.toWei(num, "ether");
+  return Web3Service.instance.rawWeb3.toWei(num as any, "ether");
 }
 
 export function promisify(func: any, args: any): Promise<any> {
@@ -29,4 +34,38 @@ export function promisify(func: any, args: any): Promise<any> {
       return res(data);
     });
   });
+}
+
+// takes ulps and returns wei
+export function convertEurToEth(ethEurFraction: BigNumber, eurUlps: BigNumber): BigNumber {
+  return eurUlps.div(ethEurFraction).mul(Q18);
+}
+
+export async function getCurrentBlockHash(): Promise<string> {
+  const blockNumber = await Web3Service.instance.getBlockNumber();
+  const block = await Web3Service.instance.getBlock(blockNumber);
+  return (block as any).hash;
+}
+
+export async function getNetworkId(web3: any): Promise<EthNetwork> {
+  return bluebird.promisify<string>(web3.version.getNetwork)().then(res =>
+    networkIdToEthNetwork(res)
+  );
+}
+
+export function networkIdToEthNetwork(networkId: string): EthNetwork {
+  switch (networkId) {
+    case "1":
+      return EthNetwork.MAINNET;
+    case "2":
+      return EthNetwork.MORDEN;
+    case "3":
+      return EthNetwork.ROPSTEN;
+    case "4":
+      return EthNetwork.RIKENBY;
+    case "42":
+      return EthNetwork.KOVAN;
+    default:
+      return EthNetwork.DEV;
+  }
 }

@@ -15,6 +15,7 @@
         "./node_modules/web3-typescript-typings/index.d.ts",
         "./app/**/*",
         "./page/ts/**/*",
-        "./test/**/*"
+        "./test/**/*",
+        "./test-e2e/**/*"
     ]
 }

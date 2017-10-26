@@ -1,9 +1,5 @@
-import { promisify } from "bluebird";
-import web3Provider from "./web3Provider";
-
-const getAccounts = promisify(web3Provider.eth.getAccounts);
+import { Web3Service } from "./web3Service";
 
 export async function loadUserAccountFromWeb3(): Promise<string> {
-  const accounts = (await getAccounts()) as string[];
-  return accounts[0] || null;
+  return Web3Service.instance.accountAddress();
 }

@@ -8,6 +8,9 @@ const checkSectionVisiablity = function(item, content) {
         return content
 }
 %>
+
+<%- include('mailchimp'); %>
+
 <%- include('press', content.press); %>
 
 <%- include('platform-overview'); %>
@@ -15,7 +18,11 @@ const checkSectionVisiablity = function(item, content) {
 <% for(var i=0; i < content['why-how'].sections.length; i++) {%>
     <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
 <% } %>
-
+<div class="container">
+    <div class="section">
+        <div id="react-root-curve"></div>
+    </div>
+</div>
 <%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>

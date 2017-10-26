@@ -1,0 +1,41 @@
+<section class="blue" id="<%- sectionCounter -%>">
+  <div class="section-counter"><%- sectionCounter -%></div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h2><%- title -%></h2>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="section-content-blue">
+        <div class="section-content-blue-bg"></div>
+        <% for (var i=0; i<paragraphs.length; i++) { %>
+          <% var p = paragraphs[i] %>
+          <% if (p.type==="text") { %>
+            <p><%- p.content -%></p>
+          <% } else if (p.type==="copy") { %>
+            <p>
+              <a class="link-key-copy">
+                <span class="green-icon"><i class="fa fa-clone" aria-hidden="true"></i></span>
+                <%- p.content -%>
+              </a><br />
+              <a href="<%- p.linkURL -%>" class="link-verify"><%- p.linkText -%></a>
+            </p>
+          <% } else if (p.type==="qr") { %>
+            <p>
+              <div class="qr-code"></div>
+            </p>
+          <% } %>
+        <% } %>
+        <div class="section-content-blue-img-bg">
+          <img src="assets/hex-bg/g.png" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 right-content">
+      <%- rightSideContent -%>
+    </div>
+  </div>
+</section>

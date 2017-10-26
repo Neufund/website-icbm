@@ -118,7 +118,7 @@ const CommitKnownUserForm = ({
         <p className={style.reward}>Your estimated reward</p>
         {loadingEstimatedReward
           ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
-          : <p className={style.amount}>
+          : <p className={style.amount} data-test-id="estimated-reward-value">
               {estimatedReward.toFixed(2)} <span className={style.currency}>NEU</span>
             </p>}
 
@@ -130,6 +130,8 @@ const CommitKnownUserForm = ({
       <div
         onClick={submit}
         className={invalid ? style.formSubmit : `${style.valid} ${style.formSubmit}`}
+        data-test-id="commit-btn"
+        data-test-valid={!invalid}
       >
         Commit ETH
       </div>

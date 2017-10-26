@@ -8,10 +8,13 @@
     <h2><%- headline -%></h2>
     <div class="row">
       <% for(var i=0; i < content.length; i++) {%>
+        <% if(i % 3 === 0) { %>
+          <div class="clearfix"></div>
+        <% } %>
         <div class="col-sm-4">
           <div class="product-icons"><i class="material-icons"><%- content[i].icon -%></i></div>
           <h3><%- content[i].title -%></h3>
-          <%- content[i].content -%>
+          <p><%- content[i].content -%></p>
           <a class="product-cols-link" href="<%- content[i].link -%>">Learn more</a>
         </div>
       <% } %>

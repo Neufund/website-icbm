@@ -4,7 +4,7 @@ import * as moment from "moment";
 import * as React from "react";
 import * as sinon from "sinon";
 
-import { Countdown, CountdownComponent } from "../../app/components/Countdown";
+import { Countdown } from "../../app/components/Countdown";
 import { tid } from "../utils";
 
 const MONTH_IN_SECONDS = 60 * 60 * 24 * 31;

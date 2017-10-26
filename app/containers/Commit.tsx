@@ -1,50 +1,37 @@
+import * as jQuery from "jquery";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { loadIcoParams } from "../actions/loadIcoParams";
-import { loadUserAccount } from "../actions/loadUserAccount";
+
+import { initCommit } from "../actions/commit";
+import { Web3Type } from "../actions/constants";
 import { LoadingIndicator } from "../components/LoadingIndicator";
+// import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser, selectLoading } from "../reducers/userState";
+import { selectWeb3Type } from "../reducers/web3State";
 import CommitKnownUserContainer from "./CommitKnownUserContainer";
 import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
-
-const SECOND = 1000;
 
 interface ICommitComponent {
   isKnownUser: boolean;
   isLoading: boolean;
-  loadUserAccount: () => {};
-  loadIcoParams: () => {};
+  initCommit: () => {};
+  web3Type: Web3Type;
 }
 
-interface ICommitState {
-  timerID: number;
-}
-
-class Commit extends React.Component<ICommitComponent, ICommitState> {
+class Commit extends React.Component<ICommitComponent> {
   constructor(props: ICommitComponent) {
     super(props);
     this.state = {
       timerID: null,
+      showChooseAddressDialog: false,
     };
   }
 
-  public componentDidMount() {
-    this.props.loadIcoParams();
-
-    const timerID = window.setInterval(() => {
-      this.props.loadUserAccount();
-    }, SECOND);
-
-    this.setState({
-      ...this.state,
-      timerID,
-    });
-  }
-
-  public componentWillUnmount() {
-    clearInterval(this.state.timerID);
+  public async componentDidMount() {
+    await this.props.initCommit();
+    jQuery(".footer").removeClass("hidden"); // this has to be done this ugly way as footer is created outside of react app
   }
 
   public render() {
@@ -61,13 +48,13 @@ const mapStateToProps = (state: IAppState) => {
   return {
     isKnownUser: selectIsKnownUser(state.userState),
     isLoading: selectLoading(state.userState),
+    web3Type: selectWeb3Type(state.web3State),
   };
 };
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    loadUserAccount: () => dispatch(loadUserAccount),
-    loadIcoParams: () => dispatch(loadIcoParams),
+    initCommit: () => dispatch(initCommit),
   };
 }
 

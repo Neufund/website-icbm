@@ -2,6 +2,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 import Commit from "./containers/Commit";
 import muiTheme from "./muiTheme";
@@ -13,11 +14,22 @@ const render = (storage: any) => {
   ReactDOM.render(
     <MuiThemeProvider muiTheme={muiTheme}>
       <Provider store={storage}>
-        <Commit />
+        <div data-test-id="commit-container">
+          <ToastContainer
+            position="top-right"
+            autoClose={10000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnHover
+          />
+          <Commit />
+        </div>
       </Provider>
     </MuiThemeProvider>,
     commitRoot
   );
 };
 
-startup(render);
+// tslint:disable-next-line no-console - it's top level call if anything got here it should be printed
+startup(render).catch(error => console.log(error));

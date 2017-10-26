@@ -1,6 +1,7 @@
 @import '../../common/sass/variables';
 
 @import '../../node_modules/font-awesome/scss/font-awesome';
+@import '../../node_modules/react-toastify/src/scss/main';
 
 // i am pretty sure that there is a better way to write it
 // @todo selective import from bootstrap
@@ -24,3 +25,6 @@
 @import 'platform-overview';
 @import 'why-how';
 @import 'quotes';
+@import 'manual';
+@import 'mailchimp';
+@import 'toastify';

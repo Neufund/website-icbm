@@ -1,4 +1,3 @@
-import * as invariant from "invariant";
 import { CheckboxProps } from "material-ui";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
@@ -10,6 +9,8 @@ import { requiredFieldValidator } from "../validators/requiredFieldValidator";
 
 import { legalAgreementsAcceptedAction } from "../actions/legalAgreement";
 import { IAppState } from "../reducers/index";
+import { selectIsAccepted } from "../reducers/legalAgreementState";
+import { IFrame } from "./IFrame";
 import * as styles from "./LegalModal.scss";
 
 const CheckboxField = Field as { new (): Field<CheckboxProps> };
@@ -18,35 +19,63 @@ const CheckboxField = Field as { new (): Field<CheckboxProps> };
 const noop = () => {};
 
 interface ILegalModalProps {
-  accepted: boolean;
+  isAccepted: boolean;
   legalAgreementsAcceptedAction: () => {};
+  reservationAgreement: string;
+  tokenHolderAgreement: string;
 }
 
 export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   invalid,
   handleSubmit,
-  accepted,
+  isAccepted,
+  reservationAgreement,
+  tokenHolderAgreement,
 }) => {
   return (
-    <Modal show={!accepted} onHide={noop}>
+    <Modal
+      show={!isAccepted}
+      onHide={noop}
+      bsSize="large"
+      className={styles.modal}
+      data-test-id="legal-modal"
+    >
       <Modal.Header>
-        <Modal.Title>Terms of use</Modal.Title>
+        <Modal.Title>Legal Agreements</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div>
-          <CheckboxField
-            name="termsOfUseAgreement"
-            component={Checkbox}
-            props={{
-              label: (
-                <span>
-                  I accept <span className={styles.documentAccent}>Terms of Use</span>
-                </span>
-              ),
-            }}
-            validate={[requiredFieldValidator]}
-          />
+        <div className={styles.scrollable}>
+          <IFrame content={reservationAgreement} className={styles.documentFrame} />
+          <hr />
+          <IFrame content={tokenHolderAgreement} className={styles.documentFrame} />
         </div>
+        <CheckboxField
+          name="reservationAgreement"
+          component={Checkbox}
+          className={styles.checkbox}
+          props={{
+            label: (
+              <span>
+                I accept <span className={styles.documentAccent}>Reservation Agreement</span>
+              </span>
+            ),
+          }}
+          validate={[requiredFieldValidator]}
+        />
+        <CheckboxField
+          name="tokenHolderAgreement"
+          component={Checkbox}
+          className={styles.checkbox}
+          props={{
+            label: (
+              <span>
+                I accept{" "}
+                <span className={styles.documentAccent}>Neumark Token Holder Agreement</span>
+              </span>
+            ),
+          }}
+          validate={[requiredFieldValidator]}
+        />
       </Modal.Body>
       <Modal.Footer>
         <a href="/" className="btn btn-white">
@@ -71,7 +100,9 @@ interface ILegalModalForm {
 
 function stateToProps(state: IAppState) {
   return {
-    accepted: state.legalAgreementState.accepted,
+    isAccepted: selectIsAccepted(state.legalAgreementState),
+    reservationAgreement: state.legalAgreementState.reservationAgreement,
+    tokenHolderAgreement: state.legalAgreementState.tokenHolderAgreement,
   };
 }
 
@@ -79,8 +110,7 @@ export default compose(
   connect(stateToProps),
   reduxForm<ILegalModalForm, ILegalModalProps>({
     form: "legalApprovalPopupForm",
-    onSubmit: (values, dispatch) => {
-      invariant(values.termsOfUseAgreement, "You need to accept agreements!");
+    onSubmit: (_values, dispatch) => {
       dispatch(legalAgreementsAcceptedAction());
     },
   })

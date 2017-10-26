@@ -12,7 +12,7 @@ const rev = require("gulp-rev");
 const yaml = require("yaml-js");
 const fs = require("fs");
 const dotenv = require("dotenv");
-const envs = dotenv.load().parsed;
+dotenv.load();
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -35,20 +35,22 @@ gulp.task("page", () => {
 
   const content = yaml.load(fs.readFileSync("./content.yml", "utf8"));
   const productContent = yaml.load(fs.readFileSync("./productContent.yml", "utf8"));
+  const manualContent = yaml.load(fs.readFileSync("./manualContent.yml", "utf8"));
   const faq = yaml.load(fs.readFileSync("./faq.yml", "utf8"));
 
   const templateData = {
     content,
     productContent,
+    manualContent,
     faq,
     hashes: {
       jsBundleHash,
       cssBundleHash,
     },
-    GA_ID: envs.GA_ID,
-    FB_PIXEL_ID: envs.FB_PIXEL_ID,
-    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED),
-    PLATFORM_ENABLED:!!parseInt(envs.PLATFORM_ENABLED),
+    GA_ID: process.env.GA_ID,
+    FB_PIXEL_ID: process.env.FB_PIXEL_ID,
+    FAQ_ENABLED:!!parseInt(process.env.FAQ_ENABLED),
+    PLATFORM_ENABLED:!!parseInt(process.env.PLATFORM_ENABLED),
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86
@@ -58,7 +60,8 @@ gulp.task("page", () => {
     "./page/whitepaper.ejs",
     "./page/faq.ejs",
     "./page/product.ejs",
-    "./page/commit.ejs"
+    "./page/commit.ejs",
+    "./page/manual.ejs"
   ];
 
   pages.forEach(page =>

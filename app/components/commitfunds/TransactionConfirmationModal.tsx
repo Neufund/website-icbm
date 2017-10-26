@@ -22,12 +22,18 @@ export const TransactionConfirmationModal: React.SFC<ITransactionState> = ({
   );
   const confNo = currentBlock - blockOfConfirmation;
   const confirmations = (
-    <div>{`Got ${confNo} of ${config.transactionSigning
+    <div>{`Got ${confNo} of ${config.contractsDeployed
       .numberOfConfirmations} required confirmations`}</div>
   );
 
   return (
-    <Modal show={txStarted === true} onHide={noop} bsSize="large" animation={false}>
+    <Modal
+      show={txStarted === true}
+      onHide={noop}
+      bsSize="large"
+      animation={false}
+      data-test-id="transaction-status-modal"
+    >
       <Modal.Header>
         <Modal.Title>Transaction status</Modal.Title>
       </Modal.Header>

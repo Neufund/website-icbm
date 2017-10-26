@@ -28,3 +28,23 @@ export const parseStrToNumStrict = (source: string): number => {
 
   return parseFloat(transform);
 };
+
+/**
+ * Triggers downloading a file directly to user browser
+ */
+export const userDownloadFile = async (
+  url: string,
+  fetchOptions: RequestInit,
+  filename: string
+) => {
+  const response = await fetch(url, fetchOptions);
+  if (response.status > 299) {
+    throw new Error("Error during downloading.");
+  }
+  const blob = await response.blob();
+
+  const link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  link.download = `${filename}.pdf`;
+  link.click();
+};

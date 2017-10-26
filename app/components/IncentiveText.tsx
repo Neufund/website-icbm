@@ -8,13 +8,13 @@ export const IncentiveText: React.SFC = () =>
     <h1>Community-owned Fundraising Platform</h1>
 
     <p>
-      Neufund bridges blockchain and venture capital enabling ICOs for on- and off-chain startups.
+      Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain startups.
     </p>
     <p>
       Reserve funds<sup>
         <a href="#how-it-works">01</a>
       </sup>{" "}
-      today for your future investments. Maintain full control of your investment decisions.
+      today for your future investments. Maintain full control over your investment decisions.
     </p>
     <p>
       Get Neumarks<sup>

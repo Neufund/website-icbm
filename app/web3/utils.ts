@@ -1,5 +1,8 @@
 import { BigNumber } from "bignumber.js";
+import * as bluebird from "bluebird";
 import * as moment from "moment";
+
+import { EthNetwork } from "../actions/constants";
 import { Web3Service } from "./web3Service";
 
 export const Q18 = new BigNumber("10").pow(18);
@@ -45,7 +48,24 @@ export async function getCurrentBlockHash(): Promise<string> {
 }
 
 export async function getNetworkId(web3: any): Promise<string> {
-  return promisify(web3.version.getNetwork, []);
+  return bluebird.promisify<string>(web3.version.getNetwork)();
+}
+
+export function networkIdToNetworkEnum(networkId: string): EthNetwork {
+  switch (networkId) {
+    case "1":
+      return EthNetwork.MAINNET;
+    case "2":
+      return EthNetwork.MORDEN;
+    case "3":
+      return EthNetwork.ROPSTEN;
+    case "4":
+      return EthNetwork.RIKENBY;
+    case "42":
+      return EthNetwork.KOVAN;
+    default:
+      return EthNetwork.DEV;
+  }
 }
 
 export function networkIdToNetworkName(networkId: string) {

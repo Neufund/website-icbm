@@ -1,12 +1,14 @@
-import { SET_WEB3_TYPE, Web3Type } from "../actions/constants";
+import { EthNetwork, SET_ETH_NETWORK, SET_WEB3_TYPE, Web3Type } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IWeb3State {
   web3Type: Web3Type;
+  ethNetwork: EthNetwork;
 }
 
 const initialState: IWeb3State = {
   web3Type: null,
+  ethNetwork: null,
 };
 
 const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
@@ -16,6 +18,11 @@ const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
       return {
         ...state,
         web3Type: payload.web3Type,
+      };
+    case SET_ETH_NETWORK:
+      return {
+        ...state,
+        ethNetwork: payload.ethNetwork,
       };
     default:
       return state;

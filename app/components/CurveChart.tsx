@@ -2,7 +2,7 @@ import * as React from "react";
 import { Line } from "react-chartjs-2";
 import neuMarkInfoCurveChartPlugin from "./neuMarkInfoCurveChartPlugin";
 
-const formatNumber = (labelValue: any) => {
+export const formatNumber = (labelValue: any) => {
   // Nine Zeroes for Billions
   return Math.abs(Number(labelValue)) >= 1.0e9
     ? Math.abs(Number(labelValue)) / 1.0e9 + "BLN"
@@ -38,7 +38,7 @@ const getCumulativeNEU = (
 };
 */
 
-const getEtherDataset = (min: number, max: number, count: number) => {
+export const getEtherDataset = (min: number, max: number, count: number) => {
   const result = [];
   const period = max / count;
   for (let i: number = min; i < max; i += period) {

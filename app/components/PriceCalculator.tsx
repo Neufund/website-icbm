@@ -1,8 +1,8 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
-import * as style from "./commitfunds/CommitUnknownUserEstimation.scss";
 import { LoadingIndicator } from "./LoadingIndicator";
+import * as style from "./PriceCalculator.scss";
 
 const estTextFieldStyles = {
   inputStyle: {
@@ -56,28 +56,47 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   loadingEstimatedReward,
 }) => {
   return (
-    <form onKeyUp={calculateEstimatedReward}>
-      <div className={style.estimationComponent}>
-        <p className={style.introduction}>Your estimated reward</p>
-        <div className={style.estimation}>
-          <div className={style.rightContainer}>
-            {loadingEstimatedReward
-              ? <LoadingIndicator className={style.loadingIndicator} />
-              : <span>
-                  <span className={style.amount}>{estimatedReward.toFixed(2)}</span>{" "}
-                  <span className={style.currencyNeu}>NEU</span>
-                </span>}
+    <div>
+      <form onKeyUp={calculateEstimatedReward}>
+        <div className={style.estimationComponent}>
+          <p className={style.introduction}>Calculate your estimated reward:</p>
+          <div className={style.estimation}>
+            <div className={style.rightContainer}>
+              {loadingEstimatedReward
+                ? <LoadingIndicator className={style.loadingIndicator} />
+                : <span>
+                    <span className={style.amount}>{estimatedReward.toFixed(2)}</span>{" "}
+                    <span className={style.currencyNeu}>NEU</span>
+                  </span>}
+            </div>
+            <span className={style.separator}> / </span>
+            <Field name="ethAmount" component={styledField} />
+            <span className={style.currencyEth}>ETH</span>
           </div>
-          <span className={style.separator}> / </span>
-          <Field name="ethAmount" component={styledField} />
-          <span className={style.currencyEth}>ETH</span>
+          <p className={style.description}>
+            Calculated amount might not be precised, reward will be granted after the block is mined
+            and it might depend on the order of transactions.
+          </p>
         </div>
-        <p className={style.description}>
-          Calculated amount might not be precised, reward will be granted after the block is mined
-          and it might depend on the order of transactions.
-        </p>
-      </div>
-    </form>
+      </form>
+
+      <ul className={style.information}>
+        <li>NEU is denominated to EUR, EUR to ETH is stable…</li>
+        <li>Neufund ICO phase:</li>
+        <li>
+          Start price: <b>8.25</b> NEU / 1 EUR
+        </li>
+        <li>
+          Finish: <b>4.25</b> NEU / 1 EUR
+        </li>
+        <br />
+        <li>Post-ICO phase:</li>
+        <li>
+          Start price: <b>4.25</b> NEU / 1 EUR
+        </li>
+        <li>Finish: ...</li>
+      </ul>
+    </div>
   );
 };
 

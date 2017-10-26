@@ -6,7 +6,6 @@ import { setEstimatedRewardAction } from "../actions/submitFunds";
 import CurveChart, { getPrice } from "../components/CurveChart";
 import PriceCalculator from "../components/PriceCalculator";
 import { IAppState } from "../reducers/index";
-import * as styles from "./Curve.scss";
 
 export const Curve = (props: any) => {
   const currencyRate: number = 0.0038119801;
@@ -20,7 +19,9 @@ export const Curve = (props: any) => {
 
   return (
     <Row>
-      <h3>Rules</h3>
+      <Col md={12}>
+        <h2>Rules</h2>
+      </Col>
       <Col md={5}>
         <PriceCalculator
           estimatedReward={parseFloat(props.commitmentState.estimatedReward)}
@@ -47,22 +48,6 @@ export const Curve = (props: any) => {
           }}
           loadingEstimatedReward={props.commitmentState.loadingEstimatedReward}
         />
-        <ul className={styles.information}>
-          <li>NEU is denominated to EUR, EUR to ETH is stable…</li>
-          <li>Neufund ICO phase:</li>
-          <li>
-            Start price: <b>8.25</b> NEU / 1 EUR
-          </li>
-          <li>
-            Finish: <b>4.25</b> NEU / 1 EUR
-          </li>
-          <br />
-          <li>Post-ICO phase:</li>
-          <li>
-            Start price: <b>4.25</b> NEU / 1 EUR
-          </li>
-          <li>Finish: ...</li>
-        </ul>
       </Col>
 
       <Col mdOffset={2} md={5}>

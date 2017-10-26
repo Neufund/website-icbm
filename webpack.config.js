@@ -59,9 +59,8 @@ module.exports = {
     }
   },
   entry: {
-    main: [...devEntryPoints, "./app/index.tsx"],
-    commit: [...devEntryPoints, "./app/commit.tsx"],
-    curve: [...devEntryPoints, "./app/curve.tsx"],
+    main: [...devEntryPoints, "./app/index.tsx", "./app/curve.tsx", ],
+    commit: [...devEntryPoints, "./app/commit.tsx"],    
     page: "./page/ts/index.ts",
   },
   output: {
@@ -71,7 +70,7 @@ module.exports = {
   devtool: isProduction ? "(none)" : "inline-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CommonsChunkPlugin({ name: "common", chunks: ["main", "commit", "curve"] }),
+    new CommonsChunkPlugin({ name: "common", chunks: ["main", "commit"] }),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({

@@ -106,8 +106,10 @@
     "fixyarn": "git checkout origin/master -- yarn.lock && yarn install && git add yarn.lock"
   },
   "dependencies": {
+    "@types/chart.js": "^2.6.9",
     "bignumber.js": "^4.0.4",
     "bluebird": "^3.5.0",
+    "chart.js": "^2.7.0",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",
     "invariant": "^2.2.2",
@@ -121,6 +123,7 @@
     "owl.carousel": "^2.2.0",
     "promise-all": "^1.0.0",
     "react": "^15.6.1",
+    "react-chartjs-2": "^2.6.4",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-toastify": "^2.1.5",

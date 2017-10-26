@@ -33,7 +33,13 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   tokenHolderAgreement,
 }) => {
   return (
-    <Modal show={!isAccepted} onHide={noop} bsSize="large" className={styles.modal}>
+    <Modal
+      show={!isAccepted}
+      onHide={noop}
+      bsSize="large"
+      className={styles.modal}
+      data-test-id="legal-modal"
+    >
       <Modal.Header>
         <Modal.Title>Legal Agreements</Modal.Title>
       </Modal.Header>

@@ -25,7 +25,7 @@ class BeforeIco extends React.Component<IBeforeIco> {
     const { startDate, loadIcoParameters, neumarkInitialRate } = this.props;
 
     return (
-      <div>
+      <div data-test-id="before-ico-phase">
         <Incentive
           startDate={startDate}
           onFinish={loadIcoParameters}

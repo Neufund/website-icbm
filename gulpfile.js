@@ -12,7 +12,7 @@ const rev = require("gulp-rev");
 const yaml = require("yaml-js");
 const fs = require("fs");
 const dotenv = require("dotenv");
-const envs = dotenv.load().parsed;
+dotenv.load();
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -47,10 +47,10 @@ gulp.task("page", () => {
       jsBundleHash,
       cssBundleHash,
     },
-    GA_ID: envs.GA_ID,
-    FB_PIXEL_ID: envs.FB_PIXEL_ID,
-    FAQ_ENABLED:!!parseInt(envs.FAQ_ENABLED),
-    PLATFORM_ENABLED:!!parseInt(envs.PLATFORM_ENABLED),
+    GA_ID: process.env.GA_ID,
+    FB_PIXEL_ID: process.env.FB_PIXEL_ID,
+    FAQ_ENABLED:!!parseInt(process.env.FAQ_ENABLED),
+    PLATFORM_ENABLED:!!parseInt(process.env.PLATFORM_ENABLED),
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86

@@ -84,7 +84,9 @@ export class Web3Service {
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
       if (!this.injectingFailed) {
         toast.error(
-          `Your injected web3 instance is connected to: ${EthNetwork[personalWeb3NetworkId]} network!`
+          `Your injected web3 instance is connected to: ${EthNetwork[
+            personalWeb3NetworkId
+          ]} network!`
         );
       }
       this.injectingFailed = true;

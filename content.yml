@@ -11,7 +11,7 @@ why-how:
          <p>Neufund’s ICBM is a call to commit capital to the Neufund platform in exchange for tokens, hence the term ICBM – <strong>Initial Capital Building Mechanism</strong>.</p>
 
          <p>Reserve ETH in your personal Ethereum wallet with the intention to invest it into projects that will perform an Equity Token Offering (ETO) on the Neufund Platform. You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
-      imgPath: "../assets/why-how/Illu_Section_01"
+      imgPath: "../assets/why-how/ICBM"
       links:
         - link: "Smart Contracts on Github"
           href: "https://github.com/Neufund/ico-contracts"
@@ -22,7 +22,7 @@ why-how:
       content: |
         <p>Neumarks entitle you to fee proceeds taken from all successful future investments. They also entitle you to a share in the economic benefit generated through a platform portfolio. This pool holds small percentages of every startup token that will ever launch on the platform. Neumarks are generated every time an investor reserves capital on the platform (during the ICBM) or invests in a startup (after the ICBM).</p>
         <p><strong>If you reserve your ETH now you are getting NEU for free. If you want to get NEU later, you will need to invest in startups first.</strong> You can capitalise on Neumarks from day one by “hodling”, or by trading without vesting on a secondary market.</p>
-      imgPath: "../assets/why-how/Illu_Section_02"
+      imgPath: "../assets/why-how/benefits"
       links:
         - link: "Neufund Whitepaper"
           href: "https://neufund.org/whitepaper/"

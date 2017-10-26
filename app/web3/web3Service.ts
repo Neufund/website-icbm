@@ -4,12 +4,11 @@ import { Dispatch } from "react-redux";
 import { toast } from "react-toastify";
 import * as Web3 from "web3";
 
-import { AppState } from "../actions/constants";
+import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
-import { setEthNetworkAction } from "../actions/web3";
 import config from "../config";
 import { IAppState } from "../reducers/index";
-import { getNetworkId, networkIdToNetworkEnum, networkIdToNetworkName } from "./utils";
+import { getNetworkId } from "./utils";
 
 const CHECK_INJECTED_WEB3_INTERVAL = 1000;
 
@@ -45,12 +44,6 @@ export class Web3Service {
 
     this.rawWeb3 = new Web3(new Web3.providers.HttpProvider(config.contractsDeployed.rpcProvider));
 
-    getNetworkId(this.rawWeb3)
-      .then(id => dispatch(setEthNetworkAction(networkIdToNetworkEnum(id))))
-      .catch(error => {
-        throw new Error(error);
-      });
-
     this.getBlockNumber = promisify(this.rawWeb3.eth.getBlockNumber);
     this.getBlock = promisify(this.rawWeb3.eth.getBlock);
     this.getTransaction = promisify<any, string>(this.rawWeb3.eth.getTransaction);
@@ -84,9 +77,7 @@ export class Web3Service {
     const personalWeb3NetworkId = await getNetworkId(newWeb3);
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
       toast.error(
-        `Your injected web3 instance is connected to: ${networkIdToNetworkName(
-          personalWeb3NetworkId
-        )} network!`
+        `Your injected web3 instance is connected to: ${EthNetwork[personalWeb3NetworkId]} network!`
       );
       return;
     }

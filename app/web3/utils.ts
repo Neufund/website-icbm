@@ -47,11 +47,13 @@ export async function getCurrentBlockHash(): Promise<string> {
   return (block as any).hash;
 }
 
-export async function getNetworkId(web3: any): Promise<string> {
-  return bluebird.promisify<string>(web3.version.getNetwork)();
+export async function getNetworkId(web3: any): Promise<EthNetwork> {
+  return bluebird.promisify<string>(web3.version.getNetwork)().then(res =>
+    networkIdToEthNetwork(res)
+  );
 }
 
-export function networkIdToNetworkEnum(networkId: string): EthNetwork {
+export function networkIdToEthNetwork(networkId: string): EthNetwork {
   switch (networkId) {
     case "1":
       return EthNetwork.MAINNET;
@@ -65,22 +67,5 @@ export function networkIdToNetworkEnum(networkId: string): EthNetwork {
       return EthNetwork.KOVAN;
     default:
       return EthNetwork.DEV;
-  }
-}
-
-export function networkIdToNetworkName(networkId: string) {
-  switch (networkId) {
-    case "1":
-      return "Mainnet";
-    case "2":
-      return "Morden";
-    case "3":
-      return "Ropsten";
-    case "4":
-      return "Rinkeby";
-    case "42":
-      return "Kovan";
-    default:
-      return `Unknown (id:${networkId})`;
   }
 }

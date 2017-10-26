@@ -3,13 +3,14 @@ const webpack = require("webpack");
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const RobotstxtPlugin = require("robotstxt-webpack-plugin").default;
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const { mapValues } = require("lodash");
+const { mapValues, keys } = require("lodash");
 
 const isProduction = process.env.NODE_ENV === "production";
 const dotenv = require("dotenv");
-const envs = dotenv.load().parsed;
+const envs = updateParsedEnvsWithProcessEnvs(dotenv.load().parsed);
 
-//we are combining the NODE_ENV variable with the local variables from the .env file
+// we are combining the NODE_ENV variable with the local variables from the .env file
+// we can't simply pass all envs from process.env because they would become part of the bundle
 const allEnvs = mapValues(
   Object.assign(
     {},
@@ -59,7 +60,7 @@ module.exports = {
     }
   },
   entry: {
-    main: [...devEntryPoints, "./app/index.tsx"],
+    main: [...devEntryPoints, "./app/index.tsx", "./app/curve.tsx"],
     commit: [...devEntryPoints, "./app/commit.tsx"],
     page: "./page/ts/index.ts",
   },
@@ -156,4 +157,15 @@ if (isProduction) {
   module.exports.plugins.push(
     new OpenBrowserPlugin({ url: 'https://localhost:9090/' })
   )
+}
+
+function updateParsedEnvsWithProcessEnvs(envs){
+  const processEnvs = process.env;
+  const result = {};
+
+  keys(envs).forEach(k => {
+    result[k] = (k in processEnvs)? processEnvs[k] : envs[k];
+  })
+
+  return result;
 }

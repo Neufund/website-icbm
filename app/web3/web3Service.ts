@@ -36,6 +36,7 @@ export class Web3Service {
   public readonly getBlockNumber: () => PromiseLike<number>;
   public readonly getBlock: (blockNumber: string | number) => PromiseLike<{}>;
   public readonly getTransaction: (tx: string) => PromiseLike<any>;
+  private injectingFailed: boolean = false;
 
   private constructor(private dispatch: Dispatch<IAppState>, private getState: () => IAppState) {
     if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
@@ -81,13 +82,17 @@ export class Web3Service {
     const internalWeb3NetworkId = await getNetworkId(this.rawWeb3);
     const personalWeb3NetworkId = await getNetworkId(newWeb3);
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
-      toast.error(
-        `Your injected web3 instance is connected to: ${networkIdToNetworkName(
-          personalWeb3NetworkId
-        )} network!`
-      );
+      if (!this.injectingFailed) {
+        toast.error(
+          `Your injected web3 instance is connected to: ${networkIdToNetworkName(
+            personalWeb3NetworkId
+          )} network!`
+        );
+      }
+      this.injectingFailed = true;
       return;
     }
+    this.injectingFailed = false;
 
     this.personalWeb3 = newWeb3;
     window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);

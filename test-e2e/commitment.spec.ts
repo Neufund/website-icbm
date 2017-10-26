@@ -1,4 +1,3 @@
-import { BigNumber } from "bignumber.js";
 import { expect } from "chai";
 import { contractRepository } from "./contracts/Repository";
 import { CommitPage } from "./pages/Commit.page";

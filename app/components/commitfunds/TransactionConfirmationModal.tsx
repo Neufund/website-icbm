@@ -19,7 +19,7 @@ interface IBlockHistoryComponent {
 
 const BlockHistoryComponent: React.SFC<IBlockHistoryComponent> = ({ blockHistory }) => {
   return (
-    <table>
+    <table className={styles.blockHistory}>
       <thead>
         <tr>
           <th>block number</th>

@@ -1,3 +1,5 @@
+import * as BigNumber from "bignumber.js";
+
 import {
   SET_DERIVATION_PATH,
   SET_LOADING_USER_ACCOUNT,
@@ -9,12 +11,14 @@ export interface IUserState {
   loading: boolean;
   address: string;
   derivationPath: string;
+  balance: string;
 }
 
 const initialState: IUserState = {
   loading: true,
   address: null,
   derivationPath: null,
+  balance: "0",
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {
@@ -31,6 +35,7 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         ...state,
         loading: false,
         address: payload.address,
+        balance: payload.balance,
       };
     case SET_DERIVATION_PATH:
       return {
@@ -54,4 +59,8 @@ export function selectLoading(state: IUserState): boolean {
 
 export function selectDerivationPath(state: IUserState): string {
   return state.derivationPath;
+}
+
+export function selectBalance(state: IUserState): BigNumber.BigNumber {
+  return new BigNumber.BigNumber(state.balance);
 }

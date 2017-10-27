@@ -2,7 +2,7 @@ import { BigNumber } from "bignumber.js";
 import * as bluebird from "bluebird";
 import * as moment from "moment";
 
-import { EthNetwork } from "../actions/constants";
+import { EthNetwork, Web3Type } from "../actions/constants";
 import { Web3Service } from "./web3Service";
 
 export const Q18 = new BigNumber("10").pow(18);
@@ -51,6 +51,24 @@ export async function getNetworkId(web3: any): Promise<EthNetwork> {
   return bluebird.promisify<string>(web3.version.getNetwork)().then(res =>
     networkIdToEthNetwork(res)
   );
+}
+
+export async function getBalance(web3: any, address: string): Promise<BigNumber> {
+  return (bluebird.promisify<BigNumber>(web3.eth.getBalance) as any)(address);
+}
+
+export async function getNodeType(web3: any): Promise<Web3Type> {
+  const nodeIdString = await bluebird.promisify<string>(web3.version.getNode)();
+  const matchNodeIdString = nodeIdString.toLowerCase();
+
+  if (matchNodeIdString.includes("metamask")) {
+    return Web3Type.METAMASK;
+  }
+  if (matchNodeIdString.includes("parity")) {
+    return Web3Type.PARITY;
+  }
+  // @todo support for mist
+  return Web3Type.GENERIC;
 }
 
 export function networkIdToEthNetwork(networkId: string): EthNetwork {

@@ -22,7 +22,7 @@ export const getPrice = (
   atETH: number
 ) => {
   const atEUR = atETH / currencyRate;
-  return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2;
+  return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2 / currencyRate;
 };
 
 /*
@@ -100,7 +100,6 @@ export default (props: ICurveChart) => {
         pointRadius: 0.5,
         pointHitRadius: 10,
         data: etherDatasetList.map(eth =>
-          // getCumulativeNEU(currencyRate, initialReward, capNEU, eth)
           getPrice(currencyRate, initialReward, capNEU, eth)
         ),
       },
@@ -118,6 +117,9 @@ export default (props: ICurveChart) => {
     scales: {
       xAxes: [
         {
+          scaleLabel: {
+            display: true,            
+          },
           gridLines: {
             display: true,
             drawBorder: true,
@@ -137,6 +139,9 @@ export default (props: ICurveChart) => {
       ],
       yAxes: [
         {
+          scaleLabel: {
+            display: true,
+          },
           gridLines: {
             display: true,
             drawBorder: true,
@@ -156,8 +161,8 @@ export default (props: ICurveChart) => {
       ],
     },
     legend: {
-      display: false,
-      responsive: false,
+      display: true,
+      responsive: true,
     },
     tooltips: {
       callbacks: {

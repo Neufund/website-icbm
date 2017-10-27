@@ -33,9 +33,16 @@ const drawMultiLineText = (
 };
 
 const neuMarkInfoPlugin = {
+  beforeDraw(c: any) {
+    const legends = c.legend.legendItems;
+    legends.forEach((e: any) => {
+      e.fillStyle = "white";
+    });
+  },
   afterDraw(chartInstance: any) {
     const canvas = chartInstance.chart;
     const ctx = canvas.ctx;
+
     const xAxe = chartInstance.scales[chartInstance.config.options.scales.xAxes[0].id];
     const yAxe = chartInstance.scales[chartInstance.config.options.scales.yAxes[0].id];
 
@@ -69,10 +76,10 @@ const neuMarkInfoPlugin = {
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);
 
     // x-axis label
-    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "8px", xAxe.right - 50, yAxe.bottom - 30);
+    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "8px", xAxe.right - 50, yAxe.bottom + 30);
 
     // y-axis label
-    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "8px", xAxe.left + 10, yAxe.top + 10);
+    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "8px", xAxe.left, yAxe.top - 10);
   },
 };
 

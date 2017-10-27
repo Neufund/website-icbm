@@ -15,14 +15,21 @@ const checkSectionVisiablity = function(item, content) {
 
 <%- include('platform-overview'); %>
 
-<% for(var i=0; i < content['why-how'].sections.length; i++) {%>
-    <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
-<% } %>
+<%- include('why-how', Object.assign({}, content['why-how'].sections[0], { index: 0 })) %>
+
 <div class="container">
     <div class="section">
         <div id="react-root-curve"></div>
     </div>
 </div>
+
+<!-- <% for(var i=0; i < content['why-how'].sections.length; i++) {%>
+    <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
+<% } %> -->
+<%- include('why-how', Object.assign({}, content['why-how'].sections[1], { index: 1 })) %>
+
+<%- checkSectionVisiablity(content.invest_platform, include('key-reading', content['key-reading'])); %>
+
 <%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>

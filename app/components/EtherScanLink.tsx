@@ -7,25 +7,17 @@ import { selectEthNetwork } from "../reducers/web3State";
 import { etherscanUrl } from "../utils/etherscan";
 
 interface IEtherScanTxLinkComponent {
-  type: EtherScanLinkType;
+  linkType: EtherScanLinkType;
   ethNetwork: EthNetwork;
-  id: string | number;
-  className?: string;
+  resourceId: string | number;
 }
 
-export const EtherScanLinkComponent: React.SFC<IEtherScanTxLinkComponent> = ({
-  type,
-  ethNetwork,
-  id,
-  className,
-  children,
-}) => {
-  return (
-    <a href={etherscanUrl(type, id, ethNetwork)} className={className}>
-      {children === undefined ? id : children}
-    </a>
-  );
-};
+export const EtherScanLinkComponent: React.SFC<
+  IEtherScanTxLinkComponent & React.AnchorHTMLAttributes<HTMLAnchorElement>
+> = ({ linkType, ethNetwork, resourceId, children, ...props }) =>
+  <a href={etherscanUrl(linkType, resourceId, ethNetwork)} {...props}>
+    {children === undefined ? resourceId : children}
+  </a>;
 
 interface IMapStateToProps {
   ethNetwork: EthNetwork;
@@ -38,11 +30,12 @@ function mapStateToProps(state: IAppState) {
 }
 
 interface IPropsFromProps {
-  type: EtherScanLinkType;
-  id: string | number;
-  className?: string;
+  linkType: EtherScanLinkType;
+  resourceId: string | number;
 }
 
-export default connect<IMapStateToProps, {}, IPropsFromProps>(mapStateToProps)(
-  EtherScanLinkComponent
-);
+export default connect<
+  IMapStateToProps,
+  null,
+  IPropsFromProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+>(mapStateToProps, {})(EtherScanLinkComponent);

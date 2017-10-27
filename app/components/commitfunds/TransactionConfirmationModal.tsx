@@ -52,8 +52,18 @@ const ConfirmationComponent: React.SFC<IConfirmationComponent> = ({
   blockOfConfirmation,
 }) =>
   <div className={styles.confirmation}>
-    Your transaction <EtherScanLink type={EtherScanLinkType.TRANSACTION} id={txHash} /> has been
-    mined in block: <EtherScanLink type={EtherScanLinkType.BLOCK} id={blockOfConfirmation} />
+    Your transaction{" "}
+    <EtherScanLink
+      target="_blank"
+      linkType={EtherScanLinkType.TRANSACTION}
+      resourceId={txHash}
+    />{" "}
+    has been mined in block:{" "}
+    <EtherScanLink
+      target="_blank"
+      linkType={EtherScanLinkType.BLOCK}
+      resourceId={blockOfConfirmation}
+    />
   </div>;
 
 export const TransactionConfirmationModalComponent: React.SFC<ITransactionState> = ({
@@ -82,7 +92,8 @@ export const TransactionConfirmationModalComponent: React.SFC<ITransactionState>
           <div>
             <LoadingIndicator className={styles.loadingIndicator} />
             <div className={styles.transactionNumber}>
-              You transaction <EtherScanLink type={EtherScanLinkType.TRANSACTION} id={txHash} /> is
+              You transaction{" "}
+              <EtherScanLink linkType={EtherScanLinkType.TRANSACTION} resourceId={txHash} /> is
               ready. Now we are waiting for confirmation from network.
             </div>
             {blockHistory.length > 0 && <BlockHistoryComponent blockHistory={blockHistory} />}

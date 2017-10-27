@@ -2,7 +2,7 @@ import { EtherScanLinkType, EthNetwork } from "../actions/constants";
 
 export function etherscanUrl(
   type: EtherScanLinkType,
-  id: string | number,
+  resourceId: string | number,
   ethNetwork: EthNetwork
 ): string {
   let pathType;
@@ -17,7 +17,7 @@ export function etherscanUrl(
       pathType = "block";
       break;
   }
-  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/${pathType}/${id}`;
+  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/${pathType}/${resourceId}`;
 }
 
 function networkToEtherscanPrefix(ethNetwork: EthNetwork) {

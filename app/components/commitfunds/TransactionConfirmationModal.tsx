@@ -42,12 +42,12 @@ const BlockHistoryComponent: React.SFC<IBlockHistoryComponent> = ({ blockHistory
   );
 };
 
-interface IConfirmationComponent {
+interface ITransactionSummaryComponent {
   txHash: string;
   blockOfConfirmation: number;
 }
 
-const ConfirmationComponent: React.SFC<IConfirmationComponent> = ({
+const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
   txHash,
   blockOfConfirmation,
 }) =>
@@ -99,7 +99,7 @@ export const TransactionConfirmationModalComponent: React.SFC<ITransactionState>
             {blockHistory.length > 0 && <BlockHistoryComponent blockHistory={blockHistory} />}
           </div>}
         {txConfirmed &&
-          <ConfirmationComponent txHash={txHash} blockOfConfirmation={blockOfConfirmation} />}
+          <TransactionSummaryComponent txHash={txHash} blockOfConfirmation={blockOfConfirmation} />}
         {error !== null &&
           <div className={styles.error}>
             {error}

@@ -63,11 +63,14 @@ const neuMarkInfoPlugin = {
     const yPoint =
       chartInstance.data.datasets[0]._meta[0].dataset._children[activePointIndex]._model.y;
 
+    const neumarkPriceXpoint = xPoint + 150 >= canvas.width ? canvas.width - 160 : xPoint;
+    const neumarkPriceYpoint = neumarkPriceXpoint !== xPoint ? yPoint - 30 : yPoint;
+
     ctx.textAlign = "left";
     ctx.textBaseline = "bottom";
 
     // neumark price
-    drawText(ctx, neuMarkPrice, "#262B2F", "19px", xPoint + 5, yPoint);
+    drawText(ctx, neuMarkPrice, "#262B2F", "19px", neumarkPriceXpoint + 5, neumarkPriceYpoint);
 
     // current ether raised
     drawCircle(ctx, "#09719B", 5, xPoint, yPoint);
@@ -76,10 +79,10 @@ const neuMarkInfoPlugin = {
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);
 
     // x-axis label
-    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "8px", xAxe.right - 50, yAxe.bottom + 30);
+    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "8px", xAxe.right + 10, yAxe.bottom);
 
     // y-axis label
-    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "8px", xAxe.left, yAxe.top - 10);
+    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "8px", xAxe.left - 20, yAxe.top - 20);
   },
 };
 

@@ -25,18 +25,28 @@ export const getPrice = (
   return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2 / currencyRate;
 };
 
-/*
-// We are not using this function for now
-const getCumulativeNEU = (
+export const getCumulativeNEU = (
   currencyRate: number,
   initialReward: number,
   capNEU: number,
   atETH: number
 ) => {
   const atEUR = atETH / currencyRate;
-  return (1 - Math.exp(-1 * initialReward * atEUR / capNEU)) * capNEU;
+  return (1 - Math.exp(-1 * initialReward * atEUR / capNEU)) * capNEU / 2;
 };
-*/
+
+export const getNeumarkAmount = (
+  currencyRate: number,
+  initialReward: number,
+  capNEU: number,
+  atETH: number,
+  ticketSize: number
+) => {
+  const secondPoint = getCumulativeNEU(currencyRate, initialReward, capNEU, atETH + ticketSize);
+  const firstPoint = getCumulativeNEU(currencyRate, initialReward, capNEU, atETH);
+
+  return secondPoint - firstPoint;
+};
 
 export const getEtherDataset = (min: number, max: number, count: number) => {
   const result = [];
@@ -62,6 +72,9 @@ export default (props: ICurveChart) => {
   neuMarkInfoCurveChartPlugin();
 
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
+
+  etherDatasetList.push(currentRasiedEther);
+  etherDatasetList.sort((a: number, b: number) => a - b);
 
   let activePointIndex = 0;
 
@@ -99,9 +112,7 @@ export default (props: ICurveChart) => {
         pointHoverBorderWidth: 2,
         pointRadius: 0.5,
         pointHitRadius: 10,
-        data: etherDatasetList.map(eth =>
-          getPrice(currencyRate, initialReward, capNEU, eth)
-        ),
+        data: etherDatasetList.map(eth => getPrice(currencyRate, initialReward, capNEU, eth)),
       },
     ],
   };
@@ -114,11 +125,19 @@ export default (props: ICurveChart) => {
       xAxesLabel: "Amount of ETH\nCommited",
       yAxesLabel: "Neumark Reward\n(NEU/ETH)",
     },
+    layout: {
+      padding: {
+        left: 0,
+        right: 190,
+        top: 50,
+        bottom: 0,
+      },
+    },
     scales: {
       xAxes: [
         {
           scaleLabel: {
-            display: true,            
+            display: true,
           },
           gridLines: {
             display: true,
@@ -147,6 +166,7 @@ export default (props: ICurveChart) => {
             drawBorder: true,
             drawOnChartArea: false,
             color: "#D5E20F",
+            drawTicks: true,
           },
           ticks: {
             fontSize: 8,
@@ -161,7 +181,7 @@ export default (props: ICurveChart) => {
       ],
     },
     legend: {
-      display: true,
+      display: false,
       responsive: true,
     },
     tooltips: {
@@ -179,6 +199,7 @@ export default (props: ICurveChart) => {
         },
       },
     },
+    responsive: true,
   };
 
   return <Line data={data} options={options} />;

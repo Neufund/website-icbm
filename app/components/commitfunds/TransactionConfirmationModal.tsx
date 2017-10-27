@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { EtherScanLinkType } from "../../actions/constants";
@@ -66,13 +66,20 @@ const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
     />
   </div>;
 
-export const TransactionConfirmationModalComponent: React.SFC<ITransactionState> = ({
+interface ITransactionConfirmationModalExtras {
+  handleGoToAftermath: () => void;
+}
+
+export const TransactionConfirmationModalComponent: React.SFC<
+  ITransactionState & ITransactionConfirmationModalExtras
+> = ({
   txStarted,
   txHash,
   blockOfConfirmation,
   blockHistory,
   txConfirmed,
   error,
+  handleGoToAftermath,
 }) => {
   return (
     <Modal
@@ -105,6 +112,12 @@ export const TransactionConfirmationModalComponent: React.SFC<ITransactionState>
             {error}
           </div>}
       </Modal.Body>
+      {txConfirmed &&
+        <Modal.Footer>
+          <Button bsStyle="primary" onClick={handleGoToAftermath}>
+            see aftermath page
+          </Button>
+        </Modal.Footer>}
     </Modal>
   );
 };
@@ -118,4 +131,6 @@ const mapStateToProps = (state: IAppState): ITransactionState => ({
   error: state.transactionState.error,
 });
 
-export default connect(mapStateToProps)(TransactionConfirmationModalComponent);
+export default connect<ITransactionState, null, ITransactionConfirmationModalExtras>(
+  mapStateToProps
+)(TransactionConfirmationModalComponent);

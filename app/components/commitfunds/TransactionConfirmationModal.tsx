@@ -26,16 +26,18 @@ const BlockHistoryComponent: React.SFC<IBlockHistoryComponent> = ({ blockHistory
           <th>transaction confirmed</th>
         </tr>
       </thead>
-      {blockHistory.map(block =>
-        <tr key={block.blockNo}>
-          <td>
-            {block.blockNo}
-          </td>
-          <td>
-            {block.confirmedTx ? "yes" : "no"}
-          </td>
-        </tr>
-      )}
+      <tbody>
+        {blockHistory.map(block =>
+          <tr key={block.blockNo}>
+            <td>
+              {block.blockNo}
+            </td>
+            <td>
+              {block.confirmedTx ? "yes" : "no"}
+            </td>
+          </tr>
+        )}
+      </tbody>
     </table>
   );
 };

@@ -1,4 +1,5 @@
 .how-it-works {
+
   .number-offset {
     @media (min-width: $screen-md-min) {
       padding-left: 50px;
@@ -21,6 +22,8 @@
   }
 
   .content {
+    
+    margin-left: $left-space-between-paragraphs;
     h2 {
       margin-bottom: 30px;
       color: $gray-darker;
@@ -44,6 +47,7 @@
 
   .image {
     margin: 40px auto;
-    max-height: 200px;
+    margin-top: 0px;
+    max-height: 400px;
   }
 }

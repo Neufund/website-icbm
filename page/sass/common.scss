@@ -31,6 +31,10 @@ p.slim {
     }
 }
 
+.shadow-background {
+    box-shadow: inset 0 1px 33px 0 rgba(217, 219, 220, 0.1);
+}
+
 .section {
     position: relative;
     padding-top: $padding-between-sections;
@@ -42,6 +46,10 @@ p.slim {
 
     .hidden-picture{
         display: none;
+    }
+
+    h2 {
+        padding-bottom: 7px;
     }
 
     h3{

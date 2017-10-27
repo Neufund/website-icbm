@@ -79,23 +79,6 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
           </p>
         </div>
       </form>
-
-      <ul className={style.information}>
-        <li>NEU is denominated to EUR, EUR to ETH is stable…</li>
-        <li>Neufund ICO phase:</li>
-        <li>
-          Start price: <b>8.25</b> NEU / 1 EUR
-        </li>
-        <li>
-          Finish: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <br />
-        <li>Post-ICO phase:</li>
-        <li>
-          Start price: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <li>Finish: ...</li>
-      </ul>
     </div>
   );
 };

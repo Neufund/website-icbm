@@ -20,7 +20,7 @@ export const Curve = (props: any) => {
   return (
     <Row>
       <Col md={12}>
-        <h2>Rules</h2>
+        <h2>Get your NEU reward</h2>
       </Col>
       <Col md={5}>
         <PriceCalculator

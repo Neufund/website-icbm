@@ -2,6 +2,12 @@
 
 $spacing-from-container: 22px;
 
+h2 {
+  font-size: $section-title-font-size;
+  color: $gray-darker;
+  font-weight: $font-weight-bold;
+}
+
 .estimation-component {
   padding-top: $spacing-from-container;
   font-size: $font-size-smallest;
@@ -54,7 +60,7 @@ $spacing-from-container: 22px;
   }
 
   .description {
-    color: $gray-little-dark;
+    color: $light-off-gray;
     font-size: $font-size-smallest;
   }
 

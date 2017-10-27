@@ -2,7 +2,7 @@
   h2 {
     color: $gray-darker;
     font-size: $section-title-font-size;
-    font-weight: $font-weight-more-bold;
+    font-weight: $font-weight-bold;
   }
 
   .feature-list {
@@ -14,6 +14,8 @@
     margin-right: auto;
     margin-left: auto;
     max-width: 315px;
+    color: $off-gray;
+    text-align: center;
 
     .feature-image {
       margin-bottom: 50px;

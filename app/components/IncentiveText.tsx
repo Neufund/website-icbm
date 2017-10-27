@@ -11,15 +11,12 @@ export const IncentiveText: React.SFC = () =>
       Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain startups.
     </p>
     <p>
-      Reserve funds<sup>
-        <a href="#how-it-works">01</a>
-      </sup>{" "}
+      Reserve funds
       today for your future investments. Maintain full control over your investment decisions.
     </p>
+    <br/>
     <p>
-      Get Neumarks<sup>
-        <a href="#why-participate">02</a>
-      </sup>{" "}
+      Get Neumarks
       just by reserving funds and become a co-owner of the platform.
     </p>
   </Col>;

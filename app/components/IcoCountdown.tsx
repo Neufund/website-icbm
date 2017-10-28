@@ -16,10 +16,12 @@ const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
   <div className={styles.countdown}>
     <h3>ICBM OPENS:</h3>
     <h1>
-      {startDate.format("Do MMM. YYYY")}
+      {startDate.utc().format("Do MMM. YYYY")}
     </h1>
 
-    <h2 className={styles.icoTimeStart}>11.00am UTC</h2>
+    <h2 className={styles.icoTimeStart}>
+      {startDate.utc().format("hh:mm a")} <span className={styles.timezone}>UTC</span>
+    </h2>
 
     <div className={styles.timeLeft}>
       <h3>TIME LEFT:</h3>

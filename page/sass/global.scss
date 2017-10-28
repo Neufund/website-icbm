@@ -28,8 +28,9 @@ label {
   }
 }
 
-h1 {
-  font-weight: $font-weight-max-bold;
+h1,
+h2 {
+  font-weight: $font-weight-normal;
 }
 
 .btn {
@@ -37,7 +38,8 @@ h1 {
   box-shadow: 0 1px 1px 0 $gray-lighter;
   padding: 10px 60px;
   line-height: 20px;
-  font-weight: $font-weight-more-bold;
+  font-size: $font-size-normal-smaller;
+  font-weight: $font-weight-normal;
 
   a {
     .btn {
@@ -46,14 +48,12 @@ h1 {
   }
 
   &.btn-primary {
-    background: linear-gradient(180deg, #345363 0%, #2a5a70 100%); // sass-lint:disable-line no-color-literals
+    background-image: linear-gradient(106deg, $blue-off, $blue-off 2%, $black-lighter);
+    width: 196px;
+    color: $white;
 
     &:hover {
-      background: linear-gradient(180deg, #34617e 0%, #2a6585 100%); // sass-lint:disable-line no-color-literals
-    }
-
-    &:active {
-      background: linear-gradient(180deg, #2b4351 0%, #22485a 100%); // sass-lint:disable-line no-color-literals
+      font-weight: $font-weight-bold;
     }
   }
 

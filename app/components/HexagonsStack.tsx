@@ -35,13 +35,13 @@ export const HexagonsStack: React.SFC<IHexagonsStackProps> = ({
       <div>
         <BlueHexagon
           className={blueClassName}
-          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
           width={width}
           height={height}
         />
         <WhiteHexagon
           className={whiteClassName}
-          polygonPoints={"303,153 228,283 78,283 3,153 78,23 228,23"}
+          polygonPoints={"480,300 300,480 70,410 0,170 170,0 410,70"}
           width={width}
           height={height}
         />

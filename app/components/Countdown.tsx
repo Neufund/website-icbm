@@ -25,23 +25,27 @@ export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComp
   const valueClassNames = cn(styles.value, classNames.value);
 
   return (
-    <span className={cn(styles.countdown, classNames.root)}>
-      <strong className={labelClassNames}>d</strong>
-      <span className={valueClassNames} data-test-id="countdown-days">
+    <span className={cn(styles.countdown, classNames.root)}>      
+      <strong className={valueClassNames} data-test-id="countdown-days">
         {numberFormatter(Math.floor(duration.asDays()))}
-      </span>
-      <strong className={labelClassNames}>h</strong>
-      <span className={valueClassNames} data-test-id="countdown-hours">
+      </strong>
+      <span className={labelClassNames}>d</span>
+
+      
+      <strong className={valueClassNames} data-test-id="countdown-hours">
         {numberFormatter(duration.hours())}
-      </span>
-      <strong className={labelClassNames}>m</strong>
-      <span className={valueClassNames} data-test-id="countdown-minutes">
+      </strong>
+      <span className={labelClassNames}>h</span>
+
+      <strong className={valueClassNames} data-test-id="countdown-minutes">
         {numberFormatter(duration.minutes())}
-      </span>
-      <strong className={labelClassNames}>s</strong>
-      <span className={valueClassNames} data-test-id="countdown-seconds">
+      </strong>
+      <span className={labelClassNames}>m</span>
+      
+      <strong className={valueClassNames} data-test-id="countdown-seconds">
         {numberFormatter(duration.seconds())}
-      </span>
+      </strong>
+      <span className={labelClassNames}>s</span>
     </span>
   );
 };

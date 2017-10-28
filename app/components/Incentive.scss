@@ -21,12 +21,12 @@
   top: 45px;
   margin-right: auto;
   margin-left: auto;
-  width: 300px;
-  height: 350px;
+  width: 480px;
+  height: 480px;
 }
 
 .countdown {
-  text-align: center;
+  text-align: left;
   font-size: $font-size-normal;
 
   @media (min-width: $screen-sm-min) {
@@ -48,13 +48,36 @@
     font-size: 15px;
   }
 
+  h1 {
+    text-align: left;
+  }
+
   h3 {
     padding: 0;
     font-size: $font-size-small;
     font-weight: $font-weight-light;
   }
+
+  .ico-time-start{
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-max-bold;
+  }
 }
 
 .pulldown {
   margin-top: 15px;
+}
+
+.time-left {
+  h3 {
+    font-size: $font-size-small;
+    font-weight: $font-weight-light;
+    float: left;
+    margin: 0px;
+    margin-top: 4px;
+    margin-right: 20px;
+  }
+  .count-down-container {
+    float: left;
+  }
 }

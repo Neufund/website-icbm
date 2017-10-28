@@ -13,19 +13,22 @@ export default () =>
         name="mc-embedded-subscribe-form"
         className="validate"
       >
-        <span className={styles.cursor}>|</span>
         <input
+          id="mce-EMAIL"
           className={styles.subscribeInput}
-          type="text"
-          name="b_c2bd93d42fef6e010809046de_fa0fc41e50"
+          type="email"
+          name="EMAIL"
           placeholder="example@email.com"
         />
+        <div aria-hidden="true" className={styles.hiddenInput}>
+          <input type="text" name="b_c2bd93d42fef6e010809046de_fa0fc41e50" tabIndex={-1} value="" />
+        </div>
         <input
           type="submit"
           value="Subscribe"
           name="subscribe"
           id="mc-embedded-subscribe"
-          className={"btn " + styles.btnSubmit}
+          className="btn btn-primary"
         />
       </form>
     </Col>

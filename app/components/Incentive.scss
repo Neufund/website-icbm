@@ -19,7 +19,7 @@
 
 .hexagons {
   display: block;
-  top: 45px;
+  top: 75px;
   margin-right: auto;
   margin-left: auto;
   width: 480px;
@@ -60,8 +60,13 @@
   }
 
   .ico-time-start {
+    margin-top: 0;
+    color: $blue-darker;
     font-size: $section-title-font-size;
-    font-weight: $font-weight-max-bold;
+
+    .timezone {
+      font-size: 22px;
+    }
   }
 }
 

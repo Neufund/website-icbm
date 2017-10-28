@@ -483,9 +483,9 @@ ecosystem:
     - name: "Regulatory Efforts"
       subtitle: "Blockchain Policy Initiative"
       href: "https://blockchainpolicy.org"
-    - name: "Coming Soon"
-      subtitle: "Ethereum Improvement Proposal"
-      href: "#"
+    - name: "DevOps Innovation"
+      subtitle: "Smart Contract Watch"
+      href: "https://blog.neufund.org/keep-your-private-keys-close-and-keep-your-smart-contracts-closer-introducing-the-smart-contract-e3bd1fcad204"
 
 press:
   links:

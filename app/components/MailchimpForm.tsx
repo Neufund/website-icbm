@@ -1,8 +1,9 @@
+import * as cn from "classnames";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import * as styles from "./MailchimpForm.scss";
 
-export default () =>
+export const MailchimpForm = () =>
   <Row>
     <Col md={12}>
       <p>Be the first to know subscribe now to out newsletter:</p>
@@ -28,7 +29,7 @@ export default () =>
           value="Subscribe"
           name="subscribe"
           id="mc-embedded-subscribe"
-          className="btn btn-primary"
+          className={cn("btn btn-primary", styles.subscribeBtn)}
         />
       </form>
     </Col>

@@ -1,5 +1,5 @@
-// sass-lint:disable-line clean-import-paths
-@import '../../common/sass/variables';
+@import '../../common/sass/variables'; // sass-lint:disable-line clean-import-paths
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables'; // sass-lint:disable-line clean-import-paths
 
 .subscribe-input {
   display: block;
@@ -30,4 +30,10 @@
 .hidden-input {
   position: absolute;
   left: -5000px;
+}
+
+.subscribe-btn {
+  @media (max-width: $screen-sm-max) {
+    margin-bottom: 30px;
+  }
 }

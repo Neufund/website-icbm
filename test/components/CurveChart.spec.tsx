@@ -66,7 +66,7 @@ describe("helper functions", () => {
 
     it("should return the value for 400000 ETH", () => {
       const result = getPrice(currencyRate, initialReward, capNEU, 400000);
-      expect(result.toFixed(2)).to.equal("2.06");
+      expect(result.toFixed(2)).to.equal("541.07");
     });
   });
 

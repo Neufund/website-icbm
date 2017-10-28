@@ -77,6 +77,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
             Calculated amount might not be precised, reward will be granted after the block is mined
             and it might depend on the order of transactions.
           </p>
+          <p className={style.description}>(The current ether price is taken from coinbase.com)</p>
         </div>
       </form>
     </div>

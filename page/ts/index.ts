@@ -2,6 +2,7 @@ import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
 import "!style-loader!css-loader!vex-js/dist/css/vex.css";
 import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import * as $ from "jquery";
+import { debounce, throttle } from "lodash";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";
@@ -76,19 +77,25 @@ $(".faq .show-answer").click(function(e) {
   }
 });
 
-$(window).scroll(() => {
-  const scroll: number = $(window).scrollTop();
-  const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
-  if (scroll < 20) {
-    if ($(headerSelector).hasClass("border")) {
-      $(headerSelector).removeClass("border");
-    }
-  } else {
-    if (!$(headerSelector).hasClass("border")) {
-      $(headerSelector).addClass("border");
-    }
-  }
-});
+$(window).scroll(
+  throttle(
+    () => {
+      const scroll: number = $(window).scrollTop();
+      const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
+      if (scroll < 20) {
+        if ($(headerSelector).hasClass("border")) {
+          $(headerSelector).removeClass("border");
+        }
+      } else {
+        if (!$(headerSelector).hasClass("border")) {
+          $(headerSelector).addClass("border");
+        }
+      }
+    },
+    200,
+    { trailing: true }
+  )
+);
 
 function movePlatformButtonToAnotherColumn() {
   if ($(window).width() < 992) {
@@ -97,7 +104,7 @@ function movePlatformButtonToAnotherColumn() {
     $("#platform-btn").detach().appendTo("#platform-first-col");
   }
 }
-$(window).resize(movePlatformButtonToAnotherColumn);
+$(window).resize(debounce(movePlatformButtonToAnotherColumn, 300));
 movePlatformButtonToAnotherColumn();
 
 // Smooth scrolling

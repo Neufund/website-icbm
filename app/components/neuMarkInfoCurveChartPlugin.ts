@@ -73,7 +73,7 @@ const neuMarkInfoPlugin = {
     drawText(ctx, neuMarkPrice, "#262B2F", "19px", neumarkPriceXpoint + 5, neumarkPriceYpoint);
 
     // current ether raised
-    drawCircle(ctx, "#09719B", 5, xPoint, yPoint);
+    drawCircle(ctx, "#09719B", 5, xPoint - 2, yPoint);
 
     // Text in the middle of of the chart
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);

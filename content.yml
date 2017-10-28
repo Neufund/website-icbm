@@ -394,7 +394,7 @@ advisors:
 
     - name: "Christophe Maire"
       title: <span class="position">Founder and CEO</span> Atlantic Labs
-      image: "../assets/christophe-maire.png"
+      image: "../assets/christophe-maire.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
         website: "http://www.atlanticlabs.de/"

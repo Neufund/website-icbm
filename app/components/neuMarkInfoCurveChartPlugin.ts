@@ -79,10 +79,10 @@ const neuMarkInfoPlugin = {
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);
 
     // x-axis label
-    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "8px", xAxe.right + 10, yAxe.bottom);
+    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "11px", xAxe.right + 10, yAxe.bottom);
 
     // y-axis label
-    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "8px", xAxe.left - 20, yAxe.top - 20);
+    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "11px", xAxe.left - 20, yAxe.top - 20);
   },
 };
 

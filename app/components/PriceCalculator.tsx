@@ -57,6 +57,13 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
 }) => {
   return (
     <div>
+      <p className={style.preTextPargraph}>
+        In the ICBM you get NEU now for your willingness to fund companies later. On top of that we
+        incentivize early birds. NEU reward is highest at the start of ICBM, then early comer bonus
+        decreases as committed capital pool grows.
+      </p>
+      <strong className={style.preTextPargraph}>Current NEU reward ____ NEU / 1 ETH</strong>
+
       <form onKeyUp={calculateEstimatedReward}>
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Calculate your estimated reward:</p>

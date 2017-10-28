@@ -1,36 +1,37 @@
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables';  // sass-lint:disable-line clean-import-paths
+// sass-lint:disable-line clean-import-paths
 @import '../../common/sass/variables';
 
-input::-webkit-input-placeholder {
-    color: #cecece;
-}
- 
-input:-moz-placeholder { /* Firefox 18- */
-    color: #cecece;
-}
+.subscribe-input {
+  display: block;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: solid 1px $gray-border;
+  width: 90%;
+  text-indent: 9px;
+  color: $gray-darker;
 
-.subscribe-input {    
-    display: block;
-    border: 0;
-    border-bottom: solid 1px $gray-border;
-    width: 90%;
-    margin-bottom: 20px;
-    color: $gray-darker;
-    text-indent: 9px;
+  &::-webkit-input-placeholder { // sass-lint:disable-line no-vendor-prefixes
+    color: $gray-placeholder;
+  }
+
+  &:-moz-placeholder { // sass-lint:disable-line no-vendor-prefixes
+    color: $gray-placeholder;
+  }
+
 }
 
 .cursor {
-    position: absolute;
-    color: #cecece;
-    font-size: $font-size-normal;
-    font-weight: $font-weight-bold;
+  position: absolute;
+  color: $gray-placeholder;
+  font-size: $font-size-normal;
+  font-weight: $font-weight-bold;
 }
 
 .btn-submit {
-    border-radius: 20px;
-    color: $white;
-    font-weight: $font-weight-normal;
-    font-size: $font-size-normal-smaller;
-	background-image: linear-gradient(106deg, #09719b, #09719b 2%, #424a52);
-	box-shadow: 0 1px 1px 0 #a3c0cc;
+  border-radius: 20px;
+  box-shadow: 0 1px 1px 0 $gray-lighter;
+  background-image: linear-gradient(106deg, $blue-off, $blue-off 2%, $black-lighter);
+  color: $white;
+  font-size: $font-size-normal-smaller;
+  font-weight: $font-weight-normal;
 }

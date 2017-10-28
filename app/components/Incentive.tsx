@@ -48,13 +48,10 @@ export const Incentive: React.SFC<IIncentive> = ({ startDate, onFinish, neumarkI
         startups.
       </p>
       <p>
-        Reserve funds
-        today for your future investments. Maintain full control over your investment decisions.
+        Reserve funds today for your future investments. Maintain full control over your investment
+        decisions.
       </p>
-      <p>
-        Get Neumarks
-        simply by reserving funds, and become a co-owner of the ecosystem.
-      </p>
+      <p>Get Neumarks simply by reserving funds, and become a co-owner of the ecosystem.</p>
     </Col>
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons}>

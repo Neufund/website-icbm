@@ -25,13 +25,12 @@ export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComp
   const valueClassNames = cn(styles.value, classNames.value);
 
   return (
-    <span className={cn(styles.countdown, classNames.root)}>      
+    <span className={cn(styles.countdown, classNames.root)}>
       <strong className={valueClassNames} data-test-id="countdown-days">
         {numberFormatter(Math.floor(duration.asDays()))}
       </strong>
       <span className={labelClassNames}>d</span>
 
-      
       <strong className={valueClassNames} data-test-id="countdown-hours">
         {numberFormatter(duration.hours())}
       </strong>
@@ -41,7 +40,7 @@ export const CountdownComponent = ({ duration, classNames = {} }: ICountdownComp
         {numberFormatter(duration.minutes())}
       </strong>
       <span className={labelClassNames}>m</span>
-      
+
       <strong className={valueClassNames} data-test-id="countdown-seconds">
         {numberFormatter(duration.seconds())}
       </strong>

@@ -1,5 +1,6 @@
 // @todo how to avoid including it many times?
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables';  // sass-lint:disable-line clean-import-paths
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables'; // sass-lint:disable-line clean-import-paths
+// sass-lint:disable-line clean-import-paths
 @import '../../common/sass/variables';
 
 @media (min-width: $screen-sm) {
@@ -58,7 +59,7 @@
     font-weight: $font-weight-light;
   }
 
-  .ico-time-start{
+  .ico-time-start {
     font-size: $section-title-font-size;
     font-weight: $font-weight-max-bold;
   }
@@ -70,13 +71,14 @@
 
 .time-left {
   h3 {
-    font-size: $font-size-small;
-    font-weight: $font-weight-light;
     float: left;
-    margin: 0px;
+    margin: 0;
     margin-top: 4px;
     margin-right: 20px;
+    font-size: $font-size-small;
+    font-weight: $font-weight-light;
   }
+
   .count-down-container {
     float: left;
   }

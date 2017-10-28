@@ -32,8 +32,8 @@
 
     .text {
       p {
-        font-size: $font-size-small;
         color: $gray-darker;
+        font-size: $font-size-small;
       }
     }
   }
@@ -46,7 +46,7 @@
 
   .image {
     margin: 40px auto;
-    margin-top: 0px;
+    margin-top: 0;
     max-height: 400px;
   }
 }

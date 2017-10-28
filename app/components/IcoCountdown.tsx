@@ -21,11 +21,11 @@ const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
 
     <h2 className={styles.icoTimeStart}>11.00am UTC</h2>
 
-    <div className={styles.timeLeft}> 
+    <div className={styles.timeLeft}>
       <h3>TIME LEFT:</h3>
-      <div className={styles.countDownContainer} >
+      <div className={styles.countDownContainer}>
         <Countdown finishDate={startDate} />
-      </div>      
+      </div>
     </div>
   </div>;
 
@@ -33,9 +33,7 @@ export const IcoCountdown: React.SFC<IIcoCountdownProps> = props =>
   <Row>
     <IncentiveText />
     <Col sm={6} xsHidden>
-      <HexagonsStack className={styles.hexagons}
-          width={480}
-          height={480}>
+      <HexagonsStack className={styles.hexagons} width={480} height={480}>
         <HexagonText {...props} />
       </HexagonsStack>
     </Col>

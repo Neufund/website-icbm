@@ -12,12 +12,6 @@ import { getPersonModal } from "./personModal";
 import "./scroll.js";
 import scrollbarFix from "./scrollbarFix";
 
-$("body").faqScroll({
-  sidebarArea: "#sidebar",
-  offset: 80,
-  speed: 100,
-});
-
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
 
@@ -31,9 +25,24 @@ const getParticipateModal: any = (text: string) => {
       </div>`,
   };
 };
-$(document).ready(() => {
+
+const movePlatformButtonToAnotherColumn = () => {
+  if ($(window).width() < 992) {
+    $("#platform-btn").detach().appendTo("#platform-second-col");
+  } else {
+    $("#platform-btn").detach().appendTo("#platform-first-col");
+  }
+};
+
+$(() => {
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";
+
+  $("body").faqScroll({
+    sidebarArea: "#sidebar",
+    offset: 80,
+    speed: 100,
+  });
 
   $(".person-block").click(function() {
     // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
@@ -60,55 +69,45 @@ $(document).ready(() => {
     const text = $(this).text();
     vex.open(getParticipateModal(`<h4>${text}</h4> <p class="slim">Coming soon</p>`));
   });
-});
 
-$(".faq .show-answer").click(function(e) {
-  e.preventDefault();
+  $(".faq .show-answer").click(function(e) {
+    e.preventDefault();
 
-  const pTag: any = $(this).siblings(".answer")[0];
-  const iconTag: any = $(this).find(".material-icons")[0];
+    const pTag: any = $(this).siblings(".answer")[0];
+    const iconTag: any = $(this).find(".material-icons")[0];
 
-  if ($(pTag).is(":visible")) {
-    $(pTag).slideUp();
-    $(iconTag).html("keyboard_arrow_down");
-  } else {
-    $(pTag).slideDown();
-    $(iconTag).html("keyboard_arrow_up");
-  }
-});
+    if ($(pTag).is(":visible")) {
+      $(pTag).slideUp();
+      $(iconTag).html("keyboard_arrow_down");
+    } else {
+      $(pTag).slideDown();
+      $(iconTag).html("keyboard_arrow_up");
+    }
+  });
 
-$(window).scroll(
-  throttle(
-    () => {
-      const scroll: number = $(window).scrollTop();
-      const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
-      if (scroll < 20) {
-        if ($(headerSelector).hasClass("border")) {
-          $(headerSelector).removeClass("border");
+  $(window).scroll(
+    throttle(
+      () => {
+        const scroll: number = $(window).scrollTop();
+        const headerSelector: string = ".navbar.navbar-default.navbar-fixed-top";
+        if (scroll < 20) {
+          if ($(headerSelector).hasClass("border")) {
+            $(headerSelector).removeClass("border");
+          }
+        } else {
+          if (!$(headerSelector).hasClass("border")) {
+            $(headerSelector).addClass("border");
+          }
         }
-      } else {
-        if (!$(headerSelector).hasClass("border")) {
-          $(headerSelector).addClass("border");
-        }
-      }
-    },
-    200,
-    { trailing: true }
-  )
-);
+      },
+      200,
+      { trailing: true }
+    )
+  );
 
-function movePlatformButtonToAnotherColumn() {
-  if ($(window).width() < 992) {
-    $("#platform-btn").detach().appendTo("#platform-second-col");
-  } else {
-    $("#platform-btn").detach().appendTo("#platform-first-col");
-  }
-}
-$(window).resize(debounce(movePlatformButtonToAnotherColumn, 300));
-movePlatformButtonToAnotherColumn();
+  $(window).resize(debounce(movePlatformButtonToAnotherColumn, 300));
+  movePlatformButtonToAnotherColumn();
 
-// Smooth scrolling
-$(document).ready(() => {
   $('a[href*="#how-it-works"],a[href*="#why-participate"]').click(function(e) {
     e.preventDefault();
     // the destination id will be taken from the href attribute
@@ -126,9 +125,7 @@ $(document).ready(() => {
   });
 
   scrollbarFix();
-});
 
-$(document).ready(() => {
   $(".has-carousel").owlCarousel({
     navigation: true,
     loop: true,

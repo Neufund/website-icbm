@@ -26,8 +26,6 @@ const checkSectionVisiablity = function(item, content) {
 <% } %> -->
 <%- include('why-how', Object.assign({}, content['why-how'].sections[1], { index: 1 })) %>
 
-<%- checkSectionVisiablity(content.invest_platform, include('key-reading', content['key-reading'])); %>
-
 <%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>
@@ -37,3 +35,5 @@ const checkSectionVisiablity = function(item, content) {
 <%- checkSectionVisiablity(content.advisors, include('quotes', content.quotes)); %>
 
 <%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>
+
+<%- checkSectionVisiablity(content['key-reading'], include('key-reading', content['key-reading'])); %>

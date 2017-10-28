@@ -18,9 +18,12 @@
     color: $off-gray;
 
     .feature-image {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: center;
       margin-bottom: 50px;
-      max-height: 109px;
-      text-align: center;
+      height: 116px;
     }
 
     .feature-text {

@@ -1,0 +1,23 @@
+<div class="invest-platform section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="section-title">Key reading</h3>
+            </div>
+            <div class="col-md-offset-1 col-md-5">
+                <ul class="separator compact-list">
+                    <% for(var i = 0; i < 3; i++) { %>
+                        <li><i class="material-icons"><%- links[i].downloadable? "file_upload" : "link" %> </i><a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a></li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="separator compact-list">
+                    <% for(var i = 3; i < links.length; i++) { %>
+                        <li><i class="material-icons"><%- links[i].downloadable? "file_upload" : "link" %> </i><a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Col } from "react-bootstrap";
 
 import * as styles from "./IncentiveText.scss";
+import MailchimpForm from "./MailchimpForm";
 
 export const IncentiveText: React.SFC = () =>
   <Col sm={6} className={styles.incentive}>
@@ -19,4 +20,5 @@ export const IncentiveText: React.SFC = () =>
       Get Neumarks
       just by reserving funds and become a co-owner of the platform.
     </p>
+    <MailchimpForm />
   </Col>;

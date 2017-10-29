@@ -447,16 +447,16 @@ quotes:
       link: https://www.tandem.net/
       quote: |
         The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!
-    - author: Fabian Vogelsteller, <span class="position">Developer</span>
-      company: "Ethereum and Mist"
-      link: https://github.com/ethereum/mist/releases
-      quote: |
-        I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
     - author: Alessio Avellan Borgmeyer, <span class="position">CEO & Founder</span>
       company: "Jodel"
       link: https://jodel-app.com/
       quote: |
         Here at Jodel we love the crypto world and how it brings communities closer together. That’s what we’re all about! So when we decided to raise funds from our own community and the ICO model didn’t meet our needs, we came across Neufund.
+    - author: Fabian Vogelsteller, <span class="position">Developer</span>
+      company: "Ethereum and Mist"
+      link: https://github.com/ethereum/mist/releases
+      quote: |
+        I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
 
 ecosystem:
   visible: true

@@ -15,6 +15,6 @@ export const IncentiveText: React.SFC = () =>
       Reserve funds today for your future investments and receive Neumarks, making you a co-owner of
       the platform.
     </p>
-    <p>You maintain full control over your investment decisions. at all times.</p>
+    <p>You maintain full control over your investment decisions, at all times.</p>
     <MailchimpForm />
   </Col>;

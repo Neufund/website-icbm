@@ -14,7 +14,7 @@ interface IIcoCountdownProps {
 
 const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
   <div className={styles.countdown}>
-    <h3>ICBM OPENS:</h3>
+    <h3>ICBM STARTS:</h3>
     <h1>
       {startDate.utc().format("Do MMM. YYYY")}
     </h1>

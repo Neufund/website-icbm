@@ -41,6 +41,7 @@ const styledField = (props: any) => {
 };
 
 interface ICommitFundsEstimation {
+  rewardForOneEth: number;
   estimatedReward: number;
   calculateEstimatedReward: () => {};
   loadingEstimatedReward: boolean;
@@ -51,6 +52,7 @@ interface ICommitFundsEstimationFormValues {
 }
 
 const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = ({
+  rewardForOneEth,
   estimatedReward,
   calculateEstimatedReward,
   loadingEstimatedReward,
@@ -62,7 +64,9 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         incentivize early birds. NEU reward is the highest at the start of the ICBM, then early
         comer bonus decreases as the committed capital pool grows.
       </p>
-      <strong className={style.preTextPargraph}>Current NEU reward ____ NEU / 1 ETH</strong>
+      <strong className={style.preTextPargraph}>
+        Current NEU reward {rewardForOneEth.toFixed(2)} NEU / 1 ETH
+      </strong>
 
       <form onKeyUp={calculateEstimatedReward}>
         <div className={style.estimationComponent}>

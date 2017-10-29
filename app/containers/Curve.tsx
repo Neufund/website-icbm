@@ -16,6 +16,13 @@ export const Curve = (props: any) => {
   const max: number = 3000000;
   const dotsNumber: number = 50;
   const currentRasiedEther: number = 0;
+  const rewardForOneEth = getNeumarkAmount(
+    currencyRate,
+    initialReward,
+    capNEU,
+    currentRasiedEther,
+    1
+  );
 
   return (
     <Row>
@@ -24,6 +31,7 @@ export const Curve = (props: any) => {
       </Col>
       <Col mdOffset={1} md={4}>
         <PriceCalculator
+          rewardForOneEth={rewardForOneEth}
           estimatedReward={parseFloat(props.commitmentState.estimatedReward)}
           calculateEstimatedReward={() => {
             // tslint:disable-next-line

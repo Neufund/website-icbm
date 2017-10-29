@@ -2,7 +2,7 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { setEstimatedRewardAction } from "../actions/submitFunds";
+import { setEstimatedRewardAction, setInvalidEstimatedRewardInput } from "../actions/submitFunds";
 import CurveChart, { getNeumarkAmount } from "../components/CurveChart";
 import PriceCalculator from "../components/PriceCalculator";
 import { IAppState } from "../reducers/index";
@@ -32,15 +32,29 @@ export const Curve = (props: any) => {
       <Col mdOffset={1} md={4}>
         <PriceCalculator
           rewardForOneEth={rewardForOneEth}
+          isInValidEstimatedReward={props.commitmentState.inValidEstimatedReward}
           estimatedReward={parseFloat(props.commitmentState.estimatedReward)}
           calculateEstimatedReward={() => {
             // tslint:disable-next-line
+            props.setInvalidEstimatedRewardInput(false);
             if (
               typeof props.form.commitFunds.values === "undefined" ||
-              typeof props.form.commitFunds.values.ethAmount === "undefined" ||
-              isNaN(props.form.commitFunds.values.ethAmount)
+              typeof props.form.commitFunds.values.ethAmount === "undefined"
             ) {
               props.setEstimatedRewardAction(0);
+              return;
+            }
+
+            let ethAmount = props.form.commitFunds.values.ethAmount;
+            ethAmount = ethAmount.replace(",", ".");
+
+            if (
+              isNaN(ethAmount) ||
+              parseFloat(ethAmount) <= 0 ||
+              props.form.commitFunds.values.ethAmount.length > 9
+            ) {
+              props.setEstimatedRewardAction(0);
+              props.setInvalidEstimatedRewardInput(true);
               return;
             }
 
@@ -49,7 +63,7 @@ export const Curve = (props: any) => {
               initialReward,
               capNEU,
               currentRasiedEther,
-              parseFloat(props.form.commitFunds.values.ethAmount)
+              parseFloat(ethAmount)
             );
             props.setEstimatedRewardAction(price);
             return price;
@@ -84,6 +98,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     setEstimatedRewardAction: (price: number) =>
       dispatch(setEstimatedRewardAction(price.toFixed(2))),
+    setInvalidEstimatedRewardInput: (status: boolean) =>
+      dispatch(setInvalidEstimatedRewardInput(status)),
   };
 }
 

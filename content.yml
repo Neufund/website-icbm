@@ -6,21 +6,29 @@ meta_head:
 
 why-how:
   sections:
-    - title: "Risk-free Commitment"
+    - title: "Enjoy Risk-free Commitment"
       id: "how-it-works"
       content: |
-         <p>Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.</p>
+         <p>In Neufund’s ICBM you reserve funds for your future investments on the Neufund Platform. In return we reward you with NEU tokens. NEU entitles you to economic co-ownership of the Neufund Platform.</p>
 
-         <p>Reserve ETH into you personal Ethereum investment count  with the intention to invest it into projects that would ICO on Neufund Platform.</p>
+         <p>You stay in full control over your committeed funds and investment decisions. 100% of capital raised in the ICBM will fund innovation. We do not take any of the committed money.</p>
 
-         <p>You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
+         <p>If you decide not to invest on Neufund Platform your funds can be released in 100% after 18 months and anytime with a fee of only 10%.</p>
+
+         <p>Your participation in the ICBM is risk-free.</p>
       imgPath: "../assets/why-how/ICBM"
 
-    - title: "Your NEU Benefits"
+    - title: "Earn from NEU"
       id: "why-participate"
       content: |
-        <p>Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.</p>
-        <p>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first. You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>
+        <p>If you hold your NEU token you receive fee payouts and participation in equity tokens of every company that was ever funded on the Platform.</p>
+
+        <p>With each successful fundraising a fee is deduced from investment amount and immediately distributed to all NEU holders.</p>
+
+        <p>Additionally, a fee in form of equity tokens released by fundraising companies is added to the Platform portfolio, which is collectively owned by NEU holders.</p>
+
+        <p>Secondary trading of NEU is open when ICBM ends. No vesting is applied to trading nor to fee payouts.</p>
+
       imgPath: "../assets/why-how/Benefits"
 
 links:
@@ -63,14 +71,19 @@ participating:
 
 invest_platform:
   visible: true
-  title: "Investing in startups on the Platform"
+  title: "Investing in companies on the Neufund Platform"
   paragraph:  |
-        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares. Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency.
+       <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies (blockchain and non-blockchain companies). </p>
+
+       <p>Using the unique legal and technical infrastructure, investors can invest in private equity with ETH or EUR. Companies can legally tokenize their equity and sell it via Equity Token Offerings (ETOs) on the Neufund Platform.</p>
+
+       <p>Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
+
 
 team:
   visible: true
   title: "Team"
-  intro: "Team of entrepereneurs and experienced professionals."
+  intro: "Team of entrepreneurs and experienced professionals."
   block: "../blocks/person"
   members:
    - name: "Zoe Adamovicz"
@@ -323,7 +336,7 @@ team:
 advisors:
   visible: true
   title: "Advisors"
-  intro: "Advisors bridging the worlds of crypto and Venture Capital"
+  intro: "Advisors bridging the worlds of crypto and Venture Capital."
   block: "../blocks/person"
   members:
     - name: "Fabian Vogelsteller"
@@ -449,8 +462,8 @@ advisors:
 
 quotes:
   visible: true
-  title: "Supporters say"
-  description: "Advidors and startups about Neufund"
+  title: "Testimonials"
+  description: ""
   quotes:
     - author: Arnd Aschentrup, <span class="position">CEO</span>
       company: "Tandem"
@@ -470,9 +483,9 @@ quotes:
 
 ecosystem:
   visible: true
-  title: "Neufund's Ecosystem Impact"
+  title: "Sharing is caring"
   paragraph: |
-    Neufund invests a lot of effort into contributing to the blockchain community by building an ecosystem of technological and legal innovation.
+    Neufund’s effort goes into contributing to the crypto community by building an ecosystem of technological and legal innovation. Everything we do is 100% open sourced.
   subtitle: "Go to:"
   links:
     - name: "Neufund's Ecosystem Impact Page"

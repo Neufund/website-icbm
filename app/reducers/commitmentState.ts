@@ -17,12 +17,16 @@ export interface ICommitmentState {
   minTicketWei?: string;
   loadingEstimatedReward: boolean;
   estimatedReward?: string;
+  euroDecimals: number;
+  ethDecimals: number;
 }
 
 const initialState: ICommitmentState = {
   loading: true,
   loadingEstimatedReward: false,
   estimatedReward: "0",
+  ethDecimals: 18,
+  euroDecimals: 18,
 };
 
 const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
@@ -38,6 +42,8 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         minTicketWei: payload.minTicketWei,
         loadingEstimatedReward: false,
         estimatedReward: "0",
+        euroDecimals: payload.euroDecimals,
+        ethDecimals: payload.ethDecimals,
       };
     case NEW_PHASE_ACTION:
       return {

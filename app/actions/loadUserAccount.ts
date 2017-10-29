@@ -2,13 +2,14 @@ import { ThunkAction } from "redux-thunk";
 
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
-import { loadUserAccountFromWeb3 } from "../web3/loadUserAccountFromWeb3";
+import { getBalanceFromWeb3, loadUserAccountFromWeb3 } from "../web3/loadUserAccountFromWeb3";
 import { SET_DERIVATION_PATH, SET_LOADING_USER_ACCOUNT, SET_USER_ACCOUNT } from "./constants";
 
-export function setUserAccountAction(account: string): IStandardReduxAction {
+export function setUserAccountAction(account: string, balance: string): IStandardReduxAction {
   return {
     type: SET_USER_ACCOUNT,
     payload: {
+      balance,
       address: account,
     },
   };
@@ -43,7 +44,8 @@ export const setUserAccount: (
   account: string
 ) => ThunkAction<{}, IAppState, {}> = (derivationPath, account) => async dispatcher => {
   dispatcher(setUserDerivationPathAction(derivationPath));
-  dispatcher(setUserAccountAction(account));
+  const balance = await getBalanceFromWeb3(account);
+  dispatcher(setUserAccountAction(account, balance.toString()));
   // ledgerInstance.setDerivationPath(derivationPath);
 };
 
@@ -51,6 +53,7 @@ export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher
   const account = await loadUserAccountFromWeb3();
   const { userState } = getState();
   if (account && account !== userState.address) {
-    dispatcher(setUserAccountAction(account));
+    const balance = await getBalanceFromWeb3(account);
+    dispatcher(setUserAccountAction(account, balance.toString()));
   }
 };

@@ -7,13 +7,13 @@
       </div>
       <div class="col-md-7">
         <div class="row people-row">
-          <% for (var i = 0; i < 4; i++) { %>
+          <% for (var i = 0; i < 6; i++) { %>
           <%- include(block, members[i]) %>
           <% } %>
         </div>
 
         <div class="row hidden-team is-hidden hidden-picture">
-          <% for (var i = 4; i < members.length; i++) { %>
+          <% for (var i = 6; i < members.length; i++) { %>
           <%- include('../blocks/person', members[i]) %>
           <% } %>
         </div>

@@ -58,6 +58,7 @@ p.slim {
 
     h2 {
         padding-bottom: 17px;
+        font-size: $section-title-font-size;
     }
 
     h3{
@@ -159,12 +160,6 @@ p.slim {
 }
 
 .people {
-  h2 {
-    color: $gray-darker;
-    font-size: $section-title-font-size;
-    font-weight: $font-weight-bold;
-  }
-
   .person-block {
     cursor: pointer;
     margin-bottom: 50px;

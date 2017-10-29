@@ -5,9 +5,11 @@
                 <h2><%- title %></h2>
             </div>
         </div>
-        <div class="row is-flex">
-            <div class="col-md-5">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+              <div class="content">
                 <%- paragraph %>
+              </div>
             </div>
             <div class="col-md-7">
                 <%- include("../blocks/hi-res-img", { path: "../assets/invest-platform/Product_together", alt: "Product page", cls: "product-image img-responsive" }) %>

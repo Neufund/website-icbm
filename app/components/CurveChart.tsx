@@ -2,6 +2,8 @@ import * as React from "react";
 import { Line } from "react-chartjs-2";
 import neuMarkInfoCurveChartPlugin from "./neuMarkInfoCurveChartPlugin";
 
+const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 export const formatNumber = (labelValue: any) => {
   // Nine Zeroes for Billions
   return Math.abs(Number(labelValue)) >= 1.0e9
@@ -127,8 +129,8 @@ export default (props: ICurveChart) => {
     },
     layout: {
       padding: {
-        left: 0,
-        right: 190,
+        left: !isMobile() ? 100 : 0,
+        right: !isMobile() ? 200 : 140,
         top: 50,
         bottom: 0,
       },
@@ -148,7 +150,7 @@ export default (props: ICurveChart) => {
           gridDashType: "dot",
           ticks: {
             mirror: false,
-            fontSize: 8,
+            fontSize: 11,
             fontFamily: "Montserrat",
             autoSkip: true,
             maxTicksLimit: 4,
@@ -159,7 +161,7 @@ export default (props: ICurveChart) => {
       yAxes: [
         {
           scaleLabel: {
-            display: true,
+            display: false,
           },
           gridLines: {
             display: true,
@@ -169,7 +171,7 @@ export default (props: ICurveChart) => {
             drawTicks: true,
           },
           ticks: {
-            fontSize: 8,
+            fontSize: 11,
             fontFamily: "Montserrat",
             autoSkip: true,
             maxTicksLimit: 6,

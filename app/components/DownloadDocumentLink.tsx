@@ -28,7 +28,7 @@ export class DownloadDocumentLink extends React.Component<
   public render() {
     return (
       <div className={cn(styles.link, { active: !this.state.isLoading })} onClick={this.onClick}>
-        <i className={cn("material-icons", styles.icon)}>file_upload </i>
+        <i className={cn("material-icons", styles.icon)}>file_download </i>
         <span className={styles.label}>
           {this.props.children}
         </span>

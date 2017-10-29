@@ -1,10 +1,9 @@
 .invest-platform {
   h2 {
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: $gray-darker;
     font-size: $section-title-font-size;
-    font-weight: $font-weight-more-bold;
+    font-weight: $font-weight-bold;
   }
 
   .product-image {
@@ -20,5 +19,19 @@
     margin-top: 60px;
     margin-bottom: 30px;
     text-align: center;
+  }
+
+  .row {
+    &.is-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &.is-flex > [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }

@@ -17,6 +17,9 @@
                                     <% if (links[i].new){%>
                                         <sup>NEW</sup>
                                     <%}%>
+                                    <% if (links[i].keyRead){%>
+                                        <sup>KEY READ</sup>
+                                    <%}%>
                                 </li>
                             <% } %>
                         </ul>
@@ -29,6 +32,9 @@
                                     <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
                                     <% if (links[i].new){%>
                                         <sup>NEW</sup>
+                                    <%}%>
+                                    <% if (links[i].keyRead){%>
+                                        <sup>KEY READ</sup>
                                     <%}%>
                                 </li>
                             <% } %>

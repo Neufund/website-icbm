@@ -12,7 +12,7 @@
                         <ul class="separator compact-list">
                             <% for(var i = 0; i < 4; i++) { %>
                                 <li>
-                                    <i class="material-icons"><%- links[i].downloadable? "file_download" : "link" %> </i>
+                                  <i class="material-icons">link</i>
                                     <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
                                     <% if (links[i].new){%>
                                         <sup>NEW</sup>
@@ -25,7 +25,7 @@
                         <ul class="separator compact-list">
                             <% for(var i = 4; i < links.length; i++) { %>
                                 <li>
-                                    <i class="material-icons"><%- links[i].downloadable? "file_download" : "link" %> </i>
+                                    <i class="material-icons">link</i>
                                     <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
                                     <% if (links[i].new){%>
                                         <sup>NEW</sup>

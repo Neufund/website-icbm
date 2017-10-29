@@ -48,5 +48,62 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <h2 class="section-title"><%- depth.title -%></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-11">
+        <div class="row">
+          <div class="col-md-4">
+            <ul class="separator compact-list">
+              <% for(var i = 0; i < 3; i++) { %>
+              <li>
+                <i class="material-icons">link</i>
+                <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+                <% if (depth.links[i].new){ %>
+                  <sup>NEW</sup>
+                <% } %>
+                <% if (depth.links[i].keyRead){ %>
+                  <sup>KEY READ</sup>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="separator compact-list">
+              <% for(var i = 3; i < 6; i++) { %>
+              <li>
+                <i class="material-icons">link</i>
+                <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+                <% if (depth.links[i].new){ %>
+                  <sup>NEW</sup>
+                <% } %>
+                <% if (depth.links[i].keyRead){ %>
+                  <sup>KEY READ</sup>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="separator compact-list">
+              <% for(var i = 6; i < depth.links.length; i++) { %>
+              <li>
+                <i class="material-icons">link</i>
+                <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+                <% if (depth.links[i].new){ %>
+                  <sup>NEW</sup>
+                <% } %>
+                <% if (depth.links[i].keyRead){ %>
+                  <sup>KEY READ</sup>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

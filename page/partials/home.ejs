@@ -33,8 +33,6 @@ const checkSectionVisiablity = function(item, content) {
 
 <%- checkSectionVisiablity(content.advisors, include('advisors', content.advisors)); %>
 
-<%- checkSectionVisiablity(content.advisors, include('quotes', content.quotes)); %>
+<%- checkSectionVisiablity(content.quotes, include('quotes', content.quotes)); %>
 
 <%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>
-
-<%- checkSectionVisiablity(content.links, include('links', content.links )); %>

@@ -1,0 +1,39 @@
+@import '../../common/sass/variables'; // sass-lint:disable-line clean-import-paths
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables'; // sass-lint:disable-line clean-import-paths
+
+.subscribe-input {
+  display: block;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: solid 1px $gray-border;
+  width: 90%;
+  text-indent: 9px;
+  color: $gray-darker;
+
+  &::-webkit-input-placeholder { // sass-lint:disable-line no-vendor-prefixes
+    color: $gray-placeholder;
+  }
+
+  &:-moz-placeholder { // sass-lint:disable-line no-vendor-prefixes
+    color: $gray-placeholder;
+  }
+
+}
+
+.cursor {
+  position: absolute;
+  color: $gray-placeholder;
+  font-size: $font-size-normal;
+  font-weight: $font-weight-bold;
+}
+
+.hidden-input {
+  position: absolute;
+  left: -5000px;
+}
+
+.subscribe-btn {
+  @media (max-width: $screen-sm-max) {
+    margin-bottom: 30px;
+  }
+}

@@ -1,28 +1,19 @@
-<div class="how-it-works section" id="<%- id %>">
+<div class="how-it-works section <% if (id == 'how-it-works') { %> shadow-background <% } %>" id="<%- id %>">
     <div class="container">
-        <div class="row number-offset">
-            <div class="col-md-5">
-                <div class="number">0<%- index %></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="section-title"><%- title %></h2>
+            </div>
+            <div class="col-md-offset-1 col-md-4">
                 <div class="content">
-                    <h2><%- title %></h2>
                     <div class="text">
                         <%- content %>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-offset-1 col-md-6">
               <%- include('../blocks/hi-res-img', { path: imgPath, alt: title, cls: "img-responsive image" })%>
             </div>
-        </div>
-        <div class="row number-offset">
-          <div class="col-sm-12">
-              <h3>Key to read</h3>
-              <ul class="separator compact-list">
-                <% for(var i=0; i < links.length; i++) {%>
-                    <li><i class="material-icons"><%- links[i].downloadable? "file_upload" : "link" %> </i><a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a></li>
-                <% } %>
-              </ul>
-          </div>
         </div>
     </div>
 </div>

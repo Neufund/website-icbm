@@ -53,10 +53,6 @@ export async function getNetworkId(web3: any): Promise<EthNetwork> {
   );
 }
 
-export async function getBalance(web3: any, address: string): Promise<BigNumber> {
-  return (bluebird.promisify<BigNumber>(web3.eth.getBalance) as any)(address);
-}
-
 export async function getNodeType(web3: any): Promise<Web3Type> {
   const nodeIdString = await bluebird.promisify<string>(web3.version.getNode)();
   const matchNodeIdString = nodeIdString.toLowerCase();

@@ -57,6 +57,13 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
 }) => {
   return (
     <div>
+      <p className={style.preTextPargraph}>
+        In the ICBM you get NEU now for your willingness to fund companies later. On top of that we
+        incentivize early birds. NEU reward is highest at the start of ICBM, then early comer bonus
+        decreases as committed capital pool grows.
+      </p>
+      <strong className={style.preTextPargraph}>Current NEU reward ____ NEU / 1 ETH</strong>
+
       <form onKeyUp={calculateEstimatedReward}>
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Calculate your estimated reward:</p>
@@ -77,25 +84,9 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
             Calculated amount might not be precised, reward will be granted after the block is mined
             and it might depend on the order of transactions.
           </p>
+          <p className={style.description}>(The current ether price is taken from coinbase.com)</p>
         </div>
       </form>
-
-      <ul className={style.information}>
-        <li>NEU is denominated to EUR, EUR to ETH is stable…</li>
-        <li>Neufund ICO phase:</li>
-        <li>
-          Start price: <b>8.25</b> NEU / 1 EUR
-        </li>
-        <li>
-          Finish: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <br />
-        <li>Post-ICO phase:</li>
-        <li>
-          Start price: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <li>Finish: ...</li>
-      </ul>
     </div>
   );
 };

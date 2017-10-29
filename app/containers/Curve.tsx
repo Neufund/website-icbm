@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { setEstimatedRewardAction } from "../actions/submitFunds";
-import CurveChart, { getPrice } from "../components/CurveChart";
+import CurveChart, { getNeumarkAmount } from "../components/CurveChart";
 import PriceCalculator from "../components/PriceCalculator";
 import { IAppState } from "../reducers/index";
 
@@ -13,14 +13,14 @@ export const Curve = (props: any) => {
   const capNEU: number = 1500000000;
 
   const min: number = 0;
-  const max: number = 1000000;
+  const max: number = 3000000;
   const dotsNumber: number = 50;
   const currentRasiedEther: number = 0;
 
   return (
     <Row>
       <Col md={12}>
-        <h2>Rules</h2>
+        <h2>Get your NEU reward</h2>
       </Col>
       <Col md={5}>
         <PriceCalculator
@@ -37,11 +37,12 @@ export const Curve = (props: any) => {
               return;
             }
 
-            const price = getPrice(
+            const price = getNeumarkAmount(
               currencyRate,
               initialReward,
               capNEU,
-              props.form.commitFunds.values.ethAmount
+              currentRasiedEther,
+              parseFloat(props.form.commitFunds.values.ethAmount)
             );
             props.setEstimatedRewardAction(price);
             return price;
@@ -50,7 +51,7 @@ export const Curve = (props: any) => {
         />
       </Col>
 
-      <Col mdOffset={1} md={5}>
+      <Col mdOffset={1} md={6}>
         <CurveChart
           currencyRate={currencyRate}
           initialReward={initialReward}

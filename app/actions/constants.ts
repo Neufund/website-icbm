@@ -15,9 +15,18 @@ export enum IcoPhase {
   AFTER = "AFTER",
 }
 
+export enum TokenType {
+  ETHER = "ETHER",
+  EURO = "EURO",
+}
+
 export enum Web3Type {
-  INJECTED = "INJECTED",
+  UNKNOWN = "UNKNOWN",
+  GENERIC = "GENERIC",
   LEDGER = "LEDGER",
+  METAMASK = "METAMASK",
+  PARITY = "PARITY",
+  MIST = "MIST",
 }
 
 export enum EthNetwork {

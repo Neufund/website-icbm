@@ -18,7 +18,7 @@ const initialState: IUserState = {
   loading: true,
   address: null,
   derivationPath: null,
-  balance: "0",
+  balance: null,
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {

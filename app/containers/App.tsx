@@ -1,12 +1,20 @@
+import * as moment from "moment";
 import * as React from "react";
 import { AppState } from "../actions/constants";
-import config from "../config";
+import config, { IAnnouncedCfg } from "../config";
 import AnnouncedIco from "./AnnouncedIco";
 import BeforeAnnouncementIco from "./BeforeAnnouncementIco";
 import Ico from "./Ico";
 
 interface IcoProps {
   appState: AppState;
+}
+
+export function checkIfCanShowCounter(now: moment.Moment, config: IAnnouncedCfg): boolean {
+  if (!config.showCountdownAfter) {
+    return true;
+  }
+  return now.isAfter(config.showCountdownAfter);
 }
 
 export const App: React.SFC<IcoProps> = props => {
@@ -16,7 +24,9 @@ export const App: React.SFC<IcoProps> = props => {
     case AppState.BEFORE_ANNOUNCEMENT:
       return <BeforeAnnouncementIco />;
     case AppState.ANNOUNCED:
-      return <AnnouncedIco />;
+      return checkIfCanShowCounter(moment.utc(), config.announcedCfg)
+        ? <AnnouncedIco />
+        : <BeforeAnnouncementIco />;
     case AppState.CONTRACTS_DEPLOYED:
       return <Ico />;
     default:

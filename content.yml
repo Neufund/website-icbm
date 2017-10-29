@@ -317,7 +317,7 @@ advisors:
   block: "../blocks/person"
   members:
     - name: "Fabian Vogelsteller"
-      title: <a href="https://ethereum.org/">Ethereum</a> and Mist <span class="position">Developer</span>
+      title: <a href="https://ethereum.org/" target="_blank">Ethereum</a> and Mist <span class="position">Developer</span>
       image: "../assets/fabianethereumdev.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
@@ -337,7 +337,7 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Michael Jackson"
-      title: <span class="position">Partner at</span> <a href="http://www.mangrove.vc/">Mangrove Capital</a> <span class="position">& Board Director</span> <a href="https://www.blockchain.com/">Blockchain.com</a>
+      title: <span class="position">Partner at</span> <a href="http://www.mangrove.vc/" target="_blank">Mangrove Capital</a> <span class="position">& Board Director</span> <a href="https://www.blockchain.com/" target="_blank">Blockchain.com</a>
       image: "../assets/mangrove-michael-jackson.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/mjmjmj/"
@@ -354,7 +354,7 @@ advisors:
         German.</p>
 
     - name: "Julian Zawistowski"
-      title: <span class="position">CEO and Founder at</span> <a href="https://golem.network/">Golem</a>
+      title: <span class="position">CEO and Founder at</span> <a href="https://golem.network/" target="_blank">Golem</a>
       image: "../assets/julian-zawistowski.jpg"
       preTitle: ""
       links:
@@ -364,7 +364,7 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12) at</span> <a href="https://www.bitcoin.com/">Bitcoin.com</a>
+      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12) at</span> <a href="https://www.bitcoin.com/" target="_blank">Bitcoin.com</a>
       image: "../assets/adam-stradling.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/adamstradling/"
@@ -376,7 +376,7 @@ advisors:
         <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
 
     - name: "Max Kordek"
-      title: <span class="position">President of</span> <a href="https://lisk.io/">Lisk Foundation</a>
+      title: <span class="position">President of</span> <a href="https://lisk.io/" target="_blank">Lisk Foundation</a>
       image: "../assets/maxlisk.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/maxkordek/"
@@ -391,7 +391,7 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Christophe Maire"
-      title: <span class="position">Founder and CEO at</span> <a href="http://www.atlanticlabs.de/">Atlantic Labs</a>
+      title: <span class="position">Founder and CEO at</span> <a href="http://www.atlanticlabs.de/" target="_blank">Atlantic Labs</a>
       image: "../assets/christophe-maire.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
@@ -406,7 +406,7 @@ advisors:
         of EyeEm, Klara and Soundcloud.</p>
 
     - name: "Paweł Bylica"
-      title: <a href="https://ethereum.org/">Ethereum</a> <span class="position">Core Developer</span>
+      title: <a href="https://ethereum.org/" target="_blank">Ethereum</a> <span class="position">Core Developer</span>
       image: "../assets/pawel-bylica.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/pawelbylica"
@@ -417,7 +417,7 @@ advisors:
         Project as Ethereum specialist.</p>
 
     - name: "Alexander Lange"
-      title: <span class="position">VC at</span> <a href="https://www.earlybird.com/">Earlybird</a> <span class="position">& Board Member</span> <a href="https://shapeshift.io/">Shapeshift</a>
+      title: <span class="position">VC at</span> <a href="https://www.earlybird.com/" target="_blank">Earlybird</a> <span class="position">& Board Member</span> <a href="https://shapeshift.io/" target="_blank">Shapeshift</a>
       image: "../assets/Alex_Lange.jpg"
       links:
         twitter: "https://twitter.com/alexruppertvc"
@@ -427,7 +427,7 @@ advisors:
       bio:  |
         <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
     - name: "Minh Ha Duong"
-      title: <span class="position">Investment Manager at</span> <a href="https://www.project-a.com/en">Project A Ventures</a>
+      title: <span class="position">Investment Manager at</span> <a href="https://www.project-a.com/en" target="_blank">Project A Ventures</a>
       image: "../assets/Ha_Duong.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/minhhaduong/"

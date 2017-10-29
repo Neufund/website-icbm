@@ -31,6 +31,7 @@ const styledField = (props: any) => {
     hintStyle: estTextFieldStyles.hintStyle,
     hintText: "0",
     autoComplete: "off",
+    maxLength: props.maxLength,
     ...props.input,
   };
 
@@ -85,7 +86,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
                   </span>}
             </div>
             <span className={style.separator}> / </span>
-            <Field name="ethAmount" component={styledField} />
+            <Field name="ethAmount" component={styledField} props={{ maxLength: 9 }} />
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>

@@ -22,7 +22,7 @@ export const Curve = (props: any) => {
       <Col md={12}>
         <h2>Get your NEU reward</h2>
       </Col>
-      <Col md={5}>
+      <Col mdOffset={1} md={4}>
         <PriceCalculator
           estimatedReward={parseFloat(props.commitmentState.estimatedReward)}
           calculateEstimatedReward={() => {

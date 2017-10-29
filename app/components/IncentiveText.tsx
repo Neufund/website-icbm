@@ -12,7 +12,7 @@ export const IncentiveText: React.SFC = () =>
       Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain companies.
     </p>
     <p>
-      Reserve funds today for your future investments and receive Neumarks, making you a co-woner of
+      Reserve funds today for your future investments and receive Neumarks, making you a co-owner of
       the platform.
     </p>
     <p>You maintain full control over your investment decisions. at all times.</p>

@@ -11,11 +11,9 @@ why-how:
       content: |
          <p>In Neufund’s ICBM you reserve funds for your future investments on the Neufund Platform. In return we reward you with NEU tokens. NEU entitles you to economic co-ownership of the Neufund Platform.</p>
 
-         <p>You stay in full control over your committeed funds and investment decisions. 100% of capital raised in the ICBM will fund innovation. We do not take any of the committed money.</p>
+         <p>You stay in full control over your committed funds and investment decisions. 100% of capital raised in the ICBM will fund innovation. We do not take any of the committed money.</p>
 
          <p>If you decide not to invest on Neufund Platform your funds can be released in 100% after 18 months and anytime with a fee of only 10%.</p>
-
-         <p>Your participation in the ICBM is risk-free.</p>
       imgPath: "../assets/why-how/ICBM"
 
     - title: "Earn from NEU"
@@ -73,12 +71,11 @@ invest_platform:
   visible: true
   title: "Investing in companies on the Neufund Platform"
   paragraph:  |
-       <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies (blockchain and non-blockchain companies). </p>
+       <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies (blockchain and non&#8209;blockchain companies).</p>
 
        <p>Using the unique legal and technical infrastructure, investors can invest in private equity with ETH or EUR. Companies can legally tokenize their equity and sell it via Equity Token Offerings (ETOs) on the Neufund Platform.</p>
 
        <p>Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
-
 
 team:
   visible: true

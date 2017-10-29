@@ -12,7 +12,7 @@ sr.reveal(".how-it-works .image");
 sr.reveal(".invest-platform .product-image");
 sr.reveal(".platform-overview .feature");
 sr.reveal(".curve");
-sr.reveal(".in-depths-links")
+sr.reveal(".in-depths-links");
 
 // product page
 sr.reveal(".text-box");

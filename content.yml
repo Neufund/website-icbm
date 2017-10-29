@@ -33,7 +33,7 @@ why-how:
 
 links:
   visible: true
-  title: "In Depth About Neufund"
+  title: "In Depth"
   links:
   - link: "Whitepaper"
     href: "https://neufund.org/whitepaper/"
@@ -44,10 +44,14 @@ links:
     href: "https://neufund.org/roadmap/"
   - link: "Neufund Legal Structure"
     href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
+    keyRead: true
   - link: "Token Holder Agreement"
     href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
   - link: "Token Reservation Agreement"
     href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
+  - link: 'ICBM announcement'
+    href: "https://neufund.org/announcement"
+    keyRead: true
   - link: "Smart Contracts on Github"
     href: "https://github.com/Neufund/ico-contracts"
   - link: 'Neufund ICBM FAQ'

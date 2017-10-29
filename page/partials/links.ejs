@@ -8,9 +8,9 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-11">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <ul class="separator compact-list">
-                            <% for(var i = 0; i < 4; i++) { %>
+                            <% for(var i = 0; i < 3; i++) { %>
                                 <li>
                                   <i class="material-icons">link</i>
                                     <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
@@ -24,9 +24,9 @@
                             <% } %>
                         </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <ul class="separator compact-list">
-                            <% for(var i = 4; i < links.length; i++) { %>
+                            <% for(var i = 3; i < 6; i++) { %>
                                 <li>
                                     <i class="material-icons">link</i>
                                     <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
@@ -36,6 +36,22 @@
                                     <% if (links[i].keyRead){%>
                                         <sup>KEY READ</sup>
                                     <%}%>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="separator compact-list">
+                            <% for(var i = 6; i < links.length; i++) { %>
+                                <li>
+                                  <i class="material-icons">link</i>
+                                  <a href="<%- links[i].href %>" target="_blank" ><%- links[i].link %></a>
+                                  <% if (links[i].new){%>
+                                      <sup>NEW</sup>
+                                  <%}%>
+                                  <% if (links[i].keyRead){%>
+                                      <sup>KEY READ</sup>
+                                  <%}%>
                                 </li>
                             <% } %>
                         </ul>

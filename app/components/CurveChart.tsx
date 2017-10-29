@@ -122,16 +122,18 @@ export default (props: ICurveChart) => {
   const options = {
     neuMarkInfoPlugin: {
       activePointIndex,
-      neuMarkPrice: `${activePointPrice.toFixed(2)} NEU/ETH`,
+      neuMarkPrice: {
+        label: `${activePointPrice.toFixed(2)} NEU/ETH`,
+        fontSize: !isMobile() ? "19px" : "14px",
+      },
       notes: "",
-      xAxesLabel: "Amount of ETH\nCommited",
-      yAxesLabel: "Neumark Reward\n(NEU/ETH)",
+      yAxesLabel: "NEU Reward (NEU/ETH)",
     },
     layout: {
       padding: {
-        left: !isMobile() ? 100 : 0,
-        right: !isMobile() ? 200 : 140,
-        top: 50,
+        left: !isMobile() ? 100 : 20,
+        right: !isMobile() ? 40 : 40,
+        top: 20,
         bottom: 0,
       },
     },
@@ -140,6 +142,8 @@ export default (props: ICurveChart) => {
         {
           scaleLabel: {
             display: true,
+            labelString: "Amount of ETH\nCommited",
+            fontColor: "#BBC2C7",
           },
           gridLines: {
             display: true,

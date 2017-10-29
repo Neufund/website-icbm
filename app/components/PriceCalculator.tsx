@@ -85,10 +85,10 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>
-            Calculated amount might not be precised, reward will be granted after the block is mined
-            and it might depend on the order of transactions.
+            Calculated amount is an estimation. The NEU reward will be granted after the block is
+            mined and it might depend on the order of transactions. ICBM will be performed with a
+            constant ETH to EUR rate but will be set and announced 6 days before the ICBM.
           </p>
-          <p className={style.description}>(The current ether price is taken from coinbase.com)</p>
         </div>
       </form>
     </div>

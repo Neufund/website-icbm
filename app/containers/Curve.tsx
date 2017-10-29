@@ -37,11 +37,10 @@ export const Curve = (props: any) => {
             // tslint:disable-next-line
             if (
               typeof props.form.commitFunds.values === "undefined" ||
-              typeof props.form.commitFunds.values.ethAmount === "undefined"
+              typeof props.form.commitFunds.values.ethAmount === "undefined" ||
+              isNaN(props.form.commitFunds.values.ethAmount)
             ) {
-              return;
-            }
-            if (isNaN(props.form.commitFunds.values.ethAmount)) {
+              props.setEstimatedRewardAction(0);
               return;
             }
 

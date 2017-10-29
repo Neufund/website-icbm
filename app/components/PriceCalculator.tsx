@@ -1,5 +1,6 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
+import { Textfit } from "react-textfit";
 import { Field, reduxForm } from "redux-form";
 import { LoadingIndicator } from "./LoadingIndicator";
 import * as style from "./PriceCalculator.scss";
@@ -65,7 +66,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         comer bonus decreases as the committed capital pool grows.
       </p>
       <strong className={style.preTextPargraph}>
-        Current NEU reward {rewardForOneEth.toFixed(2)} NEU / 1 ETH
+        Current NEU reward: {rewardForOneEth.toFixed(2)} NEU / 1 ETH
       </strong>
 
       <form onKeyUp={calculateEstimatedReward}>
@@ -76,7 +77,10 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
               {loadingEstimatedReward
                 ? <LoadingIndicator className={style.loadingIndicator} />
                 : <span>
-                    <span className={style.amount}>{estimatedReward.toFixed(2)}</span>{" "}
+                    <Textfit mode="single" max={18} className={style.amount}>
+                      {estimatedReward.toFixed(2)}{" "}
+                    </Textfit>
+
                     <span className={style.currencyNeu}>NEU</span>
                   </span>}
             </div>
@@ -85,10 +89,10 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>
-            Calculated amount might not be precised, reward will be granted after the block is mined
-            and it might depend on the order of transactions.
+            Calculated amount is an estimation. The NEU reward will be granted after the block is
+            mined and it might depend on the order of transactions. ICBM will be performed with a
+            constant ETH to EUR rate but will be set and announced 6 days before the ICBM.
           </p>
-          <p className={style.description}>(The current ether price is taken from coinbase.com)</p>
         </div>
       </form>
     </div>

@@ -31,32 +31,6 @@ why-how:
 
       imgPath: "../assets/why-how/Benefits"
 
-links:
-  visible: true
-  title: "In Depth"
-  links:
-  - link: "Whitepaper"
-    href: "https://neufund.org/whitepaper/"
-  - link: "Lightpaper"
-    href: "https://neufund.org/lightpaper/"
-    new: true
-  - link: "Roadmap"
-    href: "https://neufund.org/roadmap/"
-  - link: "Neufund Legal Structure"
-    href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
-    keyRead: true
-  - link: "Token Holder Agreement"
-    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
-  - link: "Token Reservation Agreement"
-    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
-  - link: 'ICBM announcement'
-    href: "https://neufund.org/announcement"
-    keyRead: true
-  - link: "Smart Contracts on Github"
-    href: "https://github.com/Neufund/ico-contracts"
-  - link: 'Neufund ICBM FAQ'
-    href: "/faq"
-
 participating:
   visible: true
   title: "What is Neufund Platform"
@@ -491,24 +465,49 @@ ecosystem:
     Neufund’s effort goes into contributing to the crypto community by building an ecosystem of technological and legal innovation. Everything we do is 100% open sourced.
   subtitle: "Go to:"
   links:
-    - name: "Neufund's Ecosystem Impact Page"
+    - name: "Neufund's Projects"
       ref: "https://neufund.org/ecosystem/"
-    - name: "Neufund's Medium Publication"
+    - name: "Neufund's Blog"
       ref: "https://blog.neufund.org/"
 
   features:
-    - name: "Community Accountability"
-      subtitle: "ICO Transparency Monitor"
-      href: "https://icomonitor.io"
-    - name: "Technology Innovation"
-      subtitle: "Employee Stock Option Plan"
-      href: "https://neufund.org/esop"
     - name: "Regulatory Efforts"
       subtitle: "Blockchain Policy Initiative"
       href: "https://blockchainpolicy.org"
-    - name: "DevOps Innovation"
+    - name: "First Equity Tokens"
+      subtitle: "Employee Stock Option Plan"
+      href: "https://neufund.org/esop"
+    - name: "Market Quality"
+      subtitle: "ICO Transparency Monitor"
+      href: "https://icomonitor.io"
+    - name: "Blockchain DevOps"
       subtitle: "Smart Contract Watch"
       href: "https://blog.neufund.org/keep-your-private-keys-close-and-keep-your-smart-contracts-closer-introducing-the-smart-contract-e3bd1fcad204"
+
+  depth:
+    title: "In Depth"
+    links:
+    - link: "Whitepaper"
+      href: "https://neufund.org/whitepaper/"
+    - link: "Lightpaper"
+      href: "https://neufund.org/lightpaper/"
+      new: true
+    - link: "Roadmap"
+      href: "https://neufund.org/roadmap/"
+    - link: "Neufund Legal Structure"
+      href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
+      keyRead: true
+    - link: "Token Holder Agreement"
+      href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
+    - link: "Token Reservation Agreement"
+      href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
+    - link: 'ICBM announcement'
+      href: "https://neufund.org/announcement"
+      keyRead: true
+    - link: "Smart Contracts on Github"
+      href: "https://github.com/Neufund/ico-contracts"
+    - link: 'Neufund ICBM FAQ'
+      href: "/faq"
 
 press:
   links:

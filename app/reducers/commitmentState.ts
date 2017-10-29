@@ -6,6 +6,7 @@ import {
   LOAD_ICO_PARAMS,
   NEW_PHASE_ACTION,
   SET_ESTIMATED_REWARD,
+  SET_INVALID_ESTIMATED_REWARD,
 } from "../actions/constants";
 import { Reducer } from "../types";
 
@@ -62,6 +63,12 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         ...state,
         loadingEstimatedReward: false,
         estimatedReward: payload.estimatedReward,
+      };
+    case SET_INVALID_ESTIMATED_REWARD:
+      return {
+        ...state,
+        loadingEstimatedReward: false,
+        inValidEstimatedReward: payload.status,
       };
     default:
       return state;

@@ -46,6 +46,7 @@ interface ICommitFundsEstimation {
   estimatedReward: number;
   calculateEstimatedReward: () => {};
   loadingEstimatedReward: boolean;
+  isInValidEstimatedReward: boolean;
 }
 
 interface ICommitFundsEstimationFormValues {
@@ -57,7 +58,9 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   estimatedReward,
   calculateEstimatedReward,
   loadingEstimatedReward,
+  isInValidEstimatedReward,
 }) => {
+  estTextFieldStyles.inputStyle.color = isInValidEstimatedReward ? "red" : "#BBC2C7";
   return (
     <div>
       <p className={style.preTextPargraph}>

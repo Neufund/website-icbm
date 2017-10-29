@@ -15,6 +15,7 @@ import {
   COMMITTING_TRANSACTION_SUBMITTED,
   LOAD_ESTIMATED_REWARD,
   SET_ESTIMATED_REWARD,
+  SET_INVALID_ESTIMATED_REWARD,
 } from "./constants";
 
 export const loadingEstimatedRewardAction: () => IStandardReduxAction = () => ({
@@ -28,6 +29,13 @@ export function setEstimatedRewardAction(estimatedReward: string): IStandardRedu
     payload: { estimatedReward },
   };
 }
+
+export const setInvalidEstimatedRewardInput = (status: boolean): IStandardReduxAction => {
+  return {
+    type: SET_INVALID_ESTIMATED_REWARD,
+    payload: { status },
+  };
+};
 
 export const transactionStartedAction = (): IStandardReduxAction => ({
   type: COMMITTING_STARTED,

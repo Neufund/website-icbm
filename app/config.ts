@@ -8,7 +8,8 @@ interface IConfig {
   contractsDeployed?: IContractsDeployedIcoCfg;
 }
 
-interface IAnnouncedCfg {
+export interface IAnnouncedCfg {
+  showCountdownAfter?: moment.Moment;
   startingDate: moment.Moment;
 }
 
@@ -37,6 +38,14 @@ export function getRequiredValue(obj: any, key: string): string {
   return obj[key];
 }
 
+export function getRequiredDate(obj: any, key: string): moment.Moment {
+  const date = moment(getRequiredValue(obj, key), moment.ISO_8601);
+
+  invariant(date.isValid(), `${key} is not correctly formatted ISO string`);
+
+  return date;
+}
+
 function loadConfig(environment: object): IConfig {
   // do not evaluate config during tests
   if (process.env.NODE_ENV === "test") {
@@ -50,19 +59,13 @@ function loadConfig(environment: object): IConfig {
         appState,
       };
     case AppState.ANNOUNCED:
-      const startingDate = moment(
-        getRequiredValue(environment, "ANNOUNCED_ICO_START_DATE"),
-        moment.ISO_8601
-      );
-
-      invariant(
-        startingDate.isValid(),
-        "ANNOUNCED_ICO_START_DATE is not correctly formatted ISO string"
-      );
+      const startingDate = getRequiredDate(environment, "ANNOUNCED_ICO_START_DATE");
+      const showCountdownAfter = getRequiredDate(environment, "SHOW_COUNTDOWN_AFTER");
 
       return {
         appState,
         announcedCfg: {
+          showCountdownAfter,
           startingDate,
         },
       };

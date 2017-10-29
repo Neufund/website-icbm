@@ -3,6 +3,7 @@ meta_head:
   image_logo: "https://commit.neufund.org/assets/social_logo.png"
   url: "https://commit.neufund.org"
   keywords: "neufund, ico, neumark, venture capital, ethereum, startup, blockchain"
+
 why-how:
   sections:
     - title: "Risk-free Commitment"
@@ -22,21 +23,32 @@ why-how:
         <p>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first. You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>
       imgPath: "../assets/why-how/Benefits"
 
-key-reading:
+links:
   visible: true
+  title: "In Depth About Neufund"
   links:
+  - link: "Whitepaper"
+    href: "https://neufund.org/whitepaper/"
+    downloadable: true
+  - link: "Lightpaper"
+    href: "https://neufund.org/lightpaper/"
+    downloadable: true
+    new: true
+  - link: "Roadmap"
+    href: "https://neufund.org/roadmap/"
+    downloadable: true
+  - link: "Neufund Legal Structure"
+    href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
+  - link: "Token Holder Agreement"
+    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
+    downloadable: true
+  - link: "Token Reservation Agreement"
+    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
+    downloadable: true
   - link: "Smart Contracts on Github"
     href: "https://github.com/Neufund/ico-contracts"
   - link: 'Neufund ICBM FAQ'
     href: "/faq"
-  - link: "Neufund Whitepaper"
-    href: "https://neufund.org/whitepaper/"
-    downloadable: true
-  - link: "Roadmap"
-    href: "https://neufund.org/roadmap/"
-    downloadable: true
-  - link: "Lightpaper"
-    href: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
 
 participating:
   visible: true

@@ -33,8 +33,8 @@ const drawMultiLineText = (
 };
 
 const neuMarkInfoPlugin = {
-  beforeDraw(c: any) {
-    const legends = c.legend.legendItems;
+  beforeDraw(chart: any) {
+    const legends = chart.legend.legendItems;
     legends.forEach((e: any) => {
       e.fillStyle = "white";
     });
@@ -54,7 +54,6 @@ const neuMarkInfoPlugin = {
       activePointIndex,
       neuMarkPrice,
       notes,
-      xAxesLabel,
       yAxesLabel,
     } = chartInstance.config.options.neuMarkInfoPlugin;
 
@@ -70,7 +69,14 @@ const neuMarkInfoPlugin = {
     ctx.textBaseline = "bottom";
 
     // neumark price
-    drawText(ctx, neuMarkPrice, "#262B2F", "19px", neumarkPriceXpoint + 5, neumarkPriceYpoint);
+    drawText(
+      ctx,
+      neuMarkPrice.label,
+      "#262B2F",
+      neuMarkPrice.fontSize,
+      neumarkPriceXpoint + 5,
+      neumarkPriceYpoint
+    );
 
     // current ether raised
     drawCircle(ctx, "#09719B", 5, xPoint - 2, yPoint);
@@ -78,11 +84,8 @@ const neuMarkInfoPlugin = {
     // Text in the middle of of the chart
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);
 
-    // x-axis label
-    drawMultiLineText(ctx, xAxesLabel, "#BBC2C7", "11px", xAxe.right + 10, yAxe.bottom);
-
     // y-axis label
-    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "11px", xAxe.left - 20, yAxe.top - 20);
+    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "11px", xAxe.left - 20, yAxe.top - 5);
   },
 };
 

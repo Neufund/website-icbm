@@ -6,7 +6,7 @@ import * as styles from "./MailchimpForm.scss";
 export const MailchimpForm = () =>
   <Row>
     <Col md={12}>
-      <p>Be the first to know - Subscribe now to our newsletter:</p>
+      <p>Subscribe now to our newsletter:</p>
       <form
         action="https://neufund.us14.list-manage.com/subscribe/post?u=c2bd93d42fef6e010809046de&amp;id=2d844e39be"
         method="post"

@@ -6,14 +6,14 @@ meta_head:
 
 why-how:
   sections:
-    - title: "Enjoy Risk-free Commitment"
+    - title: "Enjoy risk-free commitment"
       id: "how-it-works"
       content: |
          <p>In Neufund’s ICBM you reserve funds for your future investments on the Neufund Platform. In return we reward you with NEU tokens. NEU entitles you to economic co-ownership of the Neufund Platform.</p>
 
          <p>You stay in full control over your committed funds and investment decisions. 100% of capital raised in the ICBM will fund innovation. We do not take any of the committed money.</p>
 
-         <p>If you decide not to invest on Neufund Platform your funds can be released in 100% after 18 months and anytime with a fee of only 10%.</p>
+         <p>If you decide not to invest on the Neufund Platform, 100% of your funds can be released after 18 months and anytime with a fee of only 10%.</p>
 
          <p>Your participation in the ICBM is risk-free.</p>
       imgPath: "../assets/why-how/ICBM"
@@ -21,9 +21,9 @@ why-how:
     - title: "Earn from NEU"
       id: "why-participate"
       content: |
-        <p>If you hold your NEU token you receive fee payouts and participation in equity tokens of every company that was ever funded on the Platform.</p>
+        <p>If you hold your NEU tokens you receive fee payouts and participation in equity tokens of every company that was ever funded on the Platform.</p>
 
-        <p>With each successful fundraising a fee is deduced from investment amount and immediately distributed to all NEU holders.</p>
+        <p>With each successful fundraising a fee is deduced from the investment amount and immediately distributed to all NEU holders.</p>
 
         <p>Additionally, a fee in form of equity tokens released by fundraising companies is added to the Platform portfolio, which is collectively owned by NEU holders.</p>
 

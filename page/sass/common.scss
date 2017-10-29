@@ -22,7 +22,15 @@ p.slim {
 }
 
 #react-root {
-    min-height: 360px;
+  $reservedHeight: 360px;
+  min-height: $reservedHeight;
+
+  .loading-spinner-container {
+    min-height: $reservedHeight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .main-container {
@@ -64,7 +72,7 @@ p.slim {
     p{
         color: $gray-darker;
         font-size: $font-size-normal;
-        margin-bottom: $margin-bottom-between-paragraphs;        
+        margin-bottom: $margin-bottom-between-paragraphs;
     }
     a{
         font-weight: $font-weight-normal;

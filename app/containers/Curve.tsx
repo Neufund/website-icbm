@@ -37,8 +37,19 @@ export const Curve = (props: any) => {
             // tslint:disable-next-line
             if (
               typeof props.form.commitFunds.values === "undefined" ||
-              typeof props.form.commitFunds.values.ethAmount === "undefined" ||
-              isNaN(props.form.commitFunds.values.ethAmount)
+              typeof props.form.commitFunds.values.ethAmount === "undefined"
+            ) {
+              props.setEstimatedRewardAction(0);
+              return;
+            }
+
+            let ethAmount = props.form.commitFunds.values.ethAmount;
+            ethAmount = ethAmount.replace(",", ".");
+
+            if (
+              isNaN(ethAmount) ||
+              parseFloat(ethAmount) <= 0 ||
+              props.form.commitFunds.values.ethAmount.length > 9
             ) {
               props.setEstimatedRewardAction(0);
               return;
@@ -49,7 +60,7 @@ export const Curve = (props: any) => {
               initialReward,
               capNEU,
               currentRasiedEther,
-              parseFloat(props.form.commitFunds.values.ethAmount)
+              parseFloat(ethAmount)
             );
             props.setEstimatedRewardAction(price);
             return price;

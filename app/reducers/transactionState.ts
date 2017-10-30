@@ -13,7 +13,8 @@ export interface ITransactionState {
   txStarted: boolean;
   txHash: string;
   blockOfConfirmation: number;
-  currentBlock: number;
+  blockHistory: Array<{ blockNo: number; confirmedTx: boolean }>;
+  txConfirmed: boolean;
   error: string;
 }
 
@@ -21,7 +22,8 @@ const initialState: ITransactionState = {
   txStarted: false,
   txHash: null,
   blockOfConfirmation: null,
-  currentBlock: null,
+  blockHistory: [],
+  txConfirmed: false,
   error: null,
 };
 
@@ -44,12 +46,20 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         blockOfConfirmation: payload.blockOfConfirmation,
       };
     case COMMITTING_NEW_BLOCK:
+      const blockHistory = Array.from(state.blockHistory);
+      blockHistory.unshift({
+        blockNo: payload.currentBlock,
+        confirmedTx: payload.confirmedTx,
+      });
       return {
         ...state,
-        currentBlock: payload.currentBlock,
+        blockHistory,
       };
     case COMMITTING_DONE:
-      return initialState;
+      return {
+        ...state,
+        txConfirmed: true,
+      };
     case COMMITTING_ERROR:
       return {
         ...state,

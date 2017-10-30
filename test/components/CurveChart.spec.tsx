@@ -40,12 +40,12 @@ describe("helper functions", () => {
   describe("format numbers to milion and bilion test", () => {
     it("should return 1MLN", () => {
       const result = formatNumber(1000000);
-      expect(result).to.equal("1MLN");
+      expect(result).to.equal("1M");
     });
 
     it("should return 2BLN", () => {
       const result = formatNumber(2000000000);
-      expect(result).to.equal("2BLN");
+      expect(result).to.equal("2B");
     });
 
     it("should return 50K", () => {

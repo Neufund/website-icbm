@@ -1,6 +1,7 @@
 import * as invariant from "invariant";
 import * as moment from "moment";
 import { AppState } from "./actions/constants";
+import { IDictionary } from "./types";
 
 interface IConfig {
   appState: AppState;
@@ -46,7 +47,7 @@ export function getRequiredDate(obj: any, key: string): moment.Moment {
   return date;
 }
 
-function loadConfig(environment: object): IConfig {
+function loadConfig(environment: IDictionary): IConfig {
   // do not evaluate config during tests
   if (process.env.NODE_ENV === "test") {
     return {} as any;
@@ -60,7 +61,9 @@ function loadConfig(environment: object): IConfig {
       };
     case AppState.ANNOUNCED:
       const startingDate = getRequiredDate(environment, "ANNOUNCED_ICO_START_DATE");
-      const showCountdownAfter = getRequiredDate(environment, "SHOW_COUNTDOWN_AFTER");
+      const showCountdownAfter = environment.SHOW_COUNTDOWN_AFTER
+        ? getRequiredDate(environment, "SHOW_COUNTDOWN_AFTER")
+        : null;
 
       return {
         appState,

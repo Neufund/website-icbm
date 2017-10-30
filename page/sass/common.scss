@@ -88,6 +88,11 @@ p.slim {
     .pictures-container{
         padding-top: $padding-between-sections;
     }
+
+    @media (max-width: $screen-sm-max) {
+      padding-top: $padding-between-sections-mobile;
+      padding-bottom: $padding-between-sections-mobile;
+    }
 }
 
 .hexagon-wrapper {

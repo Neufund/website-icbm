@@ -4,13 +4,13 @@
     color: $gray-darker;
   }
 
+  p {
+    font-size: $font-size-small;
+  }
+
   .product-image {
     margin: 0 auto;
     max-height: 520px;
-
-    @media (max-width: $screen-sm-max) {
-      max-height: 380px;
-    }
   }
 
   .btn-container {
@@ -30,6 +30,16 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .product-image {
+      max-height: 380px;
     }
   }
 }

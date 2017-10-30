@@ -16,14 +16,22 @@ export const Curve = (props: any) => {
   const max: number = 3000000;
   const dotsNumber: number = 50;
   const currentRasiedEther: number = 0;
+  const rewardForOneEth = getNeumarkAmount(
+    currencyRate,
+    initialReward,
+    capNEU,
+    currentRasiedEther,
+    1
+  );
 
   return (
     <Row>
       <Col md={12}>
         <h2>Get your NEU reward</h2>
       </Col>
-      <Col md={5}>
+      <Col mdOffset={1} md={4}>
         <PriceCalculator
+          rewardForOneEth={rewardForOneEth}
           estimatedReward={parseFloat(props.commitmentState.estimatedReward)}
           calculateEstimatedReward={() => {
             // tslint:disable-next-line
@@ -31,9 +39,19 @@ export const Curve = (props: any) => {
               typeof props.form.commitFunds.values === "undefined" ||
               typeof props.form.commitFunds.values.ethAmount === "undefined"
             ) {
+              props.setEstimatedRewardAction(0);
               return;
             }
-            if (isNaN(props.form.commitFunds.values.ethAmount)) {
+
+            let ethAmount = props.form.commitFunds.values.ethAmount;
+            ethAmount = ethAmount.replace(",", ".");
+
+            if (
+              isNaN(ethAmount) ||
+              parseFloat(ethAmount) <= 0 ||
+              props.form.commitFunds.values.ethAmount.length > 9
+            ) {
+              props.setEstimatedRewardAction(0);
               return;
             }
 
@@ -42,7 +60,7 @@ export const Curve = (props: any) => {
               initialReward,
               capNEU,
               currentRasiedEther,
-              parseFloat(props.form.commitFunds.values.ethAmount)
+              parseFloat(ethAmount)
             );
             props.setEstimatedRewardAction(price);
             return price;

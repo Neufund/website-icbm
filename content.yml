@@ -6,44 +6,30 @@ meta_head:
 
 why-how:
   sections:
-    - title: "Risk-free Commitment"
+    - title: "Enjoy risk-free commitment"
       id: "how-it-works"
       content: |
-         <p>Neufund’s ICO is a call to commit capital to the Neufund platform in exchange for tokens, that’s why we call it ICBM – Initial Capital Building Mechanism.</p>
+         <p>In Neufund’s ICBM you reserve funds for your future investments on the Neufund Platform. In return we reward you with NEU tokens. NEU entitles you to economic co-ownership of the Neufund Platform.</p>
 
-         <p>Reserve ETH into you personal Ethereum investment count  with the intention to invest it into projects that would ICO on Neufund Platform.</p>
+         <p>You stay in full control over your committed funds and investment decisions. 100% of capital raised in the ICBM will fund innovation. We do not take any of the committed money.</p>
 
-         <p>You have 18 months to pick your favourite investments. Not investing results in full release of the funds.</p>
+         <p>If you decide not to invest on the Neufund Platform, 100% of your funds can be released after 18 months and anytime with a fee of only 10%.</p>
+
+         <p>Your participation in the ICBM is risk-free.</p>
       imgPath: "../assets/why-how/ICBM"
 
-    - title: "Your NEU Benefits"
+    - title: "Earn from NEU"
       id: "why-participate"
       content: |
-        <p>Neumarks entitle their holders to revenues from all the future investments’ success fees. They also allow the holders to participate in the economic benefit from a platform portfolio of all the startups tokens that will ever launch. They are genereted every time the investor reserves capital on the platform or invest in the startups.</p>
-        <p>If you reserve you ETH now you are getting NEU for free, if not, to get NEU you have to invest in the startups first. You can capitalise on Neumarks by hodling or by trading without vesting on secondary market from day one.</p>
-      imgPath: "../assets/why-how/Benefits"
+        <p>If you hold your NEU tokens you receive fee payouts and participation in equity tokens of every company that was ever funded on the Platform.</p>
 
-links:
-  visible: true
-  title: "In Depth About Neufund"
-  links:
-  - link: "Whitepaper"
-    href: "https://neufund.org/whitepaper/"
-  - link: "Lightpaper"
-    href: "https://neufund.org/lightpaper/"
-    new: true
-  - link: "Roadmap"
-    href: "https://neufund.org/roadmap/"
-  - link: "Neufund Legal Structure"
-    href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
-  - link: "Token Holder Agreement"
-    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
-  - link: "Token Reservation Agreement"
-    href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
-  - link: "Smart Contracts on Github"
-    href: "https://github.com/Neufund/ico-contracts"
-  - link: 'Neufund ICBM FAQ'
-    href: "/faq"
+        <p>With each successful fundraising a fee is deduced from the investment amount and immediately distributed to all NEU holders.</p>
+
+        <p>Additionally, a fee in form of equity tokens released by fundraising companies is added to the Platform portfolio, which is collectively owned by NEU holders.</p>
+
+        <p>Secondary trading of NEU is open when ICBM ends. No vesting is applied to trading nor to fee payouts.</p>
+
+      imgPath: "../assets/why-how/Benefits"
 
 participating:
   visible: true
@@ -63,14 +49,18 @@ participating:
 
 invest_platform:
   visible: true
-  title: "Investing in startups on the Platform"
+  title: "Investing in companies on the Neufund Platform"
   paragraph:  |
-        Neufund opens the investment process of the ICOs for all blockchain and non-blockchain ventures and investors. Using our legal and technical infrastructure, investors can invest both in ETH and EUR; startups and established companies alike can legally issue a new type of asset we call tokenized equity – in essence, digital shares. Such crypto tokens reflect the value of the business operating in the real, off-chain, world and at the same time are as liquid as a currency.
+       <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies (blockchain and non&#8209;blockchain companies).</p>
+
+       <p>Using the unique legal and technical infrastructure, investors can invest in private equity with ETH or EUR. Companies can legally tokenize their equity and sell it via Equity Token Offerings (ETOs) on the Neufund Platform.</p>
+
+       <p>Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
 
 team:
   visible: true
   title: "Team"
-  intro: "Team of entrepereneurs and experienced professionals."
+  intro: "Team of entrepreneurs and experienced professionals."
   block: "../blocks/person"
   members:
    - name: "Zoe Adamovicz"
@@ -204,7 +194,7 @@ team:
        web and distributed apps.</p>
 
    - name: "Moe Elsharif"
-     title: "Software developer"
+     title: "Embedded Developer"
      image: "../assets/MoeElsharif.jpg"
      preTitle: ""
      links:
@@ -255,7 +245,7 @@ team:
 
 
    - name: "Mostafa Balata"
-     title: "Software developer"
+     title: "Fullstack Developer"
      image: "../assets/mostafabalatabw.jpg"
      preTitle: ""
      links:
@@ -323,11 +313,11 @@ team:
 advisors:
   visible: true
   title: "Advisors"
-  intro: "Advisors bridging the worlds of crypto and Venture Capital"
+  intro: "Advisors bridging the worlds of crypto and Venture Capital."
   block: "../blocks/person"
   members:
     - name: "Fabian Vogelsteller"
-      title: Ethereum and Mist <span class="position">Developer</span>
+      title: <a href="https://ethereum.org/" target="_blank">Ethereum</a> and Mist <span class="position">Developer</span>
       image: "../assets/fabianethereumdev.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/fabian-vogelsteller-46365042/"
@@ -347,7 +337,7 @@ advisors:
         project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Michael Jackson"
-      title: <span class="position">Partner</span> Mangrove Capital <span class="position">& Board Director</span> Blockchain.com
+      title: <span class="position">Partner at</span> <a href="http://www.mangrove.vc/" target="_blank">Mangrove Capital</a> <span class="position">& Board Director</span> <a href="https://www.blockchain.com/" target="_blank">Blockchain.com</a>
       image: "../assets/mangrove-michael-jackson.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/mjmjmj/"
@@ -364,7 +354,7 @@ advisors:
         German.</p>
 
     - name: "Julian Zawistowski"
-      title: <span class="position">CEO and Founder</span> Golem
+      title: <span class="position">CEO and Founder at</span> <a href="https://golem.network/" target="_blank">Golem</a>
       image: "../assets/julian-zawistowski.jpg"
       preTitle: ""
       links:
@@ -374,7 +364,7 @@ advisors:
       bio: "Julian is an economist by trade, fascinated with blockchain technology, as well as sociology and the economics of decentralised systems. In the past, Julian served as a consultant and researcher of public policies with a background in public economics, the framing of which he finds very useful for understanding decentralised systems."
 
     - name: "Adam Stradling"
-      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12)</span> Bitcoin.com
+      title: <span class="position">Crypto Investor and Entrepreneur & Former Co-founder (2011/12) at</span> <a href="https://www.bitcoin.com/" target="_blank">Bitcoin.com</a>
       image: "../assets/adam-stradling.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/adamstradling/"
@@ -386,7 +376,7 @@ advisors:
         <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
 
     - name: "Max Kordek"
-      title: <span class="position">President</span> Lisk Foundation
+      title: <span class="position">President of</span> <a href="https://lisk.io/" target="_blank">Lisk Foundation</a>
       image: "../assets/maxlisk.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/maxkordek/"
@@ -401,7 +391,7 @@ advisors:
         industry, gaining invaluable knowledge of Bitcoin and Altcoins.</p>
 
     - name: "Christophe Maire"
-      title: <span class="position">Founder and CEO</span> Atlantic Labs
+      title: <span class="position">Founder and CEO at</span> <a href="http://www.atlanticlabs.de/" target="_blank">Atlantic Labs</a>
       image: "../assets/christophe-maire.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/christophe-maire-9073196"
@@ -416,7 +406,7 @@ advisors:
         of EyeEm, Klara and Soundcloud.</p>
 
     - name: "Paweł Bylica"
-      title: Ethereum Core <span class="position">Developer</span>
+      title: <a href="https://ethereum.org/" target="_blank">Ethereum</a> <span class="position">Core Developer</span>
       image: "../assets/pawel-bylica.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/pawelbylica"
@@ -427,7 +417,7 @@ advisors:
         Project as Ethereum specialist.</p>
 
     - name: "Alexander Lange"
-      title: <span class="position">VC</span> Earlybird <span class="position">& Board Member</span> Shapeshift
+      title: <span class="position">VC at</span> <a href="https://www.earlybird.com/" target="_blank">Earlybird</a> <span class="position">& Board Member</span> <a href="https://shapeshift.io/" target="_blank">Shapeshift</a>
       image: "../assets/Alex_Lange.jpg"
       links:
         twitter: "https://twitter.com/alexruppertvc"
@@ -437,7 +427,7 @@ advisors:
       bio:  |
         <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
     - name: "Minh Ha Duong"
-      title: <span class="position">Investment Manager</span> at Project A Ventures
+      title: <span class="position">Investment Manager at</span> <a href="https://www.project-a.com/en" target="_blank">Project A Ventures</a>
       image: "../assets/Ha_Duong.jpg"
       links:
         linkedin: "https://www.linkedin.com/in/minhhaduong/"
@@ -449,50 +439,75 @@ advisors:
 
 quotes:
   visible: true
-  title: "Supporters say"
-  description: "Advidors and startups about Neufund"
+  title: "Testimonials"
+  description: ""
   quotes:
     - author: Arnd Aschentrup, <span class="position">CEO</span>
       company: "Tandem"
       link: https://www.tandem.net/
       quote: |
         The community we’ve built at Tandem has been the most rewarding thing, so we wanted to give back. And what is better than owning a share in the company? Thanks to Neufund we can build even stronger ties to the people that support us!
-    - author: Fabian Vogelsteller, <span class="position">Developer</span>
-      company: "Ethereum and Mist"
-      link: https://github.com/ethereum/mist/releases
-      quote: |
-        I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
     - author: Alessio Avellan Borgmeyer, <span class="position">CEO & Founder</span>
       company: "Jodel"
       link: https://jodel-app.com/
       quote: |
         Here at Jodel we love the crypto world and how it brings communities closer together. That’s what we’re all about! So when we decided to raise funds from our own community and the ICO model didn’t meet our needs, we came across Neufund.
+    - author: Fabian Vogelsteller, <span class="position">Developer</span>
+      company: "Ethereum and Mist"
+      link: https://github.com/ethereum/mist/releases
+      quote: |
+        I am excited that Neufund is bringing together equity and Blockchain. I expect in the future every company will be tokenized and the way the Neufund platform is build, is the right approach to ignite that.
 
 ecosystem:
   visible: true
-  title: "Neufund's Ecosystem Impact"
+  title: "Sharing is caring"
   paragraph: |
-    Neufund invests a lot of effort into contributing to the blockchain community by building an ecosystem of technological and legal innovation.
+    Neufund’s effort goes into contributing to the crypto community by building an ecosystem of technological and legal innovation. Everything we do is 100% open sourced.
   subtitle: "Go to:"
   links:
-    - name: "Neufund's Ecosystem Impact Page"
+    - name: "Neufund's Projects"
       ref: "https://neufund.org/ecosystem/"
-    - name: "Neufund's Medium Publication"
+    - name: "Neufund's Blog"
       ref: "https://blog.neufund.org/"
 
   features:
-    - name: "Community Accountability"
-      subtitle: "ICO Transparency Monitor"
-      href: "https://icomonitor.io"
-    - name: "Technology Innovation"
-      subtitle: "Employee Stock Option Plan"
-      href: "https://neufund.org/esop"
     - name: "Regulatory Efforts"
       subtitle: "Blockchain Policy Initiative"
       href: "https://blockchainpolicy.org"
-    - name: "DevOps Innovation"
+    - name: "First Equity Tokens"
+      subtitle: "Employee Stock Option Plan"
+      href: "https://neufund.org/esop"
+    - name: "Market Quality"
+      subtitle: "ICO Transparency Monitor"
+      href: "https://icomonitor.io"
+    - name: "Blockchain DevOps"
       subtitle: "Smart Contract Watch"
       href: "https://blog.neufund.org/keep-your-private-keys-close-and-keep-your-smart-contracts-closer-introducing-the-smart-contract-e3bd1fcad204"
+
+  depth:
+    title: "In Depth"
+    links:
+    - link: "Whitepaper"
+      href: "https://neufund.org/whitepaper/"
+    - link: "Lightpaper"
+      href: "https://neufund.org/lightpaper/"
+      new: true
+    - link: "Roadmap"
+      href: "https://neufund.org/roadmap/"
+    - link: "Neufund Legal Structure"
+      href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
+      keyRead: true
+    - link: "Token Holder Agreement"
+      href: "https://github.com/Neufund/ico-contracts/raw/master/legal/NEUMARK%20TOKEN%20HOLDER%20AGREEMENT.docx"
+    - link: "Token Reservation Agreement"
+      href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
+    - link: 'ICBM announcement'
+      href: "https://neufund.org/announcement"
+      keyRead: true
+    - link: "Smart Contracts on Github"
+      href: "https://github.com/Neufund/ico-contracts"
+    - link: 'Neufund ICBM FAQ'
+      href: "/faq"
 
 press:
   links:

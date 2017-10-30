@@ -26,14 +26,6 @@ const getParticipateModal: any = (text: string) => {
   };
 };
 
-const movePlatformButtonToAnotherColumn = () => {
-  if ($(window).width() < 992) {
-    $("#platform-btn").detach().appendTo("#platform-second-col");
-  } else {
-    $("#platform-btn").detach().appendTo("#platform-first-col");
-  }
-};
-
 $(() => {
   const seeMore: string = "+ More";
   const seeLess: string = "- Less";
@@ -104,9 +96,6 @@ $(() => {
       { trailing: true }
     )
   );
-
-  $(window).resize(debounce(movePlatformButtonToAnotherColumn, 300));
-  movePlatformButtonToAnotherColumn();
 
   $('a[href*="#how-it-works"],a[href*="#why-participate"]').click(function(e) {
     e.preventDefault();

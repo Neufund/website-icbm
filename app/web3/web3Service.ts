@@ -6,9 +6,10 @@ import * as Web3 from "web3";
 
 import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
+import { setWeb3Action } from "../actions/web3";
 import config from "../config";
 import { IAppState } from "../reducers/index";
-import { getNetworkId } from "./utils";
+import { getNetworkId, getNodeType } from "./utils";
 
 const CHECK_INJECTED_WEB3_INTERVAL = 1000;
 
@@ -36,7 +37,9 @@ export class Web3Service {
   public readonly getBlockNumber: () => PromiseLike<number>;
   public readonly getBlock: (blockNumber: string | number) => PromiseLike<{}>;
   public readonly getTransaction: (tx: string) => PromiseLike<any>;
+  public readonly getBalance: (address: string) => PromiseLike<BigNumber>;
   private injectingFailed: boolean = false;
+  private injectWeb3PollId: number;
 
   private constructor(private dispatch: Dispatch<IAppState>, private getState: () => IAppState) {
     if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
@@ -48,6 +51,7 @@ export class Web3Service {
     this.getBlockNumber = promisify(this.rawWeb3.eth.getBlockNumber);
     this.getBlock = promisify(this.rawWeb3.eth.getBlock);
     this.getTransaction = promisify<any, string>(this.rawWeb3.eth.getTransaction);
+    this.getBalance = promisify<BigNumber, string>(this.rawWeb3.eth.getBalance);
   }
 
   public hasPersonalWeb3(): boolean {
@@ -63,13 +67,9 @@ export class Web3Service {
     return accounts[0];
   }
 
-  public async accountInfo(): Promise<IAccountInfo> {
-    return {} as any;
-  }
-
   public async injectWeb3IfAvailable() {
     await this.injectWeb3();
-    setInterval(this.injectWeb3, CHECK_INJECTED_WEB3_INTERVAL);
+    this.injectWeb3PollId = window.setInterval(this.injectWeb3, CHECK_INJECTED_WEB3_INTERVAL);
   }
 
   private injectWeb3 = async () => {
@@ -94,7 +94,11 @@ export class Web3Service {
     }
     this.injectingFailed = false;
 
+    const injectedType = await getNodeType(newWeb3);
+    this.dispatch(setWeb3Action(injectedType));
+
     this.personalWeb3 = newWeb3;
+    window.clearInterval(this.injectWeb3PollId);
     window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);
   };
 

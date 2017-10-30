@@ -20,6 +20,12 @@ $white-light-green: #fafbfb;
 $white-green: #f6faf3;
 $white-almost: #f7f8f9;
 $off-white: #f5f5f5;
+$off-gray: #434a51;
+$light-off-gray: #8fa2ab;
+$gray-border: #979797;
+$gray-placeholder: #cecece;
+$blue-off: #09719b;
+$loading-indicator-color: #333;
 
 //fonts
 $font-weight-max-bold: 900;
@@ -40,7 +46,8 @@ $font-size-smaller: 13px;
 $font-size-smallest: 12px;
 
 // spaces
-$padding-between-sections: 70px;
+$padding-between-sections: 100px;
+$padding-between-sections-mobile: 50px;
 $padding-between-pictures: 50px;
 $margin-bottom-between-paragraphs: 30px;
 $space-bottom-between-elements: 20px;
@@ -69,10 +76,11 @@ $navbar-default-toggle-icon-bar-bg: $blue;
 $navbar-default-toggle-hover-bg: $white;
 
 //Positions
-$hexagon-top-position: 70px;
-$hexagon-left-position: 15px;
+$hexagon-top-position: 90px;
+$hexagon-left-position: 70px;
 
 // general
+$font-size-h1: 40px;
 $font-size-base: 15px !default;
 
 $font-family-sans-serif: 'Montserrat', sans-serif;

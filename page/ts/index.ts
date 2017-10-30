@@ -38,7 +38,7 @@ $(document).ready(() => {
     // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
     const name = $(this).find("h4.name").text().trim();
     const image = $(this).find("img").attr("src").trim();
-    const title = $(this).find("h4.position").html();
+    const title = $(this).find("h4.position-hidden").html();
     const bio = $(this).find(".bio").text().trim();
     const rawLinks = $(this).find(".links").text().trim();
     const links = rawLinks ? JSON.parse(rawLinks) : {};

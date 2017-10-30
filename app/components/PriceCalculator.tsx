@@ -1,5 +1,6 @@
 import TextField from "material-ui/TextField";
 import * as React from "react";
+import { Textfit } from "react-textfit";
 import { Field, reduxForm } from "redux-form";
 import { LoadingIndicator } from "./LoadingIndicator";
 import * as style from "./PriceCalculator.scss";
@@ -30,6 +31,7 @@ const styledField = (props: any) => {
     hintStyle: estTextFieldStyles.hintStyle,
     hintText: "0",
     autoComplete: "off",
+    maxLength: props.maxLength,
     ...props.input,
   };
 
@@ -41,6 +43,7 @@ const styledField = (props: any) => {
 };
 
 interface ICommitFundsEstimation {
+  rewardForOneEth: number;
   estimatedReward: number;
   calculateEstimatedReward: () => {};
   loadingEstimatedReward: boolean;
@@ -51,12 +54,22 @@ interface ICommitFundsEstimationFormValues {
 }
 
 const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = ({
+  rewardForOneEth,
   estimatedReward,
   calculateEstimatedReward,
   loadingEstimatedReward,
 }) => {
   return (
     <div>
+      <p className={style.preTextPargraph}>
+        In the ICBM you now get NEU for your willingness to fund companies later. On top of that we
+        incentivize early birds. NEU reward is the highest at the start of the ICBM, then early
+        comer bonus decreases as the committed capital pool grows.
+      </p>
+      <strong className={style.preTextPargraph}>
+        Current NEU reward: {rewardForOneEth.toFixed(2)} NEU / 1 ETH
+      </strong>
+
       <form onKeyUp={calculateEstimatedReward}>
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Calculate your estimated reward:</p>
@@ -65,37 +78,24 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
               {loadingEstimatedReward
                 ? <LoadingIndicator className={style.loadingIndicator} />
                 : <span>
-                    <span className={style.amount}>{estimatedReward.toFixed(2)}</span>{" "}
+                    <Textfit mode="single" max={18} className={style.amount}>
+                      {estimatedReward.toFixed(2)}{" "}
+                    </Textfit>
+
                     <span className={style.currencyNeu}>NEU</span>
                   </span>}
             </div>
             <span className={style.separator}> / </span>
-            <Field name="ethAmount" component={styledField} />
+            <Field name="ethAmount" component={styledField} props={{ maxLength: 9 }} />
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>
-            Calculated amount might not be precised, reward will be granted after the block is mined
-            and it might depend on the order of transactions.
+            Calculated amount is an estimation. The NEU reward will be granted after the block is
+            mined and it might depend on the order of transactions. ICBM will be performed with a
+            constant ETH to EUR rate but will be set and announced 6 days before the ICBM.
           </p>
         </div>
       </form>
-
-      <ul className={style.information}>
-        <li>NEU is denominated to EUR, EUR to ETH is stable…</li>
-        <li>Neufund ICO phase:</li>
-        <li>
-          Start price: <b>8.25</b> NEU / 1 EUR
-        </li>
-        <li>
-          Finish: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <br />
-        <li>Post-ICO phase:</li>
-        <li>
-          Start price: <b>4.25</b> NEU / 1 EUR
-        </li>
-        <li>Finish: ...</li>
-      </ul>
     </div>
   );
 };

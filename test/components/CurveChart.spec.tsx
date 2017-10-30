@@ -40,12 +40,12 @@ describe("helper functions", () => {
   describe("format numbers to milion and bilion test", () => {
     it("should return 1MLN", () => {
       const result = formatNumber(1000000);
-      expect(result).to.equal("1MLN");
+      expect(result).to.equal("1M");
     });
 
     it("should return 2BLN", () => {
       const result = formatNumber(2000000000);
-      expect(result).to.equal("2BLN");
+      expect(result).to.equal("2B");
     });
 
     it("should return 50K", () => {
@@ -66,7 +66,7 @@ describe("helper functions", () => {
 
     it("should return the value for 400000 ETH", () => {
       const result = getPrice(currencyRate, initialReward, capNEU, 400000);
-      expect(result.toFixed(2)).to.equal("2.06");
+      expect(result.toFixed(2)).to.equal("541.07");
     });
   });
 

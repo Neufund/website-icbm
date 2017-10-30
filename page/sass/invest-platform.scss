@@ -1,24 +1,45 @@
 .invest-platform {
   h2 {
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: $gray-darker;
-    font-size: $section-title-font-size;
-    font-weight: $font-weight-more-bold;
+  }
+
+  p {
+    font-size: $font-size-small;
   }
 
   .product-image {
     margin: 0 auto;
     max-height: 520px;
-
-    @media (max-width: $screen-sm-max) {
-      max-height: 380px;
-    }
   }
 
   .btn-container {
     margin-top: 60px;
     margin-bottom: 30px;
     text-align: center;
+  }
+
+  .row {
+    &.is-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &.is-flex > [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .product-image {
+      max-height: 380px;
+    }
   }
 }

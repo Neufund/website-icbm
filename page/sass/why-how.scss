@@ -1,4 +1,5 @@
 .how-it-works {
+
   .number-offset {
     @media (min-width: $screen-md-min) {
       padding-left: 50px;
@@ -21,15 +22,14 @@
   }
 
   .content {
+
     h2 {
       margin-bottom: 30px;
-      color: $gray-darker;
-      font-size: $section-title-font-size-smaller;
-      font-weight: $font-weight-more-bold;
     }
 
     .text {
       p {
+        color: $gray-darker;
         font-size: $font-size-small;
       }
     }
@@ -37,12 +37,12 @@
 
   h3 {
     margin-top: 0;
-    font-size: $section-title-font-size-smaller;
-    font-weight: $font-weight-more-bold;
+    font-size: $font-size-normal;
+    font-weight: $font-weight-normal;
   }
 
   .image {
-    margin: 40px auto;
-    max-height: 200px;
+    margin: 0 auto 40px;
+    max-height: 400px;
   }
 }

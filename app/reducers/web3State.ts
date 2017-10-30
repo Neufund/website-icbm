@@ -7,7 +7,7 @@ export interface IWeb3State {
 }
 
 const initialState: IWeb3State = {
-  web3Type: null,
+  web3Type: Web3Type.UNKNOWN,
   ethNetwork: null,
 };
 

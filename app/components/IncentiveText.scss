@@ -10,9 +10,10 @@
   }
 
   p {
-    margin-top: $margin-bottom-between-paragraphs;
+    margin-top: 40px;
     @media (min-width: $screen-lg) {
-      padding-right: 160px;
+      padding-right: 55px;
+      font-size: $font-size-normal;
     }
   }
 

@@ -15,12 +15,17 @@ export enum IcoPhase {
   AFTER = "AFTER",
 }
 
+export enum TokenType {
+  ETHER = "ETHER",
+  EURO = "EURO",
+}
+
 export enum Web3Type {
+  UNKNOWN = "UNKNOWN",
   GENERIC = "GENERIC",
   LEDGER = "LEDGER",
   METAMASK = "METAMASK",
   PARITY = "PARITY",
-  PARITY_SIGNER = "PARITY_SIGNER",
   MIST = "MIST",
 }
 

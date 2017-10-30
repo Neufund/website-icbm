@@ -1,7 +1,7 @@
 import * as moment from "moment";
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
-import { publicCommitment } from "./contracts/ContractsRepository";
+import { etherToken, euroToken, publicCommitment } from "./contracts/ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
 
 export function mapCommitmentTypeToStartingInternalContractPhase(
@@ -43,11 +43,20 @@ export async function loadIcoParamsFromContract() {
     config.contractsDeployed.commitmentType
   );
 
-  const [startingDate, finishDate, minTicketEur, euroEthRate] = await Promise.all([
+  const [
+    startingDate,
+    finishDate,
+    minTicketEur,
+    euroEthRate,
+    euroDecimals,
+    ethDecimals,
+  ] = await Promise.all([
     publicCommitment.startOf(startingInternalState),
     publicCommitment.startOf(finishingInternalState),
     publicCommitment.minTicketEur,
     publicCommitment.convertToEur(1),
+    euroToken.decimals,
+    etherToken.decimals,
   ]);
 
   const now = moment();
@@ -57,6 +66,8 @@ export async function loadIcoParamsFromContract() {
 
   return {
     commitmentState,
+    euroDecimals,
+    ethDecimals,
     startingDate: startingDate.toISOString(),
     finishDate: finishDate.toISOString(),
     minTicketWei: minTicketWei.toString(),

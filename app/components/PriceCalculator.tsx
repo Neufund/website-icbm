@@ -45,17 +45,13 @@ const styledField = (props: any) => {
   return <TextField {...computedProps} />;
 };
 
-const maxLength = (max: number) => (value: any) =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined
-
 const number = (value: any) => {
   let newValue = "";
-  if(value) {
-    newValue = value.replace(',', '.');
+  if (value) {
+    newValue = value.replace(",", ".");
   }
-  return newValue && ( isNaN(Number(newValue)) || parseFloat(newValue) < 0 )
-} 
-
+  return newValue && (isNaN(Number(newValue)) || parseFloat(newValue) < 0);
+};
 
 interface ICommitFundsEstimation {
   rewardForOneEth: number;
@@ -101,7 +97,12 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
                   </span>}
             </div>
             <span className={style.separator}> / </span>
-            <Field name="ethAmount" component={styledField} props={{ maxLength: 9 }} validate={[number]}/>
+            <Field
+              name="ethAmount"
+              component={styledField}
+              props={{ maxLength: 9 }}
+              validate={[number]}
+            />
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>

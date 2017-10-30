@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { setEstimatedRewardAction } from "../actions/submitFunds";
-import CurveChart, { getNeumarkAmount } from "../components/CurveChart";
+import CurveChart, { getNeumarkAmount, getPrice } from "../components/CurveChart";
 import PriceCalculator from "../components/PriceCalculator";
 import { IAppState } from "../reducers/index";
 
@@ -15,14 +15,9 @@ export const Curve = (props: any) => {
   const min: number = 0;
   const max: number = 3000000;
   const dotsNumber: number = 50;
-  const currentRasiedEther: number = 0;
-  const rewardForOneEth = getNeumarkAmount(
-    currencyRate,
-    initialReward,
-    capNEU,
-    currentRasiedEther,
-    1
-  );
+  const currentRasiedEther: number = 4100;
+
+  const rewardForOneEth = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
 
   return (
     <Row>

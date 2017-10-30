@@ -191,6 +191,12 @@ export default (props: ICurveChart) => {
       responsive: true,
     },
     tooltips: {
+      custom: (tooltip: any) => {
+        if (!tooltip) {
+          return;
+        }
+        tooltip.displayColors = false;
+      },
       callbacks: {
         label: (item: any) => {
           const xAxisEtherValue: number = etherDatasetList[item.index];

@@ -46,10 +46,7 @@ const styledField = (props: any) => {
 };
 
 const number = (value: any) => {
-  let newValue = "";
-  if (value) {
-    newValue = value.replace(",", ".");
-  }
+  const newValue = value ? value.replace(",", ".") : "";
   return newValue && (isNaN(Number(newValue)) || parseFloat(newValue) < 0);
 };
 

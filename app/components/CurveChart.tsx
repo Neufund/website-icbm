@@ -191,7 +191,7 @@ export default (props: ICurveChart) => {
       responsive: true,
     },
     tooltips: {
-      custom(tooltip: any) {
+      custom: (tooltip: any) => {
         if (!tooltip) {
           return;
         }

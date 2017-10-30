@@ -34,3 +34,7 @@ export default reducer;
 export function selectWeb3Type(state: IWeb3State): Web3Type {
   return state.web3Type;
 }
+
+export function selectEthNetwork(state: IWeb3State): EthNetwork {
+  return state.ethNetwork;
+}

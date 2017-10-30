@@ -2,7 +2,7 @@ import "!style-loader!css-loader!vex-js/dist/css/vex-theme-os.css";
 import "!style-loader!css-loader!vex-js/dist/css/vex.css";
 import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import * as $ from "jquery";
-import { debounce, throttle } from "lodash";
+import { throttle } from "lodash";
 import "owl.carousel";
 import * as vexDialog from "vex-dialog";
 import * as vex from "vex-js";

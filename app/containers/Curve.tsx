@@ -15,7 +15,7 @@ export const Curve = (props: any) => {
   const min: number = 0;
   const max: number = 3000000;
   const dotsNumber: number = 50;
-  const currentRasiedEther: number = 4100;
+  const currentRasiedEther: number = 0;
 
   const rewardForOneEth = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
 

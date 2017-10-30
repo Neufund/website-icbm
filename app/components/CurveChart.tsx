@@ -191,16 +191,11 @@ export default (props: ICurveChart) => {
       responsive: true,
     },
     tooltips: {
+      custom: function(tooltip: any) {
+        if (!tooltip) return;
+        tooltip.displayColors = false;
+      },
       callbacks: {
-        labelColor() {
-          return {
-            borderColor: "rgb(255, 255, 255)",
-            backgroundColor: "rgb(255, 255, 255)",
-          };
-        },
-        labelTextColor() {
-          return "white";
-        },
         label: (item: any) => {
           const xAxisEtherValue: number = etherDatasetList[item.index];
           const price: number = getPrice(currencyRate, initialReward, capNEU, xAxisEtherValue);

@@ -49,11 +49,10 @@ h2 {
 
   &.btn-primary {
     background-image: linear-gradient(106deg, $blue-off, $blue-off 2%, $black-lighter);
-    width: 196px;
     color: $white;
 
-    &:hover {
-      font-weight: $font-weight-bold;
+    &:hover:enabled {
+      background-image: linear-gradient(130deg, darken($blue-off, 3%), darken($blue-off, 3%) 2%, darken($black-lighter, 3%));
     }
   }
 

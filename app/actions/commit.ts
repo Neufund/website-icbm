@@ -12,7 +12,6 @@ export const initCommit: ThunkAction<{}, IAppState, {}> = async (dispatch, getSt
   await Web3Service.instance.injectWeb3IfAvailable();
   const networkId = await getNetworkId(Web3Service.instance.rawWeb3);
   dispatch(setEthNetworkAction(networkId));
-  dispatch(setWeb3Action(Web3Type.GENERIC));
 
   await dispatch(loadIcoParams);
   await dispatch(loadAgreements);

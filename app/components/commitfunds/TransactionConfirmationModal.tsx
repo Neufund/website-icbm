@@ -1,8 +1,11 @@
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
+import { Dispatch } from "redux";
 
 import { EtherScanLinkType } from "../../actions/constants";
+import { transactionResetAction } from "../../actions/submitFunds";
 import { IAppState } from "../../reducers/index";
 import { ITransactionState } from "../../reducers/transactionState";
 import EtherScanLink from "../EtherScanLink";
@@ -131,6 +134,13 @@ const mapStateToProps = (state: IAppState): ITransactionState => ({
   error: state.transactionState.error,
 });
 
-export default connect<ITransactionState, null, ITransactionConfirmationModalExtras>(
-  mapStateToProps
-)(TransactionConfirmationModalComponent);
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    handleGoToAftermath: () => {
+      dispatch(transactionResetAction());
+      dispatch(push("/commit/aftermath"));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionConfirmationModalComponent);

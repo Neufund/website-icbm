@@ -37,7 +37,6 @@ interface ICommitKnownUserContainer {
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
-  handleGoToAftermath: () => void;
   balance: BigNumber;
   web3Provider: Web3Type;
 }
@@ -51,14 +50,13 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   calculateEstimatedRewardAction,
   loadingEstimatedReward,
   estimatedReward,
-  handleGoToAftermath,
   balance,
   web3Provider,
 }) => {
   return (
     <div>
       <LegalModal />
-      <TransactionConfirmationModal handleGoToAftermath={handleGoToAftermath} />
+      <TransactionConfirmationModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -102,10 +100,6 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
       () => dispatch(calculateEstimatedReward) as () => {},
       300
     ) as () => {},
-    handleGoToAftermath: () => {
-      dispatch(transactionResetAction());
-      dispatch(push("/commit/aftermath"));
-    },
   };
 }
 

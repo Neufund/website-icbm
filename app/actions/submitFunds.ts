@@ -10,6 +10,7 @@ import {
   COMMITTING_DONE,
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
+  COMMITTING_RESET,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
@@ -28,6 +29,11 @@ export function setEstimatedRewardAction(estimatedReward: string): IStandardRedu
     payload: { estimatedReward },
   };
 }
+
+export const transactionResetAction = (): IStandardReduxAction => ({
+  type: COMMITTING_RESET,
+  payload: {},
+});
 
 export const transactionStartedAction = (): IStandardReduxAction => ({
   type: COMMITTING_STARTED,

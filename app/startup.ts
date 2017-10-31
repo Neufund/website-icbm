@@ -1,5 +1,7 @@
 import { promisify } from "bluebird";
 import { Store } from "react-redux";
+import { browserHistory } from "react-router";
+import { routerMiddleware } from "react-router-redux";
 import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
@@ -15,7 +17,12 @@ const persistStorePromised = promisify(persistStore) as any;
 
 export async function startup(render: (store: Store<any>) => void) {
   const enhancers = () =>
-    composeWithDevTools(compose(applyMiddleware(reduxThunk, reduxLogger), autoRehydrate()));
+    composeWithDevTools(
+      compose(
+        applyMiddleware(reduxThunk, reduxLogger, routerMiddleware(browserHistory)),
+        autoRehydrate()
+      )
+    );
 
   // Create the Redux store
   const store = createStore(reducers, enhancers());

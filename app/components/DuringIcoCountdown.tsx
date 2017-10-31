@@ -89,6 +89,15 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
             Commit ETH
           </a>
         </div>
+        <div className={styles.buttonContainer}>
+          <a
+            href="/commit/aftermath"
+            className="btn btn-primary"
+            data-test-id="during-ico-commit-btn"
+          >
+            See your commitment
+          </a>
+        </div>
       </Col>
       <Col sm={7} xsHidden>
         <HexagonsStack

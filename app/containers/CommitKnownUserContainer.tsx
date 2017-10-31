@@ -3,8 +3,14 @@ import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
+import { push } from "react-router-redux";
+
 import { Web3Type } from "../actions/constants";
-import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
+import {
+  calculateEstimatedReward,
+  submitFunds,
+  transactionResetAction,
+} from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
@@ -12,7 +18,6 @@ import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import config from "../config";
-import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
   selectEstimatedReward,
   selectEstimatedRewardLoadingState,
@@ -71,13 +76,6 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               balance={balance}
               web3Provider={web3Provider}
             />
-            <Row>
-              <Col xs={12}>
-                <hr className={layoutStyle.separator} />
-              </Col>
-            </Row>
-            <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermathContainer userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>
@@ -105,7 +103,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
       300
     ) as () => {},
     handleGoToAftermath: () => {
-      alert("go to after math");
+      dispatch(transactionResetAction());
+      dispatch(push("/commit/aftermath"));
     },
   };
 }

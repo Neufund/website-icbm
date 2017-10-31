@@ -21,7 +21,6 @@ import { selectIsAccepted } from "../reducers/legalAgreementState";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import AddressChooserModalContainer from "./AddressChooserModalContainer";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
-import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
   agreementAccepted: boolean;
@@ -74,13 +73,6 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
               calculateEstimatedRewardAction={calculateEstimatedRewardAction}
               minTicketWei={minTicketWei}
             />
-            <Row>
-              <Col xs={12}>
-                <hr className={layoutStyle.separator} />
-              </Col>
-            </Row>
-            <CommitHeaderComponent number="02" title="After math" />
-            <CommitUnknownUserAftermathContainer />
           </Col>
         </Row>
       </Grid>

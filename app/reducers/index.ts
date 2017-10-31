@@ -1,3 +1,4 @@
+import { routerReducer } from "react-router-redux";
 import { combineReducers } from "redux";
 import { FormState, reducer as form } from "redux-form";
 import aftermathState, { IAftermathState } from "./aftermathState";
@@ -31,4 +32,5 @@ export default combineReducers<IAppState>({
   aftermathState,
   transactionState,
   web3State,
+  routing: routerReducer,
 });

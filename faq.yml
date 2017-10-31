@@ -69,7 +69,7 @@
       On the Ethereum network you can be fairly certain that your transaction is executed with just one confirmed block. However, it is customary to say that 12 blocks provides almost 100% guarantee. For funds committed directly from the commitment page we provide a link to <a target="_blank" href="https://etherscan.io/">Etherscan</a> where you can observe the number of confirmations in real time. If you use your own wallet, please refer to its manual for guidance.
   - question : What are the reward ratio and exchange rate mechanisms?
     answer : |
-      <p>The Neumark reward starts out at 6.5 Neumark per EURT and declines from there according to the following curve:<img src="./assets/curve.png" alt="curve" width="300"></p>
+      <p>The Neumark reward starts out at 6.5 Neumark per EURT and declines from there according to the following curve:<img src="/assets/curve.png" alt="curve" width="300"></p>
       <p>However, every Neumark reward is split: 50% goes to the person committing funds, 50% go to the platform operator Fifth Force GmbH. In effect then, the Neumark reward for the first contributor starts out at 3.25 Neumark per EURT.</p>
       <p>During the commitment process you will find a calculator to estimate the reward you are likely to get for your commitment of funds.</p>
   - question : Does Neufund do a pre-ICO?

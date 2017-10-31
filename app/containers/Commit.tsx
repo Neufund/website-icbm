@@ -40,6 +40,15 @@ class Commit extends React.Component<ICommitComponent> {
     if (isLoading) {
       return <LoadingIndicator />;
     }
+
+    if (this.props.children !== null) {
+      return (
+        <div>
+          {this.props.children}
+        </div>
+      );
+    }
+
     return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
   }
 }

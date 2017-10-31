@@ -39,7 +39,12 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     host: "localhost",
     port: 9090,
-    historyApiFallback: true,
+    historyApiFallback: {
+      verbose: true,
+      rewrites: [
+         { from: /\/commit\/aftermath/, to: '/commit.html' }
+      ]
+    },
     // respond to 404s with index.html
     hot: true,
     // display errors on page
@@ -166,7 +171,7 @@ function updateParsedEnvsWithProcessEnvs(envs){
 
   keys(envs).forEach(k => {
     result[k] = (k in processEnvs)? processEnvs[k] : envs[k];
-  })
+  });
 
   return result;
 }

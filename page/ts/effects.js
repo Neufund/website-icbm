@@ -11,7 +11,6 @@ sr.reveal(".platform-overview .feature-list");
 sr.reveal(".how-it-works .image");
 sr.reveal(".invest-platform .product-image");
 sr.reveal(".platform-overview .feature");
-sr.reveal(".curve");
 sr.reveal(".in-depths-links");
 
 // product page

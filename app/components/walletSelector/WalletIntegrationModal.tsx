@@ -1,6 +1,6 @@
 import { noop } from "lodash";
 import * as React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { IAppState } from "../../reducers/index";
 import LedgerAddressChooser from "./LedgerAddressChooser";

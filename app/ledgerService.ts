@@ -1,13 +1,10 @@
 import { delay, promisify } from "bluebird";
 import ledgerWalletProvider from "ledger-wallet-provider";
-import * as semver from "semver";
 import * as Web3 from "web3";
 import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
 import { EthNetwork } from "./actions/constants";
 import config from "./config";
-import { getNetworkId } from "./web3/utils";
-import { Web3Service } from "./web3/web3Service";
 
 const CHECK_INTERVAL = 1000;
 const CONNECTION_RETRY = 60;
@@ -44,8 +41,6 @@ export class LedgerService {
     startingIndex: number,
     numberOfAddresses: number
   ): Promise<{ [derivationPath: string]: string }> {
-    debugger;
-
     const getMultipleAccountsAsync = promisify<
       { [derivationPath: string]: string },
       string,
@@ -72,11 +67,11 @@ async function connectToLedger(networkId: EthNetwork) {
       // todo check config version and if too small fails
 
       return { ledgerInstance, ledgerWeb3 };
+      // tslint:disable-next-line
     } catch (e) {}
     await delay(CHECK_INTERVAL);
   }
 
-  console.error("Can't connect to ledger!");
   throw new Error("Can't connect to ledger!");
 }
 

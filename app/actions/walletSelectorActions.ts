@@ -7,7 +7,6 @@ import {
   WALLET_SELECTOR_CONNECTED_TO_LEDGER,
   WALLET_SELECTOR_INIT_LEDGER_SELECTION,
 } from "./constants";
-import { ledgerGetAddresses } from "./ledgerAddressChooser";
 
 export const initLedgerSelectionAction = () => ({
   type: WALLET_SELECTOR_INIT_LEDGER_SELECTION,
@@ -19,6 +18,6 @@ export const connectedToLedgerAction = () => ({
 
 export const initLedgerConnection: ThunkAction<{}, IAppState, {}> = async dispatch => {
   const networkId = await getNetworkId(Web3Service.instance.rawWeb3);
-  const ledgerWeb3 = await LedgerService.init(networkId);
+  await LedgerService.init(networkId);
   dispatch(connectedToLedgerAction());
 };

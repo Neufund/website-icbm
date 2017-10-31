@@ -1,11 +1,16 @@
-import { mapValues, values } from "lodash";
-import promiseAll = require("promise-all");
+import { toPairs, zip } from "lodash";
 import { ThunkAction } from "redux-thunk";
 
 import { LedgerService } from "../ledgerService";
 import { IAppState } from "../reducers/index";
+import { ILedgerAccount } from "../reducers/ledgerAddressChooserState";
 import { Web3Service } from "../web3/web3Service";
-import { LEDGER_GET_ADDRESSES_LOADING } from "./constants";
+import {
+  LEDGER_GET_ADDRESSES_LOADED,
+  LEDGER_GET_ADDRESSES_LOADING,
+  LEDGER_NEXT_PAGE,
+  LEDGER_PREV_PAGE,
+} from "./constants";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
 
@@ -13,38 +18,57 @@ export const getAddressesLoadingAction = () => ({
   type: LEDGER_GET_ADDRESSES_LOADING,
 });
 
+export const setAddressesAction = (accounts: ILedgerAccount[]) => ({
+  type: LEDGER_GET_ADDRESSES_LOADED,
+  payload: {
+    accounts,
+  },
+});
+
+export const nextPageAction = () => ({
+  type: LEDGER_NEXT_PAGE,
+});
+
+export const prevPageAction = () => ({
+  type: LEDGER_PREV_PAGE,
+});
+
 export const ledgerGetAddresses: ThunkAction<{}, IAppState, {}> = async (dispatch, getState) => {
   dispatch(getAddressesLoadingAction());
 
   const state = getState().ledgerAddressChooserState;
 
-  // for (let i = state.index; i < state.index + NUMBER_OF_ADDRESSES_PER_PAGE; i = i + 1) {
-  //   stateCopy.addresses[stateCopy.derivationPath + i] = {
-  //     address: null,
-  //     ETH: null,
-  //   };
-  // }
-
-  const newAddresses = await LedgerService.instance.getMultipleAccountsAsync(
+  const derivationPathsObject = await LedgerService.instance.getMultipleAccountsAsync(
     state.derivationPath,
     state.page * NUMBER_OF_ADDRESSES_PER_PAGE,
     NUMBER_OF_ADDRESSES_PER_PAGE
   );
 
-  const balances = await promiseAll(
-    mapValues(newAddresses, address =>
-      Web3Service.instance.getBalance(address).then(b => b.toString())
+  const derivationPathsArray = toPairs(derivationPathsObject).map(pair => ({
+    derivationPath: pair[0],
+    address: pair[1],
+  }));
+
+  const balances = await Promise.all(
+    derivationPathsArray.map(dp =>
+      Web3Service.instance.getBalance(dp.address).then(bn => bn.toString())
     )
   );
 
-  const addresses = keys(newAddresses).reduce((dp, acc) => ({ ...acc, [dp]: {} }));
+  const accounts = (zip(derivationPathsArray, balances as any).map(([dp, balance]) => ({
+    ...dp,
+    balance,
+  })) as any) as ILedgerAccount[];
 
-  // for (const dp in addresses) {
-  //   if (addresses.hasOwnProperty(dp)) {
-  //     const address = addresses[dp];
-  //     stateCopy.addresses[dp].address = address;
-  //     stateCopy.addresses[dp].ETH = web3Instance.fromWei(
-  //       await web3Instance.eth.getBalanceAsync(address),
-  //       "ether"
-  //     );
+  dispatch(setAddressesAction(accounts));
+};
+
+export const showNextAddresses: ThunkAction<{}, IAppState, {}> = async dispatch => {
+  dispatch(nextPageAction());
+  return dispatch(ledgerGetAddresses);
+};
+
+export const showPrevAddresses: ThunkAction<{}, IAppState, {}> = async dispatch => {
+  dispatch(prevPageAction());
+  return dispatch(ledgerGetAddresses);
 };

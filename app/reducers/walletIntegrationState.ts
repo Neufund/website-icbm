@@ -1,5 +1,7 @@
-import * as BigNumber from "bignumber.js";
-import { WALLET_SELECTOR_CONNECTED_TO_LEDGER, WALLET_SELECTOR_INIT_LEDGER_SELECTION } from "../actions/constants";
+import {
+  WALLET_SELECTOR_CONNECTED_TO_LEDGER,
+  WALLET_SELECTOR_INIT_LEDGER_SELECTION,
+} from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IWalletIntegrationState {

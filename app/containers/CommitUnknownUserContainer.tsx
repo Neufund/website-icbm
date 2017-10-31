@@ -18,7 +18,6 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
-import { selectIsAccepted } from "../reducers/legalAgreementState";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";

@@ -1,23 +1,21 @@
-import { noop } from "lodash";
 import TextField from "material-ui/TextField";
 import * as React from "react";
-import { Button, Modal } from "react-bootstrap";
 
-import { IDerivationPaths } from "../../types";
-import { LoadingIndicator } from "../LoadingIndicator";
-import * as style from "./AddressChooserModalComponent.scss";
+import { TokenType } from "../../actions/constants";
+import { ILedgerAccount } from "../../reducers/ledgerAddressChooserState";
+import MoneyComponent from "../MoneyComponent";
+import * as style from "./LedgerAddressChooserComponent.scss";
 
 interface ILedgerAddressChooserComponent {
-  loading: boolean;
   derivationPath: string;
-  addresses: IDerivationPaths;
-  handleAddressChosen: (derivationPath: string, address: string) => () => void;
+  accounts: ILedgerAccount[];
+  handleAddressChosen: (account: ILedgerAccount) => () => void;
   handleDerivationPathChange: (event: object, newValue: string) => void;
 }
 
 export const LedgerAddressChooserComponent: React.SFC<ILedgerAddressChooserComponent> = ({
   derivationPath,
-  addresses,
+  accounts,
   handleAddressChosen,
   handleDerivationPathChange,
 }) =>
@@ -40,21 +38,18 @@ export const LedgerAddressChooserComponent: React.SFC<ILedgerAddressChooserCompo
         </tr>
       </thead>
       <tbody>
-        {Object.keys(addresses).map(dp =>
-          <tr key={dp}>
+        {accounts.map(a =>
+          <tr key={a.derivationPath}>
             <td>
-              {dp}
+              {a.derivationPath}
             </td>
             <td>
-              {addresses[dp].address}
+              {a.address}
             </td>
             <td>
-              {addresses[dp].ETH.toString()}
+              <MoneyComponent value={a.balance} tokenType={TokenType.ETHER} />
             </td>
-            <td
-              className={style.useColumn}
-              onClick={handleAddressChosen(dp, addresses[dp].address)}
-            >
+            <td className={style.useColumn} onClick={handleAddressChosen(a)}>
               <i className="material-icons">done</i>
             </td>
           </tr>

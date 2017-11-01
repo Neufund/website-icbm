@@ -3,6 +3,7 @@ import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
+
 import { Web3Type } from "../actions/constants";
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
@@ -11,6 +12,7 @@ import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnow
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
+import WalletSelector from "../components/walletSelector/WalletSelector";
 import config from "../config";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
@@ -59,6 +61,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
         <Row>
           <Col xs={12} className={layoutStyle.contentContainer}>
             <CommitHeaderComponent number="01" title="Commit funds" />
+            <WalletSelector />
             <CommitKnownUser
               userAddress={userAddress}
               contractAddress={contractAddress}

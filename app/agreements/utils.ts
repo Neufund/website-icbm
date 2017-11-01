@@ -1,4 +1,5 @@
 import { BigNumber } from "bignumber.js";
+import { isString } from "lodash";
 import * as moment from "moment";
 import * as replaceString from "replace-string";
 import { IDictionary } from "../types";
@@ -17,8 +18,9 @@ export function bignumberToString(bignumberString: string) {
   return first + "0".repeat(zeroes);
 }
 
-export function formatMoney(decimals: number, moneyInULP: BigNumber) {
-  const moneyInPrimaryBase = moneyInULP.div(new BigNumber(10).pow(decimals));
+export function formatMoney(decimals: number, moneyInULP: BigNumber | string) {
+  const money: BigNumber = isString(moneyInULP) ? new BigNumber(moneyInULP) : moneyInULP;
+  const moneyInPrimaryBase = money.div(new BigNumber(10).pow(decimals));
   return moneyInPrimaryBase.toFixed(4);
 }
 

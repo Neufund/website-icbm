@@ -10,6 +10,7 @@ import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderCom
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
 import LegalModal from "../components/LegalModal";
+import WalletSelector from "../components/walletSelector/WalletSelector";
 import config from "../config";
 import {
   selectEstimatedReward,
@@ -17,14 +18,11 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
-import { selectIsAccepted } from "../reducers/legalAgreementState";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
-import AddressChooserModalContainer from "./AddressChooserModalContainer";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
-  agreementAccepted: boolean;
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
@@ -36,12 +34,9 @@ interface ICommitUnknownUserContainer {
   loadingEstimatedReward: boolean;
   calculateEstimatedRewardAction: () => {};
   minTicketWei: BigNumber;
-  showChooseAddressDialog: boolean;
-  handleAddressChosen: (derivationPath: string, address: string) => void;
 }
 
 export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> = ({
-  agreementAccepted,
   contractAddress,
   transactionPayload,
   gasPrice,
@@ -50,20 +45,16 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
   loadingEstimatedReward,
   calculateEstimatedRewardAction,
   minTicketWei,
-  showChooseAddressDialog,
-  handleAddressChosen,
 }) => {
   return (
     <div>
       <LegalModal />
-      {showChooseAddressDialog &&
-        agreementAccepted &&
-        <AddressChooserModalContainer handleAddressChosen={handleAddressChosen} />}
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
           <Col xs={12} className={layoutStyle.contentContainer}>
             <CommitHeaderComponent number="01" title="Commit details" />
+            <WalletSelector />
             <CommitUnknownUser
               contractAddress={contractAddress}
               transactionPayload={transactionPayload}
@@ -89,7 +80,6 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
 };
 
 interface IStateFromProps {
-  agreementAccepted: boolean;
   contractAddress: string;
   transactionPayload: string;
   gasPrice: string;
@@ -100,7 +90,6 @@ interface IStateFromProps {
 }
 
 const mapStateToProps = (state: IAppState): IStateFromProps => ({
-  agreementAccepted: selectIsAccepted(state.legalAgreementState),
   contractAddress: config.contractsDeployed.commitmentContractAddress,
   transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
   gasPrice: config.contractsDeployed.gasPrice,
@@ -123,13 +112,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>): IDispatchFromProps {
   };
 }
 
-// tslint:disable-next-line
-interface IPropsFromProps {
-  // showChooseAddressDialog: boolean;
-  // handleAddressChosen: (derivationPath: string, address: string) => void;
-}
-
-export default connect<IStateFromProps, IDispatchFromProps, IPropsFromProps>(
+export default connect<IStateFromProps, IDispatchFromProps, {}>(
   mapStateToProps,
   mapDispatchToProps
 )(CommitUnknownUserContainer);

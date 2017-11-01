@@ -37,9 +37,17 @@ const styledField = (props: any) => {
 
   if (!props.meta.pristine && props.meta.error) {
     computedProps.errorText = props.meta.error;
+    estTextFieldStyles.inputStyle.color = "red";
+  } else {
+    estTextFieldStyles.inputStyle.color = "#BBC2C7";
   }
 
   return <TextField {...computedProps} />;
+};
+
+const number = (value: any) => {
+  const newValue = value ? value.replace(",", ".") : "";
+  return newValue && (isNaN(Number(newValue)) || parseFloat(newValue) < 0);
 };
 
 interface ICommitFundsEstimation {
@@ -86,7 +94,12 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
                   </span>}
             </div>
             <span className={style.separator}> / </span>
-            <Field name="ethAmount" component={styledField} props={{ maxLength: 9 }} />
+            <Field
+              name="ethAmount"
+              component={styledField}
+              props={{ maxLength: 9 }}
+              validate={[number]}
+            />
             <span className={style.currencyEth}>ETH</span>
           </div>
           <p className={style.description}>

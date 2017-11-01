@@ -1,0 +1,26 @@
+import * as React from "react";
+import { connect } from "react-redux";
+
+import { Web3Type } from "../../actions/constants";
+import { IAppState } from "../../reducers/index";
+import { selectWeb3Type } from "../../reducers/web3State";
+import SignInstructionGeneric from "./SignInstructionGeneric";
+
+interface ISignInstruction {
+  web3Type: Web3Type;
+}
+
+export const SignInstructionComponent: React.SFC<ISignInstruction> = ({ web3Type }) => {
+  switch (web3Type) {
+    default:
+      return <SignInstructionGeneric />;
+  }
+};
+
+function mapStateToProps(state: IAppState) {
+  return {
+    web3Type: selectWeb3Type(state.web3State),
+  };
+}
+
+export default connect(mapStateToProps)(SignInstructionComponent);

@@ -1,3 +1,6 @@
+import { BigNumber } from "bignumber.js";
+import promiseAll = require("promise-all");
+
 import {
   etherLock,
   etherToken,
@@ -6,22 +9,14 @@ import {
   neumark,
   publicCommitment,
 } from "./contracts/ContractsRepository";
-import { asEtherNumber } from "./utils";
 
 export async function loadDuringIcoDetailsFromContract() {
-  const [totalSupply, issuanceRate, allFunds, investors] = await Promise.all([
-    neumark.totalSupply.then(asEtherNumber),
-    publicCommitment.issuanceRate,
-    allFundsCommitment().then(asEtherNumber),
-    allInvestors(),
-  ]);
-
-  return {
-    totalSupply,
-    issuanceRate,
-    allFunds,
-    investors,
-  };
+  return await promiseAll({
+    totalSupply: neumark.totalSupply.then(bn => bn.toString()),
+    issuanceRate: issuanceRate().then(bn => bn.toString()),
+    allFunds: allFundsCommitment().then(bn => bn.toString()),
+    investors: allInvestors(),
+  });
 }
 
 export async function allFundsCommitment() {
@@ -36,4 +31,10 @@ export async function allInvestors() {
   const euroInvestors = await euroLock.totalInvestors;
 
   return ethInvestors.add(euroInvestors);
+}
+
+export async function issuanceRate(): Promise<BigNumber> {
+  const ethDecimals = await etherToken.decimals;
+  const eth = new BigNumber(10).pow(ethDecimals.toNumber());
+  return await publicCommitment.estimateNeumarkReward(eth.toString());
 }

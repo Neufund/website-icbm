@@ -1,7 +1,9 @@
 import * as moment from "moment";
+import promiseAll = require("promise-all");
+
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
-import { etherToken, euroToken, publicCommitment } from "./contracts/ContractsRepository";
+import { etherToken, euroToken, neumark, publicCommitment } from "./contracts/ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
 
 export function mapCommitmentTypeToStartingInternalContractPhase(
@@ -43,21 +45,25 @@ export async function loadIcoParamsFromContract() {
     config.contractsDeployed.commitmentType
   );
 
-  const [
+  const {
     startingDate,
     finishDate,
     minTicketEur,
     euroEthRate,
     euroDecimals,
     ethDecimals,
-  ] = await Promise.all([
-    publicCommitment.startOf(startingInternalState),
-    publicCommitment.startOf(finishingInternalState),
-    publicCommitment.minTicketEur,
-    publicCommitment.convertToEur(1),
-    euroToken.decimals,
-    etherToken.decimals,
-  ]);
+    neuDecimals,
+    ethEurFraction,
+  } = await promiseAll({
+    startingDate: publicCommitment.startOf(startingInternalState),
+    finishDate: publicCommitment.startOf(finishingInternalState),
+    minTicketEur: publicCommitment.minTicketEur,
+    euroEthRate: publicCommitment.convertToEur(1),
+    euroDecimals: euroToken.decimals,
+    ethDecimals: etherToken.decimals,
+    neuDecimals: neumark.decimals,
+    ethEurFraction: publicCommitment.ethEurFraction,
+  });
 
   const now = moment();
   const commitmentState = mapCurrentTimeToCommitmentState(startingDate, finishDate, now);
@@ -68,8 +74,10 @@ export async function loadIcoParamsFromContract() {
     commitmentState,
     euroDecimals,
     ethDecimals,
+    neuDecimals,
     startingDate: startingDate.toISOString(),
     finishDate: finishDate.toISOString(),
     minTicketWei: minTicketWei.toString(),
+    ethEurFraction: ethEurFraction.toString(),
   };
 }

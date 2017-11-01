@@ -81,8 +81,13 @@
       margin-bottom: $space-between-elements;
     }
 
-    .extra-size {
+    .value {
+      font-weight: bold;
+    }
+
+    .important-value {
       font-size: $font-extra-big-size;
+      font-weight: bold;
     }
   }
 

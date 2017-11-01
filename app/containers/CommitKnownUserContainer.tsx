@@ -13,6 +13,7 @@ import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import WalletSelector from "../components/walletSelector/WalletSelector";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import config from "../config";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
@@ -60,6 +61,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
       <Grid>
         <Row>
           <Col xs={12} className={layoutStyle.contentContainer}>
+            <WhitelistedCommitmentNote />
             <CommitHeaderComponent number="01" title="Commit funds" />
             <WalletSelector />
             <CommitKnownUser

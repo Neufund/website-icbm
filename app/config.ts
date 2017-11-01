@@ -83,8 +83,8 @@ function loadConfig(environment: IDictionary): IConfig {
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
           ipfsNode: "https://ipfs.io/",
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
-          numberOfConfirmations: 3, // TODO: this should react on type of network for dev value should be 1
-          maxNumberBlocksToWait: 5,
+          numberOfConfirmations: 1, // TODO: this should react on type of network for dev value should be 1
+          maxNumberBlocksToWait: 10,
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),
         },
       };

@@ -6,6 +6,7 @@ import { loadIcoParams } from "../actions/loadIcoParams";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
+import AfterIco from "./AfterIco";
 import BeforeIco from "./BeforeIco";
 import DuringIco from "./DuringIco";
 
@@ -42,6 +43,13 @@ class Ico extends React.Component<IcoProps> {
             <DuringIco />
           </div>
         );
+      case IcoPhase.AFTER:
+        return (
+          <div>
+          <WhitelistedCommitmentNote />
+          <AfterIco />
+        </div>
+        )
       default:
         throw new Error(`Phase ${commitmentState} not supported!`);
     }

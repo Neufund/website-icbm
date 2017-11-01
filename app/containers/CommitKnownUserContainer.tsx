@@ -12,6 +12,7 @@ import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnow
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
+import WalletSelector from "../components/walletSelector/WalletSelector";
 import config from "../config";
 import {
   selectEstimatedReward,
@@ -57,6 +58,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
         <Row>
           <Col xs={12} className={layoutStyle.contentContainer}>
             <CommitHeaderComponent number="01" title="Commit funds" />
+            <WalletSelector />
             <CommitKnownUser
               userAddress={userAddress}
               contractAddress={contractAddress}

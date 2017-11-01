@@ -47,6 +47,10 @@ export async function getCurrentBlockHash(): Promise<string> {
   return (block as any).hash;
 }
 
+export async function getNetworkRaw(web3: any): Promise<string> {
+  return bluebird.promisify<string>(web3.version.getNetwork)();
+}
+
 export async function getNetworkId(web3: any): Promise<EthNetwork> {
   return bluebird.promisify<string>(web3.version.getNetwork)().then(res =>
     networkIdToEthNetwork(res)

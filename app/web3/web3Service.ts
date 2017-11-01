@@ -40,6 +40,7 @@ export class Web3Service {
   public readonly getBalance: (address: string) => PromiseLike<BigNumber>;
   private injectingFailed: boolean = false;
   private injectWeb3PollId: number;
+  private accountsChangedWatcher: number;
 
   private constructor(private dispatch: Dispatch<IAppState>, private getState: () => IAppState) {
     if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
@@ -72,6 +73,17 @@ export class Web3Service {
     this.injectWeb3PollId = window.setInterval(this.injectWeb3, CHECK_INJECTED_WEB3_INTERVAL);
   }
 
+  public startWatchingAccounts() {
+    this.accountsChangedWatcher = window.setInterval(
+      () => this.checkAccounts(),
+      CHECK_INJECTED_WEB3_INTERVAL
+    );
+  }
+
+  public stopWatchingAccounts() {
+    window.clearInterval(this.accountsChangedWatcher);
+  }
+
   private injectWeb3 = async () => {
     const newInjectedWeb3 = (window as any).web3;
     if (typeof newInjectedWeb3 === "undefined" || newInjectedWeb3 === this.personalWeb3) {
@@ -99,7 +111,7 @@ export class Web3Service {
 
     this.personalWeb3 = newWeb3;
     window.clearInterval(this.injectWeb3PollId);
-    window.setInterval(() => this.checkAccounts(), CHECK_INJECTED_WEB3_INTERVAL);
+    this.startWatchingAccounts();
   };
 
   private async checkAccounts() {

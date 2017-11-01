@@ -12,7 +12,7 @@ interface IMoneyComponentProps {
 
 interface IMoneyComponentOwnProps {
   tokenType: TokenType;
-  value: BigNumber;
+  value: BigNumber | string;
 }
 
 const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> = ({

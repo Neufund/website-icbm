@@ -1,3 +1,4 @@
+import { noop } from "lodash";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -12,9 +13,6 @@ import EtherScanLink from "../EtherScanLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import SignInstruction from "./SignInstruction";
 import * as styles from "./TransactionConfirmationModal.scss";
-
-// tslint:disable-next-line
-const noop = () => {};
 
 interface IBlockHistoryComponent {
   blockHistory: Array<{ blockNo: number; confirmedTx: boolean }>;

@@ -11,6 +11,7 @@ import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import { CommitUnknownUser } from "../components/commitfunds/CommitUnknownUser";
 import LegalModal from "../components/LegalModal";
 import WalletSelector from "../components/walletSelector/WalletSelector";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import config from "../config";
 import {
   selectEstimatedReward,
@@ -53,6 +54,7 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
       <Grid>
         <Row>
           <Col xs={12} className={layoutStyle.contentContainer}>
+            <WhitelistedCommitmentNote />
             <CommitHeaderComponent number="01" title="Commit details" />
             <WalletSelector />
             <CommitUnknownUser

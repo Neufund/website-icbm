@@ -32,7 +32,7 @@ class Ico extends React.Component<IcoProps> {
         return (
           <div>
             <WhitelistedCommitmentNote />
-            <BeforeIco />;
+            <BeforeIco />
           </div>
         );
       case IcoPhase.DURING:

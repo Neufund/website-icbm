@@ -3,14 +3,9 @@ import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
-import { push } from "react-router-redux";
 
 import { Web3Type } from "../actions/constants";
-import {
-  calculateEstimatedReward,
-  submitFunds,
-  transactionResetAction,
-} from "../actions/submitFunds";
+import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";

@@ -62,7 +62,7 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         txConfirmed: true,
       };
     case COMMITTING_RESET:
-      return initialState;
+      return { ...initialState };
     case COMMITTING_ERROR:
       return {
         ...state,

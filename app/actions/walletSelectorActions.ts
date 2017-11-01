@@ -1,7 +1,7 @@
 import { ThunkAction } from "redux-thunk";
 import { LedgerService } from "../ledgerService";
 import { IAppState } from "../reducers/index";
-import { getNetworkId } from "../web3/utils";
+import { getNetworkRaw } from "../web3/utils";
 import { Web3Service } from "../web3/web3Service";
 import {
   WALLET_SELECTOR_CONNECTED_TO_LEDGER,
@@ -22,7 +22,7 @@ export const connectedToLedgerAction = () => ({
 });
 
 export const initLedgerConnection: ThunkAction<{}, IAppState, {}> = async dispatch => {
-  const networkId = await getNetworkId(Web3Service.instance.rawWeb3);
+  const networkId = await getNetworkRaw(Web3Service.instance.rawWeb3);
   await LedgerService.init(networkId);
   dispatch(connectedToLedgerAction());
 };

@@ -1,11 +1,9 @@
+import { noop } from "lodash";
 import * as React from "react";
 import { Modal } from "react-bootstrap";
 import config from "../../config";
 import { ITransactionState } from "../../reducers/transactionState";
 import * as styles from "./TransactionConfirmationModal.scss";
-
-// tslint:disable-next-line
-const noop = () => {};
 
 export const TransactionConfirmationModal: React.SFC<ITransactionState> = ({
   txStarted,

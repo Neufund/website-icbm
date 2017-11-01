@@ -15,7 +15,7 @@ export class WalletIntegrationModal extends React.Component<IWalletIntegrationPr
   public render() {
     return (
       <Modal bsSize="large" show={this.props.show} onHide={noop}>
-        {this.renderStep()}
+        {this.props.show && this.renderStep()}
       </Modal>
     );
   }

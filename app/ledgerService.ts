@@ -5,7 +5,6 @@ import * as Web3 from "web3";
 import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
 
-import { EthNetwork } from "./actions/constants";
 import config from "./config";
 import { LedgerNotAvailableError, LedgerNotSupportedVersionError } from "./errors";
 
@@ -18,7 +17,7 @@ interface ILedgerConfig {
 }
 
 export class LedgerService {
-  public static async init(networkId: EthNetwork) {
+  public static async init(networkId: string) {
     const { ledgerInstance, ledgerWeb3 } = await connectToLedger(networkId);
 
     LedgerService._instance = new LedgerService(ledgerInstance, ledgerWeb3);
@@ -55,7 +54,7 @@ export class LedgerService {
   }
 }
 
-async function connectToLedger(networkId: EthNetwork) {
+async function connectToLedger(networkId: string) {
   const { ledgerInstance, ledgerWeb3 } = await createWeb3WithLedgerProvider(
     networkId,
     config.contractsDeployed.rpcProvider
@@ -97,9 +96,9 @@ async function getLedgerConfig(ledgerInstance: any): Promise<ILedgerConfig> {
   });
 }
 
-async function createWeb3WithLedgerProvider(networkId: number, rpcUrl: string) {
+async function createWeb3WithLedgerProvider(networkId: string, rpcUrl: string) {
   const engine = new Web3ProviderEngine();
-  const ledgerProvider = await ledgerWalletProvider(networkId);
+  const ledgerProvider = await ledgerWalletProvider(async () => networkId);
 
   const ledgerInstance = ledgerProvider.ledger;
 

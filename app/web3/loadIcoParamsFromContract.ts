@@ -53,6 +53,7 @@ export async function loadIcoParamsFromContract() {
     euroDecimals,
     ethDecimals,
     neuDecimals,
+    ethEurFraction,
   } = await promiseAll({
     startingDate: publicCommitment.startOf(startingInternalState),
     finishDate: publicCommitment.startOf(finishingInternalState),
@@ -61,6 +62,7 @@ export async function loadIcoParamsFromContract() {
     euroDecimals: euroToken.decimals,
     ethDecimals: etherToken.decimals,
     neuDecimals: neumark.decimals,
+    ethEurFraction: publicCommitment.ethEurFraction,
   });
 
   const now = moment();
@@ -76,5 +78,6 @@ export async function loadIcoParamsFromContract() {
     startingDate: startingDate.toISOString(),
     finishDate: finishDate.toISOString(),
     minTicketWei: minTicketWei.toString(),
+    ethEurFraction: ethEurFraction.toString(),
   };
 }

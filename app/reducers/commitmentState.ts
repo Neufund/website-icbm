@@ -20,6 +20,7 @@ export interface ICommitmentState {
   euroDecimals: number;
   ethDecimals: number;
   neuDecimals: number;
+  ethEurFraction: string;
 }
 
 const initialState: ICommitmentState = {
@@ -29,6 +30,7 @@ const initialState: ICommitmentState = {
   ethDecimals: 18,
   euroDecimals: 18,
   neuDecimals: 18,
+  ethEurFraction: "0",
 };
 
 const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
@@ -47,6 +49,7 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         euroDecimals: payload.euroDecimals,
         ethDecimals: payload.ethDecimals,
         neuDecimals: payload.neuDecimals,
+        ethEurFraction: payload.ethEurFraction,
       };
     case NEW_PHASE_ACTION:
       return {
@@ -99,4 +102,8 @@ export function selectEstimatedRewardLoadingState(state: ICommitmentState): bool
 
 export function selectEstimatedReward(state: ICommitmentState): BigNumber {
   return state.estimatedReward ? new BigNumber(state.estimatedReward) : null;
+}
+
+export function selectEthEurFractionInBaseCurrency(state: ICommitmentState): BigNumber {
+  return new BigNumber(state.ethEurFraction).div(new BigNumber(10).pow(state.euroDecimals));
 }

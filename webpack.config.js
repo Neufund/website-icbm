@@ -61,7 +61,7 @@ module.exports = {
     }
   },
   entry: {
-    main: [...devEntryPoints, "./app/index.tsx", "./app/curve.tsx"],
+    main: [...devEntryPoints, "./app/index.tsx"],
     commit: [...devEntryPoints, "./app/commit.tsx"],
     page: "./page/ts/index.ts",
   },

@@ -1,10 +1,10 @@
 import {
+  AppState,
   LEDGER_DERIVATION_PATH_CHANGE,
   LEDGER_GET_ADDRESSES_LOADED,
   LEDGER_GET_ADDRESSES_LOADING,
   LEDGER_NEXT_PAGE,
   LEDGER_PREV_PAGE,
-  AppState,
 } from "../actions/constants";
 import config from "../config";
 import { Reducer } from "../types";
@@ -25,7 +25,10 @@ export interface ILedgerAddressChooser {
 const initialState: ILedgerAddressChooser = {
   loading: true,
   page: 0,
-  derivationPath: config.appState === AppState.CONTRACTS_DEPLOYED ? config.contractsDeployed.defaultDerivationPath : "",
+  derivationPath:
+    config.appState === AppState.CONTRACTS_DEPLOYED
+      ? config.contractsDeployed.defaultDerivationPath
+      : "",
   accounts: [],
 };
 

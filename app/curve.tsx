@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 
 import Curve from "./containers/Curve";
 import muiTheme from "./muiTheme";
-import { startup } from "./startup";
-const render = (storage: any) => {
+
+export const renderCurve = (storage: any) => {
   const curveRoot = document.getElementById("react-root-curve");
 
   ReactDOM.render(
@@ -18,6 +18,3 @@ const render = (storage: any) => {
     curveRoot
   );
 };
-
-// tslint:disable-next-line no-console - it's top level call if anything got here it should be printed
-startup(render).catch(error => console.log(error));

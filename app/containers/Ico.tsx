@@ -46,10 +46,10 @@ class Ico extends React.Component<IcoProps> {
       case IcoPhase.AFTER:
         return (
           <div>
-          <WhitelistedCommitmentNote />
-          <AfterIco />
-        </div>
-        )
+            <WhitelistedCommitmentNote />
+            <AfterIco />
+          </div>
+        );
       default:
         throw new Error(`Phase ${commitmentState} not supported!`);
     }

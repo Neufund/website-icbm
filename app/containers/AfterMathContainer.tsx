@@ -1,4 +1,3 @@
-import * as jQuery from "jquery";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect } from "react-redux";

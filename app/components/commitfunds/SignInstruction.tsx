@@ -12,10 +12,8 @@ interface ISignInstruction {
 
 export const SignInstructionComponent: React.SFC<ISignInstruction> = ({ web3Type }) => {
   switch (web3Type) {
-    case Web3Type.GENERIC:
-      return <SignInstructionGeneric />;
     default:
-      throw new Error("Not supported");
+      return <SignInstructionGeneric />;
   }
 };
 

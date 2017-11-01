@@ -1,19 +1,12 @@
-import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { Countdown } from "./Countdown";
 import { HexagonsStack } from "./HexagonsStack";
 import { CountdownHexagonText } from "./IcoCountdown";
 import * as styles from "./Incentive.scss";
 import { IncentiveText } from "./IncentiveText";
 
-interface IBeforeIcoComponentProps {
-  startDate: moment.Moment;
-  onFinish: () => {};
-  neumarkInitialRate?: BigNumber.BigNumber;
-}
 interface IIncentive {
   startDate: moment.Moment;
   onFinish: () => {};

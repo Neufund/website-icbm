@@ -19,6 +19,7 @@ export interface ICommitmentState {
   estimatedReward?: string;
   euroDecimals: number;
   ethDecimals: number;
+  neuDecimals: number;
 }
 
 const initialState: ICommitmentState = {
@@ -27,6 +28,7 @@ const initialState: ICommitmentState = {
   estimatedReward: "0",
   ethDecimals: 18,
   euroDecimals: 18,
+  neuDecimals: 18,
 };
 
 const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
@@ -44,6 +46,7 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         estimatedReward: "0",
         euroDecimals: payload.euroDecimals,
         ethDecimals: payload.ethDecimals,
+        neuDecimals: payload.neuDecimals,
       };
     case NEW_PHASE_ACTION:
       return {

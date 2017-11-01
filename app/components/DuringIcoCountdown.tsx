@@ -3,10 +3,12 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
+import { TokenType } from "../actions/constants";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
+import MoneyComponent from "./MoneyComponent";
 
 interface IMoneyProps {
   loading: boolean;
@@ -35,25 +37,33 @@ export const HexagonText = (props: IMoneyProps) => {
     <div className={styles.text}>
       <p className={styles.title}>Total funds committed</p>
       <p className={styles.content} data-test-id="during-ico-total-funds">
-        <strong className={styles.extraSize}>{raised.toFixed(2)}</strong> ETH
+        <MoneyComponent
+          tokenType={TokenType.ETHER}
+          value={raised}
+          valueClass={styles.importantValue}
+        />
       </p>
 
       <p className={styles.title}>Investors accounts created</p>
       <p className={styles.content} data-test-id="during-ico-accounts-created">
-        <strong>
+        <span className={styles.value}>
           {investorsAccountCreated.toFixed(0)}
-        </strong>
+        </span>
       </p>
 
       <p className={styles.title}>Neumarks generated</p>
       <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <strong>{neuMarkAmount.toFixed(2)}</strong> <span>NEU</span>
+        <MoneyComponent valueClass={styles.value} tokenType={TokenType.NEU} value={neuMarkAmount} />
       </p>
 
       <p className={styles.title}>Reward</p>
       <p className={styles.content} data-test-id="during-ico-current-reward">
-        <strong>{neuMarkToEtherRatio.toFixed(2)}</strong> <span> NEU / </span> <strong>1</strong>{" "}
-        <span>ETH</span>
+        <MoneyComponent
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkToEtherRatio}
+        />
+        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
       </p>
     </div>
   );

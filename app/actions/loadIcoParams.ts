@@ -9,7 +9,8 @@ export function loadIcoParamsAction(
   finishDate: string,
   minTicketWei: string,
   euroDecimals: number,
-  ethDecimals: number
+  ethDecimals: number,
+  neuDecimals: number
 ) {
   return {
     type: LOAD_ICO_PARAMS,
@@ -20,6 +21,7 @@ export function loadIcoParamsAction(
       minTicketWei,
       euroDecimals,
       ethDecimals,
+      neuDecimals,
     },
   };
 }
@@ -32,6 +34,7 @@ export const loadIcoParams: ThunkAction<{}, IAppState, {}> = async dispatch => {
     minTicketWei,
     euroDecimals,
     ethDecimals,
+    neuDecimals,
   } = await loadIcoParamsFromContract();
   dispatch(
     loadIcoParamsAction(
@@ -40,7 +43,8 @@ export const loadIcoParams: ThunkAction<{}, IAppState, {}> = async dispatch => {
       finishDate,
       minTicketWei,
       euroDecimals.toNumber(),
-      ethDecimals.toNumber()
+      ethDecimals.toNumber(),
+      neuDecimals.toNumber()
     )
   );
 };

@@ -22,7 +22,7 @@ class BeforeIco extends React.Component<IBeforeIco> {
   }
 
   public render() {
-    const { startDate, loadIcoParameters, neumarkInitialRate } = this.props;
+    const { startDate, loadIcoParameters } = this.props;
 
     return (
       <div data-test-id="before-ico-phase">

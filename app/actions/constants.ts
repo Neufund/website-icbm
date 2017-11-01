@@ -38,6 +38,12 @@ export enum EthNetwork {
   KOVAN = 42,
 }
 
+export enum EtherScanLinkType {
+  ADDRES,
+  TRANSACTION,
+  BLOCK,
+}
+
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
 export const LOAD_BEFORE_ICO_DETAILS = "LOAD_BEFORE_ICO_DETAILS";
 export const LOADING_DURING_ICO_DETAILS = "LOAD_DURING_ICO_DETAILS";

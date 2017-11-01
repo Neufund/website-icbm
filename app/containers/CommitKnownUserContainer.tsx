@@ -10,7 +10,7 @@ import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderCom
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
-import { TransactionConfirmationModal } from "../components/commitfunds/TransactionConfirmationModal";
+import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import WalletSelector from "../components/walletSelector/WalletSelector";
 import config from "../config";
@@ -34,11 +34,7 @@ interface ICommitKnownUserContainer {
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
-  txStarted: boolean;
-  txHash: string;
-  blockOfConfirmation: number;
-  currentBlock: number;
-  error: string;
+  handleGoToAftermath: () => void;
   balance: BigNumber;
   web3Provider: Web3Type;
 }
@@ -52,24 +48,14 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   calculateEstimatedRewardAction,
   loadingEstimatedReward,
   estimatedReward,
-  txStarted,
-  txHash,
-  blockOfConfirmation,
-  currentBlock,
-  error,
+  handleGoToAftermath,
   balance,
   web3Provider,
 }) => {
   return (
     <div>
       <LegalModal />
-      <TransactionConfirmationModal
-        txStarted={txStarted}
-        txHash={txHash}
-        blockOfConfirmation={blockOfConfirmation}
-        currentBlock={currentBlock}
-        error={error}
-      />
+      <TransactionConfirmationModal handleGoToAftermath={handleGoToAftermath} />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -109,11 +95,6 @@ const mapStateToProps = (state: IAppState) => ({
   minTicketWei: selectMinTicketWei(state.commitmentState),
   estimatedReward: selectEstimatedReward(state.commitmentState),
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
-  txStarted: state.transactionState.txStarted,
-  txHash: state.transactionState.txHash,
-  blockOfConfirmation: state.transactionState.blockOfConfirmation,
-  currentBlock: state.transactionState.currentBlock,
-  error: state.transactionState.error,
   balance: selectBalance(state.userState),
   web3Provider: state.web3State.web3Type,
 });
@@ -126,6 +107,9 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
       () => dispatch(calculateEstimatedReward) as () => {},
       300
     ) as () => {},
+    handleGoToAftermath: () => {
+      alert("go to after math");
+    },
   };
 }
 

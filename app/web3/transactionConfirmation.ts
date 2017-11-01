@@ -6,7 +6,7 @@ const timeout = 3000;
 export const transactionConfirmation = async (
   transactionHash: string,
   transactionMinedCallback: (blockNo: number) => void,
-  newBlockCallback: (blockNo: number) => void
+  newBlockCallback: (blockNo: number, confirmedTx: boolean) => void
 ) => {
   // console.log("waiting for transaction: " + transactionHash);
   return new Promise((resolve, reject) => {
@@ -37,18 +37,19 @@ export const transactionConfirmation = async (
       // console.log(`got block number ${currentBlockNo} prev block number ${prevBlockNo}`);
       if (currentBlockNo !== prevBlockNo) {
         prevBlockNo = currentBlockNo;
-        newBlockCallback(currentBlockNo);
-
         try {
           const transaction = await Web3Service.instance.getTransaction(transactionHash);
+          let isTxConfirmed = false;
           // console.log(`got transaction with block number: ${transaction.blockNumber}`);
           if (transaction.blockNumber != null) {
             transactionMinedCallback(transaction.blockNumber);
-            if (currentBlockNo - transaction.blockNumber >= requiredConfirmations) {
+            isTxConfirmed = true;
+            if (currentBlockNo - transaction.blockNumber >= requiredConfirmations - 1) {
               // console.log("we have enough confirmations we can move on");
               return resolve();
             }
           }
+          newBlockCallback(currentBlockNo, isTxConfirmed);
         } catch (e) {
           // console.log("error in web3.eth.getTransaction");
           // console.log(e);

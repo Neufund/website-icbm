@@ -1,5 +1,6 @@
 import {
   WALLET_SELECTOR_CONNECTED_TO_LEDGER,
+  WALLET_SELECTOR_FINISH,
   WALLET_SELECTOR_INIT_LEDGER_SELECTION,
 } from "../actions/constants";
 import { Reducer } from "../types";
@@ -15,7 +16,7 @@ const initialState: IWalletIntegrationState = {
 };
 
 const reducer: Reducer<IWalletIntegrationState> = (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
     case WALLET_SELECTOR_INIT_LEDGER_SELECTION:
       return {
@@ -26,6 +27,11 @@ const reducer: Reducer<IWalletIntegrationState> = (state = initialState, action)
       return {
         ...state,
         ledgerIntegrationConnected: true,
+      };
+    case WALLET_SELECTOR_FINISH:
+      return {
+        ledgerIntegrationInProgress: false,
+        ledgerIntegrationConnected: false,
       };
     default:
       return state;

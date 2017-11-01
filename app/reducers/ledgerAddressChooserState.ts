@@ -1,4 +1,5 @@
 import {
+  LEDGER_DERIVATION_PATH_CHANGE,
   LEDGER_GET_ADDRESSES_LOADED,
   LEDGER_GET_ADDRESSES_LOADING,
   LEDGER_NEXT_PAGE,
@@ -51,6 +52,12 @@ const reducer: Reducer<ILedgerAddressChooser> = (state = initialState, action) =
       return {
         ...state,
         page: state.page - 1,
+      };
+    case LEDGER_DERIVATION_PATH_CHANGE:
+      return {
+        ...state,
+        page: 0,
+        derivationPath: payload.derivationPath,
       };
     default:
       return state;

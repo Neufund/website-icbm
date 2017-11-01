@@ -1,10 +1,13 @@
 import { delay, promisify } from "bluebird";
 import ledgerWalletProvider from "ledger-wallet-provider";
+import * as semver from "semver";
 import * as Web3 from "web3";
 import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
+
 import { EthNetwork } from "./actions/constants";
 import config from "./config";
+import { LedgerNotAvailableError, LedgerNotSupportedVersionError } from "./errors";
 
 const CHECK_INTERVAL = 1000;
 const CONNECTION_RETRY = 60;
@@ -64,15 +67,20 @@ async function connectToLedger(networkId: EthNetwork) {
 
     try {
       const config = await getLedgerConfig(ledgerInstance);
-      // todo check config version and if too small fails
+      if (semver.lt(config.version, "1.0.8")) {
+        throw new LedgerNotSupportedVersionError(config.version);
+      }
 
       return { ledgerInstance, ledgerWeb3 };
-      // tslint:disable-next-line
-    } catch (e) {}
+    } catch (e) {
+      if (e instanceof LedgerNotSupportedVersionError) {
+        throw e;
+      }
+    }
     await delay(CHECK_INTERVAL);
   }
 
-  throw new Error("Can't connect to ledger!");
+  throw new LedgerNotAvailableError();
 }
 
 async function getLedgerConfig(ledgerInstance: any): Promise<ILedgerConfig> {

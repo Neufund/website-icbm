@@ -6,11 +6,16 @@ import { IAppState } from "../reducers/index";
 import { ILedgerAccount } from "../reducers/ledgerAddressChooserState";
 import { Web3Service } from "../web3/web3Service";
 import {
+  LEDGER_DERIVATION_PATH_CHANGE,
   LEDGER_GET_ADDRESSES_LOADED,
   LEDGER_GET_ADDRESSES_LOADING,
   LEDGER_NEXT_PAGE,
   LEDGER_PREV_PAGE,
+  Web3Type,
 } from "./constants";
+import { setUserAccountAction } from "./loadUserAccount";
+import { finishSelectionAction } from "./walletSelectorActions";
+import { setWeb3Action } from "./web3";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
 
@@ -31,6 +36,13 @@ export const nextPageAction = () => ({
 
 export const prevPageAction = () => ({
   type: LEDGER_PREV_PAGE,
+});
+
+export const derivationPathChangedAction = (derivationPath: string) => ({
+  type: LEDGER_DERIVATION_PATH_CHANGE,
+  payload: {
+    derivationPath,
+  },
 });
 
 export const ledgerGetAddresses: ThunkAction<{}, IAppState, {}> = async (dispatch, getState) => {
@@ -71,4 +83,23 @@ export const showNextAddresses: ThunkAction<{}, IAppState, {}> = async dispatch 
 export const showPrevAddresses: ThunkAction<{}, IAppState, {}> = async dispatch => {
   dispatch(prevPageAction());
   return dispatch(ledgerGetAddresses);
+};
+
+export const changeDerivationPath: (
+  derivationPath: string
+) => ThunkAction<{}, IAppState, {}> = derivationPath => async dispatch => {
+  dispatch(derivationPathChangedAction(derivationPath));
+  return dispatch(ledgerGetAddresses);
+};
+
+export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppState, {}> = (
+  account: ILedgerAccount
+) => async dispatch => {
+  Web3Service.instance.stopWatchingAccounts();
+  Web3Service.instance.personalWeb3 = LedgerService.instance.ledgerWeb3;
+  LedgerService.instance.ledgerInstance.setDerivationPath(account.derivationPath);
+
+  dispatch(setUserAccountAction(account.address, account.balance));
+  dispatch(setWeb3Action(Web3Type.LEDGER));
+  dispatch(finishSelectionAction());
 };

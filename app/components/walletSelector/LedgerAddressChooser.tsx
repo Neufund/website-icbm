@@ -1,8 +1,12 @@
 import * as React from "react";
 
+import { debounce } from "lodash";
+import { TextField } from "material-ui";
 import { Button, Modal } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 import {
+  changeDerivationPath,
+  chooseAccount,
   ledgerGetAddresses,
   showNextAddresses,
   showPrevAddresses,
@@ -10,31 +14,37 @@ import {
 import { IAppState } from "../../reducers/index";
 import { ILedgerAccount, selectHasPrevious } from "../../reducers/ledgerAddressChooserState";
 import { LoadingIndicator } from "../LoadingIndicator";
-import { LedgerAddressChooserComponent } from "./LedgerAddressChooserComponent";
+import { LedgerAddressChooserTable } from "./LedgerAddressChooserTable";
 
-const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
-
-interface ILedgerAddressChooser {
+interface ILedgerAddressChooserProps {
   // handleAddressChosen: (derivationPath: string, address: string) => void;
   loading: boolean;
   hasPrevious: boolean;
   derivationPath: string;
   accounts: ILedgerAccount[];
   ledgerGetAddresses: () => any;
-  handleAddressChosen: (account: ILedgerAccount) => () => void;
-  handleDerivationPathChange: (event: object, newValue: string) => void;
   showNextAddresses: () => any;
   showPrevAddresses: () => any;
+  changeDerivationPath: (dp: string) => any;
+  chooseAccount: (account: ILedgerAccount) => () => any;
 }
 
-// interface IAddressChooserModalContainerState {
-//   derivationPath: string;
-//   startingIndex: number;
-//   addresses: IDerivationPaths;
-//   loading: boolean;
-// }
+interface IAddressChooserModalState {
+  derivationPath: string;
+}
 
-export class LedgerAddressChooser extends React.Component<ILedgerAddressChooser> {
+export class LedgerAddressChooser extends React.Component<
+  ILedgerAddressChooserProps,
+  IAddressChooserModalState
+> {
+  constructor(props: ILedgerAddressChooserProps) {
+    super(props);
+
+    this.state = {
+      derivationPath: props.derivationPath,
+    };
+  }
+
   public componentDidMount() {
     this.props.ledgerGetAddresses();
   }
@@ -46,6 +56,14 @@ export class LedgerAddressChooser extends React.Component<ILedgerAddressChooser>
           <Modal.Title>Choose your address</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <div>
+            <TextField
+              name="derivationPathField"
+              value={this.state.derivationPath}
+              onChange={this.derivationPathChanged}
+            />
+            - provide your derivation path
+          </div>
           {this.renderBody()}
         </Modal.Body>
         <Modal.Footer>
@@ -68,17 +86,22 @@ export class LedgerAddressChooser extends React.Component<ILedgerAddressChooser>
     );
   }
 
-  public renderBody() {
+  private derivationPathChanged = (_event: object, newDerivationPath: string) => {
+    this.setState({
+      derivationPath: newDerivationPath,
+    });
+    this.props.changeDerivationPath(newDerivationPath);
+  };
+
+  private renderBody() {
     if (this.props.loading) {
       return <LoadingIndicator />;
     }
 
     return (
-      <LedgerAddressChooserComponent
-        derivationPath={this.props.derivationPath}
+      <LedgerAddressChooserTable
         accounts={this.props.accounts}
-        handleAddressChosen={(() => {}) as any}
-        handleDerivationPathChange={(() => {}) as any}
+        handleAddressChosen={this.props.chooseAccount}
       />
     );
   }
@@ -95,6 +118,11 @@ const dispatchToProps = (dispatcher: Dispatch<any>) => ({
   ledgerGetAddresses: () => dispatcher(ledgerGetAddresses),
   showNextAddresses: () => dispatcher(showNextAddresses),
   showPrevAddresses: () => dispatcher(showPrevAddresses),
+  changeDerivationPath: (debounce as any)(
+    (dp: string) => dispatcher(changeDerivationPath(dp)),
+    300
+  ) as (dp: string) => any,
+  chooseAccount: (account: ILedgerAccount) => dispatcher(chooseAccount(account)),
 });
 
 export default connect(stateToProps, dispatchToProps)(LedgerAddressChooser);

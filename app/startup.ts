@@ -37,20 +37,20 @@ export async function startup(render: (store: Store<any>) => void) {
     // tslint:disable-next-line
     require("!raw-loader!../dist/app.css");
   }
-
-  await persistStorePromised(store, {
-    whitelist: ["legalAgreementState"],
-    storage: asyncSessionStorage,
-  });
-
   try {
+    await persistStorePromised(store, {
+      whitelist: ["legalAgreementState"],
+      storage: asyncSessionStorage,
+    });
+
     await initRepository();
   } catch (e) {
-    const errorMsg = (e as Error).message;
     let returnMsg;
+    const errorMsg = e.message;
 
-    if (errorMsg.startsWith("Contract")) {
-      returnMsg = "Cannot find deployed smart contracts";
+    // existing e.type means it's our own error
+    if (e.type !== undefined) {
+      returnMsg = errorMsg;
     } else if (errorMsg.startsWith("Invalid JSON RPC response")) {
       returnMsg =
         "There is problem with connecting to Ethereum node please try again in few minutes";

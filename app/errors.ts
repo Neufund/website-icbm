@@ -6,6 +6,7 @@ export enum ErrorType {
   LedgerNotSupportedVersionError = "LedgerNotSupportedVersionError",
   LedgerNotAvailableError = "LedgerNotAvailableError",
   MissingContractError = "MissingContractError",
+  ETHNodeConnectionError = "ETHNodeConnectionError",
 }
 
 export class NeufundError extends Error {
@@ -22,7 +23,13 @@ export class LedgerNotSupportedVersionError extends NeufundError {
 
 export class LedgerNotAvailableError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerNotAvailableError, `Can't connect to ledger!`);
+    super(ErrorType.LedgerNotAvailableError, `Can't connect to ledger.`);
+  }
+}
+
+export class ETHNodeConnectionError extends NeufundError {
+  constructor() {
+    super(ErrorType.ETHNodeConnectionError, `Can't connect to Ethereum node.`);
   }
 }
 

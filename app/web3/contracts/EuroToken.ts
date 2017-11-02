@@ -1,10 +1,8 @@
-import * as BigNumber from "bignumber.js";
+import { BigNumber } from "bignumber.js";
 
 import { MissingContractError } from "../../errors";
 import { promisify } from "../utils";
 import * as EuroTokenAbiJson from "./EuroToken.abi.json";
-
-type BigNumber = BigNumber.BigNumber;
 
 interface ITxParams {
   from?: string;

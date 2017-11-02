@@ -18,6 +18,7 @@ export enum IcoPhase {
 export enum TokenType {
   ETHER = "ETHER",
   EURO = "EURO",
+  NEU = "NEU",
 }
 
 export enum Web3Type {

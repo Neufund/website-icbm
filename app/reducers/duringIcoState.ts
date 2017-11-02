@@ -54,6 +54,15 @@ export function selectAllFunds(state: IDuringIcoState): BigNumber.BigNumber {
   return state.allFunds ? new BigNumber.BigNumber(state.allFunds) : null;
 }
 
+export function selectAllFundsInBaseCurrency(
+  state: IDuringIcoState,
+  ethDecimals: number
+): BigNumber.BigNumber {
+  return state.allFunds
+    ? new BigNumber.BigNumber(state.allFunds).div(new BigNumber.BigNumber(10).pow(ethDecimals))
+    : null;
+}
+
 export function selectAllInvestors(state: IDuringIcoState): BigNumber.BigNumber {
   return state.allFunds ? new BigNumber.BigNumber(state.allInvestors) : null;
 }

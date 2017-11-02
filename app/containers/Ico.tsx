@@ -4,7 +4,9 @@ import { Dispatch } from "redux";
 import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
 import { LoadingIndicator } from "../components/LoadingIndicator";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
+import AfterIco from "./AfterIco";
 import BeforeIco from "./BeforeIco";
 import DuringIco from "./DuringIco";
 
@@ -28,9 +30,26 @@ class Ico extends React.Component<IcoProps> {
 
     switch (commitmentState) {
       case IcoPhase.BEFORE:
-        return <BeforeIco />;
+        return (
+          <div>
+            <WhitelistedCommitmentNote />
+            <BeforeIco />
+          </div>
+        );
       case IcoPhase.DURING:
-        return <DuringIco />;
+        return (
+          <div>
+            <WhitelistedCommitmentNote />
+            <DuringIco />
+          </div>
+        );
+      case IcoPhase.AFTER:
+        return (
+          <div>
+            <WhitelistedCommitmentNote />
+            <AfterIco />
+          </div>
+        );
       default:
         throw new Error(`Phase ${commitmentState} not supported!`);
     }

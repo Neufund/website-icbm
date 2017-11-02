@@ -36,10 +36,10 @@ describe("Home page", () => {
     await homepage.duringIcoDetails.waitFor();
     await homepage.duringIco.totalFundsCommitted.waitFor();
 
-    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("1.00 ETH");
+    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("1.0000 ETH");
     expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("1");
-    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("38999.49 NEU");
-    expect(await homepage.duringIco.currentReward.text()).to.be.eq("975.00  NEU /  1 ETH");
+    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("38999.4930 NEU");
+    expect(await homepage.duringIco.currentReward.text()).to.be.eq("974.9994 NEU /  1 ETH");
   });
 
   it("should navigate to commitment page", async () => {

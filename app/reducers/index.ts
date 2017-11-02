@@ -5,6 +5,7 @@ import aftermathState, { IAftermathState } from "./aftermathState";
 import beforeIcoState, { IBeforeIcoState } from "./beforeIcoState";
 import commitmentState, { ICommitmentState } from "./commitmentState";
 import duringIcoState, { IDuringIcoState } from "./duringIcoState";
+import fatalErrorState, { IFatalErrorState } from "./fatalErrorState";
 import ledgerAddressChooserState, { ILedgerAddressChooser } from "./ledgerAddressChooserState";
 import legalAgreementState, { ILegalAgreementState } from "./legalAgreementState";
 import transactionState, { ITransactionState } from "./transactionState";
@@ -24,6 +25,7 @@ export interface IAppState {
   readonly web3State: IWeb3State;
   readonly walletIntegrationState: IWalletIntegrationState;
   readonly ledgerAddressChooserState: ILedgerAddressChooser;
+  readonly fatalErrorState: IFatalErrorState;
 }
 
 export default combineReducers<IAppState>({
@@ -38,5 +40,6 @@ export default combineReducers<IAppState>({
   web3State,
   walletIntegrationState,
   ledgerAddressChooserState,
+  fatalErrorState,
   routing: routerReducer,
 });

@@ -50,4 +50,5 @@ Run `yarn webpack:profile` to get build report. It should generate `webpack-stat
 ```sh
 docker run -d -p 8545:8545 --name neufund-ico krzkaczor/neufund-ico # runs smartcontracts in docker
 yarn test-e2e:dev # runs tests
+docker rm -f neufund-ico # stops docker container
 ```

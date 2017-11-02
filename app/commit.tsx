@@ -18,21 +18,21 @@ const render = (storage: any) => {
   ReactDOM.render(
     <MuiThemeProvider muiTheme={muiTheme}>
       <Provider store={storage}>
-        <Router history={history}>
-          <div data-test-id="commit-container">
-            <ToastContainer
-              position="top-right"
-              autoClose={10000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              pauseOnHover
-            />
+        <div data-test-id="commit-container">
+          <ToastContainer
+            position="top-right"
+            autoClose={10000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnHover
+          />
+          <Router history={history}>
             <Route path="/commit" component={Commit}>
               <Route path="aftermath" component={AfterMathContainer} />
             </Route>
-          </div>
-        </Router>
+          </Router>
+        </div>
       </Provider>
     </MuiThemeProvider>,
     commitRoot

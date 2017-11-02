@@ -2,7 +2,6 @@ import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Textfit } from "react-textfit";
 import { Field, reduxForm } from "redux-form";
-import { LoadingIndicator } from "./LoadingIndicator";
 import * as style from "./PriceCalculator.scss";
 
 const estTextFieldStyles = {
@@ -54,7 +53,6 @@ interface ICommitFundsEstimation {
   rewardForOneEth: number;
   estimatedReward: number;
   calculateEstimatedReward: () => {};
-  loadingEstimatedReward: boolean;
 }
 
 interface ICommitFundsEstimationFormValues {
@@ -65,7 +63,6 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   rewardForOneEth,
   estimatedReward,
   calculateEstimatedReward,
-  loadingEstimatedReward,
 }) => {
   return (
     <div>
@@ -83,15 +80,13 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
           <p className={style.introduction}>Calculate your estimated reward:</p>
           <div className={style.estimation}>
             <div className={style.rightContainer}>
-              {loadingEstimatedReward
-                ? <LoadingIndicator className={style.loadingIndicator} />
-                : <span>
-                    <Textfit mode="single" max={18} className={style.amount}>
-                      {estimatedReward.toFixed(2)}{" "}
-                    </Textfit>
+              <span>
+                <Textfit mode="single" max={18} className={style.amount}>
+                  {estimatedReward.toFixed(2)}{" "}
+                </Textfit>
 
-                    <span className={style.currencyNeu}>NEU</span>
-                  </span>}
+                <span className={style.currencyNeu}>NEU</span>
+              </span>
             </div>
             <span className={style.separator}> / </span>
             <Field

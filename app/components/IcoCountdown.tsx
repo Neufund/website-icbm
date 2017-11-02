@@ -10,9 +10,10 @@ import * as styles from "../components/Incentive.scss";
 
 interface IIcoCountdownProps {
   startDate: moment.Moment;
+  onFinish?: () => {};
 }
 
-const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
+export const CountdownHexagonText: React.SFC<IIcoCountdownProps> = ({ startDate, onFinish }) =>
   <div className={styles.countdown}>
     <h3>ICBM STARTS:</h3>
     <h1>
@@ -26,7 +27,7 @@ const HexagonText: React.SFC<IIcoCountdownProps> = ({ startDate }) =>
     <div className={styles.timeLeft}>
       <h3>TIME LEFT:</h3>
       <div className={styles.countDownContainer}>
-        <Countdown finishDate={startDate} />
+        <Countdown finishDate={startDate} onFinish={onFinish} />
       </div>
     </div>
   </div>;
@@ -36,10 +37,10 @@ export const IcoCountdown: React.SFC<IIcoCountdownProps> = props =>
     <IncentiveText />
     <Col sm={6} xsHidden>
       <HexagonsStack className={styles.hexagons} width={480} height={480}>
-        <HexagonText {...props} />
+        <CountdownHexagonText {...props} />
       </HexagonsStack>
     </Col>
     <Col className="hexagon-mobile" sm={6} smHidden mdHidden lgHidden>
-      <HexagonText {...props} />
+      <CountdownHexagonText {...props} />
     </Col>
   </Row>;

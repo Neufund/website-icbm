@@ -3,7 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { AppState } from "../actions/constants";
-import { ErrorComponent } from "../components/ErrorComponent";
+import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import config, { IAnnouncedCfg } from "../config";
 import { IAppState } from "../reducers/index";
 import AnnouncedIco from "./AnnouncedIco";
@@ -11,7 +11,7 @@ import BeforeAnnouncementIco from "./BeforeAnnouncementIco";
 import Ico from "./Ico";
 
 interface IcoProps {
-  error: string;
+  fatalError: string;
   appState: AppState;
 }
 
@@ -22,9 +22,9 @@ export function checkIfCanShowCounter(now: moment.Moment, config: IAnnouncedCfg)
   return now.isAfter(config.showCountdownAfter);
 }
 
-export const App: React.SFC<IcoProps> = ({ error, appState }) => {
-  if (error) {
-    return <ErrorComponent error={error} />;
+export const App: React.SFC<IcoProps> = ({ fatalError, appState }) => {
+  if (fatalError) {
+    return <FatalErrorComponent fatalError={fatalError} />;
   }
 
   switch (appState) {
@@ -43,7 +43,7 @@ export const App: React.SFC<IcoProps> = ({ error, appState }) => {
 
 function mapStateToProps(state: IAppState): IcoProps {
   return {
-    error: state.errorState.error,
+    fatalError: state.fatalErrorState.fatalError,
     appState: config.appState,
   };
 }

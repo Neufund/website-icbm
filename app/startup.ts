@@ -9,7 +9,7 @@ import { autoRehydrate, persistStore } from "redux-persist";
 import { asyncSessionStorage } from "redux-persist/storages";
 import reduxThunk from "redux-thunk";
 
-import { setErrorActionCreator } from "./actions/errorActions";
+import { setFatalErrorActionCreator } from "./actions/fatalErrorActions";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
@@ -58,7 +58,7 @@ export async function startup(render: (store: Store<any>) => void) {
       returnMsg = "There is problem with with contract initialization: " + errorMsg;
     }
 
-    store.dispatch(setErrorActionCreator(returnMsg));
+    store.dispatch(setFatalErrorActionCreator(returnMsg));
   }
   render(store);
 }

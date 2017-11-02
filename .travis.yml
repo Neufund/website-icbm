@@ -41,5 +41,5 @@ script:
   - set -e                     # fail fast
   - yarn lint
   - yarn test:coverage
-  - ./scripts/e2e.sh || true
+  - ./scripts/e2e.sh
 after_script: greenkeeper-lockfile-upload

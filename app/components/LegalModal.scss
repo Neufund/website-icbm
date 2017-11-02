@@ -2,7 +2,7 @@
 
 .modal {
   :global(.modal-body) {
-    height: 60vh;
+    height: 70vh;
   }
 }
 
@@ -20,6 +20,6 @@
 }
 
 .scrollable {
-  height: calc(100% - 80px);
+  height: calc(100% - 123px);
   overflow-y: scroll;
 }

@@ -21,16 +21,16 @@ const noop = () => {};
 interface ILegalModalProps {
   isAccepted: boolean;
   legalAgreementsAcceptedAction: () => {};
-  reservationAgreement: string;
-  tokenHolderAgreement: string;
+  agreements: string;
+  notUsaCitizen: string;
 }
 
 export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   invalid,
   handleSubmit,
   isAccepted,
-  reservationAgreement,
-  tokenHolderAgreement,
+  agreements,
+  notUsaCitizen,
 }) => {
   return (
     <Modal
@@ -45,32 +45,36 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
       </Modal.Header>
       <Modal.Body>
         <div className={styles.scrollable}>
-          <IFrame content={reservationAgreement} className={styles.documentFrame} />
+          <IFrame content={agreements} className={styles.documentFrame} />
           <hr />
-          <IFrame content={tokenHolderAgreement} className={styles.documentFrame} />
+          <IFrame content={notUsaCitizen} className={styles.documentFrame} />
         </div>
         <CheckboxField
-          name="reservationAgreement"
+          name="agreements"
           component={Checkbox}
           className={styles.checkbox}
           props={{
             label: (
               <span>
-                I accept <span className={styles.documentAccent}>Reservation Agreement</span>
+                Check here to confirm that you have read, understand and agree to the{" "}
+                <span className={styles.documentAccent}>Reservation Agreement</span> and{" "}
+                <span className={styles.documentAccent}>Neumark Token Holder Agreement</span>{" "}
+                presented above.
               </span>
             ),
           }}
           validate={[requiredFieldValidator]}
         />
         <CheckboxField
-          name="tokenHolderAgreement"
+          name="notUsaCitizen"
           component={Checkbox}
           className={styles.checkbox}
           props={{
             label: (
               <span>
-                I accept{" "}
-                <span className={styles.documentAccent}>Neumark Token Holder Agreement</span>
+                Check here to confirm that you are NOT a citizen, resident or entity of the USA or
+                any other jurisdiction in which it is not permissible to participate in token crowd
+                contributions or acting on behalf of any of them.
               </span>
             ),
           }}
@@ -101,8 +105,8 @@ interface ILegalModalForm {
 function stateToProps(state: IAppState) {
   return {
     isAccepted: selectIsAccepted(state.legalAgreementState),
-    reservationAgreement: state.legalAgreementState.reservationAgreement,
-    tokenHolderAgreement: state.legalAgreementState.tokenHolderAgreement,
+    agreements: state.legalAgreementState.agreements,
+    notUsaCitizen: state.legalAgreementState.notUsaCitizen,
   };
 }
 

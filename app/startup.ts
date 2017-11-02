@@ -6,9 +6,10 @@ import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import { autoRehydrate, persistStore } from "redux-persist";
+import { asyncSessionStorage } from "redux-persist/storages";
 import reduxThunk from "redux-thunk";
 
-import { asyncSessionStorage } from "redux-persist/storages";
+import { setErrorActionCreator } from "./actions/errorActions";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
@@ -41,6 +42,23 @@ export async function startup(render: (store: Store<any>) => void) {
     whitelist: ["legalAgreementState"],
     storage: asyncSessionStorage,
   });
-  await initRepository();
+
+  try {
+    await initRepository();
+  } catch (e) {
+    const errorMsg = (e as Error).message;
+    let returnMsg;
+
+    if (errorMsg.startsWith("Contract")) {
+      returnMsg = "Cannot find deployed smart contracts";
+    } else if (errorMsg.startsWith("Invalid JSON RPC response")) {
+      returnMsg =
+        "There is problem with connecting to Ethereum node please try again in few minutes";
+    } else {
+      returnMsg = "There is problem with with contract initialization: " + errorMsg;
+    }
+
+    store.dispatch(setErrorActionCreator(returnMsg));
+  }
   render(store);
 }

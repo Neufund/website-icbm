@@ -10,3 +10,9 @@ export class LedgerNotAvailableError extends Error {
     super(`Can't connect to ledger!`);
   }
 }
+
+export class MissingContractError extends Error {
+  constructor(public readonly msg: string) {
+    super(msg);
+  }
+}

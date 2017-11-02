@@ -1,6 +1,7 @@
 import { BigNumber } from "bignumber.js";
-
 import { Moment } from "moment/moment";
+
+import { MissingContractError } from "../../errors";
 import { asMomentDate } from "../utils";
 import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 
@@ -41,7 +42,7 @@ class Contract {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0" || code === "0x") {
-      throw new Error(`Contract at ${address} doesn't exist!`);
+      throw new MissingContractError(`Contract PublicCommitment at ${address} doesn't exist!`);
     }
     return contract;
   }

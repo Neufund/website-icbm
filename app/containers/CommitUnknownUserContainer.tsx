@@ -21,7 +21,6 @@ import {
 import { IAppState } from "../reducers/index";
 import { publicCommitment } from "../web3/contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
-import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 
 interface ICommitUnknownUserContainer {
   contractAddress: string;
@@ -67,13 +66,6 @@ export const CommitUnknownUserContainer: React.SFC<ICommitUnknownUserContainer> 
               calculateEstimatedRewardAction={calculateEstimatedRewardAction}
               minTicketWei={minTicketWei}
             />
-            <Row>
-              <Col xs={12}>
-                <hr className={layoutStyle.separator} />
-              </Col>
-            </Row>
-            <CommitHeaderComponent number="02" title="After math" />
-            <CommitUnknownUserAftermathContainer />
           </Col>
         </Row>
       </Grid>

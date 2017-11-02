@@ -21,11 +21,8 @@ import {
 import { IDictionary } from "../types";
 import * as styles from "./Aftermath.scss";
 
-interface IAftermathOwnProps {
-  userAddress: string;
-}
-
 interface IAftermathProps {
+  userAddress: string;
   isLoading: boolean;
   loadAftermathDetails: (address: string) => {};
   lockedAmount: BigNumber;
@@ -37,14 +34,12 @@ interface IAftermathProps {
   tokenHolderAgreementHash: string;
 }
 
-export class CommitKnownUserAftermath extends React.Component<
-  IAftermathProps & IAftermathOwnProps
-> {
+export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
   public componentDidMount() {
     this.props.loadAftermathDetails(this.props.userAddress);
   }
 
-  public async componentWillReceiveProps(_nextProps: IAftermathProps & IAftermathOwnProps) {
+  public async componentWillReceiveProps(_nextProps: IAftermathProps) {
     if (this.props.userAddress !== _nextProps.userAddress) {
       this.props.loadAftermathDetails(_nextProps.userAddress);
     }
@@ -134,6 +129,7 @@ export class CommitKnownUserAftermath extends React.Component<
 
 function mapStateToProps(state: IAppState) {
   return {
+    userAddress: state.userState.address,
     isLoading: selectLoading(state.aftermathState),
     lockedAmount: selectLockedAmount(state.aftermathState),
     neumarkBalance: selectNeumarkBalance(state.aftermathState),
@@ -143,7 +139,7 @@ function mapStateToProps(state: IAppState) {
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<any>, _ownProps: IAftermathOwnProps) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
     getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),

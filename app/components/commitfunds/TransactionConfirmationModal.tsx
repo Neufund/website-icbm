@@ -2,8 +2,11 @@ import { noop } from "lodash";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
+import { Dispatch } from "redux";
 
 import { EtherScanLinkType } from "../../actions/constants";
+import { transactionResetAction } from "../../actions/submitFunds";
 import { IAppState } from "../../reducers/index";
 import { ITransactionState } from "../../reducers/transactionState";
 import EtherScanLink from "../EtherScanLink";
@@ -65,7 +68,7 @@ const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
   </div>;
 
 interface ITransactionConfirmationModalExtras {
-  handleGoToAftermath: () => void;
+  handleGoToAftermathButton: () => void;
 }
 
 export const TransactionConfirmationModalComponent: React.SFC<
@@ -77,11 +80,11 @@ export const TransactionConfirmationModalComponent: React.SFC<
   blockHistory,
   txConfirmed,
   error,
-  handleGoToAftermath,
+  handleGoToAftermathButton,
 }) => {
   return (
     <Modal
-      show={txStarted === true}
+      show={txStarted}
       onHide={noop}
       bsSize="large"
       animation={false}
@@ -112,7 +115,7 @@ export const TransactionConfirmationModalComponent: React.SFC<
       </Modal.Body>
       {txConfirmed &&
         <Modal.Footer>
-          <Button bsStyle="primary" onClick={handleGoToAftermath}>
+          <Button bsStyle="primary" onClick={handleGoToAftermathButton}>
             see aftermath page
           </Button>
         </Modal.Footer>}
@@ -129,6 +132,13 @@ const mapStateToProps = (state: IAppState): ITransactionState => ({
   error: state.transactionState.error,
 });
 
-export default connect<ITransactionState, null, ITransactionConfirmationModalExtras>(
-  mapStateToProps
-)(TransactionConfirmationModalComponent);
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    handleGoToAftermathButton: () => {
+      dispatch(transactionResetAction());
+      dispatch(push("/commit/aftermath"));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionConfirmationModalComponent);

@@ -15,7 +15,6 @@ import LegalModal from "../components/LegalModal";
 import WalletSelector from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import config from "../config";
-import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import {
   selectEstimatedReward,
   selectEstimatedRewardLoadingState,
@@ -35,7 +34,6 @@ interface ICommitKnownUserContainer {
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
-  handleGoToAftermath: () => void;
   balance: BigNumber;
   web3Provider: Web3Type;
 }
@@ -49,14 +47,13 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   calculateEstimatedRewardAction,
   loadingEstimatedReward,
   estimatedReward,
-  handleGoToAftermath,
   balance,
   web3Provider,
 }) => {
   return (
     <div>
       <LegalModal />
-      <TransactionConfirmationModal handleGoToAftermath={handleGoToAftermath} />
+      <TransactionConfirmationModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>
@@ -76,13 +73,6 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               balance={balance}
               web3Provider={web3Provider}
             />
-            <Row>
-              <Col xs={12}>
-                <hr className={layoutStyle.separator} />
-              </Col>
-            </Row>
-            <CommitHeaderComponent number="02" title="After math" />
-            <CommitKnownUserAftermathContainer userAddress={userAddress} />
           </Col>
         </Row>
       </Grid>
@@ -109,9 +99,6 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
       () => dispatch(calculateEstimatedReward) as () => {},
       300
     ) as () => {},
-    handleGoToAftermath: () => {
-      alert("go to after math");
-    },
   };
 }
 

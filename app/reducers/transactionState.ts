@@ -2,6 +2,7 @@ import {
   COMMITTING_DONE,
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
+  COMMITTING_RESET,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
@@ -60,6 +61,8 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         ...state,
         txConfirmed: true,
       };
+    case COMMITTING_RESET:
+      return { ...initialState };
     case COMMITTING_ERROR:
       return {
         ...state,

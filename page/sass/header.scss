@@ -74,7 +74,7 @@
       $logo-height: $logo-size + $offset;
       margin-top: ($navbar-height - $logo-size - $offset) / 2;
       border-right: 1px solid $gray-darker;
-      background: url('./assets/NeuFund_icon_white_300dpi.png');
+      background: url('/assets/NeuFund_icon_white_300dpi.png');
       background-repeat: no-repeat;
       background-position: center left;
       background-size: $logo-size;

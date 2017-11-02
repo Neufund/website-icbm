@@ -5,6 +5,7 @@ import { Dispatch } from "redux";
 
 import { initCommit } from "../actions/commit";
 import { Web3Type } from "../actions/constants";
+import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 // import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
@@ -14,6 +15,7 @@ import CommitKnownUserContainer from "./CommitKnownUserContainer";
 import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
 interface ICommitComponent {
+  fatalError: string;
   isKnownUser: boolean;
   isLoading: boolean;
   initCommit: () => {};
@@ -35,7 +37,11 @@ class Commit extends React.Component<ICommitComponent> {
   }
 
   public render() {
-    const { isKnownUser, isLoading } = this.props;
+    const { fatalError, isKnownUser, isLoading } = this.props;
+
+    if (fatalError) {
+      return <FatalErrorComponent fatalError={fatalError} />;
+    }
 
     if (isLoading) {
       return <LoadingIndicator />;
@@ -55,6 +61,7 @@ class Commit extends React.Component<ICommitComponent> {
 
 const mapStateToProps = (state: IAppState) => {
   return {
+    fatalError: state.fatalErrorState.fatalError,
     isKnownUser: selectIsKnownUser(state.userState),
     isLoading: selectLoading(state.userState),
     web3Type: selectWeb3Type(state.web3State),

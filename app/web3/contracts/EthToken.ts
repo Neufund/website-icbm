@@ -1,4 +1,6 @@
 import { BigNumber } from "bignumber.js";
+
+import { MissingContractError } from "../../errors";
 import { promisify } from "../utils";
 import * as EthTokenAbiJson from "./EthToken.abi.json";
 
@@ -20,7 +22,7 @@ class Contract {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0") {
-      throw new Error(`Contract at ${address} doesn't exist!`);
+      throw new MissingContractError("EthToken", address);
     }
     return contract;
   }

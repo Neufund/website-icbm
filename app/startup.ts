@@ -6,9 +6,10 @@ import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reduxLogger from "redux-logger";
 import { autoRehydrate, persistStore } from "redux-persist";
+import { asyncSessionStorage } from "redux-persist/storages";
 import reduxThunk from "redux-thunk";
 
-import { asyncSessionStorage } from "redux-persist/storages";
+import { setFatalErrorActionCreator } from "./actions/fatalErrorActions";
 import reducers from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
@@ -36,11 +37,28 @@ export async function startup(render: (store: Store<any>) => void) {
     // tslint:disable-next-line
     require("!raw-loader!../dist/app.css");
   }
+  try {
+    await persistStorePromised(store, {
+      whitelist: ["legalAgreementState"],
+      storage: asyncSessionStorage,
+    });
 
-  await persistStorePromised(store, {
-    whitelist: ["legalAgreementState"],
-    storage: asyncSessionStorage,
-  });
-  await initRepository();
+    await initRepository();
+  } catch (e) {
+    let returnMsg;
+    const errorMsg = e.message;
+
+    // existing e.type means it's our own error
+    if (e.type !== undefined) {
+      returnMsg = errorMsg;
+    } else if (errorMsg.startsWith("Invalid JSON RPC response")) {
+      returnMsg =
+        "There is problem with connecting to Ethereum node please try again in few minutes";
+    } else {
+      returnMsg = "There is a problem with application startup: " + errorMsg;
+    }
+
+    store.dispatch(setFatalErrorActionCreator(returnMsg));
+  }
   render(store);
 }

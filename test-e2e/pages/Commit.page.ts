@@ -22,7 +22,7 @@ export class CommitPage {
         );
       },
       web3Raw as any,
-      config.rpcProvider as any
+      config.injectedRpcProvider as any
     );
 
     return new CommitPage(puppeteer, page);

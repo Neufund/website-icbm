@@ -11,8 +11,8 @@ import {
   selectLoading,
   selectLockedAmount,
   selectNeumarkBalance,
-  selectUnlockDate,
   selectShowDocuments,
+  selectUnlockDate,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import {

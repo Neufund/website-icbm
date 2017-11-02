@@ -55,7 +55,7 @@ export async function startup(render: (store: Store<any>) => void) {
       returnMsg =
         "There is problem with connecting to Ethereum node please try again in few minutes";
     } else {
-      returnMsg = "There is problem with with contract initialization: " + errorMsg;
+      returnMsg = "There is a problem with application startup: " + errorMsg;
     }
 
     store.dispatch(setFatalErrorActionCreator(returnMsg));

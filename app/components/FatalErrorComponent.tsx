@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import * as styles from "./ErrorComponent.scss";
+import * as styles from "./FatalErrorComponent.scss";
 
 interface IFatalErrorInterface {
   fatalError: string;

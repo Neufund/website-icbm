@@ -42,7 +42,7 @@ class Contract {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0" || code === "0x") {
-      throw new MissingContractError(`Contract PublicCommitment at ${address} doesn't exist!`);
+      throw new MissingContractError('PublicCommitment', address);
     }
     return contract;
   }

@@ -22,7 +22,7 @@ class Contract {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0") {
-      throw new MissingContractError(`Contract EthToken at ${address} doesn't exist!`);
+      throw new MissingContractError('EthToken', address);
     }
     return contract;
   }

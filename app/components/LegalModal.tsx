@@ -21,16 +21,16 @@ const noop = () => {};
 interface ILegalModalProps {
   isAccepted: boolean;
   legalAgreementsAcceptedAction: () => {};
-  agreements: string;
-  notUsaCitizen: string;
+  reservationAgreement: string;
+  tokenHolderAgreement: string;
 }
 
 export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   invalid,
   handleSubmit,
   isAccepted,
-  agreements,
-  notUsaCitizen,
+  reservationAgreement,
+  tokenHolderAgreement,
 }) => {
   return (
     <Modal
@@ -45,12 +45,12 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
       </Modal.Header>
       <Modal.Body>
         <div className={styles.scrollable}>
-          <IFrame content={agreements} className={styles.documentFrame} />
+          <IFrame content={reservationAgreement} className={styles.documentFrame} />
           <hr />
-          <IFrame content={notUsaCitizen} className={styles.documentFrame} />
+          <IFrame content={tokenHolderAgreement} className={styles.documentFrame} />
         </div>
         <CheckboxField
-          name="agreements"
+          name="reservationAgreement"
           component={Checkbox}
           className={styles.checkbox}
           props={{
@@ -66,7 +66,7 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
           validate={[requiredFieldValidator]}
         />
         <CheckboxField
-          name="notUsaCitizen"
+          name="tokenHolderAgreement"
           component={Checkbox}
           className={styles.checkbox}
           props={{
@@ -105,8 +105,8 @@ interface ILegalModalForm {
 function stateToProps(state: IAppState) {
   return {
     isAccepted: selectIsAccepted(state.legalAgreementState),
-    agreements: state.legalAgreementState.agreements,
-    notUsaCitizen: state.legalAgreementState.notUsaCitizen,
+    reservationAgreement: state.legalAgreementState.reservationAgreement,
+    tokenHolderAgreement: state.legalAgreementState.tokenHolderAgreement,
   };
 }
 

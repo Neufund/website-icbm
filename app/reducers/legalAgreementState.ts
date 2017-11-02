@@ -6,8 +6,8 @@ export interface ILegalAgreementState {
   tokenHolderAgreementAccepted: boolean;
   reservationAgreementHash: string;
   tokenHolderAgreementHash: string;
-  agreements: string;
-  notUsaCitizen: string;
+  reservationAgreement: string;
+  tokenHolderAgreement: string;
 }
 
 const initialState: ILegalAgreementState = {
@@ -15,8 +15,8 @@ const initialState: ILegalAgreementState = {
   tokenHolderAgreementAccepted: false,
   reservationAgreementHash: null,
   tokenHolderAgreementHash: null,
-  agreements: null,
-  notUsaCitizen: null,
+  reservationAgreement: null,
+  tokenHolderAgreement: null,
 };
 
 const reducer: Reducer<ILegalAgreementState> = (
@@ -33,8 +33,8 @@ const reducer: Reducer<ILegalAgreementState> = (
     case SET_LEGAL_AGREEMENTS:
       return {
         ...state,
-        agreements: payload.reservationAgreement,
-        notUsaCitizen: payload.tokenHolderAgreement,
+        reservationAgreement: payload.reservationAgreement,
+        tokenHolderAgreement: payload.tokenHolderAgreement,
         reservationAgreementHash: payload.reservationAgreementHash,
         tokenHolderAgreementHash: payload.tokenHolderAgreementHash,
       };

@@ -1,12 +1,13 @@
 /* tslint:disable:max-classes-per-file */
 
-// @note: custom errors are erased on when targeting ES5 so we needed to introduce our ErrorType enum
+// @note: custom errors are erased when targeting ES5 so we needed to introduce our ErrorType enum
 
 export enum ErrorType {
   LedgerNotSupportedVersionError = "LedgerNotSupportedVersionError",
   LedgerNotAvailableError = "LedgerNotAvailableError",
   MissingContractError = "MissingContractError",
   ETHNodeConnectionError = "ETHNodeConnectionError",
+  MismatchedNetworkError = "MismatchedNetworkError",
 }
 
 export class NeufundError extends Error {
@@ -38,6 +39,15 @@ export class MissingContractError extends NeufundError {
     super(
       ErrorType.MissingContractError,
       `Contract ${contractName} does not exists at ${address} address.`
+    );
+  }
+}
+
+export class MismatchedNetworkError extends NeufundError {
+  constructor(networkName: string) {
+    super(
+      ErrorType.MismatchedNetworkError,
+      `Your wallet is connected to wrong network: ${networkName}`
     );
   }
 }

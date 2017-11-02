@@ -5,11 +5,11 @@
 export enum ErrorType {
   LedgerNotSupportedVersionError = "LedgerNotSupportedVersionError",
   LedgerNotAvailableError = "LedgerNotAvailableError",
-  MissingContractError = "MissingContractError"
+  MissingContractError = "MissingContractError",
 }
 
 export class NeufundError extends Error {
-  constructor(public readonly type: ErrorType, public readonly message:string) {
+  constructor(public readonly type: ErrorType, public readonly message: string) {
     super(message);
   }
 }
@@ -28,7 +28,9 @@ export class LedgerNotAvailableError extends NeufundError {
 
 export class MissingContractError extends NeufundError {
   constructor(contractName: string, address: string) {
-    super(ErrorType.MissingContractError, `Contract ${contractName} does not exists at ${address} address.`);
+    super(
+      ErrorType.MissingContractError,
+      `Contract ${contractName} does not exists at ${address} address.`
+    );
   }
 }
-

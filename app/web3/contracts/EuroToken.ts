@@ -17,7 +17,7 @@ class Contract {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0") {
-      throw new MissingContractError('Euro', address);
+      throw new MissingContractError("EuroToken", address);
     }
     return contract;
   }

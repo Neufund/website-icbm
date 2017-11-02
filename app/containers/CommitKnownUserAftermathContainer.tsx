@@ -12,6 +12,7 @@ import {
   selectLockedAmount,
   selectNeumarkBalance,
   selectUnlockDate,
+  selectShowDocuments,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import {
@@ -32,6 +33,7 @@ interface IAftermathProps {
   getReservationAgreementTags: () => Promise<IDictionary>;
   reservationAgreementHash: string;
   tokenHolderAgreementHash: string;
+  showDocuments: boolean;
 }
 
 export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
@@ -56,6 +58,7 @@ export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
       getReservationAgreementTags,
       reservationAgreementHash,
       tokenHolderAgreementHash,
+      showDocuments,
     } = this.props;
 
     if (isLoading) {
@@ -101,27 +104,28 @@ export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
             {neumarkBalance ? `${neumarkBalance.toFixed(2)} NEU` : "-"}
           </div>
         </div>
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Documents</div>
-          <div className={styles.value}>
-            <DownloadDocumentLink
-              key="neumark_token_holder_agreement"
-              documentHash={tokenHolderAgreementHash}
-              getTags={getTokenHolderAgreementTags}
-              outputFilename="neumark_token_holder_agreement"
-            >
-              Token Holder Agreement
-            </DownloadDocumentLink>
-            <DownloadDocumentLink
-              key="reservation_agreement"
-              documentHash={reservationAgreementHash}
-              getTags={getReservationAgreementTags}
-              outputFilename="reservation_agreement"
-            >
-              Reservation Agreement
-            </DownloadDocumentLink>
-          </div>
-        </div>
+        {showDocuments &&
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>Documents</div>
+            <div className={styles.value}>
+              <DownloadDocumentLink
+                key="neumark_token_holder_agreement"
+                documentHash={tokenHolderAgreementHash}
+                getTags={getTokenHolderAgreementTags}
+                outputFilename="neumark_token_holder_agreement"
+              >
+                Token Holder Agreement
+              </DownloadDocumentLink>
+              <DownloadDocumentLink
+                key="reservation_agreement"
+                documentHash={reservationAgreementHash}
+                getTags={getReservationAgreementTags}
+                outputFilename="reservation_agreement"
+              >
+                Reservation Agreement
+              </DownloadDocumentLink>
+            </div>
+          </div>}
       </div>
     );
   }
@@ -136,6 +140,7 @@ function mapStateToProps(state: IAppState) {
     unlockDate: selectUnlockDate(state.aftermathState),
     reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
     tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
+    showDocuments: selectShowDocuments(state.aftermathState),
   };
 }
 

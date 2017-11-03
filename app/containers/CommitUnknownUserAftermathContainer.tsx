@@ -116,7 +116,7 @@ export const CommitUnknownUserAftermath: React.SFC<
       </div>
     </div>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Documents</div>
+      <div className={styles.caption}>Your documents</div>
       <div className={styles.value}>
         {isAddressSet
           ? [

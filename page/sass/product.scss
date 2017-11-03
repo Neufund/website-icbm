@@ -30,7 +30,7 @@
       line-height: 24px;
     }
     p {
-      color: #8E9297;
+      color: #424a52;
       margin-bottom: 20px; // overrides common parameter to make it look more like in design
     }
     h2 {
@@ -219,7 +219,7 @@
 
   .product-l2-row-wrapper {
     position: relative;
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       margin-top: 13vw;
     }
 
@@ -243,14 +243,18 @@
   }
 
   // --
-
-  .product-r2 .container {
+  .product-r, .product-r2, .product-l2, .product-l {
+    position: relative;
+    .container {
+      position: relative;
+    }
+  }
+  .product-l .cf-row > div {
     position: relative;
   }
-  .product-r2-bg {
+  .product-r-bg, .product-r2-bg, .product-l2-bg {
     position: absolute;
-    left: 0;
-    top: 20px;
+
     max-height: 100%;
     height: 380px;
     z-index: -1;
@@ -258,6 +262,32 @@
       max-width: 100%;
       max-height: 100%;
     }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  .product-r-bg {
+    left: 0;
+    bottom: 20px;
+    @media (max-width: 991px) {
+      transform: translateX(-110px);
+    }
+  }
+  .product-r2-bg {
+    left: 0;
+    top: 20px;
+  }
+  .product-l2-bg {
+    right: 0;
+    bottom: 100px;
+  }
+  #main_feature .product-l2-bg {
+    transform: translateX(100px);
+  }
+  #benefits_of_blockchain .product-l2-bg {
+    left: 0;
+    bottom: 0;
+    transform: translateX(-40px) translateY(30px);
   }
 
   // --

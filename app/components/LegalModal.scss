@@ -2,8 +2,12 @@
 
 .modal {
   :global(.modal-body) {
-    height: 70vh;
+    height: 65vh;
   }
+}
+
+.checkboxes {
+  text-align: left;
 }
 
 .checkbox {
@@ -20,6 +24,6 @@
 }
 
 .scrollable {
-  height: calc(100% - 123px);
+  height: calc(100%);
   overflow-y: scroll;
 }

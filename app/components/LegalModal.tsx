@@ -49,39 +49,42 @@ export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
           <hr />
           <IFrame content={tokenHolderAgreement} className={styles.documentFrame} />
         </div>
-        <CheckboxField
-          name="reservationAgreement"
-          component={Checkbox}
-          className={styles.checkbox}
-          props={{
-            label: (
-              <span>
-                Check here to confirm that you have read, understand and agree to the{" "}
-                <span className={styles.documentAccent}>Reservation Agreement</span> and{" "}
-                <span className={styles.documentAccent}>Neumark Token Holder Agreement</span>{" "}
-                presented above.
-              </span>
-            ),
-          }}
-          validate={[requiredFieldValidator]}
-        />
-        <CheckboxField
-          name="tokenHolderAgreement"
-          component={Checkbox}
-          className={styles.checkbox}
-          props={{
-            label: (
-              <span>
-                Check here to confirm that you are NOT a citizen, resident or entity of the USA or
-                any other jurisdiction in which it is not permissible to participate in token crowd
-                contributions or acting on behalf of any of them.
-              </span>
-            ),
-          }}
-          validate={[requiredFieldValidator]}
-        />
       </Modal.Body>
       <Modal.Footer>
+        <div className={styles.checkboxes}>
+          <CheckboxField
+              name="reservationAgreement"
+              component={Checkbox}
+              className={styles.checkbox}
+              props={{
+                label: (
+                  <span>
+                    Check here to confirm that you have read, understand and agree to the{" "}
+                    <span className={styles.documentAccent}>Reservation Agreement</span> and{" "}
+                    <span className={styles.documentAccent}>Neumark Token Holder Agreement</span>{" "}
+                    presented above.
+                  </span>
+                ),
+              }}
+              validate={[requiredFieldValidator]}
+            />
+            <CheckboxField
+              name="tokenHolderAgreement"
+              component={Checkbox}
+              className={styles.checkbox}
+              props={{
+                label: (
+                  <span>
+                    Check here to confirm that you are NOT a citizen, resident or entity of the USA or
+                    any other jurisdiction in which it is not permissible to participate in token crowd
+                    contributions or acting on behalf of any of them.
+                  </span>
+                ),
+              }}
+              validate={[requiredFieldValidator]}
+            />
+        </div>
+
         <a href="/" className="btn btn-white">
           Cancel
         </a>

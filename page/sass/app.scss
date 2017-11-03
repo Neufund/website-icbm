@@ -3,9 +3,7 @@
 @import '../../node_modules/font-awesome/scss/font-awesome';
 @import '../../node_modules/react-toastify/src/scss/main';
 
-// i am pretty sure that there is a better way to write it
-// @todo selective import from bootstrap
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap'; // sass-lint:disable-line clean-import-paths
+@import 'bootstrap';
 
 @import 'header';
 @import 'global';

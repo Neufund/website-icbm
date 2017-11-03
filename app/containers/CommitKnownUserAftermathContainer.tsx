@@ -106,7 +106,7 @@ export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
         </div>
         {showDocuments &&
           <div className={styles.infoBox}>
-            <div className={styles.caption}>Documents</div>
+            <div className={styles.caption}>Your documents</div>
             <div className={styles.value}>
               <DownloadDocumentLink
                 key="neumark_token_holder_agreement"

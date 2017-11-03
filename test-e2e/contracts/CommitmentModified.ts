@@ -67,11 +67,9 @@ class Contract {
   public get issuanceRate(): Promise<BigNumber> {
     return (async () => {
       const eth = new this.web3.BigNumber(10).pow(
-        // this.ethToken().decimals()
         18
       );
       const nmk = new this.web3.BigNumber(10).pow(
-        // this.commit.neumark().decimals()
         18
       );
       return (await this.estimateNeumarkReward(eth.toNumber())).div(nmk);

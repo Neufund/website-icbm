@@ -10,7 +10,7 @@ export class Element {
   public async text() {
     return this.page.evaluate(
       (selector: string) => document.querySelector(selector).textContent,
-      this.selector as any // @todo fix typings
+      this.selector as any
     );
   }
 

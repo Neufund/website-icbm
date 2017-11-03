@@ -40,12 +40,12 @@ const Form = () =>
   </Col>;
 
 const MailchimpFormComponent: React.SFC<IMailchimpForm> = ({ showThanks }) =>
-  <Row>
+  <Row className={styles.formComponent}>
     {showThanks
       ? <Col md={12}>
           <Alert bsStyle="info">
             <h4>Thank you for your interest!</h4>
-            <p className={styles.thanksP}>
+            <p>
               To complete the subscription process, please click the link in the email we just sent
               you.
             </p>

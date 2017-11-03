@@ -8,7 +8,7 @@ import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
 import { setWeb3Action } from "../actions/web3";
 import config from "../config";
-import { MismatchedNetworkError } from "../errors";
+import { ErrorType, MismatchedNetworkError, NoInjectedWeb3Error } from "../errors";
 import { IAppState } from "../reducers/index";
 import { getNetworkId, getNodeType } from "./utils";
 
@@ -91,7 +91,7 @@ export class Web3Service {
   public injectWeb3 = async () => {
     const newInjectedWeb3 = (window as any).web3;
     if (typeof newInjectedWeb3 === "undefined" || newInjectedWeb3 === this.personalWeb3) {
-      return;
+      throw new NoInjectedWeb3Error();
     }
     const newWeb3 = new Web3(newInjectedWeb3.currentProvider);
 
@@ -107,13 +107,14 @@ export class Web3Service {
     this.personalWeb3 = newWeb3;
     window.clearInterval(this.injectWeb3PollId);
     this.startWatchingAccounts();
+    return true;
   };
 
   private injectWeb3OrToastError = async () => {
     try {
       await this.injectWeb3();
     } catch (e) {
-      if (!this.injectingFailed) {
+      if (!this.injectingFailed && e.type !== ErrorType.NoInjectedWeb3Error) {
         this.injectingFailed = true;
         toast.error(e.message);
       }

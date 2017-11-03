@@ -8,6 +8,7 @@ export enum ErrorType {
   MissingContractError = "MissingContractError",
   ETHNodeConnectionError = "ETHNodeConnectionError",
   MismatchedNetworkError = "MismatchedNetworkError",
+  NoInjectedWeb3Error = "NoInjectedWeb3Error",
 }
 
 export class NeufundError extends Error {
@@ -49,5 +50,11 @@ export class MismatchedNetworkError extends NeufundError {
       ErrorType.MismatchedNetworkError,
       `Your wallet is connected to wrong network: ${networkName}`
     );
+  }
+}
+
+export class NoInjectedWeb3Error extends NeufundError {
+  constructor() {
+    super(ErrorType.NoInjectedWeb3Error, `No injected Web3 was found`);
   }
 }

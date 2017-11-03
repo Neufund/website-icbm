@@ -28,15 +28,18 @@ export function loadDuringIcoDetailsAction(): IStandardReduxAction {
   };
 }
 
-export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async dispatcher => {
+export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
+  dispatcher,
+  getState
+) => {
   dispatcher(loadDuringIcoDetailsAction());
 
-  const {
-    totalSupply,
-    issuanceRate,
-    allFunds,
-    investors,
-  } = await loadDuringIcoDetailsFromContract();
+  const { ethEurFraction, ethDecimals } = getState().commitmentState;
+
+  const { totalSupply, issuanceRate, allFunds, investors } = await loadDuringIcoDetailsFromContract(
+    ethEurFraction,
+    ethDecimals
+  );
 
   dispatcher(
     setDuringIcoDetailsAction(

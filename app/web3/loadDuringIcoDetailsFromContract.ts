@@ -10,20 +10,22 @@ import {
   publicCommitment,
 } from "./contracts/ContractsRepository";
 
-export async function loadDuringIcoDetailsFromContract() {
+export async function loadDuringIcoDetailsFromContract(
+  ethEurFraction: string,
+  ethDecimals: number
+) {
   return await promiseAll({
     totalSupply: neumark.totalSupply.then(bn => bn.toString()),
-    issuanceRate: issuanceRate().then(bn => bn.toString()),
-    allFunds: allFundsCommitment().then(bn => bn.toString()),
+    issuanceRate: issuanceRate(ethDecimals).then(bn => bn.toString()),
+    allFunds: allFundsCommitment(new BigNumber(ethEurFraction)).then(bn => bn.toString()),
     investors: allInvestors(),
   });
 }
 
-export async function allFundsCommitment() {
+export async function allFundsCommitment(ethEurFraction: BigNumber): Promise<BigNumber> {
   const ethCommitted = await etherToken.balanceOf(etherLock.address);
   const eurCommitted = await euroToken.balanceOf(euroLock.address);
-  const ethEur = await publicCommitment.convertToEur(1); // @todo this and few other could be evaluated only once
-  return ethCommitted.plus(eurCommitted.div(ethEur));
+  return ethCommitted.plus(eurCommitted.div(ethEurFraction));
 }
 
 export async function allInvestors() {
@@ -33,8 +35,7 @@ export async function allInvestors() {
   return ethInvestors.add(euroInvestors);
 }
 
-export async function issuanceRate(): Promise<BigNumber> {
-  const ethDecimals = await etherToken.decimals;
-  const eth = new BigNumber(10).pow(ethDecimals.toNumber());
+export async function issuanceRate(ethDecimals: number): Promise<BigNumber> {
+  const eth = new BigNumber(10).pow(ethDecimals);
   return await publicCommitment.estimateNeumarkReward(eth.toString());
 }

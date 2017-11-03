@@ -32,6 +32,7 @@ main_feature:
   id: "main_feature"
   menu_text: "Investing"
   bg_url: ""
+  bg_db: false
   white: false
   purple_title: false
   title: "Main feature: invest in startups"
@@ -76,6 +77,7 @@ benefits_of_blockchain:
   id: "benefits_of_blockchain"
   menu_text: "Benefits of blockchain"
   bg_url: ""
+  bg_db: true
   white: false
   purple_title: false
   title: "Benefits of blockchain"

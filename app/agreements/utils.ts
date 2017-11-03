@@ -49,7 +49,9 @@ export function formatFraction(fraction: BigNumber) {
 }
 
 export function calculateAndFormatRatio(amount: string, neumarkBalance: string): string {
-  return new BigNumber(amount).div(new BigNumber(neumarkBalance)).toFixed(3);
+  return neumarkBalance === "0"
+    ? "0"
+    : new BigNumber(amount).div(new BigNumber(neumarkBalance)).toFixed(3);
 }
 
 // returns wei

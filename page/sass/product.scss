@@ -42,7 +42,9 @@
       line-height: 22px;
 
       padding-top: 5px;
-      margin-bottom: 20px;
+      margin-bottom: 45px;
+
+      font-weight: 400;
     }
   }
 
@@ -81,7 +83,7 @@
     h1 {
       font-family: Montserrat;
       font-size: 40px;
-      font-weight: 900;
+      font-weight: 400;
       line-height: 49px;
       margin-bottom: 33px;
     }
@@ -267,7 +269,7 @@
     }
 
     & > div > div > .col-sm-4 {
-      margin-bottom: 50px;
+      margin-bottom: 200px;
     }
   }
 
@@ -294,18 +296,10 @@
   // --
 
   .background-text {
-    // HACK according to https://codemyviews.com/blog/inner-shadows-in-css-images-text-and-beyond
-    color: transparent;
-    background-color: rgba(163, 192, 204, 0.2); // A3C0CC 20%
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    text-shadow: 0px 1px 2px #fff; // text color
-
     text-transform: uppercase;
     font-family: Montserrat;
     font-size: 60px;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 73px;
     margin-bottom: 5px;
     @media (max-width: 480px) {
@@ -315,10 +309,8 @@
     }
   }
 
-  .bg-white .background-text, .product-image .background-text {
-    background-color: #eee;
-    text-shadow: 0px 1px 2px $white-almost;
-  }
+  #startups_dashboard .background-text { color: $purple; }
+  #investors_dashboard .background-text { color: $blue-darker; }
 
   // ---
   .product-last {

@@ -50,7 +50,8 @@ gulp.task("page", () => {
     GA_ID: process.env.GA_ID,
     FB_PIXEL_ID: process.env.FB_PIXEL_ID,
     FAQ_ENABLED:!!parseInt(process.env.FAQ_ENABLED),
-    PLATFORM_ENABLED:!!parseInt(process.env.PLATFORM_ENABLED),
+    /*PLATFORM_ENABLED:!!parseInt(process.env.PLATFORM_ENABLED),*/
+    PLATFORM_ENABLED: true
   };
 
   // notice no return here: https://github.com/rogeriopvl/gulp-ejs/issues/86

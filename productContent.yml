@@ -1,7 +1,7 @@
 header:
   id: "product-header"
   menu_text: "Introduction"
-  title: "How it works.<br/>Fundraising Platform"
+  title: "A true platform<br/>for the people."
   content: "Easy to use, crafted experience for different actors on different stages of their investment journey. An on-going work, being built with community for community in a culture of open-source, access point for everyone to blockchain."
   yt_video: "W0LHTWG-UmQ"
 who_can_use:
@@ -28,12 +28,6 @@ who_can_use:
         width: 338
       - url: "screenshots/Group26_3x.png"
         width: 507
-    - - url: "screenshots/Group27.png"
-        width: 169
-      - url: "screenshots/Group27_2x.png"
-        width: 338
-      - url: "screenshots/Group27_3x.png"
-        width: 507
 main_feature:
   id: "main_feature"
   menu_text: "Investing"
@@ -42,7 +36,7 @@ main_feature:
   purple_title: false
   title: "Main feature: invest in startups"
   headline: "ICO: new investment mechanism for every model"
-  backgroundText: "For investors"
+  backgroundText: ""
   paragraphs:
     - Initial Coin Offering is a new powerful tool for fundraising. With Neufund's innovative approach to allow investments in tokenized shares, it is becoming main-stream. It allows both on- and off-chain startups to address at once a huge capital pool making the fundraising cheap and fast. It allows investors to invest in the projects they believe in, and along with experienced VCs. Neufund's ICO democratises the investment process!
   image:
@@ -102,7 +96,7 @@ investors_dashboard:
   id: "investors_dashboard"
   menu_text: ""
   purple_title: false
-  backgroundText: ""
+  backgroundText: "For investors"
   bg_url: "/assets/svg-bg/blue.svg"
   white: true
   title: "Investors dashboard"
@@ -236,10 +230,6 @@ feature_by_feature:
     - title: "Security"
       icon: "cloud_queue"
       content: "Neufund’s user base is expected to include both experts and novices to blockchain applications, and both high and low value accounts. To provide a smooth experience while guaranteeing security for all these users, we plan to support three different authentication mechanisms. In addition, all our users benefit from a protective wallet contract."
-      link: "#"
-    - title: "NASDQ style capital pool"
-      icon: "memory"
-      content: "..."
       link: "#"
 last:
   id: "last"

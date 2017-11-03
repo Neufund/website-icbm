@@ -1,11 +1,18 @@
 body {
+  position: relative;
   margin-top: $navbar-height;
   background-color: $white;
+  padding-bottom: 280px;
+  min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
 
   &.no-margin {
     margin: 0;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    padding-bottom: 500px;
   }
 }
 

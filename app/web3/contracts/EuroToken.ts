@@ -14,6 +14,9 @@ class Contract {
   public static async createAndValidate(web3: any, address: string): Promise<Contract> {
     const contract = new Contract(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
+    if (process.env.NODE_ENV === "production") {
+      return contract;
+    }
     if (code === "0x0") {
       throw new MissingContractError("EuroToken", address);
     }

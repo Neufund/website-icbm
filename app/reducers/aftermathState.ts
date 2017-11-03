@@ -61,6 +61,11 @@ export function selectNeumarkBalance(state: IAftermathState): BigNumber {
   return state.neumarkBalance && new BigNumber(state.neumarkBalance);
 }
 
+export function selectShowDocuments(state: IAftermathState): boolean {
+  const balance = selectNeumarkBalance(state);
+  return balance ? balance.toNumber() > 0 : false;
+}
+
 export function selectUnlockDate(state: IAftermathState): moment.Moment {
   return (
     state.unlockDate && state.unlockDate !== "1970-01-01T00:00:00.000Z" && moment(state.unlockDate)

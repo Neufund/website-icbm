@@ -13,8 +13,13 @@ export function loadBeforeIcoDetailsAction(neumarkInitialRate: string): IStandar
   };
 }
 
-export const loadBeforeIcoDetails: ThunkAction<{}, IAppState, {}> = async dispatcher => {
-  const { neumarkInitialRate } = await loadBeforeIcoDetailsFromContract();
+export const loadBeforeIcoDetails: ThunkAction<{}, IAppState, {}> = async (
+  dispatcher,
+  getState
+) => {
+  const { ethDecimals } = getState().commitmentState;
+
+  const { neumarkInitialRate } = await loadBeforeIcoDetailsFromContract(ethDecimals);
 
   dispatcher(loadBeforeIcoDetailsAction(neumarkInitialRate.toString()));
 };

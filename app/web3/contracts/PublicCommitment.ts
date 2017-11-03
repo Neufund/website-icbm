@@ -40,6 +40,9 @@ function promisify(func: any, args: any): Promise<any> {
 class Contract {
   public static async createAndValidate(web3: any, address: string): Promise<Contract> {
     const contract = new Contract(web3, address);
+    if (process.env.NODE_ENV === "production") {
+      return contract;
+    }
     const code = await promisify(web3.eth.getCode, [address]);
     if (code === "0x0" || code === "0x") {
       throw new MissingContractError("PublicCommitment", address);

@@ -9,15 +9,12 @@ import "!style-loader!css-loader!vex-js/dist/css/vex.css";
 import "bootstrap-sass/assets/javascripts/bootstrap.js";
 import "./effects.js";
 import "./faqScroll";
-import { handleMailChimpSubscribe } from "./ga";
 import { getPersonModal } from "./personModal";
 import "./scroll.js";
 import scrollbarFix from "./scrollbarFix";
 
 vex.defaultOptions.className = "vex-theme-os";
 vex.registerPlugin(vexDialog);
-
-handleMailChimpSubscribe();
 
 const getParticipateModal: any = (text: string) => {
   return {

@@ -2,6 +2,7 @@ import { ThunkAction } from "redux-thunk";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
+import { parseStrToNumStrict, parseMoneyStrToStrStrict } from "../utils/utils";
 import { commitmentValueValidator } from "../validators/commitmentValueValidator";
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
 import { submitFundsToContract } from "../web3/submitFundsToContract";
@@ -78,9 +79,10 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
   getState
 ) => {
   try {
+    const parsedValue = parseMoneyStrToStrStrict(value);
     const selectedAccount = getState().userState.address;
     dispatcher(transactionStartedAction());
-    const txHash = await submitFundsToContract(value, selectedAccount);
+    const txHash = await submitFundsToContract(parsedValue, selectedAccount);
     dispatcher(transactionSubmitted(txHash));
 
     const transactionMined = (blockNo: number) => {
@@ -110,13 +112,13 @@ export const calculateEstimatedReward: ThunkAction<{}, IAppState, {}> = async (
 
   // we need to make sure first if the form is valid :( This should be done automatically and this action creator should be called on something like onValidationSucceed but there it no such method
   if (commitmentValueValidator(ethAmountInput, {}, { minTicketWei }) !== undefined) {
-    dispatcher(setEstimatedRewardAction("0"));
-    return;
+    return dispatcher(setEstimatedRewardAction("0"));
   }
+  const parsedEthAmountInput = parseMoneyStrToStrStrict(ethAmountInput);
 
   dispatcher(loadingEstimatedRewardAction());
 
-  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(ethAmountInput);
+  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(parsedEthAmountInput);
 
   dispatcher(setEstimatedRewardAction(estimatedNeumarksReward.toString()));
 };

@@ -1,6 +1,6 @@
 import { BigNumber } from "bignumber.js";
 import { publicCommitment } from "./contracts/ContractsRepository";
-import { asEtherNumber, asWeiNumber } from "./utils";
+import { asWeiNumber } from "./utils";
 
 export async function estimateNeumarksRewardFromContract(
   ethAmountInput: string
@@ -9,5 +9,5 @@ export async function estimateNeumarksRewardFromContract(
 
   const neumarks = await publicCommitment.estimateNeumarkReward(weiAmount);
 
-  return asEtherNumber(neumarks); // @todo this assumes that ether and neumarks have the same decimals
+  return neumarks; // @todo this assumes that ether and neumarks have the same decimals
 }

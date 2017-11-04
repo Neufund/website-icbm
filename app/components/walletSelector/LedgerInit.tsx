@@ -21,6 +21,15 @@ export class LedgerInit extends React.Component<ILedgerInitProps> {
         </Modal.Header>
         <Modal.Body>
           <p>Plug in your Nano Ledger S.</p>
+          <ol>
+            <li>Unlock it</li>
+            <li>Open Ethereum app</li>
+            <li>Make sure it's configured correctly:</li>
+            <ul>
+              <li>Settings -> Contract data -> Yes</li>
+              <li>Settings -> Browser suport -> Yes</li>
+            </ul>
+          </ol>
           <LoadingIndicator />
         </Modal.Body>
         <Modal.Footer />

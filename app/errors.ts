@@ -1,12 +1,14 @@
 /* tslint:disable:max-classes-per-file */
 
-// @note: custom errors are erased on when targeting ES5 so we needed to introduce our ErrorType enum
+// @note: custom errors are erased when targeting ES5 so we needed to introduce our ErrorType enum
 
 export enum ErrorType {
   LedgerNotSupportedVersionError = "LedgerNotSupportedVersionError",
   LedgerNotAvailableError = "LedgerNotAvailableError",
   MissingContractError = "MissingContractError",
   ETHNodeConnectionError = "ETHNodeConnectionError",
+  MismatchedNetworkError = "MismatchedNetworkError",
+  NoInjectedWeb3Error = "NoInjectedWeb3Error",
 }
 
 export class NeufundError extends Error {
@@ -39,5 +41,20 @@ export class MissingContractError extends NeufundError {
       ErrorType.MissingContractError,
       `Contract ${contractName} does not exists at ${address} address.`
     );
+  }
+}
+
+export class MismatchedNetworkError extends NeufundError {
+  constructor(networkName: string) {
+    super(
+      ErrorType.MismatchedNetworkError,
+      `Your wallet is connected to wrong network: ${networkName}`
+    );
+  }
+}
+
+export class NoInjectedWeb3Error extends NeufundError {
+  constructor() {
+    super(ErrorType.NoInjectedWeb3Error, `No injected Web3 was found`);
   }
 }

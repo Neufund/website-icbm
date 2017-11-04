@@ -10,7 +10,7 @@ import {
   ledgerGetAddresses,
   showNextAddresses,
   showPrevAddresses,
-} from "../../actions/ledgerAddressChooser";
+} from "../../actions/ledgerAddressChooserActions";
 import { IAppState } from "../../reducers/index";
 import { ILedgerAccount, selectHasPrevious } from "../../reducers/ledgerAddressChooserState";
 import { LoadingIndicator } from "../LoadingIndicator";

@@ -35,7 +35,7 @@ export const AfterMathContainer: React.SFC<IAfterMathContainer> = ({ isKnownUser
 
 const mapStateToProps = (state: IAppState) => {
   return {
-    isKnownUser: selectIsKnownUser(state.userState),
+    isKnownUser: selectIsKnownUser(state.userState, state.web3State),
   };
 };
 

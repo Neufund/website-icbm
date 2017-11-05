@@ -40,6 +40,7 @@ export const CommitUnknownUser: React.SFC<ICommitFundsStatic> = ({
           transactionPayload={transactionPayload}
           gasPrice={gasPrice}
           gasLimit={gasLimit}
+          minTicketSize={minTicketWei}
         />
       </Col>
       <Col sm={4}>

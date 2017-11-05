@@ -3,12 +3,14 @@
 // @note: custom errors are erased when targeting ES5 so we needed to introduce our ErrorType enum
 
 export enum ErrorType {
+  UnknownError = "UnknownError",
   LedgerNotSupportedVersionError = "LedgerNotSupportedVersionError",
   LedgerNotAvailableError = "LedgerNotAvailableError",
   MissingContractError = "MissingContractError",
   ETHNodeConnectionError = "ETHNodeConnectionError",
   MismatchedNetworkError = "MismatchedNetworkError",
   NoInjectedWeb3Error = "NoInjectedWeb3Error",
+  UserDeniedTransaction = "UserDeniedTransaction",
 }
 
 export class NeufundError extends Error {
@@ -17,9 +19,15 @@ export class NeufundError extends Error {
   }
 }
 
+export class UnknownError extends NeufundError {
+  constructor() {
+    super(ErrorType.UnknownError, "Unknown error.");
+  }
+}
+
 export class LedgerNotSupportedVersionError extends NeufundError {
   constructor(version: string) {
-    super(ErrorType.LedgerNotSupportedVersionError, `Not supported ledger version: ${version}`);
+    super(ErrorType.LedgerNotSupportedVersionError, `Not supported ledger version: ${version}.`);
   }
 }
 
@@ -48,13 +56,19 @@ export class MismatchedNetworkError extends NeufundError {
   constructor(networkName: string) {
     super(
       ErrorType.MismatchedNetworkError,
-      `Your wallet is connected to wrong network: ${networkName}`
+      `Your wallet is connected to wrong network: ${networkName}.`
     );
   }
 }
 
 export class NoInjectedWeb3Error extends NeufundError {
   constructor() {
-    super(ErrorType.NoInjectedWeb3Error, `No injected Web3 was found`);
+    super(ErrorType.NoInjectedWeb3Error, `No injected Web3 was found.`);
+  }
+}
+
+export class UserDeniedTransaction extends NeufundError {
+  constructor() {
+    super(ErrorType.UserDeniedTransaction, `Transaction was denied.`);
   }
 }

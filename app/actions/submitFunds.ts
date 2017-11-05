@@ -1,4 +1,6 @@
 import { ThunkAction } from "redux-thunk";
+
+import { ErrorType } from "../errors";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
@@ -6,6 +8,7 @@ import { commitmentValueValidator } from "../validators/commitmentValueValidator
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
 import { submitFundsToContract } from "../web3/submitFundsToContract";
 import { transactionConfirmation } from "../web3/transactionConfirmation";
+import { web3ErrorHandler } from "../web3/web3ErrorHandler";
 import {
   COMMITTING_DONE,
   COMMITTING_ERROR,
@@ -93,9 +96,13 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
 
     await transactionConfirmation(txHash, transactionMined, newBlock);
     dispatcher(transactionDoneAction());
-    // window.location.assign("/");
   } catch (e) {
-    dispatcher(transactionErrorAction(e.toString()));
+    const parsedError = web3ErrorHandler(e);
+    if (parsedError.type === ErrorType.UnknownError) {
+      // tslint:disable-next-line no-console
+      console.log(e);
+    }
+    dispatcher(transactionErrorAction(parsedError.message));
   }
 };
 

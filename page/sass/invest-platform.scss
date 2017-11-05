@@ -38,7 +38,16 @@
       margin-bottom: 0;
     }
 
+    .content {
+      text-align: center;
+
+      p {
+        text-align: left;
+      }
+    }
+
     .product-image {
+      margin-top: 15px;
       max-height: 380px;
     }
   }

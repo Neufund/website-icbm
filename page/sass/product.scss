@@ -417,7 +417,9 @@
   }
 
   // -- bg coloring
-  #product-header {background-color: #f7f8f9}
+  #product-header {
+    background: linear-gradient(123deg, #f2f9ea, #f2f9ea 2%, #f8f9f9 86%, #f8f9fa);
+  }
   #section-left-hex {
     position: absolute;
     max-width: 200px;

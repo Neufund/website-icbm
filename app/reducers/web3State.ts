@@ -38,3 +38,17 @@ export function selectWeb3Type(state: IWeb3State): Web3Type {
 export function selectEthNetwork(state: IWeb3State): EthNetwork {
   return state.ethNetwork;
 }
+
+export function selectIsLedgerSelected(state: IWeb3State): boolean {
+  return state.web3Type === Web3Type.LEDGER;
+}
+
+export function selectEthBrowserWalletSelected(state: IWeb3State): boolean {
+  return [Web3Type.GENERIC, Web3Type.METAMASK, Web3Type.MIST, Web3Type.PARITY].some(
+    e => e === state.web3Type
+  );
+}
+
+export function selectNoWalletSelected(state: IWeb3State): boolean {
+  return state.web3Type === Web3Type.UNKNOWN;
+}

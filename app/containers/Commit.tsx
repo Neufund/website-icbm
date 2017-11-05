@@ -62,7 +62,7 @@ class Commit extends React.Component<ICommitComponent> {
 const mapStateToProps = (state: IAppState) => {
   return {
     fatalError: state.fatalErrorState.fatalError,
-    isKnownUser: selectIsKnownUser(state.userState),
+    isKnownUser: selectIsKnownUser(state.userState, state.web3State),
     isLoading: selectLoading(state.userState),
     web3Type: selectWeb3Type(state.web3State),
   };

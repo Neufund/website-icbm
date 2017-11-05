@@ -4,8 +4,10 @@ import {
   SET_DERIVATION_PATH,
   SET_LOADING_USER_ACCOUNT,
   SET_USER_ACCOUNT,
+  Web3Type,
 } from "../actions/constants";
 import { Reducer } from "../types";
+import { IWeb3State } from "./web3State";
 
 export interface IUserState {
   loading: boolean;
@@ -49,8 +51,8 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
 
 export default reducer;
 
-export function selectIsKnownUser(state: IUserState): boolean {
-  return state.address !== null;
+export function selectIsKnownUser(state: IUserState, web3State: IWeb3State): boolean {
+  return web3State.web3Type !== Web3Type.UNKNOWN && state.address !== null;
 }
 
 export function selectLoading(state: IUserState): boolean {

@@ -8,6 +8,7 @@ import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
 import { setWeb3Action } from "../actions/web3";
 import config from "../config";
+import { ErrorType, MismatchedNetworkError, NoInjectedWeb3Error } from "../errors";
 import { IAppState } from "../reducers/index";
 import { getNetworkId, getNodeType } from "./utils";
 
@@ -69,8 +70,11 @@ export class Web3Service {
   }
 
   public async injectWeb3IfAvailable() {
-    await this.injectWeb3();
-    this.injectWeb3PollId = window.setInterval(this.injectWeb3, CHECK_INJECTED_WEB3_INTERVAL);
+    await this.injectWeb3OrToastError();
+    this.injectWeb3PollId = window.setInterval(
+      this.injectWeb3OrToastError,
+      CHECK_INJECTED_WEB3_INTERVAL
+    );
   }
 
   public startWatchingAccounts() {
@@ -84,27 +88,18 @@ export class Web3Service {
     window.clearInterval(this.accountsChangedWatcher);
   }
 
-  private injectWeb3 = async () => {
+  public injectWeb3 = async () => {
     const newInjectedWeb3 = (window as any).web3;
     if (typeof newInjectedWeb3 === "undefined" || newInjectedWeb3 === this.personalWeb3) {
-      return;
+      throw new NoInjectedWeb3Error();
     }
     const newWeb3 = new Web3(newInjectedWeb3.currentProvider);
 
     const internalWeb3NetworkId = await getNetworkId(this.rawWeb3);
     const personalWeb3NetworkId = await getNetworkId(newWeb3);
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
-      if (!this.injectingFailed) {
-        toast.error(
-          `Your injected web3 instance is connected to: ${EthNetwork[
-            personalWeb3NetworkId
-          ]} network!`
-        );
-      }
-      this.injectingFailed = true;
-      return;
+      throw new MismatchedNetworkError(EthNetwork[personalWeb3NetworkId]);
     }
-    this.injectingFailed = false;
 
     const injectedType = await getNodeType(newWeb3);
     this.dispatch(setWeb3Action(injectedType));
@@ -112,6 +107,18 @@ export class Web3Service {
     this.personalWeb3 = newWeb3;
     window.clearInterval(this.injectWeb3PollId);
     this.startWatchingAccounts();
+    return true;
+  };
+
+  private injectWeb3OrToastError = async () => {
+    try {
+      await this.injectWeb3();
+    } catch (e) {
+      if (!this.injectingFailed && e.type !== ErrorType.NoInjectedWeb3Error) {
+        this.injectingFailed = true;
+        toast.error(e.message);
+      }
+    }
   };
 
   private async checkAccounts() {

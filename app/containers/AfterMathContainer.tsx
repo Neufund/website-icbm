@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
 import LegalModal from "../components/LegalModal";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser } from "../reducers/userState";
@@ -22,6 +23,7 @@ export const AfterMathContainer: React.SFC<IAfterMathContainer> = ({ isKnownUser
     <Grid>
       <Row>
         <Col xs={12} className={layoutStyle.contentContainer}>
+          <WhitelistedCommitmentNote />
           <CommitHeaderComponent number="01" title="After math" />
           {isKnownUser
             ? <CommitKnownUserAftermathContainer />
@@ -33,7 +35,7 @@ export const AfterMathContainer: React.SFC<IAfterMathContainer> = ({ isKnownUser
 
 const mapStateToProps = (state: IAppState) => {
   return {
-    isKnownUser: selectIsKnownUser(state.userState),
+    isKnownUser: selectIsKnownUser(state.userState, state.web3State),
   };
 };
 

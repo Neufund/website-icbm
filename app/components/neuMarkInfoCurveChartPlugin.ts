@@ -75,7 +75,7 @@ const neuMarkInfoPlugin = {
       "#262B2F",
       neuMarkPrice.fontSize,
       neumarkPriceXpoint + 5,
-      neumarkPriceYpoint
+      neumarkPriceYpoint + 7
     );
 
     // current ether raised
@@ -85,7 +85,7 @@ const neuMarkInfoPlugin = {
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);
 
     // y-axis label
-    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "11px", xAxe.left - 20, yAxe.top - 5);
+    drawMultiLineText(ctx, yAxesLabel, "#BBC2C7", "11px", xAxe.left - 20, yAxe.top - 7);
   },
 };
 

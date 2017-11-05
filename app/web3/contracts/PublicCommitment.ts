@@ -90,10 +90,6 @@ class Contract {
     return promisify(this.rawWeb3Contract.euroLock, []);
   }
 
-  public get accessPolicy(): Promise<BigNumber | string> {
-    return promisify(this.rawWeb3Contract.accessPolicy, []);
-  }
-
   public estimateNeumarkReward(amountEth: BigNumber | string): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
   }
@@ -106,14 +102,6 @@ class Contract {
     return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
   }
 
-  public abortTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.abort, [params]);
-  }
-
-  public handleTimedTransitionsTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.handleTimedTransitions, [params]);
-  }
-
   public commitTx(params?: IPayableTxParams, customWeb3?: any): Promise<string> {
     if (customWeb3) {
       const tmpContract = customWeb3.eth.contract(PublicCommitmentAbiJson).at(this.address);
@@ -121,27 +109,6 @@ class Contract {
     } else {
       return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
     }
-  }
-
-  public setAccessPolicyTx(newPolicy: BigNumber | string, params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.setAccessPolicy, [newPolicy, params]);
-  }
-
-  public addWhitelistedTx(
-    investors: BigNumber[] | string[],
-    tokens: BigNumber[],
-    amounts: BigNumber[],
-    params?: ITxParams
-  ): Promise<void> {
-    return promisify(this.rawWeb3Contract.addWhitelisted, [investors, tokens, amounts, params]);
-  }
-
-  public commitEuroTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.commitEuro, [params]);
-  }
-
-  public reclaimTx(token: BigNumber | string, params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.reclaim, [token, params]);
   }
 }
 

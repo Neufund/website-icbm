@@ -69,6 +69,7 @@ const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
 
 interface ITransactionConfirmationModalExtras {
   handleGoToAftermathButton: () => void;
+  handleTransactionResetButton: () => void;
 }
 
 export const TransactionConfirmationModalComponent: React.SFC<
@@ -81,6 +82,7 @@ export const TransactionConfirmationModalComponent: React.SFC<
   txConfirmed,
   error,
   handleGoToAftermathButton,
+  handleTransactionResetButton,
 }) => {
   return (
     <Modal
@@ -113,12 +115,16 @@ export const TransactionConfirmationModalComponent: React.SFC<
             {error}
           </div>}
       </Modal.Body>
-      {txConfirmed &&
-        <Modal.Footer>
+      <Modal.Footer>
+        {error !== null &&
+          <Button bsStyle="primary" onClick={handleTransactionResetButton}>
+            reset transaction
+          </Button>}
+        {txConfirmed &&
           <Button bsStyle="primary" onClick={handleGoToAftermathButton}>
             see aftermath page
-          </Button>
-        </Modal.Footer>}
+          </Button>}
+      </Modal.Footer>
     </Modal>
   );
 };
@@ -134,6 +140,9 @@ const mapStateToProps = (state: IAppState): ITransactionState => ({
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
+    handleTransactionResetButton: () => {
+      dispatch(transactionResetAction());
+    },
     handleGoToAftermathButton: () => {
       dispatch(transactionResetAction());
       dispatch(push("/commit/aftermath"));

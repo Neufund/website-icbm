@@ -408,5 +408,12 @@
 
   // -- bg coloring
   #product-header {background-color: #f7f8f9}
+  #section-left-hex {
+    position: absolute;
+    max-width: 200px;
+    left: 0;
+    bottom: 0;
+    img {max-width: 100%}
+  }
 
 }

@@ -8,7 +8,7 @@ who_can_use:
   id: "who_can_use"
   menu_text: "Who can use the Platform"
   bg_url: ""
-  white: true
+  white: false
   purple_title: false
   title: "Who can use Neufund's Platform"
   headline: "For startups and all kinds of investors"
@@ -16,24 +16,24 @@ who_can_use:
   paragraphs:
     - "Unless you are a partner in the VC fund or a business angel, you are new to investing in the companies equity. Neufund’s goal is to open this market. The platform is designed and built with a thought to anticipate the needs of startups and investors, both individual and institutional.  Its key values are: accessibility, scalability and integrability with the traditional investment world."
   images:
-    - - url: "screenshots/Group25.png"
+    - - url: "screenshots/group-25.png"
+        width: 209
+      - url: "screenshots/group-25_2x.png"
+        width: 418
+      - url: "screenshots/group-25_3x.png"
+        width: 627
+    - - url: "screenshots/group-27.png"
         width: 169
-      - url: "screenshots/Group25_2x.png"
+      - url: "screenshots/group-27_2x.png"
         width: 338
-      - url: "screenshots/Group25_3x.png"
-        width: 507
-    - - url: "screenshots/Group26.png"
-        width: 169
-      - url: "screenshots/Group26_2x.png"
-        width: 338
-      - url: "screenshots/Group26_3x.png"
+      - url: "screenshots/group-27_3x.png"
         width: 507
 main_feature:
   id: "main_feature"
   menu_text: "Investing"
   bg_url: ""
   bg_db: false
-  white: false
+  white: true
   purple_title: false
   title: "Main feature: invest in startups"
   headline: "ICO: new investment mechanism for every model"
@@ -78,7 +78,7 @@ benefits_of_blockchain:
   menu_text: "Benefits of blockchain"
   bg_url: ""
   bg_db: true
-  white: false
+  white: true
   purple_title: false
   title: "Benefits of blockchain"
   headline: "Profit from the tokens: proceeds and secondary market"
@@ -206,7 +206,7 @@ feature_by_feature:
   id: "feature_by_feature"
   menu_text: "Feature by feature"
   bg_url: ""
-  white: false
+  white: true
   headline: "Feature by feature"
   content:
     - title: "Invest in legal equity tokens"

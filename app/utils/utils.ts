@@ -23,7 +23,6 @@ export const parseStrToNumStrict = (source: string): number => {
   return parseFloat(transform);
 };
 
-
 export const parseMoneyStrToStrStrict = (source: string): string => {
   if (source === undefined) {
     return null;

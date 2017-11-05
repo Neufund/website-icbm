@@ -4,12 +4,6 @@ import { MissingContractError } from "../../errors";
 import { promisify } from "../utils";
 import * as NeumarkAbiJson from "./Neumark.abi.json";
 
-interface ITxParams {
-  from?: string;
-  gas?: number | string | BigNumber;
-  gasPrice?: number | string | BigNumber;
-}
-
 class Contract {
   public static async createAndValidate(web3: any, address: string): Promise<Contract> {
     const contract = new Contract(web3, address);

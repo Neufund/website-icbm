@@ -4,9 +4,9 @@ import { MissingContractError } from "../../errors";
 import { promisify } from "../utils";
 import * as EthTokenAbiJson from "./EthToken.abi.json";
 
-class Contract {
-  public static async createAndValidate(web3: any, address: string): Promise<Contract> {
-    const contract = new Contract(web3, address);
+class EthToken {
+  public static async createAndValidate(web3: any, address: string): Promise<EthToken> {
+    const contract = new EthToken(web3, address);
     if (process.env.NODE_ENV === "production") {
       return contract;
     }
@@ -36,4 +36,4 @@ class Contract {
   }
 }
 
-export default Contract;
+export default EthToken;

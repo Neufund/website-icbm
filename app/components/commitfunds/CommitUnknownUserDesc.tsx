@@ -1,12 +1,12 @@
+import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { BigNumber } from 'bignumber.js';
 
+import { TokenType } from "../../actions/constants";
+import MoneyComponent from "../MoneyComponent";
 import { TextCopyable } from "../TextCopyable";
 import { UnderlinedLink } from "../UnderlinedLink";
 import * as style from "./CommitUnknownUserDesc.scss";
-import MoneyComponent from "../MoneyComponent";
-import { TokenType } from "../../actions/constants";
 
 interface ICommitUnknownUserDesc {
   contractAddress: string;

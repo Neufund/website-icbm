@@ -1,3 +1,5 @@
+import promiseAll = require("promise-all");
+
 import { AppState } from "../../actions/constants";
 import config from "../../config";
 import { Web3Service } from "../web3Service";
@@ -42,8 +44,11 @@ export async function initRepository() {
     euroLock.assetToken,
   ]);
 
-  [etherToken, euroToken] = await Promise.all([
-    EthToken.createAndValidate(web3, etherTokenAddress),
-    EuroToken.createAndValidate(web3, euroTokenAddress),
-  ]);
+  const tokens = await promiseAll({
+    etherToken: EthToken.createAndValidate(web3, etherTokenAddress),
+    euroToken: EuroToken.createAndValidate(web3, euroTokenAddress),
+  });
+
+  etherToken = tokens.etherToken;
+  euroToken = tokens.euroToken;
 }

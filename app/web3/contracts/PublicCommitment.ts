@@ -5,12 +5,6 @@ import { MissingContractError } from "../../errors";
 import { asMomentDate } from "../utils";
 import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 
-interface ITxParams {
-  from?: string;
-  gas?: number | string | BigNumber;
-  gasPrice?: number | string | BigNumber;
-}
-
 interface IPayableTxParams {
   value: string | BigNumber;
   from?: string;
@@ -92,10 +86,6 @@ class Contract {
 
   public estimateNeumarkReward(amountEth: BigNumber | string): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
-  }
-
-  public convertToEur(amount: number): Promise<BigNumber> {
-    return promisify(this.rawWeb3Contract.convertToEur, [amount]);
   }
 
   public async startOf(stateEnum: InternalCommitmentState): Promise<Moment> {

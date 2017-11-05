@@ -2,7 +2,7 @@ import { ThunkAction } from "redux-thunk";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
-import { parseStrToNumStrict, parseMoneyStrToStrStrict } from "../utils/utils";
+import { parseMoneyStrToStrStrict } from "../utils/utils";
 import { commitmentValueValidator } from "../validators/commitmentValueValidator";
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
 import { submitFundsToContract } from "../web3/submitFundsToContract";

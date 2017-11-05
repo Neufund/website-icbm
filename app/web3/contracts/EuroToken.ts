@@ -4,9 +4,9 @@ import { MissingContractError } from "../../errors";
 import { promisify } from "../utils";
 import * as EuroTokenAbiJson from "./EuroToken.abi.json";
 
-class Contract {
-  public static async createAndValidate(web3: any, address: string): Promise<Contract> {
-    const contract = new Contract(web3, address);
+class EuroToken {
+  public static async createAndValidate(web3: any, address: string): Promise<EuroToken> {
+    const contract = new EuroToken(web3, address);
     const code = await promisify(web3.eth.getCode, [address]);
     if (process.env.NODE_ENV === "production") {
       return contract;
@@ -32,4 +32,4 @@ class Contract {
   }
 }
 
-export default Contract;
+export default EuroToken;

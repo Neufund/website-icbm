@@ -1,4 +1,5 @@
 import config from "../config";
+import { TransactionFailedError } from "../errors";
 import { Web3Service } from "./web3Service";
 
 const timeout = 3000;
@@ -38,13 +39,19 @@ export const transactionConfirmation = async (
       if (currentBlockNo !== prevBlockNo) {
         prevBlockNo = currentBlockNo;
         try {
-          const transaction = await Web3Service.instance.getTransaction(transactionHash);
+          const tx = await Web3Service.instance.getTransaction(transactionHash);
           let isTxConfirmed = false;
-          // console.log(`got transaction with block number: ${transaction.blockNumber}`);
-          if (transaction.blockNumber != null) {
-            transactionMinedCallback(transaction.blockNumber);
+          if (tx.blockNumber != null) {
+            const txReceipt = await Web3Service.instance.getTransactionReceipt(transactionHash);
+            if (txReceipt.status !== null) {
+              const txStatus = parseInt(txReceipt.status, 16);
+              if (txStatus === 0) {
+                return reject(new TransactionFailedError(tx.hash));
+              }
+            }
+            transactionMinedCallback(tx.blockNumber);
             isTxConfirmed = true;
-            if (currentBlockNo - transaction.blockNumber >= requiredConfirmations - 1) {
+            if (currentBlockNo - tx.blockNumber >= requiredConfirmations - 1) {
               // console.log("we have enough confirmations we can move on");
               return resolve();
             }

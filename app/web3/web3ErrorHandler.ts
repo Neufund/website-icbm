@@ -2,8 +2,13 @@ import * as neufundErrors from "../errors";
 import { IMetamaskError, INanoLedgerError } from "../types";
 
 export const web3ErrorHandler = (
-  e: string & Error & IMetamaskError & INanoLedgerError
+  e: string & Error & IMetamaskError & INanoLedgerError & neufundErrors.NeufundError
 ): neufundErrors.NeufundError => {
+  // pass our own errors further
+  if (e.type !== undefined) {
+    return e;
+  }
+
   // transaction rejected when using nano ledger
   if (e === "Invalid status 6985") {
     return new neufundErrors.UserDeniedTransaction();

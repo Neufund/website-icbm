@@ -14,6 +14,7 @@ export enum ErrorType {
   NoInjectedWeb3Error = "NoInjectedWeb3Error",
   UserDeniedTransaction = "UserDeniedTransaction",
   NotEnoughFundsError = "NotEnoughFundsError",
+  TransactionFailedError = "TransactionFailedError",
 }
 
 export class NeufundError extends Error {
@@ -91,5 +92,11 @@ export class UserDeniedTransaction extends NeufundError {
 export class NotEnoughFundsError extends NeufundError {
   constructor() {
     super(ErrorType.NotEnoughFundsError, `Not have enough funds on account.`);
+  }
+}
+
+export class TransactionFailedError extends NeufundError {
+  constructor(txHash: string) {
+    super(ErrorType.NotEnoughFundsError, `Transaction with hash ${txHash} has failed.`);
   }
 }

@@ -195,6 +195,9 @@
   .product-r2-2 {
     //padding-right: 50px;
     text-align: right;
+    @media (max-width: 480px) {
+      text-align: left;
+    }
   }
   .product-r2-1 img, .product-r2-2 img {
     width: 100%;
@@ -215,6 +218,9 @@
   @media (max-width: 480px) {
     .product-r2-1, .product-r2-2 {
       width: 100%;
+      img {
+        max-width: none;
+      }
     }
   }
 
@@ -421,5 +427,14 @@
     img {max-width: 100%}
     @media (max-width: 767px) {display: none;}
   }
+  @media (max-width: 767px) {
+    #main_feature {
+      padding-bottom: 0;
+    }
+    #invisible_blockchain {
+      padding-top: 20px;
+    }
+  }
+
 
 }

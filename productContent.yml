@@ -206,7 +206,7 @@ feature_by_feature:
   id: "feature_by_feature"
   menu_text: "Feature by feature"
   bg_url: ""
-  white: true
+  white: false
   headline: "Feature by feature"
   content:
     - title: "Invest in legal equity tokens"
@@ -237,7 +237,7 @@ last:
   id: "last"
   menu_text: ""
   bg_url: ""
-  white: true
+  white: false
   headline: "Be the owner of Neufund's ecosystem!"
   button_text: "Commit ETH"
   button_url: "#"

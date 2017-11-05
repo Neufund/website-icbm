@@ -2,4 +2,10 @@
   .youtube-videos {
     text-align: center;
   }
+
+  @media (max-width: $screen-sm-max) {
+    .embed-responsive {
+      margin-top: 10px;
+    }
+  }
 }

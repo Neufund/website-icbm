@@ -30,7 +30,7 @@
       line-height: 24px;
     }
     p {
-      color: #8E9297;
+      color: #424a52;
       margin-bottom: 20px; // overrides common parameter to make it look more like in design
     }
     h2 {
@@ -42,7 +42,9 @@
       line-height: 22px;
 
       padding-top: 5px;
-      margin-bottom: 20px;
+      margin-bottom: 45px;
+
+      font-weight: 400;
     }
   }
 
@@ -65,14 +67,16 @@
   }
 
   .product-horiz-line {
-    background-color: $white-almost;
+    background-color: lighten(#d6d6d6, 6%); // #d6d6d6;
     width: 100%;
-    height: 2px;
+    height: 1px;
   }
 
   #product-header {
     background-color: #fff;
-    min-height: 56vw;
+    padding-top: 10vw;
+    padding-bottom: 1.5vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +85,7 @@
     h1 {
       font-family: Montserrat;
       font-size: 40px;
-      font-weight: 900;
+      font-weight: 400;
       line-height: 49px;
       margin-bottom: 33px;
     }
@@ -93,11 +97,29 @@
 
   #product-header-container {
     display: flex;
+    flex-wrap: wrap;
   }
   #product-header-text {
-    width: 50%;
+    width: 40%;
+    order: 1;
     @media (max-width: 767px) {
       width: 100%;
+      order: 3;
+    }
+  }
+  #product-header-img {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+    padding-left: 5%;
+    @media (max-width: 767px) {
+      width: 100%;
+      padding-left: 0;
+    }
+    img {
+      max-width: 100%;
     }
   }
   #product-header-button-wrapper {
@@ -173,6 +195,9 @@
   .product-r2-2 {
     //padding-right: 50px;
     text-align: right;
+    @media (max-width: 480px) {
+      text-align: left;
+    }
   }
   .product-r2-1 img, .product-r2-2 img {
     width: 100%;
@@ -193,22 +218,32 @@
   @media (max-width: 480px) {
     .product-r2-1, .product-r2-2 {
       width: 100%;
+      img {
+        max-width: none;
+      }
     }
   }
 
   .product-r3-1 {
-    padding-top: 80px;
+    padding-top: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   .product-r3-2 {
-    padding-top: 110px;
+    padding-top: 70px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   .product-r3-3 {
     padding-top: 140px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   .product-r3-row-wrapper {
     padding-right: 80px;
     @media (max-width: 767px) {
       padding-right: 0;
+      transform: translateY(-40px);
     }
   }
   .img-r3 {
@@ -217,7 +252,7 @@
 
   .product-l2-row-wrapper {
     position: relative;
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       margin-top: 13vw;
     }
 
@@ -241,14 +276,18 @@
   }
 
   // --
-
-  .product-r2 .container {
+  .product-r, .product-r2, .product-l2, .product-l {
+    position: relative;
+    .container {
+      position: relative;
+    }
+  }
+  .product-l .cf-row > div {
     position: relative;
   }
-  .product-r2-bg {
+  .product-r-bg, .product-r2-bg, .product-l2-bg {
     position: absolute;
-    left: 0;
-    top: 20px;
+
     max-height: 100%;
     height: 380px;
     z-index: -1;
@@ -256,6 +295,38 @@
       max-width: 100%;
       max-height: 100%;
     }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  .product-r-bg {
+    left: 0;
+    bottom: 20px;
+    @media (max-width: 991px) {
+      transform: translateX(-110px);
+    }
+  }
+  .product-r2-bg {
+    left: 0;
+    top: 20px;
+    @media (max-width: 991px) {
+      transform: translateX(-400px);
+    }
+  }
+  .product-l2-bg {
+    right: 0;
+    bottom: 100px;
+  }
+  #main_feature .product-l2-bg {
+    transform: translateX(100px);
+  }
+  #benefits_of_blockchain .product-l2-bg {
+    left: 0;
+    bottom: 0;
+    transform: translateX(-40px) translateY(30px);
+  }
+  #post_investment_management_tool .product-l2-bg {
+    bottom: -80px;
   }
 
   // --
@@ -267,7 +338,10 @@
     }
 
     & > div > div > .col-sm-4 {
-      margin-bottom: 50px;
+      margin-bottom: 200px;
+      @media (max-width: 767px) {
+        margin-bottom: 100px;
+      }
     }
   }
 
@@ -294,18 +368,10 @@
   // --
 
   .background-text {
-    // HACK according to https://codemyviews.com/blog/inner-shadows-in-css-images-text-and-beyond
-    color: transparent;
-    background-color: rgba(163, 192, 204, 0.2); // A3C0CC 20%
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    text-shadow: 0px 1px 2px #fff; // text color
-
     text-transform: uppercase;
     font-family: Montserrat;
     font-size: 60px;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 73px;
     margin-bottom: 5px;
     @media (max-width: 480px) {
@@ -315,10 +381,8 @@
     }
   }
 
-  .bg-white .background-text, .product-image .background-text {
-    background-color: #eee;
-    text-shadow: 0px 1px 2px $white-almost;
-  }
+  #startups_dashboard .background-text { color: $purple; }
+  #investors_dashboard .background-text { color: $blue-darker; }
 
   // ---
   .product-last {
@@ -351,5 +415,28 @@
   .footer-bottom .footer-hex {
     // z-index: 0; // restores visibility
   }
+
+  // -- bg coloring
+  #product-header {
+    background: linear-gradient(123deg, #f2f9ea, #f2f9ea 2%, #f8f9f9 86%, #f8f9fa);
+  }
+  #section-left-hex {
+    position: absolute;
+    max-width: 200px;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    img {max-width: 100%}
+    @media (max-width: 767px) {display: none;}
+  }
+  @media (max-width: 767px) {
+    #main_feature {
+      padding-bottom: 0;
+    }
+    #invisible_blockchain {
+      padding-top: 20px;
+    }
+  }
+
 
 }

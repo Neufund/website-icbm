@@ -1,23 +1,4 @@
 <div id="product-header" data-menu-text="<%- menu_text -%>">
-  <div id="product-video-background">
-    <div id="product-video-foreground">
-      <iframe
-        src="https://www.youtube.com/embed/<%- yt_video -%>?controls=0&showinfo=0&autoplay=1&rel=0&loop=1&playlist=<%- yt_video -%>&modestbranding=1&enablejsapi=1"
-        frameborder="0"
-        id="product-yt-iframe"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-  <div id="product-video-fullscreen">
-    <iframe
-      src="https://www.youtube.com/embed/<%- yt_video -%>?controls=0&showinfo=0&rel=0&loop=1&playlist=<%- yt_video -%>&modestbranding=1&enablejsapi=1"
-      frameborder="0"
-      id="product-yt-iframe-fullscreen"
-      allowfullscreen>
-    </iframe>
-    <div id="product-video-fullscreen-close">&times;</div>
-  </div>
   <div id="product-content">
     <div class="container" id="product-header-container">
 
@@ -25,12 +6,19 @@
         <h1><%- title -%></h1>
         <%- content -%>
 
-        <div id="product-header-button-wrapper">
+        <!--<div id="product-header-button-wrapper">
           <div id="product-header-button">
             <i class="fa fa-play-circle"></i>
           </div>
-        </div>
-        
+        </div>-->
+
+      </div>
+
+      <div id="product-header-img">
+        <img
+          src="assets/screenshots/laptop.png"
+          srcset="assets/screenshots/laptop_2x.png 1358w, assets/screenshots/laptop_3x.png 2037w"
+        />
       </div>
     </div>
   </div>

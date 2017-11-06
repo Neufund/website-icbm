@@ -18,10 +18,14 @@ export function bignumberToString(bignumberString: string) {
   return first + "0".repeat(zeroes);
 }
 
-export function formatMoney(decimals: number, moneyInULP: BigNumber | string) {
+export function formatMoney(
+  decimals: number,
+  moneyInULP: BigNumber | string,
+  decimalPlaces: number = 4
+) {
   const money: BigNumber = isString(moneyInULP) ? new BigNumber(moneyInULP) : moneyInULP;
   const moneyInPrimaryBase = money.div(new BigNumber(10).pow(decimals));
-  return moneyInPrimaryBase.toFixed(4);
+  return moneyInPrimaryBase.toFixed(decimalPlaces, BigNumber.ROUND_HALF_UP);
 }
 
 export function formatDate(dateAsBigNumber: BigNumber) {
@@ -31,7 +35,7 @@ export function formatDate(dateAsBigNumber: BigNumber) {
     throw new Error("Date has to be bignumber instance!");
   }
 
-  const date = moment.utc(dateAsBigNumber.toNumber(), "X");
+  const date = moment.unix(dateAsBigNumber.toNumber());
   return formatMomentDate(date);
 }
 

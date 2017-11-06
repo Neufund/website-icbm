@@ -53,7 +53,12 @@ export const HexagonText = (props: IMoneyProps) => {
 
       <p className={styles.title}>Neumarks generated</p>
       <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <MoneyComponent valueClass={styles.value} tokenType={TokenType.NEU} value={neuMarkAmount} />
+        <MoneyComponent
+          decimalPlaces={0}
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkAmount}
+        />
       </p>
 
       <p className={styles.title}>Reward</p>
@@ -97,15 +102,6 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
         <div className={styles.buttonContainer}>
           <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">
             Commit ETH
-          </a>
-        </div>
-        <div className={styles.buttonContainer}>
-          <a
-            href="/commit/aftermath"
-            className="btn btn-primary"
-            data-test-id="during-ico-commit-btn"
-          >
-            See your commitment
           </a>
         </div>
       </Col>

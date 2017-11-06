@@ -17,6 +17,7 @@ interface IMoneyComponentOwnProps {
   valueClass?: string;
   currencyClass?: string;
   fit?: boolean;
+  decimalPlaces?: number;
 }
 
 const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> = ({
@@ -26,6 +27,7 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   valueClass,
   currencyClass,
   fit,
+  decimalPlaces,
 }) => {
   if (!decimals) {
     throw new Error("Couldnt get TOKEN details!");
@@ -35,13 +37,13 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   if (fit) {
     valueComponent = (
       <Textfit mode="single" max={18} className={valueClass}>
-        {formatMoney(decimals, value)}
+        {formatMoney(decimals, value, decimalPlaces)}
       </Textfit>
     );
   } else {
     valueComponent = (
       <span className={valueClass}>
-        {formatMoney(decimals, value)}
+        {formatMoney(decimals, value, decimalPlaces)}
       </span>
     );
   }
@@ -51,6 +53,10 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
       {valueComponent} <span className={currencyClass}>{tokenTypeToSymbol(tokenType)}</span>
     </span>
   );
+};
+
+MoneyComponent.defaultProps = {
+  decimalPlaces: 4,
 };
 
 function tokenTypeToSymbol(token: TokenType): string {

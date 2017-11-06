@@ -33,6 +33,10 @@ class Contract {
     return promisify(this.rawWeb3Contract.totalInvestors, []);
   }
 
+  public get totalLockedAmount(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.totalLockedAmount, []);
+  }
+
   public get lockPeriod(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.lockPeriod, []);
   }

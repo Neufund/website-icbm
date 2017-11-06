@@ -27,7 +27,10 @@ const checkSectionVisiablity = function(item, content) {
 
 <%- include('why-how', Object.assign({}, content['why-how'].sections[1], { index: 1 })) %>
 
-<%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
+<%- checkSectionVisiablity(
+  content.invest_platform,
+  include('invest-platform', Object.assign({}, content.invest_platform, { PLATFORM_ENABLED: PLATFORM_ENABLED }))
+); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 

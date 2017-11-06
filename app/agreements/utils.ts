@@ -25,7 +25,7 @@ export function formatMoney(
 ) {
   const money: BigNumber = isString(moneyInULP) ? new BigNumber(moneyInULP) : moneyInULP;
   const moneyInPrimaryBase = money.div(new BigNumber(10).pow(decimals));
-  return moneyInPrimaryBase.toFixed(decimalPlaces, BigNumber.ROUND_UP);
+  return moneyInPrimaryBase.toFixed(decimalPlaces, BigNumber.ROUND_HALF_UP);
 }
 
 export function formatDate(dateAsBigNumber: BigNumber) {
@@ -35,7 +35,7 @@ export function formatDate(dateAsBigNumber: BigNumber) {
     throw new Error("Date has to be bignumber instance!");
   }
 
-  const date = moment.utc(dateAsBigNumber.toNumber(), "X");
+  const date = moment.unix(dateAsBigNumber.toNumber());
   return formatMomentDate(date);
 }
 

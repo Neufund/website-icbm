@@ -15,6 +15,7 @@ export enum ErrorType {
   UserDeniedTransaction = "UserDeniedTransaction",
   NotEnoughFundsError = "NotEnoughFundsError",
   TransactionFailedError = "TransactionFailedError",
+  TransactionGasError = "TransactionGasError",
 }
 
 export class NeufundError extends Error {
@@ -97,6 +98,16 @@ export class NotEnoughFundsError extends NeufundError {
 
 export class TransactionFailedError extends NeufundError {
   constructor(txHash: string) {
-    super(ErrorType.NotEnoughFundsError, `Transaction with hash ${txHash} has failed.`);
+    super(ErrorType.TransactionFailedError, `Transaction with hash ${txHash} has failed.`);
+  }
+}
+
+// TODO: We could separate cases to much, to low gas but for now thats enough.
+export class TransactionGasError extends NeufundError {
+  constructor() {
+    super(
+      ErrorType.TransactionGasError,
+      `There is problem with amount of gas supplied to transaction.`
+    );
   }
 }

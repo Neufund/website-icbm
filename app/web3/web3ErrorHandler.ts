@@ -1,6 +1,20 @@
 import * as neufundErrors from "../errors";
 import { IMetamaskError, INanoLedgerError } from "../types";
 
+// Just to hide complicated if that covers three different cases
+const checkGasProblem = (
+  e: string & Error & IMetamaskError & INanoLedgerError & neufundErrors.NeufundError
+): boolean => {
+  return (
+    e.code !== undefined &&
+    e.message !== undefined &&
+    ((e.code === -32000 && e.message === "intrinsic gas too low") ||
+      (e.code === -32010 &&
+        e.message.startsWith("Transaction gas is too low. There is not enough")) ||
+      (e.code === -32010 && e.message.startsWith("Transaction cost exceeds current gas limit")))
+  );
+};
+
 export const web3ErrorHandler = (
   e: string & Error & IMetamaskError & INanoLedgerError & neufundErrors.NeufundError
 ): neufundErrors.NeufundError => {
@@ -14,7 +28,9 @@ export const web3ErrorHandler = (
     return new neufundErrors.UserDeniedTransaction();
   }
 
-  // Invalid status 6801 error when ledger is blocked - it should be caught in provider
+  if (checkGasProblem(e)) {
+    return new neufundErrors.TransactionGasError();
+  }
 
   // Not enough eth when using Nano Ledger
   if (

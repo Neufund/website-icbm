@@ -8,7 +8,10 @@ import { LoadingIndicator } from "../components/LoadingIndicator";
 import PriceCalculator from "../components/PriceCalculator";
 import config from "../config";
 import { selectEthEurFractionInBaseCurrency } from "../reducers/commitmentState";
-import { selectAllFundsInBaseCurrency } from "../reducers/duringIcoState";
+import {
+  selectAllCurveEtherInBaseCurrency,
+  selectAllFundsInBaseCurrency,
+} from "../reducers/duringIcoState";
 import { IAppState } from "../reducers/index";
 
 const EUR_ETH_FIXED_RATE = 0.0038119801;
@@ -143,10 +146,11 @@ function mapStateAndConfigToProps(
       loading: true,
     };
   }
+
   return {
     loading: false,
     currencyRate: 1 / selectEthEurFractionInBaseCurrency(state.commitmentState).toNumber(),
-    raisedEther: selectAllFundsInBaseCurrency(
+    raisedEther: selectAllCurveEtherInBaseCurrency(
       state.duringIcoState,
       state.commitmentState.ethDecimals
     ).toNumber(),

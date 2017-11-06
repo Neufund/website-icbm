@@ -27,6 +27,10 @@ class Contract {
     return promisify(this.rawWeb3Contract.totalSupply, []);
   }
 
+  public get totalEuroUlps(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.totalEuroUlps, []);
+  }
+
   public get decimals(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.decimals, []);
   }

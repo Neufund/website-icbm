@@ -11,6 +11,7 @@ export interface IDuringIcoState {
   euroCommittedInWei?: string;
   allInvestors?: string;
   platformOperatorNeumarkRewardShare?: string;
+  totalCurveWei?: string;
 }
 
 const initialState: IDuringIcoState = {
@@ -37,6 +38,7 @@ const reducer: Reducer<IDuringIcoState> = (state = initialState, action) => {
         euroCommittedInWei: payload.euroCommitted,
         allInvestors: payload.allInvestors,
         platformOperatorNeumarkRewardShare: payload.platformOperatorNeumarkRewardShare,
+        totalCurveWei: payload.totalCurveWei,
       };
     default:
       return state;
@@ -55,7 +57,14 @@ export function selectInvestorsNeumarks(state: IDuringIcoState): BigNumber.BigNu
   }
   const totalNeumarkSupply = new BigNumber.BigNumber(state.totalNeumarkSupply);
   const reservedNeumarks = new BigNumber.BigNumber(state.reservedNeumarks);
-  return totalNeumarkSupply.sub(reservedNeumarks).div(state.platformOperatorNeumarkRewardShare);
+
+  const totalDistributedNeumarks = totalNeumarkSupply.sub(reservedNeumarks);
+
+  const operatorDistributedNeumarks = totalDistributedNeumarks
+    .div(state.platformOperatorNeumarkRewardShare)
+    .round(0, BigNumber.BigNumber.ROUND_DOWN);
+
+  return totalDistributedNeumarks.sub(operatorDistributedNeumarks);
 }
 
 export function selectIssuanceRate(state: IDuringIcoState): BigNumber.BigNumber {
@@ -77,6 +86,19 @@ export function selectAllFundsInBaseCurrency(
 ): BigNumber.BigNumber {
   const allFunds = selectAllFunds(state);
   return allFunds ? allFunds.div(new BigNumber.BigNumber(10).pow(ethDecimals)) : null;
+}
+
+export function selectAllCurveEtherInBaseCurrency(
+  state: IDuringIcoState,
+  ethDecimals: number
+): BigNumber.BigNumber {
+  if (!state.totalCurveWei) {
+    return null;
+  }
+
+  return new BigNumber.BigNumber(state.totalCurveWei).div(
+    new BigNumber.BigNumber(10).pow(ethDecimals)
+  );
 }
 
 export function selectAllInvestors(state: IDuringIcoState): BigNumber.BigNumber {

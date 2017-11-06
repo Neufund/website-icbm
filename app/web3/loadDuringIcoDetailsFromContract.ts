@@ -8,14 +8,16 @@ export async function loadDuringIcoDetailsFromContract(
   ethEurFraction: string,
   ethDecimals: number
 ) {
+  const ethEurFractionBN = new BigNumber(ethEurFraction);
   return await promiseAll({
     totalNeumarkSupply: neumark.totalSupply,
     reservedNeumarks: neumark.balanceOf(publicCommitment.address),
     issuanceRate: issuanceRate(ethDecimals),
     ethCommitted: etherLock.totalLockedAmount,
     eurCommitted: euroLock.totalLockedAmount.then(total =>
-      convertEurToEth(new BigNumber(ethEurFraction), total)
+      convertEurToEth(ethEurFractionBN, total)
     ),
+    totalCurveWei: neumark.totalEuroUlps.then(euro => convertEurToEth(ethEurFractionBN, euro)),
     investors: allInvestors(),
     platformOperatorNeumarkRewardShare: publicCommitment.platformOperatorNeumarkRewardShare,
   });

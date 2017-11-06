@@ -11,7 +11,8 @@ export function setDuringIcoDetailsAction(
   ethCommitted: string,
   euroCommitted: string,
   allInvestors: string,
-  platformOperatorNeumarkRewardShare: string
+  platformOperatorNeumarkRewardShare: string,
+  totalCurveWei: string
 ): IStandardReduxAction {
   return {
     type: SET_DURING_ICO_DETAILS,
@@ -23,6 +24,7 @@ export function setDuringIcoDetailsAction(
       euroCommitted,
       allInvestors,
       platformOperatorNeumarkRewardShare,
+      totalCurveWei,
     },
   };
 }
@@ -50,6 +52,7 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
     eurCommitted,
     investors,
     platformOperatorNeumarkRewardShare,
+    totalCurveWei,
   } = await loadDuringIcoDetailsFromContract(ethEurFraction, ethDecimals);
 
   dispatcher(
@@ -60,7 +63,8 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
       ethCommitted.toString(),
       eurCommitted.toString(),
       investors.toString(),
-      platformOperatorNeumarkRewardShare.toString()
+      platformOperatorNeumarkRewardShare.toString(),
+      totalCurveWei.toString()
     )
   );
 };

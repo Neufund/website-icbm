@@ -8,3 +8,11 @@ export type Reducer<S, A = any> = (state: S, action: IStandardReduxAction<A>) =>
 export interface IDictionary<T = string> {
   [key: string]: T;
 }
+
+export interface IMetamaskError extends Error {
+  errorCode: number;
+}
+
+export interface INanoLedgerError extends Error {
+  code: number;
+}

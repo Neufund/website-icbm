@@ -38,6 +38,7 @@ export class Web3Service {
   public readonly getBlockNumber: () => PromiseLike<number>;
   public readonly getBlock: (blockNumber: string | number) => PromiseLike<{}>;
   public readonly getTransaction: (tx: string) => PromiseLike<any>;
+  public readonly getTransactionReceipt: (tx: string) => PromiseLike<any>;
   public readonly getBalance: (address: string) => PromiseLike<BigNumber>;
   private injectingFailed: boolean = false;
   private injectWeb3PollId: number;
@@ -53,6 +54,7 @@ export class Web3Service {
     this.getBlockNumber = promisify(this.rawWeb3.eth.getBlockNumber);
     this.getBlock = promisify(this.rawWeb3.eth.getBlock);
     this.getTransaction = promisify<any, string>(this.rawWeb3.eth.getTransaction);
+    this.getTransactionReceipt = promisify<any, string>(this.rawWeb3.eth.getTransactionReceipt);
     this.getBalance = promisify<BigNumber, string>(this.rawWeb3.eth.getBalance);
   }
 

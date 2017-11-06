@@ -29,7 +29,7 @@ describe("Commit page", () => {
     await commitPage.ethAmountInput.type("1");
 
     await waitUntilResolves(
-      async () => expect(await commitPage.estimatedReward.text()).to.be.eq("974.97 NEU") // @todo critial: this assertion gives wrong result for whitelisted ppl
+      async () => expect(await commitPage.estimatedReward.text()).to.be.eq("969.4493 NEU") // @todo critial: this assertion gives wrong result for whitelisted ppl
     );
     await commitPage.commitBtn.click();
 

@@ -4,7 +4,7 @@ import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 
-import { Web3Type } from "../actions/constants";
+import { InvestorType, Web3Type } from "../actions/constants";
 import { calculateEstimatedReward, submitFunds } from "../actions/submitFunds";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
@@ -36,6 +36,7 @@ interface ICommitKnownUserContainer {
   submitFundsAction: (values: ICommitKnownUserFormValues) => {};
   balance: BigNumber;
   web3Provider: Web3Type;
+  investorType: InvestorType;
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -49,6 +50,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   estimatedReward,
   balance,
   web3Provider,
+  investorType,
 }) => {
   return (
     <div>
@@ -72,6 +74,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               loadingEstimatedReward={loadingEstimatedReward}
               balance={balance}
               web3Provider={web3Provider}
+              investorType={investorType}
             />
           </Col>
         </Row>
@@ -89,6 +92,7 @@ const mapStateToProps = (state: IAppState) => ({
   loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
   balance: selectBalance(state.userState),
   web3Provider: state.web3State.web3Type,
+  investorType: state.userState.investorType,
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

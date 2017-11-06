@@ -1,5 +1,6 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
+import { Textfit } from "react-textfit";
 
 import { connect } from "react-redux";
 import { TokenType } from "../actions/constants";
@@ -14,6 +15,8 @@ interface IMoneyComponentOwnProps {
   tokenType: TokenType;
   value: BigNumber | string;
   valueClass?: string;
+  currencyClass?: string;
+  fit?: boolean;
 }
 
 const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> = ({
@@ -21,15 +24,31 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   decimals,
   tokenType,
   valueClass,
+  currencyClass,
+  fit,
 }) => {
   if (!decimals) {
     throw new Error("Couldnt get TOKEN details!");
   }
 
+  let valueComponent;
+  if (fit) {
+    valueComponent = (
+      <Textfit mode="single" max={18} className={valueClass}>
+        {formatMoney(decimals, value)}
+      </Textfit>
+    );
+  } else {
+    valueComponent = (
+      <span className={valueClass}>
+        {formatMoney(decimals, value)}
+      </span>
+    );
+  }
+
   return (
     <span>
-      <span className={valueClass}>{formatMoney(decimals, value)}</span>{" "}
-      {tokenTypeToSymbol(tokenType)}
+      {valueComponent} <span className={currencyClass}>{tokenTypeToSymbol(tokenType)}</span>
     </span>
   );
 };

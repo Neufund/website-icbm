@@ -7,7 +7,6 @@ import { initCommit } from "../actions/commit";
 import { Web3Type } from "../actions/constants";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-// import { LedgerLoginProvider } from "../ledgerLoginProvider";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser, selectLoading } from "../reducers/userState";
 import { selectWeb3Type } from "../reducers/web3State";

@@ -1,20 +1,20 @@
+import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 
 import promiseAll = require("promise-all");
 import { etherLock, etherToken, neumark, publicCommitment } from "./contracts/ContractsRepository";
 import { convertEurToEth } from "./utils";
 
-export async function loadReservationAgreementGeneralTagsFromContract() {
+export async function loadReservationAgreementGeneralTagsFromContract(ethEurFraction: BigNumber) {
   const lockInAddress = etherLock.address;
-  const euroToEthRate = await publicCommitment.ethEurFraction;
 
   return {
     lockInAddress,
     ...await promiseAll({
       etherDecimals: etherToken.decimals,
       paymentToken: etherToken.name,
-      maxCap: publicCommitment.maxCapEur.then(e => convertEurToEth(euroToEthRate, e)),
-      minTicket: publicCommitment.minTicketEur.then(e => convertEurToEth(euroToEthRate, e)),
+      maxCap: publicCommitment.maxCapEur.then(e => convertEurToEth(ethEurFraction, e)),
+      minTicket: publicCommitment.minTicketEur.then(e => convertEurToEth(ethEurFraction, e)),
       unlockFeePercent: etherLock.penaltyFraction,
       feeAddress: etherLock.penaltyDisbursalAddress,
       reservationPeriod: etherLock.lockPeriod,

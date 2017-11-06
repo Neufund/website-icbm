@@ -1,7 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 
-import { TokenType, Web3Type } from "../actions/constants";
+import { InvestorType, TokenType, Web3Type } from "../actions/constants";
 import { AddressIcon } from "./AddressIcon";
 import MoneyComponent from "./MoneyComponent";
 import { TextCopyable } from "./TextCopyable";
@@ -11,12 +11,14 @@ interface IUserAddressComponentProps {
   address: string;
   balance: BigNumber;
   web3Provider: Web3Type;
+  investorType: InvestorType;
 }
 
 export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
   address,
   web3Provider,
   balance,
+  investorType,
 }) =>
   <div className={userAddressContainer}>
     <AddressIcon address={address} className={icon} />
@@ -32,6 +34,12 @@ export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
     <p className={value}>
       <span>
         {web3Provider}
+      </span>
+    </p>
+    <p>Investor type</p>
+    <p className={value}>
+      <span>
+        {investorType}
       </span>
     </p>
   </div>;

@@ -1,5 +1,7 @@
+import { BigNumber } from "bignumber.js";
 import * as moment from "moment";
 import { ThunkAction } from "redux-thunk";
+
 import {
   calculateAndFormatFee,
   calculateAndFormatRatio,
@@ -44,8 +46,8 @@ export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async
   };
 };
 
-export const getReservationAgreementGeneralTags = async () => {
-  const generalTags = await loadReservationAgreementGeneralTagsFromContract();
+export const getReservationAgreementGeneralTags = async (ethEurFraction: BigNumber) => {
+  const generalTags = await loadReservationAgreementGeneralTagsFromContract(ethEurFraction);
   const tags: IDictionary = {
     "lockin-sc-address": generalTags.lockInAddress,
     "payment-token": generalTags.paymentToken,
@@ -65,9 +67,10 @@ export const getReservationAgreementTags: ThunkAction<{}, IAppState, {}> = async
   getState
 ) => {
   const state = getState();
+  const ethEurFraction = new BigNumber(state.commitmentState.ethEurFraction);
   const aftermathState = state.aftermathState;
 
-  const generalTags = await getReservationAgreementGeneralTags();
+  const generalTags = await getReservationAgreementGeneralTags(ethEurFraction);
   const partialTags = await loadReservationAgreementPersonalTagsFromContract();
   const currentBlockHash = await getCurrentBlockHash();
 

@@ -21,9 +21,10 @@ const reducer: Reducer<IDuringIcoState> = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case LOADING_DURING_ICO_DETAILS:
+      const alreadyLoaded = !state.loading;
       return {
         ...state,
-        loading: true,
+        loading: alreadyLoaded ? false : true,
       };
     case SET_DURING_ICO_DETAILS:
       return {

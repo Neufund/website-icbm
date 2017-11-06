@@ -2,10 +2,11 @@ import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import { compose, Dispatch } from "redux";
 
 import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
 import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
+import { watchAction } from "../components/WatchActionHoc";
 import { selectEndDate } from "../reducers/commitmentState";
 import {
   selectAllFunds,
@@ -63,4 +64,9 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DuringIco as any);
+const WATCH_ACTION_INTERVAL = 30000;
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  watchAction(WATCH_ACTION_INTERVAL, "loadDuringIcoDetail")
+)(DuringIco as any);

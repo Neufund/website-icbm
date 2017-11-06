@@ -53,7 +53,12 @@ export const HexagonText = (props: IMoneyProps) => {
 
       <p className={styles.title}>Neumarks generated</p>
       <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <MoneyComponent valueClass={styles.value} tokenType={TokenType.NEU} value={neuMarkAmount} />
+        <MoneyComponent
+          decimalPlaces={0}
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkAmount}
+        />
       </p>
 
       <p className={styles.title}>Reward</p>

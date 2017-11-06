@@ -290,13 +290,8 @@ team:
       "medium": "https://medium.com/@steffens"
      email: ""
      bio:  |
-       <p>Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional
-       character of blockchain technology allows for new ways in which actors can collaborate, transact, and
-       trust. His interdisciplinary approach spans the realms of economics, politics, and sociology and aims
-       to promote the emerging field of crypto-economics.</p> <p>As a researcher he is affiliated with the Leadership
-       Excellence Institute Zeppelin and the Oxford Internet Institute.After his work in the
-       banking innovation sphere, he is now happy to work with Neufund, where he forges the Blockchain
-       Policy Initiative.</p>
+       <p>Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional character of blockchain technology allows for new ways in which actors can collaborate, transact and trust. His interdisciplinary approach spans the realms of economics, politics and sociology and aims to promote the emerging field of crypto-economics.</p>
+       <p>As a researcher he is affiliated with the Leadership Excellence Institute Zeppelin and the Oxford Internet Institute. After his work in the banking innovation sphere, he is now happy to work with Neufund where he forges the Blockchain Policy Initiative.</p>
 
    - name: "Nikola Sporczyk"
      title: "Administrative Intern"
@@ -306,8 +301,8 @@ team:
       "linkedin": "https://www.linkedin.com/in/nikola-sporczyk-8a5574139/"
      email: ""
      bio:  |
-       <p>Nikola joined Neufund in September 2017 as an Administrative Intern. She’s assisting the team with their everyday tasks and is responsible for all the administrative matters, as well as organizing team events and activities. After 3 years of work in a corporate world, she was hungry to see how a startup experience looks like. The fact that technical world is close to her heart was the additional motivator to join Neufund. </p>
-       <p>In 2015 she attended Rails Girls Kraków event and constantly tries using simple programming to make her work environment more friendly. Nikola graduated from Wrocław University. Privately she is a cats-and-pizza lover and hardcore video games player with passion to learn languages.</p>
+       <p>Nikola joined Neufund in September 2017 as an Administrative Intern. She’s assisting the team with their everyday tasks and is responsible for all the administrative matters, as well as organizing team events and activities. After 3 years of work in a corporate world, she was hungry to see how a startup experience looks like. The fact that the technical world is close to her heart was the additional motivator to join Neufund.</p>
+       <p>In 2015 she attended Rails Girls Kraków event and constantly tries using simple programming to make her work environment friendlier. Nikola graduated from Wrocław University. Privately she is a cats-and-pizza lover and hardcore video game player with a passion for learning languages.</p>
 
 advisors:
   visible: true
@@ -326,14 +321,7 @@ advisors:
         website: "http://frozeman.de/"
       email: ""
       bio:  |
-        <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set from
-        graphic design to coding PHP to Python, ActionScript, Objective C, HTML, CSS and fell in love with JavaScript.
-        He worked as a freelance web developer for over 12 years and is the creator of the open source feindura – Flat
-        File CMS. Fabian is a strong advocate of open-source software and has built and contributed to a lot of
-        open-source libraries and projects and wrote a book on Meteor.js a open source JavaScript Framework. His
-        interest in cryptocurrencies like Bitcoin led him to be part of one of the most ambitious blockchain projects
-        to date, the Ethereum project. For almost two years he has worked as the lead Dapp developer for the Ethereum
-        project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
+        <p>Fabian Vogelsteller became interested in web technologies at the age of 14. He developed a skill set ranging from graphic design to coding PHP to Python, ActionScript, Objective C, HTML, CSS and fell in love with JavaScript. He worked as a freelance web developer for over 12 years and is the creator of the open source feindura – Flat File CMS. Fabian is a strong advocate of open-source software and has built and contributed to a lot of open-source libraries and projects and wrote a book on Meteor.js, an open source JavaScript Framework. His interest in cryptocurrencies like Bitcoin led him to be a part of one of the most ambitious blockchain projects to date, the Ethereum project. For almost two years he has worked as the lead Dapp developer for the Ethereum project, building the low-level JavaScript API, DApps and Ethereum’s Wallet and the Mist browser.</p>
 
     - name: "Michael Jackson"
       title: <span class="position">Partner at</span> <a href="http://www.mangrove.vc/" target="_blank">Mangrove Capital</a> <span class="position">& Board Director</span> <a href="https://www.blockchain.com/" target="_blank">Blockchain.com</a>
@@ -370,7 +358,7 @@ advisors:
       email: ""
       bio: |
         <p>Adam is a financial technology entrepreneur who pioneered the development of Bitcoin and related blockchain technologies.</p>
-        <p>During 2011 and 2012, he cofounded and operated Bitcoin.com/Tradehill wherein they sold/traded 1 million plus bitcoins (now worth billions of USD). Since then he has been an advisor, investor, and consultant for many Bitcoin and blockchain companies and systems like Ethereum, Factom, Siacoin, Bitnexo, and others. Over the years his works have been chronicled in CNN, Fox News, and hundreds of other media outlets.</p>
+        <p>During 2011 and 2012, he cofounded and operated Bitcoin.com/Tradehill wherein they sold/traded 1 million plus bitcoins (now worth billions of USD). Since then he has been an advisor, investor and consultant for many Bitcoin and blockchain companies and systems like Ethereum, Factom, Siacoin, Bitnexo and others. Over the years his works have been chronicled in CNN, Fox News and hundreds of other media outlets.</p>
         <p>Before Adam became an entrepreneur he worked in the banking and financial services industry as a consultant/researcher covering financial technology and risk management. Notably, he worked with the financial risk consulting group at Ernst and Young (EY) and also sold the investment research and technology services of Evalueserve (quant focus). He was the Co-founder and Steering Committee member of Chile’s national PRMIA chapter and has been a content contributor to GARP (Global Association of Risk Professionals).</p>
         <p>Adam received his Bachelor of Science in Materials Engineering from Rensselaer Polytechnic Institute in Troy, NY.</p>
 
@@ -398,7 +386,7 @@ advisors:
       email: ""
       bio:  |
         <p>Christophe has more than 18 years of experience as a founder and CEO of technology ventures. He founded gate5
-        which he sold to Nokia in 2006. Christophe since co-founded a number of companies with global reach, such as
+        which he sold to Nokia in 2006. Christophe has since co-founded a number of companies with global reach, such as
         Plazes.com (Nokia), txtr.com or recently Medigo.com, Mimi.io, and Blloon.com. As an angel investor, Christophe
         was involved in Brands4Friends (eBay), StudiVZ (HB), Plista (groupM), Readmill (Dropbox), amongst others.
         (Christophe was named best “European Seed investor” in both 2011 and 2012 by Techcrunch. He serves on the board
@@ -424,7 +412,7 @@ advisors:
         medium: "https://medium.com/@alexruppert"
       email: ""
       bio:  |
-        <p>Alex is a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift, and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences, and publishing regular publications.</p>
+        <p>Alex has been a passionate Venture Investor and crypto enthusiast since early 2016. In 2012 he graduated in German Law (with honors) and Economics. After a short career in law at Latham & Watkins and Schindhelm he joined Google/DailyDeal and fintech software company pepperbill GmbH in Business Development roles for three years. As a side role he advised young startups as a data protection commissioner, which led to his initial interest in Bitcoin and the crypto economy. In 2015 he became an early stage VC at Heilemann Ventures which merged with Earlybird in January 2016. Since then he has backed seven companies in multiple rounds. Alex serves on the boards of Crossengage and Shapeshift and contributes to the broader ecosystem by hosting blockchain related events, speaking at conferences and publishing regular publications.</p>
     - name: "Minh Ha Duong"
       title: <span class="position">Investment Manager at</span> <a href="https://www.project-a.com/en" target="_blank">Project A Ventures</a>
       image: "../assets/Ha_Duong.jpg"
@@ -434,7 +422,7 @@ advisors:
         twitter: "https://twitter.com/haduong_"
       email: ""
       bio: |
-        <p>Ha is a technology enthusiast and an Investment Manager at Project A Ventures. Having studied Industrial Engineering and Management, he has been exploring the intersection of technological innovations and business implications for the last years. Through roles in marketing, business development, and strategy in companies like Google, Techstars, and several startups, he learned what makes digital business models successful and is now applying this knowledge in the venture capital industry. At Project A, Ha covers startups in many technical areas including machine learning, blockchain, and developer tools. He is known for open-sourcing his research and data on >600 European AI Startups and for being more and more fascinated by the crypto economy and its societal implications. As a believer in communities, he acts as a mentor at Techstars, and occasionally supports startups in an advisory capacity.</p>
+        <p>Ha is a technology enthusiast and an Investment Manager at Project A Ventures. Having studied Industrial Engineering and Management, he has been exploring the intersection of technological innovations and business implications for the last few years. Through roles in marketing, business development and strategy in companies like Google, Techstars and several startups, he learned what makes digital business models successful and is now applying this knowledge in the venture capital industry. At Project A, Ha covers startups in many technical areas including machine learning, blockchain and developer tools. He is known for open-sourcing his research and data on >600 European AI Startups and for being more and more fascinated by the crypto economy and its societal implications. As a believer in communities, he acts as a mentor at Techstars and occasionally supports startups in an advisory capacity.</p>
 
 quotes:
   visible: true

@@ -45,6 +45,13 @@ export enum EtherScanLinkType {
   BLOCK,
 }
 
+export enum InvestorType {
+  PUBLIC = "PUBLIC",
+  WHITELISTED = "WHITELISTED",
+  PRESALE = "PRESALE",
+  NOT_ALLOWED = "NOT_ALLOWED",
+}
+
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
 export const LOAD_BEFORE_ICO_DETAILS = "LOAD_BEFORE_ICO_DETAILS";
 export const LOADING_DURING_ICO_DETAILS = "LOAD_DURING_ICO_DETAILS";

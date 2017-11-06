@@ -1,6 +1,7 @@
 import * as BigNumber from "bignumber.js";
 
 import {
+  InvestorType,
   SET_DERIVATION_PATH,
   SET_LOADING_USER_ACCOUNT,
   SET_USER_ACCOUNT,
@@ -14,6 +15,8 @@ export interface IUserState {
   address: string;
   derivationPath: string;
   balance: string;
+  investorType: InvestorType;
+  preferredTicket?: string;
 }
 
 const initialState: IUserState = {
@@ -21,6 +24,8 @@ const initialState: IUserState = {
   address: null,
   derivationPath: null,
   balance: null,
+  investorType: null,
+  preferredTicket: null,
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {
@@ -38,6 +43,8 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         loading: false,
         address: payload.address,
         balance: payload.balance,
+        investorType: payload.investorType,
+        preferredTicket: payload.preferredTicket,
       };
     case SET_DERIVATION_PATH:
       return {

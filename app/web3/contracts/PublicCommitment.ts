@@ -92,6 +92,12 @@ class Contract {
     return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
   }
 
+  public async whitelistTicket(
+    investorAddress: BigNumber | string
+  ): Promise<[BigNumber, BigNumber, BigNumber]> {
+    return promisify(this.rawWeb3Contract.whitelistTicket, [investorAddress]);
+  }
+
   public commitTx(params?: IPayableTxParams, customWeb3?: any): Promise<string> {
     if (customWeb3) {
       const tmpContract = customWeb3.eth.contract(PublicCommitmentAbiJson).at(this.address);

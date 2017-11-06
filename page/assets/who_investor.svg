@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="209" height="218" viewBox="0 0 209 218">
+    <defs>
+        <rect id="b" width="201" height="210" rx="8"/>
+        <filter id="a" width="107%" height="106.7%" x="-3.5%" y="-2.4%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.7332 0 0 0 0 0.75972 0 0 0 0 0.78 0 0 0 1 0"/>
+        </filter>
+        <linearGradient id="c" x1="-47.237%" x2="95.725%" y1="-49.741%" y2="95.105%">
+            <stop offset="0%" stop-color="#5C3AAE"/>
+            <stop offset="15.98%" stop-color="#5C3AAE"/>
+            <stop offset="100%" stop-color="#424A52"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(4 2)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+        </g>
+        <path fill="url(#c)" d="M0 8c0-4.418 3.574-8 8.003-8h184.994A7.997 7.997 0 0 1 201 8v166H0V8z" transform="translate(4 2)"/>
+        <text fill="#4D437A" font-family=".AppleSystemUIFont" font-size="14" letter-spacing=".05" transform="translate(4 2)">
+            <tspan x="65.68" y="188">COMPANY</tspan>
+        </text>
+        <g transform="translate(80 64)">
+            <circle cx="25" cy="25" r="25" stroke="#F2F9EA"/>
+            <path fill="#F2F9EA" fill-rule="nonzero" d="M21.622 36.647c0 .748.608 1.36 1.351 1.36h5.405a1.36 1.36 0 0 0 1.352-1.36v-1.36h-8.108v1.36zm4.054-25.836c-5.217 0-9.46 4.27-9.46 9.518a9.53 9.53 0 0 0 4.054 7.806v3.073c0 .748.608 1.36 1.352 1.36h8.108a1.36 1.36 0 0 0 1.351-1.36v-3.073a9.53 9.53 0 0 0 4.054-7.806c0-5.248-4.243-9.518-9.46-9.518zm3.851 15.094l-1.149.815v3.128h-5.405V26.72l-1.149-.815a6.807 6.807 0 0 1-2.905-5.576c0-3.753 3.027-6.799 6.757-6.799 3.73 0 6.756 3.046 6.756 6.8a6.807 6.807 0 0 1-2.905 5.575z"/>
+        </g>
+    </g>
+</svg>

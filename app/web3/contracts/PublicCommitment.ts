@@ -5,12 +5,6 @@ import { MissingContractError } from "../../errors";
 import { asMomentDate } from "../utils";
 import * as PublicCommitmentAbiJson from "./PublicCommitment.abi.json";
 
-interface ITxParams {
-  from?: string;
-  gas?: number | string | BigNumber;
-  gasPrice?: number | string | BigNumber;
-}
-
 interface IPayableTxParams {
   value: string | BigNumber;
   from?: string;
@@ -90,28 +84,18 @@ class Contract {
     return promisify(this.rawWeb3Contract.euroLock, []);
   }
 
-  public get accessPolicy(): Promise<BigNumber | string> {
-    return promisify(this.rawWeb3Contract.accessPolicy, []);
-  }
-
   public estimateNeumarkReward(amountEth: BigNumber | string): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
-  }
-
-  public convertToEur(amount: number): Promise<BigNumber> {
-    return promisify(this.rawWeb3Contract.convertToEur, [amount]);
   }
 
   public async startOf(stateEnum: InternalCommitmentState): Promise<Moment> {
     return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
   }
 
-  public abortTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.abort, [params]);
-  }
-
-  public handleTimedTransitionsTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.handleTimedTransitions, [params]);
+  public async whitelistTicket(
+    investorAddress: BigNumber | string
+  ): Promise<[BigNumber, BigNumber, BigNumber]> {
+    return promisify(this.rawWeb3Contract.whitelistTicket, [investorAddress]);
   }
 
   public commitTx(params?: IPayableTxParams, customWeb3?: any): Promise<string> {
@@ -121,27 +105,6 @@ class Contract {
     } else {
       return promisify(this.rawWeb3Contract.commit.sendTransaction, [params]);
     }
-  }
-
-  public setAccessPolicyTx(newPolicy: BigNumber | string, params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.setAccessPolicy, [newPolicy, params]);
-  }
-
-  public addWhitelistedTx(
-    investors: BigNumber[] | string[],
-    tokens: BigNumber[],
-    amounts: BigNumber[],
-    params?: ITxParams
-  ): Promise<void> {
-    return promisify(this.rawWeb3Contract.addWhitelisted, [investors, tokens, amounts, params]);
-  }
-
-  public commitEuroTx(params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.commitEuro, [params]);
-  }
-
-  public reclaimTx(token: BigNumber | string, params?: ITxParams): Promise<void> {
-    return promisify(this.rawWeb3Contract.reclaim, [token, params]);
   }
 }
 

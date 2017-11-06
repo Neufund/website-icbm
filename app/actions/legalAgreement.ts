@@ -1,3 +1,4 @@
+import * as BigNumber from "bignumber.js";
 import { ThunkAction } from "redux-thunk";
 
 import { replaceTags } from "../agreements/utils";
@@ -27,7 +28,10 @@ export function loadAgreementsAction(agreements: {
   };
 }
 
-export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher => {
+export const loadAgreements: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {
+  const state = getState();
+  const ethEurFraction = new BigNumber.BigNumber(state.commitmentState.ethEurFraction);
+
   const agreementHashes = await loadLegalAgreementsHashesAndTagsFromWeb3();
 
   const [reservationAgreement, tokenHolderAgreement] = await Promise.all([
@@ -41,7 +45,7 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher =
     tokenHolderAgreementGeneralTags
   );
 
-  const reservationAgreementGeneralTags = await getReservationAgreementGeneralTags();
+  const reservationAgreementGeneralTags = await getReservationAgreementGeneralTags(ethEurFraction);
   const reservationAgreementWithGeneralTagsReplaced = replaceTags(
     reservationAgreement,
     reservationAgreementGeneralTags

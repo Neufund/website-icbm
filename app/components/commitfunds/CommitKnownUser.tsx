@@ -1,7 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Web3Type } from "../../actions/constants";
+import { InvestorType, Web3Type } from "../../actions/constants";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
 import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
@@ -18,6 +18,7 @@ interface ICommitKnownUser {
   loadingEstimatedReward: boolean;
   balance: BigNumber;
   web3Provider: Web3Type;
+  investorType: InvestorType;
 }
 
 export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
@@ -31,11 +32,17 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   loadingEstimatedReward,
   balance,
   web3Provider,
+  investorType,
 }) =>
   <div>
     <Row>
       <Col sm={6}>
-        <UserAddressComponent address={userAddress} balance={balance} web3Provider={web3Provider} />
+        <UserAddressComponent
+          address={userAddress}
+          balance={balance}
+          web3Provider={web3Provider}
+          investorType={investorType}
+        />
       </Col>
     </Row>
     <Row className={style.formRow}>

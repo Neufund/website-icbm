@@ -3,9 +3,12 @@ import IconButton from "material-ui/IconButton";
 import * as React from "react";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
+
+import { TokenType } from "../../actions/constants";
 import * as image from "../../assets/img/commit_form_hex.png";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { LoadingIndicator } from "../LoadingIndicator";
+import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitKnownUserForm.scss";
 
 const inputFieldStyles = {
@@ -119,7 +122,11 @@ const CommitKnownUserForm = ({
         {loadingEstimatedReward
           ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
           : <p className={style.amount} data-test-id="estimated-reward-value">
-              {estimatedReward.toFixed(2)} <span className={style.currency}>NEU</span>
+              <MoneyComponent
+                value={estimatedReward}
+                tokenType={TokenType.NEU}
+                currencyClass={style.currencyNeu}
+              />
             </p>}
 
         <p className={style.description}>

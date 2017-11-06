@@ -1,5 +1,9 @@
+import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+
+import { TokenType } from "../../actions/constants";
+import MoneyComponent from "../MoneyComponent";
 import { TextCopyable } from "../TextCopyable";
 import { UnderlinedLink } from "../UnderlinedLink";
 import * as style from "./CommitUnknownUserDesc.scss";
@@ -9,6 +13,7 @@ interface ICommitUnknownUserDesc {
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
+  minTicketSize: BigNumber;
 }
 
 export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
@@ -16,6 +21,7 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
   transactionPayload,
   gasPrice,
   gasLimit,
+  minTicketSize,
 }) =>
   <div className={style.infoContainer}>
     <p>
@@ -34,9 +40,13 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
         Suggested gas price<br />
         <TextCopyable className={style.textCopyable} text={gasPrice} />
       </Col>
-      <Col sm={8}>
+      <Col sm={4}>
         Suggested gas limit<br />
         <TextCopyable className={style.textCopyable} text={gasLimit} />
+      </Col>
+      <Col sm={4}>
+        Minimum ticket size<br />
+        <MoneyComponent tokenType={TokenType.ETHER} value={minTicketSize} />
       </Col>
     </Row>
   </div>;

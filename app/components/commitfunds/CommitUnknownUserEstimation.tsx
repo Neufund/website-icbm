@@ -2,9 +2,11 @@ import { BigNumber } from "bignumber.js";
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
+import { TokenType } from "../../actions/constants";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { IconLink } from "../IconLink";
 import { LoadingIndicator } from "../LoadingIndicator";
+import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitUnknownUserEstimation.scss";
 
 const estTextFieldStyles = {
@@ -68,8 +70,13 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
             {loadingEstimatedReward
               ? <LoadingIndicator className={style.loadingIndicator} />
               : <span>
-                  <span className={style.amount}>{estimatedReward.toFixed(2)}</span>{" "}
-                  <span className={style.currencyNeu}>NEU</span>
+                  <MoneyComponent
+                    value={estimatedReward}
+                    tokenType={TokenType.NEU}
+                    valueClass={style.amount}
+                    currencyClass={style.currencyNeu}
+                    fit
+                  />
                 </span>}
           </div>
           <span className={style.separator}> / </span>

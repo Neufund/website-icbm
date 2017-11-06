@@ -10,7 +10,7 @@ export const Q18 = new BigNumber("10").pow(18);
 export function asMomentDate(bignum: BigNumber) {
   const asInt = bignum.toNumber();
 
-  return moment.utc(asInt, "X");
+  return moment.unix(asInt);
 }
 
 export function asNumber(bignum: BigNumber) {
@@ -38,7 +38,7 @@ export function promisify(func: any, args: any): Promise<any> {
 
 // takes ulps and returns wei
 export function convertEurToEth(ethEurFraction: BigNumber, eurUlps: BigNumber): BigNumber {
-  return eurUlps.div(ethEurFraction).mul(Q18);
+  return eurUlps.mul(Q18).div(ethEurFraction).round(0, BigNumber.ROUND_HALF_UP);
 }
 
 export async function getCurrentBlockHash(): Promise<string> {

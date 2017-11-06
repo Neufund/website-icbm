@@ -5,9 +5,9 @@
         <div class="background-wrapper">
           <div class="background"></div>
         </div>
-        <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
+        <%- include('partials/header', { active: 'commit', hashes: hashes, PLATFORM_ENABLED: PLATFORM_ENABLED }); %>
         <div class="main-wrapper">
-          <%- include('partials/home'); %>
+          <%- include('partials/home', { PLATFORM_ENABLED: PLATFORM_ENABLED }); %>
 
           <script src="/common<%= hashes.jsBundleHash %>.js"></script>
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>

@@ -38,8 +38,8 @@ describe("Home page", () => {
 
     expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("1.0000 ETH");
     expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("1");
-    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("38999.4930 NEU");
-    expect(await homepage.duringIco.currentReward.text()).to.be.eq("974.9994 NEU /  1 ETH");
+    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("38778.4987 NEU");
+    expect(await homepage.duringIco.currentReward.text()).to.be.eq("969.4744 NEU /  1 ETH");
   });
 
   it("should navigate to commitment page", async () => {

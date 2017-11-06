@@ -23,9 +23,9 @@ why-how:
       content: |
         <p>If you hold your NEU tokens you receive fee payouts and participation in equity tokens of every company that was ever funded on the Platform.</p>
 
-        <p>With each successful fundraising a fee is deduced from the investment amount and immediately distributed to all NEU holders.</p>
+        <p>With each successful fundraising a fee is deducted from the investment amount and immediately distributed to all NEU holders.</p>
 
-        <p>Additionally, a fee in form of equity tokens released by fundraising companies is added to the Platform portfolio, which is collectively owned by NEU holders.</p>
+        <p>Additionally, a fee in the form of equity tokens released by fundraising companies is added to the Platform portfolio, which is collectively owned by NEU holders.</p>
 
         <p>Secondary trading of NEU is open when ICBM ends. No vesting is applied to trading nor to fee payouts.</p>
 
@@ -55,7 +55,7 @@ invest_platform:
 
        <p>Using the unique legal and technical infrastructure, investors can invest in private equity with ETH or EUR. Companies can legally tokenize their equity and sell it via Equity Token Offerings (ETOs) on the Neufund Platform.</p>
 
-       <p>Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
+       <p>The Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
 
 team:
   visible: true
@@ -74,7 +74,7 @@ team:
      email: ""
      bio:  |
        <p>Zoe Adamovicz is the CEO and co-founder at Neufund. She is an experienced entrepreneur and occasional angel investor.</p>
-       <p>Zoe is passionate about building technology businesses that are impactful, positive and at
+       <p>Zoe is passionate about building technology-based businesses that are impactful, positive and at
        the same time profitable and powerful. Prior to Neufund, she founded Xyo, a company that
        re-imagines how people discover apps, Priori Data (app store intelligence), and Concise
        Software which provides software development and engineering services.</p>
@@ -96,7 +96,7 @@ team:
        <p>Marcin is a co-founder and CTO, and currently leads the technology development at
        Neufund. He has been tracking the development of blockchain technology for the past 6 years.</p>
        <p>Before joining Neufund, he led technology development at the app search engine Xyo.
-       In addition, he has worked as a developer and team leader in projects involving messaging
+       In addition, he has worked as a developer and team leader on projects involving messaging
        and telecommunication (Orange), cryptography and mobile devices (Jamba Music),
        insurance and government (Fiat, Hewlett-Packard).</p>
 
@@ -117,7 +117,7 @@ team:
        Additionally, he possesses specific expertise in the technology and entertainment industries.</p>
 
    - name: "Agnieszka Sarnecka"
-     title: "Bussiness Operations Manager"
+     title: "Business Operations Manager"
      image: "../assets/AgnieszkaSarnecka.jpg"
      preTitle: ""
      links:
@@ -136,8 +136,7 @@ team:
        perfected her planning and organizational skills. During her work at a tech-startup proving
        app discovery search engine she developed her content and project management skills.
        After that she started her own company and worked as a technical project manager for a
-       software development agency. Besides “blockchaining” and organizing she cooks really
-       passionately.</p>
+       software development agency. Besides “blockchaining” and organizing she is also passionate about cooking.</p>
 
    - name: "Jacek Czarnecki"
      title: "General Counsel & Business Strategist"
@@ -150,12 +149,12 @@ team:
      email: ""
      bio:  |
        <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
-       <p>In crypto world from 2014, and prior to joining Neufund, Jacek has been able to gather a
+       <p>In the crypto world since 2014, Jacek has been able to gather a
        substantial amount of experience with blockchain thanks to his work in a technology practice
        at a prominent law firm. This experience convinced him that blockchain is also the future of
-       law, which he is able to help shape at Neufund</p>
+       law, which he is able to help shape at Neufund.</p>
        <p>In his second role as Neufund’s Business Strategist, he is also responsible for expanding
-       and maintaining Neufund’s partnerships with the leading firms in crypto, law, and business.
+       and maintaining Neufund’s partnerships with the leading firms in crypto, law and business.
        Jacek holds a Masters of Law and Finance from the University of Oxford as well as a
        Masters in Law from the University of Warsaw. He is also working on a PhD (about blockchain, of course).</p>
 
@@ -172,7 +171,7 @@ team:
        <p>Krzysztof Kaczor is a full stack developer with 4+ years of experience. In the past, he has
        held various positions ranging from mobile developer to CTO at a number of tech firms. He is
        particularly interested in compiler theory, cryptocurrencies and DevOps. Krzysztof is a huge
-       fan of the open source philosophy and various projects of his have gained several hundred
+       fan of the open source philosophy, and various projects of his have gained several hundred
        stars on GitHub. In his free time, he likes to listen to rap and indie music as well as ride his
        longboard.</p>
 
@@ -188,9 +187,9 @@ team:
        found out that computers can do much more than run Wolfenstein Enemy Territory over LAN.
        After accumulating basic IT knowledge by answering calls in a VPS hosting company he
        switched to freelance web development. During that period he attended software
-       engineering studies to join as data scraping specialist the company that created the world’s
+       engineering studies to join as data scraping specialist at the company that created the world’s
        first mobile app recommendation engine. For Neufund he refreshed his JavaScript skills and
-       dove head first into madness of modern frontend development for the creation of classical
+       dove head first into the madness of modern frontend development for the creation of classical
        web and distributed apps.</p>
 
    - name: "Moe Elsharif"
@@ -206,7 +205,7 @@ team:
        Mathematics. During his studies he gathered experience in the field of Robotics, Artificial
        Intelligence and Nonlinear optimization. As an Embedded Systems Developer he works on
        integrating embedded systems solutions with blockchain technology and assesses the
-       security implications these solutions cause. He has released different conference papers in
+       security implications these solutions cause. He has released multiple conference papers in
        the field of Embedded Security and Robotics.</P>
 
    - name: "Piotr Stroinski"
@@ -219,9 +218,9 @@ team:
      email: ""
      bio:  |
        <p>Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from
-       work in big corporations spanning many sectors such as media, telecommunication, and banking.
+       work for big corporations spanning many sectors such as media, telecommunication and banking.
        There he was responsible for IT infrastructure and application architecture, as well as implementation and support.</p>
-       <p>Having bought his first bitcoins in 2012, and currently an active trader, he is deeply fascinated by
+       <p>Having bought his first bitcoins in 2012 and currently an active trader, he is deeply fascinated by
        blockchain technology. Once offered the opportunity to join Neufund, he could not resist moving to
        Berlin and becoming a part of the revolution in the startup financing model.</p>
 
@@ -238,10 +237,10 @@ team:
        operations to ensure high effectiveness while minimizing costs. She is also responsible for
        administration matters like bookkeeping, as well as assisting the CEO with daily work.<p>
        <p>Marta has been active in the IT industry since 2008. Over the past 9 years Marta has held various
-       positions including IT Resource Support, Client Services Manager, and Contract Specialist. Marta’s
+       positions including IT Resource Support, Client Services Manager and Contract Specialist. Marta’s
        education is a bachelor’s degree in Management.</p>
 
-       <p>Born and raised in Warsaw (Poland), Marta loves to travel to different places in the world in her spare time.</p>
+       <p>Born and raised in Warsaw (Poland), Marta loves to travel the world in her spare time.</p>
 
 
    - name: "Mostafa Balata"
@@ -271,12 +270,12 @@ team:
       "medium": "https://medium.com/@bierlingm"
      email: ""
      bio:  |
-       <p>Moritz Bierling is a researcher, writer, and man of many talents. As the resident Blockchain
-       Reporter at Neufund he helps educate the public about the nature of blockchain-related
-       technologies and the effect they have on economy and society, while also coordinating
-       community outreach activities, media campaigns, and business development efforts. In his
+       <p>Moritz Bierling is a researcher, writer and man of many talents. As the resident Blockchain
+       Reporter at Neufund, he helps educate the public about the nature of blockchain-related
+       technologies and the effect they have on the economy and society, while also coordinating
+       community outreach activities, media campaigns and business development efforts. In his
        past work at Exosphere Academy he organized a Space Elevator bootcamp, an Artificial
-       Intelligence conference, and the world’s first Ethereum training course in addition to
+       Intelligence conference and the world’s first Ethereum training course in addition to
        authoring a Primer on the emerging discipline of Alternate Reality Design. His work has
        appeared in a number of blockchain-related media outlets such as CoinTelegraph,
        Bitcoin.com and the The Bitcoin Podcast.<p>

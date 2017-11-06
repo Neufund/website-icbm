@@ -79,8 +79,8 @@ export const CommitUnknownUserAftermath: React.SFC<
       <div className={styles.caption}>For address</div>
       <div className={styles.value}>
         <form
-          // tslint:disable-next-line:jsx-no-lambda
           onChange={() => {
+            // tslint:disable-next-line:jsx-no-lambda
             // say thank you to redux-form. Is there a better way to achieve auto submitting? what if async validation is required?
             // using global onChange didnt work (and still there is no way to check validation status)
             setTimeout(handleSubmit);

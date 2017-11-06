@@ -10,9 +10,9 @@ import { selectEndDate } from "../reducers/commitmentState";
 import {
   selectAllFunds,
   selectAllInvestors,
+  selectInvestorsNeumarks,
   selectIssuanceRate,
   selectLoadingState,
-  selectTotalSupply,
 } from "../reducers/duringIcoState";
 import { IAppState } from "../reducers/index";
 
@@ -50,7 +50,7 @@ function mapStateToProps(state: IAppState) {
   return {
     finishDate: selectEndDate(state.commitmentState),
     loading: selectLoadingState(state.duringIcoState),
-    totalSupply: selectTotalSupply(state.duringIcoState),
+    totalSupply: selectInvestorsNeumarks(state.duringIcoState),
     issuanceRate: selectIssuanceRate(state.duringIcoState),
     allFunds: selectAllFunds(state.duringIcoState),
     allInvestors: selectAllInvestors(state.duringIcoState),

@@ -4,10 +4,13 @@ import { Reducer } from "../types";
 
 export interface IDuringIcoState {
   loading: boolean;
-  totalSupply?: string;
+  totalNeumarkSupply?: string;
+  reservedNeumarks?: string;
   issuanceRate?: string;
-  allFunds?: string;
+  ethCommitted?: string;
+  euroCommittedInWei?: string;
   allInvestors?: string;
+  platformOperatorNeumarkRewardShare?: string;
 }
 
 const initialState: IDuringIcoState = {
@@ -26,10 +29,13 @@ const reducer: Reducer<IDuringIcoState> = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        totalSupply: payload.totalSupply,
+        totalNeumarkSupply: payload.totalNeumarkSupply,
+        reservedNeumarks: payload.reservedNeumarks,
         issuanceRate: payload.issuanceRate,
-        allFunds: payload.allFunds,
+        ethCommitted: payload.ethCommitted,
+        euroCommittedInWei: payload.euroCommitted,
         allInvestors: payload.allInvestors,
+        platformOperatorNeumarkRewardShare: payload.platformOperatorNeumarkRewardShare,
       };
     default:
       return state;
@@ -42,8 +48,13 @@ export function selectLoadingState(state: IDuringIcoState): boolean {
   return state.loading;
 }
 
-export function selectTotalSupply(state: IDuringIcoState): BigNumber.BigNumber {
-  return state.totalSupply ? new BigNumber.BigNumber(state.totalSupply) : null;
+export function selectInvestorsNeumarks(state: IDuringIcoState): BigNumber.BigNumber {
+  if (!state.totalNeumarkSupply || !state.reservedNeumarks) {
+    return null;
+  }
+  const totalNeumarkSupply = new BigNumber.BigNumber(state.totalNeumarkSupply);
+  const reservedNeumarks = new BigNumber.BigNumber(state.reservedNeumarks);
+  return totalNeumarkSupply.sub(reservedNeumarks).div(state.platformOperatorNeumarkRewardShare);
 }
 
 export function selectIssuanceRate(state: IDuringIcoState): BigNumber.BigNumber {
@@ -51,18 +62,22 @@ export function selectIssuanceRate(state: IDuringIcoState): BigNumber.BigNumber 
 }
 
 export function selectAllFunds(state: IDuringIcoState): BigNumber.BigNumber {
-  return state.allFunds ? new BigNumber.BigNumber(state.allFunds) : null;
+  if (!state.ethCommitted || !state.euroCommittedInWei) {
+    return null;
+  }
+  return new BigNumber.BigNumber(state.ethCommitted).add(
+    new BigNumber.BigNumber(state.euroCommittedInWei)
+  );
 }
 
 export function selectAllFundsInBaseCurrency(
   state: IDuringIcoState,
   ethDecimals: number
 ): BigNumber.BigNumber {
-  return state.allFunds
-    ? new BigNumber.BigNumber(state.allFunds).div(new BigNumber.BigNumber(10).pow(ethDecimals))
-    : null;
+  const allFunds = selectAllFunds(state);
+  return allFunds ? allFunds.div(new BigNumber.BigNumber(10).pow(ethDecimals)) : null;
 }
 
 export function selectAllInvestors(state: IDuringIcoState): BigNumber.BigNumber {
-  return state.allFunds ? new BigNumber.BigNumber(state.allInvestors) : null;
+  return state.allInvestors ? new BigNumber.BigNumber(state.allInvestors) : null;
 }

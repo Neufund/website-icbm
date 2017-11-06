@@ -34,6 +34,10 @@ class Contract {
   public currentAgreement(): Promise<[BigNumber, BigNumber, string, BigNumber]> {
     return promisify(this.rawWeb3Contract.currentAgreement, []);
   }
+
+  public balanceOf(address: string): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.balanceOf, [address]);
+  }
 }
 
 export default Contract;

@@ -5,18 +5,24 @@ import { loadDuringIcoDetailsFromContract } from "../web3/loadDuringIcoDetailsFr
 import { LOADING_DURING_ICO_DETAILS, SET_DURING_ICO_DETAILS } from "./constants";
 
 export function setDuringIcoDetailsAction(
-  totalSupply: string,
+  totalNeumarkSupply: string,
+  reservedNeumarks: string,
   issuanceRate: string,
-  allFunds: string,
-  allInvestors: string
+  ethCommitted: string,
+  euroCommitted: string,
+  allInvestors: string,
+  platformOperatorNeumarkRewardShare: string
 ): IStandardReduxAction {
   return {
     type: SET_DURING_ICO_DETAILS,
     payload: {
-      totalSupply,
+      totalNeumarkSupply,
+      reservedNeumarks,
       issuanceRate,
-      allFunds,
+      ethCommitted,
+      euroCommitted,
       allInvestors,
+      platformOperatorNeumarkRewardShare,
     },
   };
 }
@@ -36,17 +42,25 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
 
   const { ethEurFraction, ethDecimals } = getState().commitmentState;
 
-  const { totalSupply, issuanceRate, allFunds, investors } = await loadDuringIcoDetailsFromContract(
-    ethEurFraction,
-    ethDecimals
-  );
+  const {
+    totalNeumarkSupply,
+    reservedNeumarks,
+    issuanceRate,
+    ethCommitted,
+    eurCommitted,
+    investors,
+    platformOperatorNeumarkRewardShare,
+  } = await loadDuringIcoDetailsFromContract(ethEurFraction, ethDecimals);
 
   dispatcher(
     setDuringIcoDetailsAction(
-      totalSupply.toString(),
+      totalNeumarkSupply.toString(),
+      reservedNeumarks.toString(),
       issuanceRate.toString(),
-      allFunds.toString(),
-      investors.toString()
+      ethCommitted.toString(),
+      eurCommitted.toString(),
+      investors.toString(),
+      platformOperatorNeumarkRewardShare.toString()
     )
   );
 };

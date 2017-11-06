@@ -1,31 +1,24 @@
 import { BigNumber } from "bignumber.js";
 import promiseAll = require("promise-all");
 
-import {
-  etherLock,
-  etherToken,
-  euroLock,
-  euroToken,
-  neumark,
-  publicCommitment,
-} from "./contracts/ContractsRepository";
+import { etherLock, euroLock, neumark, publicCommitment } from "./contracts/ContractsRepository";
+import { convertEurToEth } from "./utils";
 
 export async function loadDuringIcoDetailsFromContract(
   ethEurFraction: string,
   ethDecimals: number
 ) {
   return await promiseAll({
-    totalSupply: neumark.totalSupply.then(bn => bn.toString()),
-    issuanceRate: issuanceRate(ethDecimals).then(bn => bn.toString()),
-    allFunds: allFundsCommitment(new BigNumber(ethEurFraction)).then(bn => bn.toString()),
+    totalNeumarkSupply: neumark.totalSupply,
+    reservedNeumarks: neumark.balanceOf(publicCommitment.address),
+    issuanceRate: issuanceRate(ethDecimals),
+    ethCommitted: etherLock.totalLockedAmount,
+    eurCommitted: euroLock.totalLockedAmount.then(total =>
+      convertEurToEth(new BigNumber(ethEurFraction), total)
+    ),
     investors: allInvestors(),
+    platformOperatorNeumarkRewardShare: publicCommitment.platformOperatorNeumarkRewardShare,
   });
-}
-
-export async function allFundsCommitment(ethEurFraction: BigNumber): Promise<BigNumber> {
-  const ethCommitted = await etherToken.balanceOf(etherLock.address);
-  const eurCommitted = await euroToken.balanceOf(euroLock.address);
-  return ethCommitted.plus(eurCommitted.div(ethEurFraction));
 }
 
 export async function allInvestors() {

@@ -56,6 +56,10 @@ class Contract {
     });
   }
 
+  public get platformOperatorNeumarkRewardShare(): Promise<BigNumber> {
+    return promisify(this.rawWeb3Contract.platformOperatorNeumarkRewardShare, []);
+  }
+
   public get maxCapEur(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.maxCapEur, []);
   }

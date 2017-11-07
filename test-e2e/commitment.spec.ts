@@ -33,6 +33,6 @@ describe("Commit page", () => {
     );
     await commitPage.commitBtn.click();
 
-    await commitPage.transactionStatusModal.waitFor();
+    await commitPage.transactionSummary.waitFor();
   });
 });

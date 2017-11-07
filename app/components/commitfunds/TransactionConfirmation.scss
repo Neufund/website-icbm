@@ -1,14 +1,9 @@
 .error {
-  margin-top: 10px;
   color: #f00; // sass-lint:disable-line no-color-literals
 }
 
 .loading-indicator {
-  margin: 0 auto;
-}
-
-.transaction-number {
-  margin: 10px auto;
+  margin: 10px 0;
 }
 
 .block-history {

@@ -1,6 +1,5 @@
 import * as cn from "classnames";
 import * as React from "react";
-import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { Web3Type } from "../../actions/constants";
@@ -15,7 +14,7 @@ import {
   selectIsLedgerSelected,
   selectNoWalletSelected,
 } from "../../reducers/web3State";
-import WalletIntegrationModal from "./WalletIntegrationModal";
+import { HiResImage } from "../HiResImage";
 import * as styles from "./WalletSelector.scss";
 
 interface IWalletSelectorProps {
@@ -28,35 +27,44 @@ interface IWalletSelectorProps {
 }
 
 export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
-  initLedgerSelection,
   isEthBrowserSelected,
   isLedgerSelected,
   isNoWalletSelected,
-  selectNoWallet,
   initEthBrowser,
+  initLedgerSelection,
+  selectNoWallet,
 }) => {
   return (
     <div className={styles.walletSelector}>
-      <WalletIntegrationModal />
-      <h3>Select your wallet</h3>
-      <Button
-        className={cn("btn-white", { [styles.selected]: isEthBrowserSelected })}
-        onClick={initEthBrowser}
-      >
-        MetaMask/Parity/Mist
-      </Button>
-      <Button
-        className={cn("btn-white", { [styles.selected]: isLedgerSelected })}
-        onClick={initLedgerSelection}
-      >
-        Ledger Wallet
-      </Button>
-      <Button
-        className={cn("btn-white", { [styles.selected]: isNoWalletSelected })}
-        onClick={selectNoWallet}
-      >
-        No wallet
-      </Button>
+      <WalletTab active={isEthBrowserSelected} onSelect={initEthBrowser}>
+        <HiResImage partialPath="wallet_selector/icon_wallet" className={styles.walletIcon} />Wallet
+        in Browser
+      </WalletTab>
+      <WalletTab active={isLedgerSelected} onSelect={initLedgerSelection}>
+        <HiResImage partialPath="wallet_selector/icon_ledger" className={styles.walletIcon} />Ledger
+        Wallet
+      </WalletTab>
+      <WalletTab active={isNoWalletSelected} onSelect={selectNoWallet}>
+        <HiResImage
+          partialPath="wallet_selector/icon_other_wallet"
+          className={styles.walletIcon}
+        />Other Wallet
+      </WalletTab>
+    </div>
+  );
+};
+
+interface IWalletTab {
+  active?: boolean;
+  onSelect: () => any;
+}
+
+const WalletTab: React.SFC<IWalletTab> = ({ active, onSelect, children }) => {
+  return (
+    <div className={cn(styles.walletTab, { active })} onClick={onSelect}>
+      <div className={styles.walletTabTitle}>
+        {children}
+      </div>
     </div>
   );
 };

@@ -10,11 +10,11 @@
 
 .number {
   display: block;
-  border-bottom: 5px solid $blue-dark-light;
+  border-bottom: 5px solid $blue-darker;
   padding-bottom: 5px;
   width: $commit-number-width;
   text-align: right;
-  color: $blue-dark-light;
+  color: $blue-darker;
   font-size: $font-size-small;
 
   @media (max-width: $screen-sm-max) {

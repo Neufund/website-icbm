@@ -74,7 +74,7 @@ h2 {
   &.btn-green {
     box-shadow: none;
     background-color: $green;
-    color: $blue-dark-light;
+    color: $blue-darker;
 
     &:hover {
       background-color: lighten($green, 1%);

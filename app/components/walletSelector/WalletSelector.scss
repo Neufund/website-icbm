@@ -1,4 +1,5 @@
 @import '../../../common/sass/variables';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 $height: 64px;
 
@@ -44,6 +45,19 @@ $height: 64px;
     .wallet-icon {
       margin-top: -3px;
       margin-right: 20px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .wallet-tab-title {
+      text-align: center;
+      margin-bottom: 5px;
+
+      .wallet-icon {
+        display: block;
+        margin: 0 auto 0 auto;
+        margin-bottom: 2px;
+      }
     }
   }
 }

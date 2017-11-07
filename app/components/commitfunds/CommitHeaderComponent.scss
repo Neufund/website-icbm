@@ -1,6 +1,9 @@
 @import '../../../common/sass/variables';
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
+$commit-number-width: 35px;
+$commit-number-margin: 16px;
+
 .header {
   position: relative;
   margin-bottom: 20px;
@@ -21,10 +24,15 @@
     margin-bottom: 14px;
   }
 
-  @media (min-width: $screen-md-min) {
+  @media (min-width: $screen-md-min + 100px) {
     display: inline-block;
     position: absolute;
     right: calc(100% + #{$commit-number-margin});
     bottom: 0;
+  }
+
+  @media (min-width: $screen-lg-min) and (max-width: $screen-lg-min + 10px) {
+    right: calc(100% + #{8px});
+    width: 15px;
   }
 }

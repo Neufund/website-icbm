@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { IAppState } from "../../reducers/index";
-import { selectShouldDisplayIntegrationModal } from "../../reducers/walletIntegrationState";
+import { selectShouldDisplayIntegrationModal } from "../../reducers/walletSelectorState";
 import EthBrowserWalletInit from "./EthBrowserWalletInit";
 import LedgerAddressChooser from "./LedgerAddressChooser";
 import LedgerInit from "./LedgerInit";
@@ -41,10 +41,10 @@ export class WalletIntegrationModal extends React.Component<IWalletIntegrationPr
 }
 
 const mapStateToProps = (state: IAppState) => ({
-  show: selectShouldDisplayIntegrationModal(state.walletIntegrationState),
-  ledgerInProgress: state.walletIntegrationState.ledgerIntegrationInProgress,
-  ledgerIntegrationConnected: state.walletIntegrationState.ledgerIntegrationConnected,
-  ethBrowserInProgress: state.walletIntegrationState.ethBrowserInProgress,
+  show: selectShouldDisplayIntegrationModal(state.walletSelectorState),
+  ledgerInProgress: state.walletSelectorState.ledgerIntegrationInProgress,
+  ledgerIntegrationConnected: state.walletSelectorState.ledgerIntegrationConnected,
+  ethBrowserInProgress: state.walletSelectorState.ethBrowserInProgress,
 });
 
 export default connect<IWalletIntegrationProps, {}, {}>(mapStateToProps)(WalletIntegrationModal);

@@ -6,19 +6,19 @@ import {
 } from "../actions/constants";
 import { Reducer } from "../types";
 
-export interface IWalletIntegrationState {
+export interface IWalletSelectorState {
   ledgerIntegrationInProgress: boolean;
   ledgerIntegrationConnected: boolean;
   ethBrowserInProgress: boolean;
 }
 
-const initialState: IWalletIntegrationState = {
+const initialState: IWalletSelectorState = {
   ledgerIntegrationInProgress: false,
   ledgerIntegrationConnected: false,
   ethBrowserInProgress: false,
 };
 
-const reducer: Reducer<IWalletIntegrationState> = (state = initialState, action) => {
+const reducer: Reducer<IWalletSelectorState> = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
     case WALLET_SELECTOR_INIT_LEDGER_SELECTION:
@@ -47,6 +47,6 @@ const reducer: Reducer<IWalletIntegrationState> = (state = initialState, action)
 
 export default reducer;
 
-export function selectShouldDisplayIntegrationModal(state: IWalletIntegrationState) {
+export function selectShouldDisplayIntegrationModal(state: IWalletSelectorState) {
   return state.ledgerIntegrationInProgress || state.ethBrowserInProgress;
 }

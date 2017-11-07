@@ -16,7 +16,8 @@ export interface IUserState {
   derivationPath: string;
   balance: string;
   investorType: InvestorType;
-  preferredTicket?: string;
+  reservedTicket?: string;
+  reservedNeumarks?: string;
 }
 
 const initialState: IUserState = {
@@ -25,7 +26,8 @@ const initialState: IUserState = {
   derivationPath: null,
   balance: null,
   investorType: null,
-  preferredTicket: null,
+  reservedTicket: null,
+  reservedNeumarks: null,
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {
@@ -44,7 +46,8 @@ const reducer: Reducer<IUserState> = (state = initialState, action) => {
         address: payload.address,
         balance: payload.balance,
         investorType: payload.investorType,
-        preferredTicket: payload.preferredTicket,
+        reservedTicket: payload.preferredTicket,
+        reservedNeumarks: payload.reservedNeumarks,
       };
     case SET_DERIVATION_PATH:
       return {
@@ -72,4 +75,12 @@ export function selectDerivationPath(state: IUserState): string {
 
 export function selectBalance(state: IUserState): BigNumber.BigNumber {
   return new BigNumber.BigNumber(state.balance);
+}
+
+export function selectReservedTicket(state: IUserState): BigNumber.BigNumber {
+  return new BigNumber.BigNumber(state.reservedTicket);
+}
+
+export function selectReservedNeumarks(state: IUserState): BigNumber.BigNumber {
+  return new BigNumber.BigNumber(state.reservedNeumarks);
 }

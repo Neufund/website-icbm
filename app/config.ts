@@ -28,7 +28,6 @@ interface IContractsDeployedIcoCfg {
   ipfsNode: string;
   pdfRenderer: string;
   numberOfConfirmations: number;
-  maxNumberBlocksToWait: number;
   defaultDerivationPath: string;
 }
 
@@ -84,7 +83,6 @@ function loadConfig(environment: IDictionary): IConfig {
           ipfsNode: "https://ipfs.io/",
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 1, // if you set value > 1 then on dev network you will have to simulate traffic
-          maxNumberBlocksToWait: 10,
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),
         },
       };

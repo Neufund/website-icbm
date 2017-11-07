@@ -56,6 +56,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
+          userBalance={balance}
         />
       </Col>
       <Col sm={5} md={6}>

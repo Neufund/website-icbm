@@ -4,7 +4,6 @@ import { Col, Row } from "react-bootstrap";
 import { InvestorType, Web3Type } from "../../actions/constants";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
-import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
 
 interface ICommitKnownUser {
@@ -53,12 +52,6 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
-        />
-      </Col>
-      <Col sm={5} md={6}>
-        <CommitKnownUserDesc
-          contractAddress={contractAddress}
-          transactionPayload={transactionPayload}
         />
       </Col>
     </Row>

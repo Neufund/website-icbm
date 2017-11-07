@@ -60,7 +60,7 @@ export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnown
     </Row>
     {showTransactionConfirmation &&
       <Row>
-        <Col sm={7} md={6}>
+        <Col xs={12}>
           <TransactionConfirmation />
         </Col>
       </Row>}

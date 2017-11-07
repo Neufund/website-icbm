@@ -17,6 +17,7 @@ export interface ITransactionState {
   blockHistory: Array<{ blockNo: number; confirmedTx: boolean }>;
   txConfirmed: boolean;
   error: string;
+  generatedNEU: string;
 }
 
 const initialState: ITransactionState = {
@@ -26,6 +27,7 @@ const initialState: ITransactionState = {
   blockHistory: [],
   txConfirmed: false,
   error: null,
+  generatedNEU: null,
 };
 
 const reducer: Reducer<ITransactionState> = (state = initialState, action) => {

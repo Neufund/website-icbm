@@ -53,7 +53,7 @@ const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
   blockOfConfirmation,
   generatedNEU,
 }) =>
-  <div className={styles.confirmation}>
+  <div className={styles.confirmation} data-test-id="transaction-summary">
     Your transaction{" "}
     <EtherScanLink
       target="_blank"

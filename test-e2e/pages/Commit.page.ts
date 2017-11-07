@@ -56,7 +56,7 @@ export class CommitPage {
     return new Element(this.page, tid("commit-btn"));
   }
 
-  public get transactionStatusModal() {
-    return new Element(this.page, tid("transaction-status-modal"));
+  public get transactionSummary() {
+    return new Element(this.page, tid("transaction-summary"));
   }
 }

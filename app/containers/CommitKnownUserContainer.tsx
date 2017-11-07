@@ -10,7 +10,6 @@ import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderCom
 import { CommitKnownUser } from "../components/commitfunds/CommitKnownUser";
 import { ICommitKnownUserFormValues } from "../components/commitfunds/CommitKnownUserForm";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
-import TransactionConfirmationModal from "../components/commitfunds/TransactionConfirmationModal";
 import LegalModal from "../components/LegalModal";
 import WalletSelector from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
@@ -57,7 +56,6 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   return (
     <div>
       <LegalModal />
-      <TransactionConfirmationModal />
       <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
       <Grid>
         <Row>

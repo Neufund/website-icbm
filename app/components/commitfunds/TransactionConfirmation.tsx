@@ -1,6 +1,5 @@
-import { noop } from "lodash";
 import * as React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import { Dispatch } from "redux";
@@ -12,7 +11,7 @@ import { ITransactionState } from "../../reducers/transactionState";
 import EtherScanLink from "../EtherScanLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import SignInstruction from "./SignInstruction";
-import * as styles from "./TransactionConfirmationModal.scss";
+import * as styles from "./TransactionConfirmation.scss";
 
 interface IBlockHistoryComponent {
   blockHistory: Array<{ blockNo: number; confirmedTx: boolean }>;
@@ -46,13 +45,15 @@ const BlockHistoryComponent: React.SFC<IBlockHistoryComponent> = ({ blockHistory
 interface ITransactionSummaryComponent {
   txHash: string;
   blockOfConfirmation: number;
+  generatedNEU: string;
 }
 
 const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
   txHash,
   blockOfConfirmation,
+  generatedNEU,
 }) =>
-  <div className={styles.confirmation}>
+  <div className={styles.confirmation} data-test-id="transaction-summary">
     Your transaction{" "}
     <EtherScanLink
       target="_blank"
@@ -65,77 +66,73 @@ const TransactionSummaryComponent: React.SFC<ITransactionSummaryComponent> = ({
       linkType={EtherScanLinkType.BLOCK}
       resourceId={blockOfConfirmation}
     />
+    <br />
+    Neumark generated: {generatedNEU}
   </div>;
 
-interface ITransactionConfirmationModalExtras {
+interface ITransactionConfirmationExtras {
   handleGoToAftermathButton: () => void;
   handleTransactionResetButton: () => void;
 }
 
-export const TransactionConfirmationModalComponent: React.SFC<
-  ITransactionState & ITransactionConfirmationModalExtras
+export const TransactionConfirmationComponent: React.SFC<
+  ITransactionState & ITransactionConfirmationExtras
 > = ({
-  txStarted,
   txHash,
   blockOfConfirmation,
   blockHistory,
   txConfirmed,
   error,
+  generatedNEU,
   handleGoToAftermathButton,
   handleTransactionResetButton,
 }) => {
+  const showLoading = generatedNEU === null && error === null;
   return (
-    <Modal
-      show={txStarted}
-      onHide={noop}
-      bsSize="large"
-      animation={false}
-      data-test-id="transaction-status-modal"
-    >
-      <Modal.Header>
-        <Modal.Title>Transaction status</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {txHash === null && <SignInstruction />}
-        {txHash !== null &&
-          !txConfirmed &&
-          <div>
-            <LoadingIndicator className={styles.loadingIndicator} />
-            <div className={styles.transactionNumber}>
-              You transaction{" "}
-              <EtherScanLink linkType={EtherScanLinkType.TRANSACTION} resourceId={txHash} /> is
-              ready. Now we are waiting for confirmation from network.
-            </div>
-            {blockHistory.length > 0 && <BlockHistoryComponent blockHistory={blockHistory} />}
-          </div>}
-        {txConfirmed &&
-          <TransactionSummaryComponent txHash={txHash} blockOfConfirmation={blockOfConfirmation} />}
-        {error !== null &&
+    <div>
+      <h2>Transaction status</h2>
+      {error !== null &&
+        <div>
           <div className={styles.error}>
             {error}
-          </div>}
-      </Modal.Body>
-      <Modal.Footer>
-        {error !== null &&
+          </div>
           <Button bsStyle="primary" onClick={handleTransactionResetButton}>
             reset transaction
-          </Button>}
-        {txConfirmed &&
-          <Button bsStyle="primary" onClick={handleGoToAftermathButton}>
-            see aftermath page
-          </Button>}
-      </Modal.Footer>
-    </Modal>
+          </Button>
+        </div>}
+      {showLoading && <LoadingIndicator className={styles.loadingIndicator} />}
+      {txHash === null && <SignInstruction />}
+      {txHash !== null &&
+        !txConfirmed &&
+        <div>
+          <div>
+            You transaction{" "}
+            <EtherScanLink linkType={EtherScanLinkType.TRANSACTION} resourceId={txHash} /> is ready.
+            Now we are waiting for confirmation from network.
+          </div>
+          {blockHistory.length > 0 && <BlockHistoryComponent blockHistory={blockHistory} />}
+        </div>}
+      {txConfirmed &&
+        <TransactionSummaryComponent
+          txHash={txHash}
+          blockOfConfirmation={blockOfConfirmation}
+          generatedNEU={generatedNEU}
+        />}
+      {txConfirmed &&
+        <Button bsStyle="primary" onClick={handleGoToAftermathButton}>
+          see aftermath page
+        </Button>}
+    </div>
   );
 };
 
-const mapStateToProps = (state: IAppState): ITransactionState => ({
-  txStarted: state.transactionState.txStarted,
+const mapStateToProps = (state: IAppState) => ({
   txHash: state.transactionState.txHash,
   blockOfConfirmation: state.transactionState.blockOfConfirmation,
   blockHistory: state.transactionState.blockHistory,
   txConfirmed: state.transactionState.txConfirmed,
   error: state.transactionState.error,
+  generatedNEU: state.transactionState.generatedNEU,
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
@@ -150,4 +147,6 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionConfirmationModalComponent);
+export const TransactionConfirmation = connect(mapStateToProps, mapDispatchToProps)(
+  TransactionConfirmationComponent
+);

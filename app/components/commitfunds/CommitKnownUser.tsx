@@ -1,11 +1,14 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import { connect } from "react-redux";
+
 import { InvestorType, Web3Type } from "../../actions/constants";
+import { IAppState } from "../../reducers/index";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
-import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
+import { TransactionConfirmation } from "./TransactionConfirmation";
 
 interface ICommitKnownUser {
   userAddress: string;
@@ -22,10 +25,8 @@ interface ICommitKnownUser {
   reservedTicket: BigNumber;
 }
 
-export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
+export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnownUser> = ({
   userAddress,
-  contractAddress,
-  transactionPayload,
   submitFunds,
   minTicketWei,
   calculateEstimatedReward,
@@ -34,6 +35,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   balance,
   web3Provider,
   investorType,
+  showTransactionConfirmation,
   reservedTicket,
 }) =>
   <div>
@@ -59,11 +61,24 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           userBalance={balance}
         />
       </Col>
-      <Col sm={5} md={6}>
-        <CommitKnownUserDesc
-          contractAddress={contractAddress}
-          transactionPayload={transactionPayload}
-        />
-      </Col>
     </Row>
+    {showTransactionConfirmation &&
+      <Row>
+        <Col xs={12}>
+          <TransactionConfirmation />
+        </Col>
+      </Row>}
   </div>;
+
+interface IMapStateToProps {
+  showTransactionConfirmation: boolean;
+}
+
+const mapStateToProps = (state: IAppState) => ({
+  showTransactionConfirmation: state.transactionState.txStarted,
+});
+
+export const CommitKnownUser = connect<IMapStateToProps, null, ICommitKnownUser>(
+  mapStateToProps,
+  {}
+)(CommitKnownUserComponent);

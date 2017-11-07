@@ -1,19 +1,25 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
 import { Web3Type } from "../../actions/constants";
+import { transactionResetAction } from "../../actions/submitFunds";
 import { IAppState } from "../../reducers/index";
 import { selectWeb3Type } from "../../reducers/web3State";
-import SignInstructionGeneric from "./SignInstructionGeneric";
+import { SignInstructionGeneric } from "./SignInstructionGeneric";
 
-interface ISignInstruction {
+interface ISignInstructionComponent {
   web3Type: Web3Type;
+  handleBackClick: () => void;
 }
 
-export const SignInstructionComponent: React.SFC<ISignInstruction> = ({ web3Type }) => {
+export const SignInstructionComponent: React.SFC<ISignInstructionComponent> = ({
+  web3Type,
+  handleBackClick,
+}) => {
   switch (web3Type) {
     default:
-      return <SignInstructionGeneric />;
+      return <SignInstructionGeneric handleBackClick={handleBackClick} />;
   }
 };
 
@@ -23,4 +29,13 @@ function mapStateToProps(state: IAppState) {
   };
 }
 
-export default connect(mapStateToProps)(SignInstructionComponent);
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    handleBackClick: (e: any) => {
+      e.preventDefault();
+      dispatch(transactionResetAction());
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInstructionComponent);

@@ -1,6 +1,13 @@
 import * as React from "react";
 
-export const SignInstructionGeneric: React.SFC = () =>
-  <div>Please confirm transaction using signer and wait for it to be send to Ethereum node.</div>;
+interface ISignInstructionGeneric {
+  handleBackClick: (e: any) => void;
+}
 
-export default SignInstructionGeneric;
+export const SignInstructionGeneric: React.SFC<ISignInstructionGeneric> = ({ handleBackClick }) =>
+  <div>
+    Please confirm transaction using signer and wait for it to be send to Ethereum node or{" "}
+    <a href="#" onClick={handleBackClick}>
+      back to change your commit
+    </a>.
+  </div>;

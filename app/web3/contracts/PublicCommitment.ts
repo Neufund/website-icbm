@@ -88,7 +88,7 @@ class Contract {
     return promisify(this.rawWeb3Contract.euroLock, []);
   }
 
-  public estimateNeumarkReward(amountEth: BigNumber | string): Promise<BigNumber> {
+  public estimateNeumarkReward(amountEth: string): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.estimateNeumarkReward, [amountEth]);
   }
 

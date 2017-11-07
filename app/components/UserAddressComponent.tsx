@@ -12,6 +12,7 @@ interface IUserAddressComponentProps {
   balance: BigNumber;
   web3Provider: Web3Type;
   investorType: InvestorType;
+  reservedTicket: BigNumber;
 }
 
 export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
@@ -19,6 +20,7 @@ export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
   web3Provider,
   balance,
   investorType,
+  reservedTicket,
 }) =>
   <div className={userAddressContainer}>
     <AddressIcon address={address} className={icon} />
@@ -42,4 +44,13 @@ export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
         {investorType}
       </span>
     </p>
+    {reservedTicket.gt(new BigNumber(0)) &&
+      <div>
+        <p>Reserved ticket</p>
+        <p className={value}>
+          <span>
+            <MoneyComponent tokenType={TokenType.ETHER} value={reservedTicket} />
+          </span>
+        </p>
+      </div>}
   </div>;

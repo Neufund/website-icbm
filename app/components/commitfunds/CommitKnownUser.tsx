@@ -19,6 +19,7 @@ interface ICommitKnownUser {
   balance: BigNumber;
   web3Provider: Web3Type;
   investorType: InvestorType;
+  reservedTicket: BigNumber;
 }
 
 export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
@@ -33,6 +34,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   balance,
   web3Provider,
   investorType,
+  reservedTicket,
 }) =>
   <div>
     <Row>
@@ -42,6 +44,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           balance={balance}
           web3Provider={web3Provider}
           investorType={investorType}
+          reservedTicket={reservedTicket}
         />
       </Col>
     </Row>
@@ -53,6 +56,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
+          userBalance={balance}
         />
       </Col>
       <Col sm={5} md={6}>

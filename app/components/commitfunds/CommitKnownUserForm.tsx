@@ -84,6 +84,7 @@ interface ICommitKnownUserFormProps {
   invalid?: boolean;
   ethAmount?: string;
   minTicketWei: BigNumber;
+  userBalance: BigNumber;
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
 }

@@ -21,7 +21,7 @@ import {
   selectMinTicketWei,
 } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
-import { selectBalance } from "../reducers/userState";
+import { selectBalance, selectReservedTicket } from "../reducers/userState";
 import { publicCommitment } from "../web3//contracts/ContractsRepository";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 
@@ -37,6 +37,7 @@ interface ICommitKnownUserContainer {
   balance: BigNumber;
   web3Provider: Web3Type;
   investorType: InvestorType;
+  reservedTicket: BigNumber;
 }
 
 export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
@@ -51,6 +52,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
   balance,
   web3Provider,
   investorType,
+  reservedTicket,
 }) => {
   return (
     <div>
@@ -75,6 +77,7 @@ export const CommitKnownUserContainer: React.SFC<ICommitKnownUserContainer> = ({
               balance={balance}
               web3Provider={web3Provider}
               investorType={investorType}
+              reservedTicket={reservedTicket}
             />
           </Col>
         </Row>
@@ -93,6 +96,7 @@ const mapStateToProps = (state: IAppState) => ({
   balance: selectBalance(state.userState),
   web3Provider: state.web3State.web3Type,
   investorType: state.userState.investorType,
+  reservedTicket: selectReservedTicket(state.userState),
 });
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

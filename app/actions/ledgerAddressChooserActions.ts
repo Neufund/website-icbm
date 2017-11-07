@@ -111,7 +111,8 @@ export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppSta
       account.address,
       account.balance,
       investorDetails.type,
-      investorDetails.preferredTicket ? investorDetails.preferredTicket.toString() : ""
+      investorDetails.reservedTicket.toString(),
+      investorDetails.reservedNeumarks.toString()
     )
   );
   dispatch(setWeb3Action(Web3Type.LEDGER));

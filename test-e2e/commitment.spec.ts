@@ -26,10 +26,10 @@ describe("Commit page", () => {
     await commitPage.commitContainer.waitFor();
     await commitPage.acceptLegalAgreement();
 
-    await commitPage.ethAmountInput.type("1");
+    await commitPage.ethAmountInput.type("2");
 
-    await waitUntilResolves(
-      async () => expect(await commitPage.estimatedReward.text()).to.be.eq("969.4493 NEU") // @todo critial: this assertion gives wrong result for whitelisted ppl
+    await waitUntilResolves(async () =>
+      expect(await commitPage.estimatedReward.text()).to.be.eq("1938.9249 NEU")
     );
     await commitPage.commitBtn.click();
 

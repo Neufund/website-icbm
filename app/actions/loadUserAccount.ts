@@ -16,7 +16,8 @@ export function setUserAccountAction(
   account: string,
   balance: string,
   investorType: InvestorType,
-  preferredTicket: string
+  preferredTicket: string,
+  reservedNeumarks: string
 ): IStandardReduxAction {
   return {
     type: SET_USER_ACCOUNT,
@@ -24,6 +25,7 @@ export function setUserAccountAction(
       balance,
       investorType,
       preferredTicket,
+      reservedNeumarks,
       address: account,
     },
   };
@@ -41,21 +43,39 @@ export function setLoadingAction(isLoading: boolean): IStandardReduxAction {
 export async function getInvestorDetails(
   address: string,
   ethEurFraction: BigNumber.BigNumber
-): Promise<{ type: InvestorType; preferredTicket?: BigNumber.BigNumber }> {
+): Promise<{
+  type: InvestorType;
+  reservedTicket: BigNumber.BigNumber;
+  reservedNeumarks: BigNumber.BigNumber;
+}> {
   if (config.contractsDeployed.commitmentType === CommitmentType.PUBLIC) {
-    return { type: InvestorType.PUBLIC };
+    return {
+      type: InvestorType.PUBLIC,
+      reservedTicket: new BigNumber.BigNumber(0),
+      reservedNeumarks: new BigNumber.BigNumber(0),
+    };
   } else {
-    const [tokenType, ticketEurUlps] = await loadWhitelistedTicket(address);
-    // if token is not specified it means its not on whiteliste
+    const [tokenType, ticketEurUlps, reservedNeumarks] = await loadWhitelistedTicket(address);
+    // if token is not specified it means its not on whitelist
     if (tokenType.eq(0)) {
-      return { type: InvestorType.NOT_ALLOWED };
+      return {
+        type: InvestorType.NOT_ALLOWED,
+        reservedTicket: new BigNumber.BigNumber(0),
+        reservedNeumarks: new BigNumber.BigNumber(0),
+      };
     } else {
       if (ticketEurUlps.greaterThan(0)) {
         const ticketInWei = convertEurToEth(new BigNumber.BigNumber(ethEurFraction), ticketEurUlps);
-        return { type: InvestorType.PRESALE, preferredTicket: ticketInWei };
+        return {
+          reservedNeumarks,
+          type: InvestorType.PRESALE,
+          reservedTicket: ticketInWei,
+        };
       } else {
         return {
           type: InvestorType.WHITELISTED,
+          reservedTicket: new BigNumber.BigNumber(0),
+          reservedNeumarks: new BigNumber.BigNumber(0),
         };
       }
     }
@@ -79,7 +99,8 @@ export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher
         account,
         balance.toString(),
         investorDetails.type,
-        investorDetails.preferredTicket ? investorDetails.preferredTicket.toString() : ""
+        investorDetails.reservedTicket.toString(),
+        investorDetails.reservedNeumarks.toString()
       )
     );
   }

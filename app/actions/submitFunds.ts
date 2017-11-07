@@ -1,14 +1,17 @@
+import * as BigNumber from "bignumber.js";
 import { ThunkAction } from "redux-thunk";
 
 import { ErrorType } from "../errors";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { selectReservedNeumarks, selectReservedTicket } from "../reducers/userState";
 import { IStandardReduxAction } from "../types";
 import { parseMoneyStrToStrStrict } from "../utils/utils";
 import { commitmentValueValidator } from "../validators/commitmentValueValidator";
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
 import { submitFundsToContract } from "../web3/submitFundsToContract";
 import { transactionConfirmation } from "../web3/transactionConfirmation";
+import { asWeiNumber } from "../web3/utils";
 import { web3ErrorHandler } from "../web3/web3ErrorHandler";
 import {
   COMMITTING_DONE,
@@ -121,11 +124,17 @@ export const calculateEstimatedReward: ThunkAction<{}, IAppState, {}> = async (
   if (commitmentValueValidator(ethAmountInput, {}, { minTicketWei }) !== undefined) {
     return dispatcher(setEstimatedRewardAction("0"));
   }
-  const parsedEthAmountInput = parseMoneyStrToStrStrict(ethAmountInput);
+  const parsedEthAmountInputInWei = new BigNumber.BigNumber(
+    asWeiNumber(parseMoneyStrToStrStrict(ethAmountInput))
+  );
 
   dispatcher(loadingEstimatedRewardAction());
 
-  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(parsedEthAmountInput);
+  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(
+    parsedEthAmountInputInWei,
+    selectReservedTicket(state.userState),
+    selectReservedNeumarks(state.userState)
+  );
 
   dispatcher(setEstimatedRewardAction(estimatedNeumarksReward.toString()));
 };

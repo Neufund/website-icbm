@@ -1,13 +1,27 @@
 import { BigNumber } from "bignumber.js";
 import { publicCommitment } from "./contracts/ContractsRepository";
-import { asWeiNumber } from "./utils";
 
 export async function estimateNeumarksRewardFromContract(
-  ethAmountInput: string
+  etherWei: BigNumber,
+  reservedTicket: BigNumber,
+  reservedNeumarks: BigNumber
 ): Promise<BigNumber> {
-  const weiAmount = asWeiNumber(ethAmountInput) as any; // @todo fix
+  let neumarkProportionReward = new BigNumber(0);
+  let curveNeumarks = new BigNumber(0);
+  let curvePart = etherWei;
 
-  const neumarks = await publicCommitment.estimateNeumarkReward(weiAmount);
+  if (reservedTicket.gt(new BigNumber(0))) {
+    const proportionPart = BigNumber.min(reservedTicket, etherWei);
+    neumarkProportionReward = proportionPart
+      .div(reservedTicket)
+      .mul(reservedNeumarks)
+      .round(0, BigNumber.ROUND_HALF_UP);
+    curvePart = curvePart.sub(proportionPart);
+  }
 
-  return neumarks; // @todo this assumes that ether and neumarks have the same decimals
+  if (curvePart.gt(0)) {
+    curveNeumarks = await publicCommitment.estimateNeumarkReward(curvePart.toString());
+  }
+
+  return neumarkProportionReward.add(curveNeumarks);
 }

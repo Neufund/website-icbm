@@ -14,7 +14,6 @@ export const transactionConfirmation = async (
     let prevBlockNo = -1;
     let startingBlock = -1;
     const requiredConfirmations = config.contractsDeployed.numberOfConfirmations;
-    const maxNumberOfBlocksToWait = config.contractsDeployed.maxNumberBlocksToWait;
     const poll = async () => {
       let currentBlockNo;
       try {
@@ -27,12 +26,6 @@ export const transactionConfirmation = async (
 
       if (startingBlock === -1) {
         startingBlock = currentBlockNo;
-      }
-
-      if (currentBlockNo - startingBlock >= maxNumberOfBlocksToWait) {
-        return reject(
-          `Your transaction has not been mined in last ${maxNumberOfBlocksToWait} blocks`
-        );
       }
 
       // console.log(`got block number ${currentBlockNo} prev block number ${prevBlockNo}`);

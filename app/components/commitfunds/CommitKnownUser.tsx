@@ -1,10 +1,14 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
+import { connect } from "react-redux";
+
 import { InvestorType, Web3Type } from "../../actions/constants";
+import { IAppState } from "../../reducers/index";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
+import { TransactionConfirmation } from "./TransactionConfirmation";
 
 interface ICommitKnownUser {
   userAddress: string;
@@ -20,10 +24,8 @@ interface ICommitKnownUser {
   investorType: InvestorType;
 }
 
-export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
+export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnownUser> = ({
   userAddress,
-  contractAddress,
-  transactionPayload,
   submitFunds,
   minTicketWei,
   calculateEstimatedReward,
@@ -32,6 +34,7 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
   balance,
   web3Provider,
   investorType,
+  showTransactionConfirmation,
 }) =>
   <div>
     <Row>
@@ -55,4 +58,23 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
         />
       </Col>
     </Row>
+    {showTransactionConfirmation &&
+      <Row>
+        <Col sm={7} md={6}>
+          <TransactionConfirmation />
+        </Col>
+      </Row>}
   </div>;
+
+interface IMapStateToProps {
+  showTransactionConfirmation: boolean;
+}
+
+const mapStateToProps = (state: IAppState) => ({
+  showTransactionConfirmation: state.transactionState.txStarted,
+});
+
+export const CommitKnownUser = connect<IMapStateToProps, null, ICommitKnownUser>(
+  mapStateToProps,
+  {}
+)(CommitKnownUserComponent);

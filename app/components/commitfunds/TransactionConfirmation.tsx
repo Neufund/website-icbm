@@ -13,28 +13,12 @@ import EtherScanLink from "../EtherScanLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import * as styles from "./TransactionConfirmation.scss";
 
-const TxSigningComponent: React.SFC<{ handleBackClick: () => void }> = ({ handleBackClick }) =>
+const TxSigningComponent: React.SFC = () =>
   <div>
-    <p>
-      Please confirm transaction using signer or{" "}
-      <a href="#" onClick={handleBackClick}>
-        back to change your commit
-      </a>.
-    </p>
+    <p>Please confirm transaction using signer.</p>
     <LoadingIndicator className={styles.loadingIndicator} />
     <p className={styles.waitingDesc}>Waiting for signing and sending to eth node.</p>
   </div>;
-
-function mapDispatchToPropsTxSigning(dispatch: Dispatch<any>) {
-  return {
-    handleBackClick: (e: any) => {
-      e.preventDefault();
-      dispatch(transactionResetAction());
-    },
-  };
-}
-
-const TxSigning = connect(null, mapDispatchToPropsTxSigning)(TxSigningComponent);
 
 const TxMiningComponent: React.SFC<{ txHash: string; blockCurrent: number }> = ({
   txHash,
@@ -136,7 +120,7 @@ export const TransactionConfirmationComponent: React.SFC<
   <div>
     {error !== null &&
       <TxErrorComponent error={error} handleResetClick={handleTransactionResetButton} />}
-    {txHash === null && <TxSigning />}
+    {txHash === null && <TxSigningComponent />}
     {txHash !== null &&
       !txConfirmed &&
       <TxMiningComponent txHash={txHash} blockCurrent={blockCurrent} />}

@@ -71,7 +71,7 @@ const TxSummaryComponent: React.SFC<{
   blockOfConfirmation: number;
   generatedNEU: string;
 }> = ({ txHash, blockOfConfirmation }) =>
-  <div>
+  <div data-test-id="transaction-summary">
     <p>
       You transaction{" "}
       <EtherScanLink

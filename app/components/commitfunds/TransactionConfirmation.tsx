@@ -100,6 +100,22 @@ const TxSummaryComponent: React.SFC<{
     <p className={styles.waitingDesc}>Transaction confirmed</p>
   </div>;
 
+const TxErrorComponent: React.SFC<{
+  error: string;
+  handleResetClick: () => void;
+}> = ({ error, handleResetClick }) =>
+  <div className={styles.error}>
+    <h3>Something went wrong :(</h3>
+    <p className={styles.desc}>
+      {error}
+    </p>
+    <div className={styles.button}>
+      <Button bsStyle="primary" onClick={handleResetClick}>
+        reset transaction
+      </Button>
+    </div>
+  </div>;
+
 interface ITransactionConfirmationExtras {
   handleGoToAftermathButton: () => void;
   handleTransactionResetButton: () => void;
@@ -119,14 +135,7 @@ export const TransactionConfirmationComponent: React.SFC<
 }) =>
   <div>
     {error !== null &&
-      <div>
-        <div className={styles.error}>
-          {error}
-        </div>
-        <Button bsStyle="primary" onClick={handleTransactionResetButton}>
-          reset transaction
-        </Button>
-      </div>}
+      <TxErrorComponent error={error} handleResetClick={handleTransactionResetButton} />}
     {txHash === null && <TxSigning />}
     {txHash !== null &&
       !txConfirmed &&

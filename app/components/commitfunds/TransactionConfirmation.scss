@@ -1,5 +1,13 @@
 .error {
-  color: #f00; // sass-lint:disable-line no-color-literals
+  .desc {
+    color: #f00; // sass-lint:disable-line no-color-literals
+  }
+
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 }
 
 .tx {

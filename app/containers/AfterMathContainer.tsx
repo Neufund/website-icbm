@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
-import LegalModal from "../components/LegalModal";
+import { LegalModal } from "../components/LegalModal";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import { IAppState } from "../reducers/index";

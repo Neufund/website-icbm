@@ -25,7 +25,7 @@ interface ILegalModalProps {
   tokenHolderAgreement: string;
 }
 
-export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
+export const LegalModalComponent: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   invalid,
   handleSubmit,
   isAccepted,
@@ -113,7 +113,7 @@ function stateToProps(state: IAppState) {
   };
 }
 
-export default compose(
+export const LegalModal = compose(
   connect(stateToProps),
   reduxForm<ILegalModalForm, ILegalModalProps>({
     form: "legalApprovalPopupForm",
@@ -121,4 +121,4 @@ export default compose(
       dispatch(legalAgreementsAcceptedAction());
     },
   })
-)(LegalModal);
+)(LegalModalComponent);

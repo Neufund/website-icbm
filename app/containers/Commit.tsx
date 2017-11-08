@@ -4,15 +4,16 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 import { Grid } from "react-bootstrap";
-import { initCommit } from "../actions/commit";
+import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
+import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import WalletSelector from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
-import { selectIsKnownUser, selectLoading } from "../reducers/userState";
+import { selectIsKnownUser } from "../reducers/userState";
 import { selectWeb3Type } from "../reducers/web3State";
 
 interface ICommitComponent {
@@ -58,6 +59,7 @@ class Commit extends React.Component<ICommitComponent> {
 
     return (
       <div>
+        <LegalModal />
         <Grid>
           <WhitelistedCommitmentNote />
           <CommitHeaderComponent number="01" title="Commit funds" />
@@ -73,7 +75,7 @@ const mapStateToProps = (state: IAppState) => {
   return {
     fatalError: state.fatalErrorState.fatalError,
     isKnownUser: selectIsKnownUser(state.userState, state.web3State),
-    isLoading: selectLoading(state.userState),
+    isLoading: state.commitmentState.loading,
     web3Type: selectWeb3Type(state.web3State),
   };
 };

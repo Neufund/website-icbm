@@ -26,8 +26,8 @@ const initialState: IUserState = {
   derivationPath: null,
   balance: null,
   investorType: null,
-  reservedTicket: null,
-  reservedNeumarks: null,
+  reservedTicket: "0",
+  reservedNeumarks: "0",
 };
 
 const reducer: Reducer<IUserState> = (state = initialState, action) => {

@@ -6,7 +6,11 @@ import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
 
 import config from "./config";
-import { LedgerNotSupportedVersionError } from "./errors";
+import {
+  LedgerNotAvailableError,
+  LedgerNotSupportedVersionError,
+  LedgerTimeoutError,
+} from "./errors";
 
 const CHECK_INTERVAL = 1000;
 
@@ -72,7 +76,11 @@ async function getLedgerConfig(ledgerInstance: any): Promise<ILedgerConfig> {
     ledgerInstance
       .getAppConfig((error: any, data: ILedgerConfig) => {
         if (error) {
-          reject(error);
+          if (error.message === "Timeout") {
+            reject(new LedgerNotAvailableError());
+          } else {
+            reject(error);
+          }
         } else {
           resolve(data);
         }

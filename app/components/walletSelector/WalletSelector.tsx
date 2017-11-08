@@ -34,19 +34,31 @@ export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
   return (
     <div>
       <div className={styles.walletSelector}>
-        <WalletTab active={walletInBrowserSelected} onSelect={walletInBrowserSelectedAction}>
+        <WalletTab
+          active={walletInBrowserSelected}
+          onSelect={walletInBrowserSelectedAction}
+          data-test-id="wallet-selector-browser"
+        >
           <HiResImage
             partialPath="wallet_selector/icon_wallet"
             className={styles.walletIcon}
           />Wallet in Browser
         </WalletTab>
-        <WalletTab active={ledgerWalletSelected} onSelect={ledgerWalletSelectedAction}>
+        <WalletTab
+          active={ledgerWalletSelected}
+          onSelect={ledgerWalletSelectedAction}
+          data-test-id="wallet-selector-ledger"
+        >
           <HiResImage
             partialPath="wallet_selector/icon_ledger"
             className={styles.walletIcon}
           />Ledger Wallet
         </WalletTab>
-        <WalletTab active={otherWalletSelected} onSelect={otherWalletSelectedAction}>
+        <WalletTab
+          active={otherWalletSelected}
+          onSelect={otherWalletSelectedAction}
+          data-test-id="wallet-selector-other"
+        >
           <HiResImage
             partialPath="wallet_selector/icon_other_wallet"
             className={styles.walletIcon}
@@ -67,9 +79,9 @@ interface IWalletTab {
   onSelect: () => any;
 }
 
-const WalletTab: React.SFC<IWalletTab> = ({ active, onSelect, children }) => {
+const WalletTab: React.SFC<IWalletTab> = ({ active, onSelect, children, ...props }) => {
   return (
-    <div className={cn(styles.walletTab, { active })} onClick={onSelect}>
+    <div className={cn(styles.walletTab, { active })} onClick={onSelect} {...props}>
       <div className={styles.walletTabTitle}>
         {children}
       </div>

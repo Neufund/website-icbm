@@ -10,6 +10,8 @@ $press-carousel-breakpoint: 1200px;
     width: 162px;
     text-align: center;
     line-height: 60px;
+    flex-grow: 1;
+    flex-basis: 0;
   }
 
   img {

@@ -33,6 +33,7 @@ const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
     case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
       return {
         ...initialState,
+        ethNetworkId: state.ethNetworkId,
       };
     case SET_ETH_NETWORK:
       return {

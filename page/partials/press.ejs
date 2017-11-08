@@ -1,6 +1,6 @@
 <div class="section press shadow-background">
     <div class="flex-row">
-        <% for ( var i = 0 ; i < links.length ; i++ ) { %>
+        <% for ( var i = 0 ; i < 5 ; i++ ) { %>
         <div class="img-container">
           <% if (links[i].link) { %>
           <a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>"/></a>
@@ -10,6 +10,18 @@
         </div>
         <% } %>
     </div>
+    <div class="flex-row">
+        <% for ( var i = 4 ; i < links.length ; i++ ) { %>
+        <div class="img-container">
+          <% if (links[i].link) { %>
+          <a target="_blank" href="<%= links[i].link -%>" ><img src="<%= links[i].img -%>"/></a>
+          <% } else { %>
+          <img src="<%= links[i].img -%>"/>
+          <% } %>
+        </div>
+        <% } %>
+    </div>
+    
     <div class="carousel-wrapper">
         <div class="carousel-frame">
             <ul class="carousel-slides">

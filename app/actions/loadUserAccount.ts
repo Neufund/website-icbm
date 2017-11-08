@@ -4,16 +4,12 @@ import { ThunkAction } from "redux-thunk";
 import config, { CommitmentType } from "../config";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
-import {
-  getBalanceFromWeb3,
-  loadUserAccountFromWeb3,
-  loadWhitelistedTicket,
-} from "../web3/loadUserAccountFromWeb3";
+import { getBalanceFromWeb3, loadWhitelistedTicket } from "../web3/loadUserAccountFromWeb3";
 import { convertEurToEth } from "../web3/utils";
 import { InvestorType, SET_LOADING_USER_ACCOUNT, SET_USER_ACCOUNT } from "./constants";
 
 export function setUserAccountAction(
-  account: string,
+  address: string,
   balance: string,
   investorType: InvestorType,
   preferredTicket: string,
@@ -26,7 +22,7 @@ export function setUserAccountAction(
       investorType,
       preferredTicket,
       reservedNeumarks,
-      address: account,
+      address,
     },
   };
 }
@@ -82,21 +78,22 @@ export async function getInvestorDetails(
   }
 }
 
-export const loadUserAccount: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {
+export const loadUserAccount: (address: string) => ThunkAction<{}, IAppState, {}> = (
+  address: string
+) => async (dispatcher, getState) => {
   const state = getState();
-
-  const account = await loadUserAccountFromWeb3();
   const { userState } = getState();
-  if (account && account !== userState.address) {
-    const balance = await getBalanceFromWeb3(account);
+
+  if (address !== userState.address) {
+    const balance = await getBalanceFromWeb3(address);
     const investorDetails = await getInvestorDetails(
-      account,
+      address,
       new BigNumber.BigNumber(state.commitmentState.ethEurFraction)
     );
 
     dispatcher(
       setUserAccountAction(
-        account,
+        address,
         balance.toString(),
         investorDetails.type,
         investorDetails.reservedTicket.toString(),

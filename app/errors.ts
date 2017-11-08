@@ -11,6 +11,7 @@ export enum ErrorType {
   MissingContractError = "MissingContractError",
   ETHNodeConnectionError = "ETHNodeConnectionError",
   MismatchedNetworkError = "MismatchedNetworkError",
+  WalletLockedError = "WalletLockedError",
   NoInjectedWeb3Error = "NoInjectedWeb3Error",
   UserDeniedTransaction = "UserDeniedTransaction",
   NotEnoughFundsError = "NotEnoughFundsError",
@@ -74,6 +75,15 @@ export class MismatchedNetworkError extends NeufundError {
     super(
       ErrorType.MismatchedNetworkError,
       `Your wallet is connected to wrong network: ${networkName}.`
+    );
+  }
+}
+
+export class WalletLockedError extends NeufundError {
+  constructor() {
+    super(
+      ErrorType.WalletLockedError,
+      `Your wallet seems to be locked — we can't access any accounts.`
     );
   }
 }

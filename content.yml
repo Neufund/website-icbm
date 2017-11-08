@@ -39,7 +39,7 @@ participating:
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
-      target: "https://neufund.org/whitepaper/"
+      target: "/whitepaper"
       downloadable: true
     - link: "Roadmap"
       target: "https://neufund.org/roadmap/"
@@ -475,9 +475,9 @@ ecosystem:
     title: "In Depth"
     links:
     - link: "Whitepaper"
-      href: "https://neufund.org/whitepaper/"
+      href: "/whitepaper"
     - link: "Lightpaper"
-      href: "https://neufund.org/lightpaper/"
+      href: "/lightpaper"
       new: true
     - link: "Roadmap"
       href: "https://neufund.org/roadmap/"
@@ -489,7 +489,7 @@ ecosystem:
     - link: "Token Reservation Agreement"
       href: "https://github.com/Neufund/ico-contracts/raw/master/legal/RESERVATION%20AGREEMENT.docx"
     - link: 'ICBM announcement'
-      href: "https://neufund.org/announcement"
+      href: "/icbm-announcement"
       keyRead: true
     - link: "Smart Contracts on Github"
       href: "https://github.com/Neufund/ico-contracts"
@@ -529,7 +529,7 @@ footer:
   platform_txt: "Platform"
   platform_url: "/product"
   whitepaper_txt: "Whitepaper"
-  whitepaper_url: "https://neufund.org/whitepaper/"
+  whitepaper_url: "/whitepaper"
   faq_txt: "FAQ"
   faq_url: "/faq"
   website_txt: "neufund.org"

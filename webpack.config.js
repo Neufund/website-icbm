@@ -42,7 +42,7 @@ module.exports = {
     historyApiFallback: {
       verbose: true,
       rewrites: [
-         { from: /\/commit\/aftermath/, to: '/commit.html' }
+         { from: /^\/commit/, to: '/commit.html' }
       ]
     },
     // respond to 404s with index.html
@@ -139,6 +139,7 @@ module.exports = {
         loader: "url-loader",
         options: {
           limit: 25000,
+          publicPath: '/'
         },
       },
       {

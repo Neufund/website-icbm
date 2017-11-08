@@ -10,7 +10,7 @@ import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderCom
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-import WalletSelector from "../components/walletSelector/WalletSelector";
+import { WalletSelectorComponent } from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser } from "../reducers/userState";
@@ -24,7 +24,7 @@ interface ICommitComponent {
   web3Type: Web3Type;
 }
 
-class Commit extends React.Component<ICommitComponent> {
+class CommitLayoutComponent extends React.Component<ICommitComponent> {
   constructor(props: ICommitComponent) {
     super(props);
     this.state = {
@@ -49,22 +49,12 @@ class Commit extends React.Component<ICommitComponent> {
       return <LoadingIndicator />;
     }
 
-    if (this.props.children !== null) {
-      return (
-        <div>
-          {this.props.children}
-        </div>
-      );
-    }
-
     return (
       <div>
-        <LegalModal />
         <Grid className="full-height-container">
+          <LegalModal />
           <WhitelistedCommitmentNote />
-          <CommitHeaderComponent number="01" title="Commit funds" />
-          <p>Please select source of your cryptocurrency.</p>
-          <WalletSelector />
+          {this.props.children}
         </Grid>
       </div>
     );
@@ -86,4 +76,4 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Commit);
+export const CommitLayout = connect(mapStateToProps, mapDispatchToProps)(CommitLayoutComponent);

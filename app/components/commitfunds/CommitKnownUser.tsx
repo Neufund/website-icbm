@@ -34,7 +34,7 @@ interface ICommitKnownUser {
   reservedTicket: BigNumber;
 }
 
-export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnownUser> = ({
+export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
   userAddress,
   submitFunds,
   minTicketWei,
@@ -44,7 +44,6 @@ export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnown
   balance,
   web3Provider,
   investorType,
-  showTransactionConfirmation,
   reservedTicket,
 }) =>
   <div>
@@ -71,17 +70,7 @@ export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnown
         />
       </Col>
     </Row>
-    {showTransactionConfirmation &&
-      <Row>
-        <Col xs={12}>
-          <TransactionConfirmation />
-        </Col>
-      </Row>}
   </div>;
-
-interface IMapStateToProps {
-  showTransactionConfirmation: boolean;
-}
 
 export const CommitKnownUser = connect(
   (state: IAppState) => ({
@@ -94,7 +83,6 @@ export const CommitKnownUser = connect(
     web3Provider: state.web3State.web3Type,
     investorType: state.userState.investorType,
     reservedTicket: selectReservedTicket(state.userState),
-    showTransactionConfirmation: state.transactionState.txStarted,
   }),
   dispatch => ({
     submitFunds: (values: ICommitKnownUserFormValues) => dispatch(submitFunds(values.ethAmount)),

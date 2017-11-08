@@ -2,12 +2,13 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { browserHistory, Route, Router } from "react-router";
+import { browserHistory, IndexRedirect, Redirect, Route, Router } from "react-router";
 import { syncHistoryWithStore } from "react-router-redux";
 import { ToastContainer } from "react-toastify";
 
+import { WalletSelector } from "./components/walletSelector/WalletSelector";
 import AfterMathContainer from "./containers/AfterMathContainer";
-import Commit from "./containers/Commit";
+import { CommitLayout } from "./containers/CommitLayout";
 import muiTheme from "./muiTheme";
 import { startup } from "./startup";
 
@@ -28,7 +29,10 @@ const render = (storage: any) => {
             pauseOnHover
           />
           <Router history={history}>
-            <Route path="/commit" component={Commit}>
+            <Route path="/commit" component={CommitLayout}>
+              <IndexRedirect to="/commit/wallet-selector" />
+
+              <Route path="wallet-selector" component={WalletSelector} />
               <Route path="aftermath" component={AfterMathContainer} />
             </Route>
           </Router>

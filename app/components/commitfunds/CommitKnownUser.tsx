@@ -17,7 +17,6 @@ import { selectBalance, selectReservedTicket } from "../../reducers/userState";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
-import { TransactionConfirmation } from "./TransactionConfirmation";
 
 interface ICommitKnownUser {
   submitFunds: (values: ICommitKnownUserFormValues) => any;

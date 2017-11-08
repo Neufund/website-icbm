@@ -6,11 +6,9 @@ import { Dispatch } from "redux";
 
 import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
-import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-import { WalletSelectorComponent } from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser } from "../reducers/userState";

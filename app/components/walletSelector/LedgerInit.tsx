@@ -28,7 +28,7 @@ export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage 
       <HiResImage partialPath="wallet_selector/ledger_ethereum" className="img-responsive" />
     </div>
 
-    <p>
+    <div className={styles.steps}>
       Go to settings and set:
       <ul>
         <li>
@@ -38,7 +38,7 @@ export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage 
           Browser Support: <strong>Yes</strong>
         </li>
       </ul>
-    </p>
+    </div>
     {errorMessage &&
       <Alert bsStyle="danger">
         <h4>Error occured!</h4>

@@ -6,6 +6,9 @@ import {
   LOAD_ICO_PARAMS,
   NEW_PHASE_ACTION,
   SET_ESTIMATED_REWARD,
+  WALLET_SELECTOR_LEDGER_WALLET_SELECTED,
+  WALLET_SELECTOR_OTHER_WALLET_SELECTED,
+  WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED,
 } from "../actions/constants";
 import { Reducer } from "../types";
 
@@ -56,7 +59,6 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         ...state,
         commitmentState: payload,
       };
-
     case LOAD_ESTIMATED_REWARD:
       return {
         ...state,
@@ -68,6 +70,14 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         ...state,
         loadingEstimatedReward: false,
         estimatedReward: payload.estimatedReward,
+      };
+    case WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED:
+    case WALLET_SELECTOR_LEDGER_WALLET_SELECTED:
+    case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
+      return {
+        ...state,
+        loadingEstimatedReward: false,
+        estimatedReward: "0",
       };
     default:
       return state;

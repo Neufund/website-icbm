@@ -6,11 +6,7 @@ import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
 
 import config from "./config";
-import {
-  LedgerNotAvailableError,
-  LedgerNotSupportedVersionError,
-  LedgerTimeoutError,
-} from "./errors";
+import { LedgerNotAvailableError, LedgerNotSupportedVersionError } from "./errors";
 
 const CHECK_INTERVAL = 1000;
 

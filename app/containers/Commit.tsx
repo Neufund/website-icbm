@@ -1,9 +1,9 @@
 import * as jQuery from "jquery";
 import * as React from "react";
+import { Grid } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { Grid } from "react-bootstrap";
 import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
@@ -60,7 +60,7 @@ class Commit extends React.Component<ICommitComponent> {
     return (
       <div>
         <LegalModal />
-        <Grid>
+        <Grid className="full-height-container">
           <WhitelistedCommitmentNote />
           <CommitHeaderComponent number="01" title="Commit funds" />
           <p>Please select source of your cryptocurrency.</p>

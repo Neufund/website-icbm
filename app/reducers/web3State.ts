@@ -1,14 +1,15 @@
 import { EthNetwork, SET_ETH_NETWORK, SET_WEB3_TYPE, Web3Type } from "../actions/constants";
 import { Reducer } from "../types";
+import { networkIdToEthNetwork } from "../web3/utils";
 
 export interface IWeb3State {
   web3Type: Web3Type;
-  ethNetwork: EthNetwork;
+  ethNetworkId: string;
 }
 
 const initialState: IWeb3State = {
   web3Type: Web3Type.UNKNOWN,
-  ethNetwork: null,
+  ethNetworkId: null,
 };
 
 const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
@@ -22,7 +23,7 @@ const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
     case SET_ETH_NETWORK:
       return {
         ...state,
-        ethNetwork: payload.ethNetwork,
+        ethNetworkId: payload.ethNetworkId,
       };
     default:
       return state;
@@ -36,7 +37,7 @@ export function selectWeb3Type(state: IWeb3State): Web3Type {
 }
 
 export function selectEthNetwork(state: IWeb3State): EthNetwork {
-  return state.ethNetwork;
+  return networkIdToEthNetwork(state.ethNetworkId);
 }
 
 export function selectIsLedgerSelected(state: IWeb3State): boolean {

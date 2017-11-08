@@ -10,6 +10,7 @@ import {
 import { IAppState } from "../../reducers/index";
 import { CommitUnknownUser } from "../commitfunds/CommitUnknownUser";
 import { HiResImage } from "../HiResImage";
+import { LedgerWallet } from "./LedgerWallet";
 import { WalletInBrowser } from "./WalletInBrowser";
 import * as styles from "./WalletSelector.scss";
 
@@ -54,6 +55,7 @@ export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
       </div>
       <div>
         {walletInBrowserSelected && <WalletInBrowser />}
+        {ledgerWalletSelected && <LedgerWallet />}
         {otherWalletSelected && <CommitUnknownUser />}
       </div>
     </div>

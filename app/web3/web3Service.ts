@@ -9,7 +9,7 @@ import { setWeb3Action } from "../actions/web3";
 import config from "../config";
 import { MismatchedNetworkError, NoInjectedWeb3Error, WalletLockedError } from "../errors";
 import { IAppState } from "../reducers/index";
-import { getNetworkId, getNodeType } from "./utils";
+import { getNetworkId, getNodeType, networkIdToEthNetwork } from "./utils";
 
 export interface IAccountInfo {
   address: string;
@@ -77,7 +77,7 @@ export class Web3Service {
     const internalWeb3NetworkId = await getNetworkId(this.rawWeb3);
     const personalWeb3NetworkId = await getNetworkId(newWeb3);
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
-      throw new MismatchedNetworkError(EthNetwork[personalWeb3NetworkId]);
+      throw new MismatchedNetworkError(EthNetwork[networkIdToEthNetwork(personalWeb3NetworkId)]);
     }
 
     await this.loadAccount(newWeb3);

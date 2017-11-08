@@ -1,4 +1,6 @@
 import {
+  WALLET_SELECTOR_CONNECTED_TO_LEDGER,
+  WALLET_SELECTOR_LEDGER_WALLET_ERROR,
   WALLET_SELECTOR_LEDGER_WALLET_SELECTED,
   WALLET_SELECTOR_OTHER_WALLET_SELECTED,
   WALLET_SELECTOR_WALLET_IN_BROWSER_ERROR,
@@ -11,6 +13,9 @@ export interface IWalletSelectorState {
   walletInBrowserInitialized: boolean;
   walletInBrowserError: string;
   ledgerWalletSelected: boolean;
+  ledgerWalletConnected: boolean;
+  ledgerWalletInitialized: boolean;
+  ledgerWalletError: string;
   otherWalletSelected: boolean;
 }
 
@@ -19,6 +24,9 @@ const initialState: IWalletSelectorState = {
   walletInBrowserInitialized: false,
   walletInBrowserError: null,
   ledgerWalletSelected: false,
+  ledgerWalletInitialized: false,
+  ledgerWalletConnected: false,
+  ledgerWalletError: null,
   otherWalletSelected: true,
 };
 
@@ -27,11 +35,9 @@ const reducer: Reducer<IWalletSelectorState> = (state = initialState, action) =>
   switch (type) {
     case WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED:
       return {
-        ...state,
-        walletInBrowserSelected: true,
-        walletInBrowserError: null,
-        ledgerWalletSelected: false,
+        ...initialState,
         otherWalletSelected: false,
+        walletInBrowserSelected: true,
       };
     case WALLET_SELECTOR_WALLET_IN_BROWSER_ERROR:
       return {
@@ -40,17 +46,23 @@ const reducer: Reducer<IWalletSelectorState> = (state = initialState, action) =>
       };
     case WALLET_SELECTOR_LEDGER_WALLET_SELECTED:
       return {
-        ...state,
-        walletInBrowserSelected: false,
-        ledgerWalletSelected: true,
+        ...initialState,
         otherWalletSelected: false,
+        ledgerWalletSelected: true,
+      };
+    case WALLET_SELECTOR_LEDGER_WALLET_ERROR:
+      return {
+        ...state,
+        ledgerWalletError: payload.message,
+      };
+    case WALLET_SELECTOR_CONNECTED_TO_LEDGER:
+      return {
+        ...state,
+        ledgerWalletConnected: true,
       };
     case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
       return {
-        ...state,
-        walletInBrowserSelected: false,
-        ledgerWalletSelected: false,
-        otherWalletSelected: true,
+        ...initialState,
       };
     default:
       return state;

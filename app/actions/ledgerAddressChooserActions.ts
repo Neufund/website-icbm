@@ -1,4 +1,3 @@
-import * as BigNumber from "bignumber.js";
 import { toPairs, zip } from "lodash";
 import { ThunkAction } from "redux-thunk";
 
@@ -12,11 +11,7 @@ import {
   LEDGER_GET_ADDRESSES_LOADING,
   LEDGER_NEXT_PAGE,
   LEDGER_PREV_PAGE,
-  Web3Type,
 } from "./constants";
-import { getInvestorDetails, setUserAccountAction } from "./loadUserAccount";
-import { finishSelectionAction } from "./walletSelectorActions";
-import { setWeb3Action } from "./web3";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
 
@@ -93,28 +88,28 @@ export const changeDerivationPath: (
   return dispatch(ledgerGetAddresses);
 };
 
-export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppState, {}> = (
-  account: ILedgerAccount
-) => async (dispatch, getState) => {
-  const state = getState();
-  Web3Service.instance.stopWatchingAccounts();
-  Web3Service.instance.personalWeb3 = LedgerService.instance.ledgerWeb3;
-  LedgerService.instance.ledgerInstance.setDerivationPath(account.derivationPath);
+// export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppState, {}> = (
+//   account: ILedgerAccount
+// ) => async (dispatch, getState) => {
+//   const state = getState();
+//   Web3Service.instance.stopWatchingAccounts();
+//   Web3Service.instance.personalWeb3 = LedgerService.instance.ledgerWeb3;
+//   LedgerService.instance.ledgerInstance.setDerivationPath(account.derivationPath);
 
-  const investorDetails = await getInvestorDetails(
-    account.address,
-    new BigNumber.BigNumber(state.commitmentState.ethEurFraction)
-  );
+//   const investorDetails = await getInvestorDetails(
+//     account.address,
+//     new BigNumber.BigNumber(state.commitmentState.ethEurFraction)
+//   );
 
-  dispatch(
-    setUserAccountAction(
-      account.address,
-      account.balance,
-      investorDetails.type,
-      investorDetails.reservedTicket.toString(),
-      investorDetails.reservedNeumarks.toString()
-    )
-  );
-  dispatch(setWeb3Action(Web3Type.LEDGER));
-  dispatch(finishSelectionAction());
-};
+//   dispatch(
+//     setUserAccountAction(
+//       account.address,
+//       account.balance,
+//       investorDetails.type,
+//       investorDetails.reservedTicket.toString(),
+//       investorDetails.reservedNeumarks.toString()
+//     )
+//   );
+//   dispatch(setWeb3Action(Web3Type.LEDGER));
+//   dispatch(finishSelectionAction());
+// };

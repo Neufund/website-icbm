@@ -2,54 +2,58 @@ import * as cn from "classnames";
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { Web3Type } from "../../actions/constants";
 import {
-  initEthBrowserSelectionAction,
-  initLedgerSelectionAction,
+  ledgerWalletSelectedAction,
+  otherWalletSelectedAction,
+  walletInBrowserSelectedAction,
 } from "../../actions/walletSelectorActions";
-import { setWeb3Action } from "../../actions/web3";
 import { IAppState } from "../../reducers/index";
-import {
-  selectEthBrowserWalletSelected,
-  selectIsLedgerSelected,
-  selectNoWalletSelected,
-} from "../../reducers/web3State";
 import { HiResImage } from "../HiResImage";
+import { WalletInBrowser } from "./WalletInBrowser";
 import * as styles from "./WalletSelector.scss";
 
 interface IWalletSelectorProps {
-  initEthBrowser: () => any;
-  initLedgerSelection: () => any;
-  selectNoWallet: () => any;
-  isEthBrowserSelected: boolean;
-  isLedgerSelected: boolean;
-  isNoWalletSelected: boolean;
+  walletInBrowserSelectedAction: () => any;
+  ledgerWalletSelectedAction: () => any;
+  otherWalletSelectedAction: () => any;
+  walletInBrowserSelected: boolean;
+  ledgerWalletSelected: boolean;
+  otherWalletSelected: boolean;
 }
 
 export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
-  isEthBrowserSelected,
-  isLedgerSelected,
-  isNoWalletSelected,
-  initEthBrowser,
-  initLedgerSelection,
-  selectNoWallet,
+  walletInBrowserSelected,
+  ledgerWalletSelected,
+  otherWalletSelected,
+  walletInBrowserSelectedAction,
+  ledgerWalletSelectedAction,
+  otherWalletSelectedAction,
 }) => {
   return (
-    <div className={styles.walletSelector}>
-      <WalletTab active={isEthBrowserSelected} onSelect={initEthBrowser}>
-        <HiResImage partialPath="wallet_selector/icon_wallet" className={styles.walletIcon} />Wallet
-        in Browser
-      </WalletTab>
-      <WalletTab active={isLedgerSelected} onSelect={initLedgerSelection}>
-        <HiResImage partialPath="wallet_selector/icon_ledger" className={styles.walletIcon} />Ledger
-        Wallet
-      </WalletTab>
-      <WalletTab active={isNoWalletSelected} onSelect={selectNoWallet}>
-        <HiResImage
-          partialPath="wallet_selector/icon_other_wallet"
-          className={styles.walletIcon}
-        />Other Wallet
-      </WalletTab>
+    <div>
+      <div className={styles.walletSelector}>
+        <WalletTab active={walletInBrowserSelected} onSelect={walletInBrowserSelectedAction}>
+          <HiResImage
+            partialPath="wallet_selector/icon_wallet"
+            className={styles.walletIcon}
+          />Wallet in Browser
+        </WalletTab>
+        <WalletTab active={ledgerWalletSelected} onSelect={ledgerWalletSelectedAction}>
+          <HiResImage
+            partialPath="wallet_selector/icon_ledger"
+            className={styles.walletIcon}
+          />Ledger Wallet
+        </WalletTab>
+        <WalletTab active={otherWalletSelected} onSelect={otherWalletSelectedAction}>
+          <HiResImage
+            partialPath="wallet_selector/icon_other_wallet"
+            className={styles.walletIcon}
+          />Other Wallet
+        </WalletTab>
+      </div>
+      <div>
+        {walletInBrowserSelected && <WalletInBrowser />}
+      </div>
     </div>
   );
 };
@@ -71,13 +75,13 @@ const WalletTab: React.SFC<IWalletTab> = ({ active, onSelect, children }) => {
 
 export default connect(
   (state: IAppState) => ({
-    isEthBrowserSelected: selectEthBrowserWalletSelected(state.web3State),
-    isLedgerSelected: selectIsLedgerSelected(state.web3State),
-    isNoWalletSelected: selectNoWalletSelected(state.web3State),
+    walletInBrowserSelected: state.walletSelectorState.walletInBrowserSelected,
+    ledgerWalletSelected: state.walletSelectorState.ledgerWalletSelected,
+    otherWalletSelected: state.walletSelectorState.otherWalletSelected,
   }),
   dispatch => ({
-    initEthBrowser: () => dispatch(initEthBrowserSelectionAction()),
-    initLedgerSelection: () => dispatch(initLedgerSelectionAction()),
-    selectNoWallet: () => dispatch(setWeb3Action(Web3Type.UNKNOWN)),
+    walletInBrowserSelectedAction: () => dispatch(walletInBrowserSelectedAction()),
+    ledgerWalletSelectedAction: () => dispatch(ledgerWalletSelectedAction()),
+    otherWalletSelectedAction: () => dispatch(otherWalletSelectedAction()),
   })
 )(WalletSelector);

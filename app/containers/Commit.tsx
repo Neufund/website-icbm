@@ -38,7 +38,7 @@ class Commit extends React.Component<ICommitComponent> {
   }
 
   public render() {
-    const { fatalError, isKnownUser, isLoading } = this.props;
+    const { fatalError, isLoading } = this.props;
 
     if (fatalError) {
       return <FatalErrorComponent fatalError={fatalError} />;

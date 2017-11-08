@@ -1,44 +1,56 @@
 import {
-  WALLET_SELECTOR_CONNECTED_TO_LEDGER,
-  WALLET_SELECTOR_FINISH,
-  WALLET_SELECTOR_INIT_ETH_BROWSER_SELECTION,
-  WALLET_SELECTOR_INIT_LEDGER_SELECTION,
+  WALLET_SELECTOR_LEDGER_WALLET_SELECTED,
+  WALLET_SELECTOR_OTHER_WALLET_SELECTED,
+  WALLET_SELECTOR_WALLET_IN_BROWSER_ERROR,
+  WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED,
 } from "../actions/constants";
 import { Reducer } from "../types";
 
 export interface IWalletSelectorState {
-  ledgerIntegrationInProgress: boolean;
-  ledgerIntegrationConnected: boolean;
-  ethBrowserInProgress: boolean;
+  walletInBrowserSelected: boolean;
+  walletInBrowserInitialized: boolean;
+  walletInBrowserError: string;
+  ledgerWalletSelected: boolean;
+  otherWalletSelected: boolean;
 }
 
 const initialState: IWalletSelectorState = {
-  ledgerIntegrationInProgress: false,
-  ledgerIntegrationConnected: false,
-  ethBrowserInProgress: false,
+  walletInBrowserSelected: false,
+  walletInBrowserInitialized: false,
+  walletInBrowserError: null,
+  ledgerWalletSelected: false,
+  otherWalletSelected: true,
 };
 
 const reducer: Reducer<IWalletSelectorState> = (state = initialState, action) => {
-  const { type } = action;
+  const { type, payload } = action;
   switch (type) {
-    case WALLET_SELECTOR_INIT_LEDGER_SELECTION:
+    case WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED:
       return {
         ...state,
-        ledgerIntegrationInProgress: true,
+        walletInBrowserSelected: true,
+        walletInBrowserError: null,
+        ledgerWalletSelected: false,
+        otherWalletSelected: false,
       };
-    case WALLET_SELECTOR_INIT_ETH_BROWSER_SELECTION:
+    case WALLET_SELECTOR_WALLET_IN_BROWSER_ERROR:
       return {
         ...state,
-        ethBrowserInProgress: true,
+        walletInBrowserError: payload.message,
       };
-    case WALLET_SELECTOR_CONNECTED_TO_LEDGER:
+    case WALLET_SELECTOR_LEDGER_WALLET_SELECTED:
       return {
         ...state,
-        ledgerIntegrationConnected: true,
+        walletInBrowserSelected: false,
+        ledgerWalletSelected: true,
+        otherWalletSelected: false,
       };
-    case WALLET_SELECTOR_FINISH:
+    case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
       return {
-        ...initialState,
+        ...state,
+        walletInBrowserSelected: false,
+        ledgerWalletSelected: false,
+        otherWalletSelected: true,
       };
     default:
       return state;
@@ -47,6 +59,6 @@ const reducer: Reducer<IWalletSelectorState> = (state = initialState, action) =>
 
 export default reducer;
 
-export function selectShouldDisplayIntegrationModal(state: IWalletSelectorState) {
-  return state.ledgerIntegrationInProgress || state.ethBrowserInProgress;
-}
+// export function selectShouldDisplayIntegrationModal(state: IWalletSelectorState) {
+//   return state.ledgerIntegrationInProgress || state.ethBrowserIntegrationInProgress;
+// }

@@ -50,12 +50,12 @@ $height: 64px;
 
   @media (max-width: $screen-xs-max) {
     .wallet-tab-title {
-      text-align: center;
       margin-bottom: 5px;
+      text-align: center;
 
       .wallet-icon {
         display: block;
-        margin: 0 auto 0 auto;
+        margin: 0 auto;
         margin-bottom: 2px;
       }
     }

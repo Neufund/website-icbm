@@ -1,3 +1,4 @@
+import { noop } from "lodash";
 import { CheckboxProps } from "material-ui";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
@@ -5,18 +6,15 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { Checkbox } from "redux-form-material-ui";
-import { requiredFieldValidator } from "../validators/requiredFieldValidator";
 
 import { legalAgreementsAcceptedAction } from "../actions/legalAgreement";
 import { IAppState } from "../reducers/index";
 import { selectIsAccepted } from "../reducers/legalAgreementState";
+import { requiredFieldValidator } from "../validators/requiredFieldValidator";
 import { IFrame } from "./IFrame";
 import * as styles from "./LegalModal.scss";
 
 const CheckboxField = Field as { new (): Field<CheckboxProps> };
-
-// tslint:disable-next-line
-const noop = () => {};
 
 interface ILegalModalProps {
   isAccepted: boolean;

@@ -22,7 +22,7 @@ export class LedgerService {
     LedgerService._instance = new LedgerService(ledgerInstance, ledgerWeb3);
   }
 
-  public static async deinit() {
+  public static deinit() {
     LedgerService._instance = null;
   }
 

@@ -1,4 +1,12 @@
-import { EthNetwork, SET_ETH_NETWORK, SET_WEB3_TYPE, Web3Type } from "../actions/constants";
+import {
+  EthNetwork,
+  SET_ETH_NETWORK,
+  SET_WEB3_TYPE,
+  WALLET_SELECTOR_LEDGER_WALLET_SELECTED,
+  WALLET_SELECTOR_OTHER_WALLET_SELECTED,
+  WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED,
+  Web3Type,
+} from "../actions/constants";
 import { Reducer } from "../types";
 import { networkIdToEthNetwork } from "../web3/utils";
 
@@ -19,6 +27,12 @@ const reducer: Reducer<IWeb3State> = (state = initialState, action) => {
       return {
         ...state,
         web3Type: payload.web3Type,
+      };
+    case WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED:
+    case WALLET_SELECTOR_LEDGER_WALLET_SELECTED:
+    case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
+      return {
+        ...initialState,
       };
     case SET_ETH_NETWORK:
       return {

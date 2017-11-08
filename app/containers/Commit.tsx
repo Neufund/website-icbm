@@ -3,15 +3,18 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { initCommit } from "../actions/commit";
+import { Grid } from "react-bootstrap";
+import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
+import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
+import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
+import WalletSelector from "../components/walletSelector/WalletSelector";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
-import { selectIsKnownUser, selectLoading } from "../reducers/userState";
+import { selectIsKnownUser } from "../reducers/userState";
 import { selectWeb3Type } from "../reducers/web3State";
-import CommitKnownUserContainer from "./CommitKnownUserContainer";
-import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
 interface ICommitComponent {
   fatalError: string;
@@ -36,7 +39,7 @@ class Commit extends React.Component<ICommitComponent> {
   }
 
   public render() {
-    const { fatalError, isKnownUser, isLoading } = this.props;
+    const { fatalError, isLoading } = this.props;
 
     if (fatalError) {
       return <FatalErrorComponent fatalError={fatalError} />;
@@ -54,7 +57,17 @@ class Commit extends React.Component<ICommitComponent> {
       );
     }
 
-    return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
+    return (
+      <div>
+        <LegalModal />
+        <Grid>
+          <WhitelistedCommitmentNote />
+          <CommitHeaderComponent number="01" title="Commit funds" />
+          <p>Please select source of your cryptocurrency.</p>
+          <WalletSelector />
+        </Grid>
+      </div>
+    );
   }
 }
 
@@ -62,7 +75,7 @@ const mapStateToProps = (state: IAppState) => {
   return {
     fatalError: state.fatalErrorState.fatalError,
     isKnownUser: selectIsKnownUser(state.userState, state.web3State),
-    isLoading: selectLoading(state.userState),
+    isLoading: state.commitmentState.loading,
     web3Type: selectWeb3Type(state.web3State),
   };
 };

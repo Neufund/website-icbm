@@ -3,20 +3,29 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import { debounce } from "lodash";
 import { InvestorType, Web3Type } from "../../actions/constants";
+import { calculateEstimatedReward, submitFunds } from "../../actions/submitFunds";
+import config from "../../config";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../../reducers/commitmentState";
 import { IAppState } from "../../reducers/index";
+import { selectBalance, selectReservedTicket } from "../../reducers/userState";
 import { UserAddressComponent } from "../UserAddressComponent";
 import * as style from "./CommitKnownUser.scss";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
 import { TransactionConfirmation } from "./TransactionConfirmation";
 
 interface ICommitKnownUser {
+  submitFunds: (values: ICommitKnownUserFormValues) => any;
+  calculateEstimatedReward: () => any;
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
   minTicketWei: BigNumber;
-  submitFunds: (values: ICommitKnownUserFormValues) => void;
-  calculateEstimatedReward?: () => {};
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   balance: BigNumber;
@@ -74,11 +83,24 @@ interface IMapStateToProps {
   showTransactionConfirmation: boolean;
 }
 
-const mapStateToProps = (state: IAppState) => ({
-  showTransactionConfirmation: state.transactionState.txStarted,
-});
-
-export const CommitKnownUser = connect<IMapStateToProps, null, ICommitKnownUser>(
-  mapStateToProps,
-  {}
+export const CommitKnownUser = connect(
+  (state: IAppState) => ({
+    userAddress: state.userState.address,
+    contractAddress: config.contractsDeployed.commitmentContractAddress,
+    minTicketWei: selectMinTicketWei(state.commitmentState),
+    estimatedReward: selectEstimatedReward(state.commitmentState),
+    loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
+    balance: selectBalance(state.userState),
+    web3Provider: state.web3State.web3Type,
+    investorType: state.userState.investorType,
+    reservedTicket: selectReservedTicket(state.userState),
+    showTransactionConfirmation: state.transactionState.txStarted,
+  }),
+  dispatch => ({
+    submitFunds: (values: ICommitKnownUserFormValues) => dispatch(submitFunds(values.ethAmount)),
+    calculateEstimatedReward: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
+  })
 )(CommitKnownUserComponent);

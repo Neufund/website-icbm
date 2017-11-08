@@ -15,7 +15,6 @@ import {
   Web3Type,
 } from "./constants";
 import { getInvestorDetails, setUserAccountAction } from "./loadUserAccount";
-import { finishSelectionAction } from "./walletSelectorActions";
 import { setWeb3Action } from "./web3";
 
 const NUMBER_OF_ADDRESSES_PER_PAGE = 5;
@@ -97,7 +96,6 @@ export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppSta
   account: ILedgerAccount
 ) => async (dispatch, getState) => {
   const state = getState();
-  Web3Service.instance.stopWatchingAccounts();
   Web3Service.instance.personalWeb3 = LedgerService.instance.ledgerWeb3;
   LedgerService.instance.ledgerInstance.setDerivationPath(account.derivationPath);
 
@@ -116,5 +114,4 @@ export const chooseAccount: (account: ILedgerAccount) => ThunkAction<{}, IAppSta
     )
   );
   dispatch(setWeb3Action(Web3Type.LEDGER));
-  dispatch(finishSelectionAction());
 };

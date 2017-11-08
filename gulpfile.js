@@ -61,7 +61,8 @@ gulp.task("page", () => {
     "./page/faq.ejs",
     "./page/product.ejs",
     "./page/commit.ejs",
-    "./page/manual.ejs"
+    "./page/manual.ejs",
+    "./page/whitepaper.ejs",
   ];
 
   pages.forEach(page =>

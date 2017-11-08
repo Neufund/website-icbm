@@ -52,7 +52,7 @@ const TxMiningComponent: React.SFC<{ txHash: string; blockCurrent: number }> = (
       is ready.
     </p>
     <p>
-      Block number: <b>{blockCurrent}</b>
+      Block number: <b>{blockCurrent === null ? "Waiting for block" : blockCurrent}</b>
       <br />
       Transaction confirmed: <b>No</b>
     </p>

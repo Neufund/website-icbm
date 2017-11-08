@@ -33,13 +33,12 @@ const drawMultiLineText = (
 };
 
 const neuMarkInfoPlugin = {
-  beforeDraw(chart: any) {
-    const legends = chart.legend.legendItems;
+  beforeDraw(chartInstance: any) {
+    const legends = chartInstance.legend.legendItems;
     legends.forEach((e: any) => {
       e.fillStyle = "white";
     });
-  },
-  afterDraw(chartInstance: any) {
+
     const canvas = chartInstance.chart;
     const ctx = canvas.ctx;
 
@@ -79,7 +78,7 @@ const neuMarkInfoPlugin = {
     );
 
     // current ether raised
-    drawCircle(ctx, "#09719B", 5, xPoint - 2, yPoint);
+    drawCircle(ctx, "#09719B", 5, xPoint, yPoint);
 
     // Text in the middle of of the chart
     drawMultiLineText(ctx, notes, "#A3C0CC", "10px", xAxe.left + 20, yAxe.bottom - 50);

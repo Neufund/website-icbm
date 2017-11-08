@@ -1,25 +1,25 @@
 $press-carousel-breakpoint: 1200px;
 
 .section.press {
-    padding: 35px 0;
-    background: $white;
-    border-top-width: 1px;
-    margin-top: 50px;
+  padding: 35px 0;
+  background: $white;
+  border-top-width: 1px;
+  margin-top: 50px;
 
-    .img-container {
-      width: 162px;
-      text-align: center;
-      line-height: 40px;
-    }
+  .img-container {
+    width: 162px;
+    text-align: center;
+    line-height: 60px;
+  }
 
-    img {
-        width: auto;
-        height: 100%;
-    }
+  img {
+    width: auto;
+    height: 100%;
+  }
 
-    .carousel-wrapper {
-        display: none;
-    }
+  .carousel-wrapper {
+      display: none;
+  }
 }
 @media (max-width: $press-carousel-breakpoint) {
   .section.press {

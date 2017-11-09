@@ -1,7 +1,6 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
-import { TextField } from "redux-form-material-ui";
 
 import { TokenType } from "../../actions/constants";
 import config from "../../config";

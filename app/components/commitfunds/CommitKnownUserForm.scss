@@ -95,12 +95,12 @@ $left-gradient: linear-gradient(143.71deg, #235f79 0%, #424a52 100%);  // sass-l
 }
 
 .reward-container {
-  font-size: 40px;
   display: flex;
   justify-content: space-between;
-  font-weight: $font-weight-normal;
   margin-top: 25px;
   margin-bottom: 25px;
+  font-size: 40px;
+  font-weight: $font-weight-normal;
 }
 
 .input-container {

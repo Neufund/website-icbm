@@ -1,18 +1,12 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  border-bottom: 0;
+  position: relative;
   box-shadow: inset 0 1px 33px 0 rgba(217, 219, 220, .1); // sass-lint:disable-line no-color-literals
   background-color: $white-light-green;
-  padding-bottom: 0;
+  padding-top: 50px;
   width: 100%;
   line-height: 19px;
   color: $gray-between-light-and-dark;
   font-size: $font-size-normal-smaller;
-
-  &.section {
-    padding-top: 35px;
-  }
 
   .second-col {
     position: relative;

@@ -7,6 +7,8 @@ import { IAppState } from "../../reducers/index";
 import { LoadingIndicator } from "../LoadingIndicator";
 import { watchAction } from "../WatchActionHoc";
 
+import { Alert, Col, Row } from "react-bootstrap";
+import { HiResImage } from "../HiResImage";
 import * as styles from "./EthBrowserWalletInit.scss";
 
 interface IEthBrowserWalletInitProps {
@@ -19,16 +21,39 @@ export const EthBrowserWalletInitComponent: React.SFC<IEthBrowserWalletInitProps
 }) =>
   <div>
     <p>Connect to your ethereum wallet.</p>
-    <ol>
-      <li>Turn on browser plugin.</li>
-      <li>Refresh.</li>
-      <li>Unlock wallet</li>
-    </ol>
-    <LoadingIndicator />
+
+    <p>Currently we support following wallets:</p>
+
+    <Row className="center">
+      <Col sm={4}>
+        <HiResImage partialPath="wallet_selector/logo_metamask" />
+      </Col>
+      <Col sm={4}>
+        <HiResImage partialPath="wallet_selector/logo_parity" />
+      </Col>
+      <Col sm={4}>
+        <HiResImage partialPath="wallet_selector/logo_mist" />
+      </Col>
+    </Row>
+
+    <p>Follow these steps:</p>
+
+    <div className={styles.steps}>
+      <ol>
+        <li>Turn on browser plugin.</li>
+        <li>Refresh.</li>
+        <li>Unlock wallet</li>
+      </ol>
+    </div>
     {errorMessage &&
-      <div className={styles.errorMessage}>
-        {errorMessage}
-      </div>}
+      <Alert bsStyle="danger">
+        <h4>Error occured!</h4>
+        <p>
+          {errorMessage}
+        </p>
+      </Alert>}
+
+    <LoadingIndicator />
   </div>;
 
 export const EthBrowserWalletInit = compose(

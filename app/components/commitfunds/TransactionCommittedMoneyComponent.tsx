@@ -3,8 +3,6 @@ import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 
 import { TokenType } from "../../actions/constants";
-import config from "../../config";
-import { Web3Service } from "../../web3/web3Service";
 import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitKnownUserForm.scss";
 
@@ -13,17 +11,13 @@ import * as style from "./CommitKnownUserForm.scss";
 
 interface ITransactionCommittedMoneyComponent {
   commit: BigNumber | string;
-  totalTxVal: BigNumber | string;
   reward: BigNumber | string;
 }
 
 export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommittedMoneyComponent> = ({
   commit,
-  totalTxVal,
   reward,
 }) => {
-  const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
-  const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
   return (
     <Grid>
       <Row className={style.container}>
@@ -34,13 +28,6 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
             value={commit}
             containerClass={style.rewardContainer}
           />
-          <div className={style.description}>
-            <p>
-              Gas price: {gasPrice} gwei<br />
-              Gas limit: {gasLimit} <br />
-              Total tx value: <MoneyComponent tokenType={TokenType.ETHER} value={totalTxVal} />
-            </p>
-          </div>
         </Col>
         <Col sm={6} className={`${style.area} ${style.right}`}>
           <div className={style.header}>Your estimated reward</div>

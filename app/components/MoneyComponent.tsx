@@ -96,4 +96,4 @@ export default connect<
   return {
     decimals: tokenTypeToDecimals(ownProps.tokenType, state),
   };
-})(MoneyComponent);
+}, {})(MoneyComponent);

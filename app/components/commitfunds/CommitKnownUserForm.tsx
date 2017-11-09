@@ -83,10 +83,11 @@ const CommitKnownUserForm = ({
   const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
   const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
 
+  const parsedAmount = parseStrToNumStrict(ethAmount);
   let txCost;
   let showTxCost = false;
-  if (!isNaN(parseStrToNumStrict(ethAmount))) {
-    const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(ethAmount, "ether"));
+  if (!isNaN(parsedAmount)) {
+    const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(parsedAmount, "ether"));
     txCost = computeTotalTxCost(weiAmount);
     showTxCost = weiAmount.greaterThan(0);
   }

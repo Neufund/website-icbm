@@ -37,7 +37,7 @@ const inputFieldStyles = {
   },
 };
 
-const styledField = (minValue: string) => (props: any) => {
+const styledField = (props: any) => {
   const computedProps = {
     name: "inputName",
     hintStyle: inputFieldStyles.hintStyle,
@@ -45,7 +45,7 @@ const styledField = (minValue: string) => (props: any) => {
     underlineStyle: inputFieldStyles.underlineStyle,
     underlineFocusStyle: inputFieldStyles.underlineFocusStyle,
     fullWidth: true,
-    hintText: `Minimum ${minValue}`,
+    hintText: "Minimum 1.0",
     autoComplete: "off",
     ...props.input,
   };
@@ -63,7 +63,8 @@ interface ICommitKnownUserFormProps {
   calculateEstimatedReward?: () => {};
   invalid?: boolean;
   ethAmount?: string;
-  minTicketEth: string;
+  minTicketWei: BigNumber;
+  userBalance: BigNumber;
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
 }
@@ -71,9 +72,8 @@ interface ICommitKnownUserFormProps {
 const CommitKnownUserForm = ({
   handleSubmit,
   submit,
-  calculateEstimatedReward,
   invalid,
-  minTicketEth,
+  calculateEstimatedReward,
   estimatedReward,
   loadingEstimatedReward,
 }: ICommitKnownUserFormProps) => {
@@ -89,7 +89,7 @@ const CommitKnownUserForm = ({
               <div className={style.input}>
                 <Field
                   name="ethAmount"
-                  component={styledField(minTicketEth)}
+                  component={styledField}
                   validate={[commitmentValueValidator]}
                 />
               </div>

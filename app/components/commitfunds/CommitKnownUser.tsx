@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 import { debounce } from "lodash";
 import { calculateEstimatedReward, submitFunds } from "../../actions/submitFunds";
-import { formatMoney } from "../../agreements/utils";
 import config from "../../config";
 import {
   selectEstimatedReward,
@@ -23,7 +22,7 @@ interface ICommitKnownUser {
   calculateEstimatedReward: () => any;
   contractAddress: string;
   transactionPayload: string;
-  minTicketEth: string;
+  minTicketWei: BigNumber;
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   balance: BigNumber;
@@ -31,7 +30,7 @@ interface ICommitKnownUser {
 
 export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
   submitFunds,
-  minTicketEth,
+  minTicketWei,
   calculateEstimatedReward,
   estimatedReward,
   loadingEstimatedReward,
@@ -46,11 +45,12 @@ export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
         <CommitKnownUserForm
-          minTicketEth={minTicketEth}
+          minTicketWei={minTicketWei}
           calculateEstimatedReward={calculateEstimatedReward}
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
+          userBalance={balance}
         />
       </Col>
     </Row>
@@ -59,11 +59,7 @@ export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
 export const CommitKnownUser = connect(
   (state: IAppState) => ({
     contractAddress: config.contractsDeployed.commitmentContractAddress,
-    minTicketEth: formatMoney(
-      state.commitmentState.ethDecimals,
-      selectMinTicketWei(state.commitmentState),
-      1
-    ),
+    minTicketWei: selectMinTicketWei(state.commitmentState),
     estimatedReward: selectEstimatedReward(state.commitmentState),
     loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
     balance: selectBalance(state.userState),

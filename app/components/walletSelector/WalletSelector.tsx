@@ -8,6 +8,7 @@ import {
   walletInBrowserSelectedAction,
 } from "../../actions/walletSelectorActions";
 import { IAppState } from "../../reducers/index";
+import { CommitHeaderComponent } from "../commitfunds/CommitHeaderComponent";
 import { CommitUnknownUser } from "../commitfunds/CommitUnknownUser";
 import { HiResImage } from "../HiResImage";
 import { LedgerWallet } from "./LedgerWallet";
@@ -23,7 +24,7 @@ interface IWalletSelectorProps {
   otherWalletSelected: boolean;
 }
 
-export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
+export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
   walletInBrowserSelected,
   ledgerWalletSelected,
   otherWalletSelected,
@@ -33,42 +34,46 @@ export const WalletSelector: React.SFC<IWalletSelectorProps> = ({
 }) => {
   return (
     <div>
-      <div className={styles.walletSelector}>
-        <WalletTab
-          active={walletInBrowserSelected}
-          onSelect={walletInBrowserSelectedAction}
-          data-test-id="wallet-selector-browser"
-        >
-          <HiResImage
-            partialPath="wallet_selector/icon_wallet"
-            className={styles.walletIcon}
-          />Wallet in Browser
-        </WalletTab>
-        <WalletTab
-          active={ledgerWalletSelected}
-          onSelect={ledgerWalletSelectedAction}
-          data-test-id="wallet-selector-ledger"
-        >
-          <HiResImage
-            partialPath="wallet_selector/icon_ledger"
-            className={styles.walletIcon}
-          />Ledger Wallet
-        </WalletTab>
-        <WalletTab
-          active={otherWalletSelected}
-          onSelect={otherWalletSelectedAction}
-          data-test-id="wallet-selector-other"
-        >
-          <HiResImage
-            partialPath="wallet_selector/icon_other_wallet"
-            className={styles.walletIcon}
-          />Other Wallet
-        </WalletTab>
-      </div>
+      <CommitHeaderComponent number="01" title="Commit funds" />
+      <p>Please select source of your cryptocurrency.</p>
       <div>
-        {walletInBrowserSelected && <WalletInBrowser />}
-        {ledgerWalletSelected && <LedgerWallet />}
-        {otherWalletSelected && <CommitUnknownUser />}
+        <div className={styles.walletSelector}>
+          <WalletTab
+            active={walletInBrowserSelected}
+            onSelect={walletInBrowserSelectedAction}
+            data-test-id="wallet-selector-browser"
+          >
+            <HiResImage
+              partialPath="wallet_selector/icon_wallet"
+              className={styles.walletIcon}
+            />Wallet in Browser
+          </WalletTab>
+          <WalletTab
+            active={ledgerWalletSelected}
+            onSelect={ledgerWalletSelectedAction}
+            data-test-id="wallet-selector-ledger"
+          >
+            <HiResImage
+              partialPath="wallet_selector/icon_ledger"
+              className={styles.walletIcon}
+            />Ledger Wallet
+          </WalletTab>
+          <WalletTab
+            active={otherWalletSelected}
+            onSelect={otherWalletSelectedAction}
+            data-test-id="wallet-selector-other"
+          >
+            <HiResImage
+              partialPath="wallet_selector/icon_other_wallet"
+              className={styles.walletIcon}
+            />Other Wallet
+          </WalletTab>
+        </div>
+        <div>
+          {walletInBrowserSelected && <WalletInBrowser />}
+          {ledgerWalletSelected && <LedgerWallet />}
+          {otherWalletSelected && <CommitUnknownUser />}
+        </div>
       </div>
     </div>
   );
@@ -89,7 +94,7 @@ const WalletTab: React.SFC<IWalletTab> = ({ active, onSelect, children, ...props
   );
 };
 
-export default connect(
+export const WalletSelector = connect(
   (state: IAppState) => ({
     walletInBrowserSelected: state.walletSelectorState.walletInBrowserSelected,
     ledgerWalletSelected: state.walletSelectorState.ledgerWalletSelected,
@@ -100,4 +105,4 @@ export default connect(
     ledgerWalletSelectedAction: () => dispatch(ledgerWalletSelectedAction()),
     otherWalletSelectedAction: () => dispatch(otherWalletSelectedAction()),
   })
-)(WalletSelector);
+)(WalletSelectorComponent);

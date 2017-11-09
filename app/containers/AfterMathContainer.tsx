@@ -1,11 +1,8 @@
 import * as React from "react";
-import { Col, Grid, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
-import { CommitNavbar } from "../components/commitfunds/CommitNavbar";
-import { LegalModal } from "../components/LegalModal";
-import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser } from "../reducers/userState";
@@ -17,21 +14,14 @@ interface IAfterMathContainer {
 }
 
 export const AfterMathContainer: React.SFC<IAfterMathContainer> = ({ isKnownUser }) =>
-  <div>
-    <LegalModal />
-    <CommitNavbar>Commit funds in Neufund Commitment Opportunity</CommitNavbar>
-    <Grid>
-      <Row>
-        <Col xs={12} className={layoutStyle.contentContainer}>
-          <WhitelistedCommitmentNote />
-          <CommitHeaderComponent number="01" title="After math" />
-          {isKnownUser
-            ? <CommitKnownUserAftermathContainer />
-            : <CommitUnknownUserAftermathContainer />}
-        </Col>
-      </Row>
-    </Grid>
-  </div>;
+  <Row>
+    <Col xs={12} className={layoutStyle.contentContainer}>
+      <CommitHeaderComponent number="04" title="After math" />
+      {isKnownUser
+        ? <CommitKnownUserAftermathContainer />
+        : <CommitUnknownUserAftermathContainer />}
+    </Col>
+  </Row>;
 
 const mapStateToProps = (state: IAppState) => {
   return {

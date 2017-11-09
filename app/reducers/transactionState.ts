@@ -59,6 +59,7 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         txConfirmed: true,
       };
     case COMMITTING_RESET:
+    case "@@router/LOCATION_CHANGE":
       return { ...initialState };
     case COMMITTING_ERROR:
       return {

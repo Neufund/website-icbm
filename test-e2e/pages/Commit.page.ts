@@ -60,7 +60,7 @@ export class CommitPage {
     return new Element(this.page, tid("commit-btn"));
   }
 
-  public get transactionSummary() {
-    return new Element(this.page, tid("transaction-summary"));
+  public get aftermathLink() {
+    return new Element(this.page, tid("aftermath-link"));
   }
 }

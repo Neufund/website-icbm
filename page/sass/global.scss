@@ -2,14 +2,8 @@ body {
   position: relative;
   margin-top: $navbar-height;
   background-color: $white;
-  padding-bottom: 280px;
-  min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
-
-  @media (max-width: $screen-sm-max) {
-    padding-bottom: 500px;
-  }
 }
 
 label {
@@ -123,5 +117,16 @@ h2 {
   100% {
     transform: scale(1);
     opacity: 0;
+  }
+}
+
+
+.full-height-container {
+  $header-height: 70px;
+  padding-bottom: 20px;
+  min-height: calc(100vh - #{296px + $header-height}); // some space for footer & header
+
+  @media (max-width: $screen-xs-max) {
+    min-height: calc(100vh - #{517px + $header-height});
   }
 }

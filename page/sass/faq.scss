@@ -9,7 +9,7 @@
   .faq-content {
     padding-left: 10px;
     @media (min-width: $screen-md-min) {
-      padding-bottom: 600px;
+      padding-bottom: 300px;
     }
   }
 
@@ -41,7 +41,6 @@
         cursor: pointer;
       }
     }
-
 
     i {
       display: inline;

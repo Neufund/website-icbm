@@ -35,7 +35,7 @@ describe("Commit page", () => {
     );
     await commitPage.commitBtn.click();
 
-    await commitPage.transactionSummary.waitFor();
+    await commitPage.aftermathLink.waitFor();
   });
 
   // @todo: test neumark estimator on "other wallet"

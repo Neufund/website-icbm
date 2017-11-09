@@ -1,71 +1,51 @@
 import { BigNumber } from "bignumber.js";
-import IconButton from "material-ui/IconButton";
 import * as React from "react";
+import { Col, Grid, Row } from "react-bootstrap";
 import { Field, formValues, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 
 import { TokenType } from "../../actions/constants";
-import * as image from "../../assets/img/commit_form_hex.png";
+import config from "../../config";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
+import { Web3Service } from "../../web3/web3Service";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitKnownUserForm.scss";
 
+// IMPORTANT
+// Keep in mind that this component has similar structure and share styles with TransactionCommittedMoneyComponent be careful when changing
+
 const inputFieldStyles = {
-  floatingLabelStyle: {
+  hintStyle: {
     color: "#A3C0CC",
     fontFamily: "Montserrat",
-    fontWeight: 500 as 500,
-    fontSize: "22px",
-  },
-  floatingLabelFocusStyle: {
-    color: "#FFF",
-    fontFamily: "Montserrat",
-    fontWeight: 300 as 300, // https://github.com/Microsoft/TypeScript/issues/9489
-    fontSize: "12px",
+    fontWeight: 500 as 500, // https://github.com/Microsoft/TypeScript/issues/9489
+    fontSize: "40px",
   },
   inputStyle: {
     color: "#D5E20F",
     fontWeight: 500 as 500,
-    fontSize: "22px",
+    fontSize: "40px",
   },
   underlineStyle: {
     borderBottomWidth: "2px",
     borderBottomColor: "#A3C0CC",
-    bottom: "5px",
+    bottom: "3px",
   },
   underlineFocusStyle: {
     borderBottomColor: "#D5E20F",
   },
 };
 
-const iconStyles = {
-  style: {
-    height: "20px",
-    width: "40px",
-    padding: "0px 10px",
-    position: "absolute" as "absolute",
-    top: "42px",
-  },
-  iconStyle: {
-    color: "#A3C0CC",
-    fontSize: "20px",
-  },
-};
-
 const styledField = (props: any) => {
   const computedProps = {
     name: "inputName",
-    floatingLabelStyle: inputFieldStyles.floatingLabelStyle,
-    floatingLabelFocusStyle: inputFieldStyles.floatingLabelFocusStyle,
-    floatingLabelShrinkStyle: inputFieldStyles.floatingLabelFocusStyle,
-    hintStyle: inputFieldStyles.floatingLabelStyle,
+    hintStyle: inputFieldStyles.hintStyle,
     inputStyle: inputFieldStyles.inputStyle,
     underlineStyle: inputFieldStyles.underlineStyle,
     underlineFocusStyle: inputFieldStyles.underlineFocusStyle,
     fullWidth: true,
-    hintText: "Fill in the amount",
-    floatingLabelText: "The ETH to be committed",
+    hintText: "Minimum 1.0",
     autoComplete: "off",
     ...props.input,
   };
@@ -97,54 +77,61 @@ const CommitKnownUserForm = ({
   estimatedReward,
   loadingEstimatedReward,
 }: ICommitKnownUserFormProps) => {
+  const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
+  const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={style.formContainer}
-      onChange={calculateEstimatedReward}
-    >
-      <div className={style.formBody}>
-        <div className={style.inputContainer}>
-          <div className={style.input}>
-            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
-            <div className={style.currencyDeposit}>ETH</div>
+    <Grid>
+      <Row className={style.container}>
+        <Col sm={6} className={`${style.area} ${style.hasButton} ${style.left}`}>
+          <div className={style.header}>How much Eth you want to commit?</div>
+          <form onSubmit={handleSubmit} className={style.form} onChange={calculateEstimatedReward}>
+            <div className={style.inputContainer}>
+              <div className={style.input}>
+                <Field
+                  name="ethAmount"
+                  component={styledField}
+                  validate={[commitmentValueValidator]}
+                />
+              </div>
+              <div className={style.currencyDeposit}>ETH</div>
+            </div>
+          </form>
+          <div className={style.description}>
+            <p>
+              Gas price: {gasPrice} gwei<br />
+              Gas limit: {gasLimit} <br />
+              Total tx value: 123.45 Eth
+            </p>
           </div>
-          <IconButton
-            iconClassName="material-icons"
-            style={iconStyles.style}
-            iconStyle={iconStyles.iconStyle}
-            tooltip="Missing description text"
+          <div
+            onClick={submit}
+            className={invalid ? style.commit : `${style.valid} ${style.commit}`}
+            data-test-id="commit-btn"
+            data-test-valid={!invalid}
           >
-            info_outline
-          </IconButton>
-        </div>
-
-        <p className={style.reward}>Your estimated reward</p>
-        {loadingEstimatedReward
-          ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
-          : <p className={style.amount} data-test-id="estimated-reward-value">
-              <MoneyComponent
+            Commit ETH
+          </div>
+        </Col>
+        <Col sm={6} className={`${style.area} ${style.right}`}>
+          <div className={style.header}>Your estimated reward</div>
+          {loadingEstimatedReward
+            ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
+            : <MoneyComponent
+                data-test-id="estimated-reward-value"
                 value={estimatedReward}
                 tokenType={TokenType.NEU}
-                currencyClass={style.currencyNeu}
-              />
-            </p>}
-
-        <p className={style.description}>
-          Calculated amount might not be precised, reward will be granted after the block is mined
-          and it might depend on the order of transactions.
-        </p>
-      </div>
-      <div
-        onClick={submit}
-        className={invalid ? style.formSubmit : `${style.valid} ${style.formSubmit}`}
-        data-test-id="commit-btn"
-        data-test-valid={!invalid}
-      >
-        Commit ETH
-      </div>
-      <img className={style.hex} src={image} />
-    </form>
+                containerClass={style.rewardContainer}
+              />}
+          <div className={style.description}>
+            <p>Calculated amount might not be precised.</p>
+            <p>
+              Reward will be granted after the block is mined and it might depend on the order of
+              transactions.
+            </p>
+          </div>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

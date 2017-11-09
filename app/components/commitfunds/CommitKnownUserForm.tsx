@@ -7,6 +7,7 @@ import { TextField } from "redux-form-material-ui";
 import { TokenType } from "../../actions/constants";
 import config from "../../config";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
+import { computeTotalTxCost } from "../../web3/utils";
 import { Web3Service } from "../../web3/web3Service";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";
@@ -72,13 +73,18 @@ interface ICommitKnownUserFormProps {
 const CommitKnownUserForm = ({
   handleSubmit,
   submit,
-  invalid,
+  ethAmount,
   calculateEstimatedReward,
+  invalid,
   estimatedReward,
   loadingEstimatedReward,
 }: ICommitKnownUserFormProps) => {
   const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
   const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
+  const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(ethAmount, "ether"));
+  const txCost = computeTotalTxCost(weiAmount);
+  const showTxCost = weiAmount.greaterThan(0);
+
   return (
     <Grid>
       <Row className={style.container}>
@@ -100,7 +106,9 @@ const CommitKnownUserForm = ({
             <p>
               Gas price: {gasPrice} gwei<br />
               Gas limit: {gasLimit} <br />
-              Total tx value: 123.45 Eth
+              Total tx value: {" "}
+              {showTxCost &&
+                <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />}
             </p>
           </div>
           <div

@@ -1,10 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { LedgerService } from "../../ledgerService";
 import { IAppState } from "../../reducers/index";
 import { selectIsLedgerSelected } from "../../reducers/web3State";
-import { Web3Service } from "../../web3/web3Service";
 import { CommitKnownUser } from "../commitfunds/CommitKnownUser";
 import { LedgerAddressChooser } from "./LedgerAddressChooser";
 import { LedgerInit } from "./LedgerInit";
@@ -25,11 +23,6 @@ export class LedgerWalletComponent extends React.Component<ILedgerWalletComponen
     } else {
       return <CommitKnownUser />;
     }
-  }
-
-  public componentWillUnmount() {
-    Web3Service.instance.personalWeb3 = null;
-    LedgerService.deinit();
   }
 }
 

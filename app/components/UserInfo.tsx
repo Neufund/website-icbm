@@ -1,11 +1,15 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 
+import { connect } from "react-redux";
 import { InvestorType, TokenType, Web3Type } from "../actions/constants";
+import { IAppState } from "../reducers/index";
+import { selectBalance, selectReservedTicket } from "../reducers/userState";
 import { AddressIcon } from "./AddressIcon";
 import MoneyComponent from "./MoneyComponent";
 import { TextCopyable } from "./TextCopyable";
-import { icon, userAddressContainer, value } from "./UserAddressComponent.scss";
+
+import { icon, userAddressContainer, value } from "./UserInfo.scss";
 
 interface IUserAddressComponentProps {
   address: string;
@@ -15,7 +19,7 @@ interface IUserAddressComponentProps {
   reservedTicket: BigNumber;
 }
 
-export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
+export const UserInfoComponent: React.SFC<IUserAddressComponentProps> = ({
   address,
   web3Provider,
   balance,
@@ -54,3 +58,11 @@ export const UserAddressComponent: React.SFC<IUserAddressComponentProps> = ({
         </p>
       </div>}
   </div>;
+
+export const UserInfo = connect((state: IAppState) => ({
+  address: state.userState.address,
+  balance: selectBalance(state.userState),
+  web3Provider: state.web3State.web3Type,
+  investorType: state.userState.investorType,
+  reservedTicket: selectReservedTicket(state.userState),
+}))(UserInfoComponent);

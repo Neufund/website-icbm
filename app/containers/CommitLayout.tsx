@@ -1,16 +1,14 @@
 import * as jQuery from "jquery";
 import * as React from "react";
+import { Grid } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { Grid } from "react-bootstrap";
 import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
-import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-import WalletSelector from "../components/walletSelector/WalletSelector";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
 import { selectIsKnownUser } from "../reducers/userState";
@@ -24,7 +22,7 @@ interface ICommitComponent {
   web3Type: Web3Type;
 }
 
-class Commit extends React.Component<ICommitComponent> {
+class CommitLayoutComponent extends React.Component<ICommitComponent> {
   constructor(props: ICommitComponent) {
     super(props);
     this.state = {
@@ -49,22 +47,12 @@ class Commit extends React.Component<ICommitComponent> {
       return <LoadingIndicator />;
     }
 
-    if (this.props.children !== null) {
-      return (
-        <div>
-          {this.props.children}
-        </div>
-      );
-    }
-
     return (
       <div>
-        <LegalModal />
-        <Grid>
+        <Grid className="full-height-container">
+          <LegalModal />
           <WhitelistedCommitmentNote />
-          <CommitHeaderComponent number="01" title="Commit funds" />
-          <p>Please select source of your cryptocurrency.</p>
-          <WalletSelector />
+          {this.props.children}
         </Grid>
       </div>
     );
@@ -86,4 +74,4 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Commit);
+export const CommitLayout = connect(mapStateToProps, mapDispatchToProps)(CommitLayoutComponent);

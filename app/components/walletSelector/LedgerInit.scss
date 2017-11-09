@@ -1,6 +1,10 @@
 @import '../../../common/sass/variables';
 
-.error-message {
+.image-wrapper {
+  text-align: center;
+}
+
+.error-msg {
   text-align: center;
   color: $red;
 }

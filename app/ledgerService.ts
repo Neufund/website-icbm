@@ -6,7 +6,11 @@ import * as Web3ProviderEngine from "web3-provider-engine";
 import * as RpcSubprovider from "web3-provider-engine/subproviders/rpc";
 
 import config from "./config";
-import { LedgerNotSupportedVersionError } from "./errors";
+import {
+  LedgerLockedError,
+  LedgerNotAvailableError,
+  LedgerNotSupportedVersionError,
+} from "./errors";
 
 const CHECK_INTERVAL = 1000;
 
@@ -53,6 +57,14 @@ export class LedgerService {
   }
 }
 
+async function testIfUnlocked(ledgerInstance: any): Promise<any> {
+  try {
+    await promisify(ledgerInstance.getAccounts, { context: ledgerInstance })();
+  } catch (e) {
+    throw new LedgerLockedError();
+  }
+}
+
 async function connectToLedger(networkId: string) {
   const { ledgerInstance, ledgerWeb3 } = await createWeb3WithLedgerProvider(
     networkId,
@@ -64,6 +76,8 @@ async function connectToLedger(networkId: string) {
     throw new LedgerNotSupportedVersionError(ledgerConfig.version);
   }
 
+  await testIfUnlocked(ledgerInstance);
+
   return { ledgerInstance, ledgerWeb3 };
 }
 
@@ -72,7 +86,11 @@ async function getLedgerConfig(ledgerInstance: any): Promise<ILedgerConfig> {
     ledgerInstance
       .getAppConfig((error: any, data: ILedgerConfig) => {
         if (error) {
-          reject(error);
+          if (error.message === "Timeout") {
+            reject(new LedgerNotAvailableError());
+          } else {
+            reject(error);
+          }
         } else {
           resolve(data);
         }

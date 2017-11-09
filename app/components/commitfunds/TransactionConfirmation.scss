@@ -1,18 +1,38 @@
 .error {
-  color: #f00; // sass-lint:disable-line no-color-literals
+  .desc {
+    color: #f00; // sass-lint:disable-line no-color-literals
+  }
+
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.tx {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .loading-indicator {
-  margin: 10px 0;
+  margin: 56px auto;
+  width: 64px;
+  height: 64px;
 }
 
-.block-history {
-  margin-right: auto;
-  margin-left: auto;
+.confirmed-indicator {
+  margin-top: 56px;
+  margin-bottom: 56px;
   text-align: center;
+}
 
-  td,
-  th {
-    padding: 10px;
-  }
+.waiting-desc {
+  text-align: center;
+}
+
+.go-aftermath {
+  text-align: center;
 }

@@ -25,7 +25,9 @@ describe("Commit page", () => {
     const commitPage = await CommitPage.create(puppeteerInstance);
     await commitPage.commitContainer.waitFor();
     await commitPage.acceptLegalAgreement();
+    await commitPage.walletInBrowser.click();
 
+    await commitPage.ethAmountInput.waitFor();
     await commitPage.ethAmountInput.type("2");
 
     await waitUntilResolves(async () =>
@@ -35,4 +37,6 @@ describe("Commit page", () => {
 
     await commitPage.transactionSummary.waitFor();
   });
+
+  // @todo: test neumark estimator on "other wallet"
 });

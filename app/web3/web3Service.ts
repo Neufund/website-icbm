@@ -1,18 +1,15 @@
 import { BigNumber } from "bignumber.js";
 import { promisify } from "bluebird";
 import { Dispatch } from "react-redux";
-import { toast } from "react-toastify";
 import * as Web3 from "web3";
 
 import { AppState, EthNetwork } from "../actions/constants";
 import { loadUserAccount } from "../actions/loadUserAccount";
 import { setWeb3Action } from "../actions/web3";
 import config from "../config";
-import { ErrorType, MismatchedNetworkError, NoInjectedWeb3Error } from "../errors";
+import { MismatchedNetworkError, NoInjectedWeb3Error, WalletLockedError } from "../errors";
 import { IAppState } from "../reducers/index";
-import { getNetworkId, getNodeType } from "./utils";
-
-const CHECK_INJECTED_WEB3_INTERVAL = 1000;
+import { getNetworkId, getNodeType, networkIdToEthNetwork } from "./utils";
 
 export interface IAccountInfo {
   address: string;
@@ -40,9 +37,6 @@ export class Web3Service {
   public readonly getTransaction: (tx: string) => PromiseLike<any>;
   public readonly getTransactionReceipt: (tx: string) => PromiseLike<any>;
   public readonly getBalance: (address: string) => PromiseLike<BigNumber>;
-  private injectingFailed: boolean = false;
-  private injectWeb3PollId: number;
-  private accountsChangedWatcher: number;
 
   private constructor(private dispatch: Dispatch<IAppState>, private getState: () => IAppState) {
     if (config.appState !== AppState.CONTRACTS_DEPLOYED) {
@@ -62,32 +56,15 @@ export class Web3Service {
     return this.personalWeb3 !== undefined;
   }
 
-  public async accountAddress(): Promise<string> {
-    if (!this.hasPersonalWeb3()) {
+  public async accountAddress(customWeb3?: any): Promise<string> {
+    if (!this.hasPersonalWeb3() && !customWeb3) {
       return;
     }
-    const getAccounts = promisify(this.personalWeb3.eth.getAccounts);
+    const getAccounts = promisify(
+      customWeb3 ? customWeb3.eth.getAccounts : this.personalWeb3.eth.getAccounts
+    );
     const accounts = (await getAccounts()) as string[];
     return accounts[0];
-  }
-
-  public async injectWeb3IfAvailable() {
-    await this.injectWeb3OrToastError();
-    this.injectWeb3PollId = window.setInterval(
-      this.injectWeb3OrToastError,
-      CHECK_INJECTED_WEB3_INTERVAL
-    );
-  }
-
-  public startWatchingAccounts() {
-    this.accountsChangedWatcher = window.setInterval(
-      () => this.checkAccounts(),
-      CHECK_INJECTED_WEB3_INTERVAL
-    );
-  }
-
-  public stopWatchingAccounts() {
-    window.clearInterval(this.accountsChangedWatcher);
   }
 
   public injectWeb3 = async () => {
@@ -100,36 +77,29 @@ export class Web3Service {
     const internalWeb3NetworkId = await getNetworkId(this.rawWeb3);
     const personalWeb3NetworkId = await getNetworkId(newWeb3);
     if (internalWeb3NetworkId !== personalWeb3NetworkId) {
-      throw new MismatchedNetworkError(EthNetwork[personalWeb3NetworkId]);
+      throw new MismatchedNetworkError(EthNetwork[networkIdToEthNetwork(personalWeb3NetworkId)]);
     }
+
+    await this.loadAccount(newWeb3);
 
     const injectedType = await getNodeType(newWeb3);
     this.dispatch(setWeb3Action(injectedType));
 
     this.personalWeb3 = newWeb3;
-    window.clearInterval(this.injectWeb3PollId);
-    this.startWatchingAccounts();
+
     return true;
   };
 
-  private injectWeb3OrToastError = async () => {
-    try {
-      await this.injectWeb3();
-    } catch (e) {
-      if (!this.injectingFailed && e.type !== ErrorType.NoInjectedWeb3Error) {
-        this.injectingFailed = true;
-        toast.error(e.message);
-      }
+  public async loadAccount(customWeb3?: any) {
+    const address = await this.accountAddress(customWeb3);
+    if (!address) {
+      throw new WalletLockedError();
     }
-  };
-
-  private async checkAccounts() {
-    const account = await this.accountAddress();
 
     const currentAccount = this.getState().userState.address;
 
-    if (account && account !== currentAccount) {
-      return this.dispatch(loadUserAccount);
+    if (address !== currentAccount) {
+      return this.dispatch(loadUserAccount(address));
     }
   }
 }

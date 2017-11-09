@@ -34,6 +34,10 @@ export class CommitPage {
     return new Element(this.page, tid("commit-container"));
   }
 
+  public get walletInBrowser() {
+    return new Element(this.page, tid("wallet-selector-browser"));
+  }
+
   public async acceptLegalAgreement(): Promise<any> {
     const selector = tid("legal-modal");
     await this.page.waitFor(selector);

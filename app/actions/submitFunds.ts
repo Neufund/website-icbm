@@ -59,13 +59,9 @@ export const transactionMinedAction = (blockNo: number): IStandardReduxAction =>
   },
 });
 
-export const transactionNewBlockAction = (
-  blockNo: number,
-  confirmedTx: boolean
-): IStandardReduxAction => ({
+export const transactionNewBlockAction = (blockNo: number): IStandardReduxAction => ({
   type: COMMITTING_NEW_BLOCK,
   payload: {
-    confirmedTx,
     currentBlock: blockNo,
   },
 });
@@ -95,8 +91,8 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
       dispatcher(transactionMinedAction(blockNo));
     };
 
-    const newBlock = (blockNo: number, confirmedTx: boolean) => {
-      dispatcher(transactionNewBlockAction(blockNo, confirmedTx));
+    const newBlock = (blockNo: number) => {
+      dispatcher(transactionNewBlockAction(blockNo));
     };
 
     await transactionConfirmation(txHash, transactionMined, newBlock);

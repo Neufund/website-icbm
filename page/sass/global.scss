@@ -7,10 +7,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
 
-  &.no-margin {
-    margin: 0;
-  }
-
   @media (max-width: $screen-sm-max) {
     padding-bottom: 500px;
   }
@@ -74,7 +70,7 @@ h2 {
   &.btn-green {
     box-shadow: none;
     background-color: $green;
-    color: $blue-dark-light;
+    color: $blue-darker;
 
     &:hover {
       background-color: lighten($green, 1%);

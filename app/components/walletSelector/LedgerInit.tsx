@@ -1,44 +1,43 @@
 import * as React from "react";
-import { Modal } from "react-bootstrap";
-import { connect, MapDispatchToPropsParam } from "react-redux";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import { initLedgerConnection } from "../../actions/walletSelectorActions";
+import { IAppState } from "../../reducers/index";
 import { LoadingIndicator } from "../LoadingIndicator";
+import { watchAction } from "../WatchActionHoc";
 
 interface ILedgerInitProps {
   initLedgerConnection: () => any;
+  errorMessage: string;
 }
 
-export class LedgerInit extends React.Component<ILedgerInitProps> {
-  public async componentDidMount() {
-    this.props.initLedgerConnection();
-  }
-
-  public render() {
-    return (
+export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage }) =>
+  <div>
+    <p>Plug in your Nano Ledger S.</p>
+    <ol>
+      <li>Unlock it</li>
+      <li>Open Ethereum app</li>
+      <li>Make sure it's configured correctly:</li>
+      <ul>
+        <li>Settings -> Contract data -> Yes</li>
+        <li>Settings -> Browser suport -> Yes</li>
+      </ul>
+    </ol>
+    <LoadingIndicator />
+    {errorMessage &&
       <div>
-        <Modal.Header>
-          <Modal.Title>Ledger Wallet</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Plug in your Nano Ledger S.</p>
-          <ol>
-            <li>Unlock it</li>
-            <li>Open Ethereum app</li>
-            <li>Make sure it's configured correctly:</li>
-            <ul>
-              <li>Settings -> Contract data -> Yes</li>
-              <li>Settings -> Browser suport -> Yes</li>
-            </ul>
-          </ol>
-          <LoadingIndicator />
-        </Modal.Body>
-        <Modal.Footer />
-      </div>
-    );
-  }
-}
+        {errorMessage}
+      </div>}
+  </div>;
 
-const mapDispatchToProps: MapDispatchToPropsParam<ILedgerInitProps, {}> = dispatcher => ({
-  initLedgerConnection: () => dispatcher(initLedgerConnection),
-});
-export default connect<{}, ILedgerInitProps, {}>(null, mapDispatchToProps)(LedgerInit);
+export const LedgerInit = compose(
+  connect(
+    (state: IAppState) => ({
+      errorMessage: state.walletSelectorState.ledgerWalletError,
+    }),
+    dispatcher => ({
+      initLedgerConnection: () => dispatcher(initLedgerConnection),
+    })
+  ),
+  watchAction({ actionName: "initLedgerConnection", interval: 2000 })
+)(LedgerInitComponent);

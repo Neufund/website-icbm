@@ -89,7 +89,6 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         </p>
         <p className={style.urls}>
           <IconLink url="#" text="Use MyEtherWallet" />
-          <IconLink url="#" text="Go to interactive version of this site for Ethereum browsers" />
         </p>
       </div>
     </form>

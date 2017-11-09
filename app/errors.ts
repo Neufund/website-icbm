@@ -17,6 +17,7 @@ export enum ErrorType {
   NotEnoughFundsError = "NotEnoughFundsError",
   TransactionFailedError = "TransactionFailedError",
   TransactionGasError = "TransactionGasError",
+  LedgerLockedError = "LedgerLockedError",
 }
 
 export class NeufundError extends Error {
@@ -52,6 +53,12 @@ export class LedgerContractsOffError extends NeufundError {
 export class LedgerTimeoutError extends NeufundError {
   constructor() {
     super(ErrorType.LedgerTimeoutError, `Timeout on ledger.`);
+  }
+}
+
+export class LedgerLockedError extends NeufundError {
+  constructor() {
+    super(ErrorType.LedgerLockedError, `Ledger seems to be locked.`);
   }
 }
 

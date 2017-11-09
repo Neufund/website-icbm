@@ -1,0 +1,11 @@
+@import '../../../common/sass/variables';
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.confirmation-loading-indicator {
+  text-align: center;
+  font-size: $font-size-small;
+}

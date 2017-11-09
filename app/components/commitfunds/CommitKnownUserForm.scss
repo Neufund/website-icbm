@@ -2,17 +2,14 @@
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 $border-radius-size: 10px;
-$right-area-background: #f3f4f4;
-$area-right-color: #1d2023;
-$header-color: #7d919b;
 $commit-shadow: 0 1px 3px 0 rgba(0, 0, 0, .13);
 $left-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
-$left-gradient: linear-gradient(143.71deg, #235f79 0%, #424a52 100%);  // sass-lint:disable-line no-color-literals
+$left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint:disable-line no-color-literals
 
 .container {
   margin-bottom: 50px;
   border-radius: $border-radius-size;
-  background-color: $right-area-background;
+  background-color: $white-dirty;
 }
 
 @media (min-width: $screen-sm-min) {
@@ -33,7 +30,7 @@ $left-gradient: linear-gradient(143.71deg, #235f79 0%, #424a52 100%);  // sass-l
 
   .header {
     text-transform: uppercase;
-    color: $header-color;
+    color: $gray-almost-dark;
     font-size: $font-size-smallest;
     font-weight: $font-weight-bold;
   }
@@ -92,6 +89,10 @@ $left-gradient: linear-gradient(143.71deg, #235f79 0%, #424a52 100%);  // sass-l
       cursor: pointer;
     }
   }
+}
+
+.right {
+  color: $black-almost;
 }
 
 .reward-container {

@@ -53,7 +53,7 @@ export async function startup(render: (store: Store<any>) => void) {
       returnMsg = errorMsg;
     } else if (errorMsg.startsWith("Invalid JSON RPC response")) {
       returnMsg =
-        "There is problem with connecting to Ethereum node please try again in few minutes";
+        "There is a problem with connecting to Ethereum node, please try again in few minutes";
     } else {
       returnMsg = "There is a problem with application startup: " + errorMsg;
     }

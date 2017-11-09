@@ -73,7 +73,11 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
         </div>
 
         {isMined &&
-          <Link to="/commit/aftermath" className="btn btn-primary btn-link">
+          <Link
+            to="/commit/aftermath"
+            className="btn btn-primary btn-link"
+            data-test-id="aftermath-link"
+          >
             See your commitment
           </Link>}
       </div>

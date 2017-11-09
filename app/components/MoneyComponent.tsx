@@ -30,6 +30,7 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   currencyClass,
   fit,
   decimalPlaces,
+  ...props,
 }) => {
   if (!decimals) {
     throw new Error("Couldnt get TOKEN details!");
@@ -51,7 +52,7 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   }
 
   return (
-    <span className={containerClass}>
+    <span className={containerClass} {...props}>
       {valueComponent} <span className={currencyClass}>{tokenTypeToSymbol(tokenType)}</span>
     </span>
   );

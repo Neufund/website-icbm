@@ -124,6 +124,7 @@ h2 {
 .full-height-container {
   $header-height: 70px;
   min-height: calc(100vh - #{296px + $header-height}); // some space for footer & header
+  padding-bottom: 20px;
 
   @media (max-width: $screen-xs-max) {
     min-height: calc(100vh - #{517px + $header-height});

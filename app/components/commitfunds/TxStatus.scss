@@ -1,0 +1,38 @@
+.error {
+  .desc {
+    color: #f00; // sass-lint:disable-line no-color-literals
+  }
+
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.tx {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.loading-indicator {
+  margin: 56px auto;
+  width: 64px;
+  height: 64px;
+}
+
+.confirmed-indicator {
+  margin-top: 56px;
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.waiting-desc {
+  text-align: center;
+}
+
+.go-aftermath {
+  text-align: center;
+}

@@ -1,3 +1,4 @@
+import { noop } from "lodash";
 import { CheckboxProps } from "material-ui";
 import * as React from "react";
 import { Button, Modal } from "react-bootstrap";
@@ -5,18 +6,15 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { Checkbox } from "redux-form-material-ui";
-import { requiredFieldValidator } from "../validators/requiredFieldValidator";
 
 import { legalAgreementsAcceptedAction } from "../actions/legalAgreement";
 import { IAppState } from "../reducers/index";
 import { selectIsAccepted } from "../reducers/legalAgreementState";
+import { requiredFieldValidator } from "../validators/requiredFieldValidator";
 import { IFrame } from "./IFrame";
 import * as styles from "./LegalModal.scss";
 
 const CheckboxField = Field as { new (): Field<CheckboxProps> };
-
-// tslint:disable-next-line
-const noop = () => {};
 
 interface ILegalModalProps {
   isAccepted: boolean;
@@ -25,7 +23,7 @@ interface ILegalModalProps {
   tokenHolderAgreement: string;
 }
 
-export const LegalModal: React.SFC<InjectedFormProps & ILegalModalProps> = ({
+export const LegalModalComponent: React.SFC<InjectedFormProps & ILegalModalProps> = ({
   invalid,
   handleSubmit,
   isAccepted,
@@ -113,7 +111,7 @@ function stateToProps(state: IAppState) {
   };
 }
 
-export default compose(
+export const LegalModal = compose(
   connect(stateToProps),
   reduxForm<ILegalModalForm, ILegalModalProps>({
     form: "legalApprovalPopupForm",
@@ -121,4 +119,4 @@ export default compose(
       dispatch(legalAgreementsAcceptedAction());
     },
   })
-)(LegalModal);
+)(LegalModalComponent);

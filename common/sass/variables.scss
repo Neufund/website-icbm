@@ -2,7 +2,6 @@
 $white: #fff;
 $blue-lighter: rgba(118, 197, 255, .61);
 $blue: #09719b;
-$blue-dark-light: #315568;
 $blue-darker: #315568;
 $blue-dark: #2f576a;
 $blue-gray: #325566;
@@ -27,6 +26,7 @@ $gray-border: #979797;
 $gray-placeholder: #cecece;
 $blue-off: #09719b;
 $loading-indicator-color: #333;
+$red: #f00;
 
 //fonts
 $font-weight-max-bold: 900;
@@ -88,8 +88,3 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 $text-color: $black;
 
 $fa-font-path:   './fonts/';
-
-// commit page variables
-$commit-number-width: 35px;
-$commit-number-margin: 25px;
-$commit-number-combined: $commit-number-width + $commit-number-margin;

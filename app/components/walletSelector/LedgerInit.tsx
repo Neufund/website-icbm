@@ -1,44 +1,62 @@
 import * as React from "react";
-import { Modal } from "react-bootstrap";
-import { connect, MapDispatchToPropsParam } from "react-redux";
+import { connect } from "react-redux";
+import { compose } from "redux";
+
 import { initLedgerConnection } from "../../actions/walletSelectorActions";
+import { IAppState } from "../../reducers/index";
+import { HiResImage } from "../HiResImage";
 import { LoadingIndicator } from "../LoadingIndicator";
+import { watchAction } from "../WatchActionHoc";
+
+import { Alert } from "react-bootstrap";
+import * as styles from "./LedgerInit.scss";
 
 interface ILedgerInitProps {
   initLedgerConnection: () => any;
+  errorMessage: string;
 }
 
-export class LedgerInit extends React.Component<ILedgerInitProps> {
-  public async componentDidMount() {
-    this.props.initLedgerConnection();
-  }
+export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage }) =>
+  <div className={styles.ledgerInit}>
+    <p>Plug in your Nano Ledger S and follow these steps:</p>
+    <p>Unlock your Nano Ledger S.</p>
+    <div className={styles.imageWrapper}>
+      <HiResImage partialPath="wallet_selector/ledger_unlock" className="img-responsive" />
+    </div>
+    <p>Open Ethereum application.</p>
+    <div className={styles.imageWrapper}>
+      <HiResImage partialPath="wallet_selector/ledger_ethereum" className="img-responsive" />
+    </div>
 
-  public render() {
-    return (
-      <div>
-        <Modal.Header>
-          <Modal.Title>Ledger Wallet</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Plug in your Nano Ledger S.</p>
-          <ol>
-            <li>Unlock it</li>
-            <li>Open Ethereum app</li>
-            <li>Make sure it's configured correctly:</li>
-            <ul>
-              <li>Settings -> Contract data -> Yes</li>
-              <li>Settings -> Browser suport -> Yes</li>
-            </ul>
-          </ol>
-          <LoadingIndicator />
-        </Modal.Body>
-        <Modal.Footer />
-      </div>
-    );
-  }
-}
+    <div className={styles.steps}>
+      Go to settings and set:
+      <ul>
+        <li>
+          Contract Data: <strong>Yes</strong>
+        </li>
+        <li>
+          Browser Support: <strong>Yes</strong>
+        </li>
+      </ul>
+    </div>
+    {errorMessage &&
+      <Alert bsStyle="danger">
+        <h4>Error occured!</h4>
+        <p>
+          {errorMessage}
+        </p>
+      </Alert>}
+    <LoadingIndicator />
+  </div>;
 
-const mapDispatchToProps: MapDispatchToPropsParam<ILedgerInitProps, {}> = dispatcher => ({
-  initLedgerConnection: () => dispatcher(initLedgerConnection),
-});
-export default connect<{}, ILedgerInitProps, {}>(null, mapDispatchToProps)(LedgerInit);
+export const LedgerInit = compose(
+  connect(
+    (state: IAppState) => ({
+      errorMessage: state.walletSelectorState.ledgerWalletError,
+    }),
+    dispatcher => ({
+      initLedgerConnection: () => dispatcher(initLedgerConnection),
+    })
+  ),
+  watchAction({ actionName: "initLedgerConnection", interval: 2000 })
+)(LedgerInitComponent);

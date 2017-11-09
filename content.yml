@@ -495,6 +495,9 @@ ecosystem:
       href: "https://github.com/Neufund/ico-contracts"
     - link: 'Neufund ICBM FAQ'
       href: "/faq"
+    - link: 'Neufund​ ​Teaser​'
+      new: true
+      href: "https://neufund.org/neufundteaser"
 
 press:
   links:
@@ -511,6 +514,12 @@ press:
     - link: "https://www.forbes.com/sites/laurashin/2017/08/11/ico-communities-look-past-regulations-and-attempt-to-evaluate-tokens-and-set-standards/"
       img: "../assets/logos/forbes.png"
     - img: "../assets/logos/Logo-der_spiegel.png"
+    - link: "http://www.tagesspiegel.de/wirtschaft/hype-um-blockchain-und-icos-der-virtuelle-goldrausch/20425858.html?utm_referrer"
+      img: "../assets/logos/Tagesspiegel.png"
+    - link: "https://www.investing.com/news/technology-news/berlin-startup-raises-nearly-12-million-to-create-first-equity-token-839633"
+      img: "../assets/logos/InvestingLogo.png"
+    - link: "https://www.reuters.com/article/us-neufund-blockchain-funding/berlin-start-up-raises-nearly-12-million-to-create-first-equity-token-idUSKBN1D72H9?il=0"
+      img: "../assets/logos/reuters_logo.png"
 
 footer:
   address: |

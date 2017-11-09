@@ -1,22 +1,3 @@
 @import '../../common/sass/variables';
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
-.content-container {
-  padding-bottom: 44px;
-
-  @media (min-width: $screen-md-min) {
-    padding: 44px $commit-number-combined;
-  }
-}
-
-.separator {
-  margin-top: 85px;
-  margin-bottom: 85px;
-  background-color: $gray;
-
-  @media (min-width: $screen-md-min) {
-    position: relative;
-    left: -$commit-number-combined;
-    width: calc(100% + #{$commit-number-combined });
-  }
-}

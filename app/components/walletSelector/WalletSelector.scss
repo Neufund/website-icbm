@@ -1,14 +1,63 @@
 @import '../../../common/sass/variables';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+
+$height: 64px;
 
 .wallet-selector {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid $off-white;
+  width: 100%;
+  height: $height;
+}
 
-  :global(.btn) {
-    margin-right: 15px;
+.wallet-tab {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  opacity: .5;
+  margin-right: 2px;
+  border-bottom: 2px solid $white;
+  height: $height;
+  color: $black-lighter;
+
+  &:hover {
+    opacity: 1;
+    border-bottom: 2px solid $blue-darker;
+    cursor: pointer;
   }
 
-  .selected {
-    background-color: $blue-lighter;
+  &:global(.active) {
+    opacity: 1;
+    border-bottom: 2px solid $blue-darker;
+  }
+
+  .wallet-tab-title {
+    align-self: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    .wallet-icon {
+      margin-top: -3px;
+      margin-right: 20px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .wallet-tab-title {
+      margin-bottom: 5px;
+      text-align: center;
+
+      .wallet-icon {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2px;
+      }
+    }
   }
 }

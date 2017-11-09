@@ -68,5 +68,5 @@ const WATCH_ACTION_INTERVAL = 30000;
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  watchAction(WATCH_ACTION_INTERVAL, "loadDuringIcoDetail")
+  watchAction({ interval: WATCH_ACTION_INTERVAL, actionName: "loadDuringIcoDetail" })
 )(DuringIco as any);

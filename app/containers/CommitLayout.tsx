@@ -1,17 +1,18 @@
 import * as jQuery from "jquery";
 import * as React from "react";
+import { Grid } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { initCommit } from "../actions/commit";
+import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
+import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
+import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
-import { selectIsKnownUser, selectLoading } from "../reducers/userState";
+import { selectIsKnownUser } from "../reducers/userState";
 import { selectWeb3Type } from "../reducers/web3State";
-import CommitKnownUserContainer from "./CommitKnownUserContainer";
-import CommitUnknownUserContainer from "./CommitUnknownUserContainer";
 
 interface ICommitComponent {
   fatalError: string;
@@ -21,7 +22,7 @@ interface ICommitComponent {
   web3Type: Web3Type;
 }
 
-class Commit extends React.Component<ICommitComponent> {
+class CommitLayoutComponent extends React.Component<ICommitComponent> {
   constructor(props: ICommitComponent) {
     super(props);
     this.state = {
@@ -36,7 +37,7 @@ class Commit extends React.Component<ICommitComponent> {
   }
 
   public render() {
-    const { fatalError, isKnownUser, isLoading } = this.props;
+    const { fatalError, isLoading } = this.props;
 
     if (fatalError) {
       return <FatalErrorComponent fatalError={fatalError} />;
@@ -46,15 +47,15 @@ class Commit extends React.Component<ICommitComponent> {
       return <LoadingIndicator />;
     }
 
-    if (this.props.children !== null) {
-      return (
-        <div>
+    return (
+      <div>
+        <Grid className="full-height-container">
+          <LegalModal />
+          <WhitelistedCommitmentNote />
           {this.props.children}
-        </div>
-      );
-    }
-
-    return isKnownUser ? <CommitKnownUserContainer /> : <CommitUnknownUserContainer />;
+        </Grid>
+      </div>
+    );
   }
 }
 
@@ -62,7 +63,7 @@ const mapStateToProps = (state: IAppState) => {
   return {
     fatalError: state.fatalErrorState.fatalError,
     isKnownUser: selectIsKnownUser(state.userState, state.web3State),
-    isLoading: selectLoading(state.userState),
+    isLoading: state.commitmentState.loading,
     web3Type: selectWeb3Type(state.web3State),
   };
 };
@@ -73,4 +74,4 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Commit);
+export const CommitLayout = connect(mapStateToProps, mapDispatchToProps)(CommitLayoutComponent);

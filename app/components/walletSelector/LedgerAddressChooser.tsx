@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { debounce } from "lodash";
 import { TextField } from "material-ui";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 import {
   changeDerivationPath,
@@ -17,7 +17,6 @@ import { LoadingIndicator } from "../LoadingIndicator";
 import { LedgerAddressChooserTable } from "./LedgerAddressChooserTable";
 
 interface ILedgerAddressChooserProps {
-  // handleAddressChosen: (derivationPath: string, address: string) => void;
   loading: boolean;
   hasPrevious: boolean;
   derivationPath: string;
@@ -33,7 +32,7 @@ interface IAddressChooserModalState {
   derivationPath: string;
 }
 
-export class LedgerAddressChooser extends React.Component<
+export class LedgerAddressChooserComponent extends React.Component<
   ILedgerAddressChooserProps,
   IAddressChooserModalState
 > {
@@ -52,21 +51,16 @@ export class LedgerAddressChooser extends React.Component<
   public render() {
     return (
       <div>
-        <Modal.Header>
-          <Modal.Title>Choose your address</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div>
-            <TextField
-              name="derivationPathField"
-              value={this.state.derivationPath}
-              onChange={this.derivationPathChanged}
-            />
-            - provide your derivation path
-          </div>
-          {this.renderBody()}
-        </Modal.Body>
-        <Modal.Footer>
+        <div>
+          <TextField
+            name="derivationPathField"
+            value={this.state.derivationPath}
+            onChange={this.derivationPathChanged}
+          />
+          - provide your derivation path
+        </div>
+        {this.renderBody()}
+        <div>
           <Button
             bsStyle="primary"
             disabled={!this.props.hasPrevious || this.props.loading}
@@ -81,7 +75,7 @@ export class LedgerAddressChooser extends React.Component<
           >
             show next addresses
           </Button>
-        </Modal.Footer>
+        </div>
       </div>
     );
   }
@@ -125,4 +119,6 @@ const dispatchToProps = (dispatcher: Dispatch<any>) => ({
   chooseAccount: (account: ILedgerAccount) => dispatcher(chooseAccount(account)),
 });
 
-export default connect(stateToProps, dispatchToProps)(LedgerAddressChooser);
+export const LedgerAddressChooser = connect(stateToProps, dispatchToProps)(
+  LedgerAddressChooserComponent
+);

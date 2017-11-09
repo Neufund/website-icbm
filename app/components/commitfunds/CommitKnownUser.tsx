@@ -3,51 +3,43 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { InvestorType, Web3Type } from "../../actions/constants";
+import { debounce } from "lodash";
+import { calculateEstimatedReward, submitFunds } from "../../actions/submitFunds";
+import config from "../../config";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../../reducers/commitmentState";
 import { IAppState } from "../../reducers/index";
-import { UserAddressComponent } from "../UserAddressComponent";
+import { selectBalance } from "../../reducers/userState";
+import { UserInfo } from "../UserInfo";
 import * as style from "./CommitKnownUser.scss";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
-import { TransactionConfirmation } from "./TransactionConfirmation";
 
 interface ICommitKnownUser {
-  userAddress: string;
+  submitFunds: (values: ICommitKnownUserFormValues) => any;
+  calculateEstimatedReward: () => any;
   contractAddress: string;
   transactionPayload: string;
   minTicketWei: BigNumber;
-  submitFunds: (values: ICommitKnownUserFormValues) => void;
-  calculateEstimatedReward?: () => {};
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   balance: BigNumber;
-  web3Provider: Web3Type;
-  investorType: InvestorType;
-  reservedTicket: BigNumber;
 }
 
-export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnownUser> = ({
-  userAddress,
+export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
   submitFunds,
   minTicketWei,
   calculateEstimatedReward,
   estimatedReward,
   loadingEstimatedReward,
   balance,
-  web3Provider,
-  investorType,
-  showTransactionConfirmation,
-  reservedTicket,
 }) =>
   <div>
     <Row>
       <Col sm={6}>
-        <UserAddressComponent
-          address={userAddress}
-          balance={balance}
-          web3Provider={web3Provider}
-          investorType={investorType}
-          reservedTicket={reservedTicket}
-        />
+        <UserInfo />
       </Col>
     </Row>
     <Row className={style.formRow}>
@@ -62,23 +54,21 @@ export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnown
         />
       </Col>
     </Row>
-    {showTransactionConfirmation &&
-      <Row>
-        <Col xs={12}>
-          <TransactionConfirmation />
-        </Col>
-      </Row>}
   </div>;
 
-interface IMapStateToProps {
-  showTransactionConfirmation: boolean;
-}
-
-const mapStateToProps = (state: IAppState) => ({
-  showTransactionConfirmation: state.transactionState.txStarted,
-});
-
-export const CommitKnownUser = connect<IMapStateToProps, null, ICommitKnownUser>(
-  mapStateToProps,
-  {}
+export const CommitKnownUser = connect(
+  (state: IAppState) => ({
+    contractAddress: config.contractsDeployed.commitmentContractAddress,
+    minTicketWei: selectMinTicketWei(state.commitmentState),
+    estimatedReward: selectEstimatedReward(state.commitmentState),
+    loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
+    balance: selectBalance(state.userState),
+  }),
+  dispatch => ({
+    submitFunds: (values: ICommitKnownUserFormValues) => dispatch(submitFunds(values.ethAmount)),
+    calculateEstimatedReward: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
+  })
 )(CommitKnownUserComponent);

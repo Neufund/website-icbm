@@ -1,6 +1,7 @@
 import * as BigNumber from "bignumber.js";
 import { ThunkAction } from "redux-thunk";
 
+import { push } from "react-router-redux";
 import { ErrorType } from "../errors";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
@@ -59,13 +60,9 @@ export const transactionMinedAction = (blockNo: number): IStandardReduxAction =>
   },
 });
 
-export const transactionNewBlockAction = (
-  blockNo: number,
-  confirmedTx: boolean
-): IStandardReduxAction => ({
+export const transactionNewBlockAction = (blockNo: number): IStandardReduxAction => ({
   type: COMMITTING_NEW_BLOCK,
   payload: {
-    confirmedTx,
     currentBlock: blockNo,
   },
 });
@@ -87,20 +84,11 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
   try {
     const parsedValue = parseMoneyStrToStrStrict(value);
     const selectedAccount = getState().userState.address;
+    dispatcher(push("/commit/tx-confirmation"));
+
     dispatcher(transactionStartedAction());
     const txHash = await submitFundsToContract(parsedValue, selectedAccount);
-    dispatcher(transactionSubmitted(txHash));
-
-    const transactionMined = (blockNo: number) => {
-      dispatcher(transactionMinedAction(blockNo));
-    };
-
-    const newBlock = (blockNo: number, confirmedTx: boolean) => {
-      dispatcher(transactionNewBlockAction(blockNo, confirmedTx));
-    };
-
-    await transactionConfirmation(txHash, transactionMined, newBlock);
-    dispatcher(transactionDoneAction());
+    dispatcher(push(`/commit/tx-status/${txHash}`));
   } catch (e) {
     const parsedError = web3ErrorHandler(e);
     if (parsedError.type === ErrorType.UnknownError) {
@@ -109,6 +97,21 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
     }
     dispatcher(transactionErrorAction(parsedError.message));
   }
+};
+
+export const watchTxBeingMined: (
+  txHash: string
+) => ThunkAction<{}, IAppState, {}> = txHash => async dispatcher => {
+  const transactionMined = (blockNo: number) => {
+    dispatcher(transactionMinedAction(blockNo));
+  };
+
+  const newBlock = (blockNo: number) => {
+    dispatcher(transactionNewBlockAction(blockNo));
+  };
+
+  await transactionConfirmation(txHash, transactionMined, newBlock);
+  dispatcher(transactionDoneAction());
 };
 
 export const calculateEstimatedReward: ThunkAction<{}, IAppState, {}> = async (

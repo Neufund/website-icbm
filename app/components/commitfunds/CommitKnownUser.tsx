@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { debounce } from "lodash";
 import { InvestorType, Web3Type } from "../../actions/constants";
 import { calculateEstimatedReward, submitFunds } from "../../actions/submitFunds";
+import { formatMoney } from "../../agreements/utils";
 import config from "../../config";
 import {
   selectEstimatedReward,
@@ -25,7 +26,7 @@ interface ICommitKnownUser {
   userAddress: string;
   contractAddress: string;
   transactionPayload: string;
-  minTicketWei: BigNumber;
+  minTicketEth: string;
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   balance: BigNumber;
@@ -37,7 +38,7 @@ interface ICommitKnownUser {
 export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnownUser> = ({
   userAddress,
   submitFunds,
-  minTicketWei,
+  minTicketEth,
   calculateEstimatedReward,
   estimatedReward,
   loadingEstimatedReward,
@@ -62,12 +63,11 @@ export const CommitKnownUserComponent: React.SFC<IMapStateToProps & ICommitKnown
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
         <CommitKnownUserForm
-          minTicketWei={minTicketWei}
+          minTicketEth={minTicketEth}
           calculateEstimatedReward={calculateEstimatedReward}
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
-          userBalance={balance}
         />
       </Col>
     </Row>
@@ -87,7 +87,11 @@ export const CommitKnownUser = connect(
   (state: IAppState) => ({
     userAddress: state.userState.address,
     contractAddress: config.contractsDeployed.commitmentContractAddress,
-    minTicketWei: selectMinTicketWei(state.commitmentState),
+    minTicketEth: formatMoney(
+      state.commitmentState.ethDecimals,
+      selectMinTicketWei(state.commitmentState),
+      1
+    ),
     estimatedReward: selectEstimatedReward(state.commitmentState),
     loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
     balance: selectBalance(state.userState),

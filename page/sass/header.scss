@@ -46,12 +46,14 @@
     }
 
     li {
-      a:not(.btn) {
-        padding-right: $navbar-padding-horizontal;
-        padding-left: 0;
+      a {
+        &:not(.btn) {
+          padding-right: $navbar-padding-horizontal;
+          padding-left: 0;
 
-        @media (max-width: $screen-sm) {
-          padding-left: $navbar-padding-horizontal-small;
+          @media (max-width: $screen-sm) {
+            padding-left: $navbar-padding-horizontal-small;
+          }
         }
       }
     }

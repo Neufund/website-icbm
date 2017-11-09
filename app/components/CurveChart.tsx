@@ -75,24 +75,9 @@ export default (props: ICurveChart) => {
 
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
 
-  etherDatasetList.push(currentRasiedEther);
   etherDatasetList.sort((a: number, b: number) => a - b);
 
-  let activePointIndex = 0;
-
-  etherDatasetList.forEach((eth, index) => {
-    if (eth === currentRasiedEther) {
-      activePointIndex = index;
-      return;
-    }
-  });
-
-  const activePointPrice = getPrice(
-    currencyRate,
-    initialReward,
-    capNEU,
-    etherDatasetList[activePointIndex]
-  );
+  const activePointPrice = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
   const data = {
     labels: etherDatasetList.map(eth => `${formatNumber(eth)}`),
     datasets: [
@@ -119,10 +104,10 @@ export default (props: ICurveChart) => {
 
   const options = {
     neuMarkInfoPlugin: {
-      activePointIndex,
       neuMarkPrice: {
         label: `${activePointPrice.toFixed(2)} NEU/ETH`,
         fontSize: !isMobile() ? "19px" : "14px",
+        price: activePointPrice,
       },
       notes: "",
       yAxesLabel: "NEU Reward (NEU/ETH)",

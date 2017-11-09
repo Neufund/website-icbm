@@ -37,8 +37,16 @@
       line-height: 20px;
     }
 
+    .btn-wrapper {
+      padding-top: 10px;
+
+      @media(max-width: $screen-xs-max) {
+        padding-left: 15px;
+      }
+    }
+
     li {
-      a {
+      a:not(.btn) {
         padding-right: $navbar-padding-horizontal;
         padding-left: 0;
 

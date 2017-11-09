@@ -96,6 +96,10 @@ h2 {
       color: $white;
     }
   }
+
+  &.slim {
+    padding: 8px 45px;
+  }
 }
 
 .modal-content {

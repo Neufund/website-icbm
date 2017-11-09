@@ -6,6 +6,7 @@ import { TextField } from "redux-form-material-ui";
 
 import { TokenType } from "../../actions/constants";
 import config from "../../config";
+import { parseStrToNumStrict } from "../../utils/utils";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { computeTotalTxCost } from "../../web3/utils";
 import { Web3Service } from "../../web3/web3Service";
@@ -81,9 +82,14 @@ const CommitKnownUserForm = ({
 }: ICommitKnownUserFormProps) => {
   const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
   const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
-  const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(ethAmount, "ether"));
-  const txCost = computeTotalTxCost(weiAmount);
-  const showTxCost = weiAmount.greaterThan(0);
+
+  let txCost;
+  let showTxCost = false;
+  if (!isNaN(parseStrToNumStrict(ethAmount))) {
+    const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(ethAmount, "ether"));
+    txCost = computeTotalTxCost(weiAmount);
+    showTxCost = weiAmount.greaterThan(0);
+  }
 
   return (
     <Grid>

@@ -115,7 +115,7 @@ const CommitKnownUserForm = ({
         <Col sm={6} className={`${style.area} ${style.right}`}>
           <div className={style.header}>Your estimated reward</div>
           {loadingEstimatedReward
-            ? <LoadingIndicator className={style.estimatedRewardLoadingIndicator} />
+            ? <LoadingIndicator className={style.rewardLoadingIndicator} />
             : <MoneyComponent
                 data-test-id="estimated-reward-value"
                 value={estimatedReward}

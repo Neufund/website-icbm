@@ -42,6 +42,12 @@ $left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint
   }
 }
 
+.reward-loading-indicator {
+  margin: 33px auto;
+  height: 41px;
+  width: 41px;
+}
+
 .has-button {
   padding-bottom: 65px;
 }

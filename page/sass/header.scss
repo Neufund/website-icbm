@@ -37,13 +37,23 @@
       line-height: 20px;
     }
 
+    .btn-wrapper {
+      padding-top: 10px;
+
+      @media(max-width: $screen-xs-max) {
+        padding-left: 15px;
+      }
+    }
+
     li {
       a {
-        padding-right: $navbar-padding-horizontal;
-        padding-left: 0;
+        &:not(.btn) {
+          padding-right: $navbar-padding-horizontal;
+          padding-left: 0;
 
-        @media (max-width: $screen-sm) {
-          padding-left: $navbar-padding-horizontal-small;
+          @media (max-width: $screen-sm) {
+            padding-left: $navbar-padding-horizontal-small;
+          }
         }
       }
     }

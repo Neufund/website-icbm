@@ -10,13 +10,13 @@ import { asyncSessionStorage } from "redux-persist/storages";
 import reduxThunk from "redux-thunk";
 
 import { setFatalErrorActionCreator } from "./actions/fatalErrorActions";
-import reducers from "./reducers";
+import reducers, { IAppState } from "./reducers";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
 
 const persistStorePromised = promisify(persistStore) as any;
 
-export async function startup(render: (store: Store<any>) => void) {
+export async function startup(render: (store: Store<IAppState>) => void) {
   const enhancers = () =>
     composeWithDevTools(
       compose(

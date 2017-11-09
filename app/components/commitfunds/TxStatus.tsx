@@ -50,18 +50,18 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
         </p>
 
         <div>
-          <p>
+          <div>
             Block number:
             <EtherScanLink
               target="_blank"
               linkType={EtherScanLinkType.BLOCK}
               resourceId={currentBlockNumber}
             />
-          </p>
+          </div>
 
-          <p>
+          <div>
             Transaction confirmed: <b>{isMined ? "Yes" : "No"}</b>
-          </p>
+          </div>
         </div>
 
         <div className={styles.confirmedIndicator}>
@@ -75,7 +75,7 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
         {isMined &&
           <Link
             to="/commit/aftermath"
-            className="btn btn-primary btn-link"
+            className="btn btn-primary btn-link pull-right"
             data-test-id="aftermath-link"
           >
             See your commitment

@@ -267,9 +267,10 @@
   .extra {
     text-align: center;
   }
-  
-  .extra-space {
-    padding-bottom: 380px;
+  @media (min-width: 992px) {
+    .extra-space {
+      padding-bottom: 380px;
+    }
   }
   
 }

@@ -5,9 +5,9 @@
       paragraphs:
       - "Thank you for your interest in participating in Neufund's ICBM"
       - "Below you will find detailed instructions on how to commit funds."
-      - "<b>Note:</b> Note: Our ICBM Smart Contract is already deployed, <a href='#which-wallet-can-i-use'><b>click here</b></a> or scroll down."
+      - "<b>Note:</b> Note: Our ICBM Smart Contract is already deployed, <a class='smooth-scroll' href='#' rel='#where-do-i-send-the-funds'><b>click here</b></a> or scroll down."
       rightSideContent: |
-        <a href="https://commit.neufund.org/#videos" class="btn btn-primary" target="_blank" />Download the manual</a>
+        <a href="https://neufund.org/manual" class="btn btn-primary" target="_blank" />Download the manual</a>
 
 - groupName: "Can I commit funds?"
   groupContent:
@@ -76,6 +76,7 @@
       - "<mark><b>Note</b>: Neufund will never post an smart contract address on Slack or any other channel.</mark>"
       rightSideContent: ""
 - groupName: "I need help!"
+  customClass: "extra-space"
   groupContent:
     - type: "regular"
       title: "I need help!"
@@ -84,4 +85,3 @@
       rightSideContent: ""
       extra: |
         <a href="https://commit.neufund.org" class="btn btn-primary" target="_blank" />Participate in the ICBM</a>
-

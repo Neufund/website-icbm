@@ -2,6 +2,11 @@
   return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
 } %>
 
+<% function getValueOrEmbtyString(value) {
+  return typeof value !== "undefiend" ? value : "";
+} %>
+
+
 <div id="bg-blue-1">
   <img src="assets/hex-bg/b.png" />
 </div>
@@ -14,7 +19,7 @@
     <div class="col-md-3 hidden-xs hidden-sm">
       <div>
         <ul id="sidebar" class="sidebar nav nav-stacked">
-          <% for (var i=0; i<manualContent.length; i++) { %>
+          <% for (var i = 0; i < manualContent.length; i++) { %>
             <li>
               <a href="#<%= convertTitleToId(manualContent[i].groupName) %>"><%- manualContent[i].groupName %></a>
             </li>
@@ -24,10 +29,9 @@
     </div>
     <div class="col-md-9" data-target="#sidebar">
       <% var sectionCounter = 0 %>
-      <% for (var i=0; i<manualContent.length; i++) { %>
-        <div class="group" id="<%= convertTitleToId(manualContent[i].groupName) %>">
-          <% for (var j=0; j<manualContent[i].groupContent.length; j++) { %>
-                  
+      <% for (var i = 0; i < manualContent.length; i++) { %>
+        <div class="group <%= getValueOrEmbtyString(manualContent[i].customClass) %>" id="<%= convertTitleToId(manualContent[i].groupName) %>">
+          <% for (var j = 0; j < manualContent[i].groupContent.length; j++) { %>
               <% 
                 var section = manualContent[i].groupContent[j];
                 if (sectionCounter<10) {

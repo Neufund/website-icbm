@@ -37,6 +37,13 @@ $(() => {
     speed: 100,
   });
 
+  $('.smooth-scroll').click(function(e){
+    e.preventDefault;
+    var link = $(this).attr('rel');
+    $(`[href="${link}"]`).click();
+    return false;
+  });
+
   $(".person-block").click(function() {
     // ehh we should rewrite it later. Lets just bundle these data in js (not html blob).
     const name = $(this).find("h4.name").text().trim();

@@ -1,68 +1,65 @@
-- groupName: "Introduction"
+- groupName: "Intro"
   groupContent:
     - type: "introduction"
       title: "Hello!"
       paragraphs:
-      - "Thank you for your interest in contributing to the ...."
-      - "Below you will find a ..."
-      - "<b>Note:</b> Our ICO/ICBM contract is already published, click <a href='/product'><b>here</b></a> or scroll down."
-      rightSide:
-        text: "You can also download this page as a document:"
-        linkText: "How to participate in ICBM"
-        linkURL: "/product"
-- groupName: "Who can reserve the funds?"
+      - "Thank you for your interest in participating in Neufund's ICBM"
+      - "Below you will find detailed instructions on how to commit funds."
+      - "<b>Note:</b> Note: Our ICBM Smart Contract is already deployed, <a href='#which-wallet-can-i-use'><b>click here</b></a> or scroll down."
+      rightSideContent: |
+        <a href="https://commit.neufund.org/#videos" class="btn btn-primary" target="_blank" />Download the manual</a>
+
+- groupName: "Can I commit funds?"
   groupContent:
     - type: "regular"
-      title: "Who can reserve the funds?"
+      title: "Can I commit funds"
       paragraphs:
-      - "You have seen the question ... go through the <b>authorization process</b> for both you and our safety."
-      - "You can participate in our ICBM as an individual..."
+      - "Of course you can! Anyone can commit funds in the Neufund ICBM. Unfortunately, due to regulatory reasons we must exclude US-citizens from the ICBM participation. The min. ticket size is 1 ETH."
+      - "You can participate as an individual or representing a company in our ICBM."
+      rightSideContent: ""
+- groupName: "Which currency is allowed in the ICBM?"
+  groupContent:
+    - type: "regular"
+      title: "Which currency is allowed in the ICBM?"
+      paragraphs:
+      - "<b>We accept only ETHER commitments in our ICBM.</b>"
+      - "If you do not hold ETH, we suggest buying it or exchanging other cryptocurrencies into ETH on e.g. Kraken, Coinbase or other crypto-exchange before the start of the ICBM."
+      - "<mark><b>Note</b>: You cannot commit funds in the Neufund ICBM with a wallet from an exchange. Make sure to transfer your funds to a secure wallet.</mark>"
       rightSideContent: |
-        Check the section about the:
+        To buy ETH you can go to:
         <ul>
-        <li><a href='#'>Authorisation process</a></li>
+        <li><a href="https://www.coinbase.com/" target="_blank">Coinbase</a></li>
+        <li><a href="https://www.kraken.com/" target="_blank">Kraken</a></li>
         </ul>
-- groupName: "What kind of funds can you commit?"
+- groupName: "Which wallet can I use?"
   groupContent:
     - type: "regular"
-      title: "What kind of funds can you commit?"
+      title: "Which wallet can I use?"
       paragraphs:
-      - "<b>You can commit only <i>Ether</i>.</b>"
-      - "If you are not a holder of ETH, we suggest buying it or exchange other cryptocurrenies to ETH on e.g. Kraken before the start of the ICBM."
-      - "<mark><b>Note</b>: You cannot reserve the funds in Neufund ICO from the exchange you're buing the ETH from. Make sure you transfer the funds to the wallet.</mark>"
-      rightSideContent: |
-        If you want to buy ETH go to:
-        <ul>
-        <li><a href='#'>Coinbase (check our tutorial)</a></li>
-        <li><a href='#'>Kraken</a></li>
-        </ul>or others
-- groupName: "What can I use, then?"
-  groupContent:
-    - type: "regular"
-      title: "What can I use, then?"
-      paragraphs:
-      - "If you have an Ethereum Browser, like:"
+      - "You can use following wallets:"
       - |
         <ul>
-        <li><a href='#'>MetaMask</a></li>
-        <li><a href='#'>MyEtherWallet</a></li>
+        <li><a href='https://metamask.io/' target="_blank">MetaMask</a></li>
+        <li><a href='https://parity.io/' target="_blank">Parity</a></li>
+        <li><a href='https://github.com/ethereum/mist/releases' target="_blank">Mist</a></li>
+        <li><a href='https://www.ledgerwallet.com/' target="_blank">Ledger Nano</a></li>
         </ul>
-        or others
-      - "You can just head to our application, clicking <a href='#'>here</a>."
+        or any other wallet which facilitates ERC20 tokens and you are in charge of the private key. We do not accept wallet addresses form exchanges.
+      - "You can commit your funds <a href='/commit' target='_blank'>here</a>."
       rightSideContent: ""
-- groupName: "The smart contract address"
+- groupName: "Where do I send the funds?"
   groupContent:
     - type: "blue"
-      title: "The smart contract address"
+      title: "Where do I send the funds?"
       paragraphs:
       - type: "text"
-        content: "To commit funds you will need to send ETH <b>to your own wallet address created by Neufund</b>."
+        content: "To commit funds you will need to send your ETH <b>to your own wallet address created by Neufund. Here is the Neufund ICBM Smart Contract address</b>."
       - type: "qr"
         content: "assets/placeholder.png"
       - type: "copy"
-        content: "0x123...098"
+        content: "0xf432cec23b2a0d6062b969467f65669de81f4653"
         linkText: "Verify source code on Etherscan"
-        linkURL: "#"
+        linkURL: "https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653"
       - type: "text"
         content: "Include following string in your transaction:"
       - type: "copy"
@@ -70,11 +67,21 @@
         linkText: ""
         linkURL: ""
       rightSideContent: ""
-- groupName: "How to make sure you are not a subject to a fraud?"
+- groupName: "Are my funds secure?"
   groupContent:
     - type: "regular"
-      title: "How to make sure you are not a subject to a fraud?"
+      title: "Are my funds secure?"
       paragraphs:
-      - "Check that the address of the website is correct"
-      - "<mark><b>Note</b>: Neufund will never post an address of a smart contract on Slack</mark>"
+      - "Please double-check to which address you are sending your funds."
+      - "<mark><b>Note</b>: Neufund will never post an smart contract address on Slack or any other channel.</mark>"
       rightSideContent: ""
+- groupName: "I need help!"
+  groupContent:
+    - type: "regular"
+      title: "I need help!"
+      paragraphs:
+      - "If you have any further questions or troubles write at aga@neufund.org or tag @aga on our Slack or Telegram channels."
+      rightSideContent: ""
+      extra: |
+        <a href="https://commit.neufund.org" class="btn btn-primary" target="_blank" />Participate in the ICBM</a>
+

@@ -35,3 +35,11 @@
   width: 20px;
   height: 20px;
 }
+
+.error {
+  position: relative;
+  bottom: 5px;
+  left: 8px;
+  color: $red;
+  font-size: $font-size-small;
+}

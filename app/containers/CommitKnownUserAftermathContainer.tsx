@@ -7,7 +7,6 @@ import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../act
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
 import EtherScanLink from "../components/EtherScanLink";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
   selectLoading,
   selectLockedAmount,

@@ -9,7 +9,6 @@ import { TextField } from "redux-form-material-ui";
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
-import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
   isAddressSet,
   selectLockedAmount,

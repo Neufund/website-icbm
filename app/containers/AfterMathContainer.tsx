@@ -1,11 +1,8 @@
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { connect } from "react-redux";
 
 import { CommitHeaderComponent } from "../components/commitfunds/CommitHeaderComponent";
 import CommitKnownUserAftermathContainer from "../containers/CommitKnownUserAftermathContainer";
-import { IAppState } from "../reducers/index";
-import { selectIsKnownUser } from "../reducers/userState";
 import * as layoutStyle from "./CommitLayoutStyles.scss";
 import CommitUnknownUserAftermathContainer from "./CommitUnknownUserAftermathContainer";
 

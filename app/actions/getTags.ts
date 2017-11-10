@@ -78,18 +78,18 @@ export const getReservationAgreementTags: ThunkAction<{}, IAppState, {}> = async
     "investor-address": aftermathState.address,
     "payment-token": partialTags.paymentToken,
     amount: formatMoney(partialTags.etherDecimals.toNumber(), selectLockedAmount(aftermathState)),
-    "release-date": formatMomentDate(moment.utc(aftermathState.unlockDate)),
+    "release-date": formatMomentDate(moment.utc(aftermathState.unlockDateEth)),
     "reservation-period": partialTags.reservationPeriod.asDays().toString(),
     "reservation-date": formatMomentDate(
-      moment.utc(aftermathState.unlockDate).subtract(partialTags.reservationPeriod)
+      moment.utc(aftermathState.unlockDateEth).subtract(partialTags.reservationPeriod)
     ),
-    "unlock-fee": calculateAndFormatFee(partialTags.unlockFee, aftermathState.lockedAmount),
+    "unlock-fee": calculateAndFormatFee(partialTags.unlockFee, aftermathState.lockedAmountEth),
     "neumark-amount": formatMoney(
       partialTags.etherDecimals.toNumber(),
       selectNeumarkBalance(aftermathState)
     ),
     "neumark-acquisition-ratio": calculateAndFormatRatio(
-      aftermathState.lockedAmount,
+      aftermathState.lockedAmountEth,
       aftermathState.neumarkBalance
     ),
     "current-block-hash": currentBlockHash,

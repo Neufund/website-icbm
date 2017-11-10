@@ -5,17 +5,17 @@ import { Reducer } from "../types";
 
 export interface IAftermathState {
   loading: boolean;
-  lockedAmount?: string;
+  lockedAmountEth?: string;
   neumarkBalance?: string;
-  unlockDate?: string;
+  unlockDateEth?: string;
   address?: string;
 }
 
 const initialState: IAftermathState = {
   loading: true,
-  lockedAmount: null,
+  lockedAmountEth: null,
   neumarkBalance: null,
-  unlockDate: null,
+  unlockDateEth: null,
 };
 
 const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
@@ -24,18 +24,20 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
     case LOAD_AFTERMATH:
       return {
         ...state,
-        lockedAmount: null,
+        lockedAmountEth: null,
         neumarkBalance: null,
-        unlockDate: null,
+        unlockDateEth: null,
         address: null,
       };
     case SET_AFTERMATH:
       return {
         ...state,
         loading: false,
-        lockedAmount: payload.lockedAmount,
+        lockedAmountEth: payload.lockedAmountEth,
+        lockedAmountEuro: payload.lockedAmountEuro,
         neumarkBalance: payload.neumarkBalance,
-        unlockDate: payload.unlockDate,
+        unlockDateEth: payload.unlockDateEth,
+        unlockDateEuro: payload.unlockDateEuro,
         address: payload.address,
       };
     default:
@@ -54,7 +56,7 @@ export function isAddressSet(state: IAftermathState): boolean {
 }
 
 export function selectLockedAmount(state: IAftermathState): BigNumber {
-  return state.lockedAmount && new BigNumber(state.lockedAmount);
+  return state.lockedAmountEth && new BigNumber(state.lockedAmountEth);
 }
 
 export function selectNeumarkBalance(state: IAftermathState): BigNumber {
@@ -68,6 +70,8 @@ export function selectShowDocuments(state: IAftermathState): boolean {
 
 export function selectUnlockDate(state: IAftermathState): moment.Moment {
   return (
-    state.unlockDate && state.unlockDate !== "1970-01-01T00:00:00.000Z" && moment(state.unlockDate)
+    state.unlockDateEth &&
+    state.unlockDateEth !== "1970-01-01T00:00:00.000Z" &&
+    moment(state.unlockDateEth)
   );
 }

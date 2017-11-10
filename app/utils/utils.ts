@@ -1,3 +1,5 @@
+const downloadjs = require("downloadjs") as any;
+
 /**
  * Strictly parses string to number.
  * White spaces are removed, "," replaced by "." is there is more than 1 dot or other chars NaN is returned.
@@ -58,8 +60,5 @@ export const userDownloadFile = async (
   }
   const blob = await response.blob();
 
-  const link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.download = `${filename}.pdf`;
-  link.click();
+  downloadjs(blob, `${filename}.pdf`);
 };

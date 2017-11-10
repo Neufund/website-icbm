@@ -38,19 +38,19 @@ describe("<CurveChart />", () => {
 
 describe("helper functions", () => {
   describe("format numbers to milion and bilion test", () => {
-    it("should return 1MLN", () => {
+    it("should return 1M", () => {
       const result = formatNumber(1000000);
-      expect(result).to.equal("1M");
+      expect(result).to.equal("1.00M");
     });
 
-    it("should return 2BLN", () => {
+    it("should return 2B", () => {
       const result = formatNumber(2000000000);
-      expect(result).to.equal("2B");
+      expect(result).to.equal("2.00B");
     });
 
     it("should return 50K", () => {
       const result = formatNumber(50000);
-      expect(result).to.equal("50K");
+      expect(result).to.equal("50.00K");
     });
 
     it("should return 2.00", () => {

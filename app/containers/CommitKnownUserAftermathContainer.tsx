@@ -5,6 +5,7 @@ import { connect, Dispatch } from "react-redux";
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
+import EtherScanLink from "../components/EtherScanLink";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { UnderlinedLink } from "../components/UnderlinedLink";
 import {
@@ -20,6 +21,8 @@ import {
   selectTokenHolderAgreementHash,
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
+
+import { EtherScanLinkType } from "../actions/constants";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathProps {
@@ -77,9 +80,14 @@ export class CommitKnownUserAftermath extends React.Component<
       <div className={styles.aftermath}>
         <div>
           <div className={styles.header}>Sneak peak to your committed funds</div>
-          <UnderlinedLink href="#">
-            If you want to see your transactions, go to etherscan.io
-          </UnderlinedLink>
+          <EtherScanLink
+            linkType={EtherScanLinkType.ADDRESS}
+            resourceId={address}
+            className={styles.etherscanLink}
+            noIcon
+          >
+            If you want to see all your transactions, go to etherscan.io
+          </EtherScanLink>
         </div>
 
         <div className={styles.infoBox}>

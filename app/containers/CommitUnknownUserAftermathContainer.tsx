@@ -70,9 +70,6 @@ export const CommitUnknownUserAftermath: React.SFC<
   <div className={styles.aftermath}>
     <div>
       <div className={styles.header}>Sneak peak to your committed funds</div>
-      <UnderlinedLink href="#">
-        If you want to see your transactions, go to etherscan.io
-      </UnderlinedLink>
     </div>
 
     <div className={styles.infoBox}>

@@ -42,7 +42,6 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
         <p>
           Your transaction
           <EtherScanLink
-            target="_blank"
             linkType={EtherScanLinkType.TRANSACTION}
             resourceId={txHash}
             className={styles.tx}
@@ -54,7 +53,6 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
           <div>
             Block number:
             <EtherScanLink
-              target="_blank"
               linkType={EtherScanLinkType.BLOCK}
               resourceId={currentBlockNumber}
             />

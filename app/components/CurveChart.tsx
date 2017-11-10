@@ -7,13 +7,13 @@ const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 export const formatNumber = (labelValue: any) => {
   // Nine Zeroes for Billions
   return Math.abs(Number(labelValue)) >= 1.0e9
-    ? Math.abs(Number(labelValue)) / 1.0e9 + "B"
+    ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
     : // Six Zeroes for Millions
       Math.abs(Number(labelValue)) >= 1.0e6
-      ? Math.abs(Number(labelValue)) / 1.0e6 + "M"
+      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
       : // Three Zeroes for Thousands
         Math.abs(Number(labelValue)) >= 1.0e3
-        ? Math.abs(Number(labelValue)) / 1.0e3 + "K"
+        ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
         : Math.abs(Number(labelValue)).toFixed(2);
 };
 
@@ -75,24 +75,9 @@ export default (props: ICurveChart) => {
 
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
 
-  etherDatasetList.push(currentRasiedEther);
   etherDatasetList.sort((a: number, b: number) => a - b);
 
-  let activePointIndex = 0;
-
-  etherDatasetList.forEach((eth, index) => {
-    if (eth === currentRasiedEther) {
-      activePointIndex = index;
-      return;
-    }
-  });
-
-  const activePointPrice = getPrice(
-    currencyRate,
-    initialReward,
-    capNEU,
-    etherDatasetList[activePointIndex]
-  );
+  const activePointPrice = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
   const data = {
     labels: etherDatasetList.map(eth => `${formatNumber(eth)}`),
     datasets: [
@@ -106,12 +91,10 @@ export default (props: ICurveChart) => {
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "black",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "black",
+        pointBorderWidth: 0,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: "black",
         pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
         pointRadius: 0.5,
         pointHitRadius: 10,
         data: etherDatasetList.map(eth => getPrice(currencyRate, initialReward, capNEU, eth)),
@@ -121,10 +104,10 @@ export default (props: ICurveChart) => {
 
   const options = {
     neuMarkInfoPlugin: {
-      activePointIndex,
       neuMarkPrice: {
         label: `${activePointPrice.toFixed(2)} NEU/ETH`,
         fontSize: !isMobile() ? "19px" : "14px",
+        price: activePointPrice,
       },
       notes: "",
       yAxesLabel: "NEU Reward (NEU/ETH)",
@@ -202,9 +185,11 @@ export default (props: ICurveChart) => {
           const xAxisEtherValue: number = etherDatasetList[item.index];
           const price: number = getPrice(currencyRate, initialReward, capNEU, xAxisEtherValue);
           const currentEth = etherDatasetList[item.index];
-          return `At ${formatNumber(currentEth.toFixed(2))} committed ETH reward ${formatNumber(
-            price.toFixed(2)
-          )} NEU/ETH`;
+
+          return [
+            `At ${formatNumber(currentEth.toFixed(2))} committed ETH`,
+            `reward ${formatNumber(price.toFixed(2))} NEU/ETH`,
+          ];
         },
         title: (tooltipItems: any) => {
           return `${formatNumber(tooltipItems[0].yLabel)} NEU/ETH`;

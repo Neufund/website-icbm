@@ -3,6 +3,10 @@ import * as React from "react";
 import { Col, Grid, Row } from "react-bootstrap";
 
 import { TokenType } from "../../actions/constants";
+import config from "../../config";
+import { parseStrToNumStrict } from "../../utils/utils";
+import { computeTotalTxCost } from "../../web3/utils";
+import { Web3Service } from "../../web3/web3Service";
 import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitKnownUserForm.scss";
 
@@ -18,6 +22,10 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
   commit,
   reward,
 }) => {
+  const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
+  const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
+  const txCost = computeTotalTxCost(new BigNumber(commit));
+
   return (
     <Grid>
       <Row className={style.container}>
@@ -28,6 +36,16 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
             value={commit}
             containerClass={style.rewardContainer}
           />
+          <div className={style.description}>
+            <p>
+              Gas price: <b>{gasPrice} gwei</b> <br />
+              Gas limit: <b>{gasLimit}</b> <br />
+              Total tx value:{" "}
+              <b>
+                <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
+              </b>
+            </p>
+          </div>
         </Col>
         <Col sm={6} className={`${style.area} ${style.right}`}>
           <div className={style.header}>Your estimated reward</div>
@@ -37,7 +55,6 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
             containerClass={style.rewardContainer}
           />
           <div className={style.description}>
-            <p>Calculated amount might not be precised.</p>
             <p>
               Reward will be granted after the block is mined and it might depend on the order of
               transactions.

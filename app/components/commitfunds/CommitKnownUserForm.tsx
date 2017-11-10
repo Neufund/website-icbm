@@ -114,10 +114,12 @@ const CommitKnownUserForm = ({
           </form>
           <div className={style.description}>
             <p>
-              Gas price: {gasPrice} gwei<br />
-              Gas limit: {gasLimit} <br />
+              Gas price: <b>{gasPrice} gwei</b> <br />
+              Gas limit: <b>{gasLimit}</b> <br />
               Total tx value:{" "}
-              <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
+              <b>
+                <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
+              </b>
             </p>
           </div>
           <div
@@ -140,8 +142,7 @@ const CommitKnownUserForm = ({
                 containerClass={style.rewardContainer}
               />}
           <div className={style.description}>
-            <p>Calculated amount might not be precised.</p>
-            <p>
+              <p>
               Reward will be granted after the block is mined and it might depend on the order of
               transactions.
             </p>

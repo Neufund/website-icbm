@@ -263,4 +263,20 @@
     transform: translateY(-150px);
     width: 350px;
   }
+
+  .extra {
+    text-align: center;
+
+    .participate {
+      margin-top: 80px;
+    }
+  }
 }
+
+.extra-space {
+  padding-bottom: 0;
+  @media (min-width: 992px) {
+    padding-bottom: 380px;
+  }
+}
+

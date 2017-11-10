@@ -4,7 +4,6 @@ import { Col, Grid, Row } from "react-bootstrap";
 
 import { TokenType } from "../../actions/constants";
 import config from "../../config";
-import { parseStrToNumStrict } from "../../utils/utils";
 import { computeTotalTxCost } from "../../web3/utils";
 import { Web3Service } from "../../web3/web3Service";
 import MoneyComponent from "../MoneyComponent";

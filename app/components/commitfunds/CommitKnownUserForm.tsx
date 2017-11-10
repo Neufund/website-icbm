@@ -142,7 +142,7 @@ const CommitKnownUserForm = ({
                 containerClass={style.rewardContainer}
               />}
           <div className={style.description}>
-              <p>
+            <p>
               Reward will be granted after the block is mined and it might depend on the order of
               transactions.
             </p>

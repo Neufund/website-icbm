@@ -13,6 +13,12 @@
         <% var p = paragraphs[i] %>
         <p><%- p -%></p>
       <% } %>
+    <div class="extra">
+      <% if (typeof extra !== "undefined") { %>
+        <%- extra %>
+      <% } -%>
+    </div>
+      
     </div>
     <div class="col-sm-4 right-content">
       <%- rightSideContent -%>

@@ -23,7 +23,6 @@ import { IDictionary } from "../types";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathProps {
-  userAddress: string;
   isLoading: boolean;
   loadAftermathDetails: (address: string) => {};
   lockedAmount: BigNumber;
@@ -36,21 +35,27 @@ interface IAftermathProps {
   showDocuments: boolean;
 }
 
-export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
+interface IAftermathOwnProps {
+  address: string;
+}
+
+export class CommitKnownUserAftermath extends React.Component<
+  IAftermathOwnProps & IAftermathProps
+> {
   public componentDidMount() {
-    this.props.loadAftermathDetails(this.props.userAddress);
+    this.props.loadAftermathDetails(this.props.address);
   }
 
-  public async componentWillReceiveProps(_nextProps: IAftermathProps) {
-    if (this.props.userAddress !== _nextProps.userAddress) {
-      this.props.loadAftermathDetails(_nextProps.userAddress);
+  public async componentWillReceiveProps(_nextProps: IAftermathOwnProps & IAftermathProps) {
+    if (this.props.address !== _nextProps.address) {
+      this.props.loadAftermathDetails(_nextProps.address);
     }
   }
 
   public render() {
     const {
       isLoading,
-      userAddress,
+      address,
       lockedAmount,
       unlockDate,
       neumarkBalance,
@@ -80,7 +85,7 @@ export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
         <div className={styles.infoBox}>
           <div className={styles.caption}>For address</div>
           <div className={styles.value}>
-            {userAddress}
+            {address}
           </div>
         </div>
 
@@ -133,7 +138,6 @@ export class CommitKnownUserAftermath extends React.Component<IAftermathProps> {
 
 function mapStateToProps(state: IAppState) {
   return {
-    userAddress: state.userState.address,
     isLoading: selectLoading(state.aftermathState),
     lockedAmount: selectLockedAmount(state.aftermathState),
     neumarkBalance: selectNeumarkBalance(state.aftermathState),
@@ -152,4 +156,6 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommitKnownUserAftermath);
+export default connect<any, any, IAftermathOwnProps>(mapStateToProps, mapDispatchToProps)(
+  CommitKnownUserAftermath
+);

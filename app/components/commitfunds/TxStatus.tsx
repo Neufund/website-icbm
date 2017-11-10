@@ -16,6 +16,7 @@ interface ITxMiningComponent {
   params: { txHash: string };
   isMined: boolean;
   currentBlockNumber: number;
+  address: string;
 
   watchTx: () => any;
 }
@@ -33,7 +34,7 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
 
   public render() {
     const { txHash } = this.props.params;
-    const { isMined, currentBlockNumber } = this.props;
+    const { isMined, currentBlockNumber, address } = this.props;
     return (
       <div>
         <CommitHeaderComponent number="03" title="Transaction status" />
@@ -74,7 +75,7 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
 
         {isMined &&
           <Link
-            to="/commit/aftermath"
+            to={`/commit/status/${address}`}
             className="btn btn-primary btn-link pull-right"
             data-test-id="aftermath-link"
           >
@@ -89,6 +90,7 @@ export const TxStatus = connect(
   (state: IAppState) => ({
     currentBlockNumber: state.transactionState.blockCurrent,
     isMined: state.transactionState.txConfirmed,
+    address: state.userState.address,
   }),
   (dispatcher, ownProps: any) => ({
     watchTx: () => dispatcher(watchTxBeingMined(ownProps.params.txHash)),

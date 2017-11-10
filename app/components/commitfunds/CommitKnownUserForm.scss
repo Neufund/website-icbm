@@ -43,7 +43,7 @@ $left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint
 }
 
 .reward-loading-indicator {
-  margin: 33px auto;
+  margin: 33px auto 38px;
   width: 41px;
   height: 41px;
 }
@@ -105,7 +105,7 @@ $left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 40px;
   font-weight: $font-weight-normal;
 }
@@ -114,7 +114,7 @@ $left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   .input {
     width: calc(100% - 110px);

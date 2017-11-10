@@ -37,6 +37,10 @@ const inputFieldStyles = {
   underlineFocusStyle: {
     borderBottomColor: "#D5E20F",
   },
+  errorStyle: {
+    position: "absolute",
+    top: "50px",
+  },
 };
 
 const styledField = (props: any) => {
@@ -46,8 +50,9 @@ const styledField = (props: any) => {
     inputStyle: inputFieldStyles.inputStyle,
     underlineStyle: inputFieldStyles.underlineStyle,
     underlineFocusStyle: inputFieldStyles.underlineFocusStyle,
+    errorStyle: inputFieldStyles.errorStyle,
     fullWidth: true,
-    hintText: "Minimum 1.0",
+    hintText: "min 1.0",
     autoComplete: "off",
     ...props.input,
   };
@@ -127,7 +132,7 @@ const CommitKnownUserForm = ({
             Commit ETH
           </div>
         </Col>
-        <Col sm={6} className={`${style.area} ${style.right}`}>
+        <Col sm={6} className={`${style.area} ${style.hasButton} ${style.right}`}>
           <div className={style.header}>Your estimated reward</div>
           {loadingEstimatedReward
             ? <LoadingIndicator className={style.rewardLoadingIndicator} />

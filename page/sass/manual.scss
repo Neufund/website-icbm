@@ -266,11 +266,17 @@
 
   .extra {
     text-align: center;
-  }
-  @media (min-width: 992px) {
-    .extra-space {
-      padding-bottom: 380px;
+
+    .participate {
+      margin-top: 80px;
     }
   }
-  
 }
+
+.extra-space {
+  padding-bottom: 0;
+  @media (min-width: 992px) {
+    padding-bottom: 380px;
+  }
+}
+

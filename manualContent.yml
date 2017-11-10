@@ -84,4 +84,4 @@
       - "If you have any further questions or troubles write at aga@neufund.org or tag @aga on our Slack or Telegram channels."
       rightSideContent: ""
       extra: |
-        <a href="https://commit.neufund.org" class="btn btn-primary" target="_blank" />Participate in the ICBM</a>
+        <a href="https://commit.neufund.org" class="participate btn btn-primary" target="_blank" />Participate in the ICBM</a>

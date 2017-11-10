@@ -37,9 +37,10 @@ $(() => {
     speed: 100,
   });
 
-  $('.smooth-scroll').click(function(e){
+  $(".smooth-scroll").click(function(e) {
+    // tslint:disable-next-line no-unused-expression
     e.preventDefault;
-    var link = $(this).attr('rel');
+    const link = $(this).attr("rel");
     $(`[href="${link}"]`).click();
     return false;
   });

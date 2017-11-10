@@ -3,11 +3,11 @@ import {
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
   COMMITTING_RESET,
+  COMMITTING_SET_AMOUNT_TOKENS,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
 } from "../actions/constants";
-
 import { Reducer } from "../types";
 
 export interface ITransactionState {
@@ -17,6 +17,8 @@ export interface ITransactionState {
   blockCurrent: number;
   txConfirmed: boolean;
   error: string;
+  committedETH?: string;
+  estimatedNEU?: string;
   generatedNEU: string;
 }
 
@@ -59,12 +61,17 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         txConfirmed: true,
       };
     case COMMITTING_RESET:
-    case "@@router/LOCATION_CHANGE":
       return { ...initialState };
     case COMMITTING_ERROR:
       return {
         ...state,
         error: payload.error,
+      };
+    case COMMITTING_SET_AMOUNT_TOKENS:
+      return {
+        ...state,
+        committedETH: payload.committedETH,
+        estimatedNEU: payload.estimatedNEU,
       };
     default:
       return state;

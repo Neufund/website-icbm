@@ -7,16 +7,21 @@ import { IAppState } from "../../reducers/index";
 import { LoadingIndicator } from "../LoadingIndicator";
 import { UserInfo } from "../UserInfo";
 import { CommitHeaderComponent } from "./CommitHeaderComponent";
+import { TransactionCommittedMoneyComponent } from "./TransactionCommittedMoneyComponent";
 
 import * as styles from "./TxConfirmation.scss";
 
 interface ITxConfirmationComponentProps {
   errorMsg: string;
+  committedETH: string;
+  estimatedNEU: string;
 }
 
 export class TxConfirmationComponent extends React.Component<ITxConfirmationComponentProps> {
   public render() {
     const errorMsg = this.props.errorMsg;
+    const committedETH = this.props.committedETH;
+    const estimatedNEU = this.props.estimatedNEU;
 
     return (
       <div>
@@ -38,6 +43,7 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
               {errorMsg}
             </p>
           </Alert>}
+        <TransactionCommittedMoneyComponent commit={committedETH} reward={estimatedNEU} />
       </div>
     );
   }
@@ -45,4 +51,6 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
 
 export const TxConfirmation = connect((state: IAppState) => ({
   errorMsg: state.transactionState.error,
+  committedETH: state.transactionState.committedETH,
+  estimatedNEU: state.transactionState.estimatedNEU,
 }))(TxConfirmationComponent);

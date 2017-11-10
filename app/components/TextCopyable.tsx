@@ -1,11 +1,12 @@
 import * as cn from "classnames";
 import * as React from "react";
-import { iconStyle, textStyle } from "./TextCopyable.scss";
+import * as style from "./TextCopyable.scss";
 
 interface ITextCopyableProps {
   text: string;
   maxTextLength?: number;
   className?: string;
+  copyIconOnRight?: boolean;
 }
 
 const shortenText = (text: string, length: number) => {
@@ -15,21 +16,34 @@ const shortenText = (text: string, length: number) => {
   return beginOfText + "\u2026" + endOfText;
 };
 
-export const TextCopyable: React.SFC<ITextCopyableProps> = ({ text, maxTextLength, className }) => {
+export const TextCopyable: React.SFC<ITextCopyableProps> = ({
+  text,
+  maxTextLength,
+  className,
+  copyIconOnRight,
+}) => {
   let display_text = text;
   if (maxTextLength !== undefined && display_text.length > maxTextLength) {
     display_text = shortenText(display_text, maxTextLength);
   }
 
   return (
-    <span className={cn(className, textStyle)}>
-      <i
-        className={cn("material-icons", iconStyle, "copy-to-clipboard")}
-        data-clipboard-text={text}
-      >
-        content_copy
-      </i>
+    <span className={cn(className, style.textStyle)}>
+      {!copyIconOnRight &&
+        <i
+          className={cn("material-icons", style.iconStyle, "copy-to-clipboard")}
+          data-clipboard-text={text}
+        >
+          content_copy
+        </i>}
       {display_text}
+      {copyIconOnRight &&
+        <i
+          className={cn("material-icons", style.iconStyle, style.iconOnRight, "copy-to-clipboard")}
+          data-clipboard-text={text}
+        >
+          content_copy
+        </i>}
     </span>
   );
 };

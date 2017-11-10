@@ -104,9 +104,6 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
       .toString();
     const estimatedReward = state.commitmentState.estimatedReward;
 
-    console.log("submitFunds committedETH ", committedETH);
-    console.log("submitFunds estimatedReward ", estimatedReward);
-
     dispatcher(transactionSetTokenAmounts(committedETH, estimatedReward));
     const selectedAccount = state.userState.address;
     dispatcher(push("/commit/tx-confirmation"));

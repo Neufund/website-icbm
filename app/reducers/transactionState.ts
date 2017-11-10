@@ -8,9 +8,7 @@ import {
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
 } from "../actions/constants";
-
 import { Reducer } from "../types";
-import { Web3Service } from "../web3/web3Service";
 
 export interface ITransactionState {
   txStarted: boolean;

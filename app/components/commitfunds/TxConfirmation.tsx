@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router";
 
 import { IAppState } from "../../reducers/index";
-import { selectCommittedETH, selectEstimatedNEU } from "../../reducers/transactionState"
 import { LoadingIndicator } from "../LoadingIndicator";
 import { UserInfo } from "../UserInfo";
 import { CommitHeaderComponent } from "./CommitHeaderComponent";
@@ -23,9 +22,6 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
     const errorMsg = this.props.errorMsg;
     const committedETH = this.props.committedETH;
     const estimatedNEU = this.props.estimatedNEU;
-
-    console.log("TxConfirmationComponent", committedETH);
-    console.log("TxConfirmationComponent", estimatedNEU);
 
     return (
       <div>
@@ -47,7 +43,7 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
               {errorMsg}
             </p>
           </Alert>}
-        <TransactionCommittedMoneyComponent commit={"0"} reward={"0"} />
+        <TransactionCommittedMoneyComponent commit={committedETH} reward={estimatedNEU} />
       </div>
     );
   }
@@ -55,6 +51,6 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
 
 export const TxConfirmation = connect((state: IAppState) => ({
   errorMsg: state.transactionState.error,
-  committedETH: selectCommittedETH(state.transactionState),
-  estimatedNEU: selectEstimatedNEU(state.transactionState),
+  committedETH: state.transactionState.committedETH,
+  estimatedNEU: state.transactionState.estimatedNEU,
 }))(TxConfirmationComponent);

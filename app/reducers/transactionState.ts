@@ -63,7 +63,6 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         txConfirmed: true,
       };
     case COMMITTING_RESET:
-    case "@@router/LOCATION_CHANGE":
       return { ...initialState };
     case COMMITTING_ERROR:
       return {
@@ -82,8 +81,3 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
 };
 
 export default reducer;
-
-export const selectCommittedETH = (state: ITransactionState): string =>
-  Web3Service.instance.rawWeb3.fromWei(state.committedETH, "ether");
-
-export const selectEstimatedNEU = (state: ITransactionState): string => state.estimatedNEU;

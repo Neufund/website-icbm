@@ -2,7 +2,7 @@
   return title.replace(/[^a-zA-Z ]/g, '').replace(/\s+/g, '-').toLowerCase();
 } %>
 
-<% function getValueOrEmbtyString(value) {
+<% function getValueOrEmptyString(value) {
   return typeof value !== "undefiend" ? value : "";
 } %>
 
@@ -30,7 +30,7 @@
     <div class="col-md-9" data-target="#sidebar">
       <% var sectionCounter = 0 %>
       <% for (var i = 0; i < manualContent.length; i++) { %>
-        <div class="group <%= getValueOrEmbtyString(manualContent[i].customClass) %>" id="<%= convertTitleToId(manualContent[i].groupName) %>">
+        <div class="group <%= getValueOrEmptyString(manualContent[i].customClass) %>" id="<%= convertTitleToId(manualContent[i].groupName) %>">
           <% for (var j = 0; j < manualContent[i].groupContent.length; j++) { %>
               <% 
                 var section = manualContent[i].groupContent[j];

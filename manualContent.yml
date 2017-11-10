@@ -49,28 +49,24 @@
       rightSideContent: ""
 - groupName: "Where do I send the funds?"
   groupContent:
-    - type: "blue"
+    - type: "regular"
       title: "Where do I send the funds?"
       paragraphs:
-      - type: "text"
-        content: "To commit funds you will need to send your ETH <b>to your own wallet address created by Neufund. Here is the Neufund ICBM Smart Contract address</b>."
-      - type: "qr"
-        content: "assets/placeholder.png"
-      - type: "copy"
-        content: "0xf432cec23b2a0d6062b969467f65669de81f4653"
-        linkText: "Verify source code on Etherscan"
-        linkURL: "https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653"
-      - type: "text"
-        content: "Include following string in your transaction:"
-      - type: "copy"
-        content: "0x3c7a3ff"
-        linkText: ""
-        linkURL: ""
+      - "To commit funds you will need to send your ETH <b>to the address of Commitment Smart Contract</b>."
+      - "Your transactions should include:"
+      - |
+        <ul>
+          <li>Commitment Smart Contract address</li>
+          <li>Transaction data</li>
+          <li>Gas limit</li>
+          <li>The minimum ticket size is 1 ETH</li>
+        </ul>
+      -  "All the data you need will be available on <a href='https://commit.neufund.org' target='_blank'>commit.neufund.org</a> starting from <b>17th Nov. 2017 11:00 am UTC</b>."
       rightSideContent: ""
-- groupName: "Are my funds secure?"
+- groupName: "Is my transaction secure?"
   groupContent:
     - type: "regular"
-      title: "Are my funds secure?"
+      title: "Is my transaction secure?"
       paragraphs:
       - "Please double-check to which address you are sending your funds."
       - "<mark><b>Note</b>: Neufund will never post an smart contract address on Slack or any other channel.</mark>"

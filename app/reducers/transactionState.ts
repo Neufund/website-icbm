@@ -3,12 +3,14 @@ import {
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
   COMMITTING_RESET,
+  COMMITTING_SET_AMOUNT_TOKENS,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
 } from "../actions/constants";
 
 import { Reducer } from "../types";
+import { Web3Service } from "../web3/web3Service";
 
 export interface ITransactionState {
   txStarted: boolean;
@@ -17,6 +19,8 @@ export interface ITransactionState {
   blockCurrent: number;
   txConfirmed: boolean;
   error: string;
+  committedETH?: string;
+  estimatedNEU?: string;
   generatedNEU: string;
 }
 
@@ -66,9 +70,20 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
         ...state,
         error: payload.error,
       };
+    case COMMITTING_SET_AMOUNT_TOKENS:
+      return {
+        ...state,
+        committedETH: payload.committedETH,
+        estimatedNEU: payload.estimatedNEU,
+      };
     default:
       return state;
   }
 };
 
 export default reducer;
+
+export const selectCommittedETH = (state: ITransactionState): string =>
+  Web3Service.instance.rawWeb3.fromWei(state.committedETH, "ether");
+
+export const selectEstimatedNEU = (state: ITransactionState): string => state.estimatedNEU;

@@ -6,16 +6,23 @@ import { Reducer } from "../types";
 export interface IAftermathState {
   loading: boolean;
   lockedAmountEth?: string;
-  neumarkBalance?: string;
+  neumarkBalanceEth?: string;
   unlockDateEth?: string;
+  lockedAmountEur?: string;
+  neumarkBalanceEur?: string;
+  unlockDateEur?: string;
+  neumarkBalance?: string;
   address?: string;
 }
 
 const initialState: IAftermathState = {
   loading: true,
   lockedAmountEth: null,
-  neumarkBalance: null,
+  neumarkBalanceEth: null,
   unlockDateEth: null,
+  lockedAmountEur: null,
+  neumarkBalanceEur: null,
+  unlockDateEur: null,
 };
 
 const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
@@ -25,7 +32,7 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
       return {
         ...state,
         lockedAmountEth: null,
-        neumarkBalance: null,
+        neumarkBalanceEth: null,
         unlockDateEth: null,
         address: null,
       };
@@ -34,10 +41,12 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
         ...state,
         loading: false,
         lockedAmountEth: payload.lockedAmountEth,
-        lockedAmountEuro: payload.lockedAmountEuro,
-        neumarkBalance: payload.neumarkBalance,
+        lockedAmountEur: payload.lockedAmountEur,
+        neumarkBalanceEth: payload.neumarkBalanceEth,
+        neumarkBalanceEur: payload.neumarkBalanceEur,
         unlockDateEth: payload.unlockDateEth,
-        unlockDateEuro: payload.unlockDateEuro,
+        unlockDateEur: payload.unlockDateEur,
+        neumarkBalance: payload.neumarkBalance,
         address: payload.address,
       };
     default:
@@ -60,7 +69,7 @@ export function selectLockedAmount(state: IAftermathState): BigNumber {
 }
 
 export function selectNeumarkBalance(state: IAftermathState): BigNumber {
-  return state.neumarkBalance && new BigNumber(state.neumarkBalance);
+  return state.neumarkBalanceEth && new BigNumber(state.neumarkBalanceEth);
 }
 
 export function selectShowDocuments(state: IAftermathState): boolean {
@@ -68,10 +77,18 @@ export function selectShowDocuments(state: IAftermathState): boolean {
   return balance ? balance.toNumber() > 0 : false;
 }
 
-export function selectUnlockDate(state: IAftermathState): moment.Moment {
+export function selectUnlockDateEth(state: IAftermathState): moment.Moment {
   return (
     state.unlockDateEth &&
     state.unlockDateEth !== "1970-01-01T00:00:00.000Z" &&
     moment(state.unlockDateEth)
+  );
+}
+
+export function selectUnlockDateEur(state: IAftermathState): moment.Moment {
+  return (
+    state.unlockDateEur &&
+    state.unlockDateEur !== "1970-01-01T00:00:00.000Z" &&
+    moment(state.unlockDateEur)
   );
 }

@@ -90,7 +90,7 @@ export const getReservationAgreementTags: ThunkAction<{}, IAppState, {}> = async
     ),
     "neumark-acquisition-ratio": calculateAndFormatRatio(
       aftermathState.lockedAmountEth,
-      aftermathState.neumarkBalance
+      aftermathState.neumarkBalanceEth
     ),
     "current-block-hash": currentBlockHash,
     ...generalTags,

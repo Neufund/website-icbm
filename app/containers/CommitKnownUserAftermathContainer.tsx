@@ -1,4 +1,4 @@
-import { BigNumber } from "bignumber.js";
+import { startCase } from "lodash";
 import { Moment } from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
@@ -11,10 +11,8 @@ import { LoadingIndicator } from "../components/LoadingIndicator";
 import MoneyComponent from "../components/MoneyComponent";
 import {
   selectLoading,
-  selectLockedAmount,
-  selectNeumarkBalance,
-  selectShowDocuments,
-  selectUnlockDate,
+  selectUnlockDateEth,
+  selectUnlockDateEur,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import {
@@ -26,16 +24,23 @@ import { IDictionary } from "../types";
 import { EtherScanLinkType, TokenType } from "../actions/constants";
 import * as styles from "./Aftermath.scss";
 
-interface IAftermathProps {
+interface IAftermathState {
   isLoading: boolean;
+  lockedAmountEth: string;
+  neumarkBalanceEth: string;
+  unlockDateEth: Moment;
+  lockedAmountEur: string;
+  neumarkBalanceEur: string;
+  unlockDateEur: Moment;
+  reservationAgreementHash: string;
+  tokenHolderAgreementHash: string;
+  neumarkBalance: string;
+}
+
+interface IAftermathDispatcher {
   loadAftermathDetails: (address: string) => {};
   getTokenHolderAgreementTags: () => Promise<IDictionary>;
   getReservationAgreementTags: () => Promise<IDictionary>;
-  lockedAmountEth: BigNumber;
-  neumarkBalanceEth: BigNumber;
-  unlockDateEth: Moment;
-  reservationAgreementHash: string;
-  tokenHolderAgreementHash: string;
 }
 
 interface IAftermathOwnProps {
@@ -43,13 +48,13 @@ interface IAftermathOwnProps {
 }
 
 export class CommitKnownUserAftermath extends React.Component<
-  IAftermathOwnProps & IAftermathProps
+  IAftermathOwnProps & IAftermathState & IAftermathDispatcher
 > {
   public componentDidMount() {
     this.props.loadAftermathDetails(this.props.address);
   }
 
-  public async componentWillReceiveProps(_nextProps: IAftermathOwnProps & IAftermathProps) {
+  public async componentWillReceiveProps(_nextProps: IAftermathOwnProps & IAftermathState) {
     if (this.props.address !== _nextProps.address) {
       this.props.loadAftermathDetails(_nextProps.address);
     }
@@ -62,10 +67,14 @@ export class CommitKnownUserAftermath extends React.Component<
       lockedAmountEth,
       unlockDateEth,
       neumarkBalanceEth,
+      lockedAmountEur,
+      unlockDateEur,
+      neumarkBalanceEur,
       getTokenHolderAgreementTags,
       getReservationAgreementTags,
       reservationAgreementHash,
       tokenHolderAgreementHash,
+      neumarkBalance,
     } = this.props;
 
     if (isLoading) {
@@ -75,6 +84,7 @@ export class CommitKnownUserAftermath extends React.Component<
         </div>
       );
     }
+
     return (
       <div className={styles.aftermath}>
         <div>
@@ -96,12 +106,31 @@ export class CommitKnownUserAftermath extends React.Component<
           </div>
         </div>
 
-        {lockedAmountEth &&
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>Neumarks balance:</div>
+          <div className={styles.value}>
+            <MoneyComponent value={neumarkBalance} tokenType={TokenType.NEU} />
+          </div>
+        </div>
+
+        {parseFloat(lockedAmountEth) > 0 &&
           <CommitmentInfo
             tokenType={TokenType.ETHER}
             lockedAmount={lockedAmountEth}
             neumarkBalance={neumarkBalanceEth}
             unlockDate={unlockDateEth}
+            tokenHolderAgreementHash={tokenHolderAgreementHash}
+            reservationAgreementHash={reservationAgreementHash}
+            getTokenHolderAgreementTags={getTokenHolderAgreementTags}
+            getReservationAgreementTags={getReservationAgreementTags}
+          />}
+
+        {parseFloat(lockedAmountEur) > 0 &&
+          <CommitmentInfo
+            tokenType={TokenType.EURO}
+            lockedAmount={lockedAmountEur}
+            neumarkBalance={neumarkBalanceEur}
+            unlockDate={unlockDateEur}
             tokenHolderAgreementHash={tokenHolderAgreementHash}
             reservationAgreementHash={reservationAgreementHash}
             getTokenHolderAgreementTags={getTokenHolderAgreementTags}
@@ -113,9 +142,9 @@ export class CommitKnownUserAftermath extends React.Component<
 }
 
 interface ICommitmentInfo {
-  lockedAmount: BigNumber;
+  lockedAmount: string;
   unlockDate: Moment;
-  neumarkBalance: BigNumber;
+  neumarkBalance: string;
   tokenType: TokenType;
   reservationAgreementHash: string;
   tokenHolderAgreementHash: string;
@@ -134,7 +163,9 @@ const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   getReservationAgreementTags,
 }) =>
   <div>
-    <h4>Ether funds:</h4>
+    <h4>
+      {startCase(tokenType.toLowerCase())} funds:
+    </h4>
     <div className={styles.infoBox}>
       <div className={styles.caption}>Locked amount</div>
       <div className={styles.value}>
@@ -148,7 +179,7 @@ const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
       </div>
     </div>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Neumark balance</div>
+      <div className={styles.caption}>Neumarks needed to unlock:</div>
       <div className={styles.value}>
         {neumarkBalance ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkBalance} /> : "-"}
       </div>
@@ -180,8 +211,12 @@ function mapStateToProps(state: IAppState) {
   return {
     isLoading: selectLoading(state.aftermathState),
     lockedAmountEth: state.aftermathState.lockedAmountEth,
-    neumarkBalanceEth: state.aftermathState.neumarkBalance,
-    unlockDate: selectUnlockDate(state.aftermathState),
+    lockedAmountEur: state.aftermathState.lockedAmountEur,
+    neumarkBalanceEth: state.aftermathState.neumarkBalanceEth,
+    neumarkBalanceEur: state.aftermathState.neumarkBalanceEur,
+    unlockDateEth: selectUnlockDateEth(state.aftermathState),
+    unlockDateEur: selectUnlockDateEur(state.aftermathState),
+    neumarkBalance: state.aftermathState.neumarkBalance,
     reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
     tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
   };
@@ -195,6 +230,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect<any, any, IAftermathOwnProps>(mapStateToProps, mapDispatchToProps)(
-  CommitKnownUserAftermath
-);
+export default connect<IAftermathState, IAftermathDispatcher, IAftermathOwnProps>(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommitKnownUserAftermath);

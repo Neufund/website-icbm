@@ -14,7 +14,7 @@ import {
   selectLockedAmount,
   selectNeumarkBalance,
   selectShowDocuments,
-  selectUnlockDate,
+  selectUnlockDateEth,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import {
@@ -143,7 +143,7 @@ function mapStateToProps(state: IAppState) {
   return {
     lockedAmount: selectLockedAmount(state.aftermathState),
     neumarkBalance: selectNeumarkBalance(state.aftermathState),
-    unlockDate: selectUnlockDate(state.aftermathState),
+    unlockDate: selectUnlockDateEth(state.aftermathState),
     isAddressSet: isAddressSet(state.aftermathState),
     reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
     tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),

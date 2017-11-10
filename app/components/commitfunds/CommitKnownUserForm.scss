@@ -1,98 +1,130 @@
 @import '../../../common/sass/variables';
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
-.form-container {
-  position: relative;
-  margin-bottom: 83px;
+$border-radius-size: 10px;
+$commit-shadow: 0 1px 3px 0 rgba(0, 0, 0, .13);
+$left-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25);
+$left-gradient: linear-gradient(144deg, #235f79 0%, #424a52 100%);  // sass-lint:disable-line no-color-literals
 
-  @media (min-width: $screen-lg-min) {
-    width: calc(100% - 83px);
+.container {
+  margin-bottom: 50px;
+  border-radius: $border-radius-size;
+  background-color: $white-dirty;
+}
+
+@media (min-width: $screen-sm-min) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.estimated-reward-loading-indicator {
-  margin-top: 0;
-  margin-bottom: 5.5px;
-  width: 30px;
-  height: 30px;
+.area {
+  padding: 40px;
+
+  .header {
+    text-transform: uppercase;
+    color: $gray-almost-dark;
+    font-size: $font-size-smallest;
+    font-weight: $font-weight-bold;
+  }
+
+  .description {
+    line-height: 19px;
+    font-size: $font-size-normal;
+    font-weight: $font-weight-light;
+  }
 }
 
-.form-body {
-  position: relative;
-  z-index: 2;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .25); // sass-lint:disable-line no-color-literals
-  background: linear-gradient(143.71deg, #235f79 0%, #424a52 100%);  // sass-lint:disable-line no-color-literals
-  padding: 0 20px 20px;
+.reward-loading-indicator {
+  margin: 33px auto 38px;
+  width: 41px;
+  height: 41px;
 }
 
-.input {
-  display: inline-block;
+.has-button {
+  padding-bottom: 65px;
+}
+
+.left {
   position: relative;
-  width: calc(100% - 40px);
+  border-radius: $border-radius-size;
+  box-shadow: $left-shadow;
+  background: $left-gradient;
+  color: $white;
+
+  @media (min-width: $screen-sm-min) {
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -10px;
+      border: 10px solid transparent;
+      border-left-color: $gray-darker;
+      width: 0;
+      height: 0;
+      content: ' ';
+      pointer-events: none;
+    }
+  }
+
+  .commit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 $border-radius-size $border-radius-size;
+    box-shadow: $commit-shadow;
+    background-color: $gray-lighter;
+    cursor: not-allowed;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: $blue-darker;
+    font-size: $font-size-normal-smaller;
+    font-weight: $font-weight-bold;
+
+    &.valid {
+      background-color: $green;
+      cursor: pointer;
+    }
+  }
+}
+
+.right {
+  color: $black-almost;
+}
+
+.reward-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: $font-weight-normal;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 25px;
+
+  .input {
+    width: calc(100% - 110px);
+  };
 
   .currency-deposit {
-    position: absolute;
-    top: 42px;
-    right: 0;
+    position: relative;
+    top: -5px;
     color: $white;
-    font-size: $font-size-small;
+    font-size: 40px;
     font-weight: $font-weight-light;
-  }
-}
-
-.reward {
-  margin-top: 16px;
-  color: $white;
-  font-size: $font-size-smallest;
-}
-
-.amount {
-  color: $white;
-  font-size: 18px;
-
-  .currency {
-    text-transform: capitalize;
-    font-size: $font-size-small;
-    font-weight: $font-weight-light;
-  }
-}
-
-.description {
-  line-height: 15px;
-  color: $gray-lighter;
-  font-size: $font-size-smallest;
-}
-
-.form-submit {
-  position: relative;
-  z-index: 2;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .13); // sass-lint:disable-line no-color-literals
-  background-color: $gray-lighter;
-  cursor: not-allowed;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  color: $blue-darker;
-  font-weight: $font-weight-bold;
-
-  &.valid {
-    background-color: $green;
-    cursor: pointer;
-  }
-}
-
-.hex {
-  display: none;
-
-  @media (min-width: $screen-lg-min) {
-    display: block;
-    position: absolute;
-    right: -83px;
-    bottom: -83px;
-    z-index: 1;
-    width: 365px;
-    height: 365px;
   }
 }

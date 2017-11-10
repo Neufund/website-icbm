@@ -3,6 +3,7 @@ import * as bluebird from "bluebird";
 import * as moment from "moment";
 
 import { EthNetwork, Web3Type } from "../actions/constants";
+import config from "../config";
 import { Web3Service } from "./web3Service";
 
 export const Q18 = new BigNumber("10").pow(18);
@@ -84,4 +85,11 @@ export function networkIdToEthNetwork(networkId: string): EthNetwork {
     default:
       return EthNetwork.DEV;
   }
+}
+
+export function computeTotalTxCost(amount: BigNumber): BigNumber {
+  const gasLimit = new BigNumber(config.contractsDeployed.gasLimit);
+  const gasPrice = new BigNumber(config.contractsDeployed.gasPrice);
+
+  return amount.add(gasLimit.mul(gasPrice));
 }

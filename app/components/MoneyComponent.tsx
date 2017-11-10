@@ -14,6 +14,7 @@ interface IMoneyComponentProps {
 interface IMoneyComponentOwnProps {
   tokenType: TokenType;
   value: BigNumber | string;
+  containerClass?: string;
   valueClass?: string;
   currencyClass?: string;
   fit?: boolean;
@@ -24,10 +25,12 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   value,
   decimals,
   tokenType,
+  containerClass,
   valueClass,
   currencyClass,
   fit,
   decimalPlaces,
+  ...props,
 }) => {
   if (!decimals) {
     throw new Error("Couldnt get TOKEN details!");
@@ -49,7 +52,7 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   }
 
   return (
-    <span>
+    <span className={containerClass} {...props}>
       {valueComponent} <span className={currencyClass}>{tokenTypeToSymbol(tokenType)}</span>
     </span>
   );
@@ -93,4 +96,4 @@ export default connect<
   return {
     decimals: tokenTypeToDecimals(ownProps.tokenType, state),
   };
-})(MoneyComponent);
+}, {})(MoneyComponent);

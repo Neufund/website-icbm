@@ -88,13 +88,11 @@ const CommitKnownUserForm = ({
   const gasPrice = Web3Service.instance.rawWeb3.fromWei(config.contractsDeployed.gasPrice, "gwei");
   const gasLimit = parseInt(config.contractsDeployed.gasLimit, 10).toLocaleString();
 
+  let txCost = new BigNumber(0);
   const parsedAmount = parseStrToNumStrict(ethAmount);
-  let txCost;
-  let showTxCost = false;
-  if (!isNaN(parsedAmount)) {
+  if (!isNaN(parsedAmount) && parsedAmount > 0) {
     const weiAmount = new BigNumber(Web3Service.instance.rawWeb3.toWei(parsedAmount, "ether"));
     txCost = computeTotalTxCost(weiAmount);
-    showTxCost = weiAmount.greaterThan(0);
   }
 
   return (
@@ -118,9 +116,8 @@ const CommitKnownUserForm = ({
             <p>
               Gas price: {gasPrice} gwei<br />
               Gas limit: {gasLimit} <br />
-              Total tx value: {" "}
-              {showTxCost &&
-                <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />}
+              Total tx value:{" "}
+              <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
             </p>
           </div>
           <div

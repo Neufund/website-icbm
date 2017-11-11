@@ -40,7 +40,7 @@ export enum EthNetwork {
 }
 
 export enum EtherScanLinkType {
-  ADDRES,
+  ADDRESS,
   TRANSACTION,
   BLOCK,
 }

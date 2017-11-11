@@ -52,6 +52,11 @@ export enum InvestorType {
   NOT_ALLOWED = "NOT_ALLOWED",
 }
 
+export enum MyEtherWalletSendMode {
+  ETHER = "ETHER",
+  TOKEN = "TOKEN",
+}
+
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
 export const LOAD_BEFORE_ICO_DETAILS = "LOAD_BEFORE_ICO_DETAILS";
 export const LOADING_DURING_ICO_DETAILS = "LOAD_DURING_ICO_DETAILS";

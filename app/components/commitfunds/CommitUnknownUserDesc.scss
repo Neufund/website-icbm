@@ -3,7 +3,8 @@
 $spacing-from-container: 22px;
 
 .text-copyable {
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: $font-weight-normal;
 }
 
 .info-container {
@@ -17,13 +18,11 @@ $spacing-from-container: 22px;
 
   p {
     margin-bottom: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    word-break: break-all;
   }
 
   .verify-link {
-    margin-left: 30px;
+    color: $blue-another;
     font-weight: $font-weight-normal;
   }
 
@@ -33,5 +32,10 @@ $spacing-from-container: 22px;
     .text-copyable {
       font-size: $font-size-small;
     }
+  }
+
+  .eth-amount {
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
   }
 }

@@ -135,7 +135,7 @@ module.exports = {
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(jpg|png|logo\.svg)$/,
+        test: /\.(jpg|png|svg)$/,
         loader: "url-loader",
         options: {
           limit: 25000,
@@ -143,7 +143,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(ttf|svg|eot|otf)$/,
+        test: /\.(ttf|eot|otf)$/,
         loader: "file-loader",
         options: {
           name: "fonts/[hash].[ext]",

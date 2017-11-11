@@ -4,7 +4,7 @@ import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 
 import { TokenType } from "../../actions/constants";
-import * as logo from "../../assets/img/myetherwallet.logo.svg";
+import * as logo from "../../assets/img/myetherwallet_logo.svg";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";

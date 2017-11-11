@@ -36,7 +36,7 @@ export const transactionConfirmation = async (
           const tx = await Web3Service.instance.getTransaction(transactionHash);
           if (tx && tx.blockNumber != null) {
             const txReceipt = await Web3Service.instance.getTransactionReceipt(transactionHash);
-            if (txReceipt.status !== null) {
+            if (txReceipt && txReceipt.status !== null) {
               const txStatus = parseInt(txReceipt.status, 16);
               if (txStatus === 0) {
                 return reject(new TransactionFailedError(tx.hash));

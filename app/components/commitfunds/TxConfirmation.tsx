@@ -37,12 +37,17 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
             <p>Waiting for confirmation from signer</p>
           </div>}
         {errorMsg &&
-          <Alert bsStyle="danger">
-            <h4>Error occured!</h4>
-            <p>
-              {errorMsg}
-            </p>
-          </Alert>}
+          <div className={styles.error}>
+            <Alert bsStyle="danger">
+              <h4>Error occured!</h4>
+              <p>
+                {errorMsg}
+              </p>
+            </Alert>
+            <Link to={"/commit"} className="btn btn-primary btn-link">
+              Go back to start
+            </Link>
+          </div>}
         <TransactionCommittedMoneyComponent commit={committedETH} reward={estimatedNEU} />
       </div>
     );

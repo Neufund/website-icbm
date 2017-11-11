@@ -1,15 +1,15 @@
 import { FontIcon } from "material-ui";
 import * as React from "react";
+import { Alert } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Link } from "react-router";
 
 import { EtherScanLinkType } from "../../actions/constants";
+import { watchTxBeingMined } from "../../actions/submitFunds";
+import { IAppState } from "../../reducers/index";
 import EtherScanLink from "../EtherScanLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import { CommitHeaderComponent } from "./CommitHeaderComponent";
-
-import { connect } from "react-redux";
-import { Link } from "react-router";
-import { watchTxBeingMined } from "../../actions/submitFunds";
-import { IAppState } from "../../reducers/index";
 import * as styles from "./TxStatus.scss";
 
 interface ITxMiningComponent {
@@ -17,7 +17,7 @@ interface ITxMiningComponent {
   isMined: boolean;
   currentBlockNumber: number;
   address: string;
-
+  error: string;
   watchTx: () => any;
 }
 
@@ -34,7 +34,7 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
 
   public render() {
     const { txHash } = this.props.params;
-    const { isMined, currentBlockNumber, address } = this.props;
+    const { isMined, currentBlockNumber, address, error } = this.props;
     return (
       <div>
         <CommitHeaderComponent number="03" title="Transaction status" />
@@ -61,14 +61,25 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
             Transaction confirmed: <b>{isMined ? "Yes" : "No"}</b>
           </div>
         </div>
-
-        <div className={styles.confirmedIndicator}>
-          {isMined
-            ? <FontIcon className="material-icons" style={iconStyles}>
-                done
-              </FontIcon>
-            : <LoadingIndicator />}
-        </div>
+        {error
+          ? <div className={styles.error}>
+              <Alert bsStyle="danger">
+                <h4>Error occured!</h4>
+                <p>
+                  {error}
+                </p>
+              </Alert>
+              <Link to={"/commit"} className="btn btn-primary btn-link">
+                Go back to start
+              </Link>
+            </div>
+          : <div className={styles.confirmedIndicator}>
+              {isMined
+                ? <FontIcon className="material-icons" style={iconStyles}>
+                    done
+                  </FontIcon>
+                : <LoadingIndicator />}
+            </div>}
 
         {isMined &&
           <Link
@@ -87,6 +98,7 @@ export const TxStatus = connect(
   (state: IAppState) => ({
     currentBlockNumber: state.transactionState.blockCurrent,
     isMined: state.transactionState.txConfirmed,
+    error: state.transactionState.error,
     address: state.userState.address,
   }),
   (dispatcher, ownProps: any) => ({

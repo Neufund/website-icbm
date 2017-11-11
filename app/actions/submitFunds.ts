@@ -120,8 +120,6 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
 
     if (parsedError.type === ErrorType.UserDeniedTransaction) {
       dispatcher(push("/commit"));
-      dispatcher(transactionResetAction());
-      dispatcher(setEstimatedRewardAction(new BigNumber.BigNumber(0).toString()));
       return;
     }
 
@@ -140,7 +138,17 @@ export const watchTxBeingMined: (
     dispatcher(transactionNewBlockAction(blockNo));
   };
 
-  await transactionConfirmation(txHash, transactionMined, newBlock);
+  try {
+    await transactionConfirmation(txHash, transactionMined, newBlock);
+  } catch (e) {
+    const parsedError = web3ErrorHandler(e);
+    if (parsedError.type === ErrorType.UnknownError) {
+      // tslint:disable-next-line no-console
+      console.log(e);
+    }
+    dispatcher(transactionErrorAction(parsedError.message));
+    return;
+  }
   dispatcher(transactionDoneAction());
 };
 

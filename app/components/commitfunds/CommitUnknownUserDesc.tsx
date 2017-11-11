@@ -32,7 +32,8 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
   return (
     <div className={style.infoContainer}>
       <p>
-        Include following data in your transaction:<br />
+        Please include it in your transaction<br />
+        Transaction data:<br />
         <TextCopyable copyIconOnRight className={style.textCopyable} text={transactionPayload} />
       </p>
       <p>
@@ -54,7 +55,7 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
           />
         </Col>
         <Col sm={4}>
-          Suggested gas limit<br />
+          Gas limit:<br />
           <TextCopyable
             copyIconOnRight
             className={style.textCopyable}

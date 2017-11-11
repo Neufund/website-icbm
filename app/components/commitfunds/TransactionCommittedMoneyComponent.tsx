@@ -29,7 +29,7 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
     <Grid>
       <Row className={style.container}>
         <Col sm={6} className={`${style.area} ${style.left}`}>
-          <div className={style.header}>Your commit</div>
+          <div className={style.header}>Your commitment</div>
           <MoneyComponent
             tokenType={TokenType.ETHER}
             value={commit}
@@ -39,7 +39,7 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
             <p>
               Gas price: <b>{gasPrice} gwei</b> <br />
               Gas limit: <b>{gasLimit}</b> <br />
-              Total tx value:{" "}
+              Total transaction value{" "}
               <b>
                 <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
               </b>

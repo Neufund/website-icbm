@@ -99,7 +99,7 @@ const CommitKnownUserForm = ({
     <Grid>
       <Row className={style.container}>
         <Col sm={6} className={`${style.area} ${style.hasButton} ${style.left}`}>
-          <div className={style.header}>How much Eth you want to commit?</div>
+          <div className={style.header}>How much ETH would you like to commit?</div>
           <form onSubmit={handleSubmit} className={style.form} onChange={calculateEstimatedReward}>
             <div className={style.inputContainer}>
               <div className={style.input}>
@@ -143,7 +143,7 @@ const CommitKnownUserForm = ({
               />}
           <div className={style.description}>
             <p>
-              Reward will be granted after the block is mined and it might depend on the order of
+              The reward will be granted after the block is mined. It might depend on the order of
               transactions.
             </p>
           </div>

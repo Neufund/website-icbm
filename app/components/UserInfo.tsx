@@ -28,21 +28,21 @@ export const UserInfoComponent: React.SFC<IUserAddressComponentProps> = ({
 }) =>
   <div className={userAddressContainer}>
     <AddressIcon address={address} className={icon} />
-    <p>Your wallet address</p>
+    <p>Your wallet address:</p>
     <p className={value}>
       <TextCopyable text={address} />
     </p>
-    <p>Balance</p>
+    <p>Your balance:</p>
     <p className={value}>
       <MoneyComponent tokenType={TokenType.ETHER} value={balance} />
     </p>
-    <p>Wallet</p>
+    <p>Your wallet type:</p>
     <p className={value}>
       <span>
         {web3Provider}
       </span>
     </p>
-    <p>Investor type</p>
+    <p>ICBM phase:</p>
     <p className={value}>
       <span>
         {investorType}

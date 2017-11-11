@@ -79,7 +79,7 @@ export const CommitUnknownUser = connect(
   (state: IAppState) => ({
     contractAddress: config.contractsDeployed.commitmentContractAddress,
     etherScanUrl: etherscanUrl(
-      EtherScanLinkType.ADDRES,
+      EtherScanLinkType.ADDRESS,
       config.contractsDeployed.commitmentContractAddress,
       selectEthNetwork(state.web3State)
     ),

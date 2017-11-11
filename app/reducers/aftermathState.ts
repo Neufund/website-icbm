@@ -5,17 +5,24 @@ import { Reducer } from "../types";
 
 export interface IAftermathState {
   loading: boolean;
-  lockedAmount?: string;
+  lockedAmountEth?: string;
+  neumarkBalanceEth?: string;
+  unlockDateEth?: string;
+  lockedAmountEur?: string;
+  neumarkBalanceEur?: string;
+  unlockDateEur?: string;
   neumarkBalance?: string;
-  unlockDate?: string;
   address?: string;
 }
 
 const initialState: IAftermathState = {
   loading: true,
-  lockedAmount: null,
-  neumarkBalance: null,
-  unlockDate: null,
+  lockedAmountEth: null,
+  neumarkBalanceEth: null,
+  unlockDateEth: null,
+  lockedAmountEur: null,
+  neumarkBalanceEur: null,
+  unlockDateEur: null,
 };
 
 const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
@@ -24,18 +31,22 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
     case LOAD_AFTERMATH:
       return {
         ...state,
-        lockedAmount: null,
-        neumarkBalance: null,
-        unlockDate: null,
+        lockedAmountEth: null,
+        neumarkBalanceEth: null,
+        unlockDateEth: null,
         address: null,
       };
     case SET_AFTERMATH:
       return {
         ...state,
         loading: false,
-        lockedAmount: payload.lockedAmount,
+        lockedAmountEth: payload.lockedAmountEth,
+        lockedAmountEur: payload.lockedAmountEur,
+        neumarkBalanceEth: payload.neumarkBalanceEth,
+        neumarkBalanceEur: payload.neumarkBalanceEur,
+        unlockDateEth: payload.unlockDateEth,
+        unlockDateEur: payload.unlockDateEur,
         neumarkBalance: payload.neumarkBalance,
-        unlockDate: payload.unlockDate,
         address: payload.address,
       };
     default:
@@ -54,11 +65,11 @@ export function isAddressSet(state: IAftermathState): boolean {
 }
 
 export function selectLockedAmount(state: IAftermathState): BigNumber {
-  return state.lockedAmount && new BigNumber(state.lockedAmount);
+  return state.lockedAmountEth && new BigNumber(state.lockedAmountEth);
 }
 
 export function selectNeumarkBalance(state: IAftermathState): BigNumber {
-  return state.neumarkBalance && new BigNumber(state.neumarkBalance);
+  return state.neumarkBalanceEth && new BigNumber(state.neumarkBalanceEth);
 }
 
 export function selectShowDocuments(state: IAftermathState): boolean {
@@ -66,8 +77,18 @@ export function selectShowDocuments(state: IAftermathState): boolean {
   return balance ? balance.toNumber() > 0 : false;
 }
 
-export function selectUnlockDate(state: IAftermathState): moment.Moment {
+export function selectUnlockDateEth(state: IAftermathState): moment.Moment {
   return (
-    state.unlockDate && state.unlockDate !== "1970-01-01T00:00:00.000Z" && moment(state.unlockDate)
+    state.unlockDateEth &&
+    state.unlockDateEth !== "1970-01-01T00:00:00.000Z" &&
+    moment(state.unlockDateEth)
+  );
+}
+
+export function selectUnlockDateEur(state: IAftermathState): moment.Moment {
+  return (
+    state.unlockDateEur &&
+    state.unlockDateEur !== "1970-01-01T00:00:00.000Z" &&
+    moment(state.unlockDateEur)
   );
 }

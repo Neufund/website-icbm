@@ -47,7 +47,7 @@ const render = (storage: Store<IAppState>) => {
               <Route path="wallet-selector" component={WalletSelector} />
               <Route path="tx-confirmation" component={TxConfirmation} onEnter={onlyInitialized} />
               <Route path="tx-status/:txHash" component={TxStatus} />
-              <Route path="aftermath" component={AfterMathContainer} />
+              <Route path="status(/:address)" component={AfterMathContainer} />
             </Route>
           </Router>
         </div>

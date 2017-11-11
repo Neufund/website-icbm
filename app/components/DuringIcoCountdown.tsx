@@ -84,8 +84,8 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
           Neufund is an investment platform bridging the worlds of blockchain and venture capital.
         </p>
         <p>
-          Commit funds now, invest them in the startups in the future. As a reward for participation
-          get Neumarks. This time, ETH only. EUR soon.
+          Commit your funds now, invest them in the startups in the future. As a reward for
+          participation get Neumarks. This time, ETH only. EUR soon.
         </p>
         <p>
           Time left to the end:{" "}

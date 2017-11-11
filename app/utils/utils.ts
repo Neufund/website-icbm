@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-var-requires
 const downloadjs = require("downloadjs") as any;
 
 /**

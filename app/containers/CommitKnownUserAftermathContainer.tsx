@@ -40,7 +40,7 @@ interface IAftermathState {
 interface IAftermathDispatcher {
   loadAftermathDetails: (address: string) => {};
   getTokenHolderAgreementTags: () => Promise<IDictionary>;
-  getReservationAgreementTags: () => Promise<IDictionary>;
+  getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
 }
 
 interface IAftermathOwnProps {
@@ -149,7 +149,7 @@ interface ICommitmentInfo {
   reservationAgreementHash: string;
   tokenHolderAgreementHash: string;
   getTokenHolderAgreementTags: () => Promise<IDictionary>;
-  getReservationAgreementTags: () => Promise<IDictionary>;
+  getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
 }
 
 const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
@@ -198,7 +198,10 @@ const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         <DownloadDocumentLink
           key="reservation_agreement"
           documentHash={reservationAgreementHash}
-          getTags={getReservationAgreementTags}
+          getTags={() => {
+            // tslint:disable-next-line:jsx-no-lambda
+            return getReservationAgreementTags(tokenType);
+          }}
           outputFilename="reservation_agreement"
         >
           Reservation Agreement
@@ -226,7 +229,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
     getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
-    getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
+    getReservationAgreementTags: (tokenType: TokenType) =>
+      dispatch(getReservationAgreementTags(tokenType)),
   };
 }
 

@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { debounce } from "lodash";
 import { TextField } from "material-ui";
-import { Button } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 import {
   changeDerivationPath,
@@ -60,22 +59,6 @@ export class LedgerAddressChooserComponent extends React.Component<
           - provide your derivation path
         </div>
         {this.renderBody()}
-        <div>
-          <Button
-            bsStyle="primary"
-            disabled={!this.props.hasPrevious || this.props.loading}
-            onClick={this.props.showPrevAddresses}
-          >
-            show previous addresses
-          </Button>
-          <Button
-            bsStyle="primary"
-            disabled={this.props.loading}
-            onClick={this.props.showNextAddresses}
-          >
-            show next addresses
-          </Button>
-        </div>
       </div>
     );
   }
@@ -96,6 +79,10 @@ export class LedgerAddressChooserComponent extends React.Component<
       <LedgerAddressChooserTable
         accounts={this.props.accounts}
         handleAddressChosen={this.props.chooseAccount}
+        hasPrevious={this.props.hasPrevious}
+        loading={this.props.loading}
+        showPrevAddresses={this.props.showPrevAddresses}
+        showNextAddresses={this.props.showNextAddresses}
       />
     );
   }

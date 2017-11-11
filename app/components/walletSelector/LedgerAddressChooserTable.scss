@@ -2,22 +2,47 @@
 
 .table {
   margin: 15px 0;
+  border: 1px solid $blue-darker;
+  border-radius: 10px;
   width: 100%;
+  border-collapse: separate;
+
+  thead {
+    text-transform: uppercase;
+    color: $gray-almost-dark;
+    font-size: $font-size-smallest;
+
+    th {
+      border-bottom: 1px solid $blue-darker;
+      border-collapse: separate;
+      border-spacing: 5px 5px;
+    }
+  }
+
+  tfoot {
+    td {
+      border-top: 1px solid $blue-darker;
+      padding: 10px;
+      border-collapse: separate;
+      border-spacing: 5px 5px;
+    }
+  }
+
+  tr {
+    &:nth-child(2n) > td {
+      background-color: $white-dirty;
+    }
+  }
 
   th,
   td {
-    padding: 10px;
+    padding: 20px;
   }
 }
 
 .use-column {
   cursor: pointer;
   text-align: center;
-
-  :hover {
-    transition: color .5s ease-in-out;
-    color: $green;
-  }
 }
 
 .footer {

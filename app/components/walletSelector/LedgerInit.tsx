@@ -40,8 +40,8 @@ export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage 
       </ul>
     </div>
     {errorMessage &&
-      <Alert bsStyle="danger">
-        <h4>Error occured!</h4>
+      <Alert bsStyle="info">
+        <h4>Connection status:</h4>
         <p>
           {errorMessage}
         </p>

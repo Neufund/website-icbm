@@ -11,7 +11,7 @@ const checkGasProblem = (
     ((e.code === -32000 && e.message === "intrinsic gas too low") ||
       (e.code === -32010 &&
         e.message.startsWith("Transaction gas is too low. There is not enough")) ||
-      (e.code === -32010 && e.message.startsWith("Transaction cost exceeds current gas limit")))
+      (e.code === -32010 && e.message.startsWith("exceeds current gas limit")))
   );
 };
 

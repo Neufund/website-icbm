@@ -1,6 +1,14 @@
 @import '../../../common/sass/variables';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 .initial-link {
   margin-top: 20px;
   margin-bottom: 50px;
+}
+@media (min-width: $screen-md-min) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

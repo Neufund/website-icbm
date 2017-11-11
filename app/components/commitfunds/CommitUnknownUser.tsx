@@ -1,9 +1,10 @@
 import { BigNumber } from "bignumber.js";
+import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { debounce } from "lodash";
+import { EtherScanLinkType } from "../../actions/constants";
 import { calculateEstimatedReward } from "../../actions/submitFunds";
 import config from "../../config";
 import {
@@ -11,9 +12,11 @@ import {
   selectEstimatedRewardLoadingState,
   selectMinTicketWei,
 } from "../../reducers/commitmentState";
+import { selectMyEtherWallerUrl } from "../../reducers/formSelectors";
 import { IAppState } from "../../reducers/index";
+import { selectEthNetwork } from "../../reducers/web3State";
+import { etherscanUrl } from "../../utils/etherscan";
 import { publicCommitment } from "../../web3/contracts/ContractsRepository";
-import { IconLink } from "../IconLink";
 import * as style from "./CommitUnknownUser.scss";
 import { CommitUnknownUserDesc } from "./CommitUnknownUserDesc";
 import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
@@ -21,16 +24,19 @@ import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
 interface ICommitFundsStatic {
   calculateEstimatedReward: () => {};
   contractAddress: string;
+  etherScanUrl: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   minTicketWei: BigNumber;
+  myEtherWalletUrl: string;
 }
 
 export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   contractAddress,
+  etherScanUrl,
   transactionPayload,
   gasPrice,
   gasLimit,
@@ -38,29 +44,32 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   loadingEstimatedReward,
   calculateEstimatedReward,
   minTicketWei,
+  myEtherWalletUrl,
 }) =>
   <div>
     <Row className={style.initialLink}>
       <Col sm={12}>
-        <IconLink url="/" text="New to the blockchain? Read “How to participate”" />
+        New to the blockchain? Read <a href="/manual">“How to participate”</a>.
       </Col>
     </Row>
-    <Row className={style.contentRow}>
-      <Col sm={8}>
+    <Row className={style.row}>
+      <Col sm={7}>
         <CommitUnknownUserDesc
           contractAddress={contractAddress}
+          etherScanUrl={etherScanUrl}
           transactionPayload={transactionPayload}
           gasPrice={gasPrice}
           gasLimit={gasLimit}
           minTicketSize={minTicketWei}
         />
       </Col>
-      <Col sm={4}>
+      <Col sm={5}>
         <CommitUnknownUserEstimation
           estimatedReward={estimatedReward}
           calculateEstimatedReward={calculateEstimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
           minTicketWei={minTicketWei}
+          myEtherWalletUrl={myEtherWalletUrl}
         />
       </Col>
     </Row>
@@ -69,12 +78,18 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
 export const CommitUnknownUser = connect(
   (state: IAppState) => ({
     contractAddress: config.contractsDeployed.commitmentContractAddress,
+    etherScanUrl: etherscanUrl(
+      EtherScanLinkType.ADDRES,
+      config.contractsDeployed.commitmentContractAddress,
+      selectEthNetwork(state.web3State)
+    ),
     minTicketWei: selectMinTicketWei(state.commitmentState),
     estimatedReward: selectEstimatedReward(state.commitmentState),
     loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
     transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
     gasPrice: config.contractsDeployed.gasPrice,
     gasLimit: config.contractsDeployed.gasLimit,
+    myEtherWalletUrl: selectMyEtherWallerUrl(state),
   }),
   dispatch => ({
     calculateEstimatedReward: debounce(

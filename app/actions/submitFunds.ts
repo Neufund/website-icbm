@@ -1,7 +1,7 @@
 import * as BigNumber from "bignumber.js";
+import { push } from "react-router-redux";
 import { ThunkAction } from "redux-thunk";
 
-import { push } from "react-router-redux";
 import { ErrorType } from "../errors";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
@@ -14,11 +14,13 @@ import { submitFundsToContract } from "../web3/submitFundsToContract";
 import { transactionConfirmation } from "../web3/transactionConfirmation";
 import { asWeiNumber } from "../web3/utils";
 import { web3ErrorHandler } from "../web3/web3ErrorHandler";
+import { Web3Service } from "../web3/web3Service";
 import {
   COMMITTING_DONE,
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
   COMMITTING_RESET,
+  COMMITTING_SET_AMOUNT_TOKENS,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
@@ -46,6 +48,17 @@ export const transactionResetAction = (): IStandardReduxAction => ({
 export const transactionStartedAction = (): IStandardReduxAction => ({
   type: COMMITTING_STARTED,
   payload: {},
+});
+
+export const transactionSetTokenAmounts = (
+  committedETH: string,
+  estimatedNEU: string
+): IStandardReduxAction => ({
+  type: COMMITTING_SET_AMOUNT_TOKENS,
+  payload: {
+    committedETH,
+    estimatedNEU,
+  },
 });
 
 export const transactionSubmitted = (txHash: string): IStandardReduxAction => ({
@@ -82,8 +95,17 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
   getState
 ) => {
   try {
+    const state = getState();
+
     const parsedValue = parseMoneyStrToStrStrict(value);
-    const selectedAccount = getState().userState.address;
+
+    const committedETH = Web3Service.instance.rawWeb3
+      .toWei(new BigNumber.BigNumber(parsedValue), "ether")
+      .toString();
+    const estimatedReward = state.commitmentState.estimatedReward;
+
+    dispatcher(transactionSetTokenAmounts(committedETH, estimatedReward));
+    const selectedAccount = state.userState.address;
     dispatcher(push("/commit/tx-confirmation"));
 
     dispatcher(transactionStartedAction());

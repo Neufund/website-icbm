@@ -7,7 +7,7 @@ export function etherscanUrl(
 ): string {
   let pathType;
   switch (type) {
-    case EtherScanLinkType.ADDRES:
+    case EtherScanLinkType.ADDRESS:
       pathType = "address";
       break;
     case EtherScanLinkType.TRANSACTION:

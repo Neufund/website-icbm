@@ -12,13 +12,19 @@ interface IEtherScanTxLinkComponent {
   linkType: EtherScanLinkType;
   ethNetwork: EthNetwork;
   resourceId: string | number;
+  noIcon?: boolean;
 }
 
 export const EtherScanLinkComponent: React.SFC<
   IEtherScanTxLinkComponent & React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ linkType, ethNetwork, resourceId, children, ...props }) =>
-  <a href={etherscanUrl(linkType, resourceId, ethNetwork)} title="See at EtherScan.io" {...props}>
-    <img src={etherscan_icon} className={styles.icon} />
+> = ({ linkType, ethNetwork, resourceId, children, noIcon, ...props }) =>
+  <a
+    href={etherscanUrl(linkType, resourceId, ethNetwork)}
+    title="See at EtherScan.io"
+    target="_blank"
+    {...props}
+  >
+    {!noIcon && <img src={etherscan_icon} className={styles.icon} />}
     {children === undefined ? resourceId : children}
   </a>;
 
@@ -35,6 +41,7 @@ function mapStateToProps(state: IAppState) {
 interface IPropsFromProps {
   linkType: EtherScanLinkType;
   resourceId: string | number;
+  noIcon?: boolean;
 }
 
 export default connect<

@@ -34,19 +34,28 @@ export class UnknownError extends NeufundError {
 
 export class LedgerNotSupportedVersionError extends NeufundError {
   constructor(version: string) {
-    super(ErrorType.LedgerNotSupportedVersionError, `This version of Ledger Nano is not supported: ${version}.`);
+    super(
+      ErrorType.LedgerNotSupportedVersionError,
+      `This version of Ledger Nano is not supported: ${version}.`
+    );
   }
 }
 
 export class LedgerNotAvailableError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerNotAvailableError, `Unfortunately we cannot connect to your Ledger Nano.`);
+    super(
+      ErrorType.LedgerNotAvailableError,
+      `Unfortunately we cannot connect to your Ledger Nano.`
+    );
   }
 }
 
 export class LedgerContractsOffError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerContractsOffError, `Contract data is turned off in the Ledger Nano, please enable it.`);
+    super(
+      ErrorType.LedgerContractsOffError,
+      `Contract data is turned off in the Ledger Nano, please enable it.`
+    );
   }
 }
 
@@ -58,7 +67,10 @@ export class LedgerTimeoutError extends NeufundError {
 
 export class LedgerLockedError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerLockedError, `Your Ledger Nano seems to be locked. Please insert the PIN.`);
+    super(
+      ErrorType.LedgerLockedError,
+      `Your Ledger Nano seems to be locked. Please insert the PIN.`
+    );
   }
 }
 

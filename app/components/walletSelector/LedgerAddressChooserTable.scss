@@ -1,5 +1,7 @@
 @import '../../../common/sass/variables';
 
+
+$blue-hover: rgb(224, 242, 255);
 .table {
   margin: 15px 0;
   border: 1px solid $blue-darker;
@@ -28,9 +30,13 @@
     }
   }
 
-  tr {
+  tbody > tr {
     &:nth-child(2n) > td {
       background-color: $white-dirty;
+    }
+
+    &:hover > td {
+      background-color: $blue-hover;
     }
   }
 

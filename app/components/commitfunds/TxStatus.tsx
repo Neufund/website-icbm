@@ -25,6 +25,7 @@ const iconStyles = {
   width: "64px",
   height: "64px",
   fontSize: "64px",
+  color: "#c0cc12",
 };
 
 export class TxStatusComponent extends React.Component<ITxMiningComponent> {

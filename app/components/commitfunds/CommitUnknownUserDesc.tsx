@@ -26,27 +26,34 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
   <div className={style.infoContainer}>
     <p>
       Include following data in your transaction:<br />
-      <TextCopyable className={style.textCopyable} text={transactionPayload} />
+      <TextCopyable copyIconOnRight className={style.textCopyable} text={transactionPayload} />
     </p>
     <p>
       Ethereum smart contract address:<br />
-      <TextCopyable className={style.textCopyable} text={contractAddress} /> <br />
-      <UnderlinedLink href="#" className={style.verifyLink}>
+      <TextCopyable copyIconOnRight className={style.textCopyable} text={contractAddress} /> <br />
+      <UnderlinedLink
+        href="https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653"
+        className={style.verifyLink}
+      >
         Verify source code on Etherscan
       </UnderlinedLink>
     </p>
     <Row className={style.gasSection}>
       <Col sm={4}>
         Suggested gas price<br />
-        <TextCopyable className={style.textCopyable} text={gasPrice} />
+        <TextCopyable copyIconOnRight className={style.textCopyable} text={gasPrice} />
       </Col>
       <Col sm={4}>
         Suggested gas limit<br />
-        <TextCopyable className={style.textCopyable} text={gasLimit} />
+        <TextCopyable copyIconOnRight className={style.textCopyable} text={gasLimit} />
       </Col>
       <Col sm={4}>
         Minimum ticket size<br />
-        <MoneyComponent tokenType={TokenType.ETHER} value={minTicketSize} />
+        <MoneyComponent
+          containerClass={style.ethAmount}
+          tokenType={TokenType.ETHER}
+          value={minTicketSize}
+        />
       </Col>
     </Row>
   </div>;

@@ -42,11 +42,11 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   <div>
     <Row className={style.initialLink}>
       <Col sm={12}>
-        <IconLink url="/" text="New to the blockchain? Read “How to participate”" />
+        New to the blockchain? Read <a href="/manual">“How to participate”</a>.
       </Col>
     </Row>
     <Row className={style.contentRow}>
-      <Col sm={8}>
+      <Col sm={7}>
         <CommitUnknownUserDesc
           contractAddress={contractAddress}
           transactionPayload={transactionPayload}
@@ -55,7 +55,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
           minTicketSize={minTicketWei}
         />
       </Col>
-      <Col sm={4}>
+      <Col sm={5}>
         <CommitUnknownUserEstimation
           estimatedReward={estimatedReward}
           calculateEstimatedReward={calculateEstimatedReward}

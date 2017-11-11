@@ -140,7 +140,17 @@ export const watchTxBeingMined: (
     dispatcher(transactionNewBlockAction(blockNo));
   };
 
-  await transactionConfirmation(txHash, transactionMined, newBlock);
+  try {
+    await transactionConfirmation(txHash, transactionMined, newBlock);
+  } catch (e) {
+    const parsedError = web3ErrorHandler(e);
+    if (parsedError.type === ErrorType.UnknownError) {
+      // tslint:disable-next-line no-console
+      console.log(e);
+    }
+    dispatcher(transactionErrorAction(parsedError.message));
+    return;
+  }
   dispatcher(transactionDoneAction());
 };
 

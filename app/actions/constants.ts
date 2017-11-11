@@ -40,7 +40,7 @@ export enum EthNetwork {
 }
 
 export enum EtherScanLinkType {
-  ADDRES,
+  ADDRESS,
   TRANSACTION,
   BLOCK,
 }
@@ -50,6 +50,11 @@ export enum InvestorType {
   WHITELISTED = "WHITELISTED",
   PRESALE = "PRESALE",
   NOT_ALLOWED = "NOT_ALLOWED",
+}
+
+export enum MyEtherWalletSendMode {
+  ETHER = "ETHER",
+  TOKEN = "TOKEN",
 }
 
 export const LOAD_ICO_STATS = "LOAD_ICO_STATS";
@@ -67,6 +72,7 @@ export const COMMITTING_DONE = "COMMITTING_DONE";
 export const COMMITTING_ERROR = "COMMITTING_ERROR";
 export const COMMITTING_NEW_BLOCK = "COMMITTING_NEW_BLOCK";
 export const COMMITTING_RESET = "COMMITTING_RESET";
+export const COMMITTING_SET_AMOUNT_TOKENS = "COMMITTING_SET_AMOUNT_TOKENS";
 
 export const LOAD_ESTIMATED_REWARD = "LOAD_ESTIMATED_REWARD";
 export const SET_ESTIMATED_REWARD = "SET_ESTIMATED_REWARD";

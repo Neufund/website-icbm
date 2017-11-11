@@ -10,17 +10,25 @@ export const loadingAftermathAction: () => IStandardReduxAction = () => ({
 });
 
 export function setAftermathAction(
-  lockedAmount: string,
+  lockedAmountEth: string,
+  lockedAmountEur: string,
+  neumarkBalanceEth: string,
+  neumarkBalanceEur: string,
+  unlockDateEth: string,
+  unlockDateEur: string,
   neumarkBalance: string,
-  unlockDate: string,
   address: string
 ): IStandardReduxAction {
   return {
     type: SET_AFTERMATH,
     payload: {
-      lockedAmount,
+      lockedAmountEth,
+      lockedAmountEur,
+      neumarkBalanceEth,
+      neumarkBalanceEur,
+      unlockDateEth,
+      unlockDateEur,
       neumarkBalance,
-      unlockDate,
       address,
     },
   };
@@ -31,7 +39,26 @@ export const loadAftermathDetails: (
 ) => ThunkAction<{}, IAppState, {}> = address => async dispatcher => {
   dispatcher(loadingAftermathAction());
 
-  const { lockedAmount, neumarkBalance, unlockDate } = await loadAftermathFromContract(address);
+  const {
+    lockedAmountEth,
+    lockedAmountEuro,
+    neumarkBalanceEth,
+    neumarkBalanceEur,
+    unlockDateEth,
+    unlockDateEuro,
+    neumarkBalance,
+  } = await loadAftermathFromContract(address);
 
-  dispatcher(setAftermathAction(lockedAmount, neumarkBalance, unlockDate, address));
+  dispatcher(
+    setAftermathAction(
+      lockedAmountEth,
+      lockedAmountEuro,
+      neumarkBalanceEth,
+      neumarkBalanceEur,
+      unlockDateEth,
+      unlockDateEuro,
+      neumarkBalance,
+      address
+    )
+  );
 };

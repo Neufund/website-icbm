@@ -5,8 +5,13 @@
 }
 
 .icon-style {
-  margin-right: .5em; // TODO: this value should be set to correct value
+  margin-right: .5em;
   cursor: pointer;
   color: $green;
   font-size: .8em;
+
+  &.icon-on-right {
+    margin-right: 0;
+    margin-left: .5em;
+  }
 }

@@ -34,7 +34,7 @@ export const transactionConfirmation = async (
         prevBlockNo = currentBlockNo;
         try {
           const tx = await Web3Service.instance.getTransaction(transactionHash);
-          if (tx.blockNumber != null) {
+          if (tx && tx.blockNumber != null) {
             const txReceipt = await Web3Service.instance.getTransactionReceipt(transactionHash);
             if (txReceipt.status !== null) {
               const txStatus = parseInt(txReceipt.status, 16);

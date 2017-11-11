@@ -114,6 +114,7 @@
     "chart.js": "^2.7.0",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",
+    "downloadjs": "^1.4.7",
     "invariant": "^2.2.2",
     "jquery": "^3.2.1",
     "ledger-wallet-provider": "Neufund/ledger-wallet-provider#tomek/upgrade",

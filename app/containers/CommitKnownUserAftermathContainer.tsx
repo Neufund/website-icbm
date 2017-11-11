@@ -152,7 +152,7 @@ interface ICommitmentInfo {
   getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
 }
 
-const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
+export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   lockedAmount,
   unlockDate,
   neumarkBalance,

@@ -4,6 +4,27 @@ p.slim {
     font-weight: $font-weight-light;
 }
 
+ul.links-list {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    padding: 0;
+
+    li {
+        margin-bottom: 7px;
+        list-style: none;
+        color: $green;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-bold;
+
+        i {
+            margin-right: 10px;
+            line-height: 22px;
+            font-size: 17px;
+        }
+    }
+}
+
+
 .section ul.compact-list {
     padding: 0 0 $space-bottom-between-elements 0;
 

@@ -99,6 +99,15 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
           />
         </p>
 
+        <ul className="links-list">
+          <li>
+            <i className="material-icons">link</i>
+            <a href="https://medium.com/@agnieszkasa/a9a450cf0022" target="_blank">
+              ICBM terms and instructions
+            </a>
+          </li>
+        </ul>
+
         <div className={styles.buttonContainer}>
           <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">
             Commit ETH

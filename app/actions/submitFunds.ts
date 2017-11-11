@@ -117,6 +117,14 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
       // tslint:disable-next-line no-console
       console.log(e);
     }
+
+    if (parsedError.type === ErrorType.UserDeniedTransaction) {
+      dispatcher(push("/commit"));
+      dispatcher(transactionResetAction());
+      dispatcher(setEstimatedRewardAction(new BigNumber.BigNumber(0).toString()));
+      return;
+    }
+
     dispatcher(transactionErrorAction(parsedError.message));
   }
 };

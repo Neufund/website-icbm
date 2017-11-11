@@ -4,7 +4,7 @@
       title: "Hello!"
       paragraphs:
       - "Thank you for your interest in participating in Neufund's ICBM"
-      - "Below you will find detailed instructions on how to commit funds."
+      - "Below you will find detailed instructions on how to commit funds in our ICBM."
       - "<b>Note:</b> Note: Our ICBM Smart Contract is already deployed, <a class='smooth-scroll' href='#' rel='#where-do-i-send-the-funds'><b>click here</b></a> or scroll down."
       rightSideContent: |
         <a href="https://neufund.org/manual" class="btn btn-primary" target="_blank">Download the manual</a>
@@ -14,16 +14,22 @@
     - type: "regular"
       title: "Can I commit funds"
       paragraphs:
-      - "Of course you can! Anyone can commit funds in the Neufund ICBM. Unfortunately, due to regulatory reasons we must exclude US-citizens from the ICBM participation. The min. ticket size is 1 ETH."
-      - "You can participate as an individual or representing a company in our ICBM."
+      - "Of course you can! Anyone can commit funds in the Neufund ICBM. Unfortunately, due to regulatory reasons we must exclude US-citizens from the ICBM participation."
+      - |
+        <ul class='regular'>
+        <li>The min. ticket size is <b>1 ETH</b>.</li>
+        <li>You can participate as an individual or representing a company in our ICBM.</li>
+        <li>KYC is not required to participate.</li>
+        </ul>
+
       rightSideContent: ""
 - groupName: "Which currency is allowed in the ICBM?"
   groupContent:
     - type: "regular"
       title: "Which currency is allowed in the ICBM?"
       paragraphs:
-      - "<b>We accept only ETHER commitments in our ICBM.</b>"
-      - "If you do not hold ETH, we suggest buying it or exchanging other cryptocurrencies into ETH on e.g. Kraken, Coinbase or other crypto-exchange before the start of the ICBM."
+      - "We accept only ETHer commitments in our ICBM."
+      - "If you do not hold ETH, we suggest buying it or exchanging other cryptocurrencies into ETH on e.g. <a href='https://www.kraken.com/' target='_blank'>Kraken</a>, <a href='https://www.coinbase.com/' target='_blank'>Coinbase</a> or other crypto-exchange before the start of the ICBM."
       - "<mark><b>Note</b>: You cannot commit funds in the Neufund ICBM with a wallet from an exchange. Make sure to transfer your funds to a secure wallet.</mark>"
       rightSideContent: |
         To buy ETH you can go to:
@@ -31,21 +37,78 @@
         <li><a href="https://www.coinbase.com/" target="_blank">Coinbase</a></li>
         <li><a href="https://www.kraken.com/" target="_blank">Kraken</a></li>
         </ul>
-- groupName: "Which wallet can I use?"
+- groupName: "How do I participate and which wallet can I use?"
   groupContent:
     - type: "regular"
-      title: "Which wallet can I use?"
+      title: "How do I participate and which wallet can I use?"
       paragraphs:
-      - "You can use following wallets:"
+      - "<b>Participating in the ICBM</b>"
       - |
-        <ul>
-        <li><a href='https://metamask.io/' target="_blank">MetaMask</a></li>
-        <li><a href='https://parity.io/' target="_blank">Parity</a></li>
-        <li><a href='https://github.com/ethereum/mist/releases' target="_blank">Mist</a></li>
-        <li><a href='https://www.ledgerwallet.com/' target="_blank">Ledger Nano</a></li>
+        <ol class='regular'>
+        <li>Buy ETHers in a cryptocurrency exchange</li>
+        <li>Transfer ETHer to a compatible wallet (see below)</li>
+        <li>Send a deposit to Commitment Smart Contract address with correct <b>data</b> and <b>gas limit</b> values (see below)</li>
+        </ol>
+
+      - |
+        <img src="/assets/manual/image10.png" />
+      - |
+        <div class='top-spacing'>
+        <b>Wallets supported on</b> <a href='https://commit.neufund.org'>commit.neufund.org</a>:
+        </div>
+      - "Commit your funds directly from the webpage."
+      - |
+        <ul class='regular'>
+        <li><a href='https://metamask.io/' target="_blank">MetaMask</a> (Firefox and Chrome browser addon)</li>
+        <li><a href='https://github.com/ethereum/mist/releases' target="_blank">Mist</a> (Desktop)</li>
+        <li><a href='https://parity.io/' target="_blank">Parity</a> (Desktop)</li>
+        <li><a href='https://parity.io/' target="_blank">Parity</a> +</li>
+        <li><a href='https://www.ledgerwallet.com/' target="_blank">Ledger Nano</a> Nano (Hardware wallet)</li>
         </ul>
-        or any other wallet which facilitates ERC20 tokens and you are in charge of the private key. We do not accept wallet addresses form exchanges.
-      - "You can commit your funds <a href='/commit' target='_blank'>here</a>."
+      - |
+        <img src="/assets/manual/image7.png" />
+        <div class='top-spacing'>
+        <b>These wallets are also known to be compatible with ERC20 tokens:</b>
+        </div>
+        <ul class='regular'>
+        <li><a href='https://www.myetherwallet.com/' target="_blank">MyEtherWallet</a> (no download needed)</li>
+        <li><a href='https://trezor.io/' target="_blank">Trezor</a> + MyEtherWallet</li>
+        <li><a href='https://itunes.apple.com/us/app/imtoken/id1153230571?ls=1&mt=8' target="_blank">imToken</a> iPhone</li>
+        <li><a href='https://token.im/' target="_blank">imToken</a> Android</li>
+        </ul>
+      - |
+        <img src="/assets/manual/image1.png" />
+      - "or any other wallet which facilitates ERC20 tokens and you are sure that it can display other tokens. You must be able to provide transaction data and gas limit during your ETH transfer. You have to be in charge of the private key."
+      - "<b>How to use two best known wallets:</b>"
+      - |
+        <ul class='regular'>
+        <li><a href='https://tokenmarket.net/what-is/how-to-participate-ethereum-token-crowdsale/#myetherwallet' target='_blank'>Instructions for MyEtherWallet</a></li>
+        <li><a href='https://www.cryptocompare.com/wallets/guides/how-to-use-metamask/' target='_blank'>Instructions for Metamask</a></li>
+        </ul>
+      - "<b>Wallets that will work but not recommended:</b>"
+      - |
+        <ul class='regular'>
+        <li><a href='https://jaxx.io/' target='_blank'>Jaxx</a> — to display NEU tokens you will have to export Mnemonic Phrase and import it to MyEtherWallet</li>
+        </ul>
+      - "<mark><b>WE DO NOT ACCEPT WALLET ADDRESSES FROM EXCHANGES!</b></mark>"
+      - "<b>Incompatible wallets</b>"
+      - "<b>Move your ETH to a compatible wallet in the above list.</b>"
+      - "<b>DO NOT use the following wallets:</b>"
+      - |
+        <ul class='regular'>
+        <li>Any Bitcoin exchange</li>
+        <li>Any Ethereum exchange</li>
+        <li>Exodus</li>
+        <li>Coinbase</li>
+        <li>Poloniex</li>
+        <li>Kraken</li>
+        <li>Bitstamp</li>
+        <li>Bitfinex</li>
+        <li>Bitrexx</li>
+        <li>Cex.io</li>
+        <li>Coinomi</li>
+        </ul>
+      - "<b>You can commit your funds <a href='/' target='_blank'>here</a>.</b>"
       rightSideContent: ""
 - groupName: "Where do I send the funds?"
   groupContent:
@@ -56,12 +119,15 @@
       - "Your transactions should include:"
       - |
         <ul>
-          <li>Commitment Smart Contract address</li>
+          <li><a href='https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653' target='_blank'>Commitment Smart Contract address</a></li>
           <li>Transaction data</li>
           <li>Gas limit</li>
           <li>The minimum ticket size is 1 ETH</li>
         </ul>
-      -  "All the data you need will be available on <a href='https://commit.neufund.org' target='_blank'>commit.neufund.org</a> starting from <b>17th Nov. 2017 11:00 am UTC</b>."
+      -  "All the data (e.g. transaction data and gas limit) you need will be available on <a href='https://commit.neufund.org' target='_blank'>commit.neufund.org</a> starting from <b>17th Nov. 2017 11:00 am UTC</b>."
+      - |
+        <img src="/assets/manual/image9.png" />
+      - "Start the commitment process with this button on <a href='https://commit.neufund.org' target='_blank'>https://commit.neufund.org</a>"
       rightSideContent: ""
 - groupName: "Is my transaction secure?"
   groupContent:
@@ -70,6 +136,27 @@
       paragraphs:
       - "Please double-check to which address you are sending your funds."
       - "<mark><b>Note</b>: Neufund will never post an smart contract address on Slack or any other channel.</mark>"
+      rightSideContent: ""
+- groupName: "How do I display my NEU tokens?"
+  groupContent:
+    - type: "regular"
+      title: "How do I display my NEU tokens?"
+      paragraphs:
+      - "<b>To see your commitment:</b>"
+      - |
+        <ul class='regular'>
+        <li>Go to our <a href='/commit/status' target='_blank'>Status Page</a> and enter your ETH wallet address.</li>
+        </ul>
+      - "<b>To see your NEU balance with MyEtherWallet:</b>"
+      - |
+        <ul class='regular'>
+        <li>Connect to your <a href='https://www.myetherwallet.com/' target='_blank'>MyEtherWallet</a> ETH wallet.</li>
+        <li>Click on: Add Custom Token.</li>
+        <li>Enter <a href='https://etherscan.io/address/0xa823e6722006afe99e91c30ff5295052fe6b8e32' target='_blank'>Token Contract Address</a></li>
+        <li>Enter Token Symbol: NEU</li>
+        <li>Enter Decimals: 18</li>
+        <li>Token will be listed.</li>
+        </ul>
       rightSideContent: ""
 - groupName: "I need help!"
   customClass: "extra-space"

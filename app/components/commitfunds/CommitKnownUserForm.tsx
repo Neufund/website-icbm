@@ -54,6 +54,7 @@ const styledField = (props: any) => {
     fullWidth: true,
     hintText: "min 1.0",
     autoComplete: "off",
+    maxLength: props.maxLength,
     ...props.input,
   };
 
@@ -106,6 +107,7 @@ const CommitKnownUserForm = ({
                 <Field
                   name="ethAmount"
                   component={styledField}
+                  props={{ maxLength: 9 }}
                   validate={[commitmentValueValidator]}
                 />
               </div>

@@ -11,6 +11,7 @@ import * as style from "./CommitUnknownUserDesc.scss";
 
 interface ICommitUnknownUserDesc {
   contractAddress: string;
+  etherScanUrl: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
@@ -19,6 +20,7 @@ interface ICommitUnknownUserDesc {
 
 export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
   contractAddress,
+  etherScanUrl,
   transactionPayload,
   gasPrice,
   gasLimit,
@@ -37,10 +39,7 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
         Ethereum smart contract address:<br />
         <TextCopyable copyIconOnRight className={style.textCopyable} text={contractAddress} />{" "}
         <br />
-        <UnderlinedLink
-          href="https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653"
-          className={style.verifyLink}
-        >
+        <UnderlinedLink href={etherScanUrl} className={style.verifyLink}>
           Verify source code on Etherscan
         </UnderlinedLink>
       </p>

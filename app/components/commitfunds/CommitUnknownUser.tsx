@@ -1,9 +1,10 @@
 import { BigNumber } from "bignumber.js";
+import { debounce } from "lodash";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { debounce } from "lodash";
+import { EtherScanLinkType } from "../../actions/constants";
 import { calculateEstimatedReward } from "../../actions/submitFunds";
 import config from "../../config";
 import {
@@ -12,8 +13,9 @@ import {
   selectMinTicketWei,
 } from "../../reducers/commitmentState";
 import { IAppState } from "../../reducers/index";
+import { selectEthNetwork } from "../../reducers/web3State";
+import { etherscanUrl } from "../../utils/etherscan";
 import { publicCommitment } from "../../web3/contracts/ContractsRepository";
-import { IconLink } from "../IconLink";
 import * as style from "./CommitUnknownUser.scss";
 import { CommitUnknownUserDesc } from "./CommitUnknownUserDesc";
 import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
@@ -21,6 +23,7 @@ import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
 interface ICommitFundsStatic {
   calculateEstimatedReward: () => {};
   contractAddress: string;
+  etherScanUrl: string;
   transactionPayload: string;
   gasPrice: string;
   gasLimit: string;
@@ -31,6 +34,7 @@ interface ICommitFundsStatic {
 
 export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   contractAddress,
+  etherScanUrl,
   transactionPayload,
   gasPrice,
   gasLimit,
@@ -49,6 +53,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
       <Col sm={7}>
         <CommitUnknownUserDesc
           contractAddress={contractAddress}
+          etherScanUrl={etherScanUrl}
           transactionPayload={transactionPayload}
           gasPrice={gasPrice}
           gasLimit={gasLimit}
@@ -69,6 +74,11 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
 export const CommitUnknownUser = connect(
   (state: IAppState) => ({
     contractAddress: config.contractsDeployed.commitmentContractAddress,
+    etherScanUrl: etherscanUrl(
+      EtherScanLinkType.ADDRES,
+      config.contractsDeployed.commitmentContractAddress,
+      selectEthNetwork(state.web3State)
+    ),
     minTicketWei: selectMinTicketWei(state.commitmentState),
     estimatedReward: selectEstimatedReward(state.commitmentState),
     loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),

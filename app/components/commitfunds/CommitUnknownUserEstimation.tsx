@@ -2,9 +2,10 @@ import { BigNumber } from "bignumber.js";
 import TextField from "material-ui/TextField";
 import * as React from "react";
 import { Field, reduxForm } from "redux-form";
+
 import { TokenType } from "../../actions/constants";
+import * as logo from "../../assets/img/myetherwallet.logo.svg";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
-import { IconLink } from "../IconLink";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";
 import * as style from "./CommitUnknownUserEstimation.scss";
@@ -87,9 +88,10 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
           Calculated amount might not be precised, reward will be granted after the block is mined
           and it might depend on the order of transactions.
         </p>
-        <p className={style.urls}>
-          <IconLink url="#" text="Use MyEtherWallet" />
-        </p>
+        <div className={style.myEtherWallet}>
+          <img className={style.logo} src={logo} />
+          Use <a href="#">MyEtherWallet</a>
+        </div>
       </div>
     </form>
   );

@@ -135,7 +135,7 @@ module.exports = {
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|logo\.svg)$/,
         loader: "url-loader",
         options: {
           limit: 25000,

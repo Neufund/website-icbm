@@ -58,15 +58,15 @@ $spacing-from-container: 22px;
   .description {
     color: $gray-little-dark;
   }
+}
 
-  .urls {
-    margin-top: 30px;
+.my-ether-wallet{
+  font-size: $font-size-normal;
 
-    a {
-      display: block;
-      margin-bottom: 5px;
-      line-height: 1.2;
-    }
+  .logo {
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
   }
 }
 

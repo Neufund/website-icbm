@@ -18,6 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="<% if( active == 'commit' ) { %>active<% } %>"><a href="/">Commit</a></li>
+        <li class="<% if( active == 'manual' ) { %>active<% } %>"><a href="/manual">How to</a></li>
         <% if(PLATFORM_ENABLED) { %>
           <li class="<% if( active == 'product' ) { %>active<% } %>"><a href="/product">Neufund Platform</a></li>
         <% } %>

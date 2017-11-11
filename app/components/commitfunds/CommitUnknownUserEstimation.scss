@@ -3,11 +3,13 @@
 
 $spacing-from-container: 22px;
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+@media (min-width: $screen-md-min) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
 }
 
 .estimation-component {

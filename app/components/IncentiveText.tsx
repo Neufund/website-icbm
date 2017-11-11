@@ -16,5 +16,15 @@ export const IncentiveText: React.SFC = () =>
       the platform.
     </p>
     <p>You maintain full control over your investment decisions at all times.</p>
+
+    <ul className="links-list">
+      <li>
+        <i className="material-icons">link</i>
+        <a href="https://medium.com/@agnieszkasa/a9a450cf0022" target="_blank">
+          ICBM terms and instructions
+        </a>
+      </li>
+    </ul>
+
     <MailchimpForm />
   </Col>;

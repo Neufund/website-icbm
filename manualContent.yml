@@ -52,7 +52,7 @@
     - type: "regular"
       title: "Where do I send the funds?"
       paragraphs:
-      - "To commit funds you will need to send your ETH <b>to the address of Commitment Smart Contract</b>."
+      - "To commit funds you will need to send your ETH <a href='https://etherscan.io/address/0xf432cec23b2a0d6062b969467f65669de81f4653' target='_blank'>to the address of Commitment Smart Contract</a>."
       - "Your transactions should include:"
       - |
         <ul>
@@ -77,7 +77,7 @@
     - type: "regular"
       title: "I need help!"
       paragraphs:
-      - "If you have any further questions or troubles write at aga@neufund.org or tag @aga on our Slack or Telegram channels."
+      - "If you have any further questions or troubles write at <a href='mailto:aga@neufund.org'>aga@neufund.org</a> or tag @aga on our <a href='https://goo.gl/KUj1fj' target='_blank'>Slack</a> or <a href='https://t.me/neufund' target='_blank'>Telegram</a> channels."
       rightSideContent: ""
       extra: |
         <a href="https://commit.neufund.org" class="participate btn btn-primary" target="_blank" />Participate in the ICBM</a>

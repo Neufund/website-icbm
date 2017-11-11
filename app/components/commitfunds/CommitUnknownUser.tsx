@@ -45,7 +45,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
         New to the blockchain? Read <a href="/manual">“How to participate”</a>.
       </Col>
     </Row>
-    <Row className={style.contentRow}>
+    <Row className={style.row}>
       <Col sm={7}>
         <CommitUnknownUserDesc
           contractAddress={contractAddress}

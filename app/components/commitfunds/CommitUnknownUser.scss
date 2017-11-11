@@ -4,3 +4,9 @@
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

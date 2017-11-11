@@ -63,37 +63,39 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   loadingEstimatedReward,
 }) => {
   return (
-    <form onChange={calculateEstimatedReward}>
-      <div className={style.estimationComponent}>
-        <p className={style.introduction}>Your estimated reward</p>
-        <div className={style.estimation}>
-          <div className={style.rightContainer}>
-            {loadingEstimatedReward
-              ? <LoadingIndicator className={style.loadingIndicator} />
-              : <span>
-                  <MoneyComponent
-                    value={estimatedReward}
-                    tokenType={TokenType.NEU}
-                    valueClass={style.amount}
-                    currencyClass={style.currencyNeu}
-                    fit
-                  />
-                </span>}
+    <div className={style.container}>
+      <form onChange={calculateEstimatedReward}>
+        <div className={style.estimationComponent}>
+          <p className={style.introduction}>Your estimated reward</p>
+          <div className={style.estimation}>
+            <div className={style.rightContainer}>
+              {loadingEstimatedReward
+                ? <LoadingIndicator className={style.loadingIndicator} />
+                : <span>
+                    <MoneyComponent
+                      value={estimatedReward}
+                      tokenType={TokenType.NEU}
+                      valueClass={style.amount}
+                      currencyClass={style.currencyNeu}
+                      fit
+                    />
+                  </span>}
+            </div>
+            <span className={style.separator}> / </span>
+            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
+            <span className={style.currencyEth}>ETH</span>
           </div>
-          <span className={style.separator}> / </span>
-          <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
-          <span className={style.currencyEth}>ETH</span>
+          <p className={style.description}>
+            Calculated amount might not be precised, reward will be granted after the block is mined
+            and it might depend on the order of transactions.
+          </p>
         </div>
-        <p className={style.description}>
-          Calculated amount might not be precised, reward will be granted after the block is mined
-          and it might depend on the order of transactions.
-        </p>
-        <div className={style.myEtherWallet}>
-          <img className={style.logo} src={logo} />
-          Use <a href="#">MyEtherWallet</a>
-        </div>
+      </form>
+      <div className={style.myEtherWallet}>
+        <img className={style.logo} src={logo} />
+        Use <a href="#">MyEtherWallet</a>
       </div>
-    </form>
+    </div>
   );
 };
 

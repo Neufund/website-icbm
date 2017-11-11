@@ -21,6 +21,19 @@ export enum TokenType {
   NEU = "NEU",
 }
 
+export function tokenTypeToSymbol(token: TokenType): string {
+  switch (token) {
+    case TokenType.ETHER:
+      return "ETH";
+    case TokenType.EURO:
+      return "EURO";
+    case TokenType.NEU:
+      return "NEU";
+    default:
+      throw new Error(`Token ${token} not supported`);
+  }
+}
+
 export enum Web3Type {
   UNKNOWN = "UNKNOWN",
   GENERIC = "GENERIC",

@@ -3,7 +3,7 @@ import * as React from "react";
 import { Textfit } from "react-textfit";
 
 import { connect } from "react-redux";
-import { TokenType } from "../actions/constants";
+import { TokenType, tokenTypeToSymbol } from "../actions/constants";
 import { formatMoney } from "../agreements/utils";
 import { IAppState } from "../reducers/index";
 
@@ -61,19 +61,6 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
 MoneyComponent.defaultProps = {
   decimalPlaces: 4,
 };
-
-function tokenTypeToSymbol(token: TokenType): string {
-  switch (token) {
-    case TokenType.ETHER:
-      return "ETH";
-    case TokenType.EURO:
-      return "EURO";
-    case TokenType.NEU:
-      return "NEU";
-    default:
-      throw new Error(`Token ${token} not supported`);
-  }
-}
 
 function tokenTypeToDecimals(token: TokenType, state: IAppState): number {
   switch (token) {

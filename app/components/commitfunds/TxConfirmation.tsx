@@ -33,11 +33,11 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
         {web3Type === Web3Type.LEDGER
           ? <p className={styles.textLedger}>
               You now have 20 seconds to confirm the transaction on your wallet.<br />
-              <Link to="/commit">go back to change your commitment.</Link>
+              <Link to="/commit">Or go back to change your commitment.</Link>
             </p>
           : <p className={styles.text}>
               Please confirm your transcation using signer or{" "}
-              <Link to="/commit">Or go back to change your commitment</Link>.
+              <Link to="/commit">go back to change your commitment</Link>.
             </p>}
         {!errorMsg &&
           <div className={styles.confirmationLoadingIndicator}>

@@ -3,6 +3,7 @@ import * as React from "react";
 import * as style from "./TextCopyable.scss";
 
 interface ITextCopyableProps {
+  clipText?: string;
   text: string;
   maxTextLength?: number;
   className?: string;
@@ -17,6 +18,7 @@ const shortenText = (text: string, length: number) => {
 };
 
 export const TextCopyable: React.SFC<ITextCopyableProps> = ({
+  clipText,
   text,
   maxTextLength,
   className,
@@ -26,13 +28,14 @@ export const TextCopyable: React.SFC<ITextCopyableProps> = ({
   if (maxTextLength !== undefined && display_text.length > maxTextLength) {
     display_text = shortenText(display_text, maxTextLength);
   }
+  const cText = clipText ? clipText : text;
 
   return (
     <span className={cn(className, style.textStyle)}>
       {!copyIconOnRight &&
         <i
           className={cn("material-icons", style.iconStyle, "copy-to-clipboard")}
-          data-clipboard-text={text}
+          data-clipboard-text={cText}
         >
           content_copy
         </i>}
@@ -40,7 +43,7 @@ export const TextCopyable: React.SFC<ITextCopyableProps> = ({
       {copyIconOnRight &&
         <i
           className={cn("material-icons", style.iconStyle, style.iconOnRight, "copy-to-clipboard")}
-          data-clipboard-text={text}
+          data-clipboard-text={cText}
         >
           content_copy
         </i>}

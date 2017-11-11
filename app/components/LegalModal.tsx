@@ -38,9 +38,6 @@ export const LegalModalComponent: React.SFC<InjectedFormProps & ILegalModalProps
       className={styles.modal}
       data-test-id="legal-modal"
     >
-      <Modal.Header>
-        <Modal.Title>Legal Agreements</Modal.Title>
-      </Modal.Header>
       <Modal.Body>
         <div className={styles.scrollable}>
           <IFrame content={reservationAgreement} className={styles.documentFrame} />

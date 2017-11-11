@@ -56,7 +56,7 @@ export class LedgerAddressChooserComponent extends React.Component<
             value={this.state.derivationPath}
             onChange={this.derivationPathChanged}
           />
-          - provide your derivation path
+          - Change your derivation path, if necessary.
         </div>
         {this.renderBody()}
       </div>

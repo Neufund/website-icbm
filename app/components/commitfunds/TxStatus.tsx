@@ -37,7 +37,7 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
     const { isMined, currentBlockNumber, address, error } = this.props;
     return (
       <div>
-        <CommitHeaderComponent number="03" title="Transaction status" />
+        <CommitHeaderComponent number="03" title="Your transaction status" />
 
         <p>
           Your transaction
@@ -51,15 +51,16 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
 
         <div>
           <div>
-            Block number:{" "}
+            Current block number:{" "}
             {currentBlockNumber
               ? <EtherScanLink linkType={EtherScanLinkType.BLOCK} resourceId={currentBlockNumber} />
               : " - "}
           </div>
 
           <div>
-            Transaction confirmed: <b>{isMined ? "Yes" : "No"}</b>
+            Is the transaction confirmed? <b>{isMined ? "Yes" : "No"}</b>
           </div>
+          <h3>This might take a while, please wait.</h3>
         </div>
         {error
           ? <div className={styles.error}>

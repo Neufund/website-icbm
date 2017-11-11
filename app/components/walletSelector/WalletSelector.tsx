@@ -46,7 +46,7 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
             <HiResImage
               partialPath="wallet_selector/icon_wallet"
               className={styles.walletIcon}
-            />Wallet in Browser
+            />Wallet in the browser
           </WalletTab>
           <WalletTab
             active={ledgerWalletSelected}
@@ -56,7 +56,7 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
             <HiResImage
               partialPath="wallet_selector/icon_ledger"
               className={styles.walletIcon}
-            />Ledger Wallet
+            />Ledger Nano Wallet
           </WalletTab>
           <WalletTab
             active={otherWalletSelected}

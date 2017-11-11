@@ -49,7 +49,12 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   <div>
     <Row className={style.initialLink}>
       <Col sm={12}>
-        New to the blockchain? Read <a href="/manual">“How to participate”</a>.
+        Need some help?{" "}
+        <a target="_blank" href="/manual">
+          Read the instructions
+        </a>{" "}
+        or write us on <a href="https://t.me/neufund">Telegram</a> or{" "}
+        <a href="https://goo.gl/KUj1fj">Slack</a>
       </Col>
     </Row>
     <Row className={style.row}>

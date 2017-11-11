@@ -73,7 +73,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
     <div className={style.container}>
       <form onChange={calculateEstimatedReward}>
         <div className={style.estimationComponent}>
-          <p className={style.introduction}>Your estimated reward</p>
+          <p className={style.introduction}>Your estimated NEU reward</p>
           <div className={style.estimation}>
             <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
             <span className={style.currencyEth}>ETH</span>
@@ -90,14 +90,17 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
                 />}
           </div>
           <p className={style.description}>
-            Calculated amount might not be precised, reward will be granted after the block is mined
-            and it might depend on the order of transactions.
+            The calculated amount might not be precise, the NEU reward will be granted after the
+            block is mined and it might depend on the order of transactions.
           </p>
         </div>
       </form>
       <div className={style.myEtherWallet}>
         <img className={style.logo} src={logo} />
-        Use <a href={myEtherWalletUrl}>MyEtherWallet</a>
+        Use{" "}
+        <a target="_blank" href={myEtherWalletUrl}>
+          MyEtherWallet
+        </a>
       </div>
     </div>
   );

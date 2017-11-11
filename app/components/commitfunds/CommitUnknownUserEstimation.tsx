@@ -41,6 +41,7 @@ const styledField = (props: any) => {
     hintText: "0",
     errorStyle: estTextFieldStyles.errorStyle,
     autoComplete: "off",
+    maxLength: props.maxLength,
     ...props.input,
   };
 
@@ -75,7 +76,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Your estimated reward</p>
           <div className={style.estimation}>
-            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
+            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} props={{ maxLength: 9 }} />
             <span className={style.currencyEth}>ETH</span>
             <span className={style.separator}> = </span>
             {loadingEstimatedReward

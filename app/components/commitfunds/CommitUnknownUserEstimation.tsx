@@ -56,6 +56,7 @@ interface ICommitFundsEstimation {
   calculateEstimatedReward: () => {};
   loadingEstimatedReward: boolean;
   minTicketWei: BigNumber;
+  myEtherWalletUrl: string;
 }
 
 interface ICommitFundsEstimationFormValues {
@@ -66,6 +67,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   estimatedReward,
   calculateEstimatedReward,
   loadingEstimatedReward,
+  myEtherWalletUrl,
 }) => {
   return (
     <div className={style.container}>
@@ -95,7 +97,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
       </form>
       <div className={style.myEtherWallet}>
         <img className={style.logo} src={logo} />
-        Use <a href="#">MyEtherWallet</a>
+        Use <a href={myEtherWalletUrl}>MyEtherWallet</a>
       </div>
     </div>
   );

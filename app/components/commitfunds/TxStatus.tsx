@@ -62,12 +62,17 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
           </div>
         </div>
         {error
-          ? <Alert bsStyle="danger">
-              <h4>Error occured!</h4>
-              <p>
-                {error}
-              </p>
-            </Alert>
+          ? <div className={styles.error}>
+              <Alert bsStyle="danger">
+                <h4>Error occured!</h4>
+                <p>
+                  {error}
+                </p>
+              </Alert>
+              <Link to={"/commit"} className="btn btn-primary btn-link">
+                Go back to start
+              </Link>
+            </div>
           : <div className={styles.confirmedIndicator}>
               {isMined
                 ? <FontIcon className="material-icons" style={iconStyles}>

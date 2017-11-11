@@ -1,5 +1,26 @@
 [
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "neumarkUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "minEurUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "maxEurUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "burn",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -25,6 +46,36 @@
       {
         "name": "",
         "type": "string"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "totalEuroUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "burnNeumarkUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "minEurUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "maxEurUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "incrementalInverse",
+    "outputs": [
+      {
+        "name": "euroUlps",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -139,12 +190,7 @@
       }
     ],
     "name": "burn",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [],
     "payable": false,
     "type": "function"
   },
@@ -221,7 +267,7 @@
         "type": "uint256"
       },
       {
-        "name": "neumarkUlps",
+        "name": "burnNeumarkUlps",
         "type": "uint256"
       }
     ],
@@ -243,11 +289,11 @@
         "type": "uint256"
       },
       {
-        "name": "min",
+        "name": "minEurUlps",
         "type": "uint256"
       },
       {
-        "name": "max",
+        "name": "maxEurUlps",
         "type": "uint256"
       }
     ],
@@ -615,24 +661,6 @@
     "outputs": [
       {
         "name": "remaining",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "neumarkUlps",
-        "type": "uint256"
-      }
-    ],
-    "name": "incrementalInverse",
-    "outputs": [
-      {
-        "name": "euroUlps",
         "type": "uint256"
       }
     ],

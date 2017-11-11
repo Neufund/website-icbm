@@ -295,3 +295,10 @@ p.slim {
   font-size: $font-size-small;
   font-weight: $font-weight-more-bold;
 }
+
+ul.regular, ol.regular {
+    font-weight: $font-weight-normal !important;
+}
+.top-spacing{
+    margin-top: 30px;
+}

@@ -23,6 +23,10 @@ class EuroToken {
     this.rawWeb3Contract = web3.eth.contract(EuroTokenAbiJson).at(address);
   }
 
+  public get name(): Promise<string> {
+    return promisify(this.rawWeb3Contract.name, []);
+  }
+
   public get decimals(): Promise<BigNumber> {
     return promisify(this.rawWeb3Contract.decimals, []);
   }

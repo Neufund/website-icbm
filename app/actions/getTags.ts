@@ -10,7 +10,6 @@ import {
   formatMomentDate,
   formatMoney,
 } from "../agreements/utils";
-import { selectLockedAmount, selectNeumarkBalance } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { IDictionary } from "../types";
 import {
@@ -19,6 +18,7 @@ import {
   loadTokenHolderAgreementGeneralTagsFromContract,
 } from "../web3/loadTagsFromContract";
 import { getCurrentBlockHash } from "../web3/utils";
+import { TokenType } from "./constants";
 
 export const getTokenHolderAgreementGeneralTags = async () => {
   const generalTags = await loadTokenHolderAgreementGeneralTagsFromContract();
@@ -46,52 +46,65 @@ export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async
   };
 };
 
-export const getReservationAgreementGeneralTags = async (ethEurFraction: BigNumber) => {
-  const generalTags = await loadReservationAgreementGeneralTagsFromContract(ethEurFraction);
+export const getReservationAgreementGeneralTags = async (
+  tokenType: TokenType,
+  ethEurFraction: BigNumber
+) => {
+  const generalTags = await loadReservationAgreementGeneralTagsFromContract(
+    tokenType,
+    ethEurFraction
+  );
   const tags: IDictionary = {
     "lockin-sc-address": generalTags.lockInAddress,
     "payment-token": generalTags.paymentToken,
-    "max-cap": formatMoney(generalTags.etherDecimals.toNumber(), generalTags.maxCap),
-    "min-ticket": formatMoney(generalTags.etherDecimals.toNumber(), generalTags.minTicket),
+    "max-cap": formatMoney(generalTags.decimals.toNumber(), generalTags.maxCap),
+    "min-ticket": formatMoney(generalTags.decimals.toNumber(), generalTags.minTicket),
     "unlock-fee-percent": formatFraction(generalTags.unlockFeePercent),
     "fee-address": generalTags.feeAddress,
-    "reservation-period": formatDate(generalTags.reservationPeriod),
+    "reservation-period": moment
+      .duration(generalTags.reservationPeriod.toNumber(), "seconds")
+      .asDays()
+      .toString(),
     "signed-by-company-date": formatDate(generalTags.signedDate),
   };
 
   return tags;
 };
 
-export const getReservationAgreementTags: ThunkAction<{}, IAppState, {}> = async (
-  _dispatcher,
-  getState
-) => {
+export const getReservationAgreementTags: (
+  tokenType: TokenType
+) => ThunkAction<{}, IAppState, {}> = tokenType => async (_dispatcher, getState) => {
   const state = getState();
   const ethEurFraction = new BigNumber(state.commitmentState.ethEurFraction);
   const aftermathState = state.aftermathState;
 
-  const generalTags = await getReservationAgreementGeneralTags(ethEurFraction);
-  const partialTags = await loadReservationAgreementPersonalTagsFromContract();
+  const generalTags = await getReservationAgreementGeneralTags(tokenType, ethEurFraction);
+  const personalTags = await loadReservationAgreementPersonalTagsFromContract(tokenType);
   const currentBlockHash = await getCurrentBlockHash();
+
+  const lockedAmount =
+    tokenType === TokenType.ETHER
+      ? state.aftermathState.lockedAmountEth
+      : state.aftermathState.lockedAmountEur;
+  const neumarkBalance =
+    tokenType === TokenType.ETHER
+      ? state.aftermathState.neumarkBalanceEth
+      : state.aftermathState.neumarkBalanceEur;
+  const unlockDate =
+    tokenType === TokenType.ETHER
+      ? state.aftermathState.unlockDateEth
+      : state.aftermathState.unlockDateEur;
 
   const tags: IDictionary = {
     "investor-address": aftermathState.address,
-    "payment-token": partialTags.paymentToken,
-    amount: formatMoney(partialTags.etherDecimals.toNumber(), selectLockedAmount(aftermathState)),
-    "release-date": formatMomentDate(moment.utc(aftermathState.unlockDate)),
-    "reservation-period": partialTags.reservationPeriod.asDays().toString(),
+    amount: formatMoney(personalTags.decimals.toNumber(), lockedAmount),
+    "release-date": formatMomentDate(moment.utc(unlockDate)),
     "reservation-date": formatMomentDate(
-      moment.utc(aftermathState.unlockDate).subtract(partialTags.reservationPeriod)
+      moment.utc(unlockDate).subtract(personalTags.reservationPeriodDuration)
     ),
-    "unlock-fee": calculateAndFormatFee(partialTags.unlockFee, aftermathState.lockedAmount),
-    "neumark-amount": formatMoney(
-      partialTags.etherDecimals.toNumber(),
-      selectNeumarkBalance(aftermathState)
-    ),
-    "neumark-acquisition-ratio": calculateAndFormatRatio(
-      aftermathState.lockedAmount,
-      aftermathState.neumarkBalance
-    ),
+    "unlock-fee": calculateAndFormatFee(personalTags.unlockFee, lockedAmount),
+    "neumark-amount": formatMoney(personalTags.decimals.toNumber(), neumarkBalance),
+    "neumark-acquisition-ratio": calculateAndFormatRatio(lockedAmount, neumarkBalance),
     "current-block-hash": currentBlockHash,
     ...generalTags,
   };

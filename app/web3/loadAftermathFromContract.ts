@@ -1,12 +1,18 @@
-import { etherLock } from "./contracts/ContractsRepository";
-import { asEtherNumber, asMomentDate } from "./utils";
+import { etherLock, euroLock, neumark } from "./contracts/ContractsRepository";
+import { asMomentDate } from "./utils";
 
 export async function loadAftermathFromContract(address: string) {
-  const [lockedAmount, neumarksGranted, unlockDate] = await etherLock.balanceOf(address);
+  const [lockedAmountEth, neumarksGrantedEth, unlockDateEth] = await etherLock.balanceOf(address);
+  const [lockedAmountEuro, neumarksGrantedEuro, unlockDateEuro] = await euroLock.balanceOf(address);
+  const neumarkBalance = await neumark.balanceOf(address);
 
   return {
-    lockedAmount: asEtherNumber(lockedAmount).toString(),
-    neumarkBalance: asEtherNumber(neumarksGranted).toString(),
-    unlockDate: asMomentDate(unlockDate).toISOString(),
+    lockedAmountEth: lockedAmountEth.toString(),
+    lockedAmountEuro: lockedAmountEuro.toString(),
+    neumarkBalanceEth: neumarksGrantedEth.toString(),
+    neumarkBalanceEur: neumarksGrantedEuro.toString(),
+    unlockDateEth: asMomentDate(unlockDateEth).toISOString(),
+    unlockDateEuro: asMomentDate(unlockDateEuro).toISOString(),
+    neumarkBalance: neumarkBalance.toString(),
   };
 }

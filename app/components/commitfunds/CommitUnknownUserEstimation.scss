@@ -14,57 +14,60 @@ $spacing-from-container: 22px;
   padding-top: $spacing-from-container;
   font-size: $font-size-smallest;
   font-weight: $font-weight-light;
+}
+.introduction {
+  margin-bottom: 0;
+}
 
-  .introduction {
-    margin-bottom: 0;
-  }
+.loading-indicator {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+}
 
-  .right-container {
-    width: 150px;
-  }
+.estimation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
 
-  .loading-indicator {
+.amount-container {
+  white-space: nowrap
+}
+
+.amount {
+  display: inline-block;
+  width: 100px;
+  vertical-align: middle;
+  text-align: right;
+  white-space: nowrap;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-normal;
+}
+
+.currency-neu {
+  margin-left: 5px;
+  font-size: $font-size-small;
+
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
     margin: 0;
-    width: 20px;
-    height: 20px;
+    font-size: 11px;
   }
+}
 
-  .amount {
-    display: inline-block;
-    margin-right: 5px;
-    width: 100px;
-    vertical-align: middle;
-    text-align: right;
-    white-space: nowrap;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-normal;
-  }
+.separator {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: $font-size-small;
+}
 
-  .currency-neu {
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: $font-size-small;
+.currency-eth {
+  font-size: $font-size-normal;
+  font-weight: $font-weight-normal;
+}
 
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-      margin: 0;
-      font-size: 11px;
-    }
-  }
-
-  .separator {
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: $font-size-small;
-  }
-
-  .currency-eth {
-    font-size: $font-size-normal;
-    font-weight: $font-weight-normal;
-  }
-
-  .description {
-    color: $gray-little-dark;
-  }
+.description {
+  color: $gray-little-dark;
 }
 
 .my-ether-wallet {
@@ -75,9 +78,4 @@ $spacing-from-container: 22px;
     width: 48px;
     height: 48px;
   }
-}
-
-.estimation {
-  display: flex;
-  align-items: baseline;
 }

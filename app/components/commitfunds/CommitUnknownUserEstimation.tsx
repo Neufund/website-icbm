@@ -12,9 +12,9 @@ import * as style from "./CommitUnknownUserEstimation.scss";
 
 const estTextFieldStyles = {
   inputStyle: {
-    color: "#BBC2C7",
+    color: "#000",
     fontWeight: 500 as 500,
-    fontSize: "22px",
+    fontSize: "20px",
   },
   hintStyle: {
     color: "#BBC2C7",
@@ -22,9 +22,13 @@ const estTextFieldStyles = {
     fontSize: "22px",
   },
   style: {
-    width: "120px",
-    marginLeft: "5px",
+    width: "100px",
     marginRight: "5px",
+  },
+  errorStyle: {
+    position: "absolute",
+    top: "50px",
+    whiteSpace: "nowrap",
   },
 };
 
@@ -35,6 +39,7 @@ const styledField = (props: any) => {
     style: estTextFieldStyles.style,
     hintStyle: estTextFieldStyles.hintStyle,
     hintText: "0",
+    errorStyle: estTextFieldStyles.errorStyle,
     autoComplete: "off",
     ...props.input,
   };
@@ -68,22 +73,19 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Your estimated reward</p>
           <div className={style.estimation}>
-            <div className={style.rightContainer}>
-              {loadingEstimatedReward
-                ? <LoadingIndicator className={style.loadingIndicator} />
-                : <span>
-                    <MoneyComponent
-                      value={estimatedReward}
-                      tokenType={TokenType.NEU}
-                      valueClass={style.amount}
-                      currencyClass={style.currencyNeu}
-                      fit
-                    />
-                  </span>}
-            </div>
-            <span className={style.separator}> / </span>
             <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} />
             <span className={style.currencyEth}>ETH</span>
+            <span className={style.separator}> = </span>
+            {loadingEstimatedReward
+              ? <LoadingIndicator className={style.loadingIndicator} />
+              : <MoneyComponent
+                  containerClass={style.amountContainer}
+                  value={estimatedReward}
+                  tokenType={TokenType.NEU}
+                  valueClass={style.amount}
+                  currencyClass={style.currencyNeu}
+                  fit
+                />}
           </div>
           <p className={style.description}>
             Calculated amount might not be precised, reward will be granted after the block is mined

@@ -79,6 +79,18 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         loadingEstimatedReward: false,
         estimatedReward: "0",
       };
+    case "@@router/LOCATION_CHANGE":
+      if (payload.pathname === "/commit/wallet-selector") {
+        return {
+          ...state,
+          loadingEstimatedReward: false,
+          estimatedReward: "0",
+        };
+      } else {
+        return {
+          ...state,
+        };
+      }
     default:
       return state;
   }

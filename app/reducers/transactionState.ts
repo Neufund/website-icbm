@@ -62,6 +62,16 @@ const reducer: Reducer<ITransactionState> = (state = initialState, action) => {
       };
     case COMMITTING_RESET:
       return { ...initialState };
+    case "@@router/LOCATION_CHANGE":
+      if (payload.pathname === "/commit/wallet-selector") {
+        return {
+          ...initialState,
+        };
+      } else {
+        return {
+          ...state,
+        };
+      }
     case COMMITTING_ERROR:
       return {
         ...state,

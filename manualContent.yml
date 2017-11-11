@@ -63,7 +63,7 @@
         <li><a href='https://github.com/ethereum/mist/releases' target="_blank">Mist</a> (Desktop)</li>
         <li><a href='https://parity.io/' target="_blank">Parity</a> (Desktop)</li>
         <li><a href='https://parity.io/' target="_blank">Parity</a> +</li>
-        <li><a href='https://www.ledgerwallet.com/' target="_blank">Ledger Nano</a> Nano (Hardware wallet)</li>
+        <li><a href='https://www.ledgerwallet.com/' target="_blank">Ledger Nano</a> (Hardware wallet)</li>
         </ul>
       - |
         <img src="/assets/manual/image7.png" />
@@ -92,7 +92,7 @@
         </ul>
       - "<mark><b>WE DO NOT ACCEPT WALLET ADDRESSES FROM EXCHANGES!</b></mark>"
       - "<b>Incompatible wallets</b>"
-      - "<b>Move your ETH to a compatible wallet in the above list.</b>"
+      - "Move your ETH to a compatible wallet in the above list."
       - "<b>DO NOT use the following wallets:</b>"
       - |
         <ul class='regular'>

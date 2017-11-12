@@ -20,13 +20,9 @@ interface IWalletSelectorProps {
   walletInBrowserSelectedAction: () => any;
   ledgerWalletSelectedAction: () => any;
   otherWalletSelectedAction: () => any;
-  getTokenHolderAgreementTags: () => Promise<IDictionary>;
   walletInBrowserSelected: boolean;
   ledgerWalletSelected: boolean;
   otherWalletSelected: boolean;
-  tokenHolderAgreementHash: string;
-  reservationAgreementHash: string;
-  ethEurFraction: string;
 }
 
 export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({

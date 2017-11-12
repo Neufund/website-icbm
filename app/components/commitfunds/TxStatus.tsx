@@ -41,13 +41,13 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
         <CommitHeaderComponent number="03" title="Your transaction status" />
 
         <p>
-          Your transaction
+          The transaction
           <EtherScanLink
             linkType={EtherScanLinkType.TRANSACTION}
             resourceId={txHash}
             className={styles.tx}
           />
-          is {isMined ? "ready. " : "being mined."}
+          is {isMined ? "ready." : "being mined."}
         </p>
 
         <div>
@@ -59,9 +59,17 @@ export class TxStatusComponent extends React.Component<ITxMiningComponent> {
           </div>
 
           <div>
-            Is the transaction confirmed? <b>{isMined ? "Yes" : "No"}</b>
+            Is the transaction confirmed?{" "}
+            <b>
+              {isMined
+                ? <span className={styles.yes}>Yes</span>
+                : <span className={styles.no}>No</span>}
+            </b>
           </div>
-          <h3>This might take a while, please wait.</h3>
+
+          {isMined
+            ? <p className={styles.text}>Yay, your transaction was mined.</p>
+            : <p className={styles.text}>This might take a while, please wait.</p>}
         </div>
         {error
           ? <div className={styles.error}>

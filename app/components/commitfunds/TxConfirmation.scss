@@ -3,14 +3,8 @@
 .text {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.text-ledger {
-  margin-top: 30px;
-  margin-bottom: 30px;
   text-align: center;
-  font-size: $section-title-font-size;
-  font-weight: $font-weight-bold;
+  font-size: $section-title-font-size-smaller;
 }
 
 .confirmation-loading-indicator {

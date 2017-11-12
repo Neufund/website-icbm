@@ -50,7 +50,7 @@ export const UserInfoComponent: React.SFC<IUserAddressComponentProps> = ({
     </p>
     {reservedTicket.gt(new BigNumber(0)) &&
       <div>
-        <p>Reserved ticket</p>
+        <p>Reserved ticket:</p>
         <p className={value}>
           <span>
             <MoneyComponent tokenType={TokenType.ETHER} value={reservedTicket} />

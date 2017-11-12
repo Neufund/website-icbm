@@ -1,12 +1,13 @@
-import { MyEtherWalletSendMode } from "../actions/constants";
+/*
+   Doc https://github.com/kvhnuke/etherwallet#features
+   for now we are omitting sendMode and tokenSymbol as we are not using those
+ */
 
 export const myEtherWalletUrl = (
   to: string,
   value: number,
-  sendMode: MyEtherWalletSendMode,
-  tokenSymbol: string,
   gasLimit: string,
   data: string
 ): string => {
-  return `https://www.myetherwallet.com/?to=${to}&value=${value}&sendMode=${sendMode}&tokenSymbol=${tokenSymbol}&gaslimit=${gasLimit}&data=${data}#send-transaction`;
+  return `https://www.myetherwallet.com/?to=${to}&value=${value}&gaslimit=${gasLimit}&data=${data}#send-transaction`;
 };

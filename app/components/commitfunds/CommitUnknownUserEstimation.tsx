@@ -76,7 +76,12 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         <div className={style.estimationComponent}>
           <p className={style.introduction}>Your estimated reward</p>
           <div className={style.estimation}>
-            <Field name="ethAmount" component={styledField} validate={[commitmentValueValidator]} props={{ maxLength: 9 }} />
+            <Field
+              name="ethAmount"
+              component={styledField}
+              validate={[commitmentValueValidator]}
+              props={{ maxLength: 9 }}
+            />
             <span className={style.currencyEth}>ETH</span>
             <span className={style.separator}> = </span>
             {loadingEstimatedReward

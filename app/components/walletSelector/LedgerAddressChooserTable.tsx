@@ -1,3 +1,4 @@
+import * as cn from "classnames";
 import * as React from "react";
 
 import { TokenType } from "../../actions/constants";
@@ -37,7 +38,7 @@ export const LedgerAddressChooserTable: React.SFC<ILedgerAddressChooserComponent
           key={a.derivationPath}
           onClick={// tslint:disable-next-line
           () => handleAddressChosen(a)}
-          className={style.useColumn}
+          className={cn(style.useColumn, { [style.withEther]: parseInt(a.balance, 10) > 0 })}
         >
           <td>
             {a.derivationPath}

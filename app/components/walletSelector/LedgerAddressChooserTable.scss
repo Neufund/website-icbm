@@ -51,6 +51,10 @@ $blue-hover: rgb(224, 242, 255);
   text-align: center;
 }
 
+.withEther {
+  background-color: lighten($blue-hover, 3%);
+}
+
 .footer {
   display: flex;
   flex-direction: row;

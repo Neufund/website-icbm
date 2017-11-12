@@ -1,5 +1,8 @@
 @import '../../../common/sass/variables';
 
+$blue-hover: rgb(224, 242, 255);
+$blue-accent: #d9edf7;
+
 .table {
   margin: 15px 0;
   border: 1px solid $blue-darker;
@@ -28,9 +31,9 @@
     }
   }
 
-  tr {
-    &:nth-child(2n) > td {
-      background-color: $white-dirty;
+  tbody > tr {
+    &:hover > td {
+      background-color: lighten($blue-hover, 3%);
     }
   }
 
@@ -43,6 +46,10 @@
 .use-column {
   cursor: pointer;
   text-align: center;
+}
+
+.with-ether {
+  background-color: $blue-accent;
 }
 
 .footer {

@@ -39,29 +39,32 @@ export const HexagonText = (props: IMoneyProps) => {
       <p className={styles.content} data-test-id="during-ico-total-funds">
         <MoneyComponent
           tokenType={TokenType.ETHER}
+          decimalPlaces={2}
           value={raised}
           valueClass={styles.importantValue}
+          separateThousands
         />
       </p>
 
-      <p className={styles.title}>Investors accounts created</p>
+      <p className={styles.title}>Investors</p>
       <p className={styles.content} data-test-id="during-ico-accounts-created">
         <span className={styles.value}>
           {investorsAccountCreated.toFixed(0)}
         </span>
       </p>
 
-      <p className={styles.title}>Neumarks generated</p>
+      <p className={styles.title}>NEU issued to investors</p>
       <p className={styles.content} data-test-id="during-ico-neumarks-generated">
         <MoneyComponent
           decimalPlaces={0}
           valueClass={styles.value}
           tokenType={TokenType.NEU}
           value={neuMarkAmount}
+          separateThousands
         />
       </p>
 
-      <p className={styles.title}>Reward</p>
+      <p className={styles.title}>Current reward</p>
       <p className={styles.content} data-test-id="during-ico-current-reward">
         <MoneyComponent
           valueClass={styles.value}
@@ -79,14 +82,17 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
-        <h1>Community-owned investment ecosystem</h1>
+        <h1>Community-owned Fundraising Platform</h1>
+
         <p>
-          Neufund is an investment platform bridging the worlds of blockchain and venture capital.
+          Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain
+          companies.
         </p>
         <p>
-          Commit funds now, invest them in the startups in the future. As a reward for participation
-          get Neumarks. This time, ETH only. EUR soon.
+          Reserve funds today for your future investments and receive Neumarks making you a co-owner
+          of the platform.
         </p>
+        <p>You maintain full control over your investment decisions at all times.</p>
         <p>
           Time left to the end:{" "}
           <Countdown

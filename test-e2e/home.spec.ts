@@ -36,9 +36,9 @@ describe("Home page", () => {
     await homepage.duringIcoDetails.waitFor();
     await homepage.duringIco.totalFundsCommitted.waitFor();
 
-    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("2.0000 ETH");
+    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("2.00 ETH");
     expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("1");
-    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("1939 NEU");
+    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("1 939 NEU");
     expect(await homepage.duringIco.currentReward.text()).to.be.eq("969.4744 NEU /  1 ETH");
   });
 

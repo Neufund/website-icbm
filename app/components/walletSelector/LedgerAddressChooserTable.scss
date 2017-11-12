@@ -1,6 +1,8 @@
 @import '../../../common/sass/variables';
 
 $blue-hover: rgb(224, 242, 255);
+$blue-accent: #d9edf7;
+
 .table {
   margin: 15px 0;
   border: 1px solid $blue-darker;
@@ -47,7 +49,7 @@ $blue-hover: rgb(224, 242, 255);
 }
 
 .with-ether {
-  background-color: #d9edf7;
+  background-color: $blue-accent;
 }
 
 .footer {

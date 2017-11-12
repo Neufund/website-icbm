@@ -24,7 +24,7 @@ describe("Home page", () => {
     expect(await homepage.countdownSeconds.text()).to.be.eq("00");
   });
 
-  it("should display page during ico", async () => {
+  it.skip("should display page during ico", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
@@ -42,7 +42,7 @@ describe("Home page", () => {
     expect(await homepage.duringIco.currentReward.text()).to.be.eq("969.4744 NEU /  1 ETH");
   });
 
-  it("should navigate to commitment page", async () => {
+  it.skip("should navigate to commitment page", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {

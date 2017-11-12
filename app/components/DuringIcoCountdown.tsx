@@ -3,12 +3,10 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { TokenType } from "../actions/constants";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
-import MoneyComponent from "./MoneyComponent";
 
 interface IMoneyProps {
   loading: boolean;
@@ -28,7 +26,7 @@ interface IDuringIcoCountdownProps {
 }
 
 export const HexagonText = (props: IMoneyProps) => {
-  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading } = props;
   if (loading) {
     return <LoadingIndicator className={styles.loadingIndicator} />;
   }

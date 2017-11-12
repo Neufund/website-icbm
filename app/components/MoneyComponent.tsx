@@ -18,6 +18,7 @@ interface IMoneyComponentOwnProps {
   valueClass?: string;
   currencyClass?: string;
   fit?: boolean;
+  separateThousands?: boolean;
   decimalPlaces?: number;
 }
 
@@ -30,23 +31,29 @@ const MoneyComponent: React.SFC<IMoneyComponentProps & IMoneyComponentOwnProps> 
   currencyClass,
   fit,
   decimalPlaces,
+  separateThousands,
   ...props,
 }) => {
   if (!decimals) {
     throw new Error("Couldnt get TOKEN details!");
   }
 
+  let formattedValue = formatMoney(decimals, value, decimalPlaces);
+  if (separateThousands) {
+    formattedValue = formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
   let valueComponent;
   if (fit) {
     valueComponent = (
       <Textfit mode="single" max={18} className={valueClass}>
-        {formatMoney(decimals, value, decimalPlaces)}
+        {formattedValue}
       </Textfit>
     );
   } else {
     valueComponent = (
       <span className={valueClass}>
-        {formatMoney(decimals, value, decimalPlaces)}
+        {formattedValue}
       </span>
     );
   }

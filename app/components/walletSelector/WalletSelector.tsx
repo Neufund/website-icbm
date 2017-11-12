@@ -8,7 +8,6 @@ import {
   walletInBrowserSelectedAction,
 } from "../../actions/walletSelectorActions";
 import { IAppState } from "../../reducers/index";
-import { IDictionary } from "../../types";
 import { CommitHeaderComponent } from "../commitfunds/CommitHeaderComponent";
 import { CommitUnknownUser } from "../commitfunds/CommitUnknownUser";
 import { HiResImage } from "../HiResImage";

@@ -47,7 +47,7 @@ export const EthBrowserWalletInitComponent: React.SFC<IEthBrowserWalletInitProps
     </div>
     {errorMessage &&
       <Alert bsStyle="info">
-        <h4>Error has occured!</h4>
+        <h4>Connection status:</h4>
         <p>
           {errorMessage}
         </p>

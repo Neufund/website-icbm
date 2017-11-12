@@ -43,10 +43,7 @@ export class LedgerNotSupportedVersionError extends NeufundError {
 
 export class LedgerNotAvailableError extends NeufundError {
   constructor() {
-    super(
-      ErrorType.LedgerNotAvailableError,
-      `Unfortunately we cannot connect to your Ledger Nano.`
-    );
+    super(ErrorType.LedgerNotAvailableError, `Still waiting for connection.`);
   }
 }
 

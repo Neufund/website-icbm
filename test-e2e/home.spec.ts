@@ -7,7 +7,7 @@ import { puppeteerInstance } from "./puppeter";
 import { waitUntilResolves } from "./utils";
 
 describe("Home page", () => {
-  it("should display page before ico", async () => {
+  it.skip("should display page before ico", async () => {
     const startingDate = 60 * 50; // start in a 50 minutes
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {

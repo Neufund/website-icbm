@@ -34,7 +34,7 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
 }) => {
   return (
     <div>
-      <CommitHeaderComponent number="01" title="Commit funds" />
+      <CommitHeaderComponent number="01" title="Commit your funds" />
       <p>Please select your wallet.</p>
       <div>
         <div className={styles.walletSelector}>

@@ -1,7 +1,6 @@
 @import '../../common/sass/variables';
 
 .user-address-container {
-  position: relative;
   padding-left: 58px;
   line-height: 24px;
   font-size: $font-size-smallest;
@@ -11,15 +10,32 @@
   }
 }
 
-.value {
-  font-size: $font-size-small;
-}
-
 .icon {
   position: absolute;
-  top: 6px;
-  left: 0;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  top: 7px;
+  left: -55px;
+
+  img {
+    height: 40px;
+  }
+}
+
+
+.label {
+  color: $gray-almost-dark;
+  font-size: $font-size-smallest;
+}
+
+.value {
+  color: $black-lighter;
+  font-size: 19px;
+
+  span {
+    font-weight: $font-weight-normal;
+  }
+}
+
+.section {
+  position: relative;
+  margin-bottom: 30px;
 }

@@ -31,7 +31,7 @@ export class TxConfirmationComponent extends React.Component<ITxConfirmationComp
         <CommitHeaderComponent number="02" title="Confirm your transaction" />
         <UserInfo />
         {web3Type === Web3Type.LEDGER
-          ? <p className={styles.textLedger}>
+          ? <p className={styles.text}>
               You now have 20 seconds to confirm the transaction on your wallet.<br />
               <Link to="/commit">Or go back to change your commitment.</Link>
             </p>

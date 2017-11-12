@@ -116,7 +116,7 @@ const CommitKnownUserForm = ({
             <p>
               Gas price: <b>{gasPrice} gwei</b> <br />
               Gas limit: <b>{gasLimit}</b> <br />
-              Total tx value:{" "}
+              Total transaction value:{" "}
               <b>
                 <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
               </b>

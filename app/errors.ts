@@ -58,7 +58,10 @@ export class LedgerContractsOffError extends NeufundError {
 
 export class LedgerTimeoutError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerTimeoutError, `It seems there is a timeout on your Ledger Nano`);
+    super(
+      ErrorType.LedgerTimeoutError,
+      `It seems like you didn't confirm the transaction on your Ledger Nano. Please reconnect the device and refresh the page.`
+    );
   }
 }
 

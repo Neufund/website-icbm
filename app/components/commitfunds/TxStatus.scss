@@ -29,12 +29,12 @@
   text-align: center;
 }
 
-.yes{
-  color: #c0cc12 // sass-lint:disable-line no-color-literals
+.yes {
+  color: #c0cc12; // sass-lint:disable-line no-color-literals
 }
 
 .no {
-  color: $red
+  color: $red;
 }
 
 .loading-indicator {

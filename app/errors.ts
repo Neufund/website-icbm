@@ -43,10 +43,7 @@ export class LedgerNotSupportedVersionError extends NeufundError {
 
 export class LedgerNotAvailableError extends NeufundError {
   constructor() {
-    super(
-      ErrorType.LedgerNotAvailableError,
-      `Unfortunately we cannot connect to your Ledger Nano.`
-    );
+    super(ErrorType.LedgerNotAvailableError, `Still waiting for connection.`);
   }
 }
 
@@ -61,7 +58,10 @@ export class LedgerContractsOffError extends NeufundError {
 
 export class LedgerTimeoutError extends NeufundError {
   constructor() {
-    super(ErrorType.LedgerTimeoutError, `It seems there is a timeout on your Ledger Nano`);
+    super(
+      ErrorType.LedgerTimeoutError,
+      `It seems like you didn't confirm the transaction on your Ledger Nano. Please reconnect the device and refresh the page.`
+    );
   }
 }
 

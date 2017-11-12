@@ -39,7 +39,7 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
             <p>
               Gas price: <b>{gasPrice} gwei</b> <br />
               Gas limit: <b>{gasLimit}</b> <br />
-              Total transaction value{" "}
+              Total transaction value:{" "}
               <b>
                 <MoneyComponent value={txCost} tokenType={TokenType.ETHER} decimalPlaces={4} />
               </b>
@@ -55,7 +55,7 @@ export const TransactionCommittedMoneyComponent: React.SFC<ITransactionCommitted
           />
           <div className={style.description}>
             <p>
-              Reward will be granted after the block is mined and it might depend on the order of
+              The reward will be granted after the block is mined. It might depend on the order of
               transactions.
             </p>
           </div>

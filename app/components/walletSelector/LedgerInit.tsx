@@ -18,18 +18,18 @@ interface ILedgerInitProps {
 
 export const LedgerInitComponent: React.SFC<ILedgerInitProps> = ({ errorMessage }) =>
   <div className={styles.ledgerInit}>
-    <p>Plug in your Nano Ledger S and follow these steps:</p>
-    <p>Unlock your Ledger Nano S by inserting the PIN</p>
+    <p>Plug in your Ledger Nano and follow these steps:</p>
+    <p>1. Unlock your Ledger Nano by inserting the PIN</p>
     <div className={styles.imageWrapper}>
       <HiResImage partialPath="wallet_selector/ledger_unlock" className="img-responsive" />
     </div>
-    <p>Open the Ethereum application</p>
+    <p>2. Open the Ethereum application</p>
     <div className={styles.imageWrapper}>
       <HiResImage partialPath="wallet_selector/ledger_ethereum" className="img-responsive" />
     </div>
 
     <div className={styles.steps}>
-      Go to settings and set:
+      3. Go to settings and set:
       <ul>
         <li>
           Contract Data: <strong>Yes</strong>

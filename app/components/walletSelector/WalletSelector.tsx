@@ -1,15 +1,27 @@
+import { BigNumber } from "bignumber.js";
 import * as cn from "classnames";
 import * as React from "react";
 import { connect } from "react-redux";
 
+import { TokenType } from "../../actions/constants";
+import {
+  getReservationAgreementGeneralTags,
+  getTokenHolderAgreementTags,
+} from "../../actions/getTags";
 import {
   ledgerWalletSelectedAction,
   otherWalletSelectedAction,
   walletInBrowserSelectedAction,
 } from "../../actions/walletSelectorActions";
 import { IAppState } from "../../reducers/index";
+import {
+  selectReservationAgreementHash,
+  selectTokenHolderAgreementHash,
+} from "../../reducers/legalAgreementState";
+import { IDictionary } from "../../types";
 import { CommitHeaderComponent } from "../commitfunds/CommitHeaderComponent";
 import { CommitUnknownUser } from "../commitfunds/CommitUnknownUser";
+import { DownloadDocumentLink } from "../DownloadDocumentLink";
 import { HiResImage } from "../HiResImage";
 import { LedgerWallet } from "./LedgerWallet";
 import { WalletInBrowser } from "./WalletInBrowser";
@@ -22,6 +34,10 @@ interface IWalletSelectorProps {
   walletInBrowserSelected: boolean;
   ledgerWalletSelected: boolean;
   otherWalletSelected: boolean;
+  getTokenHolderAgreementTags: () => Promise<IDictionary>;
+  tokenHolderAgreementHash: string;
+  reservationAgreementHash: string;
+  ethEurFraction: string;
 }
 
 export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
@@ -31,6 +47,10 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
   walletInBrowserSelectedAction,
   ledgerWalletSelectedAction,
   otherWalletSelectedAction,
+  getTokenHolderAgreementTags,
+  tokenHolderAgreementHash,
+  reservationAgreementHash,
+  ethEurFraction,
 }) => {
   return (
     <div>
@@ -75,6 +95,31 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
           {otherWalletSelected && <CommitUnknownUser />}
         </div>
       </div>
+
+      <div className={styles.downloadDocumentLink}>
+        <DownloadDocumentLink
+          key="neumark_token_holder_agreement"
+          documentHash={tokenHolderAgreementHash}
+          getTags={getTokenHolderAgreementTags}
+          outputFilename="neumark_token_holder_agreement"
+        >
+          Token Holder Agreement
+        </DownloadDocumentLink>
+
+        <DownloadDocumentLink
+          key="reservation_agreement"
+          documentHash={reservationAgreementHash}
+          getTags={() => {
+            // tslint:disable-next-line:jsx-no-lambda
+            const ethEurFractionBigNumber = new BigNumber(ethEurFraction);
+            const tokenType: TokenType = TokenType.ETHER;
+            return getReservationAgreementGeneralTags(tokenType, ethEurFractionBigNumber);
+          }}
+          outputFilename="reservation_agreement"
+        >
+          Reservation Agreement
+        </DownloadDocumentLink>
+      </div>
     </div>
   );
 };
@@ -99,10 +144,14 @@ export const WalletSelector = connect(
     walletInBrowserSelected: state.walletSelectorState.walletInBrowserSelected,
     ledgerWalletSelected: state.walletSelectorState.ledgerWalletSelected,
     otherWalletSelected: state.walletSelectorState.otherWalletSelected,
+    ethEurFraction: state.commitmentState.ethEurFraction,
+    tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
+    reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
   }),
   dispatch => ({
     walletInBrowserSelectedAction: () => dispatch(walletInBrowserSelectedAction()),
     ledgerWalletSelectedAction: () => dispatch(ledgerWalletSelectedAction()),
     otherWalletSelectedAction: () => dispatch(otherWalletSelectedAction()),
+    getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
   })
 )(WalletSelectorComponent);

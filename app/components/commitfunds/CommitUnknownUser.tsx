@@ -17,6 +17,7 @@ import { IAppState } from "../../reducers/index";
 import { selectEthNetwork } from "../../reducers/web3State";
 import { etherscanUrl } from "../../utils/etherscan";
 import { publicCommitment } from "../../web3/contracts/ContractsRepository";
+import { LegalAgreementsDownload } from "../LegalAgreementsDownload";
 import * as style from "./CommitUnknownUser.scss";
 import { CommitUnknownUserDesc } from "./CommitUnknownUserDesc";
 import CommitUnknownUserEstimation from "./CommitUnknownUserEstimation";
@@ -76,6 +77,11 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
           minTicketWei={minTicketWei}
           myEtherWalletUrl={myEtherWalletUrl}
         />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={12}>
+        <LegalAgreementsDownload />
       </Col>
     </Row>
   </div>;

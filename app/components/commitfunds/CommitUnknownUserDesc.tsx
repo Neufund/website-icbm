@@ -32,7 +32,8 @@ export const CommitUnknownUserDesc: React.SFC<ICommitUnknownUserDesc> = ({
   return (
     <div className={style.infoContainer}>
       <p>
-        Please include it in your transaction<br />
+        <b>Please include the following data in your transactions</b>
+        <br />
         Transaction data:<br />
         <TextCopyable copyIconOnRight className={style.textCopyable} text={transactionPayload} />
       </p>

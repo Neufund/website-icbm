@@ -35,10 +35,20 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
 }) => {
   return (
     <div>
-      <CommitHeaderComponent number="01" title="Commit funds" />
-      <p>Please select source of your cryptocurrency.</p>
+      <CommitHeaderComponent number="01" title="Commit your funds" />
+      <p>Please select your wallet.</p>
       <div>
         <div className={styles.walletSelector}>
+          <WalletTab
+            active={otherWalletSelected}
+            onSelect={otherWalletSelectedAction}
+            data-test-id="wallet-selector-other"
+          >
+            <HiResImage
+              partialPath="wallet_selector/icon_other_wallet"
+              className={styles.walletIcon}
+            />External Wallet
+          </WalletTab>
           <WalletTab
             active={walletInBrowserSelected}
             onSelect={walletInBrowserSelectedAction}
@@ -47,7 +57,7 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
             <HiResImage
               partialPath="wallet_selector/icon_wallet"
               className={styles.walletIcon}
-            />Wallet in the browser
+            />Wallet in your browser
           </WalletTab>
           <WalletTab
             active={ledgerWalletSelected}
@@ -58,16 +68,6 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
               partialPath="wallet_selector/icon_ledger"
               className={styles.walletIcon}
             />Ledger Nano Wallet
-          </WalletTab>
-          <WalletTab
-            active={otherWalletSelected}
-            onSelect={otherWalletSelectedAction}
-            data-test-id="wallet-selector-other"
-          >
-            <HiResImage
-              partialPath="wallet_selector/icon_other_wallet"
-              className={styles.walletIcon}
-            />Other Wallet
           </WalletTab>
         </div>
         <div>

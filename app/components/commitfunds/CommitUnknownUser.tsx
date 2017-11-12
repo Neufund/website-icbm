@@ -54,8 +54,14 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
         <a target="_blank" href="/manual">
           Read the instructions
         </a>{" "}
-        or write us on <a href="https://t.me/neufund">Telegram</a> or{" "}
-        <a href="https://goo.gl/KUj1fj">Slack</a>
+        or write us on{" "}
+        <a href="https://t.me/neufund" target="_blank">
+          Telegram
+        </a>{" "}
+        or{" "}
+        <a href="https://goo.gl/KUj1fj" target="_blank">
+          Slack
+        </a>
       </Col>
     </Row>
     <Row className={style.row}>

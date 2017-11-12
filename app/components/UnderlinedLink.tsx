@@ -8,6 +8,6 @@ interface IUnderlinedLinkProps {
 }
 
 export const UnderlinedLink: React.SFC<IUnderlinedLinkProps> = ({ href, className, children }) =>
-  <a href={href} className={cn(className, styles.underlinedLink)}>
+  <a href={href} className={cn(className, styles.underlinedLink)} target="_blank">
     {children}
   </a>;

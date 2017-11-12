@@ -3,12 +3,10 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { TokenType } from "../actions/constants";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
-import MoneyComponent from "./MoneyComponent";
 
 interface IMoneyProps {
   loading: boolean;
@@ -28,50 +26,17 @@ interface IDuringIcoCountdownProps {
 }
 
 export const HexagonText = (props: IMoneyProps) => {
-  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading } = props;
   if (loading) {
     return <LoadingIndicator className={styles.loadingIndicator} />;
   }
 
   return (
     <div className={styles.text}>
-      <p className={styles.title}>Total funds committed</p>
       <p className={styles.content} data-test-id="during-ico-total-funds">
-        <MoneyComponent
-          tokenType={TokenType.ETHER}
-          decimalPlaces={2}
-          value={raised}
-          valueClass={styles.importantValue}
-          separateThousands
-        />
-      </p>
-
-      <p className={styles.title}>Investors</p>
-      <p className={styles.content} data-test-id="during-ico-accounts-created">
-        <span className={styles.value}>
-          {investorsAccountCreated.toFixed(0)}
+        <span className={styles.importantValue}>
+          Pre-ICBM <br />in progress
         </span>
-      </p>
-
-      <p className={styles.title}>NEU issued to investors</p>
-      <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <MoneyComponent
-          decimalPlaces={0}
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkAmount}
-          separateThousands
-        />
-      </p>
-
-      <p className={styles.title}>Current reward</p>
-      <p className={styles.content} data-test-id="during-ico-current-reward">
-        <MoneyComponent
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkToEtherRatio}
-        />
-        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
       </p>
     </div>
   );

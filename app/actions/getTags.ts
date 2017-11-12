@@ -102,9 +102,12 @@ export const getReservationAgreementTags: (
     "reservation-date": formatMomentDate(
       moment.utc(unlockDate).subtract(personalTags.reservationPeriodDuration)
     ),
-    "unlock-fee": calculateAndFormatFee(personalTags.unlockFee, lockedAmount),
+    "unlock-fee": formatMoney(
+      personalTags.decimals.toNumber(),
+      calculateAndFormatFee(personalTags.unlockFee, lockedAmount)
+    ),
     "neumark-amount": formatMoney(personalTags.decimals.toNumber(), neumarkBalance),
-    "neumark-acquisition-ratio": calculateAndFormatRatio(lockedAmount, neumarkBalance),
+    "neumark-acquisition-ratio": calculateAndFormatRatio(neumarkBalance, lockedAmount),
     "current-block-hash": currentBlockHash,
     ...generalTags,
   };

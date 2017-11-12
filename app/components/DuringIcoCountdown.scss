@@ -62,11 +62,6 @@
       padding-right: 0;
     }
 
-    span,
-    p {
-      font-weight: $font-extra-weight-light;
-    }
-
     .title {
       margin-bottom: 0;
       color: $white;
@@ -78,16 +73,15 @@
     }
 
     .content {
-      margin-bottom: $space-between-elements;
+      margin-bottom: 10px;
     }
 
     .value {
-      font-weight: bold;
+      font-size: 26px;
     }
 
     .important-value {
       font-size: $font-extra-big-size;
-      font-weight: bold;
     }
   }
 

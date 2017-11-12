@@ -1,6 +1,5 @@
 @import '../../../common/sass/variables';
 
-
 $blue-hover: rgb(224, 242, 255);
 .table {
   margin: 15px 0;
@@ -31,12 +30,8 @@ $blue-hover: rgb(224, 242, 255);
   }
 
   tbody > tr {
-    &:nth-child(2n) > td {
-      background-color: $white-dirty;
-    }
-
     &:hover > td {
-      background-color: $blue-hover;
+      background-color: lighten($blue-hover, 3%);
     }
   }
 
@@ -51,8 +46,8 @@ $blue-hover: rgb(224, 242, 255);
   text-align: center;
 }
 
-.withEther {
-  background-color: lighten($blue-hover, 3%);
+.with-ether {
+  background-color: #d9edf7;
 }
 
 .footer {

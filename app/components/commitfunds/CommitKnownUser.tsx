@@ -39,9 +39,7 @@ export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
 }) =>
   <div>
     <Row>
-      <Col sm={6}>
-        <UserInfo />
-      </Col>
+      <UserInfo />
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>

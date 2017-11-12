@@ -66,7 +66,7 @@ export const UserInfoComponent: React.SFC<IUserAddressComponentProps> = ({
         </div>
 
         <div className={styles.section}>
-          <div className={styles.label}>Balance:</div>
+          <div className={styles.label}>Your balance:</div>
           <div className={styles.value}>
             <MoneyComponent tokenType={TokenType.ETHER} value={balance} />
           </div>

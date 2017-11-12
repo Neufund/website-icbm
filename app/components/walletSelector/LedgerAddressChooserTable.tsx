@@ -26,10 +26,10 @@ export const LedgerAddressChooserTable: React.SFC<ILedgerAddressChooserComponent
   <table className={style.table}>
     <thead>
       <tr>
-        <th>derivation path</th>
-        <th>address</th>
+        <th>Derivation path</th>
+        <th>Address</th>
         <th>ETH balance</th>
-        <th className={style.useColumn}>use address</th>
+        <th className={style.useColumn}>Use this address</th>
       </tr>
     </thead>
     <tbody>

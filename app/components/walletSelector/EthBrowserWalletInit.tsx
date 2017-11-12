@@ -20,9 +20,9 @@ export const EthBrowserWalletInitComponent: React.SFC<IEthBrowserWalletInitProps
   errorMessage,
 }) =>
   <div>
-    <p>Connect to your ethereum wallet.</p>
+    <p>Please connect to your Ethereum wallet.</p>
 
-    <p>Currently we support following wallets:</p>
+    <p>Currently we support the following wallets:</p>
 
     <Row className="center">
       <Col sm={4}>
@@ -36,18 +36,18 @@ export const EthBrowserWalletInitComponent: React.SFC<IEthBrowserWalletInitProps
       </Col>
     </Row>
 
-    <p>Follow these steps:</p>
+    <p>Follow the steps:</p>
 
     <div className={styles.steps}>
       <ol>
-        <li>Turn on browser plugin.</li>
-        <li>Refresh.</li>
-        <li>Unlock wallet</li>
+        <li>Turn on your browser plugin.</li>
+        <li>Refresh the page.</li>
+        <li>Unlock your wallet.</li>
       </ol>
     </div>
     {errorMessage &&
       <Alert bsStyle="info">
-        <h4>Connection status:</h4>
+        <h4>Error has occured!</h4>
         <p>
           {errorMessage}
         </p>

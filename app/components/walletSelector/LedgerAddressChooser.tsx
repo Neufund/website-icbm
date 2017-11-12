@@ -60,7 +60,7 @@ export class LedgerAddressChooserComponent extends React.Component<
             onChange={this.derivationPathChanged}
             errorText={this.state.invalidDerivationPath && "Invalid derivation path"}
           />
-          - provide your derivation path
+          - Change your derivation path, if necessary.
         </div>
         {this.renderBody()}
       </div>

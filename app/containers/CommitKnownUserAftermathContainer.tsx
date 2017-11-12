@@ -21,7 +21,7 @@ import {
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
 
-import { EtherScanLinkType, TokenType } from "../actions/constants";
+import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathState {
@@ -85,10 +85,15 @@ export class CommitKnownUserAftermath extends React.Component<
       );
     }
 
+    const showEther = parseFloat(lockedAmountEth) > 0;
+    const showEuro = parseFloat(lockedAmountEur) > 0;
+
     return (
       <div className={styles.aftermath}>
         <div>
-          <div className={styles.header}>Sneak peak to your committed funds</div>
+          <div className={styles.header}>
+            This is a sneak peak of your committed funds in the Neufund ICBM.
+          </div>
           <EtherScanLink
             linkType={EtherScanLinkType.ADDRESS}
             resourceId={address}
@@ -99,41 +104,54 @@ export class CommitKnownUserAftermath extends React.Component<
           </EtherScanLink>
         </div>
 
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>For address</div>
-          <div className={styles.value}>
-            {address}
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your wallet address:</h4>
+            <div className={styles.value}>
+              {address}
+            </div>
           </div>
         </div>
 
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Neumarks balance:</div>
-          <div className={styles.value}>
-            <MoneyComponent value={neumarkBalance} tokenType={TokenType.NEU} />
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your NEU balance: </h4>
+            <div className={styles.value}>
+              <MoneyComponent value={neumarkBalance} tokenType={TokenType.NEU} />
+            </div>
+          </div>
+
+          <div className={styles.infoBox}>
+            <div className={styles.value}>
+              <DownloadDocumentLink
+                key="neumark_token_holder_agreement"
+                documentHash={tokenHolderAgreementHash}
+                getTags={getTokenHolderAgreementTags}
+                outputFilename="neumark_token_holder_agreement"
+              >
+                Token Holder Agreement
+              </DownloadDocumentLink>
+            </div>
           </div>
         </div>
 
-        {parseFloat(lockedAmountEth) > 0 &&
+        {showEther &&
           <CommitmentInfo
             tokenType={TokenType.ETHER}
             lockedAmount={lockedAmountEth}
             neumarkBalance={neumarkBalanceEth}
             unlockDate={unlockDateEth}
-            tokenHolderAgreementHash={tokenHolderAgreementHash}
             reservationAgreementHash={reservationAgreementHash}
-            getTokenHolderAgreementTags={getTokenHolderAgreementTags}
             getReservationAgreementTags={getReservationAgreementTags}
           />}
 
-        {parseFloat(lockedAmountEur) > 0 &&
+        {showEuro &&
           <CommitmentInfo
             tokenType={TokenType.EURO}
             lockedAmount={lockedAmountEur}
             neumarkBalance={neumarkBalanceEur}
             unlockDate={unlockDateEur}
-            tokenHolderAgreementHash={tokenHolderAgreementHash}
             reservationAgreementHash={reservationAgreementHash}
-            getTokenHolderAgreementTags={getTokenHolderAgreementTags}
             getReservationAgreementTags={getReservationAgreementTags}
           />}
       </div>
@@ -147,8 +165,6 @@ interface ICommitmentInfo {
   neumarkBalance: string;
   tokenType: TokenType;
   reservationAgreementHash: string;
-  tokenHolderAgreementHash: string;
-  getTokenHolderAgreementTags: () => Promise<IDictionary>;
   getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
 }
 
@@ -157,44 +173,37 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   unlockDate,
   neumarkBalance,
   tokenType,
-  tokenHolderAgreementHash,
   reservationAgreementHash,
-  getTokenHolderAgreementTags,
   getReservationAgreementTags,
 }) =>
-  <div>
+  <div className={styles.section}>
     <h4>
-      {startCase(tokenType.toLowerCase())} funds:
+      Your {startCase(tokenType.toLowerCase())} funds:
     </h4>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Locked amount</div>
+      <div className={styles.caption}>
+        Locked {tokenTypeToSymbol(tokenType)} amount
+      </div>
       <div className={styles.value}>
         {lockedAmount ? <MoneyComponent tokenType={tokenType} value={lockedAmount} /> : "-"}
       </div>
     </div>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Unlock date</div>
+      <div className={styles.caption}>
+        {tokenTypeToSymbol(tokenType)} will be unlocked on
+      </div>
       <div className={styles.value}>
         {unlockDate ? unlockDate.format("YYYY-MM-DD") : "-"}
       </div>
     </div>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Neumarks needed to unlock:</div>
+      <div className={styles.caption}>NEU needed to unlock your funds:</div>
       <div className={styles.value}>
         {neumarkBalance ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkBalance} /> : "-"}
       </div>
     </div>
     <div className={styles.infoBox}>
-      <div className={styles.caption}>Your documents</div>
       <div className={styles.value}>
-        <DownloadDocumentLink
-          key="neumark_token_holder_agreement"
-          documentHash={tokenHolderAgreementHash}
-          getTags={getTokenHolderAgreementTags}
-          outputFilename="neumark_token_holder_agreement"
-        >
-          Token Holder Agreement
-        </DownloadDocumentLink>
         <DownloadDocumentLink
           key="reservation_agreement"
           documentHash={reservationAgreementHash}

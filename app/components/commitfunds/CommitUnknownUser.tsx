@@ -59,7 +59,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
           Telegram
         </a>{" "}
         or{" "}
-        <a href="https://goo.gl/KUj1fj" target="_blank">
+        <a href="https://neufund.org/slack" target="_blank">
           Slack
         </a>
       </Col>

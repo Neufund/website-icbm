@@ -3,12 +3,10 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { TokenType } from "../actions/constants";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
-import MoneyComponent from "./MoneyComponent";
 
 interface IMoneyProps {
   loading: boolean;
@@ -28,47 +26,17 @@ interface IDuringIcoCountdownProps {
 }
 
 export const HexagonText = (props: IMoneyProps) => {
-  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading } = props;
   if (loading) {
     return <LoadingIndicator className={styles.loadingIndicator} />;
   }
 
   return (
     <div className={styles.text}>
-      <p className={styles.title}>Total funds committed</p>
       <p className={styles.content} data-test-id="during-ico-total-funds">
-        <MoneyComponent
-          tokenType={TokenType.ETHER}
-          value={raised}
-          valueClass={styles.importantValue}
-        />
-      </p>
-
-      <p className={styles.title}>Investors accounts created</p>
-      <p className={styles.content} data-test-id="during-ico-accounts-created">
-        <span className={styles.value}>
-          {investorsAccountCreated.toFixed(0)}
+        <span className={styles.importantValue}>
+          Pre-ICBM <br />in progress
         </span>
-      </p>
-
-      <p className={styles.title}>Neumarks generated</p>
-      <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <MoneyComponent
-          decimalPlaces={0}
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkAmount}
-        />
-      </p>
-
-      <p className={styles.title}>Reward</p>
-      <p className={styles.content} data-test-id="during-ico-current-reward">
-        <MoneyComponent
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkToEtherRatio}
-        />
-        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
       </p>
     </div>
   );
@@ -79,14 +47,17 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
-        <h1>Community-owned investment ecosystem</h1>
+        <h1>Community-owned Fundraising Platform</h1>
+
         <p>
-          Neufund is an investment platform bridging the worlds of blockchain and venture capital.
+          Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain
+          companies.
         </p>
         <p>
-          Commit funds now, invest them in the startups in the future. As a reward for participation
-          get Neumarks. This time, ETH only. EUR soon.
+          Reserve funds today for your future investments and receive Neumarks making you a co-owner
+          of the platform.
         </p>
+        <p>You maintain full control over your investment decisions at all times.</p>
         <p>
           Time left to the end:{" "}
           <Countdown

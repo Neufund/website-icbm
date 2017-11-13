@@ -13,6 +13,7 @@ import {
 } from "../../reducers/commitmentState";
 import { IAppState } from "../../reducers/index";
 import { selectBalance } from "../../reducers/userState";
+import { LegalAgreementsDownload } from "../LegalAgreementsDownload";
 import { UserInfo } from "../UserInfo";
 import * as style from "./CommitKnownUser.scss";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
@@ -38,9 +39,7 @@ export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
 }) =>
   <div>
     <Row>
-      <Col sm={6}>
-        <UserInfo />
-      </Col>
+      <UserInfo />
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
@@ -52,6 +51,11 @@ export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
           loadingEstimatedReward={loadingEstimatedReward}
           userBalance={balance}
         />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={12}>
+        <LegalAgreementsDownload />
       </Col>
     </Row>
   </div>;

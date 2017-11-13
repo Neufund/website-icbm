@@ -1,3 +1,5 @@
+import { capitalize } from "lodash";
+
 export const LOAD_ICO_PARAMS = "LOAD_ICO_PARAMS";
 
 export const NEW_PHASE_ACTION = "NEW_PHASE";
@@ -41,6 +43,15 @@ export enum Web3Type {
   METAMASK = "METAMASK",
   PARITY = "PARITY",
   MIST = "MIST",
+}
+
+export function web3TypeToString(web3Type: Web3Type): string {
+  switch (web3Type) {
+    case Web3Type.METAMASK:
+      return "MetaMask";
+    default:
+      return capitalize(web3Type);
+  }
 }
 
 export enum EthNetwork {

@@ -29,6 +29,16 @@ export const getTokenHolderAgreementGeneralTags = async () => {
   return tags;
 };
 
+function getPlaceholder(placeholder: string) {
+  return `<span style="background-color: #f0ad4e; padding: 4px 4px; border-radius: .25em;color: white; font-family: Helvetica;">${placeholder}</span>`;
+}
+
+export const getTokenHolderAgreementPlaceholders = () => {
+  return {
+    "token-holder-address": getPlaceholder("Your address"),
+  };
+};
+
 export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async (
   _dispatcher,
   getState
@@ -46,6 +56,19 @@ export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async
   };
 };
 
+export const getReservationAgreementPlaceholders = () => {
+  return {
+    "investor-address": getPlaceholder("Your address"),
+    amount: getPlaceholder("Your money"),
+    "reservation-date": getPlaceholder("Today"),
+    "release-date": getPlaceholder("18 months from today"),
+    "unlock-fee": getPlaceholder("10% of your funds"),
+    "neumark-amount": getPlaceholder("Your reward in Neumarks"),
+    "neumark-acquisition-ratio": getPlaceholder("Your acquisition ratio"),
+    "current-block-hash": getPlaceholder("Current block hash"),
+  };
+};
+
 export const getReservationAgreementGeneralTags = async (
   tokenType: TokenType,
   ethEurFraction: BigNumber
@@ -54,6 +77,7 @@ export const getReservationAgreementGeneralTags = async (
     tokenType,
     ethEurFraction
   );
+
   const tags: IDictionary = {
     "lockin-sc-address": generalTags.lockInAddress,
     "payment-token": generalTags.paymentToken,

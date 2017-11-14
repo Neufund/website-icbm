@@ -46,6 +46,7 @@ export const LegalModalComponent: React.SFC<InjectedFormProps & ILegalModalProps
         </div>
       </Modal.Body>
       <Modal.Footer>
+        <div className={styles.placeholder}>PLACEHOLDER</div>
         <div className={styles.checkboxes}>
           <CheckboxField
             name="reservationAgreement"

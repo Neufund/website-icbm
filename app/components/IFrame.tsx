@@ -6,13 +6,22 @@ interface IIFrameProps {
 }
 
 export class IFrame extends React.Component<IIFrameProps> {
-  public setIFrameContentAndHeight = (iframe: any) => {
-    if (!iframe) {
+  private iframeRef: any;
+
+  public componentWillReceiveProps(newProps: IIFrameProps) {
+    if (newProps.content !== this.props.content) {
+      this.setIFrameContentAndHeight(this.props.content);
+    }
+  }
+
+  public setIFrameContentAndHeight = (content: string, iframe: any = this.iframeRef) => {
+    this.iframeRef = iframe;
+    if (!iframe || !content) {
       return;
     }
     // set content
-    const content = this.props.content;
     const doc = iframe.contentWindow.document;
+    doc.clear();
     doc.open();
     doc.write(content);
     doc.close();
@@ -24,7 +33,7 @@ export class IFrame extends React.Component<IIFrameProps> {
     return (
       <iframe
         id="ifmcontentstoprint"
-        ref={this.setIFrameContentAndHeight}
+        ref={ref => this.setIFrameContentAndHeight(this.props.content, ref)}
         className={this.props.className}
         scrolling="no"
       />

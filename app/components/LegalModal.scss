@@ -28,14 +28,15 @@
   overflow-y: scroll;
 }
 
+$orange: #f0ad4e;
+
 .placeholder {
-  background-color: #f0ad4e;
-  padding: 4px 4px;
   border-radius: .25em;
-  color: white;
-  font-family: Helvetica;
-  width: 119px;
+  background-color: $orange;
+  padding: 4px;
   width: 111px;
+  color: $white;
+  font-family: Helvetica;
   font-size: 10pt;
   font-weight: 600;
 }

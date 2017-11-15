@@ -1,12 +1,11 @@
 import * as BigNumber from "bignumber.js";
+import { Moment } from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router";
 
 import { HexagonText } from "./DuringIcoCountdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
-import { MailchimpForm } from "./MailchimpForm";
 
 interface IAfterIcoSumupProps {
   loading: boolean;
@@ -14,13 +13,18 @@ interface IAfterIcoSumupProps {
   neuMarkAmount?: BigNumber.BigNumber;
   neuMarkToEtherRatio?: BigNumber.BigNumber;
   investorsAccountCreated: BigNumber.BigNumber;
+  endDate: Moment;
 }
 
 export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
+  const endDateFormatted = props.endDate.format("D MMMM YYYY, hh:mm a UTC");
+
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
-        <h1>Our ICBM ended on 17 December 2017, 11:00 am UTC</h1>
+        <h1>
+          Our ICBM ended on {endDateFormatted}
+        </h1>
         <p>Thank you for all of your support!</p>
         <p>
           Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain

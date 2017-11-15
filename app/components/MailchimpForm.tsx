@@ -7,7 +7,7 @@ declare const ga: any;
 
 interface IMailchimpFormComponent {
   showThanks: boolean;
-  hideForm ?: boolean;
+  hideForm?: boolean;
 }
 
 const Form = () =>
@@ -52,11 +52,11 @@ const MailchimpFormComponent: React.SFC<IMailchimpFormComponent> = ({ showThanks
             </p>
           </Alert>
         </Col>
-      : ( !hideForm ? <Form /> : '')}
+      : !hideForm ? <Form /> : ""}
   </Row>;
 
 interface IMailchimpForm {
-  hideForm ?: boolean;
+  hideForm?: boolean;
 }
 
 export class MailchimpForm extends React.Component<IMailchimpForm, IMailchimpFormComponent> {
@@ -82,6 +82,8 @@ export class MailchimpForm extends React.Component<IMailchimpForm, IMailchimpFor
   }
 
   public render() {
-    return <MailchimpFormComponent showThanks={this.state.showThanks} hideForm={this.props.hideForm}/>;
+    return (
+      <MailchimpFormComponent showThanks={this.state.showThanks} hideForm={this.props.hideForm} />
+    );
   }
 }

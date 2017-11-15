@@ -43,7 +43,6 @@ export const HexagonText = (props: IMoneyProps) => {
   );
 };
 
-
 export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   const { finishDate } = props;
   return (
@@ -81,7 +80,7 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
           </li>
         </ul>
 
-        <MailchimpForm hideForm={true}/>
+        <MailchimpForm hideForm />
 
         <div className={styles.buttonContainer}>
           <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">

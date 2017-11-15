@@ -7,6 +7,7 @@ import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
+import { MailchimpForm } from "./MailchimpForm";
 
 interface IMoneyProps {
   loading: boolean;
@@ -41,6 +42,7 @@ export const HexagonText = (props: IMoneyProps) => {
     </div>
   );
 };
+
 
 export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   const { finishDate } = props;
@@ -78,6 +80,8 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
             </a>
           </li>
         </ul>
+
+        <MailchimpForm hideForm={true}/>
 
         <div className={styles.buttonContainer}>
           <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">

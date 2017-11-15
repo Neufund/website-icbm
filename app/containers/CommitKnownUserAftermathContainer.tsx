@@ -210,10 +210,7 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         <DownloadDocumentLink
           key="reservation_agreement"
           documentHash={reservationAgreementHash}
-          getTags={() => {
-            // tslint:disable-next-line:jsx-no-lambda
-            return getReservationAgreementTags(tokenType);
-          }}
+          getTags={() => getReservationAgreementTags(tokenType)}
           outputFilename="reservation_agreement"
         >
           Reservation Agreement

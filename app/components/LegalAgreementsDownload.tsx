@@ -40,7 +40,6 @@ const LegalAgreementsDownloadComponent: React.SFC<ILegalAgreementsDownloadCompon
       key="reservation_agreement"
       documentHash={reservationAgreementHash}
       getTags={() => {
-        // tslint:disable-next-line:jsx-no-lambda
         const ethEurFractionBigNumber = new BigNumber.BigNumber(ethEurFraction);
         const tokenType: TokenType = TokenType.ETHER;
         return getReservationAgreementGeneralTags(tokenType, ethEurFractionBigNumber);

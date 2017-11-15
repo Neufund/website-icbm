@@ -97,12 +97,8 @@ export class CommitUnknownUserAftermath extends React.Component<
           <h4>Your wallet address:</h4>
           <div className={styles.value}>
             <form
-              onSubmit={e => {
-                // tslint:disable-next-line:jsx-no-lambda
-                e.preventDefault();
-              }}
+              onSubmit={e => e.preventDefault()}
               onChange={() => {
-                // tslint:disable-next-line:jsx-no-lambda
                 // say thank you to redux-form. Is there a better way to achieve auto submitting? what if async validation is required?
                 // using global onChange didnt work (and still there is no way to check validation status)
                 setTimeout(handleSubmit);

@@ -35,7 +35,7 @@ function getPlaceholder(placeholder: string) {
 
 export const getTokenHolderAgreementPlaceholders = () => {
   return {
-    "token-holder-address": getPlaceholder("Your address"),
+    "token-holder-address": getPlaceholder("Your Ethereum Address"),
   };
 };
 
@@ -58,13 +58,13 @@ export const getTokenHolderAgreementTags: ThunkAction<{}, IAppState, {}> = async
 
 export const getReservationAgreementPlaceholders = () => {
   return {
-    "investor-address": getPlaceholder("Your address"),
-    amount: getPlaceholder("Your money"),
-    "reservation-date": getPlaceholder("Today"),
-    "release-date": getPlaceholder("18 months from today"),
-    "unlock-fee": getPlaceholder("10% of your funds"),
-    "neumark-amount": getPlaceholder("Your reward in Neumarks"),
-    "neumark-acquisition-ratio": getPlaceholder("Your acquisition ratio"),
+    "investor-address": getPlaceholder("Your Ethereum Address"),
+    amount: getPlaceholder("Amount of funds reserved"),
+    "reservation-date": getPlaceholder("Start date of reservation"),
+    "release-date": getPlaceholder("End date of reservation"),
+    "unlock-fee": getPlaceholder("Release fee amount"),
+    "neumark-amount": getPlaceholder("Neumark grant amount"),
+    "neumark-acquisition-ratio": getPlaceholder("Neumark acquisition ratio"),
     "current-block-hash": getPlaceholder("Current block hash"),
   };
 };

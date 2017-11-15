@@ -30,6 +30,11 @@
 
 $orange: #f0ad4e;
 
+.placeholder-info {
+  text-align: left;
+  font-size: $font-size-smallest;
+}
+
 .placeholder {
   border-radius: .25em;
   background-color: $orange;

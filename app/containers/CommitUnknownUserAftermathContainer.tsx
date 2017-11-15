@@ -1,15 +1,16 @@
 import { Moment } from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
+import { withRouter } from "react-router";
 import { compose } from "redux";
 import { Field, FormSubmitHandler, InjectedFormProps, reduxForm } from "redux-form";
 import { TextField } from "redux-form-material-ui";
 
-import { withRouter } from "react-router";
 import { loadAftermathDetails } from "../actions/aftermathActions";
-import { TokenType } from "../actions/constants";
+import { EtherScanLinkType, TokenType } from "../actions/constants";
 import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
+import EtherScanLink from "../components/EtherScanLink";
 import MoneyComponent from "../components/MoneyComponent";
 import { isAddressSet, selectUnlockDateEth, selectUnlockDateEur } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
@@ -37,6 +38,7 @@ interface ICommitFundsUnknownUserAftermathProps {
   tokenHolderAgreementHash: string;
   neumarkBalance: string;
   router: any;
+  address: string;
 }
 
 interface ICommitFundsUnknownUserAftermathForm {
@@ -77,6 +79,7 @@ export class CommitUnknownUserAftermath extends React.Component<
       tokenHolderAgreementHash,
       neumarkBalance,
       isAddressSet,
+      address,
     } = this.props;
 
     const showEther = parseFloat(lockedAmountEth) > 0;
@@ -163,6 +166,17 @@ export class CommitUnknownUserAftermath extends React.Component<
                 reservationAgreementHash={reservationAgreementHash}
                 getReservationAgreementTags={getReservationAgreementTags}
               />}
+
+            <div className={styles.section}>
+              <div className={styles.infoBox}>
+                <h4>Your transaction history:</h4>
+                <div className={styles.value}>
+                  <EtherScanLink linkType={EtherScanLinkType.ADDRESS} resourceId={address}>
+                    Go to etherscan to see all transactions with <i>Neufund Crowdsale</i> contract.
+                  </EtherScanLink>
+                </div>
+              </div>
+            </div>
           </div>}
       </div>
     );
@@ -181,6 +195,7 @@ function mapStateToProps(state: IAppState) {
     isAddressSet: isAddressSet(state.aftermathState),
     reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
     tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
+    address: state.aftermathState.address,
   };
 }
 

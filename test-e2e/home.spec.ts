@@ -7,7 +7,7 @@ import { puppeteerInstance } from "./puppeter";
 import { waitUntilResolves } from "./utils";
 
 describe("Home page", () => {
-  it("should display page before ico", async () => {
+  it.skip("should display page before ico", async () => {
     const startingDate = 60 * 50; // start in a 50 minutes
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
@@ -24,7 +24,7 @@ describe("Home page", () => {
     expect(await homepage.countdownSeconds.text()).to.be.eq("00");
   });
 
-  it("should display page during ico", async () => {
+  it.skip("should display page during ico", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
@@ -36,13 +36,13 @@ describe("Home page", () => {
     await homepage.duringIcoDetails.waitFor();
     await homepage.duringIco.totalFundsCommitted.waitFor();
 
-    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("2.0000 ETH");
+    expect(await homepage.duringIco.totalFundsCommitted.text()).to.be.eq("2.00 ETH");
     expect(await homepage.duringIco.accountsCreated.text()).to.be.eq("1");
-    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("1939 NEU");
+    expect(await homepage.duringIco.neumarksGenerated.text()).to.be.eq("1 939 NEU");
     expect(await homepage.duringIco.currentReward.text()).to.be.eq("969.4744 NEU /  1 ETH");
   });
 
-  it("should navigate to commitment page", async () => {
+  it.skip("should navigate to commitment page", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {

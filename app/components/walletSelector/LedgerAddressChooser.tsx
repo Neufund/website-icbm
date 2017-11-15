@@ -12,6 +12,7 @@ import {
 } from "../../actions/ledgerAddressChooserActions";
 import { IAppState } from "../../reducers/index";
 import { ILedgerAccount, selectHasPrevious } from "../../reducers/ledgerAddressChooserState";
+import { derivationPathValidator } from "../../validators/derivationPathValidator";
 import { LoadingIndicator } from "../LoadingIndicator";
 import { LedgerAddressChooserTable } from "./LedgerAddressChooserTable";
 
@@ -29,6 +30,7 @@ interface ILedgerAddressChooserProps {
 
 interface IAddressChooserModalState {
   derivationPath: string;
+  invalidDerivationPath: boolean;
 }
 
 export class LedgerAddressChooserComponent extends React.Component<
@@ -40,6 +42,7 @@ export class LedgerAddressChooserComponent extends React.Component<
 
     this.state = {
       derivationPath: props.derivationPath,
+      invalidDerivationPath: false,
     };
   }
 
@@ -55,6 +58,7 @@ export class LedgerAddressChooserComponent extends React.Component<
             name="derivationPathField"
             value={this.state.derivationPath}
             onChange={this.derivationPathChanged}
+            errorText={this.state.invalidDerivationPath && "Invalid derivation path"}
           />
           - Change your derivation path, if necessary.
         </div>
@@ -65,9 +69,21 @@ export class LedgerAddressChooserComponent extends React.Component<
 
   private derivationPathChanged = (_event: object, newDerivationPath: string) => {
     this.setState({
+      ...this.state,
       derivationPath: newDerivationPath,
     });
-    this.props.changeDerivationPath(newDerivationPath);
+    if (derivationPathValidator(newDerivationPath) !== undefined) {
+      this.setState({
+        derivationPath: newDerivationPath,
+        invalidDerivationPath: true,
+      });
+    } else {
+      this.setState({
+        derivationPath: newDerivationPath,
+        invalidDerivationPath: false,
+      });
+      this.props.changeDerivationPath(newDerivationPath);
+    }
   };
 
   private renderBody() {

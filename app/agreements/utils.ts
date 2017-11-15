@@ -52,16 +52,14 @@ export function formatFraction(fraction: BigNumber) {
   return bignumberToString(fraction.div(Q18).mul(100).toFixed(4));
 }
 
-export function calculateAndFormatRatio(amount: string, neumarkBalance: string): string {
-  return neumarkBalance === "0"
-    ? "0"
-    : new BigNumber(amount).div(new BigNumber(neumarkBalance)).toFixed(3);
+export function calculateAndFormatRatio(neumarks: string, tokens: string): string {
+  return tokens === "0" ? "0" : new BigNumber(neumarks).div(new BigNumber(tokens)).toFixed(3);
 }
 
 // returns wei
 export function calculateAndFormatFee(penaltyFraction: string, amount: string): string {
   return new BigNumber(penaltyFraction)
-    .mul(new BigNumber(amount).mul(new BigNumber(10).pow(18)))
+    .mul(new BigNumber(amount))
     .div(new BigNumber(10).pow(18))
     .toString();
 }

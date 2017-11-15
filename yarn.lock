@@ -4936,7 +4936,7 @@ lcid@^1.0.0:
 
 ledger-wallet-provider@Neufund/ledger-wallet-provider#tomek/upgrade:
   version "2.0.0"
-  resolved "https://codeload.github.com/Neufund/ledger-wallet-provider/tar.gz/b3196f07126d8dcbd15f4d4fb9e89290646a2b6a"
+  resolved "https://codeload.github.com/Neufund/ledger-wallet-provider/tar.gz/b2ca7c81afa31cbd6c3cc71419b42ade2ebe0791"
   dependencies:
     babel-runtime "^6.23.0"
     ledgerco Neufund/ledger-node-js-api

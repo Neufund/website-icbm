@@ -18,6 +18,7 @@
     "interface-name": [true, "always-prefix"],
     "variable-name": false,
     "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false,
     "jsx-wrap-multiline": false,
     "object-literal-sort-keys": false,
     "no-unused-variable": [true, { "ignore-pattern": "^_" }],

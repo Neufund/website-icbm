@@ -11,6 +11,7 @@ import { IAppState } from "../../reducers/index";
 import { CommitHeaderComponent } from "../commitfunds/CommitHeaderComponent";
 import { CommitUnknownUser } from "../commitfunds/CommitUnknownUser";
 import { HiResImage } from "../HiResImage";
+import { LegalModal } from "../LegalModal";
 import { LedgerWallet } from "./LedgerWallet";
 import { WalletInBrowser } from "./WalletInBrowser";
 import * as styles from "./WalletSelector.scss";
@@ -34,6 +35,7 @@ export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
 }) => {
   return (
     <div>
+      <LegalModal />
       <CommitHeaderComponent number="01" title="Commit your funds" />
       <p>Please select your wallet.</p>
       <div>

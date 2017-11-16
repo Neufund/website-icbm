@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 
 import { TokenType } from "../../actions/constants";
 import * as logo from "../../assets/img/myetherwallet_logo.svg";
+import { trackMEWEvent } from "../../utils/tracking";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";
@@ -104,7 +105,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
       <div className={style.myEtherWallet}>
         <img className={style.logo} src={logo} />
         Use{" "}
-        <a target="_blank" href={myEtherWalletUrl}>
+        <a target="_blank" href={myEtherWalletUrl} onClick={trackMEWEvent}>
           MyEtherWallet
         </a>
       </div>

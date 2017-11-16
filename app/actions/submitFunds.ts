@@ -7,7 +7,7 @@ import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
 import { selectReservedNeumarks, selectReservedTicket } from "../reducers/userState";
 import { IStandardReduxAction } from "../types";
-import { trackWeb3TypeType } from "../utils/ga";
+import { trackCommitEvent } from "../utils/tracking";
 import { parseMoneyStrToStrStrict } from "../utils/utils";
 import { commitmentValueValidator } from "../validators/commitmentValueValidator";
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
@@ -97,9 +97,9 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
 ) => {
   try {
     const state = getState();
-    trackWeb3TypeType(state.web3State.web3Type);
 
     const parsedValue = parseMoneyStrToStrStrict(value);
+    trackCommitEvent(parsedValue, state.web3State.web3Type);
 
     const committedETH = Web3Service.instance.rawWeb3
       .toWei(new BigNumber.BigNumber(parsedValue), "ether")

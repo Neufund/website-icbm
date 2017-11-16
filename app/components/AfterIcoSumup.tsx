@@ -25,6 +25,18 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
           Neufund is an investment platform bridging the worlds of blockchain and venture capital.
         </p>
 
+        <ul className="links-list">
+          <li>
+            <i className="material-icons">link</i>
+            <a
+              href="https://icomonitor.io/#/0xf432cec23b2a0d6062b969467f65669de81f4653"
+              target="_blank"
+            >
+              ICBM details in the ICO Transparency Monitor
+            </a>
+          </li>
+        </ul>
+
         <MailchimpForm />
       </Col>
       <Col sm={7} xsHidden>

@@ -1,6 +1,6 @@
-declare const ga: any;
-declare const fbq: any;
-declare const twq: any;
+declare const ga: any; // tslint:disable-line no-unused-variable
+declare const fbq: any; // tslint:disable-line no-unused-variable
+declare const twq: any; // tslint:disable-line no-unused-variable
 import { Web3Type } from "../actions/constants";
 
 export const trackCommitEvent = (amount: string, web3Type: Web3Type): void => {

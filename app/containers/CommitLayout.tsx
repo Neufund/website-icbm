@@ -7,7 +7,6 @@ import { Dispatch } from "redux";
 import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
-import { LegalModal } from "../components/LegalModal";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
@@ -50,7 +49,6 @@ class CommitLayoutComponent extends React.Component<ICommitComponent> {
     return (
       <div>
         <Grid className="full-height-container">
-          <LegalModal />
           <WhitelistedCommitmentNote />
           {this.props.children}
         </Grid>

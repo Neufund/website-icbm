@@ -36,6 +36,18 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
         </p>
         <p>You maintain full control over your investment decisions at all times.</p>
 
+        <ul className="links-list">
+          <li>
+            <i className="material-icons">link</i>
+            <a
+              href="https://icomonitor.io/#/0xf432cec23b2a0d6062b969467f65669de81f4653"
+              target="_blank"
+            >
+              ICBM details in the ICO Transparency Monitor
+            </a>
+          </li>
+        </ul>
+
         <a href="/commit/status" className="btn btn-primary btn-link">
           See your commitment status
         </a>

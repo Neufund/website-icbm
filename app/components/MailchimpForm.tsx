@@ -3,11 +3,9 @@ import * as React from "react";
 import { Alert, Col, Row } from "react-bootstrap";
 import * as styles from "./MailchimpForm.scss";
 
-declare const ga: any;
-
 interface IMailchimpFormComponent {
-  showThanks: boolean;
-  hideForm?: boolean;
+  showThanksHeader: string;
+  showThanksMsg: JSX.Element;
 }
 
 const Form = () =>
@@ -40,19 +38,22 @@ const Form = () =>
     </form>
   </Col>;
 
-const MailchimpFormComponent: React.SFC<IMailchimpFormComponent> = ({ showThanks, hideForm }) =>
+const MailchimpFormComponent: React.SFC<IMailchimpFormComponent & IMailchimpForm> = ({
+  showThanksHeader,
+  showThanksMsg,
+  hideForm,
+}) =>
   <Row className={styles.formComponent}>
-    {showThanks
+    {showThanksHeader
       ? <Col md={12}>
           <Alert bsStyle="info">
-            <h4>Thank you for your interest!</h4>
-            <p>
-              To complete the subscription process, please click the link in the email we just sent
-              you.
-            </p>
+            <h4>
+              {showThanksHeader}
+            </h4>
+            {showThanksMsg}
           </Alert>
         </Col>
-      : !hideForm ? <Form /> : ""}
+      : hideForm && <Form />}
   </Row>;
 
 interface IMailchimpForm {
@@ -63,7 +64,8 @@ export class MailchimpForm extends React.Component<IMailchimpForm, IMailchimpFor
   constructor() {
     super();
     this.state = {
-      showThanks: false,
+      showThanksHeader: null,
+      showThanksMsg: null,
     };
   }
 
@@ -73,17 +75,36 @@ export class MailchimpForm extends React.Component<IMailchimpForm, IMailchimpFor
 
     if (subscribe !== null) {
       history.replaceState({}, null, "/");
-      ga("send", {
-        hitType: "pageview",
-        page: document.location.origin + "/mailchimp",
-      });
-      this.setState({ showThanks: true });
+      if (subscribe === "thanks") {
+        this.setState({
+          showThanksHeader: "Thank you for your interest!",
+          showThanksMsg: (
+            <p>
+              To complete the subscription process, please click the link in the email we just sent
+              you.
+            </p>
+          ),
+        });
+      } else if (subscribe === "confirmed") {
+        this.setState({
+          showThanksHeader: "Subscription Confirmed",
+          showThanksMsg: (
+            <p>
+              Your subscription to our list has been confirmed.<br />Thank you for subscribing!
+            </p>
+          ),
+        });
+      }
     }
   }
 
   public render() {
     return (
-      <MailchimpFormComponent showThanks={this.state.showThanks} hideForm={this.props.hideForm} />
+      <MailchimpFormComponent
+        showThanksHeader={this.state.showThanksHeader}
+        showThanksMsg={this.state.showThanksMsg}
+        hideForm={this.props.hideForm}
+      />
     );
   }
 }

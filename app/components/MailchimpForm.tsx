@@ -53,7 +53,7 @@ const MailchimpFormComponent: React.SFC<IMailchimpFormComponent & IMailchimpForm
             {showThanksMsg}
           </Alert>
         </Col>
-      : hideForm && <Form />}
+      : !hideForm && <Form />}
   </Row>;
 
 interface IMailchimpForm {

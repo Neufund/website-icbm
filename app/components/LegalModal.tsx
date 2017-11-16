@@ -46,6 +46,11 @@ export const LegalModalComponent: React.SFC<InjectedFormProps & ILegalModalProps
         </div>
       </Modal.Body>
       <Modal.Footer>
+        <div className={styles.placeholderInfo}>
+          <span className={styles.placeholder}>Text marked with orange background</span> will be
+          personalized when your funds are committed and transaction is mined. You will be able to
+          download and print your agreement
+        </div>
         <div className={styles.checkboxes}>
           <CheckboxField
             name="reservationAgreement"

@@ -27,3 +27,21 @@
   height: calc(100%);
   overflow-y: scroll;
 }
+
+$orange: #f0ad4e;
+
+.placeholder-info {
+  text-align: left;
+  font-size: $font-size-smallest;
+}
+
+.placeholder {
+  border-radius: .25em;
+  background-color: $orange;
+  padding: 4px;
+  width: 111px;
+  color: $white;
+  font-family: Helvetica;
+  font-size: 10pt;
+  font-weight: 600;
+}

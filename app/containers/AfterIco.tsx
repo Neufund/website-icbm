@@ -1,10 +1,12 @@
 import * as BigNumber from "bignumber.js";
+import { Moment } from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
 import { AfterIcoSumup } from "../components/AfterIcoSumup";
+import { selectEndDate } from "../reducers/commitmentState";
 import {
   selectAllFunds,
   selectAllInvestors,
@@ -22,6 +24,7 @@ interface IAfterIcoProps {
   issuanceRate?: BigNumber.BigNumber;
   allFunds?: BigNumber.BigNumber;
   allInvestors?: BigNumber.BigNumber;
+  endDate: Moment;
 }
 
 export class AfterIco extends React.Component<IAfterIcoProps> {
@@ -37,6 +40,7 @@ export class AfterIco extends React.Component<IAfterIcoProps> {
         neuMarkAmount={this.props.totalSupply}
         neuMarkToEtherRatio={this.props.issuanceRate}
         investorsAccountCreated={this.props.allInvestors}
+        endDate={this.props.endDate}
       />
     );
   }
@@ -49,6 +53,7 @@ function mapStateToProps(state: IAppState) {
     issuanceRate: selectIssuanceRate(state.duringIcoState),
     allFunds: selectAllFunds(state.duringIcoState),
     allInvestors: selectAllInvestors(state.duringIcoState),
+    endDate: selectEndDate(state.commitmentState),
   };
 }
 

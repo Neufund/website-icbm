@@ -5,8 +5,9 @@ import * as styles from "./MailchimpForm.scss";
 
 declare const ga: any;
 
-interface IMailchimpForm {
+interface IMailchimpFormComponent {
   showThanks: boolean;
+  hideForm?: boolean;
 }
 
 const Form = () =>
@@ -39,7 +40,7 @@ const Form = () =>
     </form>
   </Col>;
 
-const MailchimpFormComponent: React.SFC<IMailchimpForm> = ({ showThanks }) =>
+const MailchimpFormComponent: React.SFC<IMailchimpFormComponent> = ({ showThanks, hideForm }) =>
   <Row className={styles.formComponent}>
     {showThanks
       ? <Col md={12}>
@@ -51,10 +52,14 @@ const MailchimpFormComponent: React.SFC<IMailchimpForm> = ({ showThanks }) =>
             </p>
           </Alert>
         </Col>
-      : <Form />}
+      : !hideForm ? <Form /> : ""}
   </Row>;
 
-export class MailchimpForm extends React.Component<null, IMailchimpForm> {
+interface IMailchimpForm {
+  hideForm?: boolean;
+}
+
+export class MailchimpForm extends React.Component<IMailchimpForm, IMailchimpFormComponent> {
   constructor() {
     super();
     this.state = {
@@ -77,6 +82,8 @@ export class MailchimpForm extends React.Component<null, IMailchimpForm> {
   }
 
   public render() {
-    return <MailchimpFormComponent showThanks={this.state.showThanks} />;
+    return (
+      <MailchimpFormComponent showThanks={this.state.showThanks} hideForm={this.props.hideForm} />
+    );
   }
 }

@@ -7,7 +7,7 @@ import { puppeteerInstance } from "./puppeter";
 import { waitUntilResolves } from "./utils";
 
 describe("Home page", () => {
-  it.skip("should display page before ico", async () => {
+  it("should display page before ico", async () => {
     const startingDate = 60 * 50; // start in a 50 minutes
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
@@ -24,7 +24,7 @@ describe("Home page", () => {
     expect(await homepage.countdownSeconds.text()).to.be.eq("00");
   });
 
-  it.skip("should display page during ico", async () => {
+  it("should display page during ico", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {
@@ -42,7 +42,7 @@ describe("Home page", () => {
     expect(await homepage.duringIco.currentReward.text()).to.be.eq("969.4744 NEU /  1 ETH");
   });
 
-  it.skip("should navigate to commitment page", async () => {
+  it("should navigate to commitment page", async () => {
     const startingDate = Date.now() / 1000; // start ico right away
 
     await contractRepository.commitmentModified.setWhitelistingStartDateTx(startingDate, {

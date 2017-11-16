@@ -94,14 +94,6 @@ export class CommitKnownUserAftermath extends React.Component<
           <div className={styles.header}>
             This is a sneak peak of your committed funds in the Neufund ICBM.
           </div>
-          <EtherScanLink
-            linkType={EtherScanLinkType.ADDRESS}
-            resourceId={address}
-            className={styles.etherscanLink}
-            noIcon
-          >
-            If you want to see all your transactions, go to etherscan.io
-          </EtherScanLink>
         </div>
 
         <div className={styles.section}>
@@ -154,6 +146,17 @@ export class CommitKnownUserAftermath extends React.Component<
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
           />}
+
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your transaction history:</h4>
+            <div className={styles.value}>
+              <EtherScanLink linkType={EtherScanLinkType.ADDRESS} resourceId={address}>
+                Go to etherscan to see all transactions with <i>Neufund Crowdsale</i> contract.
+              </EtherScanLink>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -207,10 +210,7 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         <DownloadDocumentLink
           key="reservation_agreement"
           documentHash={reservationAgreementHash}
-          getTags={() => {
-            // tslint:disable-next-line:jsx-no-lambda
-            return getReservationAgreementTags(tokenType);
-          }}
+          getTags={() => getReservationAgreementTags(tokenType)}
           outputFilename="reservation_agreement"
         >
           Reservation Agreement

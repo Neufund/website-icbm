@@ -1,6 +1,6 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
-import config from "../config";
+import config, { CommitmentType } from "../config";
 
 import { connect } from "react-redux";
 import { InvestorType, TokenType, Web3Type, web3TypeToString } from "../actions/constants";
@@ -79,19 +79,22 @@ export const UserInfoComponent: React.SFC<IUserAddressComponentProps> = ({
           </div>
         </div>
 
-        <div className={styles.section}>
-          <div className={styles.label}>ICBM Phase:</div>
-          <div className={styles.value}>
-            {investorType}
-          </div>
-        </div>
-
-        {reservedTicket.gt(new BigNumber(0)) &&
-          <div className={styles.section}>
-            <div className={styles.label}>Reserved ticked:</div>
-            <div className={styles.value}>
-              <MoneyComponent tokenType={TokenType.ETHER} value={reservedTicket} />
+        {config.contractsDeployed.commitmentType === CommitmentType.WHITELISTED &&
+          <div>
+            <div className={styles.section}>
+              <div className={styles.label}>ICBM Phase:</div>
+              <div className={styles.value}>
+                {investorType}
+              </div>
             </div>
+
+            {reservedTicket.gt(new BigNumber(0)) &&
+              <div className={styles.section}>
+                <div className={styles.label}>Reserved ticked:</div>
+                <div className={styles.value}>
+                  <MoneyComponent tokenType={TokenType.ETHER} value={reservedTicket} />
+                </div>
+              </div>}
           </div>}
       </div>
     </Col>

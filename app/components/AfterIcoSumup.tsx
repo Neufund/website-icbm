@@ -6,6 +6,7 @@ import { Col, Row } from "react-bootstrap";
 import { HexagonText } from "./DuringIcoCountdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
+import { MailchimpForm } from "./MailchimpForm";
 
 interface IAfterIcoSumupProps {
   loading: boolean;
@@ -47,6 +48,8 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
             </a>
           </li>
         </ul>
+
+        <MailchimpForm hideForm />
 
         <a href="/commit/status" className="btn btn-primary btn-link">
           See your commitment status

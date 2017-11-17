@@ -12,6 +12,7 @@ before(async () => {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
     ignoreHTTPSErrors: true,
     headless: !config.puppeteerDebug,
+    timeout: 40000,
   });
 
   puppeteerInstance = browser;

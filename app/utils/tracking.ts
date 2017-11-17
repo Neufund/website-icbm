@@ -1,16 +1,21 @@
-declare const ga: any; // tslint:disable-line no-unused-variable
-declare const fbq: any; // tslint:disable-line no-unused-variable
-declare const twq: any; // tslint:disable-line no-unused-variable
+declare const ga: any;
+declare const fbq: any;
+declare const twttr: any;
 import { Web3Type } from "../actions/constants";
+import config from "../config";
 
 export const trackCommitEvent = (amount: string, web3Type: Web3Type): void => {
-  // ga("send", "event", "commit", "web3Type", web3Type.toString());
-
   try {
-    // tslint:disable-next-line no-console - it's just placeholder till we get correct code from contractor
-    console.log(
-      `here we are sending commit tracking events to GA, fb, and twitter with ${amount} and ${web3Type}`
-    );
+    ga("send", "event", "commit", web3Type.toString(), amount);
+
+    fbq("trackCustom", "GenericSignUp", {
+      value: amount,
+    });
+
+    twttr.conversion.trackPid(config.contractsDeployed.twitterTrackCommitId, {
+      tw_sale_amount: amount,
+      tw_order_quantity: 1,
+    });
   } catch (e) {
     // tslint:disable-next-line no-console
     console.log("error in tracking commit", e);
@@ -19,8 +24,16 @@ export const trackCommitEvent = (amount: string, web3Type: Web3Type): void => {
 
 export const trackMEWEvent = (): void => {
   try {
-    // tslint:disable-next-line no-console - it's just placeholder till we get correct code from contractor
-    console.log(`here we are sending MEW tracking events to GA, fb, and twitter`);
+    ga("send", "event", "MyEtherWallet", "link");
+
+    fbq("trackCustom", "MyEtherWalletSignUp", {
+      value: 0,
+    });
+
+    twttr.conversion.trackPid(config.contractsDeployed.twitterTrackMEWId, {
+      tw_sale_amount: 0,
+      tw_order_quantity: 0,
+    });
   } catch (e) {
     // tslint:disable-next-line no-console
     console.log("error in tracking MyEtherWallet link click", e);

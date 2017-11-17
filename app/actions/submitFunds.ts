@@ -99,7 +99,6 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
     const state = getState();
 
     const parsedValue = parseMoneyStrToStrStrict(value);
-    trackCommitEvent(parsedValue, state.web3State.web3Type);
 
     const committedETH = Web3Service.instance.rawWeb3
       .toWei(new BigNumber.BigNumber(parsedValue), "ether")
@@ -112,6 +111,7 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
 
     dispatcher(transactionStartedAction());
     const txHash = await submitFundsToContract(parsedValue, selectedAccount);
+    trackCommitEvent(parsedValue, state.web3State.web3Type);
     dispatcher(push(`/commit/tx-status/${txHash}`));
   } catch (e) {
     const parsedError = web3ErrorHandler(e);

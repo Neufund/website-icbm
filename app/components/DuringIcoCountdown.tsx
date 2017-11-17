@@ -109,8 +109,11 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
         <ul className="links-list">
           <li>
             <i className="material-icons">link</i>
-            <a href="https://medium.com/@agnieszkasa/a9a450cf0022" target="_blank">
-              ICBM terms and instructions
+            <a
+              href="https://icomonitor.io/#/0xf432cec23b2a0d6062b969467f65669de81f4653"
+              target="_blank"
+            >
+              View Neufund ICBM stats in the ICO Transparency Monitor
             </a>
           </li>
         </ul>

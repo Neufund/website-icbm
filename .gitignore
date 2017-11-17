@@ -5,4 +5,3 @@
 coverage
 yarn-error.log
 webpack-stats.json
-setupTests.js

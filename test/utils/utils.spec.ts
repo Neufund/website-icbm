@@ -1,49 +1,49 @@
 /* tslint:disable: only-arrow-functions ter-prefer-arrow-callback */
 
-import * as chai from "chai";
+import { expect } from "chai";
 import { parseStrToNumStrict } from "../../app/utils/utils";
 
-describe("utils/utils.ts - parseStrToNumStrict", () => {
-  it("should return Nan for null", function() {
-    const parsed = parseStrToNumStrict(null);
-    chai.assert.isNaN(parsed);
-  });
+describe("utils", () => {
+  describe("parseStrToNumStrict", () => {
+    it("should return Nan for null", function() {
+      expect(parseStrToNumStrict(null)).to.be.NaN;
+    });
 
-  it("should return Nan for undefined", function() {
-    const parsed = parseStrToNumStrict(undefined);
-    chai.assert.isNaN(parsed);
-  });
+    it("should return Nan for undefined", function() {
+      expect(parseStrToNumStrict(undefined)).to.be.NaN;
+    });
 
-  it("should return Nan for empty string", function() {
-    const parsed = parseStrToNumStrict("");
-    chai.assert.isNaN(parsed);
-  });
+    it("should return Nan for empty string", function() {
+      expect(parseStrToNumStrict("")).to.be.NaN;
+    });
 
-  it("should return number", function() {
-    const parsed = parseStrToNumStrict("0");
-    chai.assert.isFinite(parsed);
-  });
+    it("should return number", function() {
+      expect(parseStrToNumStrict("0")).to.eq(0);
+    });
 
-  it("should handle negative numbers", function() {
-    const parsed = parseStrToNumStrict("-1");
-    chai.assert.isBelow(parsed, 0);
-  });
+    it("should handle negative numbers", function() {
+      expect(parseStrToNumStrict("-1")).to.eq(-1);
+    });
 
-  it("should handle dot and coma", function() {
-    chai.assert.isFinite(parseStrToNumStrict("1.5"));
-    chai.assert.isFinite(parseStrToNumStrict("1,5"));
-  });
+    it("should handle dot and coma", function() {
+      expect(parseStrToNumStrict("1.5")).to.eq(1.5);
+      expect(parseStrToNumStrict("1,5")).to.eq(1.5);
+    });
 
-  it("should handle white space", function() {
-    chai.assert.isFinite(parseStrToNumStrict("1 5"));
-  });
+    it("should handle white space", function() {
+      expect(parseStrToNumStrict("1 5")).to.eq(15);
+    });
 
-  it("do not allow for double dot / coma", function() {
-    chai.assert.isNaN(parseStrToNumStrict("1,5,5"));
-    chai.assert.isNaN(parseStrToNumStrict("1,5,5"));
-  });
+    it("do not allow for double dot / coma", function() {
+      expect(parseStrToNumStrict("1..55")).to.be.NaN;
+      expect(parseStrToNumStrict("1,5,5")).to.be.NaN;
+      expect(parseStrToNumStrict("1.5.5")).to.be.NaN;
+      expect(parseStrToNumStrict("1.5,5")).to.be.NaN;
+      expect(parseStrToNumStrict("1,5.5")).to.be.NaN;
+    });
 
-  it("do not allow trailing string", function() {
-    chai.assert.isNaN(parseStrToNumStrict("1,5aa"));
+    it("do not allow trailing string", function() {
+      expect(parseStrToNumStrict("1,5aa")).to.be.NaN;
+    });
   });
 });

@@ -113,7 +113,19 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
               href="https://icomonitor.io/#/0xf432cec23b2a0d6062b969467f65669de81f4653"
               target="_blank"
             >
-              View Neufund ICBM stats in the ICO Transparency Monitor
+              View Neufund ICBM stats in the ICO Monitor
+            </a>
+          </li>
+          <li>
+            <i className="material-icons">link</i>
+            <a href="mailto:investors@neufund.org" target="_blank">
+              If you have no ETH - write us
+            </a>
+          </li>
+          <li>
+            <i className="material-icons">link</i>
+            <a href="https://t.me/neufund" target="_blank">
+              Join us on Telegram!
             </a>
           </li>
         </ul>

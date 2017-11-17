@@ -12,10 +12,12 @@ export const trackCommitEvent = (amount: string, web3Type: Web3Type): void => {
       value: amount,
     });
 
-    twttr.conversion.trackPid(config.contractsDeployed.twitterTrackCommitId, {
-      tw_sale_amount: amount,
-      tw_order_quantity: 1,
-    });
+    if (typeof twttr !== "undefined") {
+      twttr.conversion.trackPid(config.contractsDeployed.twitterTrackCommitId, {
+        tw_sale_amount: amount,
+        tw_order_quantity: 1,
+      });
+    }
   } catch (e) {
     // tslint:disable-next-line no-console
     console.log("error in tracking commit", e);
@@ -30,10 +32,12 @@ export const trackMEWEvent = (): void => {
       value: 0,
     });
 
-    twttr.conversion.trackPid(config.contractsDeployed.twitterTrackMEWId, {
-      tw_sale_amount: 0,
-      tw_order_quantity: 0,
-    });
+    if (typeof twttr !== "undefined") {
+      twttr.conversion.trackPid(config.contractsDeployed.twitterTrackMEWId, {
+        tw_sale_amount: 0,
+        tw_order_quantity: 0,
+      });
+    }
   } catch (e) {
     // tslint:disable-next-line no-console
     console.log("error in tracking MyEtherWallet link click", e);

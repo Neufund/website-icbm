@@ -1,4 +1,5 @@
 import config from "../config";
+import { TransactionFailedError } from "../errors";
 import { Web3Service } from "./web3Service";
 
 const timeout = 3000;
@@ -13,7 +14,6 @@ export const transactionConfirmation = async (
     let prevBlockNo = -1;
     let startingBlock = -1;
     const requiredConfirmations = config.contractsDeployed.numberOfConfirmations;
-    const maxNumberOfBlocksToWait = config.contractsDeployed.maxNumberBlocksToWait;
     const poll = async () => {
       let currentBlockNo;
       try {
@@ -28,23 +28,22 @@ export const transactionConfirmation = async (
         startingBlock = currentBlockNo;
       }
 
-      if (currentBlockNo - startingBlock >= maxNumberOfBlocksToWait) {
-        return reject(
-          `Your transaction has not been mined in last ${maxNumberOfBlocksToWait} blocks`
-        );
-      }
-
       // console.log(`got block number ${currentBlockNo} prev block number ${prevBlockNo}`);
       if (currentBlockNo !== prevBlockNo) {
-        prevBlockNo = currentBlockNo;
         newBlockCallback(currentBlockNo);
-
+        prevBlockNo = currentBlockNo;
         try {
-          const transaction = await Web3Service.instance.getTransaction(transactionHash);
-          // console.log(`got transaction with block number: ${transaction.blockNumber}`);
-          if (transaction.blockNumber != null) {
-            transactionMinedCallback(transaction.blockNumber);
-            if (currentBlockNo - transaction.blockNumber >= requiredConfirmations) {
+          const tx = await Web3Service.instance.getTransaction(transactionHash);
+          if (tx && tx.blockNumber != null) {
+            const txReceipt = await Web3Service.instance.getTransactionReceipt(transactionHash);
+            if (txReceipt && txReceipt.status !== null) {
+              const txStatus = parseInt(txReceipt.status, 16);
+              if (txStatus === 0) {
+                return reject(new TransactionFailedError(tx.hash));
+              }
+            }
+            transactionMinedCallback(tx.blockNumber);
+            if (currentBlockNo - tx.blockNumber >= requiredConfirmations - 1) {
               // console.log("we have enough confirmations we can move on");
               return resolve();
             }

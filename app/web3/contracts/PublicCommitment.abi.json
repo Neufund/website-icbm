@@ -14,14 +14,27 @@
         "type": "uint8"
       },
       {
-        "name": "ticketEur",
+        "name": "ticketEurUlps",
         "type": "uint256"
       },
       {
-        "name": "neumarkReward",
+        "name": "",
         "type": "uint256"
       }
     ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "whitelistStart",
+        "type": "int256"
+      }
+    ],
+    "name": "setWhitelistingStartDate",
+    "outputs": [],
     "payable": false,
     "type": "function"
   },
@@ -114,7 +127,7 @@
     "constant": true,
     "inputs": [
       {
-        "name": "amountEth",
+        "name": "amount",
         "type": "uint256"
       }
     ],
@@ -448,11 +461,11 @@
         "type": "address"
       },
       {
-        "name": "capEur",
+        "name": "capEurUlps",
         "type": "uint256"
       },
       {
-        "name": "minTicketEur",
+        "name": "minTicketEurUlps",
         "type": "uint256"
       },
       {
@@ -472,14 +485,14 @@
         "type": "address"
       },
       {
-        "indexed": false,
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
         "indexed": true,
         "name": "paymentToken",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
       },
       {
         "indexed": false,
@@ -497,7 +510,7 @@
         "type": "address"
       }
     ],
-    "name": "LogFundsCommited",
+    "name": "LogFundsCommitted",
     "type": "event"
   },
   {

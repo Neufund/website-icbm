@@ -1,0 +1,41 @@
+@import '../../common/sass/variables';
+
+.user-address-container {
+  padding-left: 58px;
+  line-height: 24px;
+  font-size: $font-size-smallest;
+
+  p {
+    margin: 0;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 7px;
+  left: -55px;
+
+  img {
+    height: 40px;
+  }
+}
+
+
+.label {
+  color: $gray-almost-dark;
+  font-size: $font-size-smallest;
+}
+
+.value {
+  color: $black-lighter;
+  font-size: 18px;
+
+  span {
+    font-weight: $font-weight-normal;
+  }
+}
+
+.section {
+  position: relative;
+  margin-bottom: 30px;
+}

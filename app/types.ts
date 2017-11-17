@@ -9,7 +9,10 @@ export interface IDictionary<T = string> {
   [key: string]: T;
 }
 
-export type IDerivationPaths = IDictionary<{
-  address: string;
-  ETH: number;
-}>;
+export interface IMetamaskError extends Error {
+  errorCode: number;
+}
+
+export interface INanoLedgerError extends Error {
+  code: number;
+}

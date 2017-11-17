@@ -1,15 +1,23 @@
-import { EthNetwork } from "../actions/constants";
+import { EtherScanLinkType, EthNetwork } from "../actions/constants";
 
-export function etherscanAccountUrl(address: string, ethNetwork: EthNetwork): string {
-  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/address/${address}`;
-}
-
-export function etherscanTransactionUrl(tx: string, ethNetwork: EthNetwork): string {
-  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/tx/${tx}`;
-}
-
-export function etherscanBlockUrl(block: string, ethNetwork: EthNetwork): string {
-  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/block/${block}`;
+export function etherscanUrl(
+  type: EtherScanLinkType,
+  resourceId: string | number,
+  ethNetwork: EthNetwork
+): string {
+  let pathType;
+  switch (type) {
+    case EtherScanLinkType.ADDRESS:
+      pathType = "address";
+      break;
+    case EtherScanLinkType.TRANSACTION:
+      pathType = "tx";
+      break;
+    case EtherScanLinkType.BLOCK:
+      pathType = "block";
+      break;
+  }
+  return `https://${networkToEtherscanPrefix(ethNetwork)}etherscan.io/${pathType}/${resourceId}`;
 }
 
 function networkToEtherscanPrefix(ethNetwork: EthNetwork) {

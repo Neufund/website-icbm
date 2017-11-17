@@ -2,7 +2,8 @@ import { BigNumber } from "bignumber.js";
 import * as bluebird from "bluebird";
 import * as moment from "moment";
 
-import { EthNetwork } from "../actions/constants";
+import { EthNetwork, Web3Type } from "../actions/constants";
+import config from "../config";
 import { Web3Service } from "./web3Service";
 
 export const Q18 = new BigNumber("10").pow(18);
@@ -10,7 +11,7 @@ export const Q18 = new BigNumber("10").pow(18);
 export function asMomentDate(bignum: BigNumber) {
   const asInt = bignum.toNumber();
 
-  return moment.utc(asInt, "X");
+  return moment.unix(asInt);
 }
 
 export function asNumber(bignum: BigNumber) {
@@ -38,7 +39,7 @@ export function promisify(func: any, args: any): Promise<any> {
 
 // takes ulps and returns wei
 export function convertEurToEth(ethEurFraction: BigNumber, eurUlps: BigNumber): BigNumber {
-  return eurUlps.div(ethEurFraction).mul(Q18);
+  return eurUlps.mul(Q18).div(ethEurFraction).round(0, BigNumber.ROUND_HALF_UP);
 }
 
 export async function getCurrentBlockHash(): Promise<string> {
@@ -47,10 +48,26 @@ export async function getCurrentBlockHash(): Promise<string> {
   return (block as any).hash;
 }
 
-export async function getNetworkId(web3: any): Promise<EthNetwork> {
-  return bluebird.promisify<string>(web3.version.getNetwork)().then(res =>
-    networkIdToEthNetwork(res)
-  );
+export async function getNetworkRaw(web3: any): Promise<string> {
+  return bluebird.promisify<string>(web3.version.getNetwork)();
+}
+
+export async function getNetworkId(web3: any): Promise<string> {
+  return bluebird.promisify<string>(web3.version.getNetwork)();
+}
+
+export async function getNodeType(web3: any): Promise<Web3Type> {
+  const nodeIdString = await bluebird.promisify<string>(web3.version.getNode)();
+  const matchNodeIdString = nodeIdString.toLowerCase();
+
+  if (matchNodeIdString.includes("metamask")) {
+    return Web3Type.METAMASK;
+  }
+  if (matchNodeIdString.includes("parity")) {
+    return Web3Type.PARITY;
+  }
+  // @todo support for mist
+  return Web3Type.GENERIC;
 }
 
 export function networkIdToEthNetwork(networkId: string): EthNetwork {
@@ -68,4 +85,11 @@ export function networkIdToEthNetwork(networkId: string): EthNetwork {
     default:
       return EthNetwork.DEV;
   }
+}
+
+export function computeTotalTxCost(amount: BigNumber): BigNumber {
+  const gasLimit = new BigNumber(config.contractsDeployed.gasLimit);
+  const gasPrice = new BigNumber(config.contractsDeployed.gasPrice);
+
+  return amount.add(gasLimit.mul(gasPrice));
 }

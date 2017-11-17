@@ -92,6 +92,23 @@
   },
   {
     "constant": false,
+    "inputs": [
+      {
+        "name": "newPolicy",
+        "type": "address"
+      },
+      {
+        "name": "newAccessController",
+        "type": "address"
+      }
+    ],
+    "name": "setAccessPolicy",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
     "inputs": [],
     "name": "controllerSucceeded",
     "outputs": [],
@@ -134,19 +151,6 @@
         "type": "uint256"
       }
     ],
-    "payable": false,
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "newPolicy",
-        "type": "address"
-      }
-    ],
-    "name": "setAccessPolicy",
-    "outputs": [],
     "payable": false,
     "type": "function"
   },
@@ -218,12 +222,7 @@
     "constant": false,
     "inputs": [],
     "name": "unlock",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint8"
-      }
-    ],
+    "outputs": [],
     "payable": false,
     "type": "function"
   },
@@ -336,6 +335,10 @@
         "type": "address"
       },
       {
+        "name": "penaltyDisbursalAddress",
+        "type": "address"
+      },
+      {
         "name": "lockPeriod",
         "type": "uint256"
       },
@@ -381,6 +384,11 @@
         "indexed": false,
         "name": "amount",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "neumarks",
+        "type": "uint256"
       }
     ],
     "name": "LogFundsUnlocked",
@@ -391,7 +399,7 @@
     "inputs": [
       {
         "indexed": true,
-        "name": "investor",
+        "name": "disbursalPoolAddress",
         "type": "address"
       },
       {
@@ -401,7 +409,12 @@
       },
       {
         "indexed": false,
-        "name": "toPool",
+        "name": "assetToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "investor",
         "type": "address"
       }
     ],
@@ -457,19 +470,7 @@
     "inputs": [
       {
         "indexed": false,
-        "name": "code",
-        "type": "uint8"
-      }
-    ],
-    "name": "LogError",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "name": "controler",
+        "name": "controller",
         "type": "address"
       },
       {

@@ -5,18 +5,26 @@ import { loadDuringIcoDetailsFromContract } from "../web3/loadDuringIcoDetailsFr
 import { LOADING_DURING_ICO_DETAILS, SET_DURING_ICO_DETAILS } from "./constants";
 
 export function setDuringIcoDetailsAction(
-  totalSupply: string,
+  totalNeumarkSupply: string,
+  reservedNeumarks: string,
   issuanceRate: string,
-  allFunds: string,
-  allInvestors: string
+  ethCommitted: string,
+  euroCommitted: string,
+  allInvestors: string,
+  platformOperatorNeumarkRewardShare: string,
+  totalCurveWei: string
 ): IStandardReduxAction {
   return {
     type: SET_DURING_ICO_DETAILS,
     payload: {
-      totalSupply,
+      totalNeumarkSupply,
+      reservedNeumarks,
       issuanceRate,
-      allFunds,
+      ethCommitted,
+      euroCommitted,
       allInvestors,
+      platformOperatorNeumarkRewardShare,
+      totalCurveWei,
     },
   };
 }
@@ -28,22 +36,35 @@ export function loadDuringIcoDetailsAction(): IStandardReduxAction {
   };
 }
 
-export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async dispatcher => {
+export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
+  dispatcher,
+  getState
+) => {
   dispatcher(loadDuringIcoDetailsAction());
 
+  const { ethEurFraction, ethDecimals } = getState().commitmentState;
+
   const {
-    totalSupply,
+    totalNeumarkSupply,
+    reservedNeumarks,
     issuanceRate,
-    allFunds,
+    ethCommitted,
+    eurCommitted,
     investors,
-  } = await loadDuringIcoDetailsFromContract();
+    platformOperatorNeumarkRewardShare,
+    totalCurveWei,
+  } = await loadDuringIcoDetailsFromContract(ethEurFraction, ethDecimals);
 
   dispatcher(
     setDuringIcoDetailsAction(
-      totalSupply.toString(),
+      totalNeumarkSupply.toString(),
+      reservedNeumarks.toString(),
       issuanceRate.toString(),
-      allFunds.toString(),
-      investors.toString()
+      ethCommitted.toString(),
+      eurCommitted.toString(),
+      investors.toString(),
+      platformOperatorNeumarkRewardShare.toString(),
+      totalCurveWei.toString()
     )
   );
 };

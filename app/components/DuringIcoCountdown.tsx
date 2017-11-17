@@ -3,10 +3,13 @@ import * as moment from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
+import { TokenType } from "../actions/constants";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { LoadingIndicator } from "./LoadingIndicator";
+import { MailchimpForm } from "./MailchimpForm";
+import MoneyComponent from "./MoneyComponent";
 
 interface IMoneyProps {
   loading: boolean;
@@ -35,25 +38,41 @@ export const HexagonText = (props: IMoneyProps) => {
     <div className={styles.text}>
       <p className={styles.title}>Total funds committed</p>
       <p className={styles.content} data-test-id="during-ico-total-funds">
-        <strong className={styles.extraSize}>{raised.toFixed(2)}</strong> ETH
+        <MoneyComponent
+          tokenType={TokenType.ETHER}
+          decimalPlaces={2}
+          value={raised}
+          valueClass={styles.importantValue}
+          separateThousands
+        />
       </p>
 
-      <p className={styles.title}>Investors accounts created</p>
+      <p className={styles.title}>Investors</p>
       <p className={styles.content} data-test-id="during-ico-accounts-created">
-        <strong>
+        <span className={styles.value}>
           {investorsAccountCreated.toFixed(0)}
-        </strong>
+        </span>
       </p>
 
-      <p className={styles.title}>Neumarks generated</p>
+      <p className={styles.title}>NEU issued to investors</p>
       <p className={styles.content} data-test-id="during-ico-neumarks-generated">
-        <strong>{neuMarkAmount.toFixed(2)}</strong> <span>NEU</span>
+        <MoneyComponent
+          decimalPlaces={0}
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkAmount}
+          separateThousands
+        />
       </p>
 
-      <p className={styles.title}>Reward</p>
+      <p className={styles.title}>Current reward</p>
       <p className={styles.content} data-test-id="during-ico-current-reward">
-        <strong>{neuMarkToEtherRatio.toFixed(2)}</strong> <span> NEU / </span> <strong>1</strong>{" "}
-        <span>ETH</span>
+        <MoneyComponent
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkToEtherRatio}
+        />
+        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
       </p>
     </div>
   );
@@ -64,14 +83,17 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
-        <h1>Community-owned investment ecosystem</h1>
+        <h1>Community-owned Fundraising Platform</h1>
+
         <p>
-          Neufund is an investment platform bridging the worlds of blockchain and venture capital.
+          Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain
+          companies.
         </p>
         <p>
-          Commit funds now, invest them in the startups in the future. As a reward for participation
-          get Neumarks. This time, ETH only. EUR soon.
+          Reserve funds today for your future investments and receive Neumarks making you a co-owner
+          of the platform.
         </p>
+        <p>You maintain full control over your investment decisions at all times.</p>
         <p>
           Time left to the end:{" "}
           <Countdown
@@ -83,6 +105,17 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
             }}
           />
         </p>
+
+        <ul className="links-list">
+          <li>
+            <i className="material-icons">link</i>
+            <a href="https://medium.com/@agnieszkasa/a9a450cf0022" target="_blank">
+              ICBM terms and instructions
+            </a>
+          </li>
+        </ul>
+
+        <MailchimpForm hideForm />
 
         <div className={styles.buttonContainer}>
           <a href="/commit" className="btn btn-primary" data-test-id="during-ico-commit-btn">

@@ -38,19 +38,19 @@ describe("<CurveChart />", () => {
 
 describe("helper functions", () => {
   describe("format numbers to milion and bilion test", () => {
-    it("should return 1MLN", () => {
+    it("should return 1M", () => {
       const result = formatNumber(1000000);
-      expect(result).to.equal("1MLN");
+      expect(result).to.equal("1.00M");
     });
 
-    it("should return 2BLN", () => {
+    it("should return 2B", () => {
       const result = formatNumber(2000000000);
-      expect(result).to.equal("2BLN");
+      expect(result).to.equal("2.00B");
     });
 
     it("should return 50K", () => {
       const result = formatNumber(50000);
-      expect(result).to.equal("50K");
+      expect(result).to.equal("50.00K");
     });
 
     it("should return 2.00", () => {
@@ -66,7 +66,7 @@ describe("helper functions", () => {
 
     it("should return the value for 400000 ETH", () => {
       const result = getPrice(currencyRate, initialReward, capNEU, 400000);
-      expect(result.toFixed(2)).to.equal("2.06");
+      expect(result.toFixed(2)).to.equal("541.07");
     });
   });
 

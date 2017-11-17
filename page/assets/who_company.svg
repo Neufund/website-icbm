@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="209" height="218" viewBox="0 0 209 218">
+    <defs>
+        <rect id="b" width="201" height="210" rx="10"/>
+        <filter id="a" width="107%" height="106.7%" x="-3.5%" y="-2.4%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.7332 0 0 0 0 0.75972 0 0 0 0 0.78 0 0 0 1 0"/>
+        </filter>
+        <linearGradient id="c" x1="-59.148%" x2="62.75%" y1="-65.958%" y2="100%">
+            <stop offset="0%" stop-color="#09719B"/>
+            <stop offset="2.355%" stop-color="#09719B"/>
+            <stop offset="100%" stop-color="#424A52"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(4 2)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+        </g>
+        <path fill="url(#c)" d="M0 9.996C0 4.476 4.48 0 10.002 0h180.996C196.522 0 201 4.476 201 9.996V174H0V9.996z" transform="translate(4 2)"/>
+        <text fill="#325567" font-family=".AppleSystemUIFont" font-size="14" letter-spacing=".05" transform="translate(4 2)">
+            <tspan x="65.784" y="188">INVESTOR</tspan>
+        </text>
+        <g transform="translate(79 64)">
+            <circle cx="25.5" cy="25.5" r="25.5" stroke="#F2F9EA"/>
+            <g fill="#F2F9EA" transform="translate(13.784 11.027)">
+                <path d="M.604 27.482C1 21.37 5.81 16.541 11.684 16.541c6.132 0 11.104 5.26 11.108 11.753-2.923 2.458-6.622 3.927-10.645 3.927-4.447 0-8.499-1.795-11.543-4.739z"/>
+                <ellipse cx="11.711" cy="6.74" rx="5.554" ry="5.88"/>
+            </g>
+        </g>
+    </g>
+</svg>

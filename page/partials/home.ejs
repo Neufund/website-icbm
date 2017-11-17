@@ -1,5 +1,9 @@
  <div class="container react-app">
-    <div id="react-root"></div>
+    <div id="react-root">
+      <div class="loading-spinner-container">
+        <div class="animated-loading-spinner"></div>
+      </div>
+    </div>
  </div>
 
 <%
@@ -9,26 +13,33 @@ const checkSectionVisiablity = function(item, content) {
 }
 %>
 
-<%- include('mailchimp'); %>
-
 <%- include('press', content.press); %>
 
 <%- include('platform-overview'); %>
 
-<% for(var i=0; i < content['why-how'].sections.length; i++) {%>
-    <%- include('why-how', Object.assign({}, content['why-how'].sections[i], { index: i + 1 })) %>
-<% } %>
-<div class="container">
-    <div class="section">
+<%- include('why-how', Object.assign({}, content['why-how'].sections[0], { index: 0 })) %>
+
+<div class="container" id="curve">
+    <div class="section curve">
         <div id="react-root-curve"></div>
     </div>
 </div>
-<%- checkSectionVisiablity(content.invest_platform, include('invest-platform', content.invest_platform)); %>
+
+<%- include('why-how', Object.assign({}, content['why-how'].sections[1], { index: 1 })) %>
+
+<%- checkSectionVisiablity(
+  content.invest_platform,
+  include('invest-platform', Object.assign({}, content.invest_platform, { PLATFORM_ENABLED: PLATFORM_ENABLED }))
+); %>
 
 <%- checkSectionVisiablity(content.team, include('team', content.team)); %>
 
 <%- checkSectionVisiablity(content.advisors, include('advisors', content.advisors)); %>
 
-<%- checkSectionVisiablity(content.advisors, include('quotes', content.quotes)); %>
+<%- checkSectionVisiablity(content.quotes, include('quotes', content.quotes)); %>
+
+<%- include('newsletter'); %>
+
+<%- include('videos'); %>
 
 <%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>

@@ -1,9 +1,7 @@
-import { publicCommitment } from "./contracts/ContractsRepository";
+import { issuanceRate } from "./loadDuringIcoDetailsFromContract";
 
-export async function loadBeforeIcoDetailsFromContract() {
-  const neumarkInitialRate = await publicCommitment.issuanceRate;
-
+export async function loadBeforeIcoDetailsFromContract(ethDecimals: number) {
   return {
-    neumarkInitialRate,
+    neumarkInitialRate: await issuanceRate(ethDecimals),
   };
 }

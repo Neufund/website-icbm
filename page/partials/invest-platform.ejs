@@ -1,15 +1,19 @@
 <div class="invest-platform section">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-12">
                 <h2><%- title %></h2>
-                <p><%- paragraph %></p>
-
-                <div class="btn-container">
-                    <a href="/product" class="btn btn-white">Product demo</a>
-                </div>
             </div>
-
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+              <div class="content">
+                <%- paragraph %>
+                <% if(PLATFORM_ENABLED) { %>
+                  <a href="/product" class="btn btn-link btn-white">Neufund Platform Preview</a>
+                <% } %>
+              </div>
+            </div>
             <div class="col-md-7">
                 <%- include("../blocks/hi-res-img", { path: "../assets/invest-platform/Product_together", alt: "Product page", cls: "product-image img-responsive" }) %>
             </div>

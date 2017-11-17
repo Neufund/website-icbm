@@ -1,34 +1,26 @@
-import {
-  etherLock,
-  etherToken,
-  euroLock,
-  euroToken,
-  neumark,
-  publicCommitment,
-} from "./contracts/ContractsRepository";
-import { asEtherNumber } from "./utils";
+import { BigNumber } from "bignumber.js";
+import promiseAll = require("promise-all");
 
-export async function loadDuringIcoDetailsFromContract() {
-  const [totalSupply, issuanceRate, allFunds, investors] = await Promise.all([
-    neumark.totalSupply.then(asEtherNumber),
-    publicCommitment.issuanceRate,
-    allFundsCommitment().then(asEtherNumber),
-    allInvestors(),
-  ]);
+import { etherLock, euroLock, neumark, publicCommitment } from "./contracts/ContractsRepository";
+import { convertEurToEth } from "./utils";
 
-  return {
-    totalSupply,
-    issuanceRate,
-    allFunds,
-    investors,
-  };
-}
-
-export async function allFundsCommitment() {
-  const ethCommitted = await etherToken.balanceOf(etherLock.address);
-  const eurCommitted = await euroToken.balanceOf(euroLock.address);
-  const ethEur = await publicCommitment.convertToEur(1); // @todo this and few other could be evaluated only once
-  return ethCommitted.plus(eurCommitted.div(ethEur));
+export async function loadDuringIcoDetailsFromContract(
+  ethEurFraction: string,
+  ethDecimals: number
+) {
+  const ethEurFractionBN = new BigNumber(ethEurFraction);
+  return await promiseAll({
+    totalNeumarkSupply: neumark.totalSupply,
+    reservedNeumarks: neumark.balanceOf(publicCommitment.address),
+    issuanceRate: issuanceRate(ethDecimals),
+    ethCommitted: etherLock.totalLockedAmount,
+    eurCommitted: euroLock.totalLockedAmount.then(total =>
+      convertEurToEth(ethEurFractionBN, total)
+    ),
+    totalCurveWei: neumark.totalEuroUlps.then(euro => convertEurToEth(ethEurFractionBN, euro)),
+    investors: allInvestors(),
+    platformOperatorNeumarkRewardShare: publicCommitment.platformOperatorNeumarkRewardShare,
+  });
 }
 
 export async function allInvestors() {
@@ -36,4 +28,9 @@ export async function allInvestors() {
   const euroInvestors = await euroLock.totalInvestors;
 
   return ethInvestors.add(euroInvestors);
+}
+
+export async function issuanceRate(ethDecimals: number): Promise<BigNumber> {
+  const eth = new BigNumber(10).pow(ethDecimals);
+  return await publicCommitment.estimateNeumarkReward(eth.toString());
 }

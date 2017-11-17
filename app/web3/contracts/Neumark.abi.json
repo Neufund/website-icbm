@@ -1,5 +1,26 @@
 [
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "neumarkUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "minEurUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "maxEurUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "burn",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -25,6 +46,36 @@
       {
         "name": "",
         "type": "string"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "totalEuroUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "burnNeumarkUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "minEurUlps",
+        "type": "uint256"
+      },
+      {
+        "name": "maxEurUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "incrementalInverse",
+    "outputs": [
+      {
+        "name": "euroUlps",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -92,24 +143,6 @@
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "signatory",
-        "type": "address"
-      }
-    ],
-    "name": "isAgreementSignedBy",
-    "outputs": [
-      {
-        "name": "signed",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "type": "function"
-  },
-  {
     "constant": false,
     "inputs": [
       {
@@ -149,6 +182,19 @@
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "neumarkUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "burn",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [],
     "name": "transferEnabled",
@@ -169,7 +215,7 @@
         "type": "address"
       },
       {
-        "name": "snapshot",
+        "name": "snapshotId",
         "type": "uint256"
       }
     ],
@@ -197,6 +243,23 @@
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newPolicy",
+        "type": "address"
+      },
+      {
+        "name": "newAccessController",
+        "type": "address"
+      }
+    ],
+    "name": "setAccessPolicy",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -204,7 +267,7 @@
         "type": "uint256"
       },
       {
-        "name": "neumarkUlps",
+        "name": "burnNeumarkUlps",
         "type": "uint256"
       }
     ],
@@ -226,11 +289,11 @@
         "type": "uint256"
       },
       {
-        "name": "min",
+        "name": "minEurUlps",
         "type": "uint256"
       },
       {
-        "name": "max",
+        "name": "maxEurUlps",
         "type": "uint256"
       }
     ],
@@ -238,6 +301,24 @@
     "outputs": [
       {
         "name": "euroUlps",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "signatory",
+        "type": "address"
+      }
+    ],
+    "name": "agreementSignedAtBlock",
+    "outputs": [
+      {
+        "name": "",
         "type": "uint256"
       }
     ],
@@ -263,15 +344,46 @@
     "type": "function"
   },
   {
-    "constant": false,
-    "inputs": [
+    "constant": true,
+    "inputs": [],
+    "name": "parentToken",
+    "outputs": [
       {
-        "name": "newPolicy",
+        "name": "parent",
         "type": "address"
       }
     ],
-    "name": "setAccessPolicy",
-    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "allBalancesOf",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[2][]"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "neumarkCap",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "payable": false,
     "type": "function"
   },
@@ -287,6 +399,24 @@
     "outputs": [
       {
         "name": "neumarkUlps",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "snapshotId",
+        "type": "uint256"
+      }
+    ],
+    "name": "totalSupplyAtInternal",
+    "outputs": [
+      {
+        "name": "",
         "type": "uint256"
       }
     ],
@@ -356,9 +486,22 @@
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "currentSnapshotId",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
-        "name": "snapshot",
+        "name": "snapshotId",
         "type": "uint256"
       }
     ],
@@ -366,6 +509,19 @@
     "outputs": [
       {
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "parentSnapshotId",
+    "outputs": [
+      {
+        "name": "snapshotId",
         "type": "uint256"
       }
     ],
@@ -431,26 +587,8 @@
     "name": "transfer",
     "outputs": [
       {
-        "name": "success",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "neumarkUlps",
-        "type": "uint256"
-      }
-    ],
-    "name": "burnNeumark",
-    "outputs": [
-      {
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
     "payable": false,
@@ -531,16 +669,11 @@
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "neumarkUlps",
-        "type": "uint256"
-      }
-    ],
-    "name": "incrementalInverse",
+    "inputs": [],
+    "name": "initialRewardFraction",
     "outputs": [
       {
-        "name": "euroUlps",
+        "name": "",
         "type": "uint256"
       }
     ],
@@ -625,6 +758,23 @@
     "constant": false,
     "inputs": [
       {
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "name": "neumarkUlps",
+        "type": "uint256"
+      }
+    ],
+    "name": "distribute",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
         "name": "token",
         "type": "address"
       }
@@ -658,12 +808,12 @@
       },
       {
         "indexed": false,
-        "name": "euroUlp",
+        "name": "euroUlps",
         "type": "uint256"
       },
       {
         "indexed": false,
-        "name": "neumarkUlp",
+        "name": "neumarkUlps",
         "type": "uint256"
       }
     ],
@@ -680,28 +830,16 @@
       },
       {
         "indexed": false,
-        "name": "euroUlp",
+        "name": "euroUlps",
         "type": "uint256"
       },
       {
         "indexed": false,
-        "name": "neumarkUlp",
+        "name": "neumarkUlps",
         "type": "uint256"
       }
     ],
     "name": "LogNeumarksBurned",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "name": "snapshot",
-        "type": "uint256"
-      }
-    ],
-    "name": "LogSnapshotCreated",
     "type": "event"
   },
   {
@@ -724,6 +862,18 @@
       }
     ],
     "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "snapshotId",
+        "type": "uint256"
+      }
+    ],
+    "name": "LogSnapshotCreated",
     "type": "event"
   },
   {
@@ -782,7 +932,7 @@
     "inputs": [
       {
         "indexed": false,
-        "name": "controler",
+        "name": "controller",
         "type": "address"
       },
       {

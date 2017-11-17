@@ -20,7 +20,7 @@
         "type": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256"
       }
     ],
@@ -183,6 +183,23 @@
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newPolicy",
+        "type": "address"
+      },
+      {
+        "name": "newAccessController",
+        "type": "address"
+      }
+    ],
+    "name": "setAccessPolicy",
+    "outputs": [],
+    "payable": false,
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [
       {
@@ -197,19 +214,6 @@
         "type": "uint256"
       }
     ],
-    "payable": false,
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "newPolicy",
-        "type": "address"
-      }
-    ],
-    "name": "setAccessPolicy",
-    "outputs": [],
     "payable": false,
     "type": "function"
   },
@@ -306,7 +310,7 @@
     "name": "approveAndCall",
     "outputs": [
       {
-        "name": "success",
+        "name": "",
         "type": "bool"
       }
     ],
@@ -410,7 +414,7 @@
     "inputs": [
       {
         "indexed": true,
-        "name": "to",
+        "name": "from",
         "type": "address"
       },
       {
@@ -470,7 +474,7 @@
         "type": "uint256"
       }
     ],
-    "name": "LogOwnerMigrated",
+    "name": "LogEuroTokenOwnerMigrated",
     "type": "event"
   },
   {
@@ -478,7 +482,7 @@
     "inputs": [
       {
         "indexed": false,
-        "name": "controler",
+        "name": "controller",
         "type": "address"
       },
       {

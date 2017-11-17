@@ -25,14 +25,18 @@ describe("Commit page", () => {
     const commitPage = await CommitPage.create(puppeteerInstance);
     await commitPage.commitContainer.waitFor();
     await commitPage.acceptLegalAgreement();
+    await commitPage.walletInBrowser.click();
 
-    await commitPage.ethAmountInput.type("1");
+    await commitPage.ethAmountInput.waitFor();
+    await commitPage.ethAmountInput.type("2");
 
-    await waitUntilResolves(
-      async () => expect(await commitPage.estimatedReward.text()).to.be.eq("974.97 NEU") // @todo critial: this assertion gives wrong result for whitelisted ppl
+    await waitUntilResolves(async () =>
+      expect(await commitPage.estimatedReward.text()).to.be.eq("1938.9249 NEU")
     );
     await commitPage.commitBtn.click();
 
-    await commitPage.transactionStatusModal.waitFor();
+    await commitPage.aftermathLink.waitFor();
   });
+
+  // @todo: test neumark estimator on "other wallet"
 });

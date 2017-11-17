@@ -1,0 +1,9 @@
+@import '../../common/sass/variables';
+
+.error {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: $blue;
+  font-size: 2rem;
+  font-weight: $font-weight-bold;
+}

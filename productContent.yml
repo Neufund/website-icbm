@@ -1,14 +1,14 @@
 header:
   id: "product-header"
   menu_text: "Introduction"
-  title: "How it works.<br/>Fundraising Platform"
+  title: "A true platform<br/>for the people."
   content: "Easy to use, crafted experience for different actors on different stages of their investment journey. An on-going work, being built with community for community in a culture of open-source, access point for everyone to blockchain."
   yt_video: "W0LHTWG-UmQ"
 who_can_use:
   id: "who_can_use"
   menu_text: "Who can use the Platform"
   bg_url: ""
-  white: true
+  white: false
   purple_title: false
   title: "Who can use Neufund's Platform"
   headline: "For startups and all kinds of investors"
@@ -16,33 +16,28 @@ who_can_use:
   paragraphs:
     - "Unless you are a partner in the VC fund or a business angel, you are new to investing in the companies equity. Neufund’s goal is to open this market. The platform is designed and built with a thought to anticipate the needs of startups and investors, both individual and institutional.  Its key values are: accessibility, scalability and integrability with the traditional investment world."
   images:
-    - - url: "screenshots/Group25.png"
+    - - url: "screenshots/group-25.png"
+        width: 209
+      - url: "screenshots/group-25_2x.png"
+        width: 418
+      - url: "screenshots/group-25_3x.png"
+        width: 627
+    - - url: "screenshots/group-27.png"
         width: 169
-      - url: "screenshots/Group25_2x.png"
+      - url: "screenshots/group-27_2x.png"
         width: 338
-      - url: "screenshots/Group25_3x.png"
-        width: 507
-    - - url: "screenshots/Group26.png"
-        width: 169
-      - url: "screenshots/Group26_2x.png"
-        width: 338
-      - url: "screenshots/Group26_3x.png"
-        width: 507
-    - - url: "screenshots/Group27.png"
-        width: 169
-      - url: "screenshots/Group27_2x.png"
-        width: 338
-      - url: "screenshots/Group27_3x.png"
+      - url: "screenshots/group-27_3x.png"
         width: 507
 main_feature:
   id: "main_feature"
   menu_text: "Investing"
   bg_url: ""
-  white: false
+  bg_db: false
+  white: true
   purple_title: false
   title: "Main feature: invest in startups"
   headline: "ICO: new investment mechanism for every model"
-  backgroundText: "For investors"
+  backgroundText: ""
   paragraphs:
     - Initial Coin Offering is a new powerful tool for fundraising. With Neufund's innovative approach to allow investments in tokenized shares, it is becoming main-stream. It allows both on- and off-chain startups to address at once a huge capital pool making the fundraising cheap and fast. It allows investors to invest in the projects they believe in, and along with experienced VCs. Neufund's ICO democratises the investment process!
   image:
@@ -82,7 +77,8 @@ benefits_of_blockchain:
   id: "benefits_of_blockchain"
   menu_text: "Benefits of blockchain"
   bg_url: ""
-  white: false
+  bg_db: true
+  white: true
   purple_title: false
   title: "Benefits of blockchain"
   headline: "Profit from the tokens: proceeds and secondary market"
@@ -102,7 +98,7 @@ investors_dashboard:
   id: "investors_dashboard"
   menu_text: ""
   purple_title: false
-  backgroundText: ""
+  backgroundText: "For investors"
   bg_url: "/assets/svg-bg/blue.svg"
   white: true
   title: "Investors dashboard"
@@ -237,15 +233,11 @@ feature_by_feature:
       icon: "cloud_queue"
       content: "Neufund’s user base is expected to include both experts and novices to blockchain applications, and both high and low value accounts. To provide a smooth experience while guaranteeing security for all these users, we plan to support three different authentication mechanisms. In addition, all our users benefit from a protective wallet contract."
       link: "#"
-    - title: "NASDQ style capital pool"
-      icon: "memory"
-      content: "..."
-      link: "#"
 last:
   id: "last"
   menu_text: ""
   bg_url: ""
-  white: true
+  white: false
   headline: "Be the owner of Neufund's ecosystem!"
   button_text: "Commit ETH"
   button_url: "#"

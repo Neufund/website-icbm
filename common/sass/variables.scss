@@ -1,7 +1,8 @@
 //colors
 $white: #fff;
+$blue-lighter: rgba(118, 197, 255, .61);
 $blue: #09719b;
-$blue-dark-light: #315568;
+$blue-another: #0f5d89;
 $blue-darker: #315568;
 $blue-dark: #2f576a;
 $blue-gray: #325566;
@@ -11,15 +12,25 @@ $gray-lighter: #a3c0cc;
 $gray: #d9dbdc;
 $gray-between-light-and-dark: #bbc2c7;
 $gray-little-dark: #8e9297;
+$gray-almost-dark: #7d919b;
 $gray-darker: #424a52;
 $navbar-default-color: #f0f0f1;
 $black: #000;
 $black-lighter: #262b2f;
+$black-almost: #1d2023;
 $green: #d5e20f;
+$white-dirty: #f3f4f4;
 $white-light-green: #fafbfb;
 $white-green: #f6faf3;
 $white-almost: #f7f8f9;
 $off-white: #f5f5f5;
+$off-gray: #434a51;
+$light-off-gray: #8fa2ab;
+$gray-border: #979797;
+$gray-placeholder: #cecece;
+$blue-off: #09719b;
+$loading-indicator-color: #333;
+$red: #f00;
 
 //fonts
 $font-weight-max-bold: 900;
@@ -40,7 +51,8 @@ $font-size-smaller: 13px;
 $font-size-smallest: 12px;
 
 // spaces
-$padding-between-sections: 70px;
+$padding-between-sections: 100px;
+$padding-between-sections-mobile: 50px;
 $padding-between-pictures: 50px;
 $margin-bottom-between-paragraphs: 30px;
 $space-bottom-between-elements: 20px;
@@ -69,18 +81,14 @@ $navbar-default-toggle-icon-bar-bg: $blue;
 $navbar-default-toggle-hover-bg: $white;
 
 //Positions
-$hexagon-top-position: 70px;
-$hexagon-left-position: 15px;
+$hexagon-top-position: 90px;
+$hexagon-left-position: 70px;
 
 // general
+$font-size-h1: 40px;
 $font-size-base: 15px !default;
 
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $text-color: $black;
 
 $fa-font-path:   './fonts/';
-
-// commit page variables
-$commit-number-width: 35px;
-$commit-number-margin: 25px;
-$commit-number-combined: $commit-number-width + $commit-number-margin;

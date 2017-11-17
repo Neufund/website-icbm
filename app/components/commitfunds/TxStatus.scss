@@ -1,0 +1,58 @@
+@import '../../../common/sass/variables';
+
+.error {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  .desc {
+    color: #f00; // sass-lint:disable-line no-color-literals
+  }
+
+  .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: $section-title-font-size-smaller;
+}
+
+.tx {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.yes {
+  color: #c0cc12; // sass-lint:disable-line no-color-literals
+}
+
+.no {
+  color: $red;
+}
+
+.loading-indicator {
+  margin: 56px auto;
+  width: 64px;
+  height: 64px;
+}
+
+.confirmed-indicator {
+  margin-top: 56px;
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.waiting-desc {
+  text-align: center;
+}
+
+.go-aftermath {
+  text-align: center;
+}

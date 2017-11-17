@@ -4,6 +4,27 @@ p.slim {
     font-weight: $font-weight-light;
 }
 
+ul.links-list {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0;
+
+    li {
+        margin-bottom: 7px;
+        list-style: none;
+        color: $green;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-bold;
+
+        i {
+            margin-right: 10px;
+            line-height: 22px;
+            font-size: 17px;
+        }
+    }
+}
+
+
 .section ul.compact-list {
     padding: 0 0 $space-bottom-between-elements 0;
 
@@ -22,13 +43,25 @@ p.slim {
 }
 
 #react-root {
-    min-height: 360px;
+  $reservedHeight: 360px;
+  min-height: $reservedHeight;
+
+  .loading-spinner-container {
+    min-height: $reservedHeight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .main-container {
     @media (max-width: $screen-sm) {
         overflow: hidden;
     }
+}
+
+.shadow-background {
+    box-shadow: inset 0 1px 33px 0 rgba(217, 219, 220, 0.1);
 }
 
 .section {
@@ -40,8 +73,17 @@ p.slim {
     border-style: solid;
     border-bottom-width: 1px;
 
+    &.no-border {
+      border: 0;
+    }
+
     .hidden-picture{
         display: none;
+    }
+
+    h2 {
+        padding-bottom: 17px;
+        font-size: $section-title-font-size;
     }
 
     h3{
@@ -54,11 +96,13 @@ p.slim {
       }
     }
     p{
+        color: $gray-darker;
         font-size: $font-size-normal;
         margin-bottom: $margin-bottom-between-paragraphs;
     }
     a{
-        font-weight: $font-weight-more-bold;
+        font-weight: $font-weight-normal;
+        font-size: $font-size-normal;
         vertical-align: top;
     }
 
@@ -68,6 +112,11 @@ p.slim {
 
     .pictures-container{
         padding-top: $padding-between-sections;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      padding-top: $padding-between-sections-mobile;
+      padding-bottom: $padding-between-sections-mobile;
     }
 }
 
@@ -125,11 +174,11 @@ p.slim {
         text-align: center;
         margin-bottom: $padding-between-sections;
         h1{
-            color: $blue-dark-light;
+            color: $blue-darker;
             margin: 0;
         }
         p{
-            color: $blue-dark-light;
+            color: $blue-darker;
             font-weight: $font-weight-light;
         }
     }
@@ -141,12 +190,6 @@ p.slim {
 }
 
 .people {
-  h2 {
-    color: $gray-darker;
-    font-size: $section-title-font-size;
-    font-weight: $font-weight-more-bold;
-  }
-
   .person-block {
     cursor: pointer;
     margin-bottom: 50px;
@@ -169,6 +212,7 @@ p.slim {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 11px;
 
     h4 {
       margin: 0;
@@ -176,7 +220,9 @@ p.slim {
     }
 
     .name {
-      font-size: $font-weight-more-bold
+      font-size: $font-size-normal;
+      font-weight: $font-weight-bold;
+      color: $blue;
     }
 
     .position {
@@ -189,8 +235,8 @@ p.slim {
     position: absolute;
     top: 0;
     left: 15px;
-    width: 92px;
-    height: 92px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
   }
 
@@ -269,4 +315,11 @@ p.slim {
   color: $blue-darker;
   font-size: $font-size-small;
   font-weight: $font-weight-more-bold;
+}
+
+ul.regular, ol.regular {
+    font-weight: $font-weight-normal !important;
+}
+.top-spacing{
+    margin-top: 30px;
 }

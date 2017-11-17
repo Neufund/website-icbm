@@ -1,7 +1,7 @@
 <div class="ecosystem section">
   <div class="container">
     <div class="row">
-      <%- include("../blocks/hi-res-img", { path: "./assets/NeuFund_logo_full_white", alt: "Neufund logo", cls: "logo" }) %>
+      <%- include("../blocks/hi-res-img", { path: "/assets/NeuFund_logo_full_white", alt: "Neufund logo", cls: "logo" }) %>
       <h2><%= title -%></h2>
     </div>
     <div class="row">
@@ -41,11 +41,64 @@
             <div class="text-box">
               <h5><%= features[3].name -%></h5>
               <div class="underline"></div>
-              <div class=subtitle><a href="<%= features[3].href -%>" class="comming-soon"><%= features[3].subtitle -%></a></div>
+              <div class=subtitle><a href="<%= features[3].href -%>" target="_blank"><%= features[3].subtitle -%></a></div>
             </div>
 
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row" id="depth">
+      <h2 class="section-title"><%- depth.title -%></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4 in-depths-links">
+        <ul class="separator compact-list">
+          <% for(var i = 0; i < 4; i++) { %>
+          <li>
+            <i class="material-icons">link</i>
+            <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+            <% if (depth.links[i].new){ %>
+              <sup>NEW</sup>
+            <% } %>
+            <% if (depth.links[i].keyRead){ %>
+              <sup>KEY READ</sup>
+            <% } %>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="col-md-4 in-depths-links">
+        <ul class="separator compact-list">
+          <% for(var i = 4; i < 7; i++) { %>
+          <li>
+            <i class="material-icons">link</i>
+            <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+            <% if (depth.links[i].new){ %>
+              <sup>NEW</sup>
+            <% } %>
+            <% if (depth.links[i].keyRead){ %>
+              <sup>KEY READ</sup>
+            <% } %>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="col-md-4 in-depths-links">
+        <ul class="separator compact-list">
+          <% for(var i = 7; i < depth.links.length; i++) { %>
+          <li>
+            <i class="material-icons">link</i>
+            <a href="<%- depth.links[i].href %>" target="_blank" ><%- depth.links[i].link %></a>
+            <% if (depth.links[i].new){ %>
+              <sup>NEW</sup>
+            <% } %>
+            <% if (depth.links[i].keyRead){ %>
+              <sup>KEY READ</sup>
+            <% } %>
+          </li>
+          <% } %>
+        </ul>
       </div>
     </div>
   </div>

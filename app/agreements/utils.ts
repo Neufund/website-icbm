@@ -1,4 +1,5 @@
 import { BigNumber } from "bignumber.js";
+import { isString } from "lodash";
 import * as moment from "moment";
 import * as replaceString from "replace-string";
 import { IDictionary } from "../types";
@@ -17,9 +18,14 @@ export function bignumberToString(bignumberString: string) {
   return first + "0".repeat(zeroes);
 }
 
-export function formatMoney(decimals: number, moneyInULP: BigNumber) {
-  const moneyInPrimaryBase = moneyInULP.div(new BigNumber(10).pow(decimals));
-  return moneyInPrimaryBase.toFixed(4);
+export function formatMoney(
+  decimals: number,
+  moneyInULP: BigNumber | string,
+  decimalPlaces: number = 4
+) {
+  const money: BigNumber = isString(moneyInULP) ? new BigNumber(moneyInULP) : moneyInULP;
+  const moneyInPrimaryBase = money.div(new BigNumber(10).pow(decimals));
+  return moneyInPrimaryBase.toFixed(decimalPlaces, BigNumber.ROUND_HALF_UP);
 }
 
 export function formatDate(dateAsBigNumber: BigNumber) {
@@ -29,7 +35,7 @@ export function formatDate(dateAsBigNumber: BigNumber) {
     throw new Error("Date has to be bignumber instance!");
   }
 
-  const date = moment.utc(dateAsBigNumber.toNumber(), "X");
+  const date = moment.unix(dateAsBigNumber.toNumber());
   return formatMomentDate(date);
 }
 
@@ -46,14 +52,14 @@ export function formatFraction(fraction: BigNumber) {
   return bignumberToString(fraction.div(Q18).mul(100).toFixed(4));
 }
 
-export function calculateAndFormatRatio(amount: string, neumarkBalance: string): string {
-  return new BigNumber(amount).div(new BigNumber(neumarkBalance)).toFixed(3);
+export function calculateAndFormatRatio(neumarks: string, tokens: string): string {
+  return tokens === "0" ? "0" : new BigNumber(neumarks).div(new BigNumber(tokens)).toFixed(3);
 }
 
 // returns wei
 export function calculateAndFormatFee(penaltyFraction: string, amount: string): string {
   return new BigNumber(penaltyFraction)
-    .mul(new BigNumber(amount).mul(new BigNumber(10).pow(18)))
+    .mul(new BigNumber(amount))
     .div(new BigNumber(10).pow(18))
     .toString();
 }

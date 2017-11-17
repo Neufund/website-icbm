@@ -1,0 +1,11 @@
+@import '../../../common/sass/variables';
+
+.error-message {
+  text-align: center;
+  color: $red;
+}
+
+.steps {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

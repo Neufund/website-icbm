@@ -1,10 +1,16 @@
-<div class="col-md-6 person-block">
+<%
+const plaintext = function(obj) {
+  return obj.replace(/(<([^>]+)>)/ig,'');
+};
+%>
+<div class="col-sm-6 person-block">
     <div class="person-info">
         <img class="person-image" src="<%= image %>"/>
         <div class="person-image highlight"></div>
         <div class="person-details">
             <h4 class="name text-primary"><%= name %></h4>
-            <h4 class="position"><%- title %></h4>
+            <h4 class="position"><%- plaintext(title) %></h4>
+            <h4 class="position-hidden hidden"><%- title %></h4>
         </div>
     </div>
     <div class="bio hidden">

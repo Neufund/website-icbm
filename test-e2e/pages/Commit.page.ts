@@ -22,7 +22,7 @@ export class CommitPage {
         );
       },
       web3Raw as any,
-      config.rpcProvider as any
+      config.injectedRpcProvider as any
     );
 
     return new CommitPage(puppeteer, page);
@@ -32,6 +32,10 @@ export class CommitPage {
 
   public get commitContainer() {
     return new Element(this.page, tid("commit-container"));
+  }
+
+  public get walletInBrowser() {
+    return new Element(this.page, tid("wallet-selector-browser"));
   }
 
   public async acceptLegalAgreement(): Promise<any> {
@@ -56,7 +60,7 @@ export class CommitPage {
     return new Element(this.page, tid("commit-btn"));
   }
 
-  public get transactionStatusModal() {
-    return new Element(this.page, tid("transaction-status-modal"));
+  public get aftermathLink() {
+    return new Element(this.page, tid("aftermath-link"));
   }
 }

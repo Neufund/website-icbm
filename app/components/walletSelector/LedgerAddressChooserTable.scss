@@ -1,0 +1,65 @@
+@import '../../../common/sass/variables';
+
+$blue-hover: rgb(224, 242, 255);
+$blue-accent: #d9edf7;
+
+.table {
+  margin: 15px 0;
+  border: 1px solid $blue-darker;
+  border-radius: 10px;
+  width: 100%;
+  border-collapse: separate;
+
+  thead {
+    text-transform: uppercase;
+    color: $gray-almost-dark;
+    font-size: $font-size-smallest;
+
+    th {
+      border-bottom: 1px solid $blue-darker;
+      border-collapse: separate;
+      border-spacing: 5px 5px;
+    }
+  }
+
+  tfoot {
+    td {
+      border-top: 1px solid $blue-darker;
+      padding: 10px;
+      border-collapse: separate;
+      border-spacing: 5px 5px;
+    }
+  }
+
+  tbody > tr {
+    &:hover > td {
+      background-color: lighten($blue-hover, 3%);
+    }
+  }
+
+  th,
+  td {
+    padding: 20px;
+  }
+}
+
+.use-column {
+  cursor: pointer;
+  text-align: center;
+}
+
+.with-ether {
+  background-color: $blue-accent;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}

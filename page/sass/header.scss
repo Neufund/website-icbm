@@ -37,13 +37,23 @@
       line-height: 20px;
     }
 
+    .btn-wrapper {
+      padding-top: 10px;
+
+      @media(max-width: $screen-xs-max) {
+        padding-left: 15px;
+      }
+    }
+
     li {
       a {
-        padding-right: $navbar-padding-horizontal;
-        padding-left: 0;
+        &:not(.btn) {
+          padding-right: $navbar-padding-horizontal;
+          padding-left: 0;
 
-        @media (max-width: $screen-sm) {
-          padding-left: $navbar-padding-horizontal-small;
+          @media (max-width: $screen-sm) {
+            padding-left: $navbar-padding-horizontal-small;
+          }
         }
       }
     }
@@ -73,17 +83,25 @@
       $offset: 10px;
       $logo-height: $logo-size + $offset;
       margin-top: ($navbar-height - $logo-size - $offset) / 2;
+      margin-left: -100px;
       border-right: 1px solid $gray-darker;
-      background: url('./assets/NeuFund_icon_white_300dpi.png');
+      background-image: url('/assets/NeuFund_logo_full_white.png');
       background-repeat: no-repeat;
       background-position: center left;
-      background-size: $logo-size;
+      background-size: 120px;
       padding: $offset 0;
-      width: $logo-size + 22px;
+      width: 136px;
       height: $logo-height;
 
       @media (max-width: $screen-sm) {
         margin-left: 20px;
+      }
+
+      @media (min-width: $screen-sm-min) and (max-width: $screen-lg-min + 290px) {
+        margin-left: -20px;
+        background-image: url('/assets/NeuFund_icon_white_300dpi.png');
+        background-size: $logo-size;
+        width: $logo-size + 22px;
       }
     }
 

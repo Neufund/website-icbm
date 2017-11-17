@@ -14,6 +14,7 @@ interface IDownloadDocumentLinkProps {
 
 interface IDownloadDocumentLinkState {
   isLoading: boolean;
+  errored?: boolean;
 }
 
 export class DownloadDocumentLink extends React.Component<
@@ -28,11 +29,13 @@ export class DownloadDocumentLink extends React.Component<
   public render() {
     return (
       <div className={cn(styles.link, { active: !this.state.isLoading })} onClick={this.onClick}>
-        <i className={cn("material-icons", styles.icon)}>file_upload </i>
+        <i className={cn("material-icons", styles.icon)}>file_download </i>
         <span className={styles.label}>
           {this.props.children}
         </span>
         {this.state.isLoading && <LoadingIndicator className={styles.loadingIndicator} />}
+        {this.state.errored &&
+          <span className={styles.error}>Error occured while downloading document.</span>}
       </div>
     );
   }
@@ -43,11 +46,18 @@ export class DownloadDocumentLink extends React.Component<
     }
     this.setState({
       isLoading: true,
+      errored: false,
     });
     const { documentHash, outputFilename, getTags } = this.props;
 
     const tags = await getTags();
-    await downloadAgreement(documentHash, tags, outputFilename);
+    try {
+      await downloadAgreement(documentHash, tags, outputFilename);
+    } catch (e) {
+      this.setState({
+        errored: true,
+      });
+    }
 
     this.setState({
       isLoading: false,

@@ -39,7 +39,12 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     host: "localhost",
     port: 9090,
-    historyApiFallback: true,
+    historyApiFallback: {
+      verbose: true,
+      rewrites: [
+         { from: /^\/commit/, to: '/commit.html' }
+      ]
+    },
     // respond to 404s with index.html
     hot: true,
     // display errors on page
@@ -61,7 +66,7 @@ module.exports = {
     }
   },
   entry: {
-    main: [...devEntryPoints, "./app/index.tsx", "./app/curve.tsx"],
+    main: [...devEntryPoints, "./app/index.tsx"],
     commit: [...devEntryPoints, "./app/commit.tsx"],
     page: "./page/ts/index.ts",
   },
@@ -130,14 +135,15 @@ module.exports = {
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|svg)$/,
         loader: "url-loader",
         options: {
           limit: 25000,
+          publicPath: '/'
         },
       },
       {
-        test: /\.(ttf|svg|eot|otf)$/,
+        test: /\.(ttf|eot|otf)$/,
         loader: "file-loader",
         options: {
           name: "fonts/[hash].[ext]",
@@ -166,7 +172,7 @@ function updateParsedEnvsWithProcessEnvs(envs){
 
   keys(envs).forEach(k => {
     result[k] = (k in processEnvs)? processEnvs[k] : envs[k];
-  })
+  });
 
   return result;
 }

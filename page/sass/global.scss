@@ -1,12 +1,9 @@
 body {
+  position: relative;
   margin-top: $navbar-height;
   background-color: $white;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
-
-  &.no-margin {
-    margin: 0;
-  }
 }
 
 label {
@@ -28,8 +25,9 @@ label {
   }
 }
 
-h1 {
-  font-weight: $font-weight-max-bold;
+h1,
+h2 {
+  font-weight: $font-weight-normal;
 }
 
 .btn {
@@ -37,7 +35,8 @@ h1 {
   box-shadow: 0 1px 1px 0 $gray-lighter;
   padding: 10px 60px;
   line-height: 20px;
-  font-weight: $font-weight-more-bold;
+  font-size: $font-size-normal-smaller;
+  font-weight: $font-weight-normal;
 
   a {
     .btn {
@@ -45,22 +44,27 @@ h1 {
     }
   }
 
+  &.btn-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &.btn-primary {
-    background: linear-gradient(180deg, #345363 0%, #2a5a70 100%); // sass-lint:disable-line no-color-literals
+    background-image: linear-gradient(106deg, $blue-off, $blue-off 2%, $black-lighter);
+    color: $white;
 
     &:hover {
-      background: linear-gradient(180deg, #34617e 0%, #2a6585 100%); // sass-lint:disable-line no-color-literals
-    }
-
-    &:active {
-      background: linear-gradient(180deg, #2b4351 0%, #22485a 100%); // sass-lint:disable-line no-color-literals
+      &:enabled {
+        background-image: linear-gradient(130deg, darken($blue-off, 3%), darken($blue-off, 3%) 2%, darken($black-lighter, 3%));
+      }
     }
   }
 
   &.btn-green {
     box-shadow: none;
     background-color: $green;
-    color: $blue-dark-light;
+    color: $blue-darker;
 
     &:hover {
       background-color: lighten($green, 1%);
@@ -82,16 +86,51 @@ h1 {
       color: $white;
     }
   }
+
+  &.slim {
+    padding: 8px 45px;
+  }
 }
 
 .modal-content {
   border-radius: 0 !important; // sass-lint:disable-line no-important
 }
 
-.react-app {
-  margin-top: 80px;
+.main-wrapper {
+  overflow-x: hidden;
 }
 
 .center {
   text-align: center;
+}
+
+.animated-loading-spinner {
+  animation: sk-scaleout 1s infinite ease-in-out;
+  margin: 100px auto;
+  border-radius: 100%;
+  background-color: $loading-indicator-color;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+
+.full-height-container {
+  $header-height: 70px;
+  padding-bottom: 20px;
+  min-height: calc(100vh - #{296px + $header-height}); // some space for footer & header
+
+  @media (max-width: $screen-xs-max) {
+    min-height: calc(100vh - #{517px + $header-height});
+  }
 }

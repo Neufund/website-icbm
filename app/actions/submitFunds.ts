@@ -1,15 +1,27 @@
+import * as BigNumber from "bignumber.js";
+import { push } from "react-router-redux";
 import { ThunkAction } from "redux-thunk";
+
+import { ErrorType } from "../errors";
 import { selectMinTicketWei } from "../reducers/commitmentState";
 import { IAppState } from "../reducers/index";
+import { selectReservedNeumarks, selectReservedTicket } from "../reducers/userState";
 import { IStandardReduxAction } from "../types";
+import { trackWeb3TypeType } from "../utils/ga";
+import { parseMoneyStrToStrStrict } from "../utils/utils";
 import { commitmentValueValidator } from "../validators/commitmentValueValidator";
 import { estimateNeumarksRewardFromContract } from "../web3/estimateNeumarksRewardFromContract";
 import { submitFundsToContract } from "../web3/submitFundsToContract";
 import { transactionConfirmation } from "../web3/transactionConfirmation";
+import { asWeiNumber } from "../web3/utils";
+import { web3ErrorHandler } from "../web3/web3ErrorHandler";
+import { Web3Service } from "../web3/web3Service";
 import {
   COMMITTING_DONE,
   COMMITTING_ERROR,
   COMMITTING_NEW_BLOCK,
+  COMMITTING_RESET,
+  COMMITTING_SET_AMOUNT_TOKENS,
   COMMITTING_STARTED,
   COMMITTING_TRANSACTION_MINED,
   COMMITTING_TRANSACTION_SUBMITTED,
@@ -29,9 +41,25 @@ export function setEstimatedRewardAction(estimatedReward: string): IStandardRedu
   };
 }
 
+export const transactionResetAction = (): IStandardReduxAction => ({
+  type: COMMITTING_RESET,
+  payload: {},
+});
+
 export const transactionStartedAction = (): IStandardReduxAction => ({
   type: COMMITTING_STARTED,
   payload: {},
+});
+
+export const transactionSetTokenAmounts = (
+  committedETH: string,
+  estimatedNEU: string
+): IStandardReduxAction => ({
+  type: COMMITTING_SET_AMOUNT_TOKENS,
+  payload: {
+    committedETH,
+    estimatedNEU,
+  },
 });
 
 export const transactionSubmitted = (txHash: string): IStandardReduxAction => ({
@@ -68,25 +96,62 @@ export const submitFunds: (value: string) => ThunkAction<{}, IAppState, {}> = va
   getState
 ) => {
   try {
-    const selectedAccount = getState().userState.address;
+    const state = getState();
+    trackWeb3TypeType(state.web3State.web3Type);
+
+    const parsedValue = parseMoneyStrToStrStrict(value);
+
+    const committedETH = Web3Service.instance.rawWeb3
+      .toWei(new BigNumber.BigNumber(parsedValue), "ether")
+      .toString();
+    const estimatedReward = state.commitmentState.estimatedReward;
+
+    dispatcher(transactionSetTokenAmounts(committedETH, estimatedReward));
+    const selectedAccount = state.userState.address;
+    dispatcher(push("/commit/tx-confirmation"));
+
     dispatcher(transactionStartedAction());
-    const txHash = await submitFundsToContract(value, selectedAccount);
-    dispatcher(transactionSubmitted(txHash));
-
-    const transactionMined = (blockNo: number) => {
-      dispatcher(transactionMinedAction(blockNo));
-    };
-
-    const newBlock = (blockNo: number) => {
-      dispatcher(transactionNewBlockAction(blockNo));
-    };
-
-    await transactionConfirmation(txHash, transactionMined, newBlock);
-    dispatcher(transactionDoneAction());
-    window.location.assign("/");
+    const txHash = await submitFundsToContract(parsedValue, selectedAccount);
+    dispatcher(push(`/commit/tx-status/${txHash}`));
   } catch (e) {
-    dispatcher(transactionErrorAction(e.toString()));
+    const parsedError = web3ErrorHandler(e);
+    if (parsedError.type === ErrorType.UnknownError) {
+      // tslint:disable-next-line no-console
+      console.log(e);
+    }
+
+    if (parsedError.type === ErrorType.UserDeniedTransaction) {
+      dispatcher(push("/commit"));
+      return;
+    }
+
+    dispatcher(transactionErrorAction(parsedError.message));
   }
+};
+
+export const watchTxBeingMined: (
+  txHash: string
+) => ThunkAction<{}, IAppState, {}> = txHash => async dispatcher => {
+  const transactionMined = (blockNo: number) => {
+    dispatcher(transactionMinedAction(blockNo));
+  };
+
+  const newBlock = (blockNo: number) => {
+    dispatcher(transactionNewBlockAction(blockNo));
+  };
+
+  try {
+    await transactionConfirmation(txHash, transactionMined, newBlock);
+  } catch (e) {
+    const parsedError = web3ErrorHandler(e);
+    if (parsedError.type === ErrorType.UnknownError) {
+      // tslint:disable-next-line no-console
+      console.log(e);
+    }
+    dispatcher(transactionErrorAction(parsedError.message));
+    return;
+  }
+  dispatcher(transactionDoneAction());
 };
 
 export const calculateEstimatedReward: ThunkAction<{}, IAppState, {}> = async (
@@ -100,13 +165,19 @@ export const calculateEstimatedReward: ThunkAction<{}, IAppState, {}> = async (
 
   // we need to make sure first if the form is valid :( This should be done automatically and this action creator should be called on something like onValidationSucceed but there it no such method
   if (commitmentValueValidator(ethAmountInput, {}, { minTicketWei }) !== undefined) {
-    dispatcher(setEstimatedRewardAction("0"));
-    return;
+    return dispatcher(setEstimatedRewardAction("0"));
   }
+  const parsedEthAmountInputInWei = new BigNumber.BigNumber(
+    asWeiNumber(parseMoneyStrToStrStrict(ethAmountInput))
+  );
 
   dispatcher(loadingEstimatedRewardAction());
 
-  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(ethAmountInput);
+  const estimatedNeumarksReward = await estimateNeumarksRewardFromContract(
+    parsedEthAmountInputInWei,
+    selectReservedTicket(state.userState),
+    selectReservedNeumarks(state.userState)
+  );
 
   dispatcher(setEstimatedRewardAction(estimatedNeumarksReward.toString()));
 };

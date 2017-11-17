@@ -1,45 +1,46 @@
+@import '../../common/sass/variables';
+
 .ecosystem {
-    .logo {
-      margin-left: 15px;
-    }
+  .logo {
+    margin-left: 15px;
+  }
 
-    h2 {
-      margin-left: 15px;
-      color: $gray-darker;
-      font-size: $section-title-font-size;
-      font-weight: $font-weight-more-bold;
-    }
+  h2 {
+    margin-left: 15px;
+  }
 
-    p {
-        max-width: 400px
-    }
+  p {
+    max-width: 400px;
+  }
 
-    ul li {
-        color: $black;
-        line-height: 25px;
+  ul {
+    li {
+      line-height: 25px;
+      color: $black;
     }
+  }
 
-    .goto-element {
-        font-size: 19px;
-        font-weight: $font-weight-more-bold;
-        margin-top: 40px;
-        margin-bottom: 6px;
+  .goto-element {
+    margin-top: 40px;
+    margin-bottom: 6px;
+    font-size: 19px;
+    font-weight: $font-weight-more-bold;
+  }
+
+  .subtitle {
+    margin-top: 5px;
+    margin-bottom: 70px;
+    width: 160px;
+    line-height: 16px;
+    font-size: 15px;
+    font-weight: $font-weight-more-bold;
+
+    a {
+      color: $black;
     }
+  }
 
-    .subtitle {
-        font-size: 15px;
-        font-weight: $font-weight-more-bold;
-        line-height: 16px;
-        width: 160px;
-        margin-top: 5px;
-        margin-bottom: 70px;
-
-        a{
-            color: black;
-        }
-    }
-
-    .padme {
-        padding-top: 3px;
-    }
+  .padme {
+    padding-top: 3px;
+  }
 }

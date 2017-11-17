@@ -1,8 +1,9 @@
+// tslint:disable-next-line:no-var-requires
+const downloadjs = require("downloadjs") as any;
+
 /**
  * Strictly parses string to number.
  * White spaces are removed, "," replaced by "." is there is more than 1 dot or other chars NaN is returned.
- * @param {string} source
- * @returns {number}
  */
 export const parseStrToNumStrict = (source: string): number => {
   if (source === null) {
@@ -29,6 +30,27 @@ export const parseStrToNumStrict = (source: string): number => {
   return parseFloat(transform);
 };
 
+export const parseMoneyStrToStrStrict = (source: string): string => {
+  if (source === undefined) {
+    return null;
+  }
+
+  let transform = source.replace(/\s/g, "");
+  transform = transform.replace(/,/g, ".");
+
+  // we allow only digits dots and minus
+  if (/[^.\-\d]/.test(transform)) {
+    return null;
+  }
+
+  // we allow only one dot
+  if ((transform.match(/\./g) || []).length > 1) {
+    return null;
+  }
+
+  return transform;
+};
+
 /**
  * Triggers downloading a file directly to user browser
  */
@@ -43,8 +65,5 @@ export const userDownloadFile = async (
   }
   const blob = await response.blob();
 
-  const link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.download = `${filename}.pdf`;
-  link.click();
+  downloadjs(blob, `${filename}.pdf`);
 };

@@ -1,3 +1,5 @@
+import promiseAll = require("promise-all");
+
 import { AppState } from "../../actions/constants";
 import config from "../../config";
 import { Web3Service } from "../web3Service";
@@ -25,18 +27,28 @@ export async function initRepository() {
     config.contractsDeployed.commitmentContractAddress
   );
 
-  const neumarkAddress = await publicCommitment.neumark;
-  neumark = await Neumark.createAndValidate(web3, neumarkAddress);
+  const [neumarkAddress, etherLockAddress, euroLockAddress] = await Promise.all([
+    publicCommitment.neumark,
+    publicCommitment.etherLock,
+    publicCommitment.euroLock,
+  ]);
 
-  const etherLockAddress = await publicCommitment.etherLock;
-  etherLock = await LockedAccount.createAndValidate(web3, etherLockAddress);
+  [neumark, etherLock, euroLock] = await Promise.all([
+    Neumark.createAndValidate(web3, neumarkAddress),
+    LockedAccount.createAndValidate(web3, etherLockAddress),
+    LockedAccount.createAndValidate(web3, euroLockAddress),
+  ]);
 
-  const euroLockAddress = await publicCommitment.euroLock;
-  euroLock = await LockedAccount.createAndValidate(web3, euroLockAddress);
+  const [etherTokenAddress, euroTokenAddress] = await Promise.all([
+    etherLock.assetToken,
+    euroLock.assetToken,
+  ]);
 
-  const etherTokenAddress = await etherLock.assetToken;
-  etherToken = await EthToken.createAndValidate(web3, etherTokenAddress);
+  const tokens = await promiseAll({
+    etherToken: EthToken.createAndValidate(web3, etherTokenAddress),
+    euroToken: EuroToken.createAndValidate(web3, euroTokenAddress),
+  });
 
-  const euroTokenAddress = await euroLock.assetToken;
-  euroToken = await EuroToken.createAndValidate(web3, euroTokenAddress);
+  etherToken = tokens.etherToken;
+  euroToken = tokens.euroToken;
 }

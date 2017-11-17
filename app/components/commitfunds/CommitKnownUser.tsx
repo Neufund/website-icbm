@@ -1,37 +1,45 @@
 import { BigNumber } from "bignumber.js";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
-import { UserAddressComponent } from "../UserAddressComponent";
+import { connect } from "react-redux";
+
+import { debounce } from "lodash";
+import { calculateEstimatedReward, submitFunds } from "../../actions/submitFunds";
+import config from "../../config";
+import {
+  selectEstimatedReward,
+  selectEstimatedRewardLoadingState,
+  selectMinTicketWei,
+} from "../../reducers/commitmentState";
+import { IAppState } from "../../reducers/index";
+import { selectBalance } from "../../reducers/userState";
+import { LegalAgreementsDownload } from "../LegalAgreementsDownload";
+import { UserInfo } from "../UserInfo";
 import * as style from "./CommitKnownUser.scss";
-import { CommitKnownUserDesc } from "./CommitKnownUserDesc";
 import CommitKnownUserForm, { ICommitKnownUserFormValues } from "./CommitKnownUserForm";
 
 interface ICommitKnownUser {
-  userAddress: string;
+  submitFunds: (values: ICommitKnownUserFormValues) => any;
+  calculateEstimatedReward: () => any;
   contractAddress: string;
   transactionPayload: string;
   minTicketWei: BigNumber;
-  submitFunds: (values: ICommitKnownUserFormValues) => void;
-  calculateEstimatedReward?: () => {};
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
+  balance: BigNumber;
 }
 
-export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
-  userAddress,
-  contractAddress,
-  transactionPayload,
+export const CommitKnownUserComponent: React.SFC<ICommitKnownUser> = ({
   submitFunds,
   minTicketWei,
   calculateEstimatedReward,
   estimatedReward,
   loadingEstimatedReward,
+  balance,
 }) =>
   <div>
     <Row>
-      <Col sm={6}>
-        <UserAddressComponent address={userAddress} />
-      </Col>
+      <UserInfo />
     </Row>
     <Row className={style.formRow}>
       <Col sm={7} md={6}>
@@ -41,13 +49,30 @@ export const CommitKnownUser: React.SFC<ICommitKnownUser> = ({
           onSubmit={submitFunds}
           estimatedReward={estimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
-        />
-      </Col>
-      <Col sm={5} md={6}>
-        <CommitKnownUserDesc
-          contractAddress={contractAddress}
-          transactionPayload={transactionPayload}
+          userBalance={balance}
         />
       </Col>
     </Row>
+    <Row>
+      <Col sm={12}>
+        <LegalAgreementsDownload />
+      </Col>
+    </Row>
   </div>;
+
+export const CommitKnownUser = connect(
+  (state: IAppState) => ({
+    contractAddress: config.contractsDeployed.commitmentContractAddress,
+    minTicketWei: selectMinTicketWei(state.commitmentState),
+    estimatedReward: selectEstimatedReward(state.commitmentState),
+    loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
+    balance: selectBalance(state.userState),
+  }),
+  dispatch => ({
+    submitFunds: (values: ICommitKnownUserFormValues) => dispatch(submitFunds(values.ethAmount)),
+    calculateEstimatedReward: debounce(
+      () => dispatch(calculateEstimatedReward) as () => {},
+      300
+    ) as () => {},
+  })
+)(CommitKnownUserComponent);

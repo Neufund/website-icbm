@@ -10,6 +10,8 @@ sr.reveal(".people-row .person-info");
 sr.reveal(".platform-overview .feature-list");
 sr.reveal(".how-it-works .image");
 sr.reveal(".invest-platform .product-image");
+sr.reveal(".platform-overview .feature");
+sr.reveal(".in-depths-links");
 
 // product page
 sr.reveal(".text-box");

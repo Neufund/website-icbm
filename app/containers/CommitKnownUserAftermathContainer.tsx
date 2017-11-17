@@ -1,17 +1,18 @@
-import { BigNumber } from "bignumber.js";
+import { startCase } from "lodash";
 import { Moment } from "moment";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
+
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { getReservationAgreementTags, getTokenHolderAgreementTags } from "../actions/getTags";
 import { DownloadDocumentLink } from "../components/DownloadDocumentLink";
+import EtherScanLink from "../components/EtherScanLink";
 import { LoadingIndicator } from "../components/LoadingIndicator";
-import { UnderlinedLink } from "../components/UnderlinedLink";
+import MoneyComponent from "../components/MoneyComponent";
 import {
   selectLoading,
-  selectLockedAmount,
-  selectNeumarkBalance,
-  selectUnlockDate,
+  selectUnlockDateEth,
+  selectUnlockDateEur,
 } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import {
@@ -19,48 +20,61 @@ import {
   selectTokenHolderAgreementHash,
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
+
+import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
 import * as styles from "./Aftermath.scss";
 
-interface IAftermathOwnProps {
-  userAddress: string;
-}
-
-interface IAftermathProps {
+interface IAftermathState {
   isLoading: boolean;
-  loadAftermathDetails: (address: string) => {};
-  lockedAmount: BigNumber;
-  neumarkBalance: BigNumber;
-  unlockDate: Moment;
-  getTokenHolderAgreementTags: () => Promise<IDictionary>;
-  getReservationAgreementTags: () => Promise<IDictionary>;
+  lockedAmountEth: string;
+  neumarkBalanceEth: string;
+  unlockDateEth: Moment;
+  lockedAmountEur: string;
+  neumarkBalanceEur: string;
+  unlockDateEur: Moment;
   reservationAgreementHash: string;
   tokenHolderAgreementHash: string;
+  neumarkBalance: string;
+}
+
+interface IAftermathDispatcher {
+  loadAftermathDetails: (address: string) => {};
+  getTokenHolderAgreementTags: () => Promise<IDictionary>;
+  getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
+}
+
+interface IAftermathOwnProps {
+  address: string;
 }
 
 export class CommitKnownUserAftermath extends React.Component<
-  IAftermathProps & IAftermathOwnProps
+  IAftermathOwnProps & IAftermathState & IAftermathDispatcher
 > {
   public componentDidMount() {
-    this.props.loadAftermathDetails(this.props.userAddress);
+    this.props.loadAftermathDetails(this.props.address);
   }
 
-  public async componentWillReceiveProps(_nextProps: IAftermathProps & IAftermathOwnProps) {
-    if (this.props.userAddress !== _nextProps.userAddress) {
-      this.props.loadAftermathDetails(_nextProps.userAddress);
+  public async componentWillReceiveProps(_nextProps: IAftermathOwnProps & IAftermathState) {
+    if (this.props.address !== _nextProps.address) {
+      this.props.loadAftermathDetails(_nextProps.address);
     }
   }
 
   public render() {
     const {
       isLoading,
-      userAddress,
-      lockedAmount,
-      unlockDate,
-      neumarkBalance,
+      address,
+      lockedAmountEth,
+      unlockDateEth,
+      neumarkBalanceEth,
+      lockedAmountEur,
+      unlockDateEur,
+      neumarkBalanceEur,
       getTokenHolderAgreementTags,
       getReservationAgreementTags,
       reservationAgreementHash,
       tokenHolderAgreementHash,
+      neumarkBalance,
     } = this.props;
 
     if (isLoading) {
@@ -70,61 +84,77 @@ export class CommitKnownUserAftermath extends React.Component<
         </div>
       );
     }
+
+    const showEther = parseFloat(lockedAmountEth) > 0;
+    const showEuro = parseFloat(lockedAmountEur) > 0;
+
     return (
       <div className={styles.aftermath}>
         <div>
-          <div className={styles.header}>Sneak peak to your committed funds</div>
-          <UnderlinedLink href="#">
-            If you want to see your transactions, go to etherscan.io
-          </UnderlinedLink>
-        </div>
-
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>For address</div>
-          <div className={styles.value}>
-            {userAddress}
+          <div className={styles.header}>
+            This is a sneak peak of your committed funds in the Neufund ICBM.
           </div>
         </div>
 
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Locked amount</div>
-          <div className={styles.value}>
-            {lockedAmount ? `${lockedAmount.toFixed(2)} ETH` : "-"}
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your wallet address:</h4>
+            <div className={styles.value}>
+              {address}
+            </div>
           </div>
         </div>
 
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Unlock date</div>
-          <div className={styles.value}>
-            {unlockDate ? unlockDate.format("YYYY-MM-DD") : "-"}
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your NEU balance: </h4>
+            <div className={styles.value}>
+              <MoneyComponent value={neumarkBalance} tokenType={TokenType.NEU} />
+            </div>
+          </div>
+
+          <div className={styles.infoBox}>
+            <div className={styles.value}>
+              <DownloadDocumentLink
+                key="neumark_token_holder_agreement"
+                documentHash={tokenHolderAgreementHash}
+                getTags={getTokenHolderAgreementTags}
+                outputFilename="neumark_token_holder_agreement"
+              >
+                Token Holder Agreement
+              </DownloadDocumentLink>
+            </div>
           </div>
         </div>
 
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Neumark balance</div>
-          <div className={styles.value}>
-            {neumarkBalance ? `${neumarkBalance.toFixed(2)} NEU` : "-"}
-          </div>
-        </div>
-        <div className={styles.infoBox}>
-          <div className={styles.caption}>Documents</div>
-          <div className={styles.value}>
-            <DownloadDocumentLink
-              key="neumark_token_holder_agreement"
-              documentHash={tokenHolderAgreementHash}
-              getTags={getTokenHolderAgreementTags}
-              outputFilename="neumark_token_holder_agreement"
-            >
-              Token Holder Agreement
-            </DownloadDocumentLink>
-            <DownloadDocumentLink
-              key="reservation_agreement"
-              documentHash={reservationAgreementHash}
-              getTags={getReservationAgreementTags}
-              outputFilename="reservation_agreement"
-            >
-              Reservation Agreement
-            </DownloadDocumentLink>
+        {showEther &&
+          <CommitmentInfo
+            tokenType={TokenType.ETHER}
+            lockedAmount={lockedAmountEth}
+            neumarkBalance={neumarkBalanceEth}
+            unlockDate={unlockDateEth}
+            reservationAgreementHash={reservationAgreementHash}
+            getReservationAgreementTags={getReservationAgreementTags}
+          />}
+
+        {showEuro &&
+          <CommitmentInfo
+            tokenType={TokenType.EURO}
+            lockedAmount={lockedAmountEur}
+            neumarkBalance={neumarkBalanceEur}
+            unlockDate={unlockDateEur}
+            reservationAgreementHash={reservationAgreementHash}
+            getReservationAgreementTags={getReservationAgreementTags}
+          />}
+
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <h4>Your transaction history:</h4>
+            <div className={styles.value}>
+              <EtherScanLink linkType={EtherScanLinkType.ADDRESS} resourceId={address}>
+                Go to etherscan to see all transactions with <i>Neufund Crowdsale</i> contract.
+              </EtherScanLink>
+            </div>
           </div>
         </div>
       </div>
@@ -132,23 +162,88 @@ export class CommitKnownUserAftermath extends React.Component<
   }
 }
 
+interface ICommitmentInfo {
+  lockedAmount: string;
+  unlockDate: Moment;
+  neumarkBalance: string;
+  tokenType: TokenType;
+  reservationAgreementHash: string;
+  getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
+}
+
+export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
+  lockedAmount,
+  unlockDate,
+  neumarkBalance,
+  tokenType,
+  reservationAgreementHash,
+  getReservationAgreementTags,
+}) =>
+  <div className={styles.section}>
+    <h4>
+      Your {startCase(tokenType.toLowerCase())} funds:
+    </h4>
+    <div className={styles.infoBox}>
+      <div className={styles.caption}>
+        Locked {tokenTypeToSymbol(tokenType)} amount
+      </div>
+      <div className={styles.value}>
+        {lockedAmount ? <MoneyComponent tokenType={tokenType} value={lockedAmount} /> : "-"}
+      </div>
+    </div>
+    <div className={styles.infoBox}>
+      <div className={styles.caption}>
+        {tokenTypeToSymbol(tokenType)} will be unlocked on
+      </div>
+      <div className={styles.value}>
+        {unlockDate ? unlockDate.format("YYYY-MM-DD") : "-"}
+      </div>
+    </div>
+    <div className={styles.infoBox}>
+      <div className={styles.caption}>NEU needed to unlock your funds:</div>
+      <div className={styles.value}>
+        {neumarkBalance ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkBalance} /> : "-"}
+      </div>
+    </div>
+    <div className={styles.infoBox}>
+      <div className={styles.value}>
+        <DownloadDocumentLink
+          key="reservation_agreement"
+          documentHash={reservationAgreementHash}
+          getTags={() => getReservationAgreementTags(tokenType)}
+          outputFilename="reservation_agreement"
+        >
+          Reservation Agreement
+        </DownloadDocumentLink>
+      </div>
+    </div>
+  </div>;
+
 function mapStateToProps(state: IAppState) {
   return {
     isLoading: selectLoading(state.aftermathState),
-    lockedAmount: selectLockedAmount(state.aftermathState),
-    neumarkBalance: selectNeumarkBalance(state.aftermathState),
-    unlockDate: selectUnlockDate(state.aftermathState),
+    lockedAmountEth: state.aftermathState.lockedAmountEth,
+    lockedAmountEur: state.aftermathState.lockedAmountEur,
+    neumarkBalanceEth: state.aftermathState.neumarkBalanceEth,
+    neumarkBalanceEur: state.aftermathState.neumarkBalanceEur,
+    unlockDateEth: selectUnlockDateEth(state.aftermathState),
+    unlockDateEur: selectUnlockDateEur(state.aftermathState),
+    neumarkBalance: state.aftermathState.neumarkBalance,
     reservationAgreementHash: selectReservationAgreementHash(state.legalAgreementState),
     tokenHolderAgreementHash: selectTokenHolderAgreementHash(state.legalAgreementState),
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<any>, _ownProps: IAftermathOwnProps) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     loadAftermathDetails: (address: string) => dispatch(loadAftermathDetails(address)),
     getTokenHolderAgreementTags: () => dispatch(getTokenHolderAgreementTags),
-    getReservationAgreementTags: () => dispatch(getReservationAgreementTags),
+    getReservationAgreementTags: (tokenType: TokenType) =>
+      dispatch(getReservationAgreementTags(tokenType)),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommitKnownUserAftermath);
+export default connect<IAftermathState, IAftermathDispatcher, IAftermathOwnProps>(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommitKnownUserAftermath);

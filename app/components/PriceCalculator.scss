@@ -1,4 +1,5 @@
 @import '../../common/sass/variables';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 $spacing-from-container: 22px;
 
@@ -6,6 +7,12 @@ $spacing-from-container: 22px;
   padding-top: $spacing-from-container;
   font-size: $font-size-smallest;
   font-weight: $font-weight-light;
+
+  h2 {
+    color: $gray-darker;
+    font-size: $section-title-font-size;
+    font-weight: $font-weight-bold;
+  }
 
   .introduction {
     margin-bottom: 0;
@@ -27,10 +34,7 @@ $spacing-from-container: 22px;
     display: inline-block;
     margin-right: 5px;
     width: 100px;
-    overflow: hidden;
-    vertical-align: middle;
     text-align: right;
-    text-overflow: ellipsis;
     white-space: nowrap;
     font-size: $font-size-medium;
     font-weight: $font-weight-normal;
@@ -40,6 +44,11 @@ $spacing-from-container: 22px;
     margin-right: 5px;
     margin-left: 5px;
     font-size: $font-size-small;
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      margin: 0;
+      font-size: 11px;
+    }
   }
 
   .separator {
@@ -54,7 +63,7 @@ $spacing-from-container: 22px;
   }
 
   .description {
-    color: $gray-little-dark;
+    color: $light-off-gray;
     font-size: $font-size-smallest;
   }
 
@@ -83,4 +92,9 @@ $spacing-from-container: 22px;
     font-size: $font-size-normal;
     font-weight: $font-weight-normal;
   }
+}
+
+.pre-text-pargraph {
+  color: $gray-darker;
+  font-size: $font-size-small !important; // sass-lint:disable-line no-color-literals no-important
 }

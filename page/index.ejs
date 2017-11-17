@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head', { title: 'ICO Commit Page', meta: content.meta_head, GA_ID: GA_ID, FB_PIXEL_ID: FB_PIXEL_ID}); %>
+    <%- include('partials/head', { title: 'ICBM Commit Page', meta: content.meta_head, GA_ID: GA_ID, FB_PIXEL_ID: FB_PIXEL_ID}); %>
     <body>
         <div class="background-wrapper">
           <div class="background"></div>
         </div>
-        <%- include('partials/header', { active: 'commit', hashes: hashes }); %>
-        <div>
-          <%- include('partials/home'); %>
+        <%- include('partials/header', { active: 'commit', hashes: hashes, PLATFORM_ENABLED: PLATFORM_ENABLED }); %>
+        <div class="main-wrapper">
+          <%- include('partials/home', { PLATFORM_ENABLED: PLATFORM_ENABLED }); %>
 
           <script src="/common<%= hashes.jsBundleHash %>.js"></script>
           <script src="/main<%= hashes.jsBundleHash %>.js"></script>

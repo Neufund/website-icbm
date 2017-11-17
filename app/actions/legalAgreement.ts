@@ -1,3 +1,4 @@
+import * as BigNumber from "bignumber.js";
 import { ThunkAction } from "redux-thunk";
 
 import { replaceTags } from "../agreements/utils";
@@ -5,8 +6,13 @@ import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
 import { getDocumentFromIPFS } from "../utils/ipfs";
 import { loadLegalAgreementsHashesAndTagsFromWeb3 } from "../web3/loadLegalAgreementsFromContract";
-import { SET_LEGAL_AGREEMENTS, SET_LEGAL_AGREEMENTS_ACCEPTED } from "./constants";
-import { getReservationAgreementGeneralTags, getTokenHolderAgreementGeneralTags } from "./getTags";
+import { SET_LEGAL_AGREEMENTS, SET_LEGAL_AGREEMENTS_ACCEPTED, TokenType } from "./constants";
+import {
+  getReservationAgreementGeneralTags,
+  getReservationAgreementPlaceholders,
+  getTokenHolderAgreementGeneralTags,
+  getTokenHolderAgreementPlaceholders,
+} from "./getTags";
 
 export function legalAgreementsAcceptedAction(): IStandardReduxAction {
   return {
@@ -27,7 +33,10 @@ export function loadAgreementsAction(agreements: {
   };
 }
 
-export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher => {
+export const loadAgreements: ThunkAction<{}, IAppState, {}> = async (dispatcher, getState) => {
+  const state = getState();
+  const ethEurFraction = new BigNumber.BigNumber(state.commitmentState.ethEurFraction);
+
   const agreementHashes = await loadLegalAgreementsHashesAndTagsFromWeb3();
 
   const [reservationAgreement, tokenHolderAgreement] = await Promise.all([
@@ -36,16 +45,21 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async dispatcher =
   ]);
 
   const tokenHolderAgreementGeneralTags = await getTokenHolderAgreementGeneralTags();
-  const tokenHolderAgreementWithGeneralTagsReplaced = replaceTags(
-    tokenHolderAgreement,
-    tokenHolderAgreementGeneralTags
-  );
+  const tokenHolderPlaceholders = getTokenHolderAgreementPlaceholders();
+  const tokenHolderAgreementWithGeneralTagsReplaced = replaceTags(tokenHolderAgreement, {
+    ...tokenHolderPlaceholders,
+    ...tokenHolderAgreementGeneralTags,
+  });
 
-  const reservationAgreementGeneralTags = await getReservationAgreementGeneralTags();
-  const reservationAgreementWithGeneralTagsReplaced = replaceTags(
-    reservationAgreement,
-    reservationAgreementGeneralTags
+  const reservationAgreementGeneralTags = await getReservationAgreementGeneralTags(
+    TokenType.ETHER,
+    ethEurFraction
   );
+  const reservationAgreementPlaceholders = getReservationAgreementPlaceholders();
+  const reservationAgreementWithGeneralTagsReplaced = replaceTags(reservationAgreement, {
+    ...reservationAgreementPlaceholders,
+    ...reservationAgreementGeneralTags,
+  });
 
   dispatcher(
     loadAgreementsAction({

@@ -6,6 +6,9 @@ import {
   LOAD_ICO_PARAMS,
   NEW_PHASE_ACTION,
   SET_ESTIMATED_REWARD,
+  WALLET_SELECTOR_LEDGER_WALLET_SELECTED,
+  WALLET_SELECTOR_OTHER_WALLET_SELECTED,
+  WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED,
 } from "../actions/constants";
 import { Reducer } from "../types";
 
@@ -17,12 +20,20 @@ export interface ICommitmentState {
   minTicketWei?: string;
   loadingEstimatedReward: boolean;
   estimatedReward?: string;
+  euroDecimals: number;
+  ethDecimals: number;
+  neuDecimals: number;
+  ethEurFraction: string;
 }
 
 const initialState: ICommitmentState = {
   loading: true,
   loadingEstimatedReward: false,
   estimatedReward: "0",
+  ethDecimals: 18,
+  euroDecimals: 18,
+  neuDecimals: 18,
+  ethEurFraction: "0",
 };
 
 const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
@@ -38,13 +49,16 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         minTicketWei: payload.minTicketWei,
         loadingEstimatedReward: false,
         estimatedReward: "0",
+        euroDecimals: payload.euroDecimals,
+        ethDecimals: payload.ethDecimals,
+        neuDecimals: payload.neuDecimals,
+        ethEurFraction: payload.ethEurFraction,
       };
     case NEW_PHASE_ACTION:
       return {
         ...state,
         commitmentState: payload,
       };
-
     case LOAD_ESTIMATED_REWARD:
       return {
         ...state,
@@ -57,6 +71,26 @@ const reducer: Reducer<ICommitmentState> = (state = initialState, action) => {
         loadingEstimatedReward: false,
         estimatedReward: payload.estimatedReward,
       };
+    case WALLET_SELECTOR_WALLET_IN_BROWSER_SELECTED:
+    case WALLET_SELECTOR_LEDGER_WALLET_SELECTED:
+    case WALLET_SELECTOR_OTHER_WALLET_SELECTED:
+      return {
+        ...state,
+        loadingEstimatedReward: false,
+        estimatedReward: "0",
+      };
+    case "@@router/LOCATION_CHANGE":
+      if (payload.pathname === "/commit/wallet-selector") {
+        return {
+          ...state,
+          loadingEstimatedReward: false,
+          estimatedReward: "0",
+        };
+      } else {
+        return {
+          ...state,
+        };
+      }
     default:
       return state;
   }
@@ -90,4 +124,8 @@ export function selectEstimatedRewardLoadingState(state: ICommitmentState): bool
 
 export function selectEstimatedReward(state: ICommitmentState): BigNumber {
   return state.estimatedReward ? new BigNumber(state.estimatedReward) : null;
+}
+
+export function selectEthEurFractionInBaseCurrency(state: ICommitmentState): BigNumber {
+  return new BigNumber(state.ethEurFraction).div(new BigNumber(10).pow(state.euroDecimals));
 }

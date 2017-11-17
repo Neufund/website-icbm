@@ -2,17 +2,18 @@ import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import { compose, Dispatch } from "redux";
 
 import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
 import { DuringIcoCountdown } from "../components/DuringIcoCountdown";
+import { watchAction } from "../components/WatchActionHoc";
 import { selectEndDate } from "../reducers/commitmentState";
 import {
   selectAllFunds,
   selectAllInvestors,
+  selectInvestorsNeumarks,
   selectIssuanceRate,
   selectLoadingState,
-  selectTotalSupply,
 } from "../reducers/duringIcoState";
 import { IAppState } from "../reducers/index";
 
@@ -50,7 +51,7 @@ function mapStateToProps(state: IAppState) {
   return {
     finishDate: selectEndDate(state.commitmentState),
     loading: selectLoadingState(state.duringIcoState),
-    totalSupply: selectTotalSupply(state.duringIcoState),
+    totalSupply: selectInvestorsNeumarks(state.duringIcoState),
     issuanceRate: selectIssuanceRate(state.duringIcoState),
     allFunds: selectAllFunds(state.duringIcoState),
     allInvestors: selectAllInvestors(state.duringIcoState),
@@ -63,4 +64,9 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DuringIco as any);
+const WATCH_ACTION_INTERVAL = 30000;
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  watchAction({ interval: WATCH_ACTION_INTERVAL, actionName: "loadDuringIcoDetail" })
+)(DuringIco as any);

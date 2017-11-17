@@ -2,16 +2,18 @@ import * as React from "react";
 import { Line } from "react-chartjs-2";
 import neuMarkInfoCurveChartPlugin from "./neuMarkInfoCurveChartPlugin";
 
+const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 export const formatNumber = (labelValue: any) => {
   // Nine Zeroes for Billions
   return Math.abs(Number(labelValue)) >= 1.0e9
-    ? Math.abs(Number(labelValue)) / 1.0e9 + "BLN"
+    ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
     : // Six Zeroes for Millions
       Math.abs(Number(labelValue)) >= 1.0e6
-      ? Math.abs(Number(labelValue)) / 1.0e6 + "MLN"
+      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
       : // Three Zeroes for Thousands
         Math.abs(Number(labelValue)) >= 1.0e3
-        ? Math.abs(Number(labelValue)) / 1.0e3 + "K"
+        ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
         : Math.abs(Number(labelValue)).toFixed(2);
 };
 
@@ -22,21 +24,31 @@ export const getPrice = (
   atETH: number
 ) => {
   const atEUR = atETH / currencyRate;
-  return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2;
+  return Math.exp(-1 * initialReward * atEUR / capNEU) * initialReward / 2 / currencyRate;
 };
 
-/*
-// We are not using this function for now
-const getCumulativeNEU = (
+export const getCumulativeNEU = (
   currencyRate: number,
   initialReward: number,
   capNEU: number,
   atETH: number
 ) => {
   const atEUR = atETH / currencyRate;
-  return (1 - Math.exp(-1 * initialReward * atEUR / capNEU)) * capNEU;
+  return (1 - Math.exp(-1 * initialReward * atEUR / capNEU)) * capNEU / 2;
 };
-*/
+
+export const getNeumarkAmount = (
+  currencyRate: number,
+  initialReward: number,
+  capNEU: number,
+  atETH: number,
+  ticketSize: number
+) => {
+  const secondPoint = getCumulativeNEU(currencyRate, initialReward, capNEU, atETH + ticketSize);
+  const firstPoint = getCumulativeNEU(currencyRate, initialReward, capNEU, atETH);
+
+  return secondPoint - firstPoint;
+};
 
 export const getEtherDataset = (min: number, max: number, count: number) => {
   const result = [];
@@ -63,21 +75,9 @@ export default (props: ICurveChart) => {
 
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
 
-  let activePointIndex = 0;
+  etherDatasetList.sort((a: number, b: number) => a - b);
 
-  etherDatasetList.forEach((eth, index) => {
-    if (eth === currentRasiedEther) {
-      activePointIndex = index;
-      return;
-    }
-  });
-
-  const activePointPrice = getPrice(
-    currencyRate,
-    initialReward,
-    capNEU,
-    etherDatasetList[activePointIndex]
-  );
+  const activePointPrice = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
   const data = {
     labels: etherDatasetList.map(eth => `${formatNumber(eth)}`),
     datasets: [
@@ -91,33 +91,43 @@ export default (props: ICurveChart) => {
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "black",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "black",
+        pointBorderWidth: 0,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: "black",
         pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
         pointRadius: 0.5,
         pointHitRadius: 10,
-        data: etherDatasetList.map(eth =>
-          // getCumulativeNEU(currencyRate, initialReward, capNEU, eth)
-          getPrice(currencyRate, initialReward, capNEU, eth)
-        ),
+        data: etherDatasetList.map(eth => getPrice(currencyRate, initialReward, capNEU, eth)),
       },
     ],
   };
 
   const options = {
     neuMarkInfoPlugin: {
-      activePointIndex,
-      neuMarkPrice: `${activePointPrice.toFixed(2)} NEU/ETH`,
+      neuMarkPrice: {
+        label: `${activePointPrice.toFixed(2)} NEU/ETH`,
+        fontSize: !isMobile() ? "19px" : "14px",
+        price: activePointPrice,
+      },
       notes: "",
-      xAxesLabel: "Amount of ETH\nCommited",
-      yAxesLabel: "Neumark Reward\n(NEU/ETH)",
+      yAxesLabel: "NEU Reward (NEU/ETH)",
+    },
+    layout: {
+      padding: {
+        left: !isMobile() ? 100 : 20,
+        right: !isMobile() ? 40 : 40,
+        top: 20,
+        bottom: 0,
+      },
     },
     scales: {
       xAxes: [
         {
+          scaleLabel: {
+            display: true,
+            labelString: "Amount of ETH\nCommited",
+            fontColor: "#BBC2C7",
+          },
           gridLines: {
             display: true,
             drawBorder: true,
@@ -127,7 +137,7 @@ export default (props: ICurveChart) => {
           gridDashType: "dot",
           ticks: {
             mirror: false,
-            fontSize: 8,
+            fontSize: 11,
             fontFamily: "Montserrat",
             autoSkip: true,
             maxTicksLimit: 4,
@@ -137,14 +147,18 @@ export default (props: ICurveChart) => {
       ],
       yAxes: [
         {
+          scaleLabel: {
+            display: false,
+          },
           gridLines: {
             display: true,
             drawBorder: true,
             drawOnChartArea: false,
             color: "#D5E20F",
+            drawTicks: true,
           },
           ticks: {
-            fontSize: 8,
+            fontSize: 11,
             fontFamily: "Montserrat",
             autoSkip: true,
             maxTicksLimit: 6,
@@ -157,23 +171,32 @@ export default (props: ICurveChart) => {
     },
     legend: {
       display: false,
-      responsive: false,
+      responsive: true,
     },
     tooltips: {
+      custom: (tooltip: any) => {
+        if (!tooltip) {
+          return;
+        }
+        tooltip.displayColors = false;
+      },
       callbacks: {
         label: (item: any) => {
           const xAxisEtherValue: number = etherDatasetList[item.index];
           const price: number = getPrice(currencyRate, initialReward, capNEU, xAxisEtherValue);
           const currentEth = etherDatasetList[item.index];
-          return `At ${formatNumber(currentEth.toFixed(2))} committed ETH reward ${formatNumber(
-            price.toFixed(2)
-          )} NEU/ETH`;
+
+          return [
+            `At ${formatNumber(currentEth.toFixed(2))} committed ETH`,
+            `reward ${formatNumber(price.toFixed(2))} NEU/ETH`,
+          ];
         },
         title: (tooltipItems: any) => {
           return `${formatNumber(tooltipItems[0].yLabel)} NEU/ETH`;
         },
       },
     },
+    responsive: true,
   };
 
   return <Line data={data} options={options} />;

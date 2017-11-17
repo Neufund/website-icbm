@@ -1,8 +1,8 @@
-<div class="section footer <% if( typeof hide !== "undefined" && hide ) { %>hidden<% } %>">
+<div class="footer <% if( typeof hide !== "undefined" && hide ) { %>hidden<% } %>">
   <div class="container">
     <div class="row">
       <div class="col-sm-5">
-        <a href="<%=neufund_url%>"><%=neufund_txt%></a><br />
+        <a href="<%=neufund_url%>"><%- include("../blocks/hi-res-img", { path: "/assets/NeuFund_logo_full_white", alt: "Neufund logo", cls: "logo" }) %></a><br />
         <br />
         <span class="address"><%-address%></span>
       </div>
@@ -11,7 +11,6 @@
         <div class="row">
           <div class="col-sm-6 separated-mobile">
             <a href="<%=commit_url%>"><%=commit_txt%></a><br />
-            <a href="<%=platform_url%>"><%=platform_txt%></a><br />
             <a href="<%=whitepaper_url%>"><%=whitepaper_txt%></a><br />
             <a href="<%=faq_url%>"><%=faq_txt%></a>
           </div>
@@ -22,7 +21,7 @@
             <div class="social">
               <a href="https://www.facebook.com/neufundorg/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
               <a href="https://twitter.com/neufundorg" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href="https://neufundorg.signup.team/" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i></a>
+              <a href="https://neufund.org/slack" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i></a>
               <a href="https://t.me/neufund" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
               <a href="https://github.com/Neufund/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
               <a href="https://blog.neufund.org/" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
@@ -34,14 +33,7 @@
 
     <div class="row second-row">
       <div class="col-xs-6 col-sm-5"><%=bottom_title%></div>
-
-      <div class="col-xs-6 col-sm-7">
-        <div class="row">
-          <div class="col-sm-offset-6 col-sm-6"><%=design_autor%></div>
-        </div>
-      </div>
-
     </div>
   </div>
-  <%- include('../blocks/hi-res-img', { path: "./assets/footer", alt: "hexagon-shape", cls: "footer-hex" })%>
+  <%- include('../blocks/hi-res-img', { path: "/assets/footer", alt: "hexagon-shape", cls: "footer-hex" })%>
 </div>

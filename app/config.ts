@@ -29,6 +29,8 @@ interface IContractsDeployedIcoCfg {
   pdfRenderer: string;
   numberOfConfirmations: number;
   defaultDerivationPath: string;
+  twitterTrackCommitId: string;
+  twitterTrackMEWId: string;
 }
 
 export function getRequiredValue(obj: any, key: string): string {
@@ -84,6 +86,8 @@ function loadConfig(environment: IDictionary): IConfig {
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 1, // if you set value > 1 then on dev network you will have to simulate traffic
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),
+          twitterTrackCommitId: getRequiredValue(environment, "TWITTER_TRACK_COMMIT_ID"),
+          twitterTrackMEWId: getRequiredValue(environment, "TWITTER_TRACK_MEW_ID"),
         },
       };
     }

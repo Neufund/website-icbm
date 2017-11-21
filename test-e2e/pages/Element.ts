@@ -4,7 +4,7 @@ export class Element {
   constructor(protected readonly page: Page, protected readonly selector: string) {}
 
   public async waitFor() {
-    return this.page.waitFor(this.selector);
+    return this.page.waitFor(this.selector, { timeout: 40000 });
   }
 
   public async text() {

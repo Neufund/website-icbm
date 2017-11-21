@@ -6,6 +6,10 @@ const downloadjs = require("downloadjs") as any;
  * White spaces are removed, "," replaced by "." is there is more than 1 dot or other chars NaN is returned.
  */
 export const parseStrToNumStrict = (source: string): number => {
+  if (source === null) {
+    return NaN;
+  }
+
   if (source === undefined) {
     return NaN;
   }

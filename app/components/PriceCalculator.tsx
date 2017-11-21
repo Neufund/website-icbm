@@ -100,7 +100,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
           <p className={style.description}>
             Calculated amount is an estimation. The NEU reward will be granted after the block is
             mined and it might depend on the order of transactions. ICBM will be performed with a
-            constant ETH to EUR rate but will be set and announced 6 days before the ICBM.
+            initial NEU to ETH rate of 942.5 NEU/ETH.
           </p>
         </div>
       </form>

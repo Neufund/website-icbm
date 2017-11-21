@@ -25,7 +25,7 @@ describe("utils", () => {
       expect(parseStrToNumStrict("-1")).to.eq(-1);
     });
 
-    it("should handle dot and coma", function() {
+    it("should handle dot and comma", function() {
       expect(parseStrToNumStrict("1.5")).to.eq(1.5);
       expect(parseStrToNumStrict("1,5")).to.eq(1.5);
     });
@@ -34,7 +34,7 @@ describe("utils", () => {
       expect(parseStrToNumStrict("1 5")).to.eq(15);
     });
 
-    it("do not allow for double dot / coma", function() {
+    it("do not allow for double dot / comma", function() {
       expect(parseStrToNumStrict("1..55")).to.be.NaN;
       expect(parseStrToNumStrict("1,5,5")).to.be.NaN;
       expect(parseStrToNumStrict("1.5.5")).to.be.NaN;

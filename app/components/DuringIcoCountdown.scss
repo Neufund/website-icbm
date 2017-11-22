@@ -53,7 +53,7 @@
   }
 
   .text {
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-xs-max) {
       padding-top: 10px;
     }
 
@@ -67,7 +67,7 @@
       color: $white;
       font-size: $font-size-small;
 
-      @media (max-width: $screen-sm) {
+      @media (max-width: $screen-xs-max) {
         color: $blue-darker;
       }
     }

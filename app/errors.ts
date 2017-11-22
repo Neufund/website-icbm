@@ -18,6 +18,7 @@ export enum ErrorType {
   TransactionFailedError = "TransactionFailedError",
   TransactionGasError = "TransactionGasError",
   LedgerLockedError = "LedgerLockedError",
+  NotSupportedBrowser = "NotSupportedBrowser",
 }
 
 export class NeufundError extends Error {
@@ -137,6 +138,15 @@ export class TransactionGasError extends NeufundError {
     super(
       ErrorType.TransactionGasError,
       `There is a problem with the amount of gas supplied for the transaction.`
+    );
+  }
+}
+
+export class NotSupportedBrowserError extends NeufundError {
+  constructor() {
+    super(
+      ErrorType.NotSupportedBrowser,
+      "Your browser is not supported! Please use modern browser."
     );
   }
 }

@@ -11,6 +11,7 @@ import reduxThunk from "redux-thunk";
 
 import { setFatalErrorActionCreator } from "./actions/fatalErrorActions";
 import reducers, { IAppState } from "./reducers";
+import { checkIfSupportedBrowser } from "./utils/utils";
 import { initRepository } from "./web3/contracts/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
 
@@ -38,6 +39,8 @@ export async function startup(render: (store: Store<IAppState>) => void) {
     require("!raw-loader!../dist/app.css");
   }
   try {
+    checkIfSupportedBrowser();
+
     await persistStorePromised(store, {
       whitelist: ["legalAgreementState"],
       storage: asyncSessionStorage,

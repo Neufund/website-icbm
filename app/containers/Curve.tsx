@@ -41,7 +41,7 @@ export class Curve extends React.Component<ICurveStateProps, ICurveState> {
     const initialReward: number = 6.5;
     const capNEU: number = 1500000000;
     const min: number = 0;
-    const max: number = 3000000;
+    const max: number = 1440000;
     const dotsNumber: number = 50;
 
     const currencyRate = this.props.currencyRate;

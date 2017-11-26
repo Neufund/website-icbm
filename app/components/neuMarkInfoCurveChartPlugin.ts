@@ -62,7 +62,7 @@ const neuMarkInfoPlugin = {
         break;
       } else if (element < neuMarkPrice.price) {
         activePointIndex = i;
-        extra = 4;
+        extra = -3;
       }
     }
 

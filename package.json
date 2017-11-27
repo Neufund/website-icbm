@@ -110,7 +110,7 @@
   },
   "dependencies": {
     "@types/chart.js": "^2.6.9",
-    "bignumber.js": "^4.0.4",
+    "bignumber.js": "^5.0.0",
     "bluebird": "^3.5.0",
     "chart.js": "^2.7.0",
     "classnames": "^2.2.5",

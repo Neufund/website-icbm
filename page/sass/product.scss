@@ -444,10 +444,12 @@
     }
 
     .platform-img-2 {
-      max-width: 455px;
-      position: relative;
-      left: 100px;
-      top: 30px;
+      @media (min-width: $screen-sm-min) {
+        max-width: 455px;
+        position: relative;
+        left: 100px;
+        top: 30px;
+      }
     }
 
     .product-r-bg {
@@ -460,13 +462,22 @@
 
   .manage_company {
     .product-r-bg {
-      position: absolute;
-      bottom: 245px;
-      left: 0px;
+      @media (min-width: $screen-sm-min) {
+        position: absolute;
+        bottom: 245px;
+        left: 0px;
+      }
     }
 
     .platform-img-1 {
       max-width: 615px;
+    }
+  }
+
+  .img-small {
+    @media (max-width: $screen-xs-max) {
+      max-width: 100% !important;
+      margin-top: 20px;
     }
   }
 }

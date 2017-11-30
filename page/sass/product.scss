@@ -177,6 +177,11 @@
     img, .img-responsive {
       margin: 0 auto
     }
+
+    h5 {
+      font-weight: 300;
+      margin-left: 4px;
+    }
   }
 
   .product-r2-row-wrapper {
@@ -270,6 +275,7 @@
     position: relative;
     @media (min-width: 992px) {
       top: 70px;
+      left: 30px;
       padding-right: 50px;
       padding-left: 20px;
     }
@@ -280,7 +286,7 @@
     @media (min-width: 992px) {
       width: 60%;
       top: 25px;
-      right: 0%;
+      right: -30px;
     }
   }
 

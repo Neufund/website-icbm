@@ -1,0 +1,36 @@
+<div id="<%- id -%>" data-menu-text="<%- menu_text -%>" class="section demistifying_blockchain product product-l<% if (white===true) { %> bg-white<% } %>">
+  <div class="product-l2-bg">
+    <%- include("../blocks/hi-res-img", { path: "/assets/screenshots/poly_w", alt: "Bg", cls: "vertex-bg" }) %>
+  </div>
+  <div class="container">
+    <div class="cf-row">
+      <div class="cf-md-5 with-background-text">
+        <% if (backgroundText!==undefined && backgroundText!=="") {%>
+          <div class="background-text">
+            <%- backgroundText -%>
+          </div>
+          <% } %>
+            <div class="text-box<% if (purple_title===true) { %> text-box-purple<% } %>">
+              <h5>
+                <%- title -%>
+              </h5>
+              <div class="underline"></div>
+            </div>
+            <!-- end text box -->
+            <h3>
+              <%- headline -%>
+            </h3>
+
+            <% for(var i=0; i < paragraphs.length; i++) {%>
+              <p>
+                <%- paragraphs[i] -%>
+              </p>
+              <% } %>
+
+      </div>
+      <div class="cf-md-7">
+        <%- include("../blocks/hi-res-img", { path: image, cls: "img-shadow img-small", alt: "Demistifying blockchain" }) %>
+      </div>
+    </div>
+  </div>
+</div>

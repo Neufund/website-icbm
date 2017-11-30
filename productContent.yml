@@ -1,173 +1,154 @@
 header:
   id: "product-header"
   menu_text: "Introduction"
-  title: "A true platform<br/>for the people."
-  content: "Easy to use, crafted experience for different actors on different stages of their investment journey. An on-going work, being built with community for community in a culture of open-source, access point for everyone to blockchain."
+  title: "Participate in global innovation with Neufund Platform"
+  content: |
+    <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies and investors. It integrates the classical equity investment with the efficiency of the ICO fundraising.</p>
+    <p>Neufund Platform is designed to be both secure and user friendly.</p>
+
   yt_video: "W0LHTWG-UmQ"
 who_can_use:
   id: "who_can_use"
-  menu_text: "Who can use the Platform"
+  menu_text: "Two sides of the Neufund Platform"
   bg_url: ""
-  white: false
+  white: true
   purple_title: false
-  title: "Who can use Neufund's Platform"
-  headline: "For startups and all kinds of investors"
+  title: "Two sides of the Neufund Platform"
+  headline: "A platform for investors and companies"
   backgroundText: ""
   paragraphs:
-    - "Unless you are a partner in the VC fund or a business angel, you are new to investing in the companies equity. Neufund’s goal is to open this market. The platform is designed and built with a thought to anticipate the needs of startups and investors, both individual and institutional.  Its key values are: accessibility, scalability and integrability with the traditional investment world."
+    - "Neufund Platform is designed for both sides of the investment process. It allows any kind of investor, be it individuals, business angels or institutional investors to access high-quality and diverse deals."
+    - "It enables companies from all over the world, both seed and late stage to access an unique investors network with broad expertise  and interest in funding any kind of innovation."
   images:
-    - - url: "screenshots/group-25.png"
-        width: 209
-      - url: "screenshots/group-25_2x.png"
-        width: 418
-      - url: "screenshots/group-25_3x.png"
-        width: 627
-    - - url: "screenshots/group-27.png"
-        width: 169
-      - url: "screenshots/group-27_2x.png"
-        width: 338
-      - url: "screenshots/group-27_3x.png"
-        width: 507
-main_feature:
-  id: "main_feature"
-  menu_text: "Investing"
+    - "assets/screenshots/group-25"
+    - "assets/screenshots/group-27"
+
+demistifying_blockchain:
+  id: "demistifying_blockchain"
+  menu_text: "Demistifying blockchain"
   bg_url: ""
   bg_db: false
   white: true
   purple_title: false
-  title: "Main feature: invest in startups"
-  headline: "ICO: new investment mechanism for every model"
+  title: "Demistifying blockchain"
+  headline: "Effortless blockchain on-boarding"
   backgroundText: ""
   paragraphs:
-    - Initial Coin Offering is a new powerful tool for fundraising. With Neufund's innovative approach to allow investments in tokenized shares, it is becoming main-stream. It allows both on- and off-chain startups to address at once a huge capital pool making the fundraising cheap and fast. It allows investors to invest in the projects they believe in, and along with experienced VCs. Neufund's ICO democratises the investment process!
-  image:
-    - url: "screenshots/MainPage.png"
-      width: 604
-    - url: "screenshots/MainPage_2x.png"
-      width: 1208
-    - url: "screenshots/MainPage_3x.png"
-      width: 1812
-invisible_blockchain:
-  id: "invisible_blockchain"
-  menu_text: "What are the tokens"
-  bg_url: ""
-  white: true
-  purple_title: false
-  title: "(in)visible blockchain"
-  headline: "Invest with tokens in tokens"
-  backgroundText: ""
-  paragraphs:
-    - Design and used by nerds and for nerds blockchain products often seem complex and discouraging. Neufund's goal is blockchain's demystification and seamless transition from traditional systems for everyone.
-    - In practice it means simple wiring of crypto-funds to the Platform's investment account, and couple clicks to invest on blockchain in the real shares, which then as equity tokens are stored in an investor's portfolio.
-    - Neufund creates the new set of industry standards integrated with the legal systems.
-  images:
-    - - url: "screenshots/Investment-Accounts.png"
-        width: 428
-      - url: "screenshots/Investment-Accounts_2x.png"
-        width: 856
-      - url: "screenshots/Investment-Accounts_3x.png"
-        width: 1284
-    - - url: "screenshots/Portfolio-Equity.png"
-        width: 480
-      - url: "screenshots/Portfolio-Equity_2x.png"
-        width: 960
-      - url: "screenshots/Portfolio-Equity_3x.png"
-        width: 1440
-benefits_of_blockchain:
-  id: "benefits_of_blockchain"
-  menu_text: "Benefits of blockchain"
-  bg_url: ""
-  bg_db: true
-  white: true
-  purple_title: false
-  title: "Benefits of blockchain"
-  headline: "Profit from the tokens: proceeds and secondary market"
-  backgroundText: ""
-  paragraphs:
-    - Secondary market = liquidity.
-    - Asset liquidation possible for investors and startups from day one after ICO (secondary market drives primary market of innovation) assuring efficient investment decisions and instant capitalisation.
-    - The Platform provides a mechanism for the  distribution of the fees and proceeds to token holders. Since the primary value of equity tokens is economic, the proceeds distribution is the investors’ fundamental right. Such proceeds are deposited into an equity token distribution pool where they may be claimed by token holders.
-  image:
-    - url: "screenshots/I-IN-OWN.png"
-      width: 604
-    - url: "screenshots/I-IN-OWN_2x.png"
-      width: 1208
-    - url: "screenshots/I-IN-OWN_3x.png"
-      width: 1812
+    - "Neufund opens the process of an ICO to a broader audience by offering a much simpler and safer sign-up with an user-friendly web wallet. As your investment grows you can upgrade your wallet to a hardware wallet which provides better protection for your funds. "
+    - "You can become a part of the crypto world with a simple wire transfer and invest on the platform with a stable Euro Token. This way you do not have to own ETH to start participating."
+    - "For blockchain experts Neufund integrates a sign-up with a Ledger Nano S and all kinds of web3 wallets. "
+  image: assets/platform/0.ChooseOption
+
 investors_dashboard:
   id: "investors_dashboard"
   menu_text: ""
   purple_title: false
   backgroundText: "For investors"
   bg_url: "/assets/svg-bg/blue.svg"
-  white: true
-  title: "Investors dashboard"
-  image:
-    - url: "screenshots/InvestorsDashboard.png"
-      width: 790
-    - url: "screenshots/InvestorsDashboard_2x.png"
-      width: 1580
-    - url: "screenshots/InvestorsDashboard_3x.png"
-      width: 2370
+  white: false
+  title: "Manage your investments on the Neufund Platform with an easy-to-use dashboard"
+  image: "assets/platform/InvestorsDashboard"
+
+main_feature:
+  id: "main_feature"
+  menu_text: "Investing"
+  bg_url: ""
+  bg_db: false
+  white: false
+  purple_title: false
+  title: "Invest in innovation on blockchain"
+  headline: "Equity Token Offering - the new type of investment mechanism"
+  backgroundText: ""
+  paragraphs:
+    - Initial Coin Offerings (ICOs) are a new powerful method for fundraising. With Neufund's innovative approach it is now possible for companies to legally tokenize their equity and for investors to participate in Equity Token Offerings (ETOs) on the Blockchain. Neufund’s legal and technical framework allows to represent actual company shares in form of equity tokens on-chain and gives full shareholder rights. On top of that, based on the decision of the company equity tokens may be tranferred or traded on secondary markets. Neufund's ETOs democratise the investment process once and for all.
+  image: "assets/platform/0.Platform"
+
+invisible_blockchain:
+  id: "invisible_blockchain"
+  menu_text: "You have control"
+  bg_url: ""
+  white: false
+  purple_title: false
+  title: "Stay in control of your funds"
+  headline: "Invest with crypto and stable coins"
+  backgroundText: ""
+  paragraphs:
+    - If you are a crypto investor holding ETH, you can invest in companies and withdraw payouts in ETH. If you are an off-chain investor or a blockchain newbie, you can now invest in companies and withdraw payouts in Euro Tokens with a simple wire transfer.
+    - All investments are denominated in Euro to protect you from high volatility of cryptocurrencies. Euro Tokens are pegged 1:1 to Euro.
+  images:
+    - "assets/platform/investment_account_EURT"
+    - "assets/platform/investment_account_ETH"
+
+benefits_of_blockchain:
+  id: "benefits_of_blockchain"
+  menu_text: "Benefits of tokenizaton"
+  bg_url: ""
+  bg_db: true
+  white: false
+  purple_title: false
+  title: "Benefits of tokenizaton"
+  headline: "Profits from equity tokens: ROI & high liquidity"
+  backgroundText: ""
+  paragraphs:
+    - Neufund Platform automatically distributes proceeds to all equity token holders. You can claim your dividends or proceeds from company’s exit via the simple Neufund Plaform UI.
+    - The beauty of the secondary market is its liquidity. By investing in equity tokens on Neufund Platform your assets stay liquid. You can sell our buy more equity tokens if you like. Terms of the ETOs are backed by investment agreements which correspond to those usually found in typical shareholder agreeements. As an equity token holder you enjoy all shareholder rights such as reports, voting in shareholder resolutions, anti-dillution protections, etc.
+  image: "assets/platform/I-IN-OWN"
+
 startups_dashboard:
   id: "startups_dashboard"
   menu_text: ""
-  backgroundText: "For startups"
+  backgroundText: "For companies"
   purple_title: true
   bg_url: "/assets/svg-bg/purple.svg"
-  white: false
-  title: "Startups Dashboard"
-  image:
-    - url: "screenshots/StartupsDashboard.png"
-      width: 790
-    - url: "screenshots/StartupsDashboard_2x.png"
-      width: 1580
-    - url: "screenshots/StartupsDashboard_3x.png"
-      width: 2370
+  white: true
+  title: "Create your company profile in no-time"
+  image: "assets/platform/StartupProfile-Edit"
+
 disrupting_fundraising:
   id: "disrupting_fundraising"
   menu_text: "Being invested in"
   bg_url: ""
-  white: false
+  white: true
   purple_title: true
-  title: "Disrupting fundraising"
-  headline: "Accessible investors pool and symmetry of information"
+  title: "You set the terms"
+  headline: "Define the termsheet on-chain"
   backgroundText: ""
   paragraphs:
-    - "There are couple of elements in startup fundraising that can go wrong:"
-    - "- an inoperable network — meaning lack of access to people with capital and interest in the particular startup and"
-    - "- an assymmetrical information distribution — a novice founder seating in the negotiations room with an experienced investor with the army of lawyers"
-  image:
-    - url: "screenshots/CompanysICOProfile.png"
-      width: 563
-    - url: "screenshots/CompanysICOProfile_2x.png"
-      width: 1126
-    - url: "screenshots/CompanysICOProfile_3x.png"
-      width: 1689
+    - "Neufund Platform provides a legal and technical framework to ensure an easy and fully-legal Equity Token Offering. To ease your work we propose a standard termsheet for the ETO. However you are in charge of setting all the commercial terms using your company dashboard on the platform. "
+  images:
+    - assets/platform/StartupsAccount-Dashboard4
+    - assets/platform/StartupsAccount-Dashboard7
+
 post_investment_management_tool:
   id: "post_investment_management_tool"
   menu_text: "Managing investors"
   bg_url: ""
-  white: false
+  white: true
   purple_title: true
-  title: "Post-investment management tool"
-  headline: "Investors relations "
+  title: "Raise your funds with an ETO"
+  headline: "Offer your equity tokens to investors"
   backgroundText: ""
   paragraphs:
-    - "If you have previous experience with fundraising you know this: investors relations are the bread and butter of every founder. Neufund Platform allows managers to easly inform both on- and off-chain investors about the changes in their day to day operations and set up the voting which would be effectively equal to traditional shareholder meeting."
+    - "You can now launch your ETO and offer your equity tokens to all the investors on the Neufund Platform. After a successful ETO you will sign an Investment Agreement with a Nominee representing your token holders off-chain. Hereafter you will be able to access all the funds you raised."
+    - "The Nominee will represent all your token holders with one entry in your cap table."
   images:
-    - - url: "screenshots/StartupsCorporateGovernance.png"
-        width: 574
-      - url: "screenshots/StartupsCorporateGovernance_2x.png"
-        width: 1148
-      - url: "screenshots/StartupsCorporateGovernance_3x.png"
-        width: 1722
-    - - url: "screenshots/StartupsCorporateGovernance_Investor.png"
-        width: 434
-      - url: "screenshots/StartupsCorporateGovernance_Investor_2x.png"
-        width: 868
-      - url: "screenshots/StartupsCorporateGovernance_Investor_3x.png"
-        width: 1302
+    - /assets/platform/I-IN-OWN
+    - /assets/platform/I-IN-OWN
+
+manage_company:
+  id: "manage-company"
+  menu_text: "Manage Company"
+  bg_url: ""
+  white: true
+  purple_title: true
+  title: "After the ETO"
+  headline: "Manage your tokenized company on-chain"
+  backgroundText: ""
+  paragraphs:
+    - "The dashboard will allow you to interact with your token holders. You will be able to report to all your token holders, enable voting in shareholder resolutions and distribute dividends. This way you can manage numerous token holders without the burden of logistics."
+  images:
+    - /assets/platform/StartupsDashboard
+
 neufund_profile:
   id: "neufund_profile"
   menu_text: ""
@@ -204,42 +185,37 @@ reward_revenue:
       link: "#"
 feature_by_feature:
   id: "feature_by_feature"
-  menu_text: "Feature by feature"
+  menu_text: "Neufund Platform Features"
   bg_url: ""
-  white: false
-  headline: "Feature by feature"
+  white: true
+  headline: "Neufund Platform Features"
   content:
-    - title: "Invest in legal equity tokens"
-      icon: "help"
-      content: "Invest fully legally in ICOs of equity tokens or utility tokens in any company in the world. Neufund also enables investment in tokens that represents rights other than equity, like utility tokens, protocol tokens, and any tokens backed by a SAFT agreement. We achieve this by formally linking traditional contracts with Ethereum smart contracts through mutual reference and code correspondence. "
-      link: "#"
-    - title: "Stable coin"
-      icon: "trending_up"
-      content: "Investment transactions may happen in Euro-Token (EURt), a stable internal token pegged 1:1 to Euro (as explained here). The price of a given equity token is denominated in Euro so that the number of equity tokens acquired by an investor can be directly calculated."
-      link: "#"
-    - title: "Fees & Proceeds Distribution"
-      icon: "gesture"
-      content: "The Platform provides a mechanism for the distribution of fees and proceeds to token holders. Since the primary value of equity tokens is economic, the distribution of proceeds is the investors’ fundamental right. These proceeds are deposited into an equity token distribution pool where they may be claimed by token holders. "
-      link: "#"
+    - title: "LEGALLY BINDING EQUITY TOKENS"
+      icon: "assets/platform/icons/invest.svg"
+      content: "Invest fully legally in Equity Token Offerings in potentially any company in the world."
+    - title: "STABLE COIN"
+      icon: "assets/platform/icons/stable-coin.svg"
+      content: "Investment transactions may happen in Euro-Token (EURT), a stable internal token pegged 1:1 to the Euro. But we also accept ETH investments."
+    - title: "PROCEEDS DISTRIBUTION"
+      icon: "assets/platform/icons/fees.svg"
+      content: "The Platform automatically distributes proceeds to all token holders."
     - title: "On-chain Governance"
-      icon: "create"
-      content: "The Investment Agreement requires the company to carry out shareholder resolutions on Platform for on-chain investors​. Off-chain investors still vote on paper and results are merged to get the final answer. The voting procedure complies with those usually found in typical shareholder agreement."
-      link: "#"
-    - title: "KYC/AML"
-      icon: "border_right"
-      content: "ETO investors can be individuals or organizations. We have standard KYC/AML procedures like you would see on any financial institution, e.g. bank."
-      link: "#"
+      icon: "assets/platform/icons/governance.svg"
+      content: "ETOs are backed by investment agreements which correspond to those usually found in typical shareholder agreements."
+    - title: "STANDARD KYC"
+      icon: "assets/platform/icons/aml.svg"
+      content: "ETO investors can be individuals or organisations. We have standard KYC/AML procedures like you would expect from other financial institutions, e.g. banks."
     - title: "Security"
-      icon: "cloud_queue"
-      content: "Neufund’s user base is expected to include both experts and novices to blockchain applications, and both high and low value accounts. To provide a smooth experience while guaranteeing security for all these users, we plan to support three different authentication mechanisms. In addition, all our users benefit from a protective wallet contract."
-      link: "#"
+      icon: "assets/platform/icons/security.svg"
+      content: "We plan to support three different authentication mechanisms. In addition, all our users will benefit from a protective wallet contract."
+
 last:
   id: "last"
   menu_text: ""
   bg_url: ""
-  white: false
+  white: true
   headline: "Be the owner of Neufund's ecosystem!"
-  button_text: "Commit ETH"
-  button_url: "#"
+  button_text: "Participate in the ICBM"
+  button_url: "/commit"
   link_text: "Read about Nefund's ICO"
-  link_url: "#"
+  link_url: "/"

@@ -55,13 +55,7 @@
   @media (min-width: 992px) {
     .product-l {
       img, .img-responsive {
-        padding-left: 90px;
-      }
-    }
-
-    .product-r {
-      img, .img-responsive {
-        padding-right: 90px;
+        margin-left: 90px;
       }
     }
   }
@@ -100,7 +94,7 @@
     flex-wrap: wrap;
   }
   #product-header-text {
-    width: 40%;
+    width: 46%;
     order: 1;
     @media (max-width: 767px) {
       width: 100%;
@@ -108,7 +102,7 @@
     }
   }
   #product-header-img {
-    width: 60%;
+    width: 54%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,9 +162,6 @@
     right: 10px;
     font-size: 50px;
     color: #fff;
-  }
-
-  .product-l, .product-r {
   }
 
   .product-image {
@@ -285,7 +276,7 @@
   .product-l .cf-row > div {
     position: relative;
   }
-  .product-r-bg, .product-r2-bg, .product-l2-bg {
+  .product-r2-bg, .product-l2-bg {
     position: absolute;
 
     max-height: 100%;
@@ -299,13 +290,6 @@
       display: none;
     }
   }
-  .product-r-bg {
-    left: 0;
-    bottom: 20px;
-    @media (max-width: 991px) {
-      transform: translateX(-110px);
-    }
-  }
   .product-r2-bg {
     left: 0;
     top: 20px;
@@ -314,7 +298,7 @@
     }
   }
   .product-l2-bg {
-    right: 0;
+    right: -119px;
     bottom: 100px;
   }
   #main_feature .product-l2-bg {
@@ -356,16 +340,11 @@
   }
   .product-icons {
     color: #A3C0CC;
-    line-height: 39px;
     padding-bottom: 2px;
-
-    & > * {
-      // overrides library
-      font-size: 28px !important;
+    img {
+      height: 35px;
     }
   }
-
-  // --
 
   .background-text {
     text-transform: uppercase;
@@ -438,5 +417,71 @@
     }
   }
 
+  .section-2 {
+    .image {
+      max-width: 555px;
+    }
+  }
 
+  .img-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .demistifying_blockchain {
+    overflow: hidden;
+
+    .img-shadow {
+      max-width: 555px;
+    }
+
+    .vertex-bg {
+      margin: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  .disrupting_fundraising {
+    overflow: hidden;
+
+    .platform-img-1 {
+      max-width: 455px;
+    }
+
+    .platform-img-2 {
+      @media (min-width: $screen-sm-min) {
+        max-width: 455px;
+        position: relative;
+        left: 100px;
+        top: 30px;
+      }
+    }
+
+    .product-r-bg {
+      position: absolute;
+      transform: rotate(180deg);
+      right: -128px;
+      bottom: 20px;
+    }
+  }
+
+  .manage_company {
+    .product-r-bg {
+      @media (min-width: $screen-sm-min) {
+        position: absolute;
+        bottom: 245px;
+        left: 0px;
+      }
+    }
+
+    .platform-img-1 {
+      max-width: 615px;
+    }
+  }
+
+  .img-small {
+    @media (max-width: $screen-xs-max) {
+      max-width: 100% !important;
+      margin-top: 20px;
+    }
+  }
 }

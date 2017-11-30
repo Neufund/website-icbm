@@ -1,53 +1,45 @@
-<div
-  id="<%- id -%>"
-  data-menu-text="<%- menu_text -%>"
-  class="section product product-r3 <% if (white===true) { %> bg-white<% } %>"
-  <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
->
-  <div id="section-left-hex">
-    <!-- patch-added -->
-    <img
-      src="/assets/screenshots/poly_w.png"
-      srcset="/assets/screenshots/poly_w_2x.png 251w, /assets/screenshots/poly_w_3x.png 753w"
-    />
-  </div>
-  <div class="container">
-    <div class="cf-row">
-      <div class="cf-md-7">
-        <div class="product-r3-row-wrapper">
-          <div class="row">
-            <div class="col-xs-6 product-r3-1">
-              <img
-                class="img-r3"
-                src="/assets/<%- images[0][0].url -%>"
-                srcset="/assets/<%- images[0][1].url -%> <%- images[0][1].width -%>w, /assets/<%- images[0][2].url -%> <%- images[0][2].width -%>w"
-              />
+<div id="<%- id -%>" data-menu-text="<%- menu_text -%>" class="section product product-r3 <% if (white===true) { %> bg-white<% } %>"
+  <% if (bg_url) { %> style="background-image: url('
+  <%- bg_url -%>')"
+    <% } %>
+      >
+      <div id="section-left-hex">
+        <%- include("../blocks/hi-res-img", { path: "/assets/screenshots/poly_w", alt: "Bg" }) %>
+      </div>
+      <div class="container">
+        <div class="cf-row">
+          <div class="cf-md-7">
+            <div class="product-r3-row-wrapper">
+              <div class="row">
+                <div class="col-xs-6 product-r3-1">
+                  <%- include("../blocks/hi-res-img", { path: images[0], alt: "Company", cls: "img-r3" }) %>
+                </div>
+                <div class="col-xs-6 product-r3-2">
+                  <%- include("../blocks/hi-res-img", { path: images[1], alt: "Investor", cls: "img-r3" }) %>
+                </div>
+              </div>
             </div>
-            <div class="col-xs-6 product-r3-2">
-              <img
-                class="img-r3"
-                src="/assets/<%- images[1][0].url -%>"
-                srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
-              />
+
+          </div>
+          <div class="cf-md-5">
+            <div class="text-box<% if (purple_title===true) { %> text-box-purple<% } %>">
+              <h5>
+                <%- title -%>
+              </h5>
+              <div class="underline"></div>
             </div>
+            <!-- end text box -->
+            <h3>
+              <%- headline -%>
+            </h3>
+
+            <% for(var i=0; i < paragraphs.length; i++) {%>
+              <p>
+                <%- paragraphs[i] -%>
+              </p>
+              <% } %>
+
           </div>
         </div>
-
       </div>
-      <div class="cf-md-5">
-        <div class="text-box<% if (purple_title===true) { %> text-box-purple<% } %>">
-            <h5><%- title -%></h5>
-            <div class="underline"></div>
-        </div> <!-- end text box -->
-        <h3><%- headline -%></h3>
-
-        <% for(var i=0; i < paragraphs.length; i++) {%>
-          <p>
-            <%- paragraphs[i] -%>
-          </p>
-        <% } %>
-
-      </div>
-    </div>
-  </div>
 </div>

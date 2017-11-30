@@ -15,18 +15,10 @@
       <div class="cf-md-7">
         <div class="product-r2-row-wrapper">
           <div class="product-r2-1">
-            <img
-              class="img-r2"
-              src="/assets/<%- images[1][0].url -%>"
-              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
-            />
+            <%- include("../blocks/hi-res-img", { path: images[0], alt: "EUR-T", cls: "img-r2" }) %>
           </div>
           <div class="product-r2-2">
-            <img
-              class="img-r2"
-              src="/assets/<%- images[1][0].url -%>"
-              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
-            />
+              <%- include("../blocks/hi-res-img", { path: images[1], alt: "ETH", cls: "img-r2" }) %>
           </div>
         </div>
 

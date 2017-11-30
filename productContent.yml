@@ -60,7 +60,8 @@ main_feature:
   headline: "Equity Token Offering - the new type of investment mechanism"
   backgroundText: ""
   paragraphs:
-    - Initial Coin Offerings (ICOs) are a new powerful method for fundraising. With Neufund's innovative approach it is now possible for companies to legally tokenize their equity and for investors to participate in Equity Token Offerings (ETOs) on the Blockchain. Neufund’s legal and technical framework allows to represent actual company shares in form of equity tokens on-chain and gives full shareholder rights. On top of that, based on the decision of the company equity tokens may be tranferred or traded on secondary markets. Neufund's ETOs democratise the investment process once and for all.
+    - Initial Coin Offerings (ICOs) are a new powerful method for fundraising. With Neufund's innovative approach it is now possible for companies to legally tokenize their equity and for investors to participate in Equity Token Offerings (ETOs) on the Blockchain. Neufund’s legal and technical framework allows to represent actual company shares in form of equity tokens on-chain and gives full shareholder rights. On top of that, based on the decision of the company equity tokens may be tranferred or traded on secondary markets.
+    - Neufund's ETOs democratise the investment process once and for all.
   image: "assets/platform/0.Platform"
 
 invisible_blockchain:
@@ -81,17 +82,17 @@ invisible_blockchain:
 
 benefits_of_blockchain:
   id: "benefits_of_blockchain"
-  menu_text: "Benefits of tokenizaton"
+  menu_text: "Benefits of tokenization"
   bg_url: ""
   bg_db: true
   white: false
   purple_title: false
-  title: "Benefits of tokenizaton"
+  title: "Benefits of tokenization"
   headline: "Profits from equity tokens: ROI & high liquidity"
   backgroundText: ""
   paragraphs:
     - Neufund Platform automatically distributes proceeds to all equity token holders. You can claim your dividends or proceeds from company’s exit via the simple Neufund Plaform UI.
-    - The beauty of the secondary market is its liquidity. By investing in equity tokens on Neufund Platform your assets stay liquid. You can sell our buy more equity tokens if you like. Terms of the ETOs are backed by investment agreements which correspond to those usually found in typical shareholder agreeements. As an equity token holder you enjoy all shareholder rights such as reports, voting in shareholder resolutions, anti-dillution protections, etc.
+    - The beauty of the secondary market is its liquidity. By investing in equity tokens on Neufund Platform your assets stay liquid. You can sell our buy more equity tokens if you like. Terms of the ETOs are backed by investment agreements which correspond to those usually found in typical shareholder agreements. As an equity token holder you enjoy all shareholder rights such as reports, voting in shareholder resolutions, anti-dilution protections, etc.
   image: "assets/platform/I-IN-OWN"
 
 startups_dashboard:
@@ -214,8 +215,8 @@ last:
   menu_text: ""
   bg_url: ""
   white: true
-  headline: "Be the owner of Neufund's ecosystem!"
+  headline: "Become a part of the Neufund ecosystem!"
   button_text: "Participate in the ICBM"
   button_url: "/commit"
-  link_text: "Read about Nefund's ICO"
+  link_text: "Read more about Neufund ICBM"
   link_url: "/"

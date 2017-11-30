@@ -6,7 +6,7 @@
 >
   <div class="container">
     <div class="cf-row">
-      <div class="cf-md-5 with-background-text">
+      <div class="cf-md-5 with-background-text order-mobile">
         <% if (backgroundText!==undefined && backgroundText!=="") {%>
           <div class="background-text"><%- backgroundText -%></div>
         <% } %>
@@ -28,7 +28,7 @@
 
 
         </div>
-        <%- include("../blocks/hi-res-img", { path: image, alt: menu_text, cls: "img-shadow img-responsive img-scroll" }) %>
+        <%- include("../blocks/hi-res-img", { path: image, alt: menu_text, cls: "img-product img-shadow img-responsive img-scroll" }) %>
       </div>
     </div>
   </div>

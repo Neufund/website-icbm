@@ -60,7 +60,7 @@ gulp.task("page", () => {
     "./page/index.ejs",
     "./page/whitepaper.ejs",
     "./page/faq.ejs",
-    "./page/product.ejs",
+    "./page/platform-preview.ejs",
     "./page/commit.ejs",
     "./page/manual.ejs",
   ];

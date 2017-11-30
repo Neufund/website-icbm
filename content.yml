@@ -544,6 +544,8 @@ footer:
   platform_url: "/product"
   whitepaper_txt: "Whitepaper"
   whitepaper_url: "https://neufund.org/whitepaper/"
+  lightpaper_txt: "Lightpaper"
+  lightpaper_url: "https://neufund.org/lightpaper/"
   faq_txt: "FAQ"
   faq_url: "/faq"
   website_txt: "neufund.org"

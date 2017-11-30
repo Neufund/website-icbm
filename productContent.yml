@@ -18,7 +18,7 @@ who_can_use:
   backgroundText: ""
   paragraphs:
     - "Neufund Platform is designed for both sides of the investment process. It allows any kind of investor, be it individuals, business angels or institutional investors to access high-quality and diverse deals."
-    - "It enables companies from all over the world, both seed and late stage to access an unique investors’ network with broad expertise  and interest in funding any kind of innovation."
+    - "It enables companies from all over the world, both seed and late stage to access an unique investors network with broad expertise  and interest in funding any kind of innovation."
   images:
     - "assets/screenshots/group-25"
     - "assets/screenshots/group-27"
@@ -77,7 +77,7 @@ invisible_blockchain:
     - All investments are denominated in Euro to protect you from high volatility of cryptocurrencies. Euro Tokens are pegged 1:1 to Euro.
   images:
     - "assets/platform/investment_account_EURT"
-    - "assets/screenshots/Portfolio-Equity"
+    - "assets/platform/investment_account_ETH"
 
 benefits_of_blockchain:
   id: "benefits_of_blockchain"

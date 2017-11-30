@@ -1,15 +1,20 @@
 <div
   id="<%- id -%>"
   data-menu-text="<%- menu_text -%>"
-  class="section product product-l<% if (white===true) { %> bg-white<% } %>"
+  class="section product manage_company product-r <% if (white===true) { %> bg-white<% } %>"
   <% if (bg_url) { %> style="background-image: url('<%- bg_url -%>')" <% } %>
 >
+  <div class="product-r-bg">
+    <img
+      src="/assets/hex-bg/v.svg"
+    />
+  </div>
   <div class="container">
     <div class="cf-row">
-      <div class="cf-md-5 with-background-text">
-        <% if (backgroundText!==undefined && backgroundText!=="") {%>
-          <div class="background-text"><%- backgroundText -%></div>
-        <% } %>
+      <div class="cf-md-7">
+          <%- include("../blocks/hi-res-img", { path: images[0], alt: "Platform", cls: "platform-img-1 img-shadow" }) %>
+      </div>
+      <div class="cf-md-5">
         <div class="text-box<% if (purple_title===true) { %> text-box-purple<% } %>">
             <h5><%- title -%></h5>
             <div class="underline"></div>
@@ -22,13 +27,6 @@
           </p>
         <% } %>
 
-      </div>
-      <div class="cf-md-7">
-        <div class="product-l2-bg">
-
-
-        </div>
-        <%- include("../blocks/hi-res-img", { path: image, alt: menu_text, cls: "img-shadow img-responsive img-scroll" }) %>
       </div>
     </div>
   </div>

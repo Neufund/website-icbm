@@ -16,11 +16,7 @@
     <div class="row">
       <div class="col-md-10 col-md-push-1">
         <div class="img-wrapper">
-          <img
-            class="img-responsive img-scroll"
-            src="/assets/<%- image[0].url -%>"
-            srcset="/assets/<%- image[1].url -%> <%- image[1].width -%>w, /assets/<%- image[2].url -%> <%- image[2].width -%>w"
-          />
+          <%- include("../blocks/hi-res-img", { path: image, alt: "Investor's dashboard", cls: "img-shadow img-responsive img-scroll" }) %>
         </div>
       </div>
     </div>

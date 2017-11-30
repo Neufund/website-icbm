@@ -31,18 +31,10 @@
       <div class="cf-md-7">
         <div class="product-l2-row-wrapper">
           <div class="product-l2-1">
-            <img
-              class="img-responsive img-scroll"
-              src="/assets/<%- images[0][0].url -%>"
-              srcset="/assets/<%- images[0][1].url -%> <%- images[0][1].width -%>w, /assets/<%- images[0][2].url -%> <%- images[0][2].width -%>w"
-            />
+            <%- include("../blocks/hi-res-img", { path: images[0], alt: "Bg", cls: "img-responsive img-scroll img-shadow" }) %>
           </div>
           <div class="product-l2-2">
-            <img
-              class="img-responsive img-scroll"
-              src="/assets/<%- images[1][0].url -%>"
-              srcset="/assets/<%- images[1][1].url -%> <%- images[1][1].width -%>w, /assets/<%- images[1][2].url -%> <%- images[1][2].width -%>w"
-            />
+              <%- include("../blocks/hi-res-img", { path: images[1], alt: "Bg", cls: "img-responsive img-scroll img-shadow" }) %>
           </div>
         </div>
       </div>

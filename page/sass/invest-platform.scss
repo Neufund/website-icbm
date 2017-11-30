@@ -11,6 +11,10 @@
   .product-image {
     margin: 0 auto;
     max-height: 520px;
+
+    @media (min-width: $screen-sm-min) {
+      max-width: 470px;
+    }
   }
 
   .btn-container {
@@ -31,6 +35,16 @@
       flex-direction: column;
       justify-content: center;
     }
+  }
+
+  .col-md-7 {
+    position: relative;
+  }
+
+  .bg-hex {
+    position: absolute;
+    top: 52px;
+    left: 0;
   }
 
   @media (max-width: $screen-sm-max) {

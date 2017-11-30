@@ -10,12 +10,13 @@
               <div class="content">
                 <%- paragraph %>
                 <% if(PLATFORM_ENABLED) { %>
-                  <a href="/platform-preview" class="btn btn-link btn-white">Neufund Platform Preview</a>
+                  <a href="/platform-preview" class="btn btn-link btn-white">Platform Preview</a>
                 <% } %>
               </div>
             </div>
             <div class="col-md-7">
-                <%- include("../blocks/hi-res-img", { path: "../assets/invest-platform/Product_together", alt: "Product page", cls: "product-image img-responsive" }) %>
+                <%- include("../blocks/hi-res-img", { path: "../assets/invest-platform/hex", alt: "Product page", cls: "bg-hex img-responsive hidden-xs" }) %>
+                <%- include("../blocks/hi-res-img", { path: "../assets/platform/InvestorsDashboard", alt: "Product page", cls: "product-image img-shadow img-responsive" }) %>
             </div>
         </div>
     </div>

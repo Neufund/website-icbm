@@ -165,6 +165,12 @@
   }
 
   .product-image {
+
+    .background-text {
+      @media (max-width: $screen-xs-max) {
+        font-size: 37px;
+      }
+    }
     .img-wrapper {
       margin-top: 70px;
     }
@@ -409,9 +415,6 @@
     @media (max-width: 767px) {display: none;}
   }
   @media (max-width: 767px) {
-    #main_feature {
-      padding-bottom: 0;
-    }
     #invisible_blockchain {
       padding-top: 20px;
     }
@@ -483,5 +486,9 @@
       max-width: 100% !important;
       margin-top: 20px;
     }
+  }
+
+  .order-mobile {
+    order: 1;
   }
 }

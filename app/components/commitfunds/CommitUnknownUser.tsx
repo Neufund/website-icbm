@@ -16,7 +16,7 @@ import { selectMyEtherWallerUrl } from "../../reducers/formSelectors";
 import { IAppState } from "../../reducers/index";
 import { selectEthNetwork } from "../../reducers/web3State";
 import { etherscanUrl } from "../../utils/etherscan";
-import { publicCommitment } from "../../web3/contracts/ContractsRepository";
+import { publicCommitment } from "../../web3/ContractsRepository";
 import { LegalAgreementsDownload } from "../LegalAgreementsDownload";
 import * as style from "./CommitUnknownUser.scss";
 import { CommitUnknownUserDesc } from "./CommitUnknownUserDesc";

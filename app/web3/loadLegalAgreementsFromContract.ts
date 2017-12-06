@@ -1,4 +1,4 @@
-import { neumark, publicCommitment } from "./contracts/ContractsRepository";
+import { neumark, publicCommitment } from "./ContractsRepository";
 
 export async function loadLegalAgreementsHashesAndTagsFromWeb3(): Promise<{
   reservationAgreementHash: string;

@@ -1,5 +1,5 @@
 import { BigNumber } from "bignumber.js";
-import { publicCommitment } from "./contracts/ContractsRepository";
+import { publicCommitment } from "./ContractsRepository";
 
 export async function estimateNeumarksRewardFromContract(
   etherWei: BigNumber,

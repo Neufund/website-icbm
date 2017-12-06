@@ -3,7 +3,7 @@ import promiseAll = require("promise-all");
 
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
-import { etherToken, euroToken, neumark, publicCommitment } from "./contracts/ContractsRepository";
+import { etherToken, euroToken, neumark, publicCommitment } from "./ContractsRepository";
 import { InternalCommitmentState } from "./contracts/PublicCommitment";
 import { convertEurToEth } from "./utils";
 

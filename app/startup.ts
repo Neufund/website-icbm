@@ -12,7 +12,7 @@ import reduxThunk from "redux-thunk";
 import { setFatalErrorActionCreator } from "./actions/fatalErrorActions";
 import reducers, { IAppState } from "./reducers";
 import { checkIfSupportedBrowser } from "./utils/utils";
-import { initRepository } from "./web3/contracts/ContractsRepository";
+import { initRepository } from "./web3/ContractsRepository";
 import { Web3Service } from "./web3/web3Service";
 
 const persistStorePromised = promisify(persistStore) as any;

@@ -1,7 +1,7 @@
 import { BigNumber } from "bignumber.js";
 import promiseAll = require("promise-all");
 
-import { etherLock, euroLock, neumark, publicCommitment } from "./contracts/ContractsRepository";
+import { etherLock, euroLock, neumark, publicCommitment } from "./ContractsRepository";
 import { convertEurToEth } from "./utils";
 
 export async function loadDuringIcoDetailsFromContract(

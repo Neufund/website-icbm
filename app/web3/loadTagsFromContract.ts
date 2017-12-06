@@ -11,7 +11,7 @@ import {
   euroToken,
   neumark,
   publicCommitment,
-} from "./contracts/ContractsRepository";
+} from "./ContractsRepository";
 import { convertEurToEth } from "./utils";
 
 export async function loadReservationAgreementGeneralTagsFromContract(

@@ -1,6 +1,6 @@
 import { BigNumber } from "bignumber.js";
 
-import { publicCommitment } from "./contracts/ContractsRepository";
+import { publicCommitment } from "./ContractsRepository";
 import { Web3Service } from "./web3Service";
 
 export async function loadUserAccountFromWeb3(): Promise<string> {

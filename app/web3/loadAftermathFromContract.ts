@@ -1,4 +1,4 @@
-import { etherLock, euroLock, neumark } from "./contracts/ContractsRepository";
+import { etherLock, euroLock, neumark } from "./ContractsRepository";
 import { asMomentDate } from "./utils";
 
 export async function loadAftermathFromContract(address: string) {

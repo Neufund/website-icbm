@@ -3,7 +3,7 @@ import { formValueSelector } from "redux-form";
 import config from "../config";
 import { myEtherWalletUrl } from "../utils/myetherwallet";
 import { parseStrToNumStrict } from "../utils/utils";
-import { publicCommitment } from "../web3/contracts/ContractsRepository";
+import { publicCommitment } from "../web3/ContractsRepository";
 import { IAppState } from "./index";
 
 export const selectMyEtherWallerUrl = (state: IAppState): string => {

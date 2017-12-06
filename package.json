@@ -31,7 +31,7 @@
     "@types/redux-logger": "^3.0.0",
     "@types/redux-persist": "^4.3.1",
     "@types/semver": "^5.4.0",
-    "@types/sinon": "^2.3.3",
+    "@types/sinon": "^4.1.0",
     "awesome-typescript-loader": "^3.2.2",
     "bluebird": "^3.5.0",
     "bootstrap-sass": "^3.3.7",

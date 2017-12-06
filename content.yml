@@ -423,6 +423,14 @@ advisors:
       email: ""
       bio: |
         <p>Ha is a technology enthusiast and an Investment Manager at Project A Ventures. Having studied Industrial Engineering and Management, he has been exploring the intersection of technological innovations and business implications for the last few years. Through roles in marketing, business development and strategy in companies like Google, Techstars and several startups, he learned what makes digital business models successful and is now applying this knowledge in the venture capital industry. At Project A, Ha covers startups in many technical areas including machine learning, blockchain and developer tools. He is known for open-sourcing his research and data on >600 European AI Startups and for being more and more fascinated by the crypto economy and its societal implications. As a believer in communities, he acts as a mentor at Techstars and occasionally supports startups in an advisory capacity.</p>
+    - name: "Frank Thelen"
+      title: <span class="position">CEO and Founder at</span> <a href="https://freigeist.com" target="_blank">Freigeist</a>
+      image: "../assets/Frank_Thelen.jpg"
+      links:
+        website: "https://frank.io"
+      email: ""
+      bio: |
+        <p>Frank Thelen is a European serial founder, technology investor and TV personality. Since 1994, he founded and managed technology and design-driven companies. In his role as the founder and CEO of the venture capitalist Freigeist Capital, he concentrates on investments in the early phase. Its products have reached over 200 million customers in over 60 countries. Frank was the seed investor in startups like Lilium Aviation, Wunderlist, myTaxi, kaufDA and Little Lunch.</p>
 
 quotes:
   visible: true

@@ -3,7 +3,7 @@ import * as moment from "moment";
 
 import { IcoPhase } from "../../app/actions/constants";
 import { CommitmentType } from "../../app/config";
-import { InternalCommitmentState } from "../../app/web3/contracts/PublicCommitment";
+import { InternalCommitmentState } from "../../app/web3/contracts/extensions/PublicCommitment";
 import {
   mapCommitmentTypeToFinishingInternalContractPhase,
   mapCommitmentTypeToStartingInternalContractPhase,

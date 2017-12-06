@@ -20,7 +20,7 @@ export async function estimateNeumarksRewardFromContract(
   }
 
   if (curvePart.gt(0)) {
-    curveNeumarks = await publicCommitment.estimateNeumarkReward(curvePart.toString());
+    curveNeumarks = await publicCommitment.estimateNeumarkReward(curvePart);
   }
 
   return neumarkProportionReward.add(curveNeumarks);

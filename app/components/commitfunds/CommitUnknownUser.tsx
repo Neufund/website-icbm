@@ -103,7 +103,7 @@ export const CommitUnknownUser = connect(
     minTicketWei: selectMinTicketWei(state.commitmentState),
     estimatedReward: selectEstimatedReward(state.commitmentState),
     loadingEstimatedReward: selectEstimatedRewardLoadingState(state.commitmentState),
-    transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
+    transactionPayload: publicCommitment.commitTx().getData(),
     gasPrice: config.contractsDeployed.gasPrice,
     gasLimit: config.contractsDeployed.gasLimit,
     myEtherWalletUrl: selectMyEtherWallerUrl(state),

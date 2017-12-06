@@ -32,5 +32,5 @@ export async function allInvestors() {
 
 export async function issuanceRate(ethDecimals: number): Promise<BigNumber> {
   const eth = new BigNumber(10).pow(ethDecimals);
-  return await publicCommitment.estimateNeumarkReward(eth.toString());
+  return await publicCommitment.estimateNeumarkReward(eth);
 }

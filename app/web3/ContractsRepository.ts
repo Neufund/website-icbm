@@ -4,9 +4,9 @@ import { AppState } from "../actions/constants";
 import config from "../config";
 import { EthToken } from "./contracts/EthToken";
 import { EuroToken } from "./contracts/EuroToken";
+import { PublicCommitment } from "./contracts/extensions/PublicCommitment";
 import { LockedAccount } from "./contracts/LockedAccount";
 import { Neumark } from "./contracts/Neumark";
-import { PublicCommitment } from "./contracts/PublicCommitment";
 import { Web3Service } from "./web3Service";
 
 export let publicCommitment: PublicCommitment = null;

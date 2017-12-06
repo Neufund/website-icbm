@@ -3,8 +3,8 @@ import promiseAll = require("promise-all");
 
 import { IcoPhase } from "../actions/constants";
 import config, { CommitmentType } from "../config";
+import { InternalCommitmentState } from "./contracts/extensions/PublicCommitment";
 import { etherToken, euroToken, neumark, publicCommitment } from "./ContractsRepository";
-import { InternalCommitmentState } from "./contracts/PublicCommitment";
 import { convertEurToEth } from "./utils";
 
 export function mapCommitmentTypeToStartingInternalContractPhase(
@@ -55,8 +55,8 @@ export async function loadIcoParamsFromContract() {
     neuDecimals,
     ethEurFraction,
   } = await promiseAll({
-    startingDate: publicCommitment.startOf(startingInternalState),
-    finishDate: publicCommitment.startOf(finishingInternalState),
+    startingDate: publicCommitment.startOfDate(startingInternalState),
+    finishDate: publicCommitment.startOfDate(finishingInternalState),
     minTicketEur: publicCommitment.minTicketEur,
     euroDecimals: euroToken.decimals,
     ethDecimals: etherToken.decimals,

@@ -8848,9 +8848,9 @@ type-is@~1.6.15:
     media-typer "0.3.0"
     mime-types "~2.1.15"
 
-typechain@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/typechain/-/typechain-0.0.7.tgz#d46a1df993ec072d5a4b17a873c5560a68116b82"
+typechain@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/typechain/-/typechain-0.0.8.tgz#1b6dc2c2a2bf7f3274e362c428e2ea5adff4e164"
   dependencies:
     chalk "^2.1.0"
     command-line-args "^4.0.7"

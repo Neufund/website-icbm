@@ -96,7 +96,7 @@
   },
   "scripts": {
     "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" \"webpack-dev-server --https --port 9090\"",
-    "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/**/*.ts?(x)' 'test-e2e/*.ts'",
+    "tslint": "tslint --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/**/*.ts?(x)' 'test-e2e/*.ts' -e 'app/web3/contracts/*.ts'",
     "tslint:fix": "tslint --format stylish --fix --type-check --project . 'app/*.ts?(x)' 'app/**/*.ts?(x)' 'page/ts/*.ts?(x)' 'test/**/*.ts?(x)' 'test-e2e/*.ts'",
     "lint": "yarn tslint && yarn sass-lint",
     "lint:fix": "yarn tslint:fix && yarn sass-lint",

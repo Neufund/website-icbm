@@ -13,14 +13,6 @@ export enum InternalCommitmentState {
 }
 
 export class PublicCommitment extends PublicCommitmentBase {
-  public get internalCommitmentState(): Promise<InternalCommitmentState> {
-    return this.state.then(state => state.toNumber());
-  }
-
-  public async startOfDate(stateEnum: InternalCommitmentState): Promise<Moment> {
-    return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
-  }
-
   public static async createAndValidate(
     web3: any,
     address: string | BigNumber
@@ -31,5 +23,13 @@ export class PublicCommitment extends PublicCommitmentBase {
       throw new Error(`Contract at ${address} doesn't exist!`);
     }
     return contract;
+  }
+
+  public get internalCommitmentState(): Promise<InternalCommitmentState> {
+    return this.state.then(state => state.toNumber());
+  }
+
+  public async startOfDate(stateEnum: InternalCommitmentState): Promise<Moment> {
+    return asMomentDate(await promisify(this.rawWeb3Contract.startOf, [stateEnum]));
   }
 }

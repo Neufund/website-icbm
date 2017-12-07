@@ -1,0 +1,28 @@
+@import '../../common/sass/variables';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+
+.container {
+  margin-top: 20px;
+
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 130px;
+    min-height: 156px;
+  }
+}
+
+.kitty {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-radius: 4px;
+  width: 100px; // ratio is 1.26 / 1
+  height: auto;
+
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
+}

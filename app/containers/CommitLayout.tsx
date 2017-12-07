@@ -6,6 +6,7 @@ import { Dispatch } from "redux";
 
 import { initCommit } from "../actions/commitActions";
 import { Web3Type } from "../actions/constants";
+import { CryptoKittiesNote } from "../components/CryptoKittiesNote";
 import { FatalErrorComponent } from "../components/FatalErrorComponent";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
@@ -50,6 +51,7 @@ class CommitLayoutComponent extends React.Component<ICommitComponent> {
       <div>
         <Grid className="full-height-container">
           <WhitelistedCommitmentNote />
+          <CryptoKittiesNote />
           {this.props.children}
         </Grid>
       </div>

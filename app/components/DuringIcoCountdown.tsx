@@ -118,12 +118,6 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
           </li>
           <li>
             <i className="material-icons">link</i>
-            <a href="mailto:investors@neufund.org" target="_blank">
-              If you have no ETH - write us
-            </a>
-          </li>
-          <li>
-            <i className="material-icons">link</i>
             <a href="https://t.me/neufund" target="_blank">
               Join us on Telegram!
             </a>

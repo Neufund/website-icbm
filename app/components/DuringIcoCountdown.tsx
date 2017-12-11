@@ -131,6 +131,9 @@ export const DuringIcoCountdown = (props: IDuringIcoCountdownProps) => {
             Commit ETH
           </a>
         </div>
+        <div className={styles.statusLinkWrapper}>
+          <a href="/commit/status">See your commitment status</a>
+        </div>
       </Col>
       <Col sm={7} xsHidden>
         <HexagonsStack

@@ -46,8 +46,14 @@
 
       font-weight: 400;
     }
+
+    a {
+      font-size: $font-size-small;
+    }
+
     .material-icons {
       color: $green;
+      margin-right: 0.25em;
     }
   }
 

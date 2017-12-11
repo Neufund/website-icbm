@@ -116,8 +116,7 @@ disrupting_fundraising:
   backgroundText: ""
   paragraphs:
     - "Neufund Platform provides a legal and technical framework to ensure an easy and fully-legal Equity Token Offering. To ease your work we propose a standard termsheet for the ETO. However you are in charge of setting all the commercial terms using your company dashboard on the platform."
-    - "<i class=\"material-icons\">link</i> <a href=\"https://neufund.org/docs/eto\">Neufund - Equity Token Offerings</a>"
-    - "<i class=\"material-icons\">link</i> <a href=\"https://neufund.org/docs/etofaqs\">Neufund - FAQs for companies</a>"
+    - "<i class=\"material-icons\">link</i> <a href=\"https://neufund.org/docs/eto\">Neufund - Equity Token Offerings</a><br/><i class=\"material-icons\">link</i> <a href=\"https://neufund.org/docs/etofaqs\">Neufund - FAQs for companies</a>"
   images:
     - assets/platform/StartupsAccount-Dashboard4
     - assets/platform/StartupsAccount-Dashboard7

@@ -31,12 +31,27 @@ interface IContractsDeployedIcoCfg {
   defaultDerivationPath: string;
   twitterTrackCommitId: string;
   twitterTrackMEWId: string;
+  isCommitmentStatusFixed: boolean;
+  fixedCommitmentStatus?: {
+    totalNeumarkSupply: string;
+    reservedNeumarks: string;
+    issuanceRate: string;
+    ethCommitted: string;
+    eurCommitted: string;
+    investors: string;
+    platformOperatorNeumarkRewardShare: string;
+    totalCurveWei: string;
+  };
 }
 
 export function getRequiredValue(obj: any, key: string): string {
   if (obj[key] === undefined) {
     throw new Error(`'${key}' doesn't exist in .env file`);
   }
+  return obj[key];
+}
+
+export function getValue(obj: any, key: string): string {
   return obj[key];
 }
 
@@ -74,9 +89,11 @@ function loadConfig(environment: IDictionary): IConfig {
         },
       };
     case AppState.CONTRACTS_DEPLOYED: {
+      const isCommitmentStatusFixed = getValue(environment, "COMMITMENT_STATUS_FIXED") === "true";
       return {
         appState,
         contractsDeployed: {
+          isCommitmentStatusFixed,
           commitmentContractAddress: getRequiredValue(environment, "COMMITMENT_CONTRACT_ADDRESS"),
           rpcProvider: getRequiredValue(environment, "RPC_PROVIDER"),
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
@@ -88,6 +105,22 @@ function loadConfig(environment: IDictionary): IConfig {
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),
           twitterTrackCommitId: getRequiredValue(environment, "TWITTER_TRACK_COMMIT_ID"),
           twitterTrackMEWId: getRequiredValue(environment, "TWITTER_TRACK_MEW_ID"),
+          fixedCommitmentStatus: isCommitmentStatusFixed && {
+            totalNeumarkSupply: getRequiredValue(
+              environment,
+              "COMMITMENT_STATUS_TOTAL_NEUMARK_SUPPLY"
+            ),
+            reservedNeumarks: getRequiredValue(environment, "COMMITMENT_STATUS_RESERVED_NEUMARKS"),
+            issuanceRate: getRequiredValue(environment, "COMMITMENT_STATUS_ISSUANCE_RATE"),
+            ethCommitted: getRequiredValue(environment, "COMMITMENT_STATUS_ETH_COMMITTED"),
+            eurCommitted: getRequiredValue(environment, "COMMITMENT_STATUS_EUR_COMMITTED"),
+            investors: getRequiredValue(environment, "COMMITMENT_STATUS_INVESTORS"),
+            platformOperatorNeumarkRewardShare: getRequiredValue(
+              environment,
+              "COMMITMENT_STATUS_PLATFORM_OP_REWARD_SHARE"
+            ),
+            totalCurveWei: getRequiredValue(environment, "COMMITMENT_STATUS_TOTAL_CURVE_WEI"),
+          },
         },
       };
     }

@@ -10,6 +10,8 @@
     answer : "The Euro Token (EURT) is an on-chain representation of the fiat currency Euro within the Neufund Platform. Our EURT cannot live, or be used, outside the Platform."
   - question : "I couldn’t find an answer to my question, what now?"
     answer : Send us an e-mail at <a href="mailto:hello@neufund.org">hello@neufund.org</a> or <a target="_blank" href="https://neufund.org/slack">join our Slack</a> to get direct responses to your questions.
+  - question : "What is the necessity of EUROT? Why don't you use only ETH?"
+    answer: Euro token is created and destroyed against a deposit on bank account - whenever there is a wire in or out. It is internal pegged currency of the platform. Very simple and safe solution. It is used as a reference point for valuation of companies doing ETO on the platform. ETH is too volatile for that purpose. Explained with diagrams in chapter 7 of whitepaper. It is also used to on-board people on Ethereum blockchain without requirement to buy ETH.
 
 - title: "Basic questions"
   questions:
@@ -28,6 +30,40 @@
   - question: Is this project open-sourced?
     answer: |
       Our smart contract code is publicly available in our <a target="_blank" href="https://github.com/Neufund">GitHub</a>. In addition, we have open sourced several of our projects and initiatives, such as the <a target="_blank" href="https://neufund.org/esop">“ESOP: Options On-Chain”</a> project as well as our <a target="_blank" href="https://icomonitor.io">ICO Monitor</a>.
+  - question: Will you do due diligence of companies doing ETOs on the platform?
+    answer: |
+      We will provide basic due diligence of all companies doing ETO. Of course we will provide a more in depth DD for the first batch of ETOs, but due to scalibility issues and the focus of the platform (providing a legal and technical framework for ETOs) we wont be able to do an extensive DD on every ETO on the platform, this stay on investors-side. However we will provide a formal check and introduce experts helping the community to evaluate ETOs.
+  - question: When investors commit funds to the platform and participate in a ICBM, they automatically receive Neumarks tokens proportionately. In this process why does the platform operator collect 50% of the fees?
+    answer: |
+      Contrary to other ICOs, we are not getting a single dime from our ICBM. All funds stay with investors. Also contrary to other ICOs we have no pre-allocated tokens, we get our share only when investors invest. We have no other revenue stream of funding just the fees. In that sense platform operator is perfectly aligned with investors - makes money only when there are good deals on the platform. NEU issuance scheme does not stop after ICBM. ICBM is just a part of capital building mechanism. Rest of NEU will be created during actual investments on the platform.
+  - question: Why do you put a “long-stop date” which coercively locks up investors fund for 18 months? Why can’t investors pull out their money whenever they want and rather go through ‘escape hatch’ and pay a penalty fine?
+    answer: |
+      We believe it's a fair deal. Investors promise us to fund future companies on the platform, we give them  NEU in advance. No one is coercing anyone to do it. You can choose to wait till spring 2018 when platform is up and running and then invest directly in ETOs. You will still receive NEU but less than investors that took more risk and commitmed in ICBM. You can always withdraw your money earlier. Then you have to pay 10% fee which is going to other investors who are still on the platform.
+  - question: What’s the purpose of issuing digitalized tokens which represent a share of the company when people can just buy stocks on the stock market. It just seems that companies that cannot pass the IPO due diligence are finding a quick way to raise capital evading all the securities laws that are implemented to protect investors.
+    answer: |
+      First of all we aim at private equity. You cannot buy it on stock market. Secondly we are not evading any regulations, we are working with regulators in Germany and EU for a year already to provide regulatory framework for tokens. Equity Tokens will be issued with full compliance with securities and other laws of Germany. We are not evading any laws. The whole idea of Neufund is to civilize ICOs and make them legally compliant.
+  - question: Is there any projection of fee costs or dividend earning through ETOs? E.g. how much a normal ETO would have to pay as a fee to the platform?
+    answer: |
+      There is cash component and equity component in the fee. let's assume that cash component is 3% of ICO volume (and forget the gains from equity component). Then if you invest 1000 ETH you get more or less 942 000 NEU. we should also assume that you hold it for a year and that year volume was 1b then your fees are 942000/1.5bln*1bln*3% = 18840 EUR. actually you will get more because not all NEU were issued at 1bln volume. There is example calculation in 5.5 of whitepaper
+  - question: Why there is no vesting scheme on platform operator NEU?
+    answer: |
+      There is a vesting scheme built in into system. There are no pre-allocated tokens, platform operator starts with 0 tokens. It gets token only when there is succesfull investment so there is vesting: all tokens are actually earned and created on every success. This is different comparing to other projects that just take large amount of tokens at start.
+  - question: What stop you from dumping all your tokens on the market?
+    answer: |
+      Platform operator lives off NEU fees, if it sells it's tokens it is like a car factory selling the factory. If we would do it we would be a dead business. Operator is using it's tokens for the good of all token holders like bounty, possible airdrop to increase liquidity and awarness.
+  - question: Are you like kickstarter?
+    answer: |
+      In kickstarter you basically buy product that do not yet exist, here you are getting a share in business with all legal backing. Also we work with companies at various stages that include seed but also later stage that are interested in liquid tokens. Finally you do not get a share of kickstarter profit when you donate to a project, we are giving a share of the platform to investors in form of NEU tokens.
+  - question: When will you announce first ETOs?
+    answer: |
+      By the end Q1 2018 but we already work with interesting projects.
+  - question: Could you present possible use case scenarios of ETH/NEU?
+    answer: |
+      Here are some basic use cases for platform and NEU token: <br/>
+      1. You commit 10 ETH to the platform and receive NEU for that operation. ETH is locked in the smart contract but you still control what you want to do. You wait and look what companies come to the platform. You find some nice company "A" you want to inverst in. You put your 10 ETH on "A's" ETO. You get "A" tokens. At the end you have NEU and "A" tokens.<br/>
+      2. You keep your ETH and NEU waiting for some nice ETO. You see that market is going crazy and you need your ETH back. So you take it back and return NEU you got during sale. You have to pay 10% fee from ETH for getting your money earlier than lock perios. This 10% is distributed among investors that are still on the platform. You have 90% of ETH and no NEU.<br/>
+      3. You wait for nice ICOs but nothing is going on, so after 18 months you decide that you want 100% of your ETH back. You take it all to your wallet and return all NEU - this is just simpole holding ETH for 18 months.<br/>
+      All this time as a NEU holder you get part of the fees from the platform for successfull ETOs - so you also earn on it. Fees are distributed in ETH or EUR.<br/>
 
 - title: "How to participate"
   questions:
@@ -128,6 +164,9 @@
   - question : When will NEU come to market/exchanges? Do you have partnerships with exchanges yet?
     answer : |
       We have ongoing conversations with several exchanges about listing NEU and expect listings to become available in at least one or more exchanges immediately upon the conclusion of the ICBM.
+  - question : Why should I hold NEU?
+    answer : |
+      We are incentivizing users to hold their NEU. As NEU holder you also become co-owner of the platform. This gives you rights to vote, you get % of the fees from the platform. When it develops and more and more ETOs come then you will get revenues from platform operations.
 
 - title: Legal questions
   questions:

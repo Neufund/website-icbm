@@ -39,10 +39,10 @@ participating:
   subtitle: "Key to read"
   links:
     - link: "Neufund Whitepaper"
-      target: "https://neufund.org/whitepaper/"
+      target: "https://neufund.org/whitepaper"
       downloadable: true
     - link: "Roadmap"
-      target: "https://neufund.org/roadmap/"
+      target: "https://neufund.org/roadmap"
       downloadable: true
     - link: "Key takeaways from the Neufund Whitepaper"
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
@@ -488,12 +488,12 @@ ecosystem:
     title: "In Depth"
     links:
     - link: "Whitepaper"
-      href: "https://neufund.org/whitepaper/"
+      href: "https://neufund.org/whitepaper"
     - link: "Lightpaper"
-      href: "https://neufund.org/lightpaper/"
+      href: "https://neufund.org/lightpaper"
       new: true
     - link: "Roadmap"
-      href: "https://neufund.org/roadmap/"
+      href: "https://neufund.org/roadmap"
     - link: 'Neufund​ ​Teaser​'
       new: true
       href: "https://neufund.org/neufundteaser"
@@ -551,9 +551,9 @@ footer:
   platform_txt: "Platform"
   platform_url: "/product"
   whitepaper_txt: "Whitepaper"
-  whitepaper_url: "https://neufund.org/whitepaper/"
+  whitepaper_url: "https://neufund.org/whitepaper"
   lightpaper_txt: "Lightpaper"
-  lightpaper_url: "https://neufund.org/lightpaper/"
+  lightpaper_url: "https://neufund.org/lightpaper"
   faq_txt: "FAQ"
   faq_url: "/faq"
   website_txt: "neufund.org"

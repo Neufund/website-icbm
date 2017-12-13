@@ -1,4 +1,5 @@
 import { ThunkAction } from "redux-thunk";
+import config from "../config";
 import { IAppState } from "../reducers/index";
 import { IStandardReduxAction } from "../types";
 import { loadDuringIcoDetailsFromContract } from "../web3/loadDuringIcoDetailsFromContract";
@@ -53,7 +54,9 @@ export const loadDuringIcoDetails: ThunkAction<{}, IAppState, {}> = async (
     investors,
     platformOperatorNeumarkRewardShare,
     totalCurveWei,
-  } = await loadDuringIcoDetailsFromContract(ethEurFraction, ethDecimals);
+  } = config.contractsDeployed.isCommitmentStatusFixed
+    ? config.contractsDeployed.fixedCommitmentStatus
+    : await loadDuringIcoDetailsFromContract(ethEurFraction, ethDecimals);
 
   dispatcher(
     setDuringIcoDetailsAction(

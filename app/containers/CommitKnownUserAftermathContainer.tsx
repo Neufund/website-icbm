@@ -1,3 +1,4 @@
+import * as BigNumber from "bignumber.js";
 import { startCase } from "lodash";
 import { Moment } from "moment";
 import * as React from "react";
@@ -21,6 +22,7 @@ import {
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
 
+import { Link } from "react-router";
 import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
 import * as styles from "./Aftermath.scss";
 
@@ -131,20 +133,24 @@ export class CommitKnownUserAftermath extends React.Component<
           <CommitmentInfo
             tokenType={TokenType.ETHER}
             lockedAmount={lockedAmountEth}
-            neumarkBalance={neumarkBalanceEth}
+            neumarkLockedBalance={neumarkBalanceEth}
             unlockDate={unlockDateEth}
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
+            neumarkBalance={neumarkBalance}
+            address={address}
           />}
 
         {showEuro &&
           <CommitmentInfo
             tokenType={TokenType.EURO}
             lockedAmount={lockedAmountEur}
-            neumarkBalance={neumarkBalanceEur}
+            neumarkLockedBalance={neumarkBalanceEur}
             unlockDate={unlockDateEur}
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
+            neumarkBalance={neumarkBalance}
+            address={address}
           />}
 
         <div className={styles.section}>
@@ -165,19 +171,23 @@ export class CommitKnownUserAftermath extends React.Component<
 interface ICommitmentInfo {
   lockedAmount: string;
   unlockDate: Moment;
+  neumarkLockedBalance: string;
   neumarkBalance: string;
   tokenType: TokenType;
   reservationAgreementHash: string;
   getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
+  address: string;
 }
 
 export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   lockedAmount,
   unlockDate,
-  neumarkBalance,
+  neumarkLockedBalance,
   tokenType,
   reservationAgreementHash,
   getReservationAgreementTags,
+  neumarkBalance,
+  address,
 }) =>
   <div className={styles.section}>
     <h4>
@@ -202,7 +212,9 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
     <div className={styles.infoBox}>
       <div className={styles.caption}>NEU needed to unlock your funds:</div>
       <div className={styles.value}>
-        {neumarkBalance ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkBalance} /> : "-"}
+        {neumarkLockedBalance
+          ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkLockedBalance} />
+          : "-"}
       </div>
     </div>
     <div className={styles.infoBox}>
@@ -217,7 +229,42 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         </DownloadDocumentLink>
       </div>
     </div>
+    {tokenType === TokenType.ETHER &&
+      <UnlockButton
+        neuNeeded={neumarkLockedBalance}
+        neuBalance={neumarkBalance}
+        address={address}
+      />}
   </div>;
+
+interface IUnlockButton {
+  neuNeeded: string;
+  neuBalance: string;
+  address: string;
+}
+
+const UnlockButton: React.SFC<IUnlockButton> = ({
+  neuNeeded: neuNeededString,
+  neuBalance: neuBalanceString,
+  address,
+}) => {
+  const neuBalance = new BigNumber.BigNumber(neuBalanceString);
+  const neuNeeded = new BigNumber.BigNumber(neuNeededString);
+  return (
+    <div className={styles.infoBox}>
+      <div className={styles.value}>
+        {neuBalance.greaterThanOrEqualTo(neuNeeded)
+          ? <Link to={`/commit/unlock/${address}`} className="btn btn-danger">
+              Unlock funds
+            </Link>
+          : <span>
+              You can't unlock your funds now. You need{" "}
+              <MoneyComponent value={neuNeeded.sub(neuBalance)} tokenType={TokenType.NEU} /> more
+            </span>}
+      </div>
+    </div>
+  );
+};
 
 function mapStateToProps(state: IAppState) {
   return {

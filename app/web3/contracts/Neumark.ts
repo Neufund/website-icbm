@@ -19,7 +19,7 @@ class Contract {
 
   public readonly rawWeb3Contract: any;
 
-  public constructor(web3: any, address: string) {
+  public constructor(web3: any, public readonly address: string) {
     this.rawWeb3Contract = web3.eth.contract(NeumarkAbiJson).at(address);
   }
 

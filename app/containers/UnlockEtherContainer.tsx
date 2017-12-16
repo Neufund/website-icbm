@@ -13,12 +13,15 @@ import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
 
+const GAS_LIMIT = 600000;
+
 interface IUnlockEtherContainerProps {
   params: { address: string };
   loadAftermathDetails: (address: string) => any;
   isLoading: boolean;
   lockedAmountEth: string;
-  neumarkBalanceEth: string;
+  neumarkBalance: string;
+  neumarkNeededToUnlockEth: string;
   unlockDateEth: Moment;
 }
 
@@ -31,8 +34,6 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
     if (this.props.isLoading) {
       return <LoadingIndicator />;
     }
-
-    const willBePenalized = moment().isBefore(this.props.unlockDateEth);
 
     return (
       <div>
@@ -54,55 +55,61 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
             Free unlock date: <strong>{this.props.unlockDateEth.toString()}</strong>
           </div>
         </p>
-        {willBePenalized &&
+        {this.renderSteps()}
+      </div>
+    );
+  }
+
+  private renderSteps() {
+    const neumarkNeededToUnlockAsBI = new BigNumber.BigNumber(this.props.neumarkNeededToUnlockEth);
+    const neumarkBalanceAsBI = new BigNumber.BigNumber(this.props.neumarkBalance);
+
+    const withdrawPossible = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
+    const willBePenalized = moment().isBefore(this.props.unlockDateEth);
+
+    if (!withdrawPossible) {
+      return (
+        <div>
           <Alert bsStyle="danger">
-            Withdrawing funds now will result in penalty of 10% of your funds!
-          </Alert>}
+            You need{" "}
+            <MoneyComponent
+              value={neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI)}
+              tokenType={TokenType.NEU}
+            />{" "}
+            Neumarks more to unlock your account.
+          </Alert>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        {willBePenalized
+          ? <Alert bsStyle="danger">
+              Withdrawing funds now will result in penalty of 10% of your funds!
+            </Alert>
+          : <Alert bsStyle="info">Withdrawing funds now will not result in penalty.</Alert>}
         <h3>Steps to unlock your ether:</h3>
         <ol>
           <li>
             Send transaction to unlock your locked funds:
-            <Row>
-              <Col sm={2}>Address:</Col>
-              <Col xs={12} sm={10}>
-                <TextCopyable text={neumark.address} copyIconOnRight />
-              </Col>
-            </Row>
-            <Row>
-              <Col sm={2}>Data:</Col>
-              <Col xs={12} sm={10}>
-                <TextCopyable
-                  text={neumark.rawWeb3Contract.approveAndCall.getData(
-                    etherLock.address,
-                    this.props.neumarkBalanceEth,
-                    ""
-                  )}
-                  copyIconOnRight
-                  maxTextLength={45}
-                />
-              </Col>
-            </Row>
+            <TxInfo
+              address={neumark.address}
+              data={neumark.rawWeb3Contract.approveAndCall.getData(
+                etherLock.address,
+                this.props.neumarkNeededToUnlockEth,
+                ""
+              )}
+            />
           </li>
           <li>
             Withdraw your funds
-            <Row>
-              <Col sm={2}>Address:</Col>
-              <Col xs={12} sm={10}>
-                <TextCopyable text={etherToken.address} copyIconOnRight />
-              </Col>
-            </Row>
-            <Row>
-              <Col sm={2}>Data:</Col>
-              <Col xs={12} sm={10}>
-                <TextCopyable
-                  text={etherToken.rawWeb3Contract.withdraw.getData(
-                    calculateValueAfterPenalty(this.props.lockedAmountEth, willBePenalized)
-                  )}
-                  copyIconOnRight
-                  maxTextLength={45}
-                />
-              </Col>
-            </Row>
+            <TxInfo
+              address={etherToken.address}
+              data={etherToken.rawWeb3Contract.withdraw.getData(
+                calculateValueAfterPenalty(this.props.lockedAmountEth, willBePenalized)
+              )}
+            />
           </li>
         </ol>
       </div>
@@ -123,7 +130,8 @@ function mapStateToProps(state: IAppState) {
   return {
     isLoading: selectLoading(state.aftermathState),
     lockedAmountEth: state.aftermathState.lockedAmountEth,
-    neumarkBalanceEth: state.aftermathState.neumarkBalanceEth,
+    neumarkBalance: state.aftermathState.neumarkBalance,
+    neumarkNeededToUnlockEth: state.aftermathState.neumarkBalanceEth,
     unlockDateEth: selectUnlockDateEth(state.aftermathState),
   };
 }
@@ -135,3 +143,30 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnlockEtherContainer);
+
+interface ITxInfo {
+  address: string;
+  data: string;
+}
+
+const TxInfo: React.SFC<ITxInfo> = ({ address, data }) =>
+  <div>
+    <Row>
+      <Col sm={2}>Address:</Col>
+      <Col xs={12} sm={10}>
+        <TextCopyable text={address} copyIconOnRight />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={2}>Data:</Col>
+      <Col xs={12} sm={10}>
+        <TextCopyable text={data} copyIconOnRight maxTextLength={45} />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={2}>Gas limit:</Col>
+      <Col xs={12} sm={10}>
+        <TextCopyable text={GAS_LIMIT.toString()} copyIconOnRight />
+      </Col>
+    </Row>
+  </div>;

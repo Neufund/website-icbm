@@ -22,6 +22,7 @@ import {
 import { IDictionary } from "../types";
 
 import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
+import { UnderlinedLink } from "../components/UnderlinedLink";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathState {
@@ -131,20 +132,24 @@ export class CommitKnownUserAftermath extends React.Component<
           <CommitmentInfo
             tokenType={TokenType.ETHER}
             lockedAmount={lockedAmountEth}
-            neumarkBalance={neumarkBalanceEth}
+            neumarkLockedBalance={neumarkBalanceEth}
             unlockDate={unlockDateEth}
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
+            neumarkBalance={neumarkBalance}
+            address={address}
           />}
 
         {showEuro &&
           <CommitmentInfo
             tokenType={TokenType.EURO}
             lockedAmount={lockedAmountEur}
-            neumarkBalance={neumarkBalanceEur}
+            neumarkLockedBalance={neumarkBalanceEur}
             unlockDate={unlockDateEur}
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
+            neumarkBalance={neumarkBalance}
+            address={address}
           />}
 
         <div className={styles.section}>
@@ -165,19 +170,22 @@ export class CommitKnownUserAftermath extends React.Component<
 interface ICommitmentInfo {
   lockedAmount: string;
   unlockDate: Moment;
+  neumarkLockedBalance: string;
   neumarkBalance: string;
   tokenType: TokenType;
   reservationAgreementHash: string;
   getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
+  address: string;
 }
 
 export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   lockedAmount,
   unlockDate,
-  neumarkBalance,
+  neumarkLockedBalance,
   tokenType,
   reservationAgreementHash,
   getReservationAgreementTags,
+  address,
 }) =>
   <div className={styles.section}>
     <h4>
@@ -202,7 +210,9 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
     <div className={styles.infoBox}>
       <div className={styles.caption}>NEU needed to unlock your funds:</div>
       <div className={styles.value}>
-        {neumarkBalance ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkBalance} /> : "-"}
+        {neumarkLockedBalance
+          ? <MoneyComponent tokenType={TokenType.NEU} value={neumarkLockedBalance} />
+          : "-"}
       </div>
     </div>
     <div className={styles.infoBox}>
@@ -217,7 +227,20 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         </DownloadDocumentLink>
       </div>
     </div>
+    {tokenType === TokenType.ETHER && <UnlockButton address={address} />}
   </div>;
+
+interface IUnlockButton {
+  address: string;
+}
+
+const UnlockButton: React.SFC<IUnlockButton> = ({ address }) => {
+  return (
+    <UnderlinedLink href={`/commit/unlock/${address}`} internal>
+      Read about unlocking funds
+    </UnderlinedLink>
+  );
+};
 
 function mapStateToProps(state: IAppState) {
   return {

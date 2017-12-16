@@ -147,20 +147,24 @@ export class CommitUnknownUserAftermath extends React.Component<
               <CommitmentInfo
                 tokenType={TokenType.ETHER}
                 lockedAmount={lockedAmountEth}
-                neumarkBalance={neumarkBalanceEth}
+                neumarkLockedBalance={neumarkBalanceEth}
                 unlockDate={unlockDateEth}
                 reservationAgreementHash={reservationAgreementHash}
                 getReservationAgreementTags={getReservationAgreementTags}
+                neumarkBalance={neumarkBalance}
+                address={address}
               />}
 
             {showEuro &&
               <CommitmentInfo
                 tokenType={TokenType.EURO}
                 lockedAmount={lockedAmountEur}
-                neumarkBalance={neumarkBalanceEur}
+                neumarkLockedBalance={neumarkBalanceEur}
                 unlockDate={unlockDateEur}
                 reservationAgreementHash={reservationAgreementHash}
                 getReservationAgreementTags={getReservationAgreementTags}
+                neumarkBalance={neumarkBalance}
+                address={address}
               />}
 
             <div className={styles.section}>

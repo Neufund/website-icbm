@@ -12,6 +12,7 @@ import { TxStatus } from "./components/commitfunds/TxStatus";
 import { WalletSelector } from "./components/walletSelector/WalletSelector";
 import AfterMathContainer from "./containers/AfterMathContainer";
 import { CommitLayout } from "./containers/CommitLayout";
+import UnlockEtherContainer from "./containers/UnlockEtherContainer";
 import muiTheme from "./muiTheme";
 import { IAppState } from "./reducers/index";
 import { startup } from "./startup";
@@ -48,6 +49,7 @@ const render = (storage: Store<IAppState>) => {
               <Route path="tx-confirmation" component={TxConfirmation} onEnter={onlyInitialized} />
               <Route path="tx-status/:txHash" component={TxStatus} />
               <Route path="status(/:address)" component={AfterMathContainer} />
+              <Route path="unlock/:address" component={UnlockEtherContainer} />
             </Route>
           </Router>
         </div>

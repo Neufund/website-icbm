@@ -4,7 +4,6 @@ import { Dispatch } from "redux";
 
 import { IcoPhase } from "../actions/constants";
 import { loadIcoParams } from "../actions/loadIcoParams";
-import { CryptoKittiesNote } from "../components/CryptoKittiesNote";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { WhitelistedCommitmentNote } from "../components/WhitelistedCommitmentNote";
 import { IAppState } from "../reducers/index";
@@ -35,7 +34,6 @@ class Ico extends React.Component<IcoProps> {
         return (
           <div>
             <WhitelistedCommitmentNote />
-            <CryptoKittiesNote />
             <BeforeIco />
           </div>
         );
@@ -43,7 +41,6 @@ class Ico extends React.Component<IcoProps> {
         return (
           <div>
             <WhitelistedCommitmentNote />
-            <CryptoKittiesNote />
             <DuringIco />
           </div>
         );
@@ -51,7 +48,6 @@ class Ico extends React.Component<IcoProps> {
         return (
           <div>
             <WhitelistedCommitmentNote />
-            <CryptoKittiesNote />
             <AfterIco />
           </div>
         );

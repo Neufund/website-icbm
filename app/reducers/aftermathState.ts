@@ -13,6 +13,7 @@ export interface IAftermathState {
   unlockDateEur?: string;
   neumarkBalance?: string;
   address?: string;
+  penaltyFractionEth?: string;
 }
 
 const initialState: IAftermathState = {
@@ -48,6 +49,7 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
         unlockDateEur: payload.unlockDateEur,
         neumarkBalance: payload.neumarkBalance,
         address: payload.address,
+        penaltyFractionEth: payload.penaltyFractionEth,
       };
     default:
       return state;

@@ -93,3 +93,11 @@ export function computeTotalTxCost(amount: BigNumber): BigNumber {
 
   return amount.add(gasLimit.mul(gasPrice));
 }
+
+export function calculateValueAfterPenalty(eth: string, penaltyRate: string): string {
+  const ethValue = new BigNumber(eth);
+  const penaltyValue = ethValue.mul(penaltyRate).div(Q18).round(0, BigNumber.ROUND_HALF_UP);
+
+  const afterPenalty = ethValue.sub(penaltyValue);
+  return afterPenalty.toString();
+}

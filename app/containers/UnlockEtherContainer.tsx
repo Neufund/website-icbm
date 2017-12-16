@@ -13,6 +13,7 @@ import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
 
+import { calculateValueAfterPenalty } from "../web3/utils";
 import * as styles from "./Aftermath.scss";
 
 const GAS_LIMIT = 600000;
@@ -25,6 +26,7 @@ interface IUnlockEtherContainerProps {
   neumarkBalance: string;
   neumarkNeededToUnlockEth: string;
   unlockDateEth: Moment;
+  penaltyFractionEth: string;
 }
 
 class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
@@ -136,7 +138,12 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
             <TxInfo
               address={etherToken.address}
               data={etherToken.rawWeb3Contract.withdraw.getData(
-                calculateValueAfterPenalty(this.props.lockedAmountEth, willBePenalized)
+                willBePenalized
+                  ? calculateValueAfterPenalty(
+                      this.props.lockedAmountEth,
+                      this.props.penaltyFractionEth
+                    )
+                  : this.props.lockedAmountEth
               )}
             />
           </li>
@@ -146,15 +153,6 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
   }
 }
 
-function calculateValueAfterPenalty(eth: string, penalty: boolean): string {
-  if (!penalty) {
-    return eth;
-  }
-  const ethValue = new BigNumber.BigNumber(eth);
-  const penaltyValue = ethValue.mul(new BigNumber.BigNumber("0.10"));
-  return ethValue.sub(penaltyValue).toString(); // this can be un accurate
-}
-
 function mapStateToProps(state: IAppState) {
   return {
     isLoading: selectLoading(state.aftermathState),
@@ -162,6 +160,7 @@ function mapStateToProps(state: IAppState) {
     neumarkBalance: state.aftermathState.neumarkBalance,
     neumarkNeededToUnlockEth: state.aftermathState.neumarkBalanceEth,
     unlockDateEth: selectUnlockDateEth(state.aftermathState),
+    penaltyFractionEth: state.aftermathState.penaltyFractionEth,
   };
 }
 

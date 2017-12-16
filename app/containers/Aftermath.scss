@@ -1,20 +1,18 @@
 @import '../../common/sass/variables';
 
-.aftermath {
-  .info-box {
-    margin-top: 15px;
+.info-box {
+  margin-top: 15px;
 
-    .header {
-      font-size: $font-size-normal;
-    }
+  .header {
+    font-size: $font-size-normal;
+  }
 
-    .caption {
-      font-size: $font-size-smallest;
-    }
+  .caption {
+    font-size: $font-size-smallest;
+  }
 
-    .value {
-      font-size: $font-size-normal;
-    }
+  .value {
+    font-size: $font-size-normal;
   }
 }
 

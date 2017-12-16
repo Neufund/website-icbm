@@ -13,6 +13,8 @@ import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
 
+import * as styles from "./Aftermath.scss";
+
 const GAS_LIMIT = 600000;
 
 interface IUnlockEtherContainerProps {
@@ -43,18 +45,45 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
           You need to give back all neumarks rewarded to you. If you unlock before unlock period is
           over you will be penalized with 10% value of your funds.
         </p>
-        <p>
-          <div>
-            Address: <strong>{this.props.params.address}</strong>
+        <div className={styles.section}>
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>Your wallet address:</div>
+            <div className={styles.value}>
+              {this.props.params.address}
+            </div>
           </div>
-          <div>
-            Ether locked:{" "}
-            <MoneyComponent tokenType={TokenType.ETHER} value={this.props.lockedAmountEth} />
+
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>Your NEU balance: </div>
+            <div className={styles.value}>
+              <MoneyComponent value={this.props.neumarkBalance} tokenType={TokenType.NEU} />
+            </div>
           </div>
-          <div>
-            Free unlock date: <strong>{this.props.unlockDateEth.toString()}</strong>
+
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>Ether locked: </div>
+            <div className={styles.value}>
+              <MoneyComponent value={this.props.lockedAmountEth} tokenType={TokenType.ETHER} />
+            </div>
           </div>
-        </p>
+
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>NEU needed to unlock ether funds: </div>
+            <div className={styles.value}>
+              <MoneyComponent
+                value={this.props.neumarkNeededToUnlockEth}
+                tokenType={TokenType.NEU}
+              />
+            </div>
+          </div>
+
+          <div className={styles.infoBox}>
+            <div className={styles.caption}>Free unlock date: </div>
+            <div className={styles.value}>
+              {this.props.unlockDateEth.format("YYYY-MM-DD")}
+            </div>
+          </div>
+        </div>
         {this.renderSteps()}
       </div>
     );
@@ -83,7 +112,7 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
     }
 
     return (
-      <div>
+      <div className={styles.section}>
         {willBePenalized
           ? <Alert bsStyle="danger">
               Withdrawing funds now will result in penalty of 10% of your funds!

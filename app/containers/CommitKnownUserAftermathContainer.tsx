@@ -1,4 +1,3 @@
-import * as BigNumber from "bignumber.js";
 import { startCase } from "lodash";
 import { Moment } from "moment";
 import * as React from "react";
@@ -22,8 +21,8 @@ import {
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
 
-import { Link } from "react-router";
 import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
+import { UnderlinedLink } from "../components/UnderlinedLink";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathState {
@@ -186,7 +185,6 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   tokenType,
   reservationAgreementHash,
   getReservationAgreementTags,
-  neumarkBalance,
   address,
 }) =>
   <div className={styles.section}>
@@ -229,40 +227,18 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         </DownloadDocumentLink>
       </div>
     </div>
-    {tokenType === TokenType.ETHER &&
-      <UnlockButton
-        neuNeeded={neumarkLockedBalance}
-        neuBalance={neumarkBalance}
-        address={address}
-      />}
+    {tokenType === TokenType.ETHER && <UnlockButton address={address} />}
   </div>;
 
 interface IUnlockButton {
-  neuNeeded: string;
-  neuBalance: string;
   address: string;
 }
 
-const UnlockButton: React.SFC<IUnlockButton> = ({
-  neuNeeded: neuNeededString,
-  neuBalance: neuBalanceString,
-  address,
-}) => {
-  const neuBalance = new BigNumber.BigNumber(neuBalanceString);
-  const neuNeeded = new BigNumber.BigNumber(neuNeededString);
+const UnlockButton: React.SFC<IUnlockButton> = ({ address }) => {
   return (
-    <div className={styles.infoBox}>
-      <div className={styles.value}>
-        {neuBalance.greaterThanOrEqualTo(neuNeeded)
-          ? <Link to={`/commit/unlock/${address}`} className="btn btn-danger">
-              Unlock funds
-            </Link>
-          : <span>
-              You can't unlock your funds now. You need{" "}
-              <MoneyComponent value={neuNeeded.sub(neuBalance)} tokenType={TokenType.NEU} /> more
-            </span>}
-      </div>
-    </div>
+    <UnderlinedLink href={`/commit/unlock/${address}`} internal>
+      Read about unlocking funds
+    </UnderlinedLink>
   );
 };
 

@@ -2,7 +2,7 @@ import * as BigNumber from "bignumber.js";
 import * as moment from "moment";
 import { Moment } from "moment/moment";
 import * as React from "react";
-import { Alert, Col, Row } from "react-bootstrap";
+import { Alert, Checkbox, Col, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { TokenType } from "../actions/constants";
@@ -29,7 +29,21 @@ interface IUnlockEtherContainerProps {
   penaltyFractionEth: string;
 }
 
-class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
+interface IUnlockEtherContainerState {
+  agreeToPayFee: boolean;
+}
+
+class UnlockEtherContainer extends React.Component<
+  IUnlockEtherContainerProps,
+  IUnlockEtherContainerState
+> {
+  constructor(props: IUnlockEtherContainerProps) {
+    super(props);
+    this.state = {
+      agreeToPayFee: false,
+    };
+  }
+
   public componentDidMount() {
     this.props.loadAftermathDetails(this.props.params.address);
   }
@@ -122,6 +136,11 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
 
     const missingNEUs = neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI);
 
+    const penalty = calculateAndFormatFee(
+      this.props.penaltyFractionEth,
+      this.props.lockedAmountEth
+    );
+
     if (!withdrawPossible) {
       return (
         <div>
@@ -138,40 +157,57 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
       <div className={styles.section}>
         {willBePenalized
           ? <Alert bsStyle="danger">
-              Withdrawing funds now will result in penalty of 10% of your funds!
+              <Checkbox onChange={this.changeAgreeToPayPenalty} checked={this.state.agreeToPayFee}>
+                I confirm that by following unlock procedure I agree to return{" "}
+                <MoneyComponent
+                  value={this.props.neumarkNeededToUnlockEth}
+                  tokenType={TokenType.NEU}
+                />{" "}
+                and to pay <MoneyComponent value={penalty} tokenType={TokenType.ETHER} /> unlock fee
+                to remaining NEU holders
+              </Checkbox>
             </Alert>
           : <Alert bsStyle="info">Withdrawing funds now will not result in penalty.</Alert>}
-        <h3>Steps to unlock your ether:</h3>
-        <div>
-          <strong>Step 1</strong>. Return your NEU and unlock your funds:
-          <TxInfo
-            contractName="Neumark"
-            address={neumark.address}
-            data={neumark.rawWeb3Contract.approveAndCall.getData(
-              etherLock.address,
-              this.props.neumarkNeededToUnlockEth,
-              ""
-            )}
-          />
-        </div>
-        <div>
-          <strong>Step 2</strong>. Withdraw your funds from Ether Token to your wallet address:
-          <TxInfo
-            contractName="Ether Token"
-            address={etherToken.address}
-            data={etherToken.rawWeb3Contract.withdraw.getData(
-              willBePenalized
-                ? calculateValueAfterPenalty(
-                    this.props.lockedAmountEth,
-                    this.props.penaltyFractionEth
-                  )
-                : this.props.lockedAmountEth
-            )}
-          />
-        </div>
+        {(!willBePenalized || (willBePenalized && this.state.agreeToPayFee)) &&
+          <div>
+            <h3>Steps to unlock your ether:</h3>
+            <div>
+              <strong>Step 1</strong>. Return your NEU and unlock your funds:
+              <TxInfo
+                contractName="Neumark"
+                address={neumark.address}
+                data={neumark.rawWeb3Contract.approveAndCall.getData(
+                  etherLock.address,
+                  this.props.neumarkNeededToUnlockEth,
+                  ""
+                )}
+              />
+            </div>
+            <div>
+              <strong>Step 2</strong>. Withdraw your funds from Ether Token to your wallet address:
+              <TxInfo
+                contractName="Ether Token"
+                address={etherToken.address}
+                data={etherToken.rawWeb3Contract.withdraw.getData(
+                  willBePenalized
+                    ? calculateValueAfterPenalty(
+                        this.props.lockedAmountEth,
+                        this.props.penaltyFractionEth
+                      )
+                    : this.props.lockedAmountEth
+                )}
+              />
+            </div>
+          </div>}
       </div>
     );
   }
+
+  private changeAgreeToPayPenalty = () => {
+    this.setState({
+      agreeToPayFee: !this.state.agreeToPayFee,
+    });
+  };
 }
 
 function mapStateToProps(state: IAppState) {

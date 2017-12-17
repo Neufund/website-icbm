@@ -92,7 +92,7 @@ export const AfterIcoHexagonText = (props: IMoneyProps) => {
         <MoneyComponent
           tokenType={TokenType.EURO}
           decimalPlaces={2}
-          value={raised.mul(config.contractsDeployed.euroEthRate)}
+          value={raised}
           valueClass={styles.importantValue}
           separateThousands
         />

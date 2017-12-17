@@ -21,8 +21,8 @@ import {
 } from "../reducers/legalAgreementState";
 import { IDictionary } from "../types";
 
+import { Link } from "react-router";
 import { EtherScanLinkType, TokenType, tokenTypeToSymbol } from "../actions/constants";
-import { UnderlinedLink } from "../components/UnderlinedLink";
 import * as styles from "./Aftermath.scss";
 
 interface IAftermathState {
@@ -137,7 +137,6 @@ export class CommitKnownUserAftermath extends React.Component<
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
             neumarkBalance={neumarkBalance}
-            address={address}
           />}
 
         {showEuro &&
@@ -149,7 +148,6 @@ export class CommitKnownUserAftermath extends React.Component<
             reservationAgreementHash={reservationAgreementHash}
             getReservationAgreementTags={getReservationAgreementTags}
             neumarkBalance={neumarkBalance}
-            address={address}
           />}
 
         <div className={styles.section}>
@@ -161,6 +159,10 @@ export class CommitKnownUserAftermath extends React.Component<
               </EtherScanLink>
             </div>
           </div>
+        </div>
+
+        <div className={styles.section}>
+          <UnlockButton address={address} />
         </div>
       </div>
     );
@@ -175,7 +177,6 @@ interface ICommitmentInfo {
   tokenType: TokenType;
   reservationAgreementHash: string;
   getReservationAgreementTags: (tokenType: TokenType) => Promise<IDictionary>;
-  address: string;
 }
 
 export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
@@ -185,7 +186,6 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   tokenType,
   reservationAgreementHash,
   getReservationAgreementTags,
-  address,
 }) =>
   <div className={styles.section}>
     <h4>
@@ -227,18 +227,17 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         </DownloadDocumentLink>
       </div>
     </div>
-    {tokenType === TokenType.ETHER && <UnlockButton address={address} />}
   </div>;
 
 interface IUnlockButton {
   address: string;
 }
 
-const UnlockButton: React.SFC<IUnlockButton> = ({ address }) => {
+export const UnlockButton: React.SFC<IUnlockButton> = ({ address }) => {
   return (
-    <UnderlinedLink href={`/commit/unlock/${address}`} internal>
-      Read about unlocking funds
-    </UnderlinedLink>
+    <Link to={`/commit/unlock/${address}`} className="btn btn-primary">
+      Unlock funds
+    </Link>
   );
 };
 

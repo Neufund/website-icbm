@@ -21,7 +21,7 @@ import {
 import { IDictionary } from "../types";
 import { ethereumAddressValidator } from "../validators/ethereumAddressValidator";
 import * as styles from "./Aftermath.scss";
-import { CommitmentInfo } from "./CommitKnownUserAftermathContainer";
+import { CommitmentInfo, UnlockButton } from "./CommitKnownUserAftermathContainer";
 
 interface ICommitFundsUnknownUserAftermathProps {
   loadAftermathDetails: (address: string) => {};
@@ -152,7 +152,6 @@ export class CommitUnknownUserAftermath extends React.Component<
                 reservationAgreementHash={reservationAgreementHash}
                 getReservationAgreementTags={getReservationAgreementTags}
                 neumarkBalance={neumarkBalance}
-                address={address}
               />}
 
             {showEuro &&
@@ -164,7 +163,6 @@ export class CommitUnknownUserAftermath extends React.Component<
                 reservationAgreementHash={reservationAgreementHash}
                 getReservationAgreementTags={getReservationAgreementTags}
                 neumarkBalance={neumarkBalance}
-                address={address}
               />}
 
             <div className={styles.section}>
@@ -176,6 +174,10 @@ export class CommitUnknownUserAftermath extends React.Component<
                   </EtherScanLink>
                 </div>
               </div>
+            </div>
+
+            <div className={styles.section}>
+              <UnlockButton address={address} />
             </div>
           </div>}
       </div>

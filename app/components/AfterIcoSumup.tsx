@@ -18,7 +18,7 @@ interface IAfterIcoSumupProps {
 }
 
 export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
-  const endDateFormatted = props.endDate.format("D MMMM YYYY, hh:mm a UTC");
+  const endDateFormatted = props.endDate.utc().format("D MMMM YYYY, hh:mm a UTC");
 
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">

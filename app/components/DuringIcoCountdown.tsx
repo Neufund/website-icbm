@@ -4,6 +4,7 @@ import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { TokenType } from "../actions/constants";
+import config from "../config";
 import { Countdown } from "./Countdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
@@ -73,6 +74,61 @@ export const HexagonText = (props: IMoneyProps) => {
           value={neuMarkToEtherRatio}
         />
         <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
+      </p>
+    </div>
+  );
+};
+
+export const AfterIcoHexagonText = (props: IMoneyProps) => {
+  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  if (loading) {
+    return <LoadingIndicator className={styles.loadingIndicator} />;
+  }
+
+  return (
+    <div className={styles.text}>
+      <p className={styles.title}>We have raised an equivalent of: </p>
+      <p className={styles.content} data-test-id="during-ico-total-funds">
+        <MoneyComponent
+          tokenType={TokenType.EURO}
+          decimalPlaces={2}
+          value={raised.mul(config.contractsDeployed.euroEthRate)}
+          valueClass={styles.importantValue}
+          separateThousands
+        />
+      </p>
+
+      <p className={styles.title}>Investors</p>
+      <p className={styles.content} data-test-id="during-ico-accounts-created">
+        <span className={styles.value}>
+          {investorsAccountCreated.toFixed(0)}
+        </span>
+      </p>
+
+      <p className={styles.title}>NEU issued to investors</p>
+      <p className={styles.content} data-test-id="during-ico-neumarks-generated">
+        <MoneyComponent
+          decimalPlaces={0}
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkAmount}
+          separateThousands
+        />
+      </p>
+
+      <p className={styles.title}>Current reward</p>
+      <p className={styles.content} data-test-id="during-ico-current-reward">
+        <MoneyComponent
+          valueClass={styles.value}
+          tokenType={TokenType.NEU}
+          value={neuMarkToEtherRatio}
+        />
+        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
+      </p>
+
+      <p className={styles.disclaimer}>
+        Euro equivalent was computed using {config.contractsDeployed.euroEthRate} EUR / ETH rate as
+        available at the moment ICBM was closed
       </p>
     </div>
   );

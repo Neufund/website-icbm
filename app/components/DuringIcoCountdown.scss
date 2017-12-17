@@ -131,3 +131,14 @@
   text-align: center;
   font-size: $font-size-smallest;
 }
+
+.disclaimer {
+  position: relative;
+  color: $gray-lighter;
+  font-size: $font-size-smallest !important; // sass-lint:disable-line no-important
+
+  @media (min-width: $screen-sm-min) {
+    top: 135px;
+    width: 343px;
+  }
+}

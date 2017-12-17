@@ -3,7 +3,7 @@ import { Moment } from "moment";
 import * as React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import { HexagonText } from "./DuringIcoCountdown";
+import { AfterIcoHexagonText } from "./DuringIcoCountdown";
 import * as styles from "./DuringIcoCountdown.scss";
 import { HexagonsStack, HexagonsStackStyle } from "./HexagonsStack";
 import { MailchimpForm } from "./MailchimpForm";
@@ -26,15 +26,13 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
         <h1>
           Our ICBM ended on {endDateFormatted}
         </h1>
-        <p>Thank you for all of your support!</p>
+        <p>Thank you all for the support!</p>
         <p>
-          Neufund bridges blockchain and venture capital, enabling ICOs for on- and off-chain
+          Neufund bridges blockchain and venture capital, enabling ETOs for on- and off-chain
           companies.
         </p>
-        <p>
-          You reserved your funds for future investments on the Neufund Platform.<br />
-          Your NEU entitle you to economic co-ownership of the platform.
-        </p>
+        <p>You reserved your funds for future investments on the Neufund Platform.</p>
+        <p>Your NEU entitles you to economic co-ownership of the platform.</p>
         <p>You maintain full control over your investment decisions at all times.</p>
 
         <ul className="links-list">
@@ -45,6 +43,12 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
               target="_blank"
             >
               ICBM details in the ICO Transparency Monitor
+            </a>
+          </li>
+          <li>
+            <i className="material-icons">link</i>
+            <a href="https://t.me/neufund" target="_blank">
+              Join us on Telegram!
             </a>
           </li>
         </ul>
@@ -65,12 +69,12 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
           whiteClassName={styles.hexagonWhite}
           hexContainerTextClassName={styles.hexContainerText}
         >
-          <HexagonText {...props} />
+          <AfterIcoHexagonText {...props} />
         </HexagonsStack>
       </Col>
 
       <Col className="hexagon-mobile visible-xs" sm={6}>
-        <HexagonText {...props} />
+        <AfterIcoHexagonText {...props} />
       </Col>
     </Row>
   );

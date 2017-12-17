@@ -8,7 +8,7 @@ import { loadDuringIcoDetails } from "../actions/loadDuringIcoDetails";
 import { AfterIcoSumup } from "../components/AfterIcoSumup";
 import { selectEndDate } from "../reducers/commitmentState";
 import {
-  selectAllFunds,
+  selectAllFundsInEuro,
   selectAllInvestors,
   selectInvestorsNeumarks,
   selectIssuanceRate,
@@ -51,7 +51,7 @@ function mapStateToProps(state: IAppState) {
     loading: selectLoadingState(state.duringIcoState),
     totalSupply: selectInvestorsNeumarks(state.duringIcoState),
     issuanceRate: selectIssuanceRate(state.duringIcoState),
-    allFunds: selectAllFunds(state.duringIcoState),
+    allFunds: selectAllFundsInEuro(state.duringIcoState),
     allInvestors: selectAllInvestors(state.duringIcoState),
     endDate: selectEndDate(state.commitmentState),
   };

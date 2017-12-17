@@ -1,5 +1,6 @@
 import * as BigNumber from "bignumber.js";
 import { LOADING_DURING_ICO_DETAILS, SET_DURING_ICO_DETAILS } from "../actions/constants";
+import config from "../config";
 import { Reducer } from "../types";
 
 export interface IDuringIcoState {
@@ -78,6 +79,15 @@ export function selectAllFunds(state: IDuringIcoState): BigNumber.BigNumber {
   return new BigNumber.BigNumber(state.ethCommitted).add(
     new BigNumber.BigNumber(state.euroCommittedInWei)
   );
+}
+
+export function selectAllFundsInEuro(state: IDuringIcoState): BigNumber.BigNumber {
+  if (!state.ethCommitted || !state.euroCommittedInWei) {
+    return null;
+  }
+  return new BigNumber.BigNumber(state.ethCommitted)
+    .mul(config.contractsDeployed.euroEthRate)
+    .add(new BigNumber.BigNumber(state.euroCommittedInWei));
 }
 
 export function selectAllFundsInBaseCurrency(

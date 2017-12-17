@@ -9,14 +9,14 @@ import { TokenType } from "../actions/constants";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import MoneyComponent from "../components/MoneyComponent";
 import { TextCopyable } from "../components/TextCopyable";
+import config from "../config";
 import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
 
+import { calculateAndFormatFee } from "../agreements/utils";
 import { calculateValueAfterPenalty } from "../web3/utils";
 import * as styles from "./Aftermath.scss";
-
-const GAS_LIMIT = 600000;
 
 interface IUnlockEtherContainerProps {
   params: { address: string };
@@ -42,11 +42,7 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
     return (
       <div>
         <h1>Unlock your funds</h1>
-        <p>You can unlock your funds anytime you want.</p>
-        <p>
-          You need to give back all neumarks rewarded to you. If you unlock before unlock period is
-          over you will be penalized with 10% value of your funds.
-        </p>
+
         <div className={styles.section}>
           <div className={styles.infoBox}>
             <div className={styles.caption}>Your wallet address:</div>
@@ -63,14 +59,21 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
           </div>
 
           <div className={styles.infoBox}>
-            <div className={styles.caption}>Ether locked: </div>
+            <div className={styles.caption}>Locked ETH amount: </div>
             <div className={styles.value}>
               <MoneyComponent value={this.props.lockedAmountEth} tokenType={TokenType.ETHER} />
             </div>
           </div>
 
           <div className={styles.infoBox}>
-            <div className={styles.caption}>NEU needed to unlock ether funds: </div>
+            <div className={styles.caption}>ETH will be unlocked without penalty on: </div>
+            <div className={styles.value}>
+              {this.props.unlockDateEth.format("YYYY-MM-DD")}
+            </div>
+          </div>
+
+          <div className={styles.infoBox}>
+            <h4>NEU needed to unlock ether funds: </h4>
             <div className={styles.value}>
               <MoneyComponent
                 value={this.props.neumarkNeededToUnlockEth}
@@ -78,17 +81,36 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
               />
             </div>
           </div>
-
-          <div className={styles.infoBox}>
-            <div className={styles.caption}>Free unlock date: </div>
-            <div className={styles.value}>
-              {this.props.unlockDateEth.format("YYYY-MM-DD")}
-            </div>
-          </div>
+          {this.renderPenaltyBox()}
         </div>
         {this.renderSteps()}
       </div>
     );
+  }
+
+  private renderPenaltyBox() {
+    const willBePenalized = moment().isBefore(this.props.unlockDateEth);
+
+    if (willBePenalized) {
+      return (
+        <div className={styles.infoBox}>
+          <div className={styles.caption}>
+            Unlock fee distributed back to remaining NEU holders:{" "}
+          </div>
+          <div className={styles.value}>
+            <MoneyComponent
+              value={calculateAndFormatFee(
+                this.props.penaltyFractionEth,
+                this.props.lockedAmountEth
+              )}
+              tokenType={TokenType.ETHER}
+            />
+          </div>
+        </div>
+      );
+    } else {
+      return <div />;
+    }
   }
 
   private renderSteps() {
@@ -98,16 +120,15 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
     const withdrawPossible = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
     const willBePenalized = moment().isBefore(this.props.unlockDateEth);
 
+    const missingNEUs = neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI);
+
     if (!withdrawPossible) {
       return (
         <div>
           <Alert bsStyle="danger">
-            You need{" "}
-            <MoneyComponent
-              value={neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI)}
-              tokenType={TokenType.NEU}
-            />{" "}
-            Neumarks more to unlock your account.
+            Please transfer <MoneyComponent value={missingNEUs} tokenType={TokenType.NEU} /> NEU ({missingNEUs}{" "}
+            Neu wei) to your wallet address as specified above. Otherwise you will not be able to
+            unlock your funds
           </Alert>
         </div>
       );
@@ -121,33 +142,33 @@ class UnlockEtherContainer extends React.Component<IUnlockEtherContainerProps> {
             </Alert>
           : <Alert bsStyle="info">Withdrawing funds now will not result in penalty.</Alert>}
         <h3>Steps to unlock your ether:</h3>
-        <ol>
-          <li>
-            Send transaction to unlock your locked funds:
-            <TxInfo
-              address={neumark.address}
-              data={neumark.rawWeb3Contract.approveAndCall.getData(
-                etherLock.address,
-                this.props.neumarkNeededToUnlockEth,
-                ""
-              )}
-            />
-          </li>
-          <li>
-            Withdraw your funds
-            <TxInfo
-              address={etherToken.address}
-              data={etherToken.rawWeb3Contract.withdraw.getData(
-                willBePenalized
-                  ? calculateValueAfterPenalty(
-                      this.props.lockedAmountEth,
-                      this.props.penaltyFractionEth
-                    )
-                  : this.props.lockedAmountEth
-              )}
-            />
-          </li>
-        </ol>
+        <div>
+          <strong>Step 1</strong>. Return your NEU and unlock your funds:
+          <TxInfo
+            contractName="Neumark"
+            address={neumark.address}
+            data={neumark.rawWeb3Contract.approveAndCall.getData(
+              etherLock.address,
+              this.props.neumarkNeededToUnlockEth,
+              ""
+            )}
+          />
+        </div>
+        <div>
+          <strong>Step 2</strong>. Withdraw your funds from Ether Token to your wallet address:
+          <TxInfo
+            contractName="Ether Token"
+            address={etherToken.address}
+            data={etherToken.rawWeb3Contract.withdraw.getData(
+              willBePenalized
+                ? calculateValueAfterPenalty(
+                    this.props.lockedAmountEth,
+                    this.props.penaltyFractionEth
+                  )
+                : this.props.lockedAmountEth
+            )}
+          />
+        </div>
       </div>
     );
   }
@@ -173,28 +194,38 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
 export default connect(mapStateToProps, mapDispatchToProps)(UnlockEtherContainer);
 
 interface ITxInfo {
+  contractName: string;
   address: string;
   data: string;
 }
 
-const TxInfo: React.SFC<ITxInfo> = ({ address, data }) =>
+const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
   <div>
     <Row>
-      <Col sm={2}>Address:</Col>
-      <Col xs={12} sm={10}>
+      <Col sm={12} md={3}>
+        {contractName} contract address:
+      </Col>
+      <Col xs={12} sm={12} md={9}>
         <TextCopyable text={address} copyIconOnRight />
       </Col>
     </Row>
     <Row>
-      <Col sm={2}>Data:</Col>
-      <Col xs={12} sm={10}>
+      <Col sm={12} md={3}>
+        Data:
+      </Col>
+      <Col xs={12} sm={12} md={9}>
         <TextCopyable text={data} copyIconOnRight maxTextLength={45} />
       </Col>
     </Row>
     <Row>
-      <Col sm={2}>Gas limit:</Col>
-      <Col xs={12} sm={10}>
-        <TextCopyable text={GAS_LIMIT.toString()} copyIconOnRight />
+      <Col sm={12} md={3}>
+        Gas limit:
+      </Col>
+      <Col xs={12} sm={12} md={9}>
+        <TextCopyable
+          text={config.contractsDeployed.unlockFundsTxGasLimit.toString()}
+          copyIconOnRight
+        />
       </Col>
     </Row>
   </div>;

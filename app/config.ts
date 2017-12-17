@@ -25,6 +25,7 @@ interface IContractsDeployedIcoCfg {
   commitmentType: CommitmentType;
   gasLimit: string;
   gasPrice: string;
+  unlockFundsTxGasLimit: string;
   ipfsNode: string;
   pdfRenderer: string;
   numberOfConfirmations: number;
@@ -99,6 +100,7 @@ function loadConfig(environment: IDictionary): IConfig {
           commitmentType: getRequiredValue(environment, "COMMITMENT_TYPE") as CommitmentType,
           gasPrice: getRequiredValue(environment, "GAS_PRICE"),
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
+          unlockFundsTxGasLimit: getRequiredValue(environment, "UNLOCK_FUNDS_GAS_LIMIT"),
           ipfsNode: "https://ipfs.io/",
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 1, // if you set value > 1 then on dev network you will have to simulate traffic

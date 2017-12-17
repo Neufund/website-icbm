@@ -3,6 +3,7 @@ import * as bluebird from "bluebird";
 import * as moment from "moment";
 
 import { EthNetwork, Web3Type } from "../actions/constants";
+import { calculateAndFormatFee } from "../agreements/utils";
 import config from "../config";
 import { Web3Service } from "./web3Service";
 
@@ -95,9 +96,9 @@ export function computeTotalTxCost(amount: BigNumber): BigNumber {
 }
 
 export function calculateValueAfterPenalty(eth: string, penaltyRate: string): string {
-  const ethValue = new BigNumber(eth);
-  const penaltyValue = ethValue.mul(penaltyRate).div(Q18).round(0, BigNumber.ROUND_HALF_UP);
+  const penaltyValue = new BigNumber(calculateAndFormatFee(penaltyRate, eth));
 
+  const ethValue = new BigNumber(eth);
   const afterPenalty = ethValue.sub(penaltyValue);
   return afterPenalty.toString();
 }

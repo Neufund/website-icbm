@@ -185,6 +185,7 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
   tokenType,
   reservationAgreementHash,
   getReservationAgreementTags,
+  address,
 }) =>
   <div className={styles.section}>
     <h4>
@@ -226,13 +227,13 @@ export const CommitmentInfo: React.SFC<ICommitmentInfo> = ({
         </DownloadDocumentLink>
       </div>
     </div>
+    {tokenType === TokenType.ETHER && <UnlockButton address={address} />}
   </div>;
 
 interface IUnlockButton {
   address: string;
 }
 
-// tslint:disable-next-line
 const UnlockButton: React.SFC<IUnlockButton> = ({ address }) => {
   return (
     <UnderlinedLink href={`/commit/unlock/${address}`} internal>

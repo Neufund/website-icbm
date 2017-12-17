@@ -27,6 +27,7 @@ interface IContractsDeployedIcoCfg {
   gasPrice: string;
   unlockFundsTxGasLimit: string;
   ipfsNode: string;
+  euroEthRate: string;
   pdfRenderer: string;
   numberOfConfirmations: number;
   defaultDerivationPath: string;
@@ -102,6 +103,7 @@ function loadConfig(environment: IDictionary): IConfig {
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
           unlockFundsTxGasLimit: getRequiredValue(environment, "UNLOCK_FUNDS_GAS_LIMIT"),
           ipfsNode: "https://ipfs.io/",
+          euroEthRate: getRequiredValue(environment, "EUR_ETH_RATE"),
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 1, // if you set value > 1 then on dev network you will have to simulate traffic
           defaultDerivationPath: getRequiredValue(environment, "DEFAULT_DERIVATION_PATH"),

@@ -27,6 +27,10 @@ interface IUnlockEtherContainerProps {
   neumarkNeededToUnlockEth: string;
   unlockDateEth: Moment;
   penaltyFractionEth: string;
+  missingNEUs: string;
+  penaltyFee: string;
+  willBePenalized: boolean;
+  withdrawPossible: boolean;
 }
 
 interface IUnlockEtherContainerState {
@@ -80,9 +84,11 @@ class UnlockEtherContainer extends React.Component<
           </div>
 
           <div className={styles.infoBox}>
-            <div className={styles.caption}>ETH will be unlocked without penalty on: </div>
+            <div className={styles.caption}>ETH can be unlocked without penalty starting on: </div>
             <div className={styles.value}>
-              {this.props.unlockDateEth.format("YYYY-MM-DD")}
+              {this.props.unlockDateEth
+                ? this.props.unlockDateEth.utc().format("YYYY-MM-DD HH:MM UTC")
+                : "-"}
             </div>
           </div>
 
@@ -103,9 +109,7 @@ class UnlockEtherContainer extends React.Component<
   }
 
   private renderPenaltyBox() {
-    const willBePenalized = moment().isBefore(this.props.unlockDateEth);
-
-    if (willBePenalized) {
+    if (this.props.willBePenalized) {
       return (
         <div className={styles.infoBox}>
           <div className={styles.caption}>
@@ -128,22 +132,11 @@ class UnlockEtherContainer extends React.Component<
   }
 
   private renderSteps() {
-    const neumarkNeededToUnlockAsBI = new BigNumber.BigNumber(this.props.neumarkNeededToUnlockEth);
-    const neumarkBalanceAsBI = new BigNumber.BigNumber(this.props.neumarkBalance);
-
-    const withdrawPossible = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
-    const willBePenalized = moment().isBefore(this.props.unlockDateEth);
-
-    const missingNEUs = neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI);
-
-    const penalty = calculateAndFormatFee(
-      this.props.penaltyFractionEth,
-      this.props.lockedAmountEth
-    );
+    const { withdrawPossible, missingNEUs, willBePenalized, penaltyFee } = this.props;
 
     if (!withdrawPossible) {
       return (
-        <div>
+        <div className={styles.section}>
           <Alert bsStyle="danger">
             Please transfer <MoneyComponent value={missingNEUs} tokenType={TokenType.NEU} /> NEU ({missingNEUs}{" "}
             Neu wei) to your wallet address as specified above. Otherwise you will not be able to
@@ -155,20 +148,21 @@ class UnlockEtherContainer extends React.Component<
 
     return (
       <div className={styles.section}>
-        {willBePenalized
-          ? <Alert bsStyle="danger">
-              <Checkbox onChange={this.changeAgreeToPayPenalty} checked={this.state.agreeToPayFee}>
-                I confirm that by following unlock procedure I agree to return{" "}
-                <MoneyComponent
-                  value={this.props.neumarkNeededToUnlockEth}
-                  tokenType={TokenType.NEU}
-                />{" "}
-                and to pay <MoneyComponent value={penalty} tokenType={TokenType.ETHER} /> unlock fee
-                to remaining NEU holders
-              </Checkbox>
-            </Alert>
-          : <Alert bsStyle="info">Withdrawing funds now will not result in penalty.</Alert>}
-        {(!willBePenalized || (willBePenalized && this.state.agreeToPayFee)) &&
+        <Alert bsStyle="danger">
+          <Checkbox onChange={this.changeAgreeToPayPenalty} checked={this.state.agreeToPayFee}>
+            I confirm that by following unlock procedure I agree to return{" "}
+            <MoneyComponent
+              value={this.props.neumarkNeededToUnlockEth}
+              tokenType={TokenType.NEU}
+            />{" "}
+            {willBePenalized &&
+              <span>
+                and to pay <MoneyComponent value={penaltyFee} tokenType={TokenType.ETHER} /> unlock
+                fee to remaining NEU holders
+              </span>}
+          </Checkbox>
+        </Alert>
+        {this.state.agreeToPayFee &&
           <div>
             <h3>Steps to unlock your ether:</h3>
             <div>
@@ -211,13 +205,39 @@ class UnlockEtherContainer extends React.Component<
 }
 
 function mapStateToProps(state: IAppState) {
+  const isLoading = selectLoading(state.aftermathState);
+
+  if (isLoading) {
+    return {
+      isLoading,
+    };
+  }
+
+  const unlockDateEth = selectUnlockDateEth(state.aftermathState);
+  const lockedAmountEth = state.aftermathState.lockedAmountEth;
+  const penaltyFractionEth = state.aftermathState.penaltyFractionEth;
+
+  const neumarkNeededToUnlockAsBI = new BigNumber.BigNumber(state.aftermathState.neumarkBalanceEth);
+  const neumarkBalanceAsBI = new BigNumber.BigNumber(state.aftermathState.neumarkBalance);
+
+  const withdrawPossible = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
+  const willBePenalized = moment().isBefore(unlockDateEth);
+
+  const missingNEUs = neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI).toString();
+
+  const penaltyFee = calculateAndFormatFee(penaltyFractionEth, lockedAmountEth);
+
   return {
-    isLoading: selectLoading(state.aftermathState),
-    lockedAmountEth: state.aftermathState.lockedAmountEth,
+    unlockDateEth,
+    withdrawPossible,
+    missingNEUs,
+    penaltyFee,
+    willBePenalized,
+    isLoading,
+    penaltyFractionEth,
+    lockedAmountEth,
     neumarkBalance: state.aftermathState.neumarkBalance,
     neumarkNeededToUnlockEth: state.aftermathState.neumarkBalanceEth,
-    unlockDateEth: selectUnlockDateEth(state.aftermathState),
-    penaltyFractionEth: state.aftermathState.penaltyFractionEth,
   };
 }
 

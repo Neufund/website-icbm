@@ -91,7 +91,7 @@
     "web3-typescript-typings": "0.3.0",
     "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1",
-    "yaml-js": "^0.2.0"
+    "yaml-js": "^0.3.0"
   },
   "scripts": {
     "start": "(cp -n .env.example .env || true) && gulp build && concurrently -r \"gulp watch\" \"webpack-dev-server --https --port 9090\"",

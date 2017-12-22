@@ -1,9 +1,11 @@
 import * as BigNumber from "bignumber.js";
+import * as cn from "classnames";
 import * as moment from "moment";
 import { Moment } from "moment/moment";
 import * as React from "react";
 import { Alert, Checkbox, Col, Row } from "react-bootstrap";
 import { connect, Dispatch } from "react-redux";
+
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { TokenType } from "../actions/constants";
 import { LoadingIndicator } from "../components/LoadingIndicator";
@@ -177,7 +179,7 @@ class UnlockEtherContainer extends React.Component<
                 )}
               />
             </div>
-            <div>
+            <div className={styles.stepTwo}>
               <strong>Step 2</strong>. Withdraw your funds from Ether Token to your wallet address:
               <TxInfo
                 contractName="Ether Token"
@@ -256,13 +258,13 @@ interface ITxInfo {
 }
 
 const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
-  <div>
+  <div className={styles.txInfo}>
     <Row>
       <Col sm={12} md={3}>
         {contractName} contract address:
       </Col>
       <Col xs={12} sm={12} md={9}>
-        <TextCopyable text={address} copyIconOnRight />
+        <TextCopyable text={address} copyIconOnRight className={styles.monoSpace} />
       </Col>
     </Row>
     <Row>
@@ -270,7 +272,7 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
         Data:
       </Col>
       <Col xs={12} sm={12} md={9}>
-        <TextCopyable text={data} copyIconOnRight maxTextLength={45} />
+        <TextCopyable text={data} copyIconOnRight className={cn(styles.txData, styles.monoSpace)} />
       </Col>
     </Row>
     <Row>
@@ -281,6 +283,7 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
         <TextCopyable
           text={config.contractsDeployed.unlockFundsTxGasLimit.toString()}
           copyIconOnRight
+          className={styles.monoSpace}
         />
       </Col>
     </Row>

@@ -19,3 +19,29 @@
 .section {
   margin-top: 35px;
 }
+
+// Funds unlock special styles
+
+.tx-info {
+  :global {
+    .row {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.step-two {
+  margin-top: 20px;
+}
+
+.tx-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  word-break: break-all;
+}
+
+.mono-space {
+  font-family: monospace;
+  font-size: .9em;
+}

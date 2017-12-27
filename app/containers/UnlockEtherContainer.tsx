@@ -169,7 +169,8 @@ class UnlockEtherContainer extends React.Component<
           <div>
             <h3>Steps to unlock your ether:</h3>
             <div>
-              <strong>Step 1</strong>. Return your NEU and unlock your funds:
+              <strong>Step 1</strong>. Return all NEU that you received by sending 0ETH transfer
+              with proper transaction data:
               <TxInfo
                 contractName="Neumark"
                 address={neumark.address}
@@ -290,8 +291,8 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
     </Row>
     <Row>
       <Col sm={12} md={3}>
-        If you are using MyEtherWallet you can use direct link which will fill all required data
-        automatically:
+        If you are using MyEtherWallet you can use the direct link which will fill all required data
+        automatically
       </Col>
       <Col xs={12} sm={12} md={9}>
         <a

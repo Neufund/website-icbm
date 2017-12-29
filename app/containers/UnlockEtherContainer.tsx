@@ -8,15 +8,16 @@ import { connect, Dispatch } from "react-redux";
 
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { TokenType } from "../actions/constants";
+import { calculateAndFormatFee } from "../agreements/utils";
+import * as logo from "../assets/img/myetherwallet_logo.svg";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import MoneyComponent from "../components/MoneyComponent";
 import { TextCopyable } from "../components/TextCopyable";
 import config from "../config";
 import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
+import { myEtherWalletUrl } from "../utils/myetherwallet";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
-
-import { calculateAndFormatFee } from "../agreements/utils";
 import { calculateValueAfterPenalty } from "../web3/utils";
 import * as styles from "./Aftermath.scss";
 
@@ -168,7 +169,8 @@ class UnlockEtherContainer extends React.Component<
           <div>
             <h3>Steps to unlock your ether:</h3>
             <div>
-              <strong>Step 1</strong>. Return your NEU and unlock your funds:
+              <strong>Step 1</strong>. This transaction unlocks your Ether and burns corresponding
+              amount of NEU (calls <em>approveAndCall</em> on <em>Neumark</em> contract)
               <TxInfo
                 contractName="Neumark"
                 address={neumark.address}
@@ -180,7 +182,8 @@ class UnlockEtherContainer extends React.Component<
               />
             </div>
             <div className={styles.stepTwo}>
-              <strong>Step 2</strong>. Withdraw your funds from Ether Token to your wallet address:
+              <strong>Step 2</strong>. Withdraw your funds from Ether Token contract to your wallet
+              address (calls <em>withdraw</em> on <em>EtherToken</em> contract):
               <TxInfo
                 contractName="Ether Token"
                 address={etherToken.address}
@@ -264,15 +267,15 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
         {contractName} contract address:
       </Col>
       <Col xs={12} sm={12} md={9}>
-        <TextCopyable text={address} copyIconOnRight className={styles.monoSpace} />
+        <TextCopyable text={address} className={styles.monoSpace} />
       </Col>
     </Row>
     <Row>
       <Col sm={12} md={3}>
-        Data:
+        Amount To Send (ETH):
       </Col>
       <Col xs={12} sm={12} md={9}>
-        <TextCopyable text={data} copyIconOnRight className={cn(styles.txData, styles.monoSpace)} />
+        <TextCopyable text="0" className={styles.monoSpace} />
       </Col>
     </Row>
     <Row>
@@ -282,9 +285,35 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
       <Col xs={12} sm={12} md={9}>
         <TextCopyable
           text={config.contractsDeployed.unlockFundsTxGasLimit.toString()}
-          copyIconOnRight
           className={styles.monoSpace}
         />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={12} md={3}>
+        Data:
+      </Col>
+      <Col xs={12} sm={12} md={9}>
+        <TextCopyable text={data} className={cn(styles.txData, styles.monoSpace)} />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={12} md={3}>
+        Open pre-loaded transaction in MyEtherWallet
+      </Col>
+      <Col xs={12} sm={12} md={9}>
+        <a
+          className={styles.myEtherWalletLink}
+          target="_blank"
+          href={myEtherWalletUrl(
+            address,
+            0,
+            config.contractsDeployed.unlockFundsTxGasLimit.toString(),
+            data
+          )}
+        >
+          <img className={styles.myEtherWalletLogo} src={logo} />
+        </a>
       </Col>
     </Row>
   </div>;

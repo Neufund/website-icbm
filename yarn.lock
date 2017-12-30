@@ -3809,12 +3809,11 @@ gulp-sass@^3.1.0:
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-sequence@^0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/gulp-sequence/-/gulp-sequence-0.4.6.tgz#e388d64311046e05547af43035352d9495501c50"
+gulp-sequence@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-sequence/-/gulp-sequence-1.0.0.tgz#862f93e6503e67c350a42948fa666953cf88ba67"
   dependencies:
-    gulp-util ">=3.0.0"
-    thunks "^4.5.1"
+    thunks "^4.9.0"
 
 gulp-sourcemaps@^2.6.1:
   version "2.6.1"
@@ -3833,7 +3832,7 @@ gulp-sourcemaps@^2.6.1:
     through2 "2.X"
     vinyl "1.X"
 
-gulp-util@3.0.8, gulp-util@>=3.0.0, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.7, gulp-util@^3.0.8:
+gulp-util@3.0.8, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.7, gulp-util@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -8502,9 +8501,9 @@ through@^2.3.6, through@~2.3.4, through@~2.3.8:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
-thunks@^4.5.1:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/thunks/-/thunks-4.8.1.tgz#c9678b370bbaf54f369ea9fdbce2af99f3ae3ec9"
+thunks@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/thunks/-/thunks-4.9.0.tgz#46c00db9968583b3a421e0c9285eac8b9fddb31a"
 
 thunky@^0.1.0:
   version "0.1.0"

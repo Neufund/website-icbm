@@ -138,26 +138,6 @@ team:
        After that she started her own company and worked as a technical project manager for a
        software development agency. Besides “blockchaining” and organizing she is also passionate about cooking.</p>
 
-   - name: "Jacek Czarnecki"
-     title: "General Counsel & Business Strategist"
-     image: "../assets/JacekCzarnecki.jpg"
-     preTitle: ""
-     links:
-      "facebook": "https://www.facebook.com/czarneckijacek"
-      "linkedin": "https://www.linkedin.com/in/jacekczarnecki/"
-      "website": "http://www.coindesk.com/author/jacek-czarnecki/"
-     email: ""
-     bio:  |
-       <p>Jacek Czarnecki is General Counsel at Neufund and closely cooperates with the Legal Architect André Eggert.</p>
-       <p>In the crypto world since 2014, Jacek has been able to gather a
-       substantial amount of experience with blockchain thanks to his work in a technology practice
-       at a prominent law firm. This experience convinced him that blockchain is also the future of
-       law, which he is able to help shape at Neufund.</p>
-       <p>In his second role as Neufund’s Business Strategist, he is also responsible for expanding
-       and maintaining Neufund’s partnerships with the leading firms in crypto, law and business.
-       Jacek holds a Masters of Law and Finance from the University of Oxford as well as a
-       Masters in Law from the University of Warsaw. He is also working on a PhD (about blockchain, of course).</p>
-
    - name: "Krzysztof Kaczor"
      title: "Lead Blockchain Developer"
      image: "../assets/krzysztofkaczor.jpg"
@@ -242,7 +222,6 @@ team:
 
        <p>Born and raised in Warsaw (Poland), Marta loves to travel the world in her spare time.</p>
 
-
    - name: "Mostafa Balata"
      title: "Fullstack Developer"
      image: "../assets/mostafabalatabw.jpg"
@@ -258,40 +237,6 @@ team:
        decentralized applications. Mostafa focuses on writing smart contracts and creating
        interactive UI using modern Javascript frameworks.</p>
        <p>He joined Neufund as an intern after meeting the founder Zoe at the tech incubator Gaza Sky Geeks in Palestine.</p>
-
-   - name: "Moritz Bierling"
-     title: "Blockchain Reporter"
-     image: "../assets/MoritzBierling.jpg"
-     preTitle: ""
-     links:
-      "facebook": "https://www.facebook.com/bierlingm"
-      "twitter": "https://twitter.com/bierlingm"
-      "linkedin": "https://www.linkedin.com/in/moritzbierling/"
-      "medium": "https://medium.com/@bierlingm"
-     email: ""
-     bio:  |
-       <p>Moritz Bierling is a researcher, writer and man of many talents. As the resident Blockchain
-       Reporter at Neufund, he helps educate the public about the nature of blockchain-related
-       technologies and the effect they have on the economy and society, while also coordinating
-       community outreach activities, media campaigns and business development efforts. In his
-       past work at Exosphere Academy he organized a Space Elevator bootcamp, an Artificial
-       Intelligence conference and the world’s first Ethereum training course in addition to
-       authoring a Primer on the emerging discipline of Alternate Reality Design. His work has
-       appeared in a number of blockchain-related media outlets such as CoinTelegraph,
-       Bitcoin.com and the The Bitcoin Podcast.<p>
-
-   - name: "Steffen Sieler"
-     title: "Blockchain Regulatory Reporter"
-     image: "../assets/Steffen1.jpg"
-     preTitle: ""
-     links:
-      "twitter": "https://twitter.com/steffen_rob"
-      "linkedin": "https://www.linkedin.com/in/steffen-sieler-445852b3/"
-      "medium": "https://medium.com/@steffens"
-     email: ""
-     bio:  |
-       <p>Steffen is the Blockchain Regulatory Reporter at Neufund. He is interested in how the institutional character of blockchain technology allows for new ways in which actors can collaborate, transact and trust. His interdisciplinary approach spans the realms of economics, politics and sociology and aims to promote the emerging field of crypto-economics.</p>
-       <p>As a researcher he is affiliated with the Leadership Excellence Institute Zeppelin and the Oxford Internet Institute. After his work in the banking innovation sphere, he is now happy to work with Neufund where he forges the Blockchain Policy Initiative.</p>
 
    - name: "Nikola Sporczyk"
      title: "Administrative Intern"

@@ -7,16 +7,14 @@ import CurveChart, { getNeumarkAmount, getPrice } from "../components/CurveChart
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import PriceCalculator from "../components/PriceCalculator";
 import config from "../config";
-import { selectEthEurFractionInBaseCurrency } from "../reducers/commitmentState";
-import { selectAllCurveEtherInBaseCurrency } from "../reducers/duringIcoState";
+import { selectAllFundsInEuro } from "../reducers/duringIcoState";
 import { IAppState } from "../reducers/index";
-
-const EUR_ETH_FIXED_RATE = 0.0038119801;
+import { Q18 } from "../web3/utils";
 
 interface ICurveStateProps {
   form: any;
   currencyRate?: number;
-  raisedEther?: number;
+  raisedEuro?: number;
   loading: boolean;
 }
 
@@ -41,13 +39,13 @@ export class Curve extends React.Component<ICurveStateProps, ICurveState> {
     const initialReward: number = 6.5;
     const capNEU: number = 1500000000;
     const min: number = 0;
-    const max: number = 1030000;
+    const max: number = 1500000000;
     const dotsNumber: number = 50;
 
     const currencyRate = this.props.currencyRate;
-    const currentRaisedEther = this.props.raisedEther;
+    const currentRaisedEuro = this.props.raisedEuro;
 
-    const rewardForOneEth = getPrice(currencyRate, initialReward, capNEU, currentRaisedEther);
+    const rewardForOneEth = getPrice(currencyRate, initialReward, capNEU, currentRaisedEuro);
 
     return (
       <Row>
@@ -84,7 +82,7 @@ export class Curve extends React.Component<ICurveStateProps, ICurveState> {
                 currencyRate,
                 initialReward,
                 capNEU,
-                currentRaisedEther,
+                currentRaisedEuro,
                 parseFloat(ethAmount)
               );
               this.setEstimatedRewardAction(price);
@@ -101,7 +99,7 @@ export class Curve extends React.Component<ICurveStateProps, ICurveState> {
             min={min}
             max={max}
             dotsNumber={dotsNumber}
-            currentRasiedEther={currentRaisedEther}
+            currentRaisedEuro={currentRaisedEuro}
           />
         </Col>
       </Row>
@@ -118,12 +116,12 @@ export class Curve extends React.Component<ICurveStateProps, ICurveState> {
 function mapStateAndConfigToProps(
   state: IAppState,
   connectedToSmartcontracts: boolean
-): { loading: boolean; currencyRate?: number; raisedEther?: number } {
+): { loading: boolean; currencyRate?: number; raisedEuro?: number } {
   if (!connectedToSmartcontracts) {
     return {
       loading: false,
-      currencyRate: EUR_ETH_FIXED_RATE,
-      raisedEther: 0,
+      currencyRate: 1,
+      raisedEuro: 0,
     };
   }
   if (state.commitmentState.loading) {
@@ -134,8 +132,8 @@ function mapStateAndConfigToProps(
   if (state.commitmentState.commitmentState === IcoPhase.BEFORE) {
     return {
       loading: false,
-      currencyRate: 1 / selectEthEurFractionInBaseCurrency(state.commitmentState).toNumber(),
-      raisedEther: 0,
+      currencyRate: 1,
+      raisedEuro: 0,
     };
   }
   if (state.duringIcoState.loading) {
@@ -146,11 +144,8 @@ function mapStateAndConfigToProps(
 
   return {
     loading: false,
-    currencyRate: 1 / selectEthEurFractionInBaseCurrency(state.commitmentState).toNumber(),
-    raisedEther: selectAllCurveEtherInBaseCurrency(
-      state.duringIcoState,
-      state.commitmentState.ethDecimals
-    ).toNumber(),
+    currencyRate: 1,
+    raisedEuro: selectAllFundsInEuro(state.duringIcoState).div(Q18).toNumber(),
   };
 }
 

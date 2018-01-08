@@ -2,7 +2,7 @@ import { BigNumber } from "bignumber.js";
 import promiseAll = require("promise-all");
 
 import { etherLock, euroLock, neumark, publicCommitment } from "./contracts/ContractsRepository";
-import { convertEurToEth } from "./utils";
+import { convertEurToEth, Q18 } from "./utils";
 
 export async function loadDuringIcoDetailsFromContract(
   ethEurFraction: string,
@@ -33,4 +33,9 @@ export async function allInvestors() {
 export async function issuanceRate(ethDecimals: number): Promise<BigNumber> {
   const eth = new BigNumber(10).pow(ethDecimals);
   return await publicCommitment.estimateNeumarkReward(eth.toString());
+}
+
+export async function issuanceRateFor1Euro(ethEurFractionBN: BigNumber): Promise<BigNumber> {
+  const ethValue = convertEurToEth(ethEurFractionBN, Q18);
+  return await publicCommitment.estimateNeumarkReward(ethValue.toString());
 }

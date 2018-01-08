@@ -2,6 +2,7 @@ import * as cn from "classnames";
 import * as React from "react";
 import { connect } from "react-redux";
 
+import { IcoPhase } from "../../actions/constants";
 import {
   ledgerWalletSelectedAction,
   otherWalletSelectedAction,
@@ -23,63 +24,75 @@ interface IWalletSelectorProps {
   walletInBrowserSelected: boolean;
   ledgerWalletSelected: boolean;
   otherWalletSelected: boolean;
+  commitmentState: IcoPhase;
 }
 
-export const WalletSelectorComponent: React.SFC<IWalletSelectorProps> = ({
-  walletInBrowserSelected,
-  ledgerWalletSelected,
-  otherWalletSelected,
-  walletInBrowserSelectedAction,
-  ledgerWalletSelectedAction,
-  otherWalletSelectedAction,
-}) => {
-  return (
-    <div>
-      <LegalModal />
-      <CommitHeaderComponent number="01" title="Commit your funds" />
-      <p>Please select your wallet.</p>
+export class WalletSelectorComponent extends React.Component<IWalletSelectorProps> {
+  public componentWillMount() {
+    // if committing money should not be allowed redirect to home
+    if (this.props.commitmentState !== IcoPhase.DURING) {
+      window.location.replace("/");
+    }
+  }
+
+  public render() {
+    const {
+      walletInBrowserSelected,
+      ledgerWalletSelected,
+      otherWalletSelected,
+      walletInBrowserSelectedAction,
+      ledgerWalletSelectedAction,
+      otherWalletSelectedAction,
+    } = this.props;
+
+    return (
       <div>
-        <div className={styles.walletSelector}>
-          <WalletTab
-            active={otherWalletSelected}
-            onSelect={otherWalletSelectedAction}
-            data-test-id="wallet-selector-other"
-          >
-            <HiResImage
-              partialPath="wallet_selector/icon_other_wallet"
-              className={styles.walletIcon}
-            />External Wallet
-          </WalletTab>
-          <WalletTab
-            active={walletInBrowserSelected}
-            onSelect={walletInBrowserSelectedAction}
-            data-test-id="wallet-selector-browser"
-          >
-            <HiResImage
-              partialPath="wallet_selector/icon_wallet"
-              className={styles.walletIcon}
-            />Wallet in your browser
-          </WalletTab>
-          <WalletTab
-            active={ledgerWalletSelected}
-            onSelect={ledgerWalletSelectedAction}
-            data-test-id="wallet-selector-ledger"
-          >
-            <HiResImage
-              partialPath="wallet_selector/icon_ledger"
-              className={styles.walletIcon}
-            />Ledger Nano Wallet
-          </WalletTab>
-        </div>
+        <LegalModal />
+        <CommitHeaderComponent number="01" title="Commit your funds" />
+        <p>Please select your wallet.</p>
         <div>
-          {walletInBrowserSelected && <WalletInBrowser />}
-          {ledgerWalletSelected && <LedgerWallet />}
-          {otherWalletSelected && <CommitUnknownUser />}
+          <div className={styles.walletSelector}>
+            <WalletTab
+              active={otherWalletSelected}
+              onSelect={otherWalletSelectedAction}
+              data-test-id="wallet-selector-other"
+            >
+              <HiResImage
+                partialPath="wallet_selector/icon_other_wallet"
+                className={styles.walletIcon}
+              />External Wallet
+            </WalletTab>
+            <WalletTab
+              active={walletInBrowserSelected}
+              onSelect={walletInBrowserSelectedAction}
+              data-test-id="wallet-selector-browser"
+            >
+              <HiResImage
+                partialPath="wallet_selector/icon_wallet"
+                className={styles.walletIcon}
+              />Wallet in your browser
+            </WalletTab>
+            <WalletTab
+              active={ledgerWalletSelected}
+              onSelect={ledgerWalletSelectedAction}
+              data-test-id="wallet-selector-ledger"
+            >
+              <HiResImage
+                partialPath="wallet_selector/icon_ledger"
+                className={styles.walletIcon}
+              />Ledger Nano Wallet
+            </WalletTab>
+          </div>
+          <div>
+            {walletInBrowserSelected && <WalletInBrowser />}
+            {ledgerWalletSelected && <LedgerWallet />}
+            {otherWalletSelected && <CommitUnknownUser />}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 interface IWalletTab {
   active?: boolean;
@@ -101,6 +114,7 @@ export const WalletSelector = connect(
     walletInBrowserSelected: state.walletSelectorState.walletInBrowserSelected,
     ledgerWalletSelected: state.walletSelectorState.ledgerWalletSelected,
     otherWalletSelected: state.walletSelectorState.otherWalletSelected,
+    commitmentState: state.commitmentState.commitmentState,
   }),
   dispatch => ({
     walletInBrowserSelectedAction: () => dispatch(walletInBrowserSelectedAction()),

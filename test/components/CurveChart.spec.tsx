@@ -18,7 +18,7 @@ describe("<CurveChart />", () => {
     const min: number = 0;
     const max: number = 1000000;
     const dotsNumber: number = 50;
-    const currentRasiedEther: number = 0;
+    const currentRaisedEuro: number = 0;
 
     const component = shallow(
       <CurveChart
@@ -28,7 +28,7 @@ describe("<CurveChart />", () => {
         min={min}
         max={max}
         dotsNumber={dotsNumber}
-        currentRasiedEther={currentRasiedEther}
+        currentRaisedEuro={currentRaisedEuro}
       />
     );
 

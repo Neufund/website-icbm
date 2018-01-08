@@ -30,7 +30,7 @@ interface IDuringIcoCountdownProps {
 }
 
 export const HexagonText = (props: IMoneyProps) => {
-  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading, raised, neuMarkAmount, investorsAccountCreated } = props;
   if (loading) {
     return <LoadingIndicator className={styles.loadingIndicator} />;
   }
@@ -65,22 +65,12 @@ export const HexagonText = (props: IMoneyProps) => {
           separateThousands
         />
       </p>
-
-      <p className={styles.title}>Current reward</p>
-      <p className={styles.content} data-test-id="during-ico-current-reward">
-        <MoneyComponent
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkToEtherRatio}
-        />
-        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
-      </p>
     </div>
   );
 };
 
 export const AfterIcoHexagonText = (props: IMoneyProps) => {
-  const { loading, raised, neuMarkAmount, neuMarkToEtherRatio, investorsAccountCreated } = props;
+  const { loading, raised, neuMarkAmount, investorsAccountCreated } = props;
   if (loading) {
     return <LoadingIndicator className={styles.loadingIndicator} />;
   }
@@ -114,16 +104,6 @@ export const AfterIcoHexagonText = (props: IMoneyProps) => {
           value={neuMarkAmount}
           separateThousands
         />
-      </p>
-
-      <p className={styles.title}>Current reward</p>
-      <p className={styles.content} data-test-id="during-ico-current-reward">
-        <MoneyComponent
-          valueClass={styles.value}
-          tokenType={TokenType.NEU}
-          value={neuMarkToEtherRatio}
-        />
-        <span> / </span> <span className={styles.value}>1</span> <span>ETH</span>
       </p>
 
       <p className={styles.disclaimer}>

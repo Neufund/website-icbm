@@ -72,7 +72,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
         bird bonus decreases as the committed capital pool grows.
       </p>
       <strong className={style.preTextPargraph}>
-        Current NEU reward: {rewardForOneEth.toFixed(2)} NEU / 1 ETH
+        Current NEU reward: {rewardForOneEth.toFixed(2)} NEU / 1 EUR
       </strong>
 
       <form onKeyUp={calculateEstimatedReward}>
@@ -95,7 +95,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
               props={{ maxLength: 9 }}
               validate={[number]}
             />
-            <span className={style.currencyEth}>ETH</span>
+            <span className={style.currencyEth}>EUR</span>
           </div>
           <p className={style.description}>
             Calculated amount is an estimation. The NEU reward will be granted after the block is

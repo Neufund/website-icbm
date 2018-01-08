@@ -66,18 +66,18 @@ interface ICurveChart {
   capNEU: number;
   initialReward: number;
   currencyRate: number;
-  currentRasiedEther?: number;
+  currentRaisedEuro?: number;
 }
 
 export default (props: ICurveChart) => {
-  const { min, max, dotsNumber, capNEU, initialReward, currencyRate, currentRasiedEther } = props;
+  const { min, max, dotsNumber, capNEU, initialReward, currencyRate, currentRaisedEuro } = props;
   neuMarkInfoCurveChartPlugin();
 
   const etherDatasetList = getEtherDataset(min, max, dotsNumber);
 
   etherDatasetList.sort((a: number, b: number) => a - b);
 
-  const activePointPrice = getPrice(currencyRate, initialReward, capNEU, currentRasiedEther);
+  const activePointPrice = getPrice(currencyRate, initialReward, capNEU, currentRaisedEuro);
   const data = {
     labels: etherDatasetList.map(eth => `${formatNumber(eth)}`),
     datasets: [
@@ -110,7 +110,7 @@ export default (props: ICurveChart) => {
         price: activePointPrice,
       },
       notes: "",
-      yAxesLabel: "NEU Reward (NEU/ETH)",
+      yAxesLabel: "NEU Reward (NEU/EUR)",
     },
     layout: {
       padding: {
@@ -125,7 +125,7 @@ export default (props: ICurveChart) => {
         {
           scaleLabel: {
             display: true,
-            labelString: "Amount of ETH\nCommited",
+            labelString: "Amount of EUR\nCommited",
             fontColor: "#BBC2C7",
           },
           gridLines: {
@@ -187,12 +187,12 @@ export default (props: ICurveChart) => {
           const currentEth = etherDatasetList[item.index];
 
           return [
-            `At ${formatNumber(currentEth.toFixed(2))} committed ETH`,
-            `reward ${formatNumber(price.toFixed(2))} NEU/ETH`,
+            `At ${formatNumber(currentEth.toFixed(2))} committed EUR`,
+            `reward ${formatNumber(price.toFixed(2))} NEU/EUR`,
           ];
         },
         title: (tooltipItems: any) => {
-          return `${formatNumber(tooltipItems[0].yLabel)} NEU/ETH`;
+          return `${formatNumber(tooltipItems[0].yLabel)} NEU/EUR`;
         },
       },
     },

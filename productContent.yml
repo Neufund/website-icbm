@@ -217,7 +217,7 @@ last:
   bg_url: ""
   white: true
   headline: "Become a part of the Neufund ecosystem!"
-  button_text: "Participate in the ICBM"
-  button_url: "/commit"
+  button_text: "ICBM has ended"
+  button_url: "/"
   link_text: "Read more about Neufund ICBM"
   link_url: "/"

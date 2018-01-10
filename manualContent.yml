@@ -164,7 +164,7 @@
     - type: "regular"
       title: "I need help!"
       paragraphs:
-      - "If you have any further questions or troubles write at <a href='mailto:aga@neufund.org'>aga@neufund.org</a> or tag @aga on our <a href='https://neufund.org/slack' target='_blank'>Slack</a> or <a href='https://t.me/neufund' target='_blank'>Telegram</a> channels."
+      - "If you have any further questions or troubles write at <a href='mailto:support@neufund.org'>support@neufund.org</a> or tag @aga on our <a href='https://neufund.org/slack' target='_blank'>Slack</a> or <a href='https://t.me/neufund' target='_blank'>Telegram</a> channels."
       rightSideContent: ""
       extra: |
         <a href="https://commit.neufund.org" class="participate btn btn-primary" target="_blank" />Participate in the ICBM</a>

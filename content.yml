@@ -117,7 +117,7 @@ team:
        Additionally, he possesses specific expertise in the technology and entertainment industries.</p>
 
    - name: "Agnieszka Sarnecka"
-     title: "Business Operations Manager"
+     title: "VP Ventures"
      image: "../assets/AgnieszkaSarnecka.jpg"
      preTitle: ""
      links:
@@ -129,14 +129,18 @@ team:
       "website": "https://www.xing.com/profile/Agnieszka_Sarnecka2"
      email: ""
      bio:  |
-       <p>Agnieszka has been part of Neufund since the very beginning, assuming the role of
-       Business Operations Manager. Agnieszka studied Economics and Business in Berlin. She
-       has 5 years of experience working for tech startups in the fields of Project, Product, and
-       Operations Management. Thanks to her career start at major online shop providers, she has
-       perfected her planning and organizational skills. During her work at a tech-startup proving
-       app discovery search engine she developed her content and project management skills.
-       After that she started her own company and worked as a technical project manager for a
-       software development agency. Besides “blockchaining” and organizing she is also passionate about cooking.</p>
+       <p>Agnieszka has been part of Neufund since the very beginning, assuming the role of Business Operations Manager. Agnieszka studied Economics and Business in Berlin. She has 5 years of experience working for tech startups in the fields of Project, Product, and Operations Management. Thanks to her career start at major online shop providers, she has perfected her planning and organizational skills. During her work at a tech-startup proving app discovery search engine she developed her content and project management skills. After that she started her own company and worked as a technical project manager for a software development agency. Besides “blockchaining” and organizing she cooks really passionately. As of January 2018 Aga will take care of the ventures interested in conducting an ETO with Neufund.</p>
+
+   - name: "Piotr Stroinski"
+     title: "VP of Secondary Markets"
+     image: "../assets/Panor.jpg"
+     preTitle: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/piotrstroinski/"
+      "github": "https://github.com/pstroinski"
+     email: ""
+     bio:  |
+       <p>Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from work in big corporations spanning many sectors such as media, telecommunication, and banking. There he was responsible for IT infrastructure and application architecture, as well as implementation and support. Having bought his first bitcoins in 2012, and currently an active trader, he is deeply fascinated by blockchain technology. Once offered the opportunity to join Neufund, he could not resist moving to Berlin and becoming a part of the revolution in the startup financing model. As of January 2018 Piotr will be managing the secondary markets and partnerships at Neufund.</p>
 
    - name: "Krzysztof Kaczor"
      title: "Lead Blockchain Developer"
@@ -154,6 +158,23 @@ team:
        fan of the open source philosophy, and various projects of his have gained several hundred
        stars on GitHub. In his free time, he likes to listen to rap and indie music as well as ride his
        longboard.</p>
+
+   - name: "Shani Koren"
+     title: "KYC Manager"
+     image: "../assets/ShaniKoren.jpg"
+     preTitle: ""
+     links:
+      "facebook": "https://www.facebook.com/shani.levi.1650"
+     email: ""
+     bio:  |
+       <p>Shani joined recently to Neufund to build and manage our KYC and verification process, she
+       has 6 years experience in the CFD exchange company, and has managed KYC and verification
+       projects in the past, she also has experience in managing customer care service. Shani was
+       born in Israel and lived in Cyprus for the last 6 years. Today, banks, financial institutions,
+       and cryptocurrency exchanges are required to abide by KYC requirements. Basically, it means
+       our organizations need to collect and verify personal information from customers. It’s
+       designed to prevent fraud, and it’s also frequently paired with Anti-Money Laundering
+       (AML) verification requirements.</p>
 
    - name: "Tomek Banach"
      title: "Dapp Developer"
@@ -188,21 +209,21 @@ team:
        security implications these solutions cause. He has released multiple conference papers in
        the field of Embedded Security and Robotics.</P>
 
-   - name: "Piotr Stroinski"
-     title: "IT Infrastructure Architect"
-     image: "../assets/Panor.jpg"
+   - name: "Mostafa Balata"
+     title: "Fullstack Developer"
+     image: "../assets/mostafabalatabw.jpg"
      preTitle: ""
      links:
-      "linkedin": "https://www.linkedin.com/in/piotrstroinski/"
-      "github": "https://github.com/pstroinski"
+      "facebook": "https://www.facebook.com/mostafa.balata"
+      "github": "https://github.com/MostafaBalata"
      email: ""
      bio:  |
-       <p>Piotr Stroinski is an IT engineer with 16 years of experience in the industry. His experience stems from
-       work for big corporations spanning many sectors such as media, telecommunication and banking.
-       There he was responsible for IT infrastructure and application architecture, as well as implementation and support.</p>
-       <p>Having bought his first bitcoins in 2012 and currently an active trader, he is deeply fascinated by
-       blockchain technology. Once offered the opportunity to join Neufund, he could not resist moving to
-       Berlin and becoming a part of the revolution in the startup financing model.</p>
+       <p>Mostafa Balata is a Full Stack Developer at Neufund. With more than four years of
+       experience he is quick to learn and very collaborative. He is an active member in the open
+       source community and interested in Blockchain technologies as well as the concept of
+       decentralized applications. Mostafa focuses on writing smart contracts and creating
+       interactive UI using modern Javascript frameworks.</p>
+       <p>He joined Neufund as an intern after meeting the founder Zoe at the tech incubator Gaza Sky Geeks in Palestine.</p>
 
    - name: "Marta Sosinka"
      title: "Administration Manager"
@@ -221,22 +242,6 @@ team:
        education is a bachelor’s degree in Management.</p>
 
        <p>Born and raised in Warsaw (Poland), Marta loves to travel the world in her spare time.</p>
-
-   - name: "Mostafa Balata"
-     title: "Fullstack Developer"
-     image: "../assets/mostafabalatabw.jpg"
-     preTitle: ""
-     links:
-      "facebook": "https://www.facebook.com/mostafa.balata"
-      "github": "https://github.com/MostafaBalata"
-     email: ""
-     bio:  |
-       <p>Mostafa Balata is a Full Stack Developer at Neufund. With more than four years of
-       experience he is quick to learn and very collaborative. He is an active member in the open
-       source community and interested in Blockchain technologies as well as the concept of
-       decentralized applications. Mostafa focuses on writing smart contracts and creating
-       interactive UI using modern Javascript frameworks.</p>
-       <p>He joined Neufund as an intern after meeting the founder Zoe at the tech incubator Gaza Sky Geeks in Palestine.</p>
 
    - name: "Nikola Sporczyk"
      title: "Office Manager"

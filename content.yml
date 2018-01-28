@@ -116,6 +116,19 @@ team:
        range of international transactions with parties from the Anglo-American legal system.
        Additionally, he possesses specific expertise in the technology and entertainment industries.</p>
 
+   - name: "Sergiej Rewiakin"
+     title: "VP of Engineering"
+     image: "../assets/sergiej.png"
+     preTitle: ""
+     links:
+      "linkedin": "https://www.linkedin.com/in/sergiej/"
+      "github": "https://github.com/SergejSoft"
+     email: ""
+     bio:  |
+       <p>Sergiej was following Neufund from the beginning and has joined with the very first opportunity to
+        contribute. Sergiej have founded several startups with a proven record to build and execute (CleanAgents, HelloCare, Movinga, Senden24 etc.).
+        He is passionate about consumer-facing platforms and pledge to turn Neufund Platform into intuitive and simple user product. </p>
+
    - name: "Agnieszka Sarnecka"
      title: "VP Ventures"
      image: "../assets/AgnieszkaSarnecka.jpg"

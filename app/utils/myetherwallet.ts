@@ -9,5 +9,5 @@ export const myEtherWalletUrl = (
   gasLimit: string,
   data: string
 ): string => {
-  return `https://www.myetherwallet.com/?to=${to}&value=${value}&gaslimit=${gasLimit}&data=${data}#send-transaction`;
+  return `https://vintage.myetherwallet.com/?to=${to}&value=${value}&gaslimit=${gasLimit}&data=${data}#send-transaction`;
 };

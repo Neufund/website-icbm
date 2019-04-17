@@ -102,7 +102,7 @@ function loadConfig(environment: IDictionary): IConfig {
           gasPrice: getRequiredValue(environment, "GAS_PRICE"),
           gasLimit: getRequiredValue(environment, "GAS_LIMIT"),
           unlockFundsTxGasLimit: getRequiredValue(environment, "UNLOCK_FUNDS_GAS_LIMIT"),
-          ipfsNode: "https://ipfs.io/",
+          ipfsNode: "https://ipfs.neufund.org/",
           euroEthRate: getRequiredValue(environment, "EUR_ETH_RATE"),
           pdfRenderer: getRequiredValue(environment, "PDF_RENDERER"),
           numberOfConfirmations: 1, // if you set value > 1 then on dev network you will have to simulate traffic

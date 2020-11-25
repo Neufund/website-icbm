@@ -24,11 +24,11 @@ export const trackCommitEvent = (amount: string, web3Type: Web3Type): void => {
   }
 };
 
-export const trackMEWEvent = (): void => {
+export const trackMCEvent = (): void => {
   try {
-    ga("send", "event", "MyEtherWallet", "link");
+    ga("send", "event", "MyCrypto", "link");
 
-    fbq("trackCustom", "MyEtherWalletSignUp", {
+    fbq("trackCustom", "MyCryptoSignUp", {
       value: 0,
     });
 
@@ -40,6 +40,6 @@ export const trackMEWEvent = (): void => {
     }
   } catch (e) {
     // tslint:disable-next-line no-console
-    console.log("error in tracking MyEtherWallet link click", e);
+    console.log("error in tracking MyCrypto link click", e);
   }
 };

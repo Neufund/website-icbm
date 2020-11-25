@@ -12,7 +12,7 @@ import {
   selectEstimatedRewardLoadingState,
   selectMinTicketWei,
 } from "../../reducers/commitmentState";
-import { selectMyEtherWallerUrl } from "../../reducers/formSelectors";
+import { selectMyCryptoUrl } from "../../reducers/formSelectors";
 import { IAppState } from "../../reducers/index";
 import { selectEthNetwork } from "../../reducers/web3State";
 import { etherscanUrl } from "../../utils/etherscan";
@@ -32,7 +32,7 @@ interface ICommitFundsStatic {
   estimatedReward: BigNumber;
   loadingEstimatedReward: boolean;
   minTicketWei: BigNumber;
-  myEtherWalletUrl: string;
+  myCryptoUrl: string;
 }
 
 export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
@@ -45,7 +45,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
   loadingEstimatedReward,
   calculateEstimatedReward,
   minTicketWei,
-  myEtherWalletUrl,
+  myCryptoUrl,
 }) =>
   <div>
     <Row className={style.initialLink}>
@@ -81,7 +81,7 @@ export const CommitUnknownUserComponent: React.SFC<ICommitFundsStatic> = ({
           calculateEstimatedReward={calculateEstimatedReward}
           loadingEstimatedReward={loadingEstimatedReward}
           minTicketWei={minTicketWei}
-          myEtherWalletUrl={myEtherWalletUrl}
+          myCryptoUrl={myCryptoUrl}
         />
       </Col>
     </Row>
@@ -106,7 +106,7 @@ export const CommitUnknownUser = connect(
     transactionPayload: publicCommitment.rawWeb3Contract.commit.getData(),
     gasPrice: config.contractsDeployed.gasPrice,
     gasLimit: config.contractsDeployed.gasLimit,
-    myEtherWalletUrl: selectMyEtherWallerUrl(state),
+    myCryptoUrl: selectMyCryptoUrl(state),
   }),
   dispatch => ({
     calculateEstimatedReward: debounce(

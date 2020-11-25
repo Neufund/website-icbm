@@ -4,8 +4,8 @@ import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 
 import { TokenType } from "../../actions/constants";
-import * as logo from "../../assets/img/myetherwallet_logo.svg";
-import { trackMEWEvent } from "../../utils/tracking";
+import * as logo from "../../assets/img/mycrypto_logo.png";
+import { trackMCEvent } from "../../utils/tracking";
 import { commitmentValueValidator } from "../../validators/commitmentValueValidator";
 import { LoadingIndicator } from "../LoadingIndicator";
 import MoneyComponent from "../MoneyComponent";
@@ -58,7 +58,7 @@ interface ICommitFundsEstimation {
   calculateEstimatedReward: () => {};
   loadingEstimatedReward: boolean;
   minTicketWei: BigNumber;
-  myEtherWalletUrl: string;
+  myCryptoUrl: string;
 }
 
 interface ICommitFundsEstimationFormValues {
@@ -69,7 +69,7 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
   estimatedReward,
   calculateEstimatedReward,
   loadingEstimatedReward,
-  myEtherWalletUrl,
+  myCryptoUrl,
 }) => {
   return (
     <div className={style.container}>
@@ -105,8 +105,8 @@ const CommitUnknownUserEstimationComponent: React.SFC<ICommitFundsEstimation> = 
       <div className={style.myEtherWallet}>
         <img className={style.logo} src={logo} />
         Use{" "}
-        <a target="_blank" href={myEtherWalletUrl} onClick={trackMEWEvent}>
-          MyEtherWallet
+        <a target="_blank" href={myCryptoUrl} onClick={trackMCEvent}>
+          MyCrypto
         </a>
       </div>
     </div>

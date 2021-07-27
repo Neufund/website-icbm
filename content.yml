@@ -5,6 +5,7 @@ meta_head:
   keywords: "neufund, icbm, ico, neumark, venture capital, ethereum, startup, blockchain"
 
 why-how:
+  visible: false
   sections:
     - title: "Enjoy risk-free commitment"
       id: "how-it-works"
@@ -48,7 +49,7 @@ participating:
       target: "https://blog.neufund.org/key-takeaways-from-the-new-neufund-whitepaper-56444e408643"
 
 invest_platform:
-  visible: true
+  visible: false
   title: "Investing in companies on the Neufund Platform"
   paragraph:  |
        <p>Neufund opens and re-imagines Initial Coin Offerings (ICOs) for all types of companies (blockchain and non&#8209;blockchain companies).</p>
@@ -58,7 +59,7 @@ invest_platform:
        <p>The Neufund Platform is designed to be both secure and user friendly. It is a platform for everyone.</p>
 
 team:
-  visible: true
+  visible: false
   title: "Team"
   intro: "Team of entrepreneurs and experienced professionals."
   block: "../blocks/person"
@@ -268,7 +269,7 @@ team:
        <p>In 2015 she attended Rails Girls Kraków event and constantly tries using simple programming to make her work environment friendlier. Nikola graduated from Wrocław University. Privately she is a cats-and-pizza lover and hardcore video game player with a passion for learning languages.</p>
 
 advisors:
-  visible: true
+  visible: false
   title: "Advisors"
   intro: "Advisors bridging the worlds of crypto and Venture Capital."
   block: "../blocks/person"
@@ -396,7 +397,7 @@ advisors:
         <p>Frank Thelen is a European serial founder, technology investor and TV personality. Since 1994, he founded and managed technology and design-driven companies. In his role as the founder and CEO of the venture capitalist Freigeist Capital, he concentrates on investments in the early phase. Its products have reached over 200 million customers in over 60 countries. Frank was the seed investor in startups like Lilium Aviation, Wunderlist, myTaxi, kaufDA and Little Lunch.</p>
 
 quotes:
-  visible: true
+  visible: false
   title: "Testimonials"
   description: ""
   quotes:

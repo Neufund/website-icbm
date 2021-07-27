@@ -456,11 +456,6 @@ ecosystem:
     - link: "Lightpaper"
       href: "https://neufund.org/lightpaper"
       new: true
-    - link: "Roadmap"
-      href: "https://neufund.org/roadmap"
-    - link: 'Neufund​ ​Teaser​'
-      new: true
-      href: "https://neufund.org/neufundteaser"
     - link: "Neufund Legal Structure"
       href: "https://blog.neufund.org/legal-aspects-of-neufund-a-review-832e1c98a985"
       keyRead: true
@@ -473,8 +468,6 @@ ecosystem:
       keyRead: true
     - link: "Smart Contracts on Github"
       href: "https://github.com/Neufund/ico-contracts"
-    - link: 'Neufund ICBM FAQ'
-      href: "/faq"
 
 press:
   links:

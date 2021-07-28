@@ -23,35 +23,14 @@ export const AfterIcoSumup = (props: IAfterIcoSumupProps) => {
   return (
     <Row className={`${styles.duringIco}`} data-test-id="during-ico-phase">
       <Col sm={5} className={styles.incentive}>
-        <h1>
-          Our ICBM ended on {endDateFormatted}
-        </h1>
-        <p>Thank you all for the support!</p>
-        <p>
-          Neufund bridges blockchain and venture capital, enabling ETOs for on- and off-chain
-          companies.
-        </p>
-        <p>You reserved your funds for future investments on the Neufund Platform.</p>
-        <p>Your NEU entitles you to economic co-ownership of the platform.</p>
-        <p>You maintain full control over your investment decisions at all times.</p>
+        <h1>Unlock your commitment below</h1>
 
-        <ul className="links-list">
-          <li>
-            <i className="material-icons">link</i>
-            <a
-              href="https://icomonitor.io/#/0xf432cec23b2a0d6062b969467f65669de81f4653"
-              target="_blank"
-            >
-              ICBM details in the ICO Transparency Monitor
-            </a>
-          </li>
-          <li>
-            <i className="material-icons">link</i>
-            <a href="https://t.me/neufund" target="_blank">
-              Join us on Telegram!
-            </a>
-          </li>
-        </ul>
+        <p>
+          Thank you for joining ICBM! You can unlock your funds by following the instructions under
+          'See your commitment status'
+        </p>
+
+        <p></p>
 
         <MailchimpForm hideForm />
 

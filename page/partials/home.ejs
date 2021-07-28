@@ -15,18 +15,6 @@ const checkSectionVisiablity = function(item, content) {
 
 <%- include('press', content.press); %>
 
-<!--<%- include('platform-overview'); %>-->
-
-<!--<%- include('why-how', Object.assign({}, content['why-how'].sections[0], { index: 0 })) %>-->
-
-<!--<div class="container" id="curve">-->
-<!--    <div class="section curve">-->
-<!--        <div id="react-root-curve"></div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<%- include('why-how', Object.assign({}, content['why-how'].sections[1], { index: 1 })) %>-->
-
 <%- checkSectionVisiablity(
   content.invest_platform,
   include('invest-platform', Object.assign({}, content.invest_platform, { PLATFORM_ENABLED: PLATFORM_ENABLED }))
@@ -37,7 +25,5 @@ const checkSectionVisiablity = function(item, content) {
 <%- checkSectionVisiablity(content.advisors, include('advisors', content.advisors)); %>
 
 <%- checkSectionVisiablity(content.quotes, include('quotes', content.quotes)); %>
-
-<!--<%- include('newsletter'); %>-->
 
 <%- checkSectionVisiablity(content.ecosystem, include('ecosystem',  content.ecosystem )); %>

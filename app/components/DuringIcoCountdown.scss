@@ -2,8 +2,6 @@
 @import '../../common/sass/variables';
 
 .during-ico {
-  min-height: 480px;
-
   @media (max-width: $screen-xs) {
     height: auto;
   }

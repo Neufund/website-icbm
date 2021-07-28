@@ -514,9 +514,4 @@ footer:
   website_txt: "neufund.org"
   website_url: "https://neufund.org"
   text: |
-    General inquiries: <a href="mailto:hello@neufund.org">hello@neufund.org</a><br/>
-    Press inquiries: <a href="mailto:press@neufund.org">press@neufund.org</a><br/>
-    Technical & general support: <a href="mailto:support@neufund.org">support@neufund.org</a><br/>
-    Info about future ETOs: <a href="mailto:eto@neufund.org">eto@neufund.org</a><br/>
-    Job applications: <a href="mailto:jobs@neufund.org">jobs@neufund.org</a><br/>
-    Our website: <a href="http://neufund.org">neufund.org</a>
+    Contact us: <a href="mailto:support@neufund.org">support@neufund.org</a><br/>

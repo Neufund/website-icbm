@@ -33,16 +33,7 @@ export class AfterIco extends React.Component<IAfterIcoProps> {
   }
 
   public render() {
-    return (
-      <AfterIcoSumup
-        loading={this.props.loading}
-        raised={this.props.allFunds}
-        neuMarkAmount={this.props.totalSupply}
-        neuMarkToEtherRatio={this.props.issuanceRate}
-        investorsAccountCreated={this.props.allInvestors}
-        endDate={this.props.endDate}
-      />
-    );
+    return <AfterIcoSumup />;
   }
 }
 

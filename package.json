@@ -150,5 +150,8 @@
     "web3": "0.19.0",
     "web3-provider-engine": "^13.3.2",
     "zero-fill": "^2.2.3"
+  },
+  "resolutions": {
+    "webpack-dev-server/**/spdy-transport": "^3.0.0"
   }
 }

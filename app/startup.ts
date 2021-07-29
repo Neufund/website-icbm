@@ -19,10 +19,7 @@ const persistStorePromised = promisify(persistStore) as any;
 export async function startup(render: (store: Store<IAppState>) => void) {
   const enhancers = () =>
     composeWithDevTools(
-      compose(
-        applyMiddleware(reduxThunk, routerMiddleware(browserHistory)),
-        autoRehydrate()
-      )
+      compose(applyMiddleware(reduxThunk, routerMiddleware(browserHistory)), autoRehydrate())
     );
 
   // Create the Redux store

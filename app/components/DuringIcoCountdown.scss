@@ -2,15 +2,12 @@
 @import '../../common/sass/variables';
 
 .during-ico {
-  min-height: 480px;
-
   @media (max-width: $screen-xs) {
     height: auto;
   }
 
   .incentive {
     margin-top: 60px;
-    margin-bottom: 100px;
 
     @media (max-width: $screen-sm) {
       margin-top: $padding-between-sections;

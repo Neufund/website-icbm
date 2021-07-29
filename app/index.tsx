@@ -7,7 +7,6 @@ import * as ReactDOM from "react-dom";
 import { Provider, Store } from "react-redux";
 
 import App from "./containers/App";
-import { renderCurve } from "./curve";
 import { startup } from "./startup";
 
 const render = (storage: Store<any>) => {
@@ -19,8 +18,6 @@ const render = (storage: Store<any>) => {
     </Provider>,
     indexRoot
   );
-
-  renderCurve(storage);
 };
 
 // tslint:disable-next-line no-console - it's top level call if anything got here it should be printed

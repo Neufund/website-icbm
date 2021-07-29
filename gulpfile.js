@@ -58,11 +58,11 @@ gulp.task("page", () => {
 
   const pages = [
     "./page/index.ejs",
-    "./page/whitepaper.ejs",
-    "./page/faq.ejs",
-    "./page/platform-preview.ejs",
+    // "./page/whitepaper.ejs",
+    // "./page/faq.ejs",
+    // "./page/platform-preview.ejs",
     "./page/commit.ejs",
-    "./page/manual.ejs",
+    // "./page/manual.ejs",
   ];
 
   pages.forEach(page =>

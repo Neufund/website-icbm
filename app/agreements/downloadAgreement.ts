@@ -9,13 +9,13 @@ export const downloadAgreement = async (
   outputFilename: string
 ) => {
   const pdfRendererUrl = config.contractsDeployed.pdfRenderer;
-  const enclosedTags = mapKeys(tags, (_, tagName) => `{${tagName}}`);
 
   await userDownloadFile(
-    `${pdfRendererUrl}api/document?hash=${documentHash}&type=html`,
+    `${pdfRendererUrl}/api/immutable-storage/download/${documentHash}?as_pdf=True&placeholders=${JSON.stringify(
+      tags
+    )}`,
     {
-      method: "POST",
-      body: JSON.stringify(enclosedTags),
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },

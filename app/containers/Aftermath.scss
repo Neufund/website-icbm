@@ -24,6 +24,8 @@
 // Funds unlock special styles
 
 .tx-info {
+  margin-top: 10px;
+
   :global {
     .row {
       margin-bottom: 10px;
@@ -45,19 +47,4 @@
 .mono-space {
   font-family: monospace;
   font-size: .9em;
-}
-
-.my-ether-wallet-link {
-  display: inline-block;
-
-  @media (max-width: $screen-sm-max) {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-  }
-}
-
-.my-ether-wallet-logo {
-  width: 42px;
-  height: 42px;
 }

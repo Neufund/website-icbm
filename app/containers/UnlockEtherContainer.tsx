@@ -89,7 +89,7 @@ class UnlockEtherContainer extends React.Component<
             </div>
           </div>
 
-          {this.props.etherTokenBalance &&
+          {this.props.isEtherTokenTransfer &&
             <div className={styles.infoBox}>
               <div className={styles.caption}>ETH-T balance:</div>
               <div className={styles.value}>

@@ -33,7 +33,10 @@ interface IUnlockEtherContainerProps {
   missingNEUs: string;
   penaltyFee: string;
   willBePenalized: boolean;
-  withdrawPossible: boolean;
+  notEnoughNeu: boolean;
+  isEtherTokenTransfer: boolean;
+  etherTokenBalance: string;
+  invalidState: boolean;
 }
 
 interface IUnlockEtherContainerState {
@@ -86,6 +89,14 @@ class UnlockEtherContainer extends React.Component<
             </div>
           </div>
 
+          {this.props.isEtherTokenTransfer &&
+            <div className={styles.infoBox}>
+              <div className={styles.caption}>ETH-T balance:</div>
+              <div className={styles.value}>
+                <MoneyComponent value={this.props.etherTokenBalance} tokenType={TokenType.ETHER} />
+              </div>
+            </div>}
+
           <div className={styles.infoBox}>
             <div className={styles.caption}>ETH can be unlocked without penalty starting on: </div>
             <div className={styles.value}>
@@ -135,15 +146,33 @@ class UnlockEtherContainer extends React.Component<
   }
 
   private renderSteps() {
-    const { withdrawPossible, missingNEUs, willBePenalized, penaltyFee } = this.props;
+    const {
+      notEnoughNeu,
+      missingNEUs,
+      willBePenalized,
+      penaltyFee,
+      isEtherTokenTransfer,
+      etherTokenBalance,
+      invalidState,
+    } = this.props;
 
-    if (!withdrawPossible) {
+    if (!notEnoughNeu) {
       return (
         <div className={styles.section}>
           <Alert bsStyle="danger">
             Please transfer <MoneyComponent value={missingNEUs} tokenType={TokenType.NEU} /> NEU ({missingNEUs}{" "}
             Neu wei) to your wallet address as specified above. Otherwise you will not be able to
             unlock your funds
+          </Alert>
+        </div>
+      );
+    }
+
+    if (invalidState) {
+      return (
+        <div className={styles.section}>
+          <Alert bsStyle="danger">
+            You have both locked ETH and ETH-T, please contact support to proceed further.
           </Alert>
         </div>
       );
@@ -188,12 +217,14 @@ class UnlockEtherContainer extends React.Component<
                 contractName="Ether Token"
                 address={etherToken.address}
                 data={etherToken.rawWeb3Contract.withdraw.getData(
-                  willBePenalized
-                    ? calculateValueAfterPenalty(
-                        this.props.lockedAmountEth,
-                        this.props.penaltyFractionEth
-                      )
-                    : this.props.lockedAmountEth
+                  isEtherTokenTransfer
+                    ? etherTokenBalance
+                    : willBePenalized
+                      ? calculateValueAfterPenalty(
+                          this.props.lockedAmountEth,
+                          this.props.penaltyFractionEth
+                        )
+                      : this.props.lockedAmountEth
                 )}
               />
             </div>
@@ -221,26 +252,36 @@ function mapStateToProps(state: IAppState) {
   const unlockDateEth = selectUnlockDateEth(state.aftermathState);
   const lockedAmountEth = state.aftermathState.lockedAmountEth;
   const penaltyFractionEth = state.aftermathState.penaltyFractionEth;
+  const etherTokenBalance = state.aftermathState.etherTokenBalance;
 
   const neumarkNeededToUnlockAsBI = new BigNumber.BigNumber(state.aftermathState.neumarkBalanceEth);
   const neumarkBalanceAsBI = new BigNumber.BigNumber(state.aftermathState.neumarkBalance);
 
-  const withdrawPossible = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
+  const notEnoughNeu = neumarkBalanceAsBI.greaterThanOrEqualTo(neumarkNeededToUnlockAsBI);
   const willBePenalized = moment().isBefore(unlockDateEth);
 
   const missingNEUs = neumarkNeededToUnlockAsBI.sub(neumarkBalanceAsBI).toString();
 
   const penaltyFee = calculateAndFormatFee(penaltyFractionEth, lockedAmountEth);
 
+  const lockedAmountEthAsBI = new BigNumber.BigNumber(lockedAmountEth);
+  const etherTokenBalanceAsBI = new BigNumber.BigNumber(etherTokenBalance);
+
+  const isEtherTokenTransfer = etherTokenBalanceAsBI.greaterThan(0);
+  const invalidState = isEtherTokenTransfer && lockedAmountEthAsBI.greaterThan(0);
+
   return {
     unlockDateEth,
-    withdrawPossible,
+    notEnoughNeu,
     missingNEUs,
     penaltyFee,
     willBePenalized,
     isLoading,
     penaltyFractionEth,
     lockedAmountEth,
+    isEtherTokenTransfer,
+    etherTokenBalance,
+    invalidState,
     neumarkBalance: state.aftermathState.neumarkBalance,
     neumarkNeededToUnlockEth: state.aftermathState.neumarkBalanceEth,
   };

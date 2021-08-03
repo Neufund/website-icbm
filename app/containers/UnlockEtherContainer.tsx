@@ -9,14 +9,12 @@ import { connect, Dispatch } from "react-redux";
 import { loadAftermathDetails } from "../actions/aftermathActions";
 import { TokenType } from "../actions/constants";
 import { calculateAndFormatFee } from "../agreements/utils";
-import * as logo from "../assets/img/mycrypto_logo.png";
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import MoneyComponent from "../components/MoneyComponent";
 import { TextCopyable } from "../components/TextCopyable";
 import config from "../config";
 import { selectLoading, selectUnlockDateEth } from "../reducers/aftermathState";
 import { IAppState } from "../reducers/index";
-import { myCryptoUrl } from "../utils/mycrypto";
 import { etherLock, etherToken, neumark } from "../web3/contracts/ContractsRepository";
 import { calculateValueAfterPenalty } from "../web3/utils";
 import * as styles from "./Aftermath.scss";
@@ -336,20 +334,6 @@ const TxInfo: React.SFC<ITxInfo> = ({ contractName, address, data }) =>
       </Col>
       <Col xs={12} sm={12} md={9}>
         <TextCopyable text={data} className={cn(styles.txData, styles.monoSpace)} />
-      </Col>
-    </Row>
-    <Row>
-      <Col sm={12} md={3}>
-        Open pre-filled transaction in MyCrypto
-      </Col>
-      <Col xs={12} sm={12} md={9}>
-        <a
-          className={styles.myEtherWalletLink}
-          target="_blank"
-          href={myCryptoUrl(address, 0, data)}
-        >
-          <img className={styles.myEtherWalletLogo} src={logo} />
-        </a>
       </Col>
     </Row>
   </div>;

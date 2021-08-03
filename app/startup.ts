@@ -4,7 +4,6 @@ import { browserHistory } from "react-router";
 import { routerMiddleware } from "react-router-redux";
 import { applyMiddleware, compose, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import reduxLogger from "redux-logger";
 import { autoRehydrate, persistStore } from "redux-persist";
 import { asyncSessionStorage } from "redux-persist/storages";
 import reduxThunk from "redux-thunk";
@@ -20,10 +19,7 @@ const persistStorePromised = promisify(persistStore) as any;
 export async function startup(render: (store: Store<IAppState>) => void) {
   const enhancers = () =>
     composeWithDevTools(
-      compose(
-        applyMiddleware(reduxThunk, reduxLogger, routerMiddleware(browserHistory)),
-        autoRehydrate()
-      )
+      compose(applyMiddleware(reduxThunk, routerMiddleware(browserHistory)), autoRehydrate())
     );
 
   // Create the Redux store

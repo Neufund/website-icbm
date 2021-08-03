@@ -42,7 +42,20 @@ export const loadAgreements: ThunkAction<{}, IAppState, {}> = async (dispatcher,
   const [reservationAgreement, tokenHolderAgreement] = await Promise.all([
     getDocumentFromIPFS(agreementHashes.reservationAgreementHash),
     getDocumentFromIPFS(agreementHashes.tokenHolderAgreementHash),
-  ]);
+  ]).catch((...errors: Error[]) => errors.map(console.error));
+
+  if (!reservationAgreement || !tokenHolderAgreement) {
+    dispatcher(
+      loadAgreementsAction({
+        tokenHolderAgreement: undefined,
+        reservationAgreement: undefined,
+        reservationAgreementHash: agreementHashes.reservationAgreementHash,
+        tokenHolderAgreementHash: agreementHashes.tokenHolderAgreementHash,
+      })
+    );
+
+    return;
+  }
 
   const tokenHolderAgreementGeneralTags = await getTokenHolderAgreementGeneralTags();
   const tokenHolderPlaceholders = getTokenHolderAgreementPlaceholders();

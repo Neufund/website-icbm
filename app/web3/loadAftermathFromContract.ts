@@ -1,9 +1,10 @@
-import { etherLock, euroLock, neumark } from "./contracts/ContractsRepository";
+import { etherLock, etherToken, euroLock, neumark } from "./contracts/ContractsRepository";
 import { asMomentDate } from "./utils";
 
 export async function loadAftermathFromContract(address: string) {
   const [lockedAmountEth, neumarksGrantedEth, unlockDateEth] = await etherLock.balanceOf(address);
   const [lockedAmountEuro, neumarksGrantedEuro, unlockDateEuro] = await euroLock.balanceOf(address);
+  const etherTokenBalance = await etherToken.balanceOf(address);
   const neumarkBalance = await neumark.balanceOf(address);
   const penaltyFraction = await etherLock.penaltyFraction;
 
@@ -16,5 +17,6 @@ export async function loadAftermathFromContract(address: string) {
     unlockDateEuro: asMomentDate(unlockDateEuro).toISOString(),
     neumarkBalance: neumarkBalance.toString(),
     penaltyFractionEth: penaltyFraction.toString(),
+    etherTokenBalance: etherTokenBalance.toString(),
   };
 }

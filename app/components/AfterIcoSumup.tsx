@@ -15,7 +15,7 @@ export const AfterIcoSumup = () => {
           'See your commitment status'
         </p>
 
-        <p></p>
+        <p />
 
         <MailchimpForm hideForm />
 

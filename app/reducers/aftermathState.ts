@@ -14,6 +14,7 @@ export interface IAftermathState {
   neumarkBalance?: string;
   address?: string;
   penaltyFractionEth?: string;
+  etherTokenBalance?: string;
 }
 
 const initialState: IAftermathState = {
@@ -50,6 +51,7 @@ const reducer: Reducer<IAftermathState> = (state = initialState, action) => {
         neumarkBalance: payload.neumarkBalance,
         address: payload.address,
         penaltyFractionEth: payload.penaltyFractionEth,
+        etherTokenBalance: payload.etherTokenBalance,
       };
     default:
       return state;

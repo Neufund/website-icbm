@@ -18,7 +18,8 @@ export function setAftermathAction(
   unlockDateEur: string,
   neumarkBalance: string,
   address: string,
-  penaltyFractionEth: string
+  penaltyFractionEth: string,
+  etherTokenBalance: string
 ): IStandardReduxAction {
   return {
     type: SET_AFTERMATH,
@@ -32,6 +33,7 @@ export function setAftermathAction(
       neumarkBalance,
       address,
       penaltyFractionEth,
+      etherTokenBalance,
     },
   };
 }
@@ -50,6 +52,7 @@ export const loadAftermathDetails: (
     unlockDateEuro,
     neumarkBalance,
     penaltyFractionEth,
+    etherTokenBalance,
   } = await loadAftermathFromContract(address);
 
   dispatcher(
@@ -62,7 +65,8 @@ export const loadAftermathDetails: (
       unlockDateEuro,
       neumarkBalance,
       address,
-      penaltyFractionEth
+      penaltyFractionEth,
+      etherTokenBalance
     )
   );
 };

@@ -195,6 +195,13 @@ class UnlockEtherContainer extends React.Component<
         {this.state.agreeToPayFee &&
           <div>
             <h3>Steps to unlock your ether:</h3>
+            <p className={styles.disclaimer}>
+              These instructions provided to you by Fifth Force (Liechtenstein) GmbH are intended as
+              a guide for convenience. By providing this guide, Fifth Force (Liechtenstein) GmbH
+              does not take responsibility for your assets. You are solely responsible for your
+              assets and for the execution of transactions related to your assets including the ETH
+              unlock transaction.
+            </p>
             <div>
               <strong>Step 1</strong>. This transaction unlocks your Ether and burns corresponding
               amount of NEU (calls <em>approveAndCall</em> on <em>Neumark</em> contract)
